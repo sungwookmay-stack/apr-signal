@@ -1,0 +1,226 @@
+#!/usr/bin/env python3
+"""Free-first Korean news digest for the APR SIGNAL static dashboard.
+
+Google News RSS normally contains the headline and a cluster of related links,
+NOT the article body. We must NEVER present a headline-derived Korean explainer
+as a full-article summary. Curated translations are limited to known headlines;
+future headlines use the documented keyless MyMemory translation API when
+available. On translation failure, preserve the original and state plainly that
+Korean is unavailable. No paid API, browser key, or made-up article body.
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import html
+import json
+import re
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / 'data'
+SEEDS = ROOT / 'config/news_korean_seed.json'
+USAGE = DATA / 'news_translation_usage.json'
+API = 'https://api.mymemory.translated.net/get'
+DAILY_CHAR_LIMIT = 4000  # MyMemory anonymous allowance: 5,000 chars/day
+MAX_REQUESTS_PER_RUN = 28
+MAX_QUERY_BYTES = 500
+FIELD_KEYS = ('title_ko', 'summary_ko', 'summary_basis',
+              'translation_status', 'localized_at')
+
+
+def read_json(path, fallback):
+    try:
+        return json.loads(Path(path).read_text(encoding='utf-8'))
+    except (OSError, ValueError, TypeError):
+        return fallback
+
+
+def write_json(path, obj):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+def split_headline(raw):
+    """RSS headline usually ends with ' - Publisher'. Keep publisher separate."""
+    title = html.unescape(re.sub(r'\s+', ' ', str(raw or '')).strip())
+    if ' - ' not in title:
+        return title[:250], ''
+    headline, publisher = title.rsplit(' - ', 1)
+    if len(publisher) > 95 or not headline:
+        return title[:250], ''
+    return headline.strip()[:250], publisher.strip()[:95]
+
+
+def source_language(country, headline):
+    if re.search(r'[가-힣]', headline):
+        return 'ko'
+    return {'CL': 'es', 'JP': 'ja', 'KR': 'ko'}.get(country, 'en')
+
+
+def make_topic_note(item, title_ko):
+    """Editorial context from headline/category; not an article-body summary."""
+    category = str(item.get('category') or '')
+    raw = split_headline(item.get('title'))[0].lower()
+    if 'KBTY' in category:
+        return ('K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. '
+                '실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.')
+    if 'HIFU' in category or 'RF' in category:
+        return ('에이피알의 의료미용기기 사업 확대와 관련한 기사입니다. '
+                '제품 인허가·출시·실제 매출 발생 여부는 별도 검증이 필요합니다.')
+    if '칠레 클리닉' in category:
+        return ('칠레 현지 미용 시술과 클리닉 시장 관련 기사입니다. '
+                '메디큐브 제품의 실제 도입·재주문 여부는 확인되지 않았습니다.')
+    if '칠레' in category:
+        if 'medicube' in raw or '메디큐브' in raw:
+            return ('칠레 현지 매체가 메디큐브의 스킨부스터 또는 주사형 미용 제품을 다뤘습니다. '
+                    '기사 제목만으로 판매량·품목허가·재주문 여부를 판단할 수는 없습니다.')
+        return ('칠레 현지의 피부미용·스킨부스터 관련 보도입니다. '
+                '에이피알 제품의 실제 판매 실적과는 구분해서 살펴봐야 합니다.')
+    if '중동' in category:
+        return ('중동 시장의 뷰티·스킨부스터 사업과 관련한 기사입니다. '
+                '현지 입점·출고·판매 실적은 공식 근거로 확인해야 합니다.')
+    return ('기사 제목에 나타난 현지 시장 동향을 소개합니다. '
+            '실제 실적이나 인허가를 입증하는 자료는 별도로 확인해야 합니다.')
+
+
+def valid_translation(original, translated):
+    result = html.unescape(str(translated or '')).strip()
+    if (not result or len(result) > 600 or
+        'MYMEMORY WARNING' in result.upper() or
+        'PLEASE SELECT TWO DISTINCT' in result.upper() or
+        result.casefold() == original.casefold()):
+        return None
+    # An English/Spanish title left in Latin characters is not Korean.
+    if not re.search(r'[가-힣]', result):
+        return None
+    return result
+
+
+class FreeTranslator:
+    def __init__(self, utc_day=None, transport=None):
+        self.day = utc_day or dt.datetime.now(dt.timezone.utc).date().isoformat()
+        self.usage = read_json(USAGE, {})
+        if self.usage.get('day') != self.day:
+            self.usage = {'day': self.day, 'reserved_chars': 0, 'calls': 0}
+        self.transport = transport or self._http_get
+        self.errors = []
+        self.skipped_quota = 0
+
+    @staticmethod
+    def _http_get(url):
+        request = urllib.request.Request(
+            url, headers={'Accept': 'application/json',
+                          'User-Agent': 'APR-SIGNAL-FreeNews/1.0'})
+        with urllib.request.urlopen(request, timeout=8) as response:
+            return json.loads(response.read(30000).decode('utf-8'))
+
+    def translate(self, title, language):
+        if not title or language == 'ko':
+            return title if language == 'ko' else None
+        char_count = len(title)
+        if (len(title.encode('utf-8')) > MAX_QUERY_BYTES or
+            self.usage.get('reserved_chars', 0) + char_count > DAILY_CHAR_LIMIT or
+            self.usage.get('calls', 0) >= MAX_REQUESTS_PER_RUN):
+            self.skipped_quota += 1
+            return None
+
+        # Reserve before the call so a retry/manual refresh cannot overspend.
+        self.usage['reserved_chars'] += char_count
+        self.usage['calls'] += 1
+        write_json(USAGE, self.usage)
+        query = urllib.parse.urlencode({'q': title, 'langpair': language + '|ko'})
+        try:
+            doc = self.transport(API + '?' + query)
+            if not isinstance(doc, dict) or int(doc.get('responseStatus', 0)) != 200:
+                self.errors.append('번역 응답 오류')
+                return None
+            return valid_translation(title, (doc.get('responseData') or {}).get('translatedText'))
+        except (urllib.error.URLError, TimeoutError, ValueError, TypeError, OSError):
+            self.errors.append('무료 번역 서비스 접근 불가')
+            return None
+
+
+def localize_items(items, translator=None):
+    """Localize existing snapshots; preserve cached successful translations."""
+    translator = translator or FreeTranslator()
+    seeds = read_json(SEEDS, {})
+    updated = []
+    translated_count, seeded_count, unavailable_count = 0, 0, 0
+    for raw in items:
+        item = dict(raw)
+        headline, source = split_headline(item.get('title'))
+        item['publisher'] = source
+        if not headline:
+            updated.append(item)
+            continue
+        seed = seeds.get(headline)
+        if isinstance(seed, dict) and seed.get('title_ko') and seed.get('summary_ko'):
+            item.update({
+                'title_ko': str(seed['title_ko']).strip()[:250],
+                'summary_ko': str(seed['summary_ko']).strip()[:380],
+                'summary_basis': 'headline_only',
+                'translation_status': 'editorial_headline',
+                'localized_at': translator.day
+            })
+            seeded_count += 1
+        elif item.get('title_ko') and item.get('summary_basis') == 'headline_only':
+            # Already localized for this exact headline in an earlier run.
+            item['summary_ko'] = item.get('summary_ko') or make_topic_note(item, item['title_ko'])
+        else:
+            lang = source_language(item.get('country'), headline)
+            ko = headline if lang == 'ko' else translator.translate(headline, lang)
+            if ko:
+                item.update({
+                    'title_ko': ko[:250],
+                    'summary_ko': make_topic_note(item, ko),
+                    'summary_basis': 'headline_only',
+                    'translation_status': 'original_korean' if lang == 'ko' else 'machine_headline',
+                    'localized_at': translator.day
+                })
+                translated_count += 1
+            else:
+                for key in FIELD_KEYS:
+                    item.pop(key, None)
+                item['translation_status'] = 'pending'
+                unavailable_count += 1
+        updated.append(item)
+
+    stats = {
+        'method': 'curated headline + free machine translation; article body not accessed',
+        'headline_only': True,
+        'localized': seeded_count + translated_count,
+        'editorial': seeded_count,
+        'new_or_native': translated_count,
+        'pending': unavailable_count,
+        'free_translation_chars_reserved_today': translator.usage.get('reserved_chars', 0),
+        'free_translation_chars_daily_cap': DAILY_CHAR_LIMIT,
+        'skipped_quota': translator.skipped_quota,
+        'errors': translator.errors[:5]
+    }
+    return updated, stats
+
+
+def localize_saved_news(path=None):
+    path = Path(path or DATA / 'news.json')
+    data = read_json(path, {})
+    if not isinstance(data, dict) or not isinstance(data.get('items'), list):
+        raise ValueError('뉴스 저장 파일이 없습니다.')
+    data['items'], data['korean_digest'] = localize_items(data['items'])
+    data['source_note'] = ('Google News RSS 제목과 원문 링크를 한국어로 정리. '
+                           '본문 전문은 수집하지 않으며 요약은 제목 기반으로 표시.')
+    data['korean_updated_at'] = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
+    write_json(path, data)
+    return data['korean_digest']
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Free Korean RSS headline digest')
+    parser.add_argument('--refresh-file', action='store_true')
+    args = parser.parse_args()
+    if args.refresh_file:
+        print(json.dumps(localize_saved_news(), ensure_ascii=False))
