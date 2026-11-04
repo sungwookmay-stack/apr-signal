@@ -146,3 +146,5 @@ python -m http.server 8787
 - 공급사 요청 실제 비용과 무료 플랜은 변경될 수 있다. Scrape.do 코드는 요청당 3크레딧 보수적 예약·월 690크레딧 자체 한도로 차단하고 기본 `super=false`를 유지하며 프로바이더 `Scrape.do-Request-Cost` 헤더도 기록한다. 사용량은 `data/scrapedo_usage.json`에 누적. 가입 후 실제 계정에서 호출비용 및 무료 사용량 검증 필요.
 - **다른 참고자료:** [MetricsCart 영국 2026년 9월 분석](https://metricscart.com/bestseller-reports/amazon-uk/categories/Beauty/)에는 그달 베스트셀러 목록에 등장한 메디큐브 **서로 다른 15종**이 기록됐다. 이는 월간 관측치이며 특정 하루의 동시 Top 100 진입 15종이라는 뜻이 아니다. 사이트 `data/reference_signals.json`의 `amazon_monthly`에 따로 표기한다.
 - 미국·영국 외 마켓 역시 현재 확인 기록이 없으면 **미수집**이라고 표시하며 임의의 0개를 만들지 않는다.
+
+- 2026-11-04 21시 KST 기존 API.SH 키로 미국·영국 우선 수집 전환 동작을 1회 검증하도록 요청. 신규 Scrape.do 비밀키가 등록되기 전에는 새 공급사의 실호출이 수행되지 않음.
