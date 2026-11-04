@@ -153,7 +153,7 @@ function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon
    '개별 상품 상세 BSR 아직 미수집 · 무료 PDP 조회 성공 후부터 날짜별 누적');
  set('amazon-meta','Beauty 순위 관측 '+confirmed.length+'건 · 개별 상품 BSR '+pdp.length+'건');
  set('amazon-coverage-detail',observed.length?
-    ('최신 '+observed[observed.length-1].date+' · Beauty 순위 '+observed[observed.length-1].coverage_count+'/100개 · '+(observed[observed.length-1].coverage_complete?'메디큐브 품목 수 확정':'상품 식별 미완료, 메디큐브 최소 확인 품목 수')):
+    ('최신 '+observed[observed.length-1].date+' · Beauty 순위 '+observed[observed.length-1].coverage_count+'/100개 확인 · '+(observed[observed.length-1].coverage_complete?'메디큐브 품목 수 확정':'상품 식별 미완료, 메디큐브 최소 확인 품목 수')):
     'Beauty 순위 수집 전 · 상품별 BSR과 집계 범위는 별도 확인');
  $('amazon-latest').innerHTML=lastItems.length?
     lastItems.slice(0,12).map(x=>'<a href="'+validLink(x.url)+'" target="_blank" rel="noopener noreferrer"><b>#'+fmt(x.bsr)+'</b><span>'+escapeHtml(x.title)+'<small> · '+escapeHtml(x.date)+' · '+escapeHtml(x.asin)+'</small></span></a>').join(''):
