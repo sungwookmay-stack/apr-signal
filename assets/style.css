@@ -33,3 +33,19 @@
 .amazon-observed>a>span{color:#40586a;line-height:1.5;overflow-wrap:anywhere}
 .amazon-observed a small{color:#8599a6;display:block;margin-top:4px}
 @media(max-width:820px){.rank-status-bar{gap:15px;margin-top:0}.rank-status-bar strong{font-size:18px}.rank-status-bar a{margin-left:0}.amazon-observed{padding:5px 15px 12px}}
+
+/* Public retailer signal snapshots (scope and capture date always visible) */
+.retail-signal-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.retail-signal{border:1px solid #e5ebef;border-radius:10px;background:#fff;padding:17px;display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.signal-main{min-width:0}.signal-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:7px}
+.signal-head small{font-size:10px;color:#597487;font-weight:720}.signal-head span{font-size:10px;color:#9aabb7}
+.signal-main b{display:block;font-size:12.5px;line-height:1.5;color:#203d53}
+.signal-main p{font-size:11px;line-height:1.55;margin:5px 0;color:#788a99}
+.signal-main .signal-note{color:#98a5ae}.signal-main a{font-size:11px;color:#0b917f;font-weight:680}
+.signal-value{font-size:18px;letter-spacing:-.04em;color:#0b917f;white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.top100-external-summary{margin-top:12px;border-top:1px solid #e5edf1;padding-top:12px}
+.top100-external-summary small{display:block;font-size:10px;color:#8598a7}
+.top100-external-summary strong{display:block;font-size:15px;color:#274e67;margin:4px 0}
+.top100-external-summary p{font-size:11px;color:#8b9aa4;margin:3px 0 7px}
+.top100-external-summary a{color:#0b917f;font-size:11px;font-weight:700}
+@media(max-width:820px){.retail-signal-list{grid-template-columns:1fr}.signal-value{font-size:17px}}
