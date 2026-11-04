@@ -59,6 +59,22 @@
         <div class="controls"><label for="country">국가 선택</label><select class="input" id="country"></select><label for="product">검색 제품</label><select class="input" id="product"></select></div>
         <div class="grid two"><div class="panel"><div class="panel-top"><strong>Amazon 상품별 BSR</strong><span class="data-label" id="amazon-meta">순위 기록 확인 중</span></div><div class="graph small"><canvas id="chart-amazon"></canvas></div><div class="blankmini" id="amazon-empty"></div><div class="panel-links"><a id="amazon-link" href="https://www.amazon.com" target="_blank" rel="noopener">현지 아마존 상품 검색 ↗</a></div></div><div class="panel"><div class="panel-top"><strong>Google Trends 검색 관심도</strong><span class="data-label" id="trends-meta">공식 CSV 시계열</span></div><div class="graph small"><canvas id="chart-trends"></canvas></div><div class="blankmini" id="trends-empty"></div><div class="panel-links"><a id="trends-link" href="https://trends.google.com/trends/explore" target="_blank" rel="noopener">해당 국가 구글 트렌드 ↗</a></div></div></div>
         <div class="notice-line">BSR은 카테고리별 순위(작을수록 상위)이며 국가·카테고리마다 직접 비교할 수 없습니다. 구글 트렌드는 0~100 상대지수이고, 개별 CSV 수집 범위에 따라 정규화 기준이 달라집니다.</div>
+        <div class="section-title"><div><p class="eyebrow">BEST SELLERS / BEAUTY</p><h2>Beauty Top 100 진입 품목 수</h2><span>메디큐브 판매순위 · 국가별 고유 ASIN 수 · 관측 시작일부터 누적</span></div></div>
+        <div class="grid two leaderboard-block">
+          <div class="panel">
+            <div class="panel-top"><strong>확인된 메디큐브 진입 항목 수 추이</strong><span class="data-label" id="top100-coverage">국가별 목록 확인 중</span></div>
+            <div class="graph small"><canvas id="chart-top100"></canvas></div>
+            <p class="top100-footnote">왼쪽 축은 <b>확인된 메디큐브 ASIN 수</b>, 오른쪽 축은 <b>실제 확보한 순위 항목 수(최대 100)</b>입니다. 일부 목록만 제공되면 Top 100 전체 수가 아닌 최소 확인 수치입니다.</p>
+          </div>
+          <div class="panel padded">
+            <div class="top100-current"><small>최신 관측일</small><strong id="top100-date">—</strong></div>
+            <div class="top100-count"><strong id="top100-count">—</strong><span id="top100-quality">목록 수집 전</span></div>
+            <div class="top100-sub" id="top100-entries">신규 진입·이탈은 동일한 순위 범위를 확인한 경우에만 계산합니다.</div>
+            <div class="top100-list" id="top100-items"></div>
+            <div class="panel-links top100-link"><a id="top100-url" href="https://www.amazon.com/gp/bestsellers/beauty/" target="_blank" rel="noopener noreferrer">국가별 Amazon Beauty Best Sellers 원문 ↗</a></div>
+          </div>
+        </div>
+        <div class="notice-line">API 제공 범위가 상위 약 50개라면 진입 수를 <strong>‘최소 확인 품목 수’</strong>로만 표시합니다. Top 100 전체 목록을 확보한 경우에만 정확한 전체 수로 전환합니다. 최초 수집 이전 날짜의 순위는 복원하지 않습니다.</div>
         <div class="section-title"><div><p class="eyebrow">RETAIL DISTRIBUTION</p><h2>현지 유통 접점</h2><span>Ulta · Target · Boots · 중동 현지 판매처 · 칠레 의료 유통</span></div></div><div class="retailer-grid" id="retailer-grid"></div>
         <div class="section-title"><div><p class="eyebrow">PROVENANCE</p><h2>실측 데이터 수집 현황</h2></div></div><div class="panel padded" id="demand-sources"></div>
       </section>
