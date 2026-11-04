@@ -138,12 +138,13 @@ def _known_titles(history, verified_amazon):
     return names
 
 
-def normalize_page(payload, page, known=None):
+def normalize_page(payload, page, known=None, expected_category='beauty'):
     """Join all 50 ranking rows to available product cards using exact ASIN."""
     if not isinstance(payload, dict):
         return None
     if str(payload.get('category') or '').lower() not in (
-            'beauty', 'beauty-personal-care', 'beauty-and-personal-care'):
+            expected_category.lower(), 'beauty', 'beauty-personal-care',
+            'beauty-and-personal-care'):
         return None
     if str(payload.get('type') or 'bestsellers').lower() not in ('bestsellers', 'best_sellers'):
         return None
@@ -277,7 +278,7 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
                 notes.append('Scrape.do 안전 예산·비용 확인에 따른 수집 중단')
                 break
             response = quota.get(cc, page, slug)
-            normalized = normalize_page(response, page, known)
+            normalized = normalize_page(response, page, known, slug)
             if normalized is None:
                 notes.append(f'{cc}: Beauty {page}페이지 검증 실패 (카테고리 slug={slug})')
                 continue
@@ -356,7 +357,7 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
                 pdp_history = [p for p in pdp_history if
                     (p.get('date'), p.get('country'), p.get('asin'), p.get('category')) != key]
                 pdp_history.append(obs)
-        save_json(PDP_STATE, pdp_history[-2000:])
+        save_json(PDP_STATE, pdp_history[-10000:])
         quota.stats['last_pdp_day'] = today
         save_json(STATE, quota.stats)
         notes.append(f'PDP 상품명/BSR 확인 {observed}개 · 일일 한도 {MAX_PDP_DAILY}회')
@@ -378,8 +379,7 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
             refreshed.append(rebuilt)
         snapshot = make_snapshot(cc, refreshed, today)
         for product in snapshot['medicube_listings']:
-            if not product.get('url'):
-                product['url'] = 'https://www.' + market['amazon'] + '/dp/' + product['asin']
+            product['url'] = 'https://www.' + market['amazon'] + '/dp/' + product['asin']
         snapshot['marketplace'] = market['amazon']
         snapshot['category_slug'] = market.get('amazon_beauty_slug') or 'beauty'
         snapshot['source'] = 'Scrape.do Amazon Best Sellers Beauty'
@@ -407,4 +407,4 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
                      f"브랜드 식별 {snapshot['identity_coverage_count']}/100")
     notes.extend(quota.errors[:12])
     history.sort(key=lambda s: (s.get('date', ''), s.get('country', '')))
-    return history[-500:], notes, added, quota.stats.get('reserved_credits', 0)
+    return history[-4000:], notes, added, quota.stats.get('reserved_credits', 0)
