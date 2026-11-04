@@ -7,8 +7,12 @@ const signed=(n,d=1)=>n==null?'—':(n>0?'+':'')+fmt(n,d)+'%';
 const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null};
 const C={navy:'#193a5a',teal:'#0b917f',orange:'#bf8854',purple:'#8c83b4',grey:'#98aab8',red:'#c35f58'};
 const missing='실측 데이터 없음 · 확인된 값만 표시합니다.';
-const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
-function countryMarkets(){return state.demand?.countries?.length?state.demand.countries:minimalMarkets;}
+const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'BR',name:'브라질',region:'남미',amazon:'amazon.com.br',amazon_beauty_slug:'beauty'},{code:'AR',name:'아르헨티나',region:'남미',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
+function countryMarkets(){
+ const actual=state.demand?.countries?.length?state.demand.countries:minimalMarkets;
+ const missingMarkets=minimalMarkets.filter(x=>!actual.some(y=>y.code===x.code));
+ return actual.concat(missingMarkets).map(x=>['BR','AR','CL'].includes(x.code)?{...x,region:'남미'}:x);
+}
 function rankSnapshots(){return state.top100?.snapshots?.length?state.top100.snapshots:(state.demand?.top100||[]);}
 function set(id,val){const e=$(id);if(e)e.textContent=val;}
 function safeText(s){return String(s??'');}
@@ -86,14 +90,41 @@ function renderTechnical(){const d=state.technical,last=d?.last;
  chart('chart-rsi',arr.map(x=>x.date.slice(5)),[{label:'RSI(14)',color:C.orange,values:arr.map(x=>x.rsi14)}],{decimals:1,yOptions:{min:0,max:100},xticks:6});
  const t=arr.at(-1);if(t){$('t-short-metrics').innerHTML=[['RSI(14)',t.rsi14!=null?fmt(t.rsi14,1):null],['MACD',t.macd!=null?fmt(t.macd,1):null],['MACD 히스토그램',t.macd_hist!=null?fmt(t.macd_hist,1):null],['BB 하단',t.bb_lower!=null?'₩'+fmt(t.bb_lower):null],['BB 상단',t.bb_upper!=null?'₩'+fmt(t.bb_upper):null],['ATR(14)',t.atr14!=null?'₩'+fmt(t.atr14):null]].map(([a,b])=>`<span>${escapeHtml(a)} <strong>${escapeHtml(b||'—')}</strong></span>`).join('')}
 }
-function trendsURL(country){const words=state.demand?.trends_terms||{};let terms=country==='CL'?words.CL: ['AE','SA','EG','QA','KW'].includes(country)?words.ME:words.default;
+function trendsURL(country){
+ const words=state.demand?.trends_terms||{};
+ const localFallback={BR:['medicube','medicube pdrn','AGE-R','medicube collagen','skin booster'],
+   AR:['medicube','medicube pdrn','AGE-R','medicube collagen','skinbooster'],
+   CL:['medicube','polinucleótidos','ADN de salmón','Rejuran','skinbooster']};
+ const terms=localFallback[country]?(words[country]||localFallback[country]):
+   ['AE','SA','EG','QA','KW'].includes(country)?words.ME:words.default;
  const q=(terms||['medicube']).slice(0,5).join(',');return 'https://trends.google.com/trends/explore?date='+encodeURIComponent('2026-05-01 '+today())+'&geo='+encodeURIComponent(country)+'&q='+encodeURIComponent(q);
+}
+function renderLatinAmerica(){
+ const el=$('latam-overview');if(!el)return;
+ const d=state.demand||{};
+ const markets=countryMarkets();
+ el.innerHTML=['BR','AR','CL'].map(cc=>{
+   const market=markets.find(x=>x.code===cc)||{};
+   const rows=(d.trends||[]).filter(x=>x.country===cc&&
+     String(x.term||'').toLowerCase()==='medicube').slice().sort((a,b)=>a.date.localeCompare(b.date));
+   const last=rows.at(-1);
+   const snaps=rankSnapshots().filter(x=>x.country===cc).slice().sort((a,b)=>a.date.localeCompare(b.date));
+   const snap=snaps.at(-1);
+   const amazon=market.amazon?(snap?'Beauty Top 100 관측 '+snap.date+' · 메디큐브 최소 '+snap.medicube_confirmed_count+'종':'Amazon Top 100 첫 수집 전'):'독립 Amazon 마켓 없음';
+   const trend=last?'검색 관심도 '+fmt(last.index)+'/100 · '+last.date:'Google Trends 첫 수집 전';
+   return '<button type="button" class="latam-country" data-latam-country="'+cc+
+     '" aria-pressed="'+(state.country===cc)+'">'+
+     '<strong>'+escapeHtml(market.name||cc)+'</strong>'+
+     '<span>'+escapeHtml(trend)+'</span>'+
+     '<small>'+escapeHtml(amazon)+'</small></button>';
+ }).join('');
 }
 function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon:[],trends:[],retailers:[],retail:[],watchlist:[]};
  const c=state.country,p=state.product,market=countryMarkets().find(x=>x.code===c);
+ renderLatinAmerica();
  const observed=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
  const mostRecent=observed.length?observed[observed.length-1]:null;
- set('amazon-quick-count',mostRecent?(mostRecent.coverage_complete?String(mostRecent.medicube_confirmed_count)+'개':Number(mostRecent.medicube_confirmed_count)>0?'최소 '+String(mostRecent.medicube_confirmed_count)+'개':'진입 여부 미확인'):'미수집');
+ set('amazon-quick-count',market&&!market.amazon?'독립 마켓 없음':mostRecent?(mostRecent.coverage_complete?String(mostRecent.medicube_confirmed_count)+'개':Number(mostRecent.medicube_confirmed_count)>0?'최소 '+String(mostRecent.medicube_confirmed_count)+'개':'진입 여부 미확인'):'미수집');
  set('amazon-quick-date',mostRecent?mostRecent.date+' · '+mostRecent.coverage_count+'/100개 순위 확인':'관측된 날짜 없음');
  const confirmed=observed.flatMap(s=>(s.medicube_listings||[]).map(x=>({
     date:s.date,country:c,asin:x.asin,bsr:x.rank,title:x.title,url:x.url,
@@ -171,7 +202,7 @@ function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon
  else chart('chart-trends',[],[]);
  $('trends-empty').textContent=trendDays.length?'각 CSV의 재정규화 기준이 같을 때만 비교할 수 있습니다.':missing+' 검색어별 관심도는 공식 트렌드 페이지에서 확인하세요.';
  $('trends-link').href=trendsURL(c);
- const ret=(d.retailers||[]);
+ const ret=(d.retailers||[]).slice().sort((a,b)=>(b.country===c?1:0)-(a.country===c?1:0));
  $('retailer-grid').innerHTML=ret.map(x=>{const arr=(d.retail||[]).filter(z=>z.retailer===x.id||z.retailer===x.name);const last=arr.sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
  return `<div class="retailer"><small>${escapeHtml(x.country)} / RETAIL</small><b>${escapeHtml(x.name)}</b><p>${last?'마지막 관찰 '+escapeHtml(last.date):'실제 판매·리뷰 수 미수집'}</p><a href="${validLink(x.url)}" target="_blank" rel="noopener noreferrer">공식 판매처 보기 ↗</a></div>`}).join('');
  $('demand-sources').innerHTML=[['Amazon BSR',(d.amazon||[]).filter(x=>x.country===c).length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', rankSnapshots().filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Scrape.do',d.scrapedo_reserved_credits!=null?'월 '+d.scrapedo_reserved_credits+'/900 크레딧 보수적 예약 · 비용 헤더 검증 기준':'무료 토큰 미등록 또는 미수집'],['Google Trends',trend.length+'개 값 · '+(d.api_mode==='free_api_sh'?'무료 API.SH': 'CSV 직접 가져오기')],['리테일', (d.retail||[]).length+'개 출처 포함 수동 관찰'],['자동화 상태',d.api_mode==='free_api_sh'?'월 최대 750크레딧 사용 한도 · 초과 전 자동 중단':'무료 키 미설정: Amazon·Trends는 기존 값/CSV']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
@@ -182,9 +213,9 @@ function renderTop100(){
  const d=state.demand||{}, c=state.country;
  const market=countryMarkets().find(x=>x.code===c);
  const obs=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
- const url=market?.amazon?'https://www.'+market.amazon+'/gp/bestsellers/'+encodeURIComponent(market.amazon_beauty_slug||'beauty')+'/':'https://www.amazon.com/gp/bestsellers/beauty/';
+ const url=market?.amazon?'https://www.'+market.amazon+'/gp/bestsellers/'+encodeURIComponent(market.amazon_beauty_slug||'beauty')+'/':trendsURL(c);
  $('top100-url').href=url;
- $('top100-url').textContent=market?.amazon?'해당 국가 Amazon Beauty Best Sellers ↗':'해당 국가 독립 아마존 마켓 없음';
+ $('top100-url').textContent=market?.amazon?'해당 국가 Amazon Beauty Best Sellers ↗':'독립 아마존 마켓 없음 · Google Trends 보기 ↗';
  const weekly=(state.reference?.amazon_weekly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.date).localeCompare(String(b.date))).at(-1);
  const monthly=(state.reference?.amazon_monthly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.month).localeCompare(String(b.month))).at(-1);
  const extEl=$('top100-external-summary');
@@ -314,6 +345,11 @@ function fillProductChoices(){
 function initControls(){
  const d=state.demand||{};const country=$('country');country.innerHTML=countryMarkets().map(x=>`<option value="${escapeHtml(x.code)}">${escapeHtml(x.region)} · ${escapeHtml(x.name)}</option>`).join('');
  country.value=state.country;country.addEventListener('change',()=>{state.country=country.value;fillProductChoices();renderDemand()});
+ const latam=$('latam-overview');if(latam)latam.addEventListener('click',e=>{
+   const node=e.target.closest?.('[data-latam-country]');const cc=node?.dataset?.latamCountry;
+   if(!['BR','AR','CL'].includes(cc))return;
+   state.country=cc;country.value=cc;fillProductChoices();renderDemand();
+ });
  fillProductChoices();
  $('product').addEventListener('change',()=>{state.product=$('product').value;renderDemand()});
  $('period').addEventListener('change',e=>{state.period=e.target.value;renderOverview()});
