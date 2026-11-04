@@ -70,7 +70,7 @@ function renderOverview(){
  $('monthly-body').innerHTML=Object.keys(buckets).sort().reverse().map(mon=>{const o=buckets[mon];const p=o.prices.at(-1);const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
  return `<tr><td>${escapeHtml(mon)}</td><td>${p?'₩'+fmt(p.close_krw):'—'}</td><td>${p&&p.close_usd!=null?'$'+fmt(p.close_usd,2):'—'}</td><td>${fmt(avg(o.fxusd),1)}</td><td>${fmt(avg(o.fxeur),1)}</td></tr>`}).join('');
 }
-function renderTechnical(){const d=state.tech,last=d?.last;
+function renderTechnical(){const d=state.technical,last=d?.last;
  if(!last||!last.date){set('t-decision','분석 자료 미확보');set('t-add','보류');return}
  set('t-decision',last.label||'—');set('t-date','분석일 '+last.date);set('t-score',last.score!=null?(last.score>0?'+':'')+last.score:'—');
  set('t-add',last.averaging_down||'미확인');set('t-risk-message',last.add_criteria||'구름 및 볼린저 반등 확인 필요');
