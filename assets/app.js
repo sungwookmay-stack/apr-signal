@@ -137,16 +137,16 @@ function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon
  if(market&&market.amazon)$('amazon-link').href='https://www.'+market.amazon+'/s?k='+encodeURIComponent(p==='all'?'medicube':p);else $('amazon-link').href='https://trends.google.com/trends/explore';
  $('amazon-link').textContent=market?.amazon?'현지 아마존에서 제품 검색 ↗':'아마존 독립 마켓플레이스 없음';
  const trend=(d.trends||[]).filter(x=>x.country===c);const terms=[...new Set(trend.map(x=>x.term))].slice(0,6);
- const days=[...new Set(trend.map(x=>x.date))].sort();
+ const trendDays=[...new Set(trend.map(x=>x.date))].sort();
  set('trends-meta',trend.length+'개 확인 · '+(d.api_mode==='free_api_sh'?'무료 API/CSV':'공식 CSV')+(terms.length?' · '+terms.length+'개 검색어':''));
- if(days.length)chart('chart-trends',days,terms.map((term,i)=>({label:term,values:days.map(day=>trend.find(z=>z.date===day&&z.term===term)?.index??null),color:[C.teal,C.navy,C.orange,C.purple,C.grey,C.red][i%6]})),{decimals:1,legend:true,yOptions:{min:0,max:100}});
+ if(trendDays.length)chart('chart-trends',trendDays,terms.map((term,i)=>({label:term,values:trendDays.map(day=>trend.find(z=>z.date===day&&z.term===term)?.index??null),color:[C.teal,C.navy,C.orange,C.purple,C.grey,C.red][i%6]})),{decimals:1,legend:true,yOptions:{min:0,max:100}});
  else chart('chart-trends',[],[]);
- $('trends-empty').textContent=days.length?'각 CSV의 재정규화 기준이 같을 때만 비교할 수 있습니다.':missing+' 검색어별 관심도는 공식 트렌드 페이지에서 확인하세요.';
+ $('trends-empty').textContent=trendDays.length?'각 CSV의 재정규화 기준이 같을 때만 비교할 수 있습니다.':missing+' 검색어별 관심도는 공식 트렌드 페이지에서 확인하세요.';
  $('trends-link').href=trendsURL(c);
  const ret=(d.retailers||[]);
  $('retailer-grid').innerHTML=ret.map(x=>{const arr=(d.retail||[]).filter(z=>z.retailer===x.id||z.retailer===x.name);const last=arr.sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
  return `<div class="retailer"><small>${escapeHtml(x.country)} / RETAIL</small><b>${escapeHtml(x.name)}</b><p>${last?'마지막 관찰 '+escapeHtml(last.date):'실제 판매·리뷰 수 미수집'}</p><a href="${validLink(x.url)}" target="_blank" rel="noopener noreferrer">공식 판매처 보기 ↗</a></div>`}).join('');
- $('demand-sources').innerHTML=[['Amazon BSR',list.length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', rankSnapshots().filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Google Trends',trend.length+'개 값 · '+(d.api_mode==='free_api_sh'?'무료 API.SH': 'CSV 직접 가져오기')],['리테일', (d.retail||[]).length+'개 출처 포함 수동 관찰'],['자동화 상태',d.api_mode==='free_api_sh'?'월 최대 750크레딧 사용 한도 · 초과 전 자동 중단':'무료 키 미설정: Amazon·Trends는 기존 값/CSV']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
+ $('demand-sources').innerHTML=[['Amazon BSR',(d.amazon||[]).filter(x=>x.country===c).length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', rankSnapshots().filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Google Trends',trend.length+'개 값 · '+(d.api_mode==='free_api_sh'?'무료 API.SH': 'CSV 직접 가져오기')],['리테일', (d.retail||[]).length+'개 출처 포함 수동 관찰'],['자동화 상태',d.api_mode==='free_api_sh'?'월 최대 750크레딧 사용 한도 · 초과 전 자동 중단':'무료 키 미설정: Amazon·Trends는 기존 값/CSV']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
  renderTop100();
 }
 function renderTop100(){
