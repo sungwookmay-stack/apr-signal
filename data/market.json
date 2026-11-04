@@ -12,11 +12,11 @@
     "stock_last": "2026-11-04",
     "usd_fx_last": "2026-11-03",
     "eur_fx_last": "2026-11-03",
-    "generated_at_utc": "2026-11-04T12:14:20+00:00",
+    "generated_at_utc": "2026-11-04T12:18:03+00:00",
     "coverage_start": "2025-07-01",
     "complete": true,
     "errors": [
-      "NLIC 해상운임 갱신 실패: NLIC tables not accessible or changed (이전 기록 유지)"
+      "NLIC 해상운임 갱신 실패: <urlopen error timed out> (이전 기록 유지)"
     ],
     "logistics_source": "국가물류통합정보센터 / 관세청 해상수출입 통계",
     "note": "주가는 수정주가 또는 공급사 종가. USD 환산=원화 종가/당일 또는 직전 최신 USD/KRW 환율. FX는 중앙은행 참고 환율(서울외국환중개 매매기준율과 다를 수 있음)."
