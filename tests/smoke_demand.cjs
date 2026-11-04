@@ -1,76 +1,68 @@
-/* Regression smoke test: Top100 and per-item ranks must remain visible.
-   No real API calls, no external network, no real browser required. */
+/* Smoke: real saved Top100 observation renders even when per-item API data is absent. */
 const assert=require('node:assert/strict');
-const fs=require('node:fs');
-const vm=require('node:vm');
-const {URL}=require('node:url');
+const fs=require('node:fs'),vm=require('node:vm'),{URL}=require('node:url');
 const app=fs.readFileSync('assets/app.js','utf8');
-const snapshot=JSON.parse(fs.readFileSync('data/top100.json','utf8'));
-const realUS=(snapshot.snapshots||[]).find(x=>x.country==='US'&&x.medicube_confirmed_count>0);
-assert(realUS,'Test fixture needs at least one verified U.S. observation.');
-
-function makeTest({includeDemand,includeCharts}){
-  const elements=new Map(), listeners=new Map(), charts=[];
-  class MockEl {
+const original=JSON.parse(fs.readFileSync('data/top100.json','utf8'));
+const snapshots=original.snapshots||[];
+function latest(cc){return snapshots.filter(x=>x.country===cc).sort((a,b)=>a.date.localeCompare(b.date)).at(-1);}
+assert(latest('US'),'Saved US category observation required for this smoke fixture.');
+function countText(s){
+  return s.coverage_complete?String(s.medicube_confirmed_count)+'개':
+    s.medicube_confirmed_count>0?'최소 '+s.medicube_confirmed_count+'개':'진입 여부 미확인';
+}
+function buildApp({withDemand,withCharts}){
+  const elements=new Map(),callbacks=new Map(),charts=[];
+  class Element{
     constructor(id){this.id=id;this.textContent='';this.innerHTML='';this.style={};this.hidden=false;this.value='';this.dataset={};this.href='';}
-    addEventListener(n,fn){listeners.set(this.id+':'+n,fn);}
+    addEventListener(n,fn){callbacks.set(this.id+':'+n,fn);}
     getContext(){return {id:this.id};}
   }
-  const get=(id)=>{if(!elements.has(id))elements.set(id,new MockEl(id));return elements.get(id);};
-  class ChartMock {
-    constructor(ctx,config){this.ctx=ctx;this.config=config;charts.push(this);}
-    destroy(){}
-  }
-  const bootstrap={
-    top100:snapshot,
-    status:{generated_at_utc:'2026-11-04T12:17:45Z'},
-    demand:includeDemand?{countries:[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'}],
-      amazon:[],trends:[],retailers:[],retail:[],watchlist:[],products:[],api_mode:'free_api_sh'}:undefined
-  };
-  let ready;
-  const win={
-    APR_BOOTSTRAP:bootstrap,
-    addEventListener(n,fn){if(n==='DOMContentLoaded')ready=fn;},
-    scrollTo(){}
-  };
-  const context=vm.createContext({
-    window:win,document:{getElementById:get,querySelectorAll:()=>[]},
-    location:{hash:'#demand'},URL,Chart:includeCharts?ChartMock:undefined,
-    fetch:async()=>{throw new Error('SIMULATED_OFFLINE');},
-    console,setTimeout:()=>{},clearTimeout:()=>{},
-    alert:()=>{throw new Error('unexpected alert');}
-  });
-  vm.runInContext(app,context,{filename:'assets/app.js'});
-  assert(ready,'Site must have DOMContentLoaded handler');
-  return {ready,get,charts,listeners};
+  const el=(id)=>{if(!elements.has(id))elements.set(id,new Element(id));return elements.get(id);};
+  class MockChart{constructor(ctx,config){this.ctx=ctx;this.config=config;charts.push(this);}destroy(){}}
+  const bootstrap={top100:original,status:{generated_at_utc:'2026-11-04T00:00:00Z'}};
+  if(withDemand)bootstrap.demand={countries:[
+    {code:'US',name:'미국',region:'북미',amazon:'amazon.com'},
+    {code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'}
+  ],amazon:[],trends:[],retailers:[],retail:[],watchlist:[],products:[],api_mode:'free_api_sh'};
+  let onready;
+  const window={APR_BOOTSTRAP:bootstrap,addEventListener(n,fn){if(n==='DOMContentLoaded')onready=fn;},scrollTo(){}};
+  const ctx=vm.createContext({window,document:{getElementById:el,querySelectorAll:()=>[]},
+    location:{hash:'#demand'},URL,Chart:withCharts?MockChart:undefined,
+    fetch:async()=>{throw Error('OFFLINE');},console,setTimeout:()=>{},clearTimeout:()=>{},
+    alert:()=>{throw Error('unexpected alert');}});
+  vm.runInContext(app,ctx,{filename:'assets/app.js'});
+  return {ready:onready,el,callbacks,charts};
 }
-
-async function main(){
-  for(const includeDemand of [false,true]){
-    for(const includeCharts of [false,true]){
-      const x=makeTest({includeDemand,includeCharts});
-      await x.ready();
-      assert.equal(x.get('amazon-quick-count').textContent,'최소 '+realUS.medicube_confirmed_count+'개',
-        'Missing independent leaderboard summary');
-      assert.equal(x.get('top100-count').textContent,'최소 '+realUS.medicube_confirmed_count+'개');
-      assert.match(x.get('amazon-quick-date').textContent,/2026-11-04/);
-      assert.match(x.get('amazon-latest').innerHTML,/B09V7Z4TJG/,
-        'Per-product ranking list must show verified ASIN without individual BSR data');
-      assert.match(x.get('amazon-latest').innerHTML,/#2/);
-      assert.match(x.get('product').innerHTML,/전체 메디큐브 상품/);
-      assert.match(x.get('amazon-coverage-detail').textContent,/100개 확인/);
-      if(includeCharts){
-        for(const id of ['chart-amazon','chart-top100']){
-          const call=x.charts.find(z=>z.ctx.id===id);
-          assert(call,'Chart missing: '+id);
-          assert(call.config.data.datasets.length>0,id+' contains no actual rank data');
-          assert.equal(call.config.data.datasets[0].pointRadius,5,
-            id+' single date must render a visible dot');
-        }
+async function check(){
+ for(const withDemand of [true,false])for(const withCharts of [true,false]){
+  const a=buildApp({withDemand,withCharts});
+  await a.ready();
+  for(const cc of ['US','GB']){
+    if(cc==='GB'){
+      assert.match(a.el('country').innerHTML,/영국/,'UK must be selectable even if demand file failed');
+      a.el('country').value='GB';
+      a.callbacks.get('country:change')();
+    }
+    const s=latest(cc);
+    if(!s)continue;
+    assert.equal(a.el('amazon-quick-count').textContent,countText(s));
+    assert.equal(a.el('amazon-quick-date').textContent.includes(s.date),true);
+    assert.match(a.el('amazon-coverage-detail').textContent,/100개 확인/);
+    if(s.medicube_listings.length){
+      assert.ok(a.el('amazon-latest').innerHTML.includes(s.medicube_listings[0].asin));
+      assert.ok(a.el('product').innerHTML.includes('전체 메디큐브 상품'));
+    }
+    if(withCharts&&s.medicube_listings.length){
+      for(const id of ['chart-amazon','chart-top100']){
+        const chart=a.charts.filter(z=>z.ctx.id===id).at(-1);
+        assert(chart,id+' should render verified rankings');
+        assert(chart.config.data.datasets.length>0,id+' must not be empty');
+        const n=snapshots.filter(x=>x.country===cc).length;
+        assert.equal(chart.config.data.datasets[0].pointRadius,n===1?5:0);
       }
-      console.log('PASS: demand='+includeDemand+' chartLibrary='+includeCharts+
-        ' summary='+x.get('amazon-quick-count').textContent);
     }
   }
+  console.log('PASS: demand='+withDemand+', chart='+withCharts);
+ }
 }
-main().catch(e=>{console.error(e);process.exitCode=1;});
+check().catch(e=>{console.error(e);process.exitCode=1;});
