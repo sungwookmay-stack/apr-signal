@@ -322,6 +322,11 @@ def collect_demand():
         'api_credits_used_this_month':budget.stats.get('attempted_credits',0) if api_key else None,
         'note':'BSR=카테고리 내 판매 순위이지 판매량이 아님. Google Trends=국가·기간·검색 그룹 내 상대지수(0~100).'}
     save('demand.json',output)
+    # Small independent verification record so rankings can be checked without
+    # downloading the (potentially large) multi-country Google Trends series.
+    save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-500:],
+                        'status':top100_status,
+                        'coverage_note':'Top100 total only valid if coverage_complete=true; otherwise confirmed minimum.'})
     return output
 
 
