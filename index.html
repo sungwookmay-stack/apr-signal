@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./assets/style.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
-<script defer src="./assets/app.js"></script>
+<script defer src="./assets/app.js?v=20261104-amazon-retail-3"></script>
 </head>
 <body>
 <div class="shell">
@@ -73,7 +73,7 @@
             <div class="top100-current"><small>최신 관측일</small><strong id="top100-date">—</strong></div>
             <div class="top100-count"><strong id="top100-count">—</strong><span id="top100-quality">목록 수집 전</span></div>
             <div class="top100-sub" id="top100-entries">신규 진입·이탈은 동일한 순위 범위를 확인한 경우에만 계산합니다.</div>
-            <div class="top100-list" id="top100-items"></div>
+            <div class="top100-list" id="top100-items"></div><div id="top100-external-summary" class="top100-external-summary"></div>
             <div class="panel-links top100-link"><a id="top100-url" href="https://www.amazon.com/gp/bestsellers/beauty/" target="_blank" rel="noopener noreferrer">국가별 Amazon Beauty Best Sellers 원문 ↗</a></div>
           </div>
         </div>
@@ -86,6 +86,10 @@
         <div class="notice-line">BSR은 카테고리별 순위(작을수록 상위)이며 국가·카테고리마다 직접 비교할 수 없습니다. 구글 트렌드는 0~100 상대지수이고, 개별 CSV 수집 범위에 따라 정규화 기준이 달라집니다.</div>
         
         <div class="section-title"><div><p class="eyebrow">RETAIL DISTRIBUTION</p><h2>현지 유통 접점</h2><span>Ulta · Target · Boots · 중동 현지 판매처 · 칠레 의료 유통</span></div></div><div class="retailer-grid" id="retailer-grid"></div>
+        <div class="section-title"><div><p class="eyebrow">VERIFIED RETAIL SIGNALS</p><h2>판매처별 실측·참고 지표</h2><span>Ulta 상품 등록 · Target 구매 표시 · Boots 브랜드 검색 관심 · 관측일과 원문 링크</span></div></div>
+        <div class="panel padded"><div id="retail-signal-list" class="retail-signal-list"><div class="blankmini">공식 판매처 관찰 기록 확인 중</div></div>
+          <p class="under-note">판매처 상품 수와 ‘최근 한 달 구매’ 표시는 매장별 POS 매출이나 에이피알의 연결매출액이 아닙니다. 자동 수집에 실패하면 마지막 확인일을 유지합니다.</p>
+        </div>
         <div class="section-title"><div><p class="eyebrow">PROVENANCE</p><h2>실측 데이터 수집 현황</h2></div></div><div class="panel padded" id="demand-sources"></div>
       </section>
       <section class="page" id="kbty" data-page="kbty">
