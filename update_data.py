@@ -3,7 +3,7 @@
 
 Sources:
  - Naver Finance public fchart XML, fallback Naver siseJson, fallback Yahoo Finance chart
- - Frankfurter v2 daily central bank FX, fallback Frankfurter v1
+ - ECB official historical EUR reference rates (USD/KRW derived), fallback Frankfurter v2/v1
 
 No values are synthesized or interpolated. On non-FX-business stock days, preceding FX fix
 may be used and its actual date is preserved. Outputs JSON, JS-for-file-preview, and CSV.
@@ -11,6 +11,8 @@ may be used and its actual date is preserved. Outputs JSON, JS-for-file-preview,
 import argparse
 import bisect
 import csv
+import io
+import zipfile
 import datetime as dt
 import json
 import os
@@ -75,7 +77,9 @@ def normalize_rows(entries):
 def fetch_stock_naver_xml():
     q = parse.urlencode({"symbol": "278470", "timeframe": "day", "count": 350, "requestType": 0})
     raw = get_bytes("https://fchart.stock.naver.com/sise.nhn?"+q, extra_headers={"Referer":"https://finance.naver.com/"})
-    root = ET.fromstring(raw)
+    # Naver publishes EUC-KR XML. ElementTree's byte parser does not support this
+    # multi-byte encoding in some Python builds, so decode first.
+    root = ET.fromstring(raw.decode("euc-kr", errors="replace"))
     out = []
     for item in root.iter("item"):
         p = (item.attrib.get("data") or "").split("|")
@@ -142,6 +146,51 @@ def fetch_stock():
     return [],None,errors
 
 
+def parse_ecb_reference_csv(raw):
+    """Convert ECB EUR-based daily reference fixings into KRW/EUR and KRW/USD.
+
+    Each row is the same ECB fixing date. For example if 1 EUR = 1500 KRW
+    and 1 EUR = 1.2 USD then 1 USD = 1250 KRW. Historical ECB reference
+    rates are not Korean onshore transaction rates.
+    """
+    reader=csv.DictReader(io.StringIO(raw.decode("utf-8-sig",errors="replace")))
+    fields={k.strip().upper():k for k in (reader.fieldnames or []) if k}
+    if not {"DATE","USD","KRW"}.issubset(fields):
+        raise ValueError("ECB daily CSV missing Date, USD or KRW")
+    out={"USD":{},"EUR":{}}
+    today=iso_today_kr().date()
+    for row in reader:
+        try:
+            date=dt.date.fromisoformat((row[fields["DATE"]] or "").strip())
+            if not START <= date <= today:continue
+            usd_per_eur=float((row[fields["USD"]] or "").strip())
+            krw_per_eur=float((row[fields["KRW"]] or "").strip())
+            if not (0.1 < usd_per_eur < 5 and 100 < krw_per_eur < 10000):continue
+            d=date.isoformat()
+            out["USD"][d]=round(krw_per_eur/usd_per_eur,6)
+            out["EUR"][d]=krw_per_eur
+        except (ValueError,TypeError,KeyError):
+            continue
+    if len(out["USD"]) < 30 or min(out["USD"]) > "2026-05-22":
+        raise ValueError("ECB reference history insufficient")
+    return out
+
+
+def fetch_fx_ecb_zip():
+    """Free ECB full-history CSV ZIP; one request for both required currencies."""
+    url="https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip"
+    raw=get_bytes(url,timeout=20,extra_headers={"Accept":"application/zip,application/octet-stream,*/*"})
+    with zipfile.ZipFile(io.BytesIO(raw)) as z:
+        names=[n for n in z.namelist() if n.lower().endswith(".csv")]
+        if not names:raise ValueError("ECB ZIP missing CSV")
+        return parse_ecb_reference_csv(z.read(names[0]))
+
+
+def fetch_fx_ecb_csv():
+    url="https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.csv"
+    return parse_ecb_reference_csv(get_bytes(url,timeout=20,extra_headers={"Accept":"text/csv,*/*"}))
+
+
 def fetch_fx_v2(base):
     q=parse.urlencode({"from":START.isoformat(),"base":base,"quotes":"KRW"})
     vals=json.loads(get_bytes("https://api.frankfurter.dev/v2/rates?"+q,timeout=25).decode("utf-8"))
@@ -167,8 +216,20 @@ def fetch_fx_v1(base):
 
 def fetch_fx():
     out={}; errors=[]; sources={}
+    # Preferred: a single official ECB publication includes matching EUR/USD
+    # and EUR/KRW dates so the cross-rate is computed without merging fixes.
+    for name,fn in (("ECB official historical CSV ZIP",fetch_fx_ecb_zip),
+                    ("ECB official historical CSV",fetch_fx_ecb_csv)):
+        try:
+            both=fn()
+            if len(both["USD"])<30 or len(both["EUR"])<30:
+                raise RuntimeError("ECB history insufficient")
+            return both,{"USD":name+" (EUR/KRW ÷ EUR/USD)","EUR":name},errors
+        except Exception as ex:
+            errors.append(f"{name}: {str(ex)[:160]}")
     for base in ("USD","EUR"):
-        for name,fn in (("Frankfurter v2 (중앙은행 참조환율)",fetch_fx_v2),("Frankfurter v1 (중앙은행 참조환율)",fetch_fx_v1)):
+        for name,fn in (("Frankfurter v2 (중앙은행 참조환율)",fetch_fx_v2),
+                        ("Frankfurter v1 (중앙은행 참조환율)",fetch_fx_v1)):
             try:
                 values=fn(base)
                 if len(values)<30 or min(values)>"2026-05-22": raise RuntimeError("history insufficient")
@@ -177,7 +238,6 @@ def fetch_fx():
             except Exception as ex:
                 errors.append(f"{base} {name}: {str(ex)[:160]}")
     return out,sources,errors
-
 
 class _TableRows(HTMLParser):
     def __init__(self):
