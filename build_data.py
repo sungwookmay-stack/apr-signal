@@ -26,6 +26,7 @@ from optional_free_api import Budget, update_trends, update_amazon
 from top100_tracker import track_bestsellers
 from scrapedo_bestsellers import track_scrapedo
 from retail_reference_collector import collect as refresh_retail_references
+from news_localizer import localize_items, FIELD_KEYS
 
 ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'data';IMPORTS=ROOT/'imports'
@@ -203,11 +204,24 @@ def collect_news():
         except Exception as e:errors.append('뉴스 '+item['tag']+': '+str(e)[:120])
     old=previous.get('items',[])
     merged={(x['url'],x.get('category')):x for x in old if x.get('url')}
-    merged.update({(x['url'],x['category']):x for x in fresh})
+    for item in fresh:
+        key=(item['url'],item['category'])
+        old_entry=merged.get(key)
+        if old_entry and old_entry.get('title')==item['title']:
+            # RSS refresh must not delete an already saved Korean translation.
+            for name in FIELD_KEYS:
+                if old_entry.get(name):
+                    item[name]=old_entry[name]
+        merged[key]=item
     items=sorted(merged.values(),key=lambda x:x.get('published') or '0000',reverse=True)[:180]
+    items,korean_status=localize_items(items)
     status='이번 수집 신규 '+str(len(fresh))+'건' if fresh else '새 기사 수집 실패 또는 결과 없음 — 이전 저장값만 유지'
-    package={'updated_at':NOW,'status':status,'items':items,'verified_events':read_json(ROOT/'config/verified_events.json',[]),
-             'source_note':'Google News RSS 제목 및 원문 링크 자동 수집. 실제 발주/매출/허가와 구별해 읽어야 합니다.'}
+    package={'updated_at':NOW,'status':status,'items':items,
+             'korean_digest':korean_status,
+             'verified_events':read_json(ROOT/'config/verified_events.json',[]),
+             'source_note':('Google News RSS의 제목과 원문 링크를 한글로 정리합니다. '
+                            '한국어 요약은 제목 기반이며 기사 전문의 요약이 아닙니다. '
+                            '실제 발주·매출·허가와 구별해 읽어야 합니다.')}
     save('news.json',package)
     return package
 

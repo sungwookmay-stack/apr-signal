@@ -262,12 +262,34 @@ function renderEtf(){const e=state.kbty;if(!e)return;
  $('etf-holdings').innerHTML=holdings.length?holdings.slice(0,12).map(x=>`<div class="holding"><span>${escapeHtml(x.name||x.ticker)}</span><b>${fmt(x.weight_pct,2)}%</b></div>`).join(''):
   '<div class="blankmini">상장 후 운용사의 실제 보유종목·비중이 공개되면 표시합니다. 공개 전 0%로 표시하지 않습니다.</div>';
 }
-function renderNews(){const d=state.news;if(!d)return;
+function renderNews(){
+ const d=state.news;if(!d)return;
  const events=(d.verified_events||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
- $('verified-events').innerHTML=events.map(x=>`<article class="event"><span class="tag">${escapeHtml(x.date)} · ${escapeHtml(x.country)} · ${escapeHtml(x.stage)}</span><h3>${escapeHtml(x.title)}</h3><p>${escapeHtml(x.summary||'')}</p><a href="${validLink(x.source_url)}" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>`).join('');
- const word=$('news-filter')?.value||'all';const items=(d.items||[]).filter(x=>word==='all'||(x.category||'').includes(word));
- $('news-stack').innerHTML=items.length?items.slice(0,36).map(x=>`<a class="news-card" href="${validLink(x.url)}" target="_blank" rel="noopener noreferrer"><small>${escapeHtml(x.published||'날짜 미확인')} · ${escapeHtml(x.country||'')} · ${escapeHtml(x.category||'')}</small><strong>${escapeHtml(x.title)}</strong><span class="news-status">관련 기사 · 실제 발주·매출·허가는 별도 확인 필요 ↗</span></a>`).join(''):
-  '<div class="panel padded" style="grid-column:1/-1"><p class="subtle">현재 저장된 RSS 기사 실측이 없습니다. 자동 갱신이 성공하면 날짜별로 여기에 누적됩니다.</p><a class="minor-button" href="https://news.google.com/search?q=medicube%20Chile%20Kinegun&hl=es-419&gl=CL&ceid=CL%3Aes-419" target="_blank" rel="noopener">칠레 스페인어 뉴스 직접 검색 ↗</a></div>';
+ $('verified-events').innerHTML=events.map(x=>'<article class="event"><span class="tag">'+escapeHtml(x.date)+' · '+escapeHtml(x.country)+' · '+escapeHtml(x.stage)+'</span><h3>'+escapeHtml(x.title)+'</h3><p>'+escapeHtml(x.summary||'')+'</p><a href="'+validLink(x.source_url)+'" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>').join('');
+ const word=$('news-filter')?.value||'all';
+ const all=(d.items||[]),items=all.filter(x=>word==='all'||(x.category||'').includes(word));
+ const translated=items.filter(x=>x.title_ko&&x.summary_ko).length;
+ const status=$('news-korean-status');
+ if(status)status.textContent='한국어 정리 '+translated+'/'+items.length+'건 · 기사 제목 기반 핵심 정리 · 원문 전문은 별도 확인';
+ $('news-stack').innerHTML=items.length?items.slice(0,36).map(x=>{
+  const korean=Boolean(x.title_ko&&x.summary_ko);
+  const title=escapeHtml(korean?x.title_ko:x.title);
+  const summary=korean?escapeHtml(x.summary_ko):'무료 번역이 아직 준비되지 않았습니다. 아래 원문 제목·출처를 확인하세요.';
+  const publisher=escapeHtml(x.publisher||'현지 보도');
+  const origin=escapeHtml(x.title||'');
+  const date=escapeHtml(x.published||'날짜 미확인');
+  const country=escapeHtml(x.country||'');
+  const category=escapeHtml(x.category||'');
+  return '<article class="news-card">'+
+    '<small>'+date+' · '+country+' · '+category+' · '+publisher+'</small>'+
+    '<strong>'+title+'</strong>'+
+    '<p class="news-korean-brief">'+summary+'</p>'+
+    '<div class="news-status">제목 기반 요약 · 실제 판매·허가·실적은 공식 자료 확인 필요</div>'+
+    (korean?'<details class="news-original"><summary>원문 제목 보기</summary><p>'+origin+'</p></details>':'')+
+    '<a class="news-article-link" href="'+validLink(x.url)+'" target="_blank" rel="noopener noreferrer">현지 기사 원문 확인 ↗</a>'+
+    '</article>';
+ }).join(''):
+ '<div class="panel padded" style="grid-column:1/-1"><p class="subtle">현재 저장된 RSS 기사 실측이 없습니다. 자동 갱신이 성공하면 날짜별로 여기에 누적됩니다.</p><a class="minor-button" href="https://news.google.com/search?q=medicube%20Chile%20Kinegun&hl=es-419&gl=CL&ceid=CL%3Aes-419" target="_blank" rel="noopener">칠레 스페인어 뉴스 직접 검색 ↗</a></div>';
 }
 function renderLogistics(){
  const data=[{name:'북미',q2:3763,q3:3556,of2:22,of3:30},{name:'유럽',q2:1451,q3:1778,of2:50,of3:40},{name:'아시아',q2:1211,q3:1160},{name:'기타 해외',q2:617,q3:735},{name:'한국',q2:633,q3:502}];

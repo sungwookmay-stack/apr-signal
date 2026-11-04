@@ -33,6 +33,8 @@ jobs:
         run: node --check assets/app.js
       - name: Test Amazon ranking visibility (with and without API / charts)
         run: node tests/smoke_demand.cjs
+      - name: Verify Korean news rendering
+        run: node tests/smoke_news.cjs
       - name: Fetch data, calculate signals, update verified news
         # Code-only pushes avoid consuming credits; explicit [collect-now] commit runs one authorized refresh.
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
@@ -40,6 +42,10 @@ jobs:
           APISH_KEY: ${{ secrets.APISH_KEY }}
           SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python build_data.py
+      - name: Refresh Korean news only without Amazon or paid APIs
+        # [translate-now] avoids a fresh Amazon collection, preserving credits.
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[translate-now]')
+        run: python news_localizer.py --refresh-file
       - name: Store historical snapshots in repo
         run: |
           git config user.name "github-actions[bot]"
