@@ -31,6 +31,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Verify browser application JavaScript syntax
         run: node --check assets/app.js
+      - name: Test Amazon ranking visibility (with and without API / charts)
+        run: node tests/smoke_demand.cjs
       - name: Fetch data, calculate signals, update verified news
         # Code-only pushes avoid consuming credits; explicit [collect-now] commit runs one authorized refresh.
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
