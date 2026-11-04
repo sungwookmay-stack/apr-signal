@@ -105,7 +105,41 @@ function renderDemand(){const d=state.demand;if(!d)return;
  const ret=(d.retailers||[]);
  $('retailer-grid').innerHTML=ret.map(x=>{const arr=(d.retail||[]).filter(z=>z.retailer===x.id||z.retailer===x.name);const last=arr.sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
  return `<div class="retailer"><small>${escapeHtml(x.country)} / RETAIL</small><b>${escapeHtml(x.name)}</b><p>${last?'마지막 관찰 '+escapeHtml(last.date):'실제 판매·리뷰 수 미수집'}</p><a href="${validLink(x.url)}" target="_blank" rel="noopener noreferrer">공식 판매처 보기 ↗</a></div>`}).join('');
- $('demand-sources').innerHTML=[['Amazon BSR',list.length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Google Trends',trend.length+'개 값 · '+(d.api_mode==='free_api_sh'?'무료 API.SH': 'CSV 직접 가져오기')],['리테일', (d.retail||[]).length+'개 출처 포함 수동 관찰'],['자동화 상태',d.api_mode==='free_api_sh'?'월 최대 750크레딧 사용 한도 · 초과 전 자동 중단':'무료 키 미설정: Amazon·Trends는 기존 값/CSV']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
+ $('demand-sources').innerHTML=[['Amazon BSR',list.length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', (d.top100||[]).filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Google Trends',trend.length+'개 값 · '+(d.api_mode==='free_api_sh'?'무료 API.SH': 'CSV 직접 가져오기')],['리테일', (d.retail||[]).length+'개 출처 포함 수동 관찰'],['자동화 상태',d.api_mode==='free_api_sh'?'월 최대 750크레딧 사용 한도 · 초과 전 자동 중단':'무료 키 미설정: Amazon·Trends는 기존 값/CSV']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
+ renderTop100();
+}
+function renderTop100(){
+ const d=state.demand||{}, c=state.country;
+ const market=(d.countries||[]).find(x=>x.code===c);
+ const obs=(d.top100||[]).filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
+ const url=market?.amazon?'https://www.'+market.amazon+'/gp/bestsellers/beauty/':'https://www.amazon.com/gp/bestsellers/beauty/';
+ $('top100-url').href=url;
+ $('top100-url').textContent=market?.amazon?'해당 국가 Amazon Beauty Best Sellers ↗':'해당 국가 독립 아마존 마켓 없음';
+ if(!obs.length){
+   chart('chart-top100',[],[]);
+   set('top100-date','미집계');set('top100-count','—');
+   set('top100-coverage',market?.amazon?'최초 API 조회 전':'해당 국가 마켓 없음');
+   set('top100-quality',market?.amazon?'아마존 베스트셀러 순위 미수집':'아마존 집계 대상 아님');
+   set('top100-entries','데이터가 생기면 동일한 관측 범위의 신규 진입·이탈을 기록합니다.');
+   $('top100-items').innerHTML='<div class="blankmini">확인되지 않은 품목 수는 0으로 표시하지 않습니다.</div>';
+   return;
+ }
+ const last=obs[obs.length-1], coverage=Number(last.coverage_count)||0;
+ const confirmed=Number(last.medicube_confirmed_count)||0;
+ chart('chart-top100',obs.map(x=>x.date.slice(5)),[
+   {label:'메디큐브 확인 ASIN 수',values:obs.map(x=>x.medicube_confirmed_count??null),color:C.teal,width:2.6},
+   {label:'확보된 Beauty 순위 항목 수',values:obs.map(x=>x.coverage_count??null),color:C.grey,width:1.4,axis:'y1',dash:[4,3]}
+ ],{y1:true,legend:true,decimals:0,yOptions:{min:0},xticks:6});
+ set('top100-date',last.date);
+ set('top100-count',last.coverage_complete?confirmed+'개 (Top 100 확정)':'최소 '+confirmed+'개');
+ set('top100-coverage','실제 확인한 '+coverage+'/100개 순위');
+ set('top100-quality',last.coverage_complete?'1~100위 전체 목록 확인':'일부 순위만 확인 · 전체 Top 100 품목 수 미확정');
+ set('top100-entries',last.new_count!=null&&last.exit_count!=null?
+   '관측 범위 내 신규 진입 '+last.new_count+'개 · 이탈 '+last.exit_count+'개':
+   '이전 관측과 비교할 동일 범위의 전체 목록이 없어 진입·이탈 집계 보류');
+ $('top100-items').innerHTML=(last.medicube_listings||[]).length?
+   last.medicube_listings.slice(0,22).map(x=>'<a href="'+validLink(x.url)+'" target="_blank" rel="noopener noreferrer"><b class="rank-num">#'+fmt(x.rank)+'</b><span class="item-title">'+escapeHtml(x.title||x.asin)+'<small> · '+escapeHtml(x.asin)+'</small></span></a>').join(''):
+   '<div class="blankmini">'+(last.coverage_complete?'해당 날짜 Beauty Top 100에는 메디큐브 상품이 확인되지 않았습니다.':'현재 확인된 순위 범위에서는 메디큐브 상품이 나타나지 않았습니다. 전체 Top 100에는 있을 수 있습니다.')+'</div>';
 }
 function renderEtf(){const e=state.kbty;if(!e)return;
  set('kbty-status',e.status||'상태 미확인');set('e-price',e.latest_price_usd!=null?'$'+fmt(e.latest_price_usd,2):'—');set('e-price-date',e.price_date||'거래 전 또는 시세 미확인');
