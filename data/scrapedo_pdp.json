@@ -94,5 +94,77 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.fr/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-05",
+    "country": "US",
+    "asin": "B0DGTMR754",
+    "product": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate",
+    "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate",
+    "bsr": 21,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DGTMR754"
+  },
+  {
+    "date": "2026-11-05",
+    "country": "US",
+    "asin": "B0DGTMR754",
+    "product": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate",
+    "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate",
+    "bsr": 2,
+    "category": "Facial Masks",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DGTMR754"
+  },
+  {
+    "date": "2026-11-05",
+    "country": "GB",
+    "asin": "B0DGTMR754",
+    "product": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, 4EA",
+    "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, 4EA",
+    "bsr": 4,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DGTMR754"
+  },
+  {
+    "date": "2026-11-05",
+    "country": "GB",
+    "asin": "B0DGTMR754",
+    "product": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, 4EA",
+    "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, 4EA",
+    "bsr": 1,
+    "category": "Face Treatments & Masks",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DGTMR754"
+  },
+  {
+    "date": "2026-11-05",
+    "country": "DE",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "bsr": 52,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-05",
+    "country": "DE",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "bsr": 4,
+    "category": "Facial Serums",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B0DBF65JYY"
   }
 ]
