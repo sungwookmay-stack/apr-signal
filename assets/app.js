@@ -92,6 +92,9 @@ function trendsURL(country){const words=state.demand?.trends_terms||{};let terms
 function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon:[],trends:[],retailers:[],retail:[],watchlist:[]};
  const c=state.country,p=state.product,market=countryMarkets().find(x=>x.code===c);
  const observed=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
+ const mostRecent=observed.length?observed[observed.length-1]:null;
+ set('amazon-quick-count',mostRecent?(mostRecent.coverage_complete?String(mostRecent.medicube_confirmed_count)+'개':'최소 '+String(mostRecent.medicube_confirmed_count)+'개'):'미수집');
+ set('amazon-quick-date',mostRecent?mostRecent.date+' · '+mostRecent.coverage_count+'/100개 순위 확인':'관측된 날짜 없음');
  const confirmed=observed.flatMap(s=>(s.medicube_listings||[]).map(x=>({
     date:s.date,country:c,asin:x.asin,bsr:x.rank,title:x.title,url:x.url,
     source:'Amazon Beauty Best Sellers 목록',coverage_count:s.coverage_count
