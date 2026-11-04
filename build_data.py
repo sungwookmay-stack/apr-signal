@@ -262,6 +262,15 @@ def collect_demand():
     amazon.sort(key=lambda x:x.get('date',''))
     # Best-effort anonymous Amazon BSR; bounded requests, avoid CAPTCHA circumvention.
     watched=load_csv('amazon_watchlist.csv')
+    # Reuse explicitly verified ASINs from Beauty list observations as a free
+    # discovery source. Product rank calls are still cost-capped separately.
+    for snapshot in prev.get('top100',[]):
+        cc=snapshot.get('country','')
+        for item in snapshot.get('medicube_listings',[]):
+            asin=str(item.get('asin','')).upper()
+            if re.fullmatch(r'[A-Z0-9]{10}',asin):
+                watched.append({'country':cc,'asin':asin,
+                    'product':item.get('title','')[:100]})
     auto_status=[]
     for r in ([] if api_key else watched[:12]):
         cc=r.get('country','').upper();asin=r.get('asin','').upper()
@@ -304,6 +313,43 @@ def collect_demand():
             errors.append(top100_status[0])
     else:
         top100_status=['APISH_KEY 미설정 — Top 100 관측 보류']
+    # Rankings observed inside a verified Beauty bestseller page ARE a
+    # product's Beauty-category BSR for that date. Make them visible on the
+    # product chart even when separate Amazon Product API returns no results.
+    known={(x.get('date'),x.get('country'),x.get('asin')) for x in amazon}
+    for snap in top100_history:
+        if snap.get('category')!='beauty' or not snap.get('date'):
+            continue
+        market=next((z for z in config.get('markets',[])
+                     if z.get('code')==snap.get('country') and z.get('amazon')),None)
+        if not market:
+            continue
+        for item in snap.get('medicube_listings',[]):
+            asin=str(item.get('asin','')).upper()
+            rank=item.get('rank')
+            try:rank=int(rank)
+            except (TypeError,ValueError):continue
+            key=(snap['date'],snap['country'],asin)
+            if not re.fullmatch(r'[A-Z0-9]{10}',asin) or not 1<=rank<=100 or key in known:
+                continue
+            title=str(item.get('title') or 'medicube '+asin)
+            lower=title.lower()
+            if 'zero pore pad' in lower:product='medicube zero pore pad'
+            elif 'pink peptide serum' in lower:product='medicube PDRN pink peptide serum'
+            elif 'collagen jelly cream' in lower:product='medicube collagen jelly cream'
+            elif 'night wrapping' in lower:product='medicube collagen night wrapping mask'
+            elif 'booster pro' in lower:product='medicube AGE-R booster pro'
+            else:product=title[:95]
+            amazon.append({'date':snap['date'],'country':snap['country'],
+                'product':product,'title':title,'asin':asin,'bsr':rank,
+                'category':'Beauty & Personal Care (전체 베스트셀러 카테고리)',
+                'reviews':None,'price':None,
+                'source_url':'https://www.'+market['amazon']+'/dp/'+asin,
+                'source':'Amazon Beauty 베스트셀러 순위 관측(API.SH)',
+                'observed_coverage':snap.get('coverage_count'),
+                'source_quality':'verified_list_rank'})
+            known.add(key)
+    amazon.sort(key=lambda x:(x.get('date',''),x.get('country',''),x.get('bsr',999999)))
     for err in budget.errors[:5]:
         msg='무료 API: '+err
         if msg not in errors:errors.append(msg)
