@@ -133,3 +133,16 @@ python -m http.server 8787
 
 
 - 2026-11-04: 아마존 부분 베스트셀러에서 확인된 ASIN을 BSR 추이와 연결하고, Ulta/Target/Boots 및 독립 주간 미국 Top100 참고지표를 근거·기준일과 함께 표시하도록 보강. 공개 판매처 갱신이 실패하면 마지막 확인값을 보존한다.
+
+## 영국 등 Top 100 누락 보완: 무료 대체 API (2026-11-04)
+
+**왜 영국 상품이 0개로 보였나?** 11월 4일 초기 API.SH 자료는 US/SA/EG 3개국만 저장되었고 영국은 미수집이었다. 따라서 영국은 0개가 아니라 미수집이다. 일부 아마존 목록은 페이지당 순위 50개 중 약 30개 상품만 제목을 제공한다. 순위와 ASIN만 있는 항목은 브랜드를 알 수 없어서, 숫자를 0개 혹은 전체 미진입으로 확정하면 오류가 된다.
+
+- 우선 지역: **미국·영국 매일**, 그 외 아마존 9개 마켓 중 하루 1개국 순환
+- 기존 API.SH: 무료 계정 키 `APISH_KEY` 유지, 부분 목록 제공 시 **최소 확인 개수**만 집계
+- 선택형 Scrape.do: [무료 플랜](https://scrape.do/pricing/)의 월 1,000 크레딧(신용카드 불필요); [Best Sellers API 문서](https://scrape.do/documentation/amazon-scraper-api/bestsellers/). [GitHub Actions Secret](https://github.com/sungwookmay-stack/apr-signal/settings/secrets/actions)에 `SCRAPEDO_TOKEN` 등록 시 `scrapedo_bestsellers.py` 자동 활성화. 코드에는 토큰을 넣지 않음.
+- Scrape.do 아마존 Beauty 1, 2페이지는 각각 랭킹 1~50, 51~100의 **전체 ASIN 순위**를 제공하지만, 제목은 일부만 제공. 확인된 종목의 제목과 이전에 검증한 ASIN 자료를 교차 대조한다.
+- **두 개의 독립적인 완전성 표식:** `rank_coverage_complete`는 1~100위 ASIN 확보, `coverage_complete`는 ASIN에 대한 상품명/브랜드까지 100개 검증한 경우만 `true`. 둘 다 확인하지 못하면 **메디큐브 최소 확인 품목 수**로 표시, 미수집/미진입 구분.
+- 공급사 요청 실제 비용과 무료 플랜은 변경될 수 있다. Scrape.do 코드는 요청당 3크레딧 보수적 예약·월 690크레딧 자체 한도로 차단하고 기본 `super=false`를 유지하며 프로바이더 `Scrape.do-Request-Cost` 헤더도 기록한다. 사용량은 `data/scrapedo_usage.json`에 누적. 가입 후 실제 계정에서 호출비용 및 무료 사용량 검증 필요.
+- **다른 참고자료:** [MetricsCart 영국 2026년 9월 분석](https://metricscart.com/bestseller-reports/amazon-uk/categories/Beauty/)에는 그달 베스트셀러 목록에 등장한 메디큐브 **서로 다른 15종**이 기록됐다. 이는 월간 관측치이며 특정 하루의 동시 Top 100 진입 15종이라는 뜻이 아니다. 사이트 `data/reference_signals.json`의 `amazon_monthly`에 따로 표기한다.
+- 미국·영국 외 마켓 역시 현재 확인 기록이 없으면 **미수집**이라고 표시하며 임의의 0개를 만들지 않는다.
