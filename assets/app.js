@@ -157,9 +157,15 @@ function renderTop100(){
  const url=market?.amazon?'https://www.'+market.amazon+'/gp/bestsellers/beauty/':'https://www.amazon.com/gp/bestsellers/beauty/';
  $('top100-url').href=url;
  $('top100-url').textContent=market?.amazon?'해당 국가 Amazon Beauty Best Sellers ↗':'해당 국가 독립 아마존 마켓 없음';
- const ext=(state.reference?.amazon_weekly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.date).localeCompare(String(b.date))).at(-1);
+ const weekly=(state.reference?.amazon_weekly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.date).localeCompare(String(b.date))).at(-1);
+ const monthly=(state.reference?.amazon_monthly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.month).localeCompare(String(b.month))).at(-1);
  const extEl=$('top100-external-summary');
- if(extEl) extEl.innerHTML=ext?'<div><small>제3자 미국 주간 Top100 전체 조사 · '+escapeHtml(ext.week||'')+'</small><strong>메디큐브 '+escapeHtml(ext.count)+'개 / 100개</strong><p>API.SH의 부분 관측과 수집 날짜·방법이 달라 직접 합산하지 않습니다.</p><a href="'+validLink(ext.source_url)+'" target="_blank" rel="noopener noreferrer">전체 100위 자료 보기 ↗</a></div>':'';
+ if(extEl){
+  const notes=[];
+  if(monthly)notes.push('<div><small>독립 월간 순위 조사 · '+escapeHtml(monthly.month)+'</small><strong>해당 월 진입 메디큐브 '+fmt(monthly.medicube_unique_products_seen)+'종</strong><p>'+escapeHtml(monthly.caveat||'월간 관측으로, 특정 하루의 순위와 비교 불가')+'</p><a href="'+validLink(monthly.source_url)+'" target="_blank" rel="noopener noreferrer">영국 공개 조사 원문 ↗</a></div>');
+  if(weekly)notes.push('<div><small>제3자 미국 주간 Top100 조사 · '+escapeHtml(weekly.week||'')+'</small><strong>메디큐브 '+escapeHtml(weekly.count)+'개 / 100개</strong><p>다른 관측일·집계방식의 참고자료이며 API 순위와 합산하지 않습니다.</p><a href="'+validLink(weekly.source_url)+'" target="_blank" rel="noopener noreferrer">주간 자료 원문 ↗</a></div>');
+  extEl.innerHTML=notes.join('');
+ }
 
  if(!obs.length){
    chart('chart-top100',[],[]);
@@ -187,7 +193,7 @@ function renderTop100(){
  }
  if(groupStart!==null)observedGroups.push(groupStart===groupEnd?String(groupStart):groupStart+'~'+groupEnd);
  set('top100-coverage','확인 '+coverage+'/100개 순위'+(observedGroups.length?' · '+observedGroups.join(', '):''));
- set('top100-quality',last.coverage_complete?'1~100위 전체 목록 확인':'일부 순위만 확인 · 전체 Top 100 품목 수 미확정');
+ set('top100-quality',last.coverage_complete?'1~100위 순위 및 100개 상품의 브랜드 확인':last.rank_coverage_complete?'1~100위 순위는 확보했지만 상품명 미확인이 '+(last.unidentified_count??'?')+'개 · 최소 확인 수':'순위 일부만 확인 · 전체 Top 100 품목 수 미확정');
  set('top100-entries',last.new_count!=null&&last.exit_count!=null?
    '관측 범위 내 신규 진입 '+last.new_count+'개 · 이탈 '+last.exit_count+'개':
    '이전 관측과 비교할 동일 범위의 전체 목록이 없어 진입·이탈 집계 보류');
