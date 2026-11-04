@@ -1,7 +1,134 @@
 {
-  "updated_at": "2026-11-04T00:00:00+00:00",
-  "status": "실제 RSS 뉴스 수집 전 · 검증된 2026년 10월 3개 사건만 표시",
-  "items": [],
+  "updated_at": "2026-11-04T11:23:02+00:00",
+  "status": "이번 수집 신규 17건",
+  "items": [
+    {
+      "title": "Del skincare a la medicina estética: Medicube elige a Chile como primer mercado mundial para lanzar sus tratamientos inyectables - FayerWayer",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxNMFR6M0FsU1QyT1NHVUY5bGdxYnB2Rl9DbzJNMzJoNXRTc2dfX1p4VWFmRXd6dzNhZW1EamNYelA5ejhhbUxiWFJpQzVYU1B5bHIyZ3UzZEtRX3J5VnpXalF4aFlxVUtIdnFXZ20wUHBCMGFRTVFBQnZvalpPLWpEbkV5ZUlGSlJRRmVCM2lsT3daYXVoTVBpbmpYYWZxbFVKV3ZfbUZWc1pTbjNNanF1djdRZnhCeVhpT0FhLXZIaUpFUDlhaDhvR3NvQkNLVk9JR05vQWkwZ2x6cWpPUks3VXAxS043UGx2dS1heVlnTndOaFJRSVVNOUU3N3hDektKSHd4RQ?oc=5",
+      "published": "2026-10-27",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "Del skincare a la medicina estética: Medicube elige a Chile como primer mercado mundial para lanzar sus tratamientos inyectables - Publimetro",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOSHNWWVFES2tKWG1yeFNaUUp0eG5sLVVSYjdGaUtaRkZBY3FkWGx1eGpBcHBNOU1vUk5hUUFkdUFxRk9KZ3l4Zi1BMTR4dGNpRnpuM2ZVUnhOSC05cWptWHdOVk9PMnhzdkJrQ0hkeldmR2FZb05iN254dU1wNWZDOUtVVWJsREtSdlc3RjZiRXUyX2pUbHBHM1E0NTVWSnhfcUc3cEZmRzN6SHlyM0xyUXVyYklqTTBhYXRqeUtRTWw1Z3BVNEhvdDNPSnRGNzNQTVlJSnF5RDVuRUpRN0cwVHo4dVR5TV9zeFBwMXZoOTJ6LTkwdFNLMGxveUNzaEJlTzZLSXdVc3U?oc=5",
+      "published": "2026-10-26",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "Medicube, la marca coreana favorita de las celebridades, debuta en productos inyectables y elige a Chile como su primer mercado mundial - Diario Estrategia",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQQ2laNnV2a1VrcGhDWlI5U3hHQkZHd2UteWtNNmlZdTNiaWJKMGhPb2s3SmVHb0owTVl3R0tqVWdiUXlUSzd2dzlYczh2UzY4RWJtWjAxSXlEZlJ6bTNwejlKLVp2UFAwZk1oWUxTTWZtRnVMbGlkbjNaZHNNUUxlQU9lUkJsMzE4LXdKWGR4d0RWNVRHWjdCQmV3YVVrMDBaRlpYTE9wUUhLSTdVYlJCZzhRbTd5VU9VbXQtOXI0czB2MGJmOUJRSXFIWWEzNnE0WGEwUDg2V0N6OEdqd293ZTUzMWM1ZkF5aUlMd3U0WmxqMTlzczFTRzJqT1VtNFVRUTJGLQ?oc=5",
+      "published": "2026-09-25",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "홈 뷰티 시장 개척한 에이피알, 의료기기로 제2막 연다 - 미디어펜",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5URkxwbG5xdS1lZWlsWEVxcHVfM1dtc2wwbUxjWjFvZHBwSmU3RXZyNll1ODNIVTFkN3lTMG9pckJZbnVnWldzZFRXZkRsMlN0Q2hqRNIBWEFVX3lxTE1OODBpR1pwUDlGekNSeHlMYjZiN3hzcEN4bkRoRnpxdHVNekZkR3JZa0RLWkYwTG9FNGxLUmVKenA1dHpLVnVZQkFCYVdNNi1JYUNEbURHM2c?oc=5",
+      "published": "2026-09-10",
+      "category": "의료기기 HIFU·RF",
+      "country": "KR",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "¿ADN de salmón rejuvenece la piel? Esta es la verdad sobre la tendencia coreana que llegó a Chile - 24horas",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQc3R4VWNfRkRXMV9iXzFySDdXZ19BLUxPaUNXWUxwNEpFdVdFa1JnMlJjS25xU3VSRjdTbTdPc2Fqd2U5RFNiUlhWMU16aTl6WkhXMGtYbFBYTFcxejQxWHNEQUtpbDVCM3F1X2dRM2lqQnhOSkxxWGFhMkxVYk9IZTd4YjNiMmVJ0gGOAUFVX3lxTE9HS2pVdUtTR3dCd1JFN1NwdjFKazc1Vy0wNXZtVHZLbVNCYUpCVkZWeWZwTTVrVy1ZemJ1SmNDZ1ZPUUFrMUVKSk9FeGwyR3BjQ0ZVeVgwVDdrbUVEaHVqano3dVFNaGVDcFd3RDhZMVlqajB2Uk8wSEhLQnctZWZqZ3B4Z09hbloxMDJsNkE?oc=5",
+      "published": "2026-09-01",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "La nueva apuesta de marca de belleza surcoreana que llegará primero a Chile: Un tratamiento inyectable de salmón - Meganoticias",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxORjROdlkzMnJpeTNQNks5ckhDUmdqcmo1UU13eHpncS1aODdMVnNtMmlWVkhLYlBYQUhLWFFDX0owUGJpYzZhY19naHh1RzBUMUk4dF9oVFc2UUJ4YjRWSkdZVzRlT2ZRanFjN01EeXEtdzM0VEVsRC1pcW1zeTNucjRxVWhnYl9rYkd0RkR3QmZ5Undka1pBWDhtbDhyZDEzSkZCc2ZKajFKMFc5dmZQMUxR0gG3AUFVX3lxTE1qWHVrazF6TWpKTHNxMVdmdW9GanE5UVFPbjBXaVFWM3FpOU1jWDBmY1ZVbG5KVmVRNktIS290TVZGMjZtaGJhSkxFbUxSXzU4SHN0Z2NnTVNXUmxnejlIRFJJWFp5N2I3V2NWcTdPVU9qM1J5Tkd3akNPYXphX3JieTBRcGtrTzJiTzhLNnQ1N2NjRHdEUzBveXZyV2xzQ3ZTVnNwME5tendQZllEeDZuMWJwV042QQ?oc=5",
+      "published": "2026-08-25",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "La nueva apuesta de marca de belleza surcoreana que llegará primero a Chile: Un tratamiento inyectable de salmón - Meganoticias",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxORjROdlkzMnJpeTNQNks5ckhDUmdqcmo1UU13eHpncS1aODdMVnNtMmlWVkhLYlBYQUhLWFFDX0owUGJpYzZhY19naHh1RzBUMUk4dF9oVFc2UUJ4YjRWSkdZVzRlT2ZRanFjN01EeXEtdzM0VEVsRC1pcW1zeTNucjRxVWhnYl9rYkd0RkR3QmZ5Undka1pBWDhtbDhyZDEzSkZCc2ZKajFKMFc5dmZQMUxR0gG3AUFVX3lxTE1qWHVrazF6TWpKTHNxMVdmdW9GanE5UVFPbjBXaVFWM3FpOU1jWDBmY1ZVbG5KVmVRNktIS290TVZGMjZtaGJhSkxFbUxSXzU4SHN0Z2NnTVNXUmxnejlIRFJJWFp5N2I3V2NWcTdPVU9qM1J5Tkd3akNPYXphX3JieTBRcGtrTzJiTzhLNnQ1N2NjRHdEUzBveXZyV2xzQ3ZTVnNwME5tendQZllEeDZuMWJwV042QQ?oc=5",
+      "published": "2026-08-25",
+      "category": "칠레 클리닉",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "\"피부의 수명을 늘린다.\" 뷰티 디바이스, '안티에이징'을 버리고 'AI 개인형 헬스케어 인프라' 에이피알 - https://www.dhtimes.co.kr/",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB1WFk5VzNBTTVJR1AtTDU5bVpTTlVVYTFsdHZBeU9HajRwamhXc2Z3QjlYMFNoVVdWQW5KY1hPSmpUZzl4Z3dFdFlXTHZLbHhJek1OY21ZTVY3MDl5ZHU1QnBqNDI2VmEz?oc=5",
+      "published": "2026-08-25",
+      "category": "의료기기 HIFU·RF",
+      "country": "KR",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "Famosa marca coreana elige a Chile para lanzar su nuevo negocio: ADN de salmón inyectable, el tratamiento estético que gana fuerza en el mundo - The Clinic",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPVjBDSHhLQjhZTzRfOW5iRHlSd0FlSnF4SHIwbm9YUXpvRi1CZlFMckJ5Mmh2NkNQcVZLQjVQNnFjWUZad094cVBmU2I0b3pkNy02M1g4WjA3SnkwV1dONU1kVENaYjNndVJRaUNtUmJOcWV6MHRuSXFmMkhaSVpwNTEya29BZG91Q3A1OGNnQTFoLWtHaVBQUnRfOVFQTmZxejBUMm1xRXA4X0hSU1ZiUzBjUW9YSVZ4eHRTeFhJYjhBSzdjQ09PZEpENnJmeVhQMms4cmtlOTNLaklqN1RERVBBel9QTU84aDBkd0MxenA2MTJEd0I5VXB1S2g0NUZoRlBFaFNvRVLSAY4CQVVfeXFMT0JLMklkbUgwcFJrZ0pyLTBFUzBXTDVmdkpvYmprbFRnd0JTZS1rZ0FJWVEzMXF3OVhnUkpFRDRYZXp2bktWVGpVem5GTDVsMU1XMHNxOHJWT2dVaHo1azNjVzV6SUZqODZhSUNWZG1TNzlCMGthYWJvRzBjanY4b1puTlZQdUM1Q2pEQlZnbFBOUDlSVWJ3aWk4dUFlQjdHbmEyV2pqT09CVEQxblBONlQwb2FsYTFRQnY0c1lqVU5fNTNDTFhtOThQMXVtNFNoWGpCUEdSM3pUbXZocXc0cmFkRjhXWUx2Q2tkQWZ1d2F1XzBzWkNPaEVmUVBHV1JLTDZ2WnZRdjdIdUJ0UWh3?oc=5",
+      "published": "2026-08-24",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "La gigante de belleza coreana dueña de Medicube elige a Chile para lanzar su próximo negocio: ADN inyectable de salmón de Alaska - Forbes Chile",
+      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxQaGxVT0QxR1BsWlNsMXRjQzlHZGxNZ2FzWXlyYlh3c0ItWncwUHFtUThROGpfR3pWM3hqcHBWNTZGNWlYTmc1Rmx4c0RHei1PLUpzMnZGZFdxeElHck1VQ20wSWlhMTk0UGpuQ2lrYVZXMnRpS1p2dy1zbHBIQkt6R0FCbV83bFZnVWpGaDlrZGJsbU9BbXc5VHdGNlZlb0VhY0JOQkx3bU5xX0RaMk9Vc01NZnl6U24tMENyR2Jmczl1Qnd5YjB3YUZfUHJrUzh4T1BMQWxEOFNlUG44aGFCMWFkcFRycW81b0haWDBZaWRLN1Iyb0d6MDFn?oc=5",
+      "published": "2026-08-22",
+      "category": "칠레 스킨부스터",
+      "country": "CL",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "에이피알, 아모레·LG생건 이익 추월…EBD로 메디컬 에스테틱 확장 - 뉴스핌",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1ZcXdZN0RZR2RCVHRKRThiS1Q4UjNPN2VBVjJrX2RiS1VMZEZyWWxweUFaanlMSG55T09NVnpRb2RMVTJselVUZ3hTdVdGRklybHdTcm1CSkdfZHEx?oc=5",
+      "published": "2026-08-19",
+      "category": "의료기기 HIFU·RF",
+      "country": "KR",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "Guinness Atkinson Files for First US-Listed K-Beauty ETF - Global Cosmetics News",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcFFPeFBUSmpTNHByMUh2ZE11eFRnV21OLUhUOTdtRU1aYUkwYW5NdU1fZF9waDcxSFhOc1V3WDVodG4xNkdvaHRSVEZIYzBtdGx6Z0VSR3AwQnhBak1oWkZVLXRuX3BVM3VpcWVUdUU2Nnh5LUZRZGlLbkFXNENHR1JjSjhnUi1EcUx5c29nM25DUTFJN1h3aQ?oc=5",
+      "published": "2026-07-16",
+      "category": "KBTY ETF",
+      "country": "US",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "K-beauty eyes Wall Street glow-up with first ETF - The Korea Herald",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9vMGZHWEh4cFhGNlZyLXV6ZEZESW5WLXlXNFdjeFl2WlFKM3FqUHNkWjJKeWNzM2ZwSHJJZ3paaXl6Y0hfZXA4REFuRHBsTEJBMnhFVUhMNA?oc=5",
+      "published": "2026-07-14",
+      "category": "KBTY ETF",
+      "country": "US",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    },
+    {
+      "title": "에이피알 의료미용 진출 잰걸음, 김병훈 '미용기기 성장 재점화' 기세 잇는다 - 비즈니스포스트",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9FajBCU2dQb3F4ZXlGeVRlck50TXU4OVZ4ZzJ4YWgtWm4yV0g5SWhkVDZPbFlZbTVjc0xVekFZVmxwVzZmWWVjNGRiSXZPeGI1YkxvOEZrb1RDMEQtOFRkZENjcHV6em05Y0czOXc1OXpNb2M?oc=5",
+      "published": "2026-05-15",
+      "category": "의료기기 HIFU·RF",
+      "country": "KR",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-04T11:23:02+00:00"
+    }
+  ],
   "verified_events": [
     {
       "date": "2026-10-15",
@@ -37,5 +164,5 @@
       "sales_confirmed": false
     }
   ],
-  "source_note": "Google News RSS 실시간 수집은 GitHub Actions 첫 실행 후 시작"
+  "source_note": "Google News RSS 제목 및 원문 링크 자동 수집. 실제 발주/매출/허가와 구별해 읽어야 합니다."
 }

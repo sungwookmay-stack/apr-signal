@@ -1,17 +1,23 @@
 {
-  "generated_at_utc": "2026-11-04T00:00:00+00:00",
+  "generated_at_utc": "2026-11-04T11:23:02+00:00",
   "timezone": "Asia/Seoul",
-  "price_last": "2026-11-03",
-  "price_coverage_start": "2026-08-20",
+  "price_last": "2026-11-04",
+  "price_coverage_start": "2025-07-01",
   "fx_last": null,
-  "technical_last": "2026-11-03",
-  "technical_ohlc_days": 0,
-  "kbty_status": "상장 예정",
-  "news_count": 0,
+  "technical_last": "2026-11-04",
+  "technical_ohlc_days": 328,
+  "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
+  "news_count": 14,
   "trends_points": 0,
   "amazon_points": 0,
   "errors": [
-    "초기 동봉 데이터는 최근 50거래일 KRW 종가만 검증됨. 5월 이후 전체 및 FX는 첫 온라인 갱신 필요."
+    "네이버 금융 (일별 종가): multi-byte encodings are not supported",
+    "네이버 금융 (기간별 종가): insufficient history: 0 observations, earliest none",
+    "USD Frankfurter v2 (중앙은행 참조환율): HTTP Error 522: <none>",
+    "USD Frankfurter v1 (중앙은행 참조환율): HTTP Error 522: <none>",
+    "EUR Frankfurter v2 (중앙은행 참조환율): HTTP Error 522: <none>",
+    "EUR Frankfurter v1 (중앙은행 참조환율): HTTP Error 522: <none>",
+    "NLIC 해상운임 갱신 실패: The read operation timed out (이전 기록 유지)"
   ],
-  "data_policy": "확인된 데이터만 표시. 미공개·수집 실패는 공란."
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }

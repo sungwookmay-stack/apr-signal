@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T00:00:00+00:00",
+  "updated_at": "2026-11-04T11:23:02+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -8,8 +8,8 @@
   "expense_ratio_pct": 0.55,
   "index": "Indxx K-Beauty Index",
   "holdings_count_intended": 25,
-  "status": "2026년 11월 둘째 주 거래 개시 예정 (운용사 11월 4일 확인)",
-  "launch_expected": "2026년 11월 둘째 주 (예정)",
+  "status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
+  "launch_expected": "2026년 11월 둘째 주 (운용사 예정, 변경 가능)",
   "latest_price_usd": null,
   "price_date": null,
   "aum_usd": null,
@@ -17,9 +17,11 @@
   "apr_weight_pct": null,
   "apr_shares": null,
   "apr_holding_as_of": null,
+  "source_note": "가격은 NYSE 거래 종가, AUM·보유비중은 운용사 자료만 사용. 미공개 항목은 null.",
   "price_history": [],
   "aum_history": [],
   "holdings": [],
-  "source_note": "상장 전 공개된 운용사 자료, 실제 시세·AUM·편입비중은 확인될 때까지 공란",
-  "errors": []
+  "errors": [
+    "KBTY 비공식 주가 미확인: HTTP Error 404: Not Found"
+  ]
 }

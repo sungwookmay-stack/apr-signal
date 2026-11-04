@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T00:00:00+00:00",
+  "updated_at": "2026-11-04T11:23:02+00:00",
   "countries": [
     {
       "code": "US",
@@ -153,16 +153,16 @@
     }
   ],
   "trends": [],
-  "amazon": [],
-  "retail": [],
-  "watchlist": [],
   "trends_status": [
-    "API 연결 전 · 추이값 없음"
+    "APISH_KEY 미설정 — API 자동 수집 비활성 (CSV 이용 가능)"
   ],
+  "amazon": [],
   "amazon_status": [
-    "제품 ASIN 미확인 · API 연결 후 상품 검색 시작"
+    "등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능"
   ],
+  "watchlist": [],
+  "retail": [],
   "api_mode": "csv_or_public",
   "api_credits_used_this_month": null,
-  "note": "BSR과 Trends 실측값 없음. 빈 그래프는 결측이며 0이 아님."
+  "note": "BSR=카테고리 내 판매 순위이지 판매량이 아님. Google Trends=국가·기간·검색 그룹 내 상대지수(0~100)."
 }
