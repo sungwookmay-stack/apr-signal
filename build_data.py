@@ -23,6 +23,7 @@ import xml.etree.ElementTree as ET
 from indicator_engine import calculate
 import update_data
 from optional_free_api import Budget, update_trends, update_amazon
+from top100_tracker import track_bestsellers
 
 ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'data';IMPORTS=ROOT/'imports'
@@ -292,6 +293,20 @@ def collect_demand():
         for err in budget.errors[:5]:errors.append('무료 API: '+err)
     else:
         discovered=[]
+    # Separate from product BSR. The Best Sellers endpoint may cover only 50/100 ranks.
+    top100_history=prev.get('top100',[])
+    top100_status=[]
+    if api_key:
+        try:
+            top100_history,top100_status,_=track_bestsellers(budget,config,top100_history)
+        except Exception as exc:
+            top100_status=['Top 100 관측 부분 실패: '+str(exc)[:120]]
+            errors.append(top100_status[0])
+    else:
+        top100_status=['APISH_KEY 미설정 — Top 100 관측 보류']
+    for err in budget.errors[:5]:
+        msg='무료 API: '+err
+        if msg not in errors:errors.append(msg)
     retail=[]
     for r in load_csv('retail_observations.csv'):
         if not (re.fullmatch(r'20\d\d-\d\d-\d\d',r.get('date','')) and valid_url(r.get('source_url',''))):continue
@@ -301,6 +316,7 @@ def collect_demand():
         'trends_terms':config.get('trends_terms',{}),'retailers':config.get('retailers',[]),
         'trends':trend,'trends_status':statuses or ['공식 CSV 데이터 없음 — Google Trends 원본 링크 이용'],
         'amazon':amazon[-2000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
+        'top100':top100_history[-500:], 'top100_status':top100_status,
         'watchlist':[x for x in watched if x.get('asin')]+discovered,
         'retail':retail,'api_mode':('free_api_sh' if api_key else 'csv_or_public'),
         'api_credits_used_this_month':budget.stats.get('attempted_credits',0) if api_key else None,
@@ -323,6 +339,7 @@ def main():
       'technical_ohlc_days':technical.get('valid_high_low',0),
       'kbty_status':kbty['status'], 'news_count':len(news.get('items',[])),
       'trends_points':len(demand.get('trends',[])), 'amazon_points':len(demand.get('amazon',[])),
+      'beauty_leaderboard_snapshots':len(demand.get('top100',[])),
       'errors':errors+market.get('meta',{}).get('errors',[]),'data_policy':'모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.'}
     save('status.json',status)
     payload={'market':market,'technical':technical,'kbty':kbty,'news':news,'demand':demand,'status':status}
