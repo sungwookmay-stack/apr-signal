@@ -1,6 +1,6 @@
 {
   "updated_at_utc": "2026-11-04T00:00:00Z",
-  "method": "공식 판매처·공식 언론자료 및 제3자 100개 순위 공개목록에서 확인한 관측점. 비공개 매출·실제 매장별 재고 추정 금지.",
+  "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님.",
   "retail": [
     {
       "date": "2026-11-04",
@@ -78,7 +78,7 @@
       "scope": "Boots UK 2026년 11월 공식 보도자료",
       "source_url": "https://www.boots-uk.com/newsroom/news-item/from-k-beauty-to-k-wellness-boots-brings-korea-s-next-wellness-trend-to-the-uk-high-street-with-a-dedicated-new-offering/",
       "method": "official_company_release",
-      "note": "검색 관심도 증가율, 매출 증가율이나 실제 오프라인 판매 증가율이 아님"
+      "note": "Boots 공식 보도자료: boots.com 사이트 내 medicube 검색이 전년동기 대비 20% 초과 증가. 매출 또는 오프라인 판매 증가율 아님."
     }
   ],
   "amazon_weekly": [
@@ -93,18 +93,6 @@
       "source_url": "https://kbeautytmi.com/channels/amazon?week=2026-W44",
       "method": "independent_weekly_full_list",
       "note": "공식 Amazon API 수치와 별도의 관찰 방식. 국가별 100개 공개 캡처"
-    },
-    {
-      "week": "2026-W45",
-      "date": "2026-11-03",
-      "country": "US",
-      "category": "Beauty & Personal Care",
-      "count": 7,
-      "covered": 100,
-      "source": "KBeautyTMI 제3자 공개 주간 목록",
-      "source_url": "https://kbeautytmi.com/channels/amazon",
-      "method": "independent_weekly_full_list",
-      "note": "W44와 동일한 독립 자료 출처의 주간 표본. 제3자 자료이므로 재검증 필요"
     }
   ],
   "collection": {
