@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "date": "2026-11-04",
+    "country": "US",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "bsr": 2,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "US",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "bsr": 1,
+    "category": "Facial Toners & Astringents",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "GB",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "bsr": 2,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "GB",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "bsr": 1,
+    "category": "Face Astringents & Toners",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "DE",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "title": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "bsr": 21,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "DE",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "title": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "bsr": 1,
+    "category": "Face Scrubs",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "FR",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pad 2.0 Pore Care Exfoliating Pads",
+    "title": "medicube Zero Pore Pad 2.0 Pore Care Exfoliating Pads",
+    "bsr": 13,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.fr/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-04",
+    "country": "FR",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pad 2.0 Pore Care Exfoliating Pads",
+    "title": "medicube Zero Pore Pad 2.0 Pore Care Exfoliating Pads",
+    "bsr": 1,
+    "category": "Face Astringents & Toners",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.fr/dp/B09V7Z4TJG"
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T14:26:41+00:00",
+  "updated_at": "2026-11-04T14:33:45+00:00",
   "countries": [
     {
       "code": "US",
@@ -90561,24 +90561,159 @@
     }
   ],
   "top100_status": [
-    "PDP 상품명/BSR 확인 4개 · 일일 한도 4회",
-    "US: Medicube 최소 5종, 순위 100/100, 브랜드 식별 61/100",
-    "GB: Medicube 최소 6종, 순위 100/100, 브랜드 식별 61/100",
-    "DE: Medicube 최소 2종, 순위 100/100, 브랜드 식별 60/100",
-    "FR: Medicube 최소 6종, 순위 100/100, 브랜드 식별 60/100",
-    "IT: Medicube 최소 9종, 순위 100/100, 브랜드 식별 60/100",
-    "ES: Medicube 최소 9종, 순위 100/100, 브랜드 식별 60/100",
-    "CA: Medicube 최소 2종, 순위 100/100, 브랜드 식별 60/100",
-    "JP: Medicube 최소 0종, 순위 100/100, 브랜드 식별 60/100",
-    "AE: Medicube 최소 8종, 순위 100/100, 브랜드 식별 60/100",
-    "SA: Medicube 최소 0종, 순위 100/100, 브랜드 식별 61/100",
-    "EG: Medicube 최소 0종, 순위 100/100, 브랜드 식별 61/100",
+    "US: 당일 Scrape.do 기록 재사용",
+    "GB: 당일 Scrape.do 기록 재사용",
+    "DE: 당일 Scrape.do 기록 재사용",
+    "FR: 당일 Scrape.do 기록 재사용",
+    "IT: 당일 Scrape.do 기록 재사용",
+    "ES: 당일 Scrape.do 기록 재사용",
+    "CA: 당일 Scrape.do 기록 재사용",
+    "JP: 당일 Scrape.do 기록 재사용",
+    "AE: 당일 Scrape.do 기록 재사용",
+    "SA: 당일 Scrape.do 기록 재사용",
+    "EG: 당일 Scrape.do 기록 재사용",
+    "PDP 4회 조회, 상품 식별 4개, 개별 BSR 8개 수집",
     "US: 오늘 기록 존재 — 추가 API 호출 생략",
     "GB: 오늘 기록 존재 — 추가 API 호출 생략",
     "SA: 오늘 기록 존재 — 추가 API 호출 생략"
   ],
-  "scrapedo_reserved_credits": 26,
+  "scrapedo_reserved_credits": 30,
   "watchlist": [
+    {
+      "country": "AE",
+      "asin": "B0DBF65JYY",
+      "product": "medicube PDRN Pink Peptide Serum Sodium DNA 1%, Pink glow serum, Peptide, Niacinamide, Hydrating & M"
+    },
+    {
+      "country": "AE",
+      "asin": "B09V7Z4TJG",
+      "product": "medicube Zero Pore Pads 2.0, Dual-Textured Facial Toner Pads for Exfoliation and Pore Care with 4.5%"
+    },
+    {
+      "country": "AE",
+      "asin": "B0BRMYHMS5",
+      "product": "medicube Collagen Wrapping Mask | Overnight Peel Off Facial Mask | Elasticity & Hydration Care, Firm"
+    },
+    {
+      "country": "AE",
+      "asin": "B0CM2PPNMW",
+      "product": "medicube Collagen Jelly Cream- Niacinamide & Freeze-Dried Hydrolyzed Collagen - Boosts skin's barrie"
+    },
+    {
+      "country": "AE",
+      "asin": "B0DWMSM6Y9",
+      "product": "medicube Salmon DNA PDRN Pink Peptide Eye Serum, Niacinamide and 99% Pure Retinol Eye Cream for Fine"
+    },
+    {
+      "country": "AE",
+      "asin": "B0DPJRS9DS",
+      "product": "medicube Kojic Acid Turmeric Brightening Gold Jelly Gel Mask | Overnight Face Mask for Glass Glow Sk"
+    },
+    {
+      "country": "AE",
+      "asin": "B0BPXT3GBN",
+      "product": "medicube Triple Collagen Cream - Hydrating & Firming Moisturizer with Hyaluronic Acid, Premium Elast"
+    },
+    {
+      "country": "AE",
+      "asin": "B0DYTQ5GYQ",
+      "product": "medicube Zero Pore Clear Blue Capsule Facial Cleanser for Skin Texture, Blackhead & Pore Care | AHA,"
+    },
+    {
+      "country": "CA",
+      "asin": "B0CVRCR6VF",
+      "product": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores w"
+    },
+    {
+      "country": "CA",
+      "asin": "B0GHMZXX8Y",
+      "product": "medicube PDRN Pink Collagen Volume Multi Balm Stick 10g | Hydrates & Plumps Skin, Smooth Melting Tex"
+    },
+    {
+      "country": "DE",
+      "asin": "B09V7Z4TJG",
+      "product": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care | Double-sided face pad with 4.5% AHA & "
+    },
+    {
+      "country": "DE",
+      "asin": "B0DBF65JYY",
+      "product": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml | Glow Serum, Peptides, Niacinamide, Moisture"
+    },
+    {
+      "country": "ES",
+      "asin": "B0DBF65JYY",
+      "product": "medicube PDRN Pink Peptide Serum with Salmon DNA | Niacinamide Peptide Serum for Hydration and Firme"
+    },
+    {
+      "country": "ES",
+      "asin": "B0DGPSZVW3",
+      "product": "medicube Collagen Jelly Cream | Facial Cream with Hydrolyzed Collagen, Hydration and Glow 24 Hours, "
+    },
+    {
+      "country": "ES",
+      "asin": "B0GHMZXX8Y",
+      "product": "medicube PDRN Pink Collagen Volume Multi Balm Stick | PDRN & Collagen Multi-Purpose Balm Stick for F"
+    },
+    {
+      "country": "ES",
+      "asin": "B0D1G7XF9X",
+      "product": "Medicube Zero Pore Blackhead Mud Facial Mask | Refreshing Korean Mud Mask, Pore Firming, Quick Formu"
+    },
+    {
+      "country": "ES",
+      "asin": "B09V7Z4TJG",
+      "product": "medicube Toner Pads Zero Pore Pad 2.0 | Dual Texture Toning Pads for Exfoliation and Pores with AHA "
+    },
+    {
+      "country": "ES",
+      "asin": "B0DWMSM6Y9",
+      "product": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | 99% Retinol for Fine Lines, PDRN & Niacina"
+    },
+    {
+      "country": "ES",
+      "asin": "B0GCC2JV65",
+      "product": "medicube NAD EGF Firming Serum for Face & Neck | Anti-Aging Serum with Peptides and Collagen, Reduce"
+    },
+    {
+      "country": "ES",
+      "asin": "B0DTKCN3Z4",
+      "product": "Medicube Capsule Cream with Salmon DNA PDRN Pink Collagen | Lightweight Moisturizing Cream with PDRN"
+    },
+    {
+      "country": "ES",
+      "asin": "B0BRMYHMS5",
+      "product": "medicube Wrapping Mask Collagen Overnight Peel Off Facial Mask | Hydrates and Firms, Helps Improve S"
+    },
+    {
+      "country": "FR",
+      "asin": "B09V7Z4TJG",
+      "product": "medicube Zero Pore Pad 2.0 Pore Care Exfoliating Pads | Pad double texture AHA 4.5% & BHA 0.45%, Lac"
+    },
+    {
+      "country": "FR",
+      "asin": "B0GHMZXX8Y",
+      "product": "medicube Stick Balm Multi Volume PDRN Pink Collagen Face & Body | Volufilin, PDRN, NAD, Collagen, Ey"
+    },
+    {
+      "country": "FR",
+      "asin": "B0D1G7XF9X",
+      "product": "medicube Zero Pore Clay Mask Blackheads Pore Care | AHA BHA PHA Clay Mask, Pore Care, Blackheads, Fr"
+    },
+    {
+      "country": "FR",
+      "asin": "B0D2Z3GGCY",
+      "product": "medicube Deep Vitamin C Capsule Cream for a radiant complexion | Liposomal Vitamin C Golden Capsules"
+    },
+    {
+      "country": "FR",
+      "asin": "B0DGPSZVW3",
+      "product": "medicube Jelly Collagen & Niacinamide Cream 50ml | Hydrolyzed Collagen Freeze Dried Skin Barrier, Gl"
+    },
+    {
+      "country": "FR",
+      "asin": "B0DWMSM6Y9",
+      "product": "medicube Eye Contour Serum PDRN Salmon & Pink Peptides | Retinol 99%, PDRN, Niacinamide, Hydration, "
+    },
     {
       "country": "GB",
       "asin": "B09V7Z4TJG",
@@ -90608,6 +90743,51 @@
       "country": "GB",
       "asin": "B0D1G7XF9X",
       "product": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating | Blackhead-Removing Cla"
+    },
+    {
+      "country": "IT",
+      "asin": "B09V7Z4TJG",
+      "product": "medicube Zero Pore Pads 2.0 Tamponi Tonici Per Il Viso A Doppia Texture Per L'Esfoliazione E La Cura"
+    },
+    {
+      "country": "IT",
+      "asin": "B0D1G7XF9X",
+      "product": "medicube Maschera Viso Zero Pore Blackhead Mud Per Rinfrescare E Rassodare I Pori, Formula Ad Asciug"
+    },
+    {
+      "country": "IT",
+      "asin": "B0CM2PPNMW",
+      "product": "medicube Jelly Cream with Collagen, Niacinamide | Hydrolyzed Collagen Face Cream, Hydration & Glow E"
+    },
+    {
+      "country": "IT",
+      "asin": "B0DBF65JYY",
+      "product": "medicube PDRN Pink Peptide Serum - Siero PDRN Viso con Peptidi e Niacinamide, Idratazione e Pelle Pi"
+    },
+    {
+      "country": "IT",
+      "asin": "B0GHMZXX8Y",
+      "product": "medicube PDRN Pink Collagen Volume Multi Balm Stick | PDRN, NAD and Collagen, Multi-Purpose Stick Ba"
+    },
+    {
+      "country": "IT",
+      "asin": "B0GCC2JV65",
+      "product": "medicube NAD EGF Firming Serum for Face & Neck | Anti-Aging Serum with Peptide & Collagen, Reduces A"
+    },
+    {
+      "country": "IT",
+      "asin": "B0D2Z3GGCY",
+      "product": "medicube Crema Idratante Per Il Viso Deep Vitamin C Golden Capsule, Liposomi, Per Rughe, Skin Radian"
+    },
+    {
+      "country": "IT",
+      "asin": "B0DWMSM6Y9",
+      "product": "Medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | 99% Retinol for Fine Lines, PDRN and Niaci"
+    },
+    {
+      "country": "IT",
+      "asin": "B0BPXT3GBN",
+      "product": "Medicube Triple Collagen Cream | Moisturising Cream with Hyaluronic Acid & Shea Butter, Firming Effe"
     },
     {
       "country": "US",

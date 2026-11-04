@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2026-11-04",
+    "country": "US",
+    "asin": "B09V7Z4TJG",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-04",
+    "country": "GB",
+    "asin": "B09V7Z4TJG",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-04",
+    "country": "DE",
+    "asin": "B09V7Z4TJG",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-04",
+    "country": "FR",
+    "asin": "B09V7Z4TJG",
+    "identified": true,
+    "bsr_categories": 2
+  }
+]
