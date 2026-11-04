@@ -240,6 +240,7 @@ def collect_demand():
         except Exception as e:errors.append(f'Trends {f.name}: {str(e)[:110]}')
     if not trend:trend=prev.get('trends',[])
     api_key=os.environ.get('APISH_KEY','').strip()
+    scrape_token=os.environ.get('SCRAPEDO_TOKEN','').strip()
     budget=Budget(api_key)
     api_count=0
     if api_key:
@@ -296,20 +297,24 @@ def collect_demand():
         except Exception as e:auto_status.append(f'{cc} {asin}: 확인 실패 ({str(e)[:65]})')
         time.sleep(.6)
     # When a free key is configured, verified cross-market ASIN discovery + BSR lookup.
-    if api_key:
+    if api_key and not scrape_token:
+        # Legacy fallback only: API.SH product BSR is often absent. Do not
+        # spend product credits when Scrape.do is configured.
         amazon,discovered,count=update_amazon(budget,config,amazon,watched)
         api_count+=count
-        auto_status.append(f'API.SH 상품 BSR {count}건 확인, 검증된 ASIN {len(discovered)}개')
-        auto_status.append(f'이번 달 API.SH 호출예산 사용 {budget.stats["attempted_credits"]}/750 크레딧 (시도 기준)')
-        for err in budget.errors[:5]:errors.append('무료 API: '+err)
+        auto_status.append(f'API.SH 보조 상품 BSR {count}건 확인')
     else:
-        discovered=[]
+        discovered=read_json(DATA/'discovered_asins.json',[])
+        if scrape_token:
+            auto_status.append('Scrape.do 모드: API.SH 개별 상품 BSR 호출 생략')
+    if api_key:
+        auto_status.append(f'API.SH 당월 예약 {budget.stats["attempted_credits"]}/750 크레딧')
+        for err in budget.errors[:5]:errors.append('무료 API: '+err)
     # Separate from product BSR. Scrape.do provides ranked ASINs 1-100;
     # ranks without a confirmed brand/title MUST remain unidentified.
     top100_history=prev.get('top100',[])
     top100_status=[]
     scrape_credits=None
-    scrape_token=os.environ.get('SCRAPEDO_TOKEN','').strip()
     if scrape_token:
         try:
             top100_history,notes,_,scrape_credits=track_scrapedo(
@@ -359,10 +364,30 @@ def collect_demand():
                 'category':'Beauty & Personal Care (전체 베스트셀러 카테고리)',
                 'reviews':None,'price':None,
                 'source_url':'https://www.'+market['amazon']+'/dp/'+asin,
-                'source':'Amazon Beauty 베스트셀러 순위 관측(API.SH)',
+                'source':'Amazon Beauty 베스트셀러 순위 관측('+('Scrape.do' if str(snap.get('source','')).startswith('Scrape.do') else 'API.SH')+')',
                 'observed_coverage':snap.get('coverage_count'),
                 'source_quality':'verified_list_rank'})
             known.add(key)
+    # Separately observed, category-specific PDP BSR: never assume this is
+    # the Beauty Top100 position and never fabricate missing historical ranks.
+    pdp_rows=read_json(DATA/'scrapedo_pdp.json',[])
+    if isinstance(pdp_rows,list):
+        present={(x.get('date'),x.get('country'),x.get('asin'),x.get('category'),
+                  x.get('source_quality')) for x in amazon}
+        valid_countries={x['code'] for x in config.get('markets',[]) if x.get('amazon')}
+        for row in pdp_rows:
+            if not isinstance(row,dict):continue
+            cc=row.get('country');asin=str(row.get('asin','')).upper()
+            day=row.get('date');category=str(row.get('category',''))
+            rank=safe_num(row.get('bsr'),1,1e8)
+            k=(day,cc,asin,category,'verified_product_rank')
+            if (cc not in valid_countries or
+                not re.fullmatch(r'[A-Z0-9]{10}',asin) or
+                not re.fullmatch(r'20\\d\\d-\\d\\d-\\d\\d',str(day)) or
+                not category or rank is None or k in present):continue
+            record=dict(row)
+            record['bsr']=int(rank)
+            amazon.append(record);present.add(k)
     amazon.sort(key=lambda x:(x.get('date',''),x.get('country',''),x.get('bsr',999999)))
     for err in budget.errors[:5]:
         msg='무료 API: '+err
@@ -375,8 +400,8 @@ def collect_demand():
     output={'updated_at':NOW,'countries':config.get('markets',[]),'products':config.get('products',[]),
         'trends_terms':config.get('trends_terms',{}),'retailers':config.get('retailers',[]),
         'trends':trend,'trends_status':statuses or ['공식 CSV 데이터 없음 — Google Trends 원본 링크 이용'],
-        'amazon':amazon[-2000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
-        'top100':top100_history[-500:], 'top100_status':top100_status,
+        'amazon':amazon[-10000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
+        'top100':top100_history[-4000:], 'top100_status':top100_status,
         'scrapedo_reserved_credits':scrape_credits,
         'watchlist':[x for x in watched if x.get('asin')]+discovered,
         'retail':retail,'api_mode':('free_api_sh' if api_key else 'csv_or_public'),
@@ -385,7 +410,7 @@ def collect_demand():
     save('demand.json',output)
     # Small independent verification record so rankings can be checked without
     # downloading the (potentially large) multi-country Google Trends series.
-    save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-500:],
+    save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-4000:],
                         'status':top100_status,
                         'coverage_note':'Complete requires all ranks 1..100 AND all 100 products identified. Rank-only ASINs without title imply minimum confirmed count.',
                         'scrapedo_reserved_credits':scrape_credits})
