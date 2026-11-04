@@ -29,9 +29,11 @@ jobs:
           python-version: '3.12'
       - name: Check indicator and parsing logic
         run: python -m unittest discover -s tests -v
+      - name: Verify browser application JavaScript syntax
+        run: node --check assets/app.js
       - name: Fetch data, calculate signals, update verified news
-        # Code-only pushes publish saved data without consuming free API credits.
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        # Code-only pushes avoid consuming credits; explicit [collect-now] commit runs one authorized refresh.
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
         env:
           APISH_KEY: ${{ secrets.APISH_KEY }}
         run: python build_data.py
