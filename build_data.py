@@ -24,6 +24,7 @@ from indicator_engine import calculate
 import update_data
 from optional_free_api import Budget, update_trends, update_amazon
 from top100_tracker import track_bestsellers
+from retail_reference_collector import collect as refresh_retail_references
 
 ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'data';IMPORTS=ROOT/'imports'
@@ -382,6 +383,12 @@ def main():
     kbty=collect_kbty()
     news=collect_news()
     demand=collect_demand()
+    # Independent, free official-retailer snapshot collection. Its failures
+    # retain the last verified values and do not block other market updates.
+    try:
+        retail_refs=refresh_retail_references()
+    except Exception as exc:
+        retail_refs={'status':'failed','failures':[str(exc)[:160]],'successes':[]}
     status={'generated_at_utc':NOW, 'timezone':'Asia/Seoul',
       'price_last':market.get('meta',{}).get('stock_last'),
       'price_coverage_start':market.get('meta',{}).get('coverage_start'),
@@ -391,6 +398,7 @@ def main():
       'kbty_status':kbty['status'], 'news_count':len(news.get('items',[])),
       'trends_points':len(demand.get('trends',[])), 'amazon_points':len(demand.get('amazon',[])),
       'beauty_leaderboard_snapshots':len(demand.get('top100',[])),
+      'retail_reference':retail_refs,
       'errors':errors+market.get('meta',{}).get('errors',[]),'data_policy':'모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.'}
     save('status.json',status)
     payload={'market':market,'technical':technical,'kbty':kbty,'news':news,'demand':demand,'status':status}
