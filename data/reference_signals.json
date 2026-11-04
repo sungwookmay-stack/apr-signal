@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-04T00:00:00Z",
+  "updated_at_utc": "2026-11-04T12:45:26+00:00",
   "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님.",
   "retail": [
     {
@@ -9,11 +9,11 @@
       "metric": "catalog_items",
       "value": 67,
       "display": "67개",
-      "label": "메디큐브 브랜드 등록 상품",
-      "scope": "Ulta 공식 메디큐브 브랜드 페이지 전체 검색 결과",
+      "label": "메디큐브 등록상품 수",
+      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
       "source_url": "https://www.ulta.com/brand/medicube",
       "method": "official_catalog_page",
-      "note": "SKU·색상·세트 등 판매 페이지 결과 수. 입점 점포 수나 판매량이 아님"
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
       "date": "2026-11-04",
@@ -23,10 +23,10 @@
       "value": 35,
       "display": "35개",
       "label": "온라인 전용 표시 상품",
-      "scope": "같은 Ulta 브랜드 페이지의 Online Only 필터",
+      "scope": "Ulta 브랜드 페이지 Online Only 필터",
       "source_url": "https://www.ulta.com/brand/medicube",
       "method": "official_catalog_page",
-      "note": "나머지 32개가 모든 오프라인 매장에 입점했다는 뜻은 아님"
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
       "date": "2026-11-04",
@@ -36,10 +36,10 @@
       "value": 3,
       "display": "3개",
       "label": "Only at Ulta 상품",
-      "scope": "Ulta 브랜드 페이지의 Only at Ulta 필터",
+      "scope": "Ulta 브랜드 페이지 독점 상품",
       "source_url": "https://www.ulta.com/brand/medicube",
       "method": "official_catalog_page",
-      "note": "독점 상품으로 분류된 목록 수, 오프라인 전용이 아님"
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
       "date": "2026-11-04",
@@ -93,15 +93,33 @@
       "source_url": "https://kbeautytmi.com/channels/amazon?week=2026-W44",
       "method": "independent_weekly_full_list",
       "note": "공식 Amazon API 수치와 별도의 관찰 방식. 국가별 100개 공개 캡처"
+    },
+    {
+      "week": "2026-W45",
+      "count": 7,
+      "covered": 100,
+      "date": "2026-11-04",
+      "country": "US",
+      "category": "Beauty & Personal Care",
+      "source": "KBeautyTMI 제3자 주간 공개 자료 (100개 랭킹 표본)",
+      "source_url": "https://kbeautytmi.com/channels/amazon",
+      "method": "independent_weekly_full_list",
+      "note": "아마존 공식 데이터가 아니며 API.SH 부분 관측과 합산하지 않음"
     }
   ],
   "collection": {
-    "last_attempt_utc": null,
-    "successes": [],
-    "failures": [],
+    "last_attempt_utc": "2026-11-04T12:45:26+00:00",
+    "successes": [
+      "ulta catalog_items,online_only_items,exclusive_items",
+      "independent US Beauty 2026-W45"
+    ],
+    "failures": [
+      "target: expected branded visible fields not found"
+    ],
     "notes": [
-      "2026-11-04 이전 자동 관측 기록 없음",
-      "상품 등록·검색량은 실제 매장 POS 판매를 대체하지 않음"
+      "공식 사이트 자동 접근이 제한되면 마지막 출처확인 값을 유지",
+      "온라인 상품 수, 반올림된 구매 배지, 현지 검색은 매장별 POS 매출 자료가 아님",
+      "제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰"
     ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T12:17:45+00:00",
+  "updated_at": "2026-11-04T12:44:59+00:00",
   "countries": [
     {
       "code": "US",
@@ -88141,10 +88141,80 @@
   "trends_status": [
     "공식 CSV 데이터 없음 — Google Trends 원본 링크 이용"
   ],
-  "amazon": [],
+  "amazon": [
+    {
+      "date": "2026-11-04",
+      "country": "US",
+      "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with ",
+      "asin": "B09V7Z4TJG",
+      "bsr": 2,
+      "category": "Beauty & Personal Care",
+      "reviews": 35971.0,
+      "price": 18.9,
+      "source_url": "https://www.amazon.com/dp/B09V7Z4TJG",
+      "source": "API.SH Amazon product · 공개 BSR 확인"
+    },
+    {
+      "date": "2026-11-04",
+      "country": "US",
+      "product": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate | Overnight Face Mask fo",
+      "asin": "B0DGTMR754",
+      "bsr": 21,
+      "category": "Beauty & Personal Care",
+      "reviews": 14616.0,
+      "price": 19.0,
+      "source_url": "https://www.amazon.com/dp/B0DGTMR754",
+      "source": "API.SH Amazon product · 공개 BSR 확인"
+    },
+    {
+      "date": "2026-11-04",
+      "country": "US",
+      "product": "medicube PDRN pink peptide serum",
+      "title": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin | Pink Glow Serum with Peptides & Niacinamide for Hydration, Firm-Looking Skin & Uneven Tone Care, Korea",
+      "asin": "B0DBF65JYY",
+      "bsr": 65,
+      "category": "Beauty & Personal Care (전체 베스트셀러 카테고리)",
+      "reviews": null,
+      "price": null,
+      "source_url": "https://www.amazon.com/dp/B0DBF65JYY",
+      "source": "Amazon Beauty 베스트셀러 순위 관측(API.SH)",
+      "observed_coverage": 60,
+      "source_quality": "verified_list_rank"
+    },
+    {
+      "date": "2026-11-04",
+      "country": "US",
+      "product": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser | Daily Gentle Face Wash for Pore, Ski",
+      "title": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser | Daily Gentle Face Wash for Pore, Skin Texture Care, AHA BHA PHA for Deep Cleansing, Korean Skincare, 4.23 oz",
+      "asin": "B0DYTQ5GYQ",
+      "bsr": 66,
+      "category": "Beauty & Personal Care (전체 베스트셀러 카테고리)",
+      "reviews": null,
+      "price": null,
+      "source_url": "https://www.amazon.com/dp/B0DYTQ5GYQ",
+      "source": "Amazon Beauty 베스트셀러 순위 관측(API.SH)",
+      "observed_coverage": 60,
+      "source_quality": "verified_list_rank"
+    },
+    {
+      "date": "2026-11-04",
+      "country": "US",
+      "product": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm | Volufiline, NAD Stic",
+      "title": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm | Volufiline, NAD Stick Balm for the Look of Fine Lines, Under-Eyes, Neck, Plumping & Radiance for Line Car",
+      "asin": "B0GHMZXX8Y",
+      "bsr": 71,
+      "category": "Beauty & Personal Care (전체 베스트셀러 카테고리)",
+      "reviews": null,
+      "price": null,
+      "source_url": "https://www.amazon.com/dp/B0GHMZXX8Y",
+      "source": "Amazon Beauty 베스트셀러 순위 관측(API.SH)",
+      "observed_coverage": 60,
+      "source_quality": "verified_list_rank"
+    }
+  ],
   "amazon_status": [
-    "API.SH 상품 BSR 0건 확인, 검증된 ASIN 0개",
-    "이번 달 API.SH 호출예산 사용 74/750 크레딧 (시도 기준)"
+    "API.SH 상품 BSR 2건 확인, 검증된 ASIN 0개",
+    "이번 달 API.SH 호출예산 사용 80/750 크레딧 (시도 기준)"
   ],
   "top100": [
     {
@@ -88402,9 +88472,35 @@
     "SA: 오늘 기록 존재 — 추가 API 호출 생략",
     "EG: 오늘 기록 존재 — 추가 API 호출 생략"
   ],
-  "watchlist": [],
+  "watchlist": [
+    {
+      "country": "US",
+      "asin": "B09V7Z4TJG",
+      "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with "
+    },
+    {
+      "country": "US",
+      "asin": "B0DGTMR754",
+      "product": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate | Overnight Face Mask fo"
+    },
+    {
+      "country": "US",
+      "asin": "B0DBF65JYY",
+      "product": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin | Pink Glow Serum with P"
+    },
+    {
+      "country": "US",
+      "asin": "B0DYTQ5GYQ",
+      "product": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser | Daily Gentle Face Wash for Pore, Skin Tex"
+    },
+    {
+      "country": "US",
+      "asin": "B0GHMZXX8Y",
+      "product": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm | Volufiline, NAD Stick Bal"
+    }
+  ],
   "retail": [],
   "api_mode": "free_api_sh",
-  "api_credits_used_this_month": 74,
+  "api_credits_used_this_month": 80,
   "note": "BSR=카테고리 내 판매 순위이지 판매량이 아님. Google Trends=국가·기간·검색 그룹 내 상대지수(0~100)."
 }

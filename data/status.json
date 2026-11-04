@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-04T12:17:45+00:00",
+  "generated_at_utc": "2026-11-04T12:44:59+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-04",
   "price_coverage_start": "2025-07-01",
@@ -9,10 +9,22 @@
   "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
   "news_count": 14,
   "trends_points": 9776,
-  "amazon_points": 0,
+  "amazon_points": 5,
   "beauty_leaderboard_snapshots": 3,
+  "retail_reference": {
+    "status": "ok",
+    "successes": [
+      "ulta catalog_items,online_only_items,exclusive_items",
+      "independent US Beauty 2026-W45"
+    ],
+    "failures": [
+      "target: expected branded visible fields not found"
+    ],
+    "retail_metrics": 6,
+    "external_weeks": 2
+  },
   "errors": [
-    "NLIC 해상운임 갱신 실패: <urlopen error timed out> (이전 기록 유지)"
+    "NLIC 해상운임 갱신 실패: NLIC tables not accessible or changed (이전 기록 유지)"
   ],
   "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }
