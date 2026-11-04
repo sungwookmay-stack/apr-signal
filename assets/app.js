@@ -132,7 +132,15 @@ function renderTop100(){
  ],{y1:true,legend:true,decimals:0,yOptions:{min:0},xticks:6});
  set('top100-date',last.date);
  set('top100-count',last.coverage_complete?confirmed+'개 (Top 100 확정)':'최소 '+confirmed+'개');
- set('top100-coverage','실제 확인한 '+coverage+'/100개 순위');
+ const observedRanks=(last.rank_coverage||[]).map(Number).filter(Number.isFinite).sort((a,b)=>a-b);
+ const observedGroups=[];let groupStart=null,groupEnd=null;
+ for(const rank of observedRanks){
+   if(groupStart===null){groupStart=rank;groupEnd=rank;}
+   else if(rank===groupEnd+1){groupEnd=rank;}
+   else{observedGroups.push(groupStart===groupEnd?String(groupStart):groupStart+'~'+groupEnd);groupStart=rank;groupEnd=rank;}
+ }
+ if(groupStart!==null)observedGroups.push(groupStart===groupEnd?String(groupStart):groupStart+'~'+groupEnd);
+ set('top100-coverage','확인 '+coverage+'/100개 순위'+(observedGroups.length?' · '+observedGroups.join(', '):''));
  set('top100-quality',last.coverage_complete?'1~100위 전체 목록 확인':'일부 순위만 확인 · 전체 Top 100 품목 수 미확정');
  set('top100-entries',last.new_count!=null&&last.exit_count!=null?
    '관측 범위 내 신규 진입 '+last.new_count+'개 · 이탈 '+last.exit_count+'개':
