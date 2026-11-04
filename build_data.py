@@ -240,6 +240,7 @@ def collect_demand():
         except Exception as e:errors.append(f'Trends {f.name}: {str(e)[:110]}')
     if not trend:trend=prev.get('trends',[])
     api_key=os.environ.get('APISH_KEY','').strip()
+    scrape_token=os.environ.get('SCRAPEDO_TOKEN','').strip()
     budget=Budget(api_key)
     api_count=0
     if api_key:
@@ -296,20 +297,24 @@ def collect_demand():
         except Exception as e:auto_status.append(f'{cc} {asin}: 확인 실패 ({str(e)[:65]})')
         time.sleep(.6)
     # When a free key is configured, verified cross-market ASIN discovery + BSR lookup.
-    if api_key:
+    if api_key and not scrape_token:
+        # Legacy fallback only: API.SH product BSR is often absent. Do not
+        # spend product credits when Scrape.do is configured.
         amazon,discovered,count=update_amazon(budget,config,amazon,watched)
         api_count+=count
-        auto_status.append(f'API.SH 상품 BSR {count}건 확인, 검증된 ASIN {len(discovered)}개')
-        auto_status.append(f'이번 달 API.SH 호출예산 사용 {budget.stats["attempted_credits"]}/750 크레딧 (시도 기준)')
-        for err in budget.errors[:5]:errors.append('무료 API: '+err)
+        auto_status.append(f'API.SH 보조 상품 BSR {count}건 확인')
     else:
-        discovered=[]
+        discovered=read_json(DATA/'discovered_asins.json',[])
+        if scrape_token:
+            auto_status.append('Scrape.do 모드: API.SH 개별 상품 BSR 호출 생략')
+    if api_key:
+        auto_status.append(f'API.SH 당월 예약 {budget.stats["attempted_credits"]}/750 크레딧')
+        for err in budget.errors[:5]:errors.append('무료 API: '+err)
     # Separate from product BSR. Scrape.do provides ranked ASINs 1-100;
     # ranks without a confirmed brand/title MUST remain unidentified.
     top100_history=prev.get('top100',[])
     top100_status=[]
     scrape_credits=None
-    scrape_token=os.environ.get('SCRAPEDO_TOKEN','').strip()
     if scrape_token:
         try:
             top100_history,notes,_,scrape_credits=track_scrapedo(
@@ -359,10 +364,30 @@ def collect_demand():
                 'category':'Beauty & Personal Care (전체 베스트셀러 카테고리)',
                 'reviews':None,'price':None,
                 'source_url':'https://www.'+market['amazon']+'/dp/'+asin,
-                'source':'Amazon Beauty 베스트셀러 순위 관측(API.SH)',
+                'source':'Amazon Beauty 베스트셀러 순위 관측('+('Scrape.do' if str(snap.get('source','')).startswith('Scrape.do') else 'API.SH')+')',
                 'observed_coverage':snap.get('coverage_count'),
                 'source_quality':'verified_list_rank'})
             known.add(key)
+    # Separately observed, category-specific PDP BSR: never assume this is
+    # the Beauty Top100 position and never fabricate missing historical ranks.
+    pdp_rows=read_json(DATA/'scrapedo_pdp.json',[])
+    if isinstance(pdp_rows,list):
+        present={(x.get('date'),x.get('country'),x.get('asin'),x.get('category'),
+                  x.get('source_quality')) for x in amazon}
+        valid_countries={x['code'] for x in config.get('markets',[]) if x.get('amazon')}
+        for row in pdp_rows:
+            if not isinstance(row,dict):continue
+            cc=row.get('country');asin=str(row.get('asin','')).upper()
+            day=row.get('date');category=str(row.get('category',''))
+            rank=safe_num(row.get('bsr'),1,1e8)
+            k=(day,cc,asin,category,'verified_product_rank')
+            if (cc not in valid_countries or
+                not re.fullmatch(r'[A-Z0-9]{10}',asin) or
+                not re.fullmatch(r'20\\d\\d-\\d\\d-\\d\\d',str(day)) or
+                not category or rank is None or k in present):continue
+            record=dict(row)
+            record['bsr']=int(rank)
+            amazon.append(record);present.add(k)
     amazon.sort(key=lambda x:(x.get('date',''),x.get('country',''),x.get('bsr',999999)))
     for err in budget.errors[:5]:
         msg='무료 API: '+err
