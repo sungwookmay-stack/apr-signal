@@ -151,9 +151,10 @@ def update_amazon(client,cfg,old,watchlist):
     if not marketlist:return old,discovered,0
     products=cfg.get('products',[])
     # One marketplace/day. Search returns ASINs and positions but not BSR.
+    # Charge a CONSERVATIVE 3-credit reserve: API.SH Amazon pages currently disagree (1 vs 3).
     focus=marketlist[client.today.toordinal()%len(marketlist)]
     domain=focus['amazon'].removeprefix('amazon.')
-    found=client.get('amazon/v1/search',{'q':'medicube','domain':domain,'raw':'0'},1)
+    found=client.get('amazon/v1/search',{'q':'medicube','domain':domain,'raw':'0'},3)
     if found and isinstance(found.get('products'),list):
         for item in found['products'][:35]:
             asin=str(item.get('asin','')).upper()
