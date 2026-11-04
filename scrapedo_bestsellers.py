@@ -118,7 +118,7 @@ def normalize_page(payload, page, known=None):
         brand=str(info.get('brand') or '')[:100]
         url=str(x.get('url') or info.get('url') or '')
         if not url.startswith('https://www.amazon.'):
-            url='https://www.amazon.com/dp/'+asin
+            url=''  # The caller supplies the correct marketplace domain.
         result.append((rnk,asin,title,url,brand))
     return result
 
@@ -157,6 +157,8 @@ def track_scrapedo(token,config,history,verified_amazon=None,client=None):
                 pages.append(normalized)
         if not pages:continue
         snap=make_snapshot(cc,pages,today)
+        for item in snap['medicube_listings']:
+            if not item.get('url'):item['url']='https://www.'+m['amazon']+'/dp/'+item['asin']
         snap['marketplace']=m['amazon']
         snap['source']='Scrape.do Amazon Best Sellers Beauty / 1..100 ranking + partial titles'
         snap['page_count']=len(pages)
