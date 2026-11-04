@@ -84,8 +84,10 @@ def update_trends(client,cfg,previous):
         if row.get('source','').startswith('API.SH') and row.get('country') in grouped:
             grouped[row['country']].append(row)
     # On every other day; one full 2026-May-to-present scan. 14*15=210 cr/month.
-    should_fetch=(client.today.toordinal()%2==0) or not old
+    should_fetch=((client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=client.today.isoformat()
     if not should_fetch:return old,0
+    client.stats['last_trends_run_day']=client.today.isoformat()
+    save(STATE,client.stats)
     replaced=0
     # Pick a canonical single term set per country to preserve consistent comparisons.
     for market in cfg.get('markets',[]):
@@ -143,8 +145,8 @@ def first_bsr(j):
 
 def update_amazon(client,cfg,old,watchlist):
     """One Amazon search per day (round-robin country) to discover actual ASINs.
-    Four ranked-product checks per day (round-robin); 4*3*30=360 credits/month.
-    Combined with Google Trends stays under 750 local cap.
+    Two ranked-product checks per day (round-robin); 2*3*31=186 credits/month.
+    Combined with Google Trends and Beauty leaderboard checks stays under 750 per month.
     """
     discovered=read(DISCOVER,[])
     marketlist=[x for x in cfg.get('markets',[]) if x.get('amazon')]
@@ -154,7 +156,11 @@ def update_amazon(client,cfg,old,watchlist):
     # Charge a CONSERVATIVE 3-credit reserve: API.SH Amazon pages currently disagree (1 vs 3).
     focus=marketlist[client.today.toordinal()%len(marketlist)]
     domain=focus['amazon'].removeprefix('amazon.')
-    found=client.get('amazon/v1/search',{'q':'medicube','domain':domain,'raw':'0'},3)
+    found=None
+    if client.stats.get('last_amazon_search_day')!=client.today.isoformat():
+        client.stats['last_amazon_search_day']=client.today.isoformat()
+        save(STATE,client.stats)
+        found=client.get('amazon/v1/search',{'q':'medicube','domain':domain,'raw':'0'},3)
     if found and isinstance(found.get('products'),list):
         for item in found['products'][:35]:
             asin=str(item.get('asin','')).upper()
@@ -172,14 +178,14 @@ def update_amazon(client,cfg,old,watchlist):
     for x in [*watchlist,*discovered]:
         if not re.fullmatch(r'[A-Z0-9]{10}',str(x.get('asin','')).upper()):continue
         if not any(y.get('country')==x.get('country') and y.get('asin')==x.get('asin') for y in candidates):candidates.append(x)
-    # Most recently updated items last: stagger geographically, not 4 entries from US only.
+    # Most recently updated items last; at most two product lookups per day.
     scored=[]
     for x in candidates:
         history=[y['date'] for y in old if y.get('country')==x['country'] and y.get('asin')==x['asin']]
         scored.append((max(history) if history else '2000-01-01',x))
     scored.sort(key=lambda v:v[0])
     added=0
-    for _,x in scored[:4]:
+    for _,x in [z for z in scored if z[0]!=client.today.isoformat()][:2]:
         if client.remaining()<3:break
         market=next((m for m in marketlist if m['code']==x['country']),None)
         if not market:continue
