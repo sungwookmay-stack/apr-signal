@@ -1,0 +1,119 @@
+{
+  "updated_at_utc": "2026-11-04T00:00:00Z",
+  "method": "공식 판매처·공식 언론자료 및 제3자 100개 순위 공개목록에서 확인한 관측점. 비공개 매출·실제 매장별 재고 추정 금지.",
+  "retail": [
+    {
+      "date": "2026-11-04",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "catalog_items",
+      "value": 67,
+      "display": "67개",
+      "label": "메디큐브 브랜드 등록 상품",
+      "scope": "Ulta 공식 메디큐브 브랜드 페이지 전체 검색 결과",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "SKU·색상·세트 등 판매 페이지 결과 수. 입점 점포 수나 판매량이 아님"
+    },
+    {
+      "date": "2026-11-04",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "online_only_items",
+      "value": 35,
+      "display": "35개",
+      "label": "온라인 전용 표시 상품",
+      "scope": "같은 Ulta 브랜드 페이지의 Online Only 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "나머지 32개가 모든 오프라인 매장에 입점했다는 뜻은 아님"
+    },
+    {
+      "date": "2026-11-04",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "exclusive_items",
+      "value": 3,
+      "display": "3개",
+      "label": "Only at Ulta 상품",
+      "scope": "Ulta 브랜드 페이지의 Only at Ulta 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "독점 상품으로 분류된 목록 수, 오프라인 전용이 아님"
+    },
+    {
+      "date": "2026-11-04",
+      "retailer": "target",
+      "country": "US",
+      "metric": "category_items",
+      "value": 9,
+      "display": "9개",
+      "label": "페이스 클렌저 카테고리 등록 상품",
+      "scope": "Target 내 Face Washes & Makeup Removers / medicube 필터 결과만",
+      "source_url": "https://www.target.com/c/facial-cleansers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9",
+      "method": "official_category_page",
+      "note": "브랜드 전체 상품 수 아님. 온라인 등록 수이며 점포 입점 수가 아님"
+    },
+    {
+      "date": "2026-11-04",
+      "retailer": "target",
+      "country": "US",
+      "metric": "zero_pore_pad_bought_lower",
+      "value": 104000,
+      "display": "104k+ bought",
+      "label": "제로모공패드 최근 한 달 구매 표시",
+      "scope": "위 Target 카테고리 페이지의 Zero Pore Pad 단일 상품에 붙은 배지",
+      "source_url": "https://www.target.com/c/facial-cleansers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9",
+      "method": "official_bought_badge",
+      "note": "판매처의 반올림된 하한 배지. 실제 정확한 판매량·오프라인 POS 수치가 아님"
+    },
+    {
+      "date": "2026-11-02",
+      "retailer": "boots",
+      "country": "GB",
+      "metric": "brand_search_yoy_lower",
+      "value": 20,
+      "display": "20% 초과",
+      "label": "Boots 사이트 내 Medicube 검색량 YoY 증가",
+      "scope": "Boots UK 2026년 11월 공식 보도자료",
+      "source_url": "https://www.boots-uk.com/newsroom/news-item/from-k-beauty-to-k-wellness-boots-brings-korea-s-next-wellness-trend-to-the-uk-high-street-with-a-dedicated-new-offering/",
+      "method": "official_company_release",
+      "note": "검색 관심도 증가율, 매출 증가율이나 실제 오프라인 판매 증가율이 아님"
+    }
+  ],
+  "amazon_weekly": [
+    {
+      "week": "2026-W44",
+      "date": "2026-10-27",
+      "country": "US",
+      "category": "Beauty & Personal Care",
+      "count": 8,
+      "covered": 100,
+      "source": "KBeautyTMI 제3자 공개 주간 목록",
+      "source_url": "https://kbeautytmi.com/channels/amazon?week=2026-W44",
+      "method": "independent_weekly_full_list",
+      "note": "공식 Amazon API 수치와 별도의 관찰 방식. 국가별 100개 공개 캡처"
+    },
+    {
+      "week": "2026-W45",
+      "date": "2026-11-03",
+      "country": "US",
+      "category": "Beauty & Personal Care",
+      "count": 7,
+      "covered": 100,
+      "source": "KBeautyTMI 제3자 공개 주간 목록",
+      "source_url": "https://kbeautytmi.com/channels/amazon",
+      "method": "independent_weekly_full_list",
+      "note": "W44와 동일한 독립 자료 출처의 주간 표본. 제3자 자료이므로 재검증 필요"
+    }
+  ],
+  "collection": {
+    "last_attempt_utc": null,
+    "successes": [],
+    "failures": [],
+    "notes": [
+      "2026-11-04 이전 자동 관측 기록 없음",
+      "상품 등록·검색량은 실제 매장 POS 판매를 대체하지 않음"
+    ]
+  }
+}
