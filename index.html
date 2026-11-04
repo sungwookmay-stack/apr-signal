@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./assets/style.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
-<script defer src="./assets/app.js?v=20261104-amazon-retail-3"></script>
+<script defer src="./assets/app.js?v=20261104-free-amazon-11"></script>
 </head>
 <body>
 <div class="shell">
@@ -82,6 +82,9 @@
           <p class="amazon-coverage" id="amazon-coverage-detail">국가별 판매순위 데이터 확인 중</p>
           <div class="amazon-observed" id="amazon-latest"><div class="blankmini">관측된 상품 순위를 불러오는 중입니다.</div></div>
           <div class="blankmini" id="amazon-empty"></div>
+          <div class="panel-top" style="margin-top:16px"><strong>상품별 상세 BSR · 과거 추이</strong><span class="data-label">카테고리별 실측</span></div>
+          <div class="graph small"><canvas id="chart-amazon-pdp"></canvas></div>
+          <p class="amazon-coverage" id="amazon-pdp-note">실측된 PDP 카테고리 BSR만 표시합니다.</p>
           <div class="panel-links"><a id="amazon-link" href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">현지 아마존 상품 검색 ↗</a></div></div><div class="panel"><div class="panel-top"><strong>Google Trends 검색 관심도</strong><span class="data-label" id="trends-meta">공식 CSV 시계열</span></div><div class="graph small"><canvas id="chart-trends"></canvas></div><div class="blankmini" id="trends-empty"></div><div class="panel-links"><a id="trends-link" href="https://trends.google.com/trends/explore" target="_blank" rel="noopener">해당 국가 구글 트렌드 ↗</a></div></div></div>
         <div class="notice-line">BSR은 카테고리별 순위(작을수록 상위)이며 국가·카테고리마다 직접 비교할 수 없습니다. 구글 트렌드는 0~100 상대지수이고, 개별 CSV 수집 범위에 따라 정규화 기준이 달라집니다.</div>
         
