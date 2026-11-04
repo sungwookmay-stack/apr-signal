@@ -79,7 +79,8 @@ class ScrapeTests(unittest.TestCase):
         patches = [
             patch.object(sd, 'STATE', root / 'usage.json'),
             patch.object(sd, 'IDENTITY', root / 'identities.json'),
-            patch.object(sd, 'PDP_STATE', root / 'pdp.json')
+            patch.object(sd, 'PDP_STATE', root / 'pdp.json'),
+            patch.object(sd, 'PDP_CHECKS', root / 'pdp_checks.json')
         ]
         for p in patches:
             p.start()
@@ -121,12 +122,17 @@ class ScrapeTests(unittest.TestCase):
         self.assertEqual(n, 11)
         self.assertEqual(len(fake.calls), 22)
         self.assertEqual(len(fake.pdp_calls), 4)
+        self.assertGreaterEqual(sum(p in {asin(2), asin(21), asin(65), asin(77)}
+                                    for _,p in fake.pdp_calls), 3,
+                                'PDP calls should prioritize confirmed Medicube products')
         self.assertEqual({x['country'] for x in rows}, {cc for cc, _ in codes})
         self.assertTrue(all(x['coverage_count'] == 100 for x in rows))
         self.assertTrue(all(not x['coverage_complete'] for x in rows))
         self.assertTrue(Path(sd.IDENTITY).exists())
         self.assertTrue(Path(sd.PDP_STATE).exists())
         self.assertGreater(len(json.loads(Path(sd.PDP_STATE).read_text())), 0)
+        self.assertEqual(len(json.loads(Path(sd.PDP_CHECKS).read_text())), 4)
+        self.assertEqual(fake.stats['pdp_strategy_version'], 2)
         rows2, notes, n2, _ = track_scrapedo('test', cfg, rows, client=fake)
         self.assertEqual(n2, 0)
         self.assertEqual(len(fake.calls), 22)

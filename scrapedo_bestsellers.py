@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parent
 STATE = ROOT / 'data/scrapedo_usage.json'
 IDENTITY = ROOT / 'data/amazon_asin_identities.json'
 PDP_STATE = ROOT / 'data/scrapedo_pdp.json'
+PDP_CHECKS = ROOT / 'data/scrapedo_pdp_checks.json'
 API = 'https://api.scrape.do/plugin/amazon/'
 LOCAL_LIMIT = 900
 RESERVE_PER_CALL = 3
@@ -220,13 +221,14 @@ def parsed_pdp(payload, country, asin, day):
     return identity, observations
 
 
-def _round_robin_candidates(candidates, codes, day):
+def _round_robin_candidates(candidates, codes, day, last_checked=None):
     """Rotate markets fairly, taking the highest rank first within each market."""
     by_country = {code: [] for code in codes}
     for entry in candidates:
         by_country.setdefault(entry[0], []).append(entry)
+    last_checked = last_checked or {}
     for group in by_country.values():
-        group.sort(key=lambda obj: obj[1])
+        group.sort(key=lambda obj: (last_checked.get((obj[0], obj[2]), '0000-00-00'),obj[1]))
     if not codes:
         return []
     shift = day.toordinal() % len(codes)
@@ -301,18 +303,44 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         if pages:
             pending.append((market, pages, prior_today))
 
-    # The four PDP requests per day are shared across all 11 countries.
-    # We do not guess an individual rank for a product absent from a Top 100.
-    if hasattr(quota, 'get_pdp') and quota.stats.get('last_pdp_day') != today:
+    # Spend limited PDP calls on verified Medicube first. Previously, ALL four
+    # calls could go to unidentified (mostly unrelated) chart products, leaving
+    # individual Medicube BSR empty despite successful API calls.
+    # On the first deployment of this priority correction, permit one same-day
+    # correction run. The version marker prevents repeat paid requests afterward.
+    needs_pdp = (quota.stats.get('last_pdp_day') != today or
+                 quota.stats.get('pdp_strategy_version', 0) < 2)
+    if hasattr(quota, 'get_pdp') and needs_pdp:
+        pdp_checks = load_json(PDP_CHECKS, [])
+        if not isinstance(pdp_checks, list):
+            pdp_checks = []
+        seen_today = {
+            (x.get('country'), x.get('asin'))
+            for x in pdp_checks if x.get('date') == today
+        }
+        last_checked = {}
+        for x in pdp_checks:
+            k = (x.get('country'), x.get('asin'))
+            if x.get('date', '') > last_checked.get(k, ''):
+                last_checked[k] = x['date']
         unknown = []
+        confirmed_inside = []
         confirmed_outside = []
         current_rank_asins = set()
         for market, pages, _ in pending:
             cc = market['code']
             for rows in pages:
                 for rank, asin, title, _, brand in rows:
-                    current_rank_asins.add((cc, asin))
-                    if not title and not brand and identity_key(cc, asin) not in identities:
+                    key = (cc, asin)
+                    current_rank_asins.add(key)
+                    known = identities.get(identity_key(cc, asin), {})
+                    if isinstance(known, str):
+                        known = {'title': known}
+                    title = title or known.get('title', '')
+                    brand = brand or known.get('brand', '')
+                    if is_medicube({'title': title, 'brand': brand}):
+                        confirmed_inside.append((cc, rank, asin))
+                    elif not title and not brand:
                         unknown.append((cc, rank, asin))
         for (cc, asin), row in {
             (str(r.get('country', '')), str(r.get('asin', '')).upper()): r
@@ -321,46 +349,60 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         }.items():
             if cc not in codes or (cc, asin) in current_rank_asins:
                 continue
-            if not is_medicube({'title':row.get('title') or row.get('product'),
-                                'brand':row.get('brand')}):
-                continue
-            confirmed_outside.append((cc, 999, asin))
+            if is_medicube({'title': row.get('title') or row.get('product'),
+                            'brand': row.get('brand')}):
+                confirmed_outside.append((cc, 999, asin))
 
-        # Reserve two PDP requests for off-chart confirmed Medicube when possible.
-        ordered_unknown = _round_robin_candidates(unknown, codes, quota.day)
-        ordered_known = _round_robin_candidates(confirmed_outside, codes, quota.day)
-        selected = ordered_unknown[:2] + ordered_known[:2]
-        seen = {(cc, asin) for cc, _, asin in selected}
-        for candidate in ordered_unknown[2:] + ordered_known[2:]:
+        known_candidates = _round_robin_candidates(
+            confirmed_inside + confirmed_outside, codes, quota.day, last_checked)
+        unknown_candidates = _round_robin_candidates(unknown, codes, quota.day, last_checked)
+        known_candidates = [x for x in known_candidates if
+                            (x[0], x[2]) not in seen_today]
+        unknown_candidates = [x for x in unknown_candidates if
+                              (x[0], x[2]) not in seen_today]
+        # Reserve up to three calls for real Medicube BSR and one for resolving
+        # unfamiliar chart ASINs. Refill any unused slot with the other pool.
+        selected = known_candidates[:3] + unknown_candidates[:1]
+        chosen = {(cc, asin) for cc, _, asin in selected}
+        for candidate in known_candidates[3:] + unknown_candidates[1:]:
             if len(selected) >= MAX_PDP_DAILY:
                 break
-            if (candidate[0], candidate[2]) not in seen:
+            if (candidate[0], candidate[2]) not in chosen:
                 selected.append(candidate)
-                seen.add((candidate[0], candidate[2]))
+                chosen.add((candidate[0], candidate[2]))
 
         pdp_history = load_json(PDP_STATE, [])
         if not isinstance(pdp_history, list):
             pdp_history = []
-        observed = 0
+        identified, bsr_records, requests = 0, 0, 0
         for cc, _, asin in selected:
             if not quota.can_call():
                 notes.append('PDP 조회 중단: 월 900크레딧 안전 상한')
                 break
             response = quota.get_pdp(cc, asin)
-            ident, observations = parsed_pdp(response, cc, asin, today)
-            if ident is None:
+            requests += 1
+            identity, observations = parsed_pdp(response, cc, asin, today)
+            pdp_checks.append({
+                'date': today, 'country': cc, 'asin': asin,
+                'identified': identity is not None,
+                'bsr_categories': len(observations)
+            })
+            if identity is None:
                 continue
-            identities[identity_key(cc, asin)] = ident
-            observed += 1
+            identities[identity_key(cc, asin)] = identity
+            identified += 1
             for obs in observations:
                 key = (obs['date'], obs['country'], obs['asin'], obs['category'])
                 pdp_history = [p for p in pdp_history if
                     (p.get('date'), p.get('country'), p.get('asin'), p.get('category')) != key]
                 pdp_history.append(obs)
+                bsr_records += 1
         save_json(PDP_STATE, pdp_history[-10000:])
+        save_json(PDP_CHECKS, pdp_checks[-12000:])
         quota.stats['last_pdp_day'] = today
+        quota.stats['pdp_strategy_version'] = 2
         save_json(STATE, quota.stats)
-        notes.append(f'PDP 상품명/BSR 확인 {observed}개 · 일일 한도 {MAX_PDP_DAILY}회')
+        notes.append(f'PDP {requests}회 조회, 상품 식별 {identified}개, 개별 BSR {bsr_records}개 수집')
 
     save_json(IDENTITY, identities)
     added = 0
