@@ -36,6 +36,23 @@ class MonitorTests(unittest.TestCase):
         out=update_data.pack(stock,'test',fx,{},[],{}, {'sea':[],'air':[]})
         self.assertAlmostEqual(out['series'][0]['close_usd'],142.8571,4)
         self.assertEqual(out['series'][0]['fx_usd_date'],'2026-05-04')
+    def test_ecb_cross_rates_from_matching_daily_fixing(self):
+        sample=("Date, USD, JPY, KRW,\n"
+                "2026-05-04, 1.2000, 130.0, 1500.00,\n"
+                "2026-05-05, 1.1000, 128.0, 1540.00,\n"
+                "2026-05-06, N/A, 128.0, 1530.00,\n")
+        # Small synthetic fixture must be repeated across valid business days
+        # to satisfy the historical data completeness threshold.
+        base=dt.date(2026,5,4)
+        rows=["Date, USD, KRW,"]
+        for i in range(45):
+            d=base+dt.timedelta(days=i)
+            rows.append(f"{d.isoformat()}, 1.2, 1500.00,")
+        values=update_data.parse_ecb_reference_csv(("\n".join(rows)+"\n").encode())
+        self.assertEqual(values['EUR']['2026-05-04'],1500)
+        self.assertAlmostEqual(values['USD']['2026-05-04'],1250,6)
+        self.assertEqual(len(values['USD']),45)
+
     def test_bsr_never_confused_with_search_position(self):
         self.assertIsNone(api.first_bsr({'search_position':1}))
         self.assertEqual(api.first_bsr({'best_sellers_rank':[{'rank':456,'category':'Beauty'}]}),(456,'Beauty'))
