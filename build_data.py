@@ -24,6 +24,7 @@ from indicator_engine import calculate
 import update_data
 from optional_free_api import Budget, update_trends, update_amazon
 from top100_tracker import track_bestsellers
+from scrapedo_bestsellers import track_scrapedo
 from retail_reference_collector import collect as refresh_retail_references
 
 ROOT=Path(__file__).resolve().parent
@@ -303,17 +304,29 @@ def collect_demand():
         for err in budget.errors[:5]:errors.append('무료 API: '+err)
     else:
         discovered=[]
-    # Separate from product BSR. The Best Sellers endpoint may cover only 50/100 ranks.
+    # Separate from product BSR. Scrape.do provides ranked ASINs 1-100;
+    # ranks without a confirmed brand/title MUST remain unidentified.
     top100_history=prev.get('top100',[])
     top100_status=[]
+    scrape_credits=None
+    scrape_token=os.environ.get('SCRAPEDO_TOKEN','').strip()
+    if scrape_token:
+        try:
+            top100_history,notes,_,scrape_credits=track_scrapedo(
+                scrape_token,config,top100_history,amazon)
+            top100_status.extend(notes)
+        except Exception as exc:
+            top100_status.append('Scrape.do 수집 실패: '+type(exc).__name__)
+            errors.append('Scrape.do 순위 수집 예외: '+type(exc).__name__)
     if api_key:
         try:
-            top100_history,top100_status,_=track_bestsellers(budget,config,top100_history)
+            top100_history,notes,_=track_bestsellers(budget,config,top100_history)
+            top100_status.extend(notes)
         except Exception as exc:
-            top100_status=['Top 100 관측 부분 실패: '+str(exc)[:120]]
-            errors.append(top100_status[0])
-    else:
-        top100_status=['APISH_KEY 미설정 — Top 100 관측 보류']
+            top100_status.append('API.SH Top 100 관측 실패: '+type(exc).__name__)
+            errors.append(top100_status[-1])
+    elif not scrape_token:
+        top100_status.append('무료 API 키 미설정 — Top 100 자동 수집 보류')
     # Rankings observed inside a verified Beauty bestseller page ARE a
     # product's Beauty-category BSR for that date. Make them visible on the
     # product chart even when separate Amazon Product API returns no results.
@@ -364,6 +377,7 @@ def collect_demand():
         'trends':trend,'trends_status':statuses or ['공식 CSV 데이터 없음 — Google Trends 원본 링크 이용'],
         'amazon':amazon[-2000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
         'top100':top100_history[-500:], 'top100_status':top100_status,
+        'scrapedo_reserved_credits':scrape_credits,
         'watchlist':[x for x in watched if x.get('asin')]+discovered,
         'retail':retail,'api_mode':('free_api_sh' if api_key else 'csv_or_public'),
         'api_credits_used_this_month':budget.stats.get('attempted_credits',0) if api_key else None,
@@ -373,7 +387,8 @@ def collect_demand():
     # downloading the (potentially large) multi-country Google Trends series.
     save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-500:],
                         'status':top100_status,
-                        'coverage_note':'Top100 total only valid if coverage_complete=true; otherwise confirmed minimum.'})
+                        'coverage_note':'Complete requires all ranks 1..100 AND all 100 products identified. Rank-only ASINs without title imply minimum confirmed count.',
+                        'scrapedo_reserved_credits':scrape_credits})
     return output
 
 
