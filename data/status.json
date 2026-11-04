@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-04T12:00:25+00:00",
+  "generated_at_utc": "2026-11-04T12:02:46+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-04",
   "price_coverage_start": "2025-07-01",
@@ -12,7 +12,7 @@
   "amazon_points": 0,
   "errors": [
     "무료 API: google-trends/v1/interest: HTTP Error 400: Bad Request",
-    "NLIC 해상운임 갱신 실패: The read operation timed out (이전 기록 유지)"
+    "NLIC 해상운임 갱신 실패: NLIC tables not accessible or changed (이전 기록 유지)"
   ],
   "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }
