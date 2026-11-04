@@ -93,7 +93,7 @@ function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon
  const c=state.country,p=state.product,market=countryMarkets().find(x=>x.code===c);
  const observed=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
  const mostRecent=observed.length?observed[observed.length-1]:null;
- set('amazon-quick-count',mostRecent?(mostRecent.coverage_complete?String(mostRecent.medicube_confirmed_count)+'개':'최소 '+String(mostRecent.medicube_confirmed_count)+'개'):'미수집');
+ set('amazon-quick-count',mostRecent?(mostRecent.coverage_complete?String(mostRecent.medicube_confirmed_count)+'개':Number(mostRecent.medicube_confirmed_count)>0?'최소 '+String(mostRecent.medicube_confirmed_count)+'개':'진입 여부 미확인'):'미수집');
  set('amazon-quick-date',mostRecent?mostRecent.date+' · '+mostRecent.coverage_count+'/100개 순위 확인':'관측된 날짜 없음');
  const confirmed=observed.flatMap(s=>(s.medicube_listings||[]).map(x=>({
     date:s.date,country:c,asin:x.asin,bsr:x.rank,title:x.title,url:x.url,
@@ -183,7 +183,7 @@ function renderTop100(){
    {label:'확보된 Beauty 순위 항목 수',values:obs.map(x=>x.coverage_count??null),color:C.grey,width:1.4,axis:'y1',dash:[4,3]}
  ],{y1:true,legend:true,decimals:0,yOptions:{min:0},xticks:6});
  set('top100-date',last.date);
- set('top100-count',last.coverage_complete?confirmed+'개 (Top 100 확정)':'최소 '+confirmed+'개');
+ set('top100-count',last.coverage_complete?confirmed+'개 (Top 100 확정)':confirmed>0?'최소 '+confirmed+'개':'진입 여부 미확인');
  const observedRanks=(last.rank_coverage||[]).map(Number).filter(Number.isFinite).sort((a,b)=>a-b);
  const observedGroups=[];let groupStart=null,groupEnd=null;
  for(const rank of observedRanks){
