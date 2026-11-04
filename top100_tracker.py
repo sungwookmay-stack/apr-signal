@@ -74,23 +74,31 @@ def make_snapshot(country,pages,asof=None):
             if prev is None or item['rank']<prev['rank']:
                 matched[asin]=item
     listings=sorted(matched.values(),key=lambda x:x['rank'])
-    full=rank_set==EXPECTED_RANKS
+    rank_complete=rank_set==EXPECTED_RANKS
+    # Amazon charts show all 50 ranks but may supply product titles for only
+    # 30 ranks per page. An unidentified ASIN might be Medicube.
+    identifiable=sum(bool(x.get('title') or x.get('brand')) for x in sorted_items)
+    full=rank_complete and identifiable==100
     return {
         'date':stamp,'country':country,'category':'beauty',
         'category_scope':'Amazon Best Sellers > Beauty (country-specific)',
         'coverage_count':len(rank_set),'max_rank_observed':max(rank_set) if rank_set else None,
-        'coverage_complete':full,'pages_received':len(pages),
+        'coverage_complete':full,'rank_coverage_complete':rank_complete,
+        'identity_coverage_count':identifiable,
+        'unidentified_count':max(0,len(rank_set)-identifiable),
+        'pages_received':len(pages),
         'medicube_confirmed_count':len(listings),
         'medicube_listings':listings,
         'rank_coverage':sorted(rank_set),
         'new_count':None,'exit_count':None,'new_asins':[],'exit_asins':[],
         'source':'API.SH Amazon Best Sellers /beauty, ASIN-based observed minimum',
-        'note':('전체 1~100위 확인' if full else
-                '부분 목록만 확보: 확인된 메디큐브 ASIN 최소 개수, 전체 Top 100 총수 아님')
+        'note':('전체 1~100위 및 상품명/브랜드 확인' if full else
+                ('1~100위 순위는 확인, 일부 상품의 브랜드 미확인: 최소 확인 개수' if rank_complete else
+                 '순위 일부만 확인: 최소 확인 개수, 전체 Top100 총수 아님'))
     }
 
 def track_bestsellers(client,cfg,previous):
-    """US daily + two rotating other countries; 2 x 3 = <=6 credits/day."""
+    """US and GB daily, one rotating other country; 3x2 <=6 credits/day."""
     history=list(previous or [])
     if not client.key:
         return history,['API 키 미설정 — Beauty 순위 자동 수집 미실행'],0
@@ -98,11 +106,11 @@ def track_bestsellers(client,cfg,previous):
     markets=[x for x in cfg.get('markets',[]) if x.get('amazon')]
     if not markets:
         return history,['아마존 마켓 없음'],0
-    us=next((x for x in markets if x.get('code')=='US'),None)
-    others=[x for x in markets if x.get('code')!='US']
-    # Rotate other marketplaces fairly, two per day.
-    start=(client.today.toordinal()*2)%len(others) if others else 0
-    chosen=([us] if us else [])+([others[(start+i)%len(others)] for i in range(min(2,len(others)))])
+    priority=[x for code in ('US','GB') for x in markets if x['code']==code]
+    others=[x for x in markets if x['code'] not in ('US','GB')]
+    # UK and US must never disappear because the rotation skipped them.
+    start=client.today.toordinal()%len(others) if others else 0
+    chosen=priority+([others[start]] if others else [])
     stats=[]
     snapshots=0
     for market in chosen:
@@ -139,8 +147,10 @@ def track_bestsellers(client,cfg,previous):
             new_asins={x['asin'] for x in snap['medicube_listings']}
             snap['new_asins']=sorted(new_asins-old_asins)
             snap['exit_asins']=sorted(old_asins-new_asins)
-            snap['new_count']=len(snap['new_asins'])
-            snap['exit_count']=len(snap['exit_asins'])
+            if (previous_country.get('identity_coverage_count',previous_country.get('coverage_count'))
+                ==snap.get('identity_coverage_count')):
+                snap['new_count']=len(snap['new_asins'])
+                snap['exit_count']=len(snap['exit_asins'])
         history.append(snap)
         snapshots+=1
         stats.append(f"{cc}: {snap['medicube_confirmed_count']}개 확인 / "
