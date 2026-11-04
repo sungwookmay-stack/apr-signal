@@ -7,7 +7,7 @@ const signed=(n,d=1)=>n==null?'—':(n>0?'+':'')+fmt(n,d)+'%';
 const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null};
 const C={navy:'#193a5a',teal:'#0b917f',orange:'#bf8854',purple:'#8c83b4',grey:'#98aab8',red:'#c35f58'};
 const missing='실측 데이터 없음 · 확인된 값만 표시합니다.';
-const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'}];
+const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
 function countryMarkets(){return state.demand?.countries?.length?state.demand.countries:minimalMarkets;}
 function rankSnapshots(){return state.top100?.snapshots?.length?state.top100.snapshots:(state.demand?.top100||[]);}
 function set(id,val){const e=$(id);if(e)e.textContent=val;}
