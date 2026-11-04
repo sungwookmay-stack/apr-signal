@@ -1,22 +1,16 @@
 {
-  "generated_at_utc": "2026-11-04T11:23:02+00:00",
+  "generated_at_utc": "2026-11-04T11:28:16+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-04",
   "price_coverage_start": "2025-07-01",
-  "fx_last": null,
+  "fx_last": "2026-11-03",
   "technical_last": "2026-11-04",
-  "technical_ohlc_days": 328,
+  "technical_ohlc_days": 329,
   "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
   "news_count": 14,
   "trends_points": 0,
   "amazon_points": 0,
   "errors": [
-    "네이버 금융 (일별 종가): multi-byte encodings are not supported",
-    "네이버 금융 (기간별 종가): insufficient history: 0 observations, earliest none",
-    "USD Frankfurter v2 (중앙은행 참조환율): HTTP Error 522: <none>",
-    "USD Frankfurter v1 (중앙은행 참조환율): HTTP Error 522: <none>",
-    "EUR Frankfurter v2 (중앙은행 참조환율): HTTP Error 522: <none>",
-    "EUR Frankfurter v1 (중앙은행 참조환율): HTTP Error 522: <none>",
     "NLIC 해상운임 갱신 실패: The read operation timed out (이전 기록 유지)"
   ],
   "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
