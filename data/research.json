@@ -1,0 +1,184 @@
+{
+  "version": 3,
+  "countries": [
+    {
+      "code": "US",
+      "name": "미국",
+      "amazon": "amazon.com",
+      "region": "북미",
+      "priority": 1
+    },
+    {
+      "code": "GB",
+      "name": "영국",
+      "amazon": "amazon.co.uk",
+      "region": "유럽",
+      "priority": 1
+    },
+    {
+      "code": "DE",
+      "name": "독일",
+      "amazon": "amazon.de",
+      "region": "유럽",
+      "priority": 1
+    },
+    {
+      "code": "FR",
+      "name": "프랑스",
+      "amazon": "amazon.fr",
+      "region": "유럽",
+      "priority": 1
+    },
+    {
+      "code": "IT",
+      "name": "이탈리아",
+      "amazon": "amazon.it",
+      "region": "유럽",
+      "priority": 1
+    },
+    {
+      "code": "ES",
+      "name": "스페인",
+      "amazon": "amazon.es",
+      "region": "유럽",
+      "priority": 1
+    },
+    {
+      "code": "AE",
+      "name": "아랍에미리트",
+      "amazon": "amazon.ae",
+      "region": "중동",
+      "priority": 1
+    },
+    {
+      "code": "SA",
+      "name": "사우디아라비아",
+      "amazon": "amazon.sa",
+      "region": "중동",
+      "priority": 1
+    },
+    {
+      "code": "EG",
+      "name": "이집트",
+      "amazon": "amazon.eg",
+      "region": "중동",
+      "priority": 2
+    },
+    {
+      "code": "QA",
+      "name": "카타르",
+      "amazon": null,
+      "region": "중동",
+      "priority": 2
+    },
+    {
+      "code": "KW",
+      "name": "쿠웨이트",
+      "amazon": null,
+      "region": "중동",
+      "priority": 2
+    },
+    {
+      "code": "CA",
+      "name": "캐나다",
+      "amazon": "amazon.ca",
+      "region": "북미",
+      "priority": 2
+    },
+    {
+      "code": "JP",
+      "name": "일본",
+      "amazon": "amazon.co.jp",
+      "region": "아시아",
+      "priority": 2
+    },
+    {
+      "code": "CL",
+      "name": "칠레",
+      "amazon": null,
+      "region": "중남미",
+      "priority": 2
+    }
+  ],
+  "products": [
+    {
+      "code": "pdrn",
+      "name": "PDRN 핑크 펩타이드 세럼"
+    },
+    {
+      "code": "pore",
+      "name": "제로 모공 패드"
+    },
+    {
+      "code": "jelly",
+      "name": "콜라겐 젤리 크림"
+    },
+    {
+      "code": "wrapping",
+      "name": "콜라겐 나이트 래핑 마스크"
+    },
+    {
+      "code": "booster",
+      "name": "AGE-R 부스터 프로"
+    }
+  ],
+  "retailers": [
+    {
+      "code": "ULTA",
+      "name": "Ulta Beauty",
+      "country": "US",
+      "url": "https://www.ulta.com/brand/medicube"
+    },
+    {
+      "code": "TARGET",
+      "name": "Target",
+      "country": "US",
+      "url": "https://www.target.com/s?searchTerm=medicube"
+    },
+    {
+      "code": "BOOTS",
+      "name": "Boots",
+      "country": "GB",
+      "url": "https://www.boots.com/sitesearch?searchTerm=medicube"
+    },
+    {
+      "code": "WATSONS_SA",
+      "name": "Watsons Saudi",
+      "country": "SA",
+      "url": "https://www.watsons.sa/ar/collections/medicube"
+    },
+    {
+      "code": "NICEONE_SA",
+      "name": "Nice One",
+      "country": "SA",
+      "url": "https://niceonesa.com/ar/medicube"
+    },
+    {
+      "code": "KSECRET_AE",
+      "name": "K-SECRET",
+      "country": "AE",
+      "url": "https://www.ksecret.com/ar/medicube"
+    }
+  ],
+  "watchlist": [],
+  "amazon": [],
+  "trends": [],
+  "retail": [],
+  "milestones": [],
+  "news": [],
+  "meta": {
+    "updated_at": "2026-11-03T17:13:17+00:00",
+    "amazon_status": "등록한 ASIN이 없습니다",
+    "trends_status": "Google Trends 공식 CSV를 가져오면 표시됩니다",
+    "last_amazon_run": null,
+    "last_news_run": "2026-11-03T17:11:16+00:00",
+    "issues": [
+      "뉴스: chile_skinbooster: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "뉴스: chile_skinbooster: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "뉴스: middle_east_skinbooster: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "뉴스: middle_east_skinbooster: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "뉴스: hifu: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "뉴스: rf: <urlopen error [Errno -3] Temporary failure in name resolution>"
+    ]
+  }
+}

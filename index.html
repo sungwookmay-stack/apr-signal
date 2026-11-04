@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#14293e" />
+<meta name="description" content="에이피알(278470) 무료 투자 모니터: 원화/달러 주가, 환율, 볼린저밴드, 일목균형표, KBTY ETF, 칠레 스킨부스터 뉴스" />
+<title>APR SIGNAL | 글로벌 투자 모니터</title>
+<link rel="stylesheet" href="./assets/style.css" />
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script defer src="./data/bootstrap.js"></script>
+<script defer src="./assets/app.js"></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail" id="rail">
+    <a class="identity" href="#overview" aria-label="APR SIGNAL 홈">
+      <span class="logo">A<span>·</span></span><span><strong>APR SIGNAL</strong><small>GLOBAL EQUITY MONITOR</small></span>
+    </a>
+    <div class="rail-caption">RESEARCH DESK</div>
+    <nav class="rail-nav" aria-label="메뉴">
+      <a href="#overview" class="navitem active" data-nav="overview"><span class="bullet"></span>시장 · 환율</a>
+      <a href="#technical" class="navitem" data-nav="technical"><span class="bullet"></span>기술적 분석</a>
+      <a href="#demand" class="navitem" data-nav="demand"><span class="bullet"></span>글로벌 판매 수요</a>
+      <a href="#kbty" class="navitem" data-nav="kbty"><span class="bullet"></span>KBTY ETF</a>
+      <a href="#business" class="navitem" data-nav="business"><span class="bullet"></span>칠레 · 신사업</a>
+      <a href="#logistics" class="navitem" data-nav="logistics"><span class="bullet"></span>물류 · 영업레버리지</a>
+    </nav>
+    <div class="rail-bottom"><span class="rail-dot"></span> 공개 데이터만 사용 <br /><small>유료 API 없이 / 휴대폰 상시 접속</small></div>
+  </aside>
+  <div class="workspace">
+    <div class="mobile-head"><a href="#overview" class="mobile-brand">APR<span>·</span>SIGNAL</a><span class="mobile-head-right">278470 · KRX</span></div>
+    <nav class="mobile-nav" aria-label="모바일 메뉴">
+      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#demand" data-mnav="demand">글로벌 수요</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·실적</a>
+    </nav>
+    <header class="topline"><div><span class="top-caption">EQUITY / KOREA</span><span class="top-sep">/</span><span class="top-caption strong">APR · 278470</span></div><div class="updated"><span class="live-circle"></span><span id="last-synced">기록된 데이터 확인 중</span></div></header>
+    <main>
+      <section class="page active" id="overview" data-page="overview">
+        <div class="intro"><p class="eyebrow">INVESTMENT MONITOR — NOV 2026</p><h1>APR의 흐름을<br /><em>한 화면에서.</em></h1><p class="lead">주가·환율·실적을 같은 시간축에서 비교합니다. 미국·유럽·중동의 수요 변화까지 연결해 확인하세요.</p></div>
+        <div class="metrics four" id="market-kpis"><div class="metric"><small>APR 원화 종가</small><b id="m-krw">—</b><p id="m-krw-note">시장 데이터를 확인 중</p></div><div class="metric accent"><small>달러 환산 종가</small><b id="m-usd">—</b><p>KRW 종가 ÷ USD/KRW</p></div><div class="metric"><small>USD/KRW</small><b id="m-fxusd">—</b><p id="m-fxusd-note">일별 참조환율</p></div><div class="metric"><small>EUR/KRW</small><b id="m-fxeur">—</b><p>일별 참조환율</p></div></div>
+        <div class="section-title"><div><p class="eyebrow">RELATIVE PERFORMANCE</p><h2>원화 vs 달러 수익률</h2><span>2026년 5월 첫 확인 거래일을 100으로 정규화</span></div><select id="period" class="input" aria-label="차트 기간"><option value="all">2026년 5월부터</option><option value="90">최근 90일</option><option value="30">최근 30일</option></select></div>
+        <div class="panel"><div class="panel-top"><strong>APR / KRW · USD</strong><span class="data-label" id="price-coverage">기록 범위를 확인 중</span></div><div class="graph"><canvas id="chart-return"></canvas><div id="fallback-return" class="blank" hidden>차트 표시를 위해 인터넷 연결이 필요합니다.</div></div><div class="legend"><span><i class="swatch" style="background:#193a5a"></i>원화 수익률</span><span><i class="swatch" style="background:#0b917f"></i>달러 수익률</span></div></div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>종가 · 원화 및 달러</strong><small>KRW / USD per share</small></div><div class="graph small"><canvas id="chart-price"></canvas></div></div><div class="panel"><div class="panel-top"><strong>환율 · 원/달러 및 원/유로</strong><small>중앙은행 참조환율</small></div><div class="graph small"><canvas id="chart-fx"></canvas></div></div></div>
+        <div class="notice-line" id="overview-note">원화/달러 주가 차이는 투자자의 환위험을 보여주는 지표이며, 회사 영업이익에 대한 환율 민감도와 같지 않습니다.</div>
+        <div class="section-title"><div><p class="eyebrow">PERIOD DATA</p><h2>월별 핵심 숫자</h2></div><button class="minor-button" id="download-market">일별 CSV 내려받기 ↧</button></div>
+        <div class="panel tablebox"><table><thead><tr><th>월</th><th>월말 원화 종가</th><th>월말 달러 종가</th><th>월평균 USD/KRW</th><th>월평균 EUR/KRW</th></tr></thead><tbody id="monthly-body"></tbody></table></div>
+      </section>
+      <section class="page" id="technical" data-page="technical">
+        <div class="intro compact"><p class="eyebrow">TECHNICAL INTELLIGENCE</p><h1>판단은 숫자로.<br /><em>진입은 신중하게.</em></h1><p class="lead">볼린저 밴드와 일목균형표를 핵심으로 MACD·RSI·거래량을 교차 확인합니다. 기술적 참고 신호이며 자동 주문은 실행하지 않습니다.</p></div>
+        <div class="metrics three"><div class="metric"><small>현재 기술적 상태</small><b class="medium" id="t-decision">—</b><p id="t-date">분석 데이터 확인 중</p></div><div class="metric"><small>추세 점수</small><b id="t-score">—</b><p>7가지 조건의 방향성 합산</p></div><div class="metric"><small>추가매수 참고</small><b class="medium" id="t-add">—</b><p>하락만으로 물타기하지 않음</p></div></div>
+        <div class="section-title"><div><p class="eyebrow">BOLLINGER + ICHIMOKU</p><h2>가격 · 변동성 · 구름대</h2><span>BB 20·2σ | 전환선 9 · 기준선 26 · 선행스팬 B 52 · 선행이동 26</span></div></div>
+        <div class="panel"><div class="panel-top"><strong>가격과 주요 지표</strong><span class="data-label">마지막 90거래일 · 실제 OHLC만 사용</span></div><div class="graph tall"><canvas id="chart-technical"></canvas></div><div class="legend technical-legend"><span><i class="swatch" style="background:#152b40"></i>종가</span><span><i class="swatch" style="background:#12a08d"></i>BB 상·하단</span><span><i class="swatch" style="background:#bf8854"></i>일목 전환·기준선</span><span><i class="swatch" style="background:#7485b0"></i>구름 상·하단</span></div><div class="info-under">일목의 현재 구름은 26거래일 전에 산출된 선행스팬을 현재 위치에 표시합니다. 미래 종가를 사용하지 않습니다.</div></div>
+        <div class="grid two technical-bottom"><div class="panel"><div class="panel-top"><strong>RSI(14) / MACD(12,26,9)</strong></div><div class="graph small"><canvas id="chart-rsi"></canvas></div><div class="under-metrics" id="t-short-metrics"></div></div><div class="panel padded"><h3>매수·매도 판단 근거</h3><div id="technical-checks" class="checks"></div></div></div>
+        <div class="risk-panel"><div><p class="eyebrow">RISK FIRST</p><h3>분할매수 / 물타기 가이드</h3><p id="t-risk-message">하락 추세와 RSI 과매도만으로는 추가매수를 권하지 않습니다.</p></div><div class="risk-value"><small>ATR(14) 기반 하방 참고선</small><strong id="t-risk-price">—</strong><span>실제 손절 주문 가격이 아닙니다</span></div></div>
+        <p class="fineprint">일봉 기반의 참고 지표입니다. 수익 보장, 개인별 매매 권유, 실시간 호가 또는 주문 기능을 제공하지 않습니다. 장기 이동평균과 일목은 충분한 과거 데이터가 필요하며 미확보 시 계산하지 않습니다.</p>
+      </section>
+      <section class="page" id="demand" data-page="demand">
+        <div class="intro compact"><p class="eyebrow">DEMAND SIGNALS</p><h1>글로벌 수요,<br /><em>실제로 늘고 있나.</em></h1><p class="lead">미국·유럽·중동·일본·칠레의 검색 관심도와 유통 채널을 분리해서 관찰합니다. 확인되지 않은 BSR·검색지수는 비워둡니다.</p></div>
+        <div class="controls"><label for="country">국가 선택</label><select class="input" id="country"></select><label for="product">검색 제품</label><select class="input" id="product"></select></div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>Amazon 상품별 BSR</strong><span class="data-label" id="amazon-meta">순위 기록 확인 중</span></div><div class="graph small"><canvas id="chart-amazon"></canvas></div><div class="blankmini" id="amazon-empty"></div><div class="panel-links"><a id="amazon-link" href="https://www.amazon.com" target="_blank" rel="noopener">현지 아마존 상품 검색 ↗</a></div></div><div class="panel"><div class="panel-top"><strong>Google Trends 검색 관심도</strong><span class="data-label" id="trends-meta">공식 CSV 시계열</span></div><div class="graph small"><canvas id="chart-trends"></canvas></div><div class="blankmini" id="trends-empty"></div><div class="panel-links"><a id="trends-link" href="https://trends.google.com/trends/explore" target="_blank" rel="noopener">해당 국가 구글 트렌드 ↗</a></div></div></div>
+        <div class="notice-line">BSR은 카테고리별 순위(작을수록 상위)이며 국가·카테고리마다 직접 비교할 수 없습니다. 구글 트렌드는 0~100 상대지수이고, 개별 CSV 수집 범위에 따라 정규화 기준이 달라집니다.</div>
+        <div class="section-title"><div><p class="eyebrow">RETAIL DISTRIBUTION</p><h2>현지 유통 접점</h2><span>Ulta · Target · Boots · 중동 현지 판매처 · 칠레 의료 유통</span></div></div><div class="retailer-grid" id="retailer-grid"></div>
+        <div class="section-title"><div><p class="eyebrow">PROVENANCE</p><h2>실측 데이터 수집 현황</h2></div></div><div class="panel padded" id="demand-sources"></div>
+      </section>
+      <section class="page" id="kbty" data-page="kbty">
+        <div class="intro compact"><p class="eyebrow">US LISTED / THEMATIC ETF</p><h1>KBTY ETF.<br /><em>자금 유입을 읽다.</em></h1><p class="lead">K-Beauty ETF의 거래가격, AUM, 에이피알 편입비중을 분리해서 추적합니다. 아직 미공개인 항목은 숫자를 생성하지 않습니다.</p></div>
+        <div class="etf-ribbon"><div><span class="ribbon-symbol">KBTY</span><div><strong>Guinness Atkinson K-Beauty ETF</strong><small>NYSE Arca · Indxx K-Beauty Index</small></div></div><span class="ribbon-status" id="kbty-status">공식 상태 확인 중</span></div>
+        <div class="metrics four"><div class="metric"><small>ETF 거래 종가 (USD)</small><b id="e-price">—</b><p id="e-price-date">상장 후 확인</p></div><div class="metric"><small>순자산 AUM (USD)</small><b id="e-aum">—</b><p>공식 순자산 발표 기준</p></div><div class="metric accent"><small>에이피알 편입비중</small><b id="e-apr">—</b><p id="e-apr-date">구성종목 공식 발표 기준</p></div><div class="metric"><small>에이피알 보유주식 수</small><b id="e-shares">—</b><p>공식 ETF 보유자료 확인 후</p></div></div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>ETF 가격 추이</strong><small>상장 후 USD 종가</small></div><div class="graph small"><canvas id="chart-etf"></canvas></div><div id="etf-price-empty" class="blankmini"></div></div><div class="panel"><div class="panel-top"><strong>AUM 유입 추이</strong><small>달러 기준 순자산</small></div><div class="graph small"><canvas id="chart-aum"></canvas></div><div id="etf-aum-empty" class="blankmini"></div></div></div>
+        <div class="panel padded"><div class="section-split"><div><h3>편입종목 및 APR 노출도</h3><p class="subtle">상장 후 운용사 일별 구성종목 공시와 대조</p></div><a class="minor-button" href="https://www.gafunds.com/kbty/" target="_blank" rel="noopener">공식 ETF 자료 ↗</a></div><div id="etf-holdings" class="holdings-list"></div><div class="feature-line">예정 구성종목 <strong>25개</strong> · 연 보수 <strong>0.55%</strong> · AUM 증가만으로 APR 매수액을 확정할 수는 없습니다.</div></div>
+      </section>
+      <section class="page" id="business" data-page="business">
+        <div class="intro compact"><p class="eyebrow">NEW BUSINESS / GLOBAL</p><h1>칠레·HIFU.<br /><em>계획에서 매출로.</em></h1><p class="lead">현지 스페인어 기사를 우선 탐색하고, 초도 공급·출시·클리닉 시술 도입·재주문·인허가를 서로 다른 단계로 기록합니다.</p></div>
+        <div class="milestone-row"><div class="milestone"><small>칠레 PN 스킨부스터</small><strong>공식 출시 단계 확인</strong><p>실제 클리닉 도입·재주문 증거 별도 검증</p></div><div class="milestone"><small>병원용 HIFU</small><strong>2026년 말 출시 목표</strong><p>경영진 예정 일정 · 실제 판매 미확인</p></div><div class="milestone"><small>병원용 RF</small><strong>2027년 목표</strong><p>허가·출시 관련 후속 확인 필요</p></div></div>
+        <div class="section-title"><div><p class="eyebrow">VERIFIED EVENTS</p><h2>확인된 사업 진척</h2><span>뉴스 기사와 실제 판매 수치는 구별합니다.</span></div></div><div class="timeline" id="verified-events"></div>
+        <div class="section-title"><div><p class="eyebrow">LOCAL MEDIA / RSS</p><h2>현지 뉴스 탐색</h2><span>Google News RSS 기반 · 기사 원문으로 진위 확인</span></div><select class="input" id="news-filter"><option value="all">전체</option><option value="칠레">칠레</option><option value="HIFU">HIFU·RF</option><option value="중동">중동</option><option value="KBTY">KBTY</option></select></div><div class="news-stack" id="news-stack"></div>
+        <div class="notice-line"><strong>우선 지켜볼 것:</strong> 칠레 KINEGUN 추가 발주, 현지 의료진의 실제 시술 안내·가격, 일본/중동 판매허가 및 현지 총판, HIFU 첫 매출·인허가.</div>
+      </section>
+      <section class="page" id="logistics" data-page="logistics">
+        <div class="intro compact"><p class="eyebrow">EARNINGS DRIVERS</p><h1>영업레버리지,<br /><em>비용으로 검증하다.</em></h1><p class="lead">환율과 해상·항공운임의 선행지표를 사업보고서 비용률과 함께 봅니다. 업종 지표가 곧 에이피알의 계약 운임은 아닙니다.</p></div>
+        <div class="section-title"><div><p class="eyebrow">SECTOR MIX / 2026</p><h2>지역별 매출 성장</h2><span>에이피알 2·3분기 IR 요약 자료 · 억원</span></div></div>
+        <div class="panel"><div class="panel-top"><strong>북미·유럽·아시아·국내 및 기타</strong><span class="data-label">QoQ 분기별 증감</span></div><div class="graph"><canvas id="chart-region"></canvas></div></div>
+        <div class="grid two"><div class="panel padded"><h3>오프라인 비중과 매출 변화</h3><div id="offline-table"></div><p class="under-note">지역별 오프라인 비중의 분모와 전사 B2B 비중의 분모는 다릅니다.</p></div><div class="panel padded"><h3>다음 분기 확인할 비용률</h3><div class="cost-list"><div><span>판매수수료 / 매출</span><b>중요</b></div><div><span>광고선전비 / 매출</span><b>중요</b></div><div><span>운반비 + 원가 속 국제운송비</span><b>중요</b></div><div><span>환율 제거 후 OPM</span><b>비교</b></div><div><span>재고 회전율·오프라인 재주문</span><b>확인</b></div></div></div></div>
+        <div class="section-title"><div><p class="eyebrow">FREIGHT COST</p><h2>해상·항공운임 관찰</h2></div></div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>해상 수출입운임 지표</strong><small>국가물류통합정보센터 · 월간</small></div><div class="graph small"><canvas id="chart-sea"></canvas></div></div><div class="panel padded"><h3>KITA 운임 자료 바로가기</h3><p class="content-note">해상·항공 참고운임은 지역·수송중량·부대비용 기준이 다릅니다. 실제 물량 및 현지 풀필먼트 비용도 함께 고려해야 합니다.</p><div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener">KITA 해상운임 ↗</a><a href="https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do" target="_blank" rel="noopener">KITA 항공운임 ↗</a><a href="https://nlic.go.kr/nlic/seaDmstcOcn.action" target="_blank" rel="noopener">NLIC 해상통관 통계 ↗</a></div><div class="empty-inset">항공운임 자동 시계열은 공개 API 확인 전까지 미수집으로 표시합니다.</div></div></div>
+        <div class="panel padded final-diagnostics"><div class="section-split"><h3>데이터 수집 상태</h3><small id="diagnostic-date">—</small></div><div id="diagnostic-errors" class="checks"></div></div>
+      </section>
+    </main>
+    <footer class="footer"><span>APR SIGNAL · 개인 연구용 공개자료 대시보드</span><span>실측되지 않은 데이터는 공란 · 투자의 최종 판단은 사용자에게 있음</span></footer>
+  </div>
+</div>
+</body>
+</html>

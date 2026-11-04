@@ -1,0 +1,33 @@
+{
+  "start_date": "2026-05-01",
+  "markets": [
+    {"code":"US","name":"미국","amazon":"amazon.com","region":"북미"},
+    {"code":"GB","name":"영국","amazon":"amazon.co.uk","region":"유럽"},
+    {"code":"DE","name":"독일","amazon":"amazon.de","region":"유럽"},
+    {"code":"FR","name":"프랑스","amazon":"amazon.fr","region":"유럽"},
+    {"code":"IT","name":"이탈리아","amazon":"amazon.it","region":"유럽"},
+    {"code":"ES","name":"스페인","amazon":"amazon.es","region":"유럽"},
+    {"code":"CA","name":"캐나다","amazon":"amazon.ca","region":"북미"},
+    {"code":"JP","name":"일본","amazon":"amazon.co.jp","region":"아시아"},
+    {"code":"AE","name":"아랍에미리트","amazon":"amazon.ae","region":"중동"},
+    {"code":"SA","name":"사우디아라비아","amazon":"amazon.sa","region":"중동"},
+    {"code":"EG","name":"이집트","amazon":"amazon.eg","region":"중동"},
+    {"code":"QA","name":"카타르","amazon":null,"region":"중동"},
+    {"code":"KW","name":"쿠웨이트","amazon":null,"region":"중동"},
+    {"code":"CL","name":"칠레","amazon":null,"region":"중남미"}
+  ],
+  "products": ["medicube PDRN pink peptide serum", "medicube zero pore pad", "medicube collagen jelly cream", "medicube collagen night wrapping mask", "medicube AGE-R booster pro"],
+  "trends_terms": {
+    "default": ["medicube", "medicube pdrn", "AGE-R", "medicube collagen"],
+    "CL": ["medicube", "polinucleótidos", "ADN de salmón", "Rejuran", "skinbooster"],
+    "ME": ["medicube", "ميديكيوب", "PDRN", "skin booster"]
+  },
+  "retailers": [
+    {"id":"ulta", "name":"Ulta Beauty", "country":"US", "url":"https://www.ulta.com/brand/medicube"},
+    {"id":"target", "name":"Target", "country":"US", "url":"https://www.target.com/s?searchTerm=medicube"},
+    {"id":"boots", "name":"Boots", "country":"GB", "url":"https://www.boots.com/sitesearch?searchTerm=medicube"},
+    {"id":"watsons-sa", "name":"Watsons Saudi", "country":"SA", "url":"https://www.watsons.sa/"},
+    {"id":"niceone-sa", "name":"Nice One Saudi", "country":"SA", "url":"https://niceonesa.com/"},
+    {"id":"kinegun", "name":"KINEGUN Medicals", "country":"CL", "url":"https://kinegun.cl/medicube/"}
+  ]
+}

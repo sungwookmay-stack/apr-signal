@@ -1,0 +1,558 @@
+{
+  "meta": {
+    "name": "에이피알",
+    "ticker": "278470",
+    "market": "KRX",
+    "start": "2026-05-01",
+    "stock_source": "StockAnalysis / S&P Global Market Intelligence (검증용 최근 50거래일 종가)",
+    "fx_sources": {},
+    "stock_last": "2026-11-03",
+    "usd_fx_last": null,
+    "eur_fx_last": null,
+    "generated_at_utc": "2026-11-04T00:00:00+00:00",
+    "coverage_start": "2026-08-20",
+    "complete": false,
+    "errors": [],
+    "note": "자동 수집 이전 최근 50거래일 검증용 종가 스냅샷입니다. 로컬 사이트 실행 후 최초 접속 시 2026-05-01 이후 전체 데이터와 환율을 자동 수집합니다."
+  },
+  "series": [
+    {
+      "date": "2026-08-20",
+      "close_krw": 386000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-21",
+      "close_krw": 385000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-24",
+      "close_krw": 409500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-25",
+      "close_krw": 440500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-26",
+      "close_krw": 442000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-27",
+      "close_krw": 434500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-28",
+      "close_krw": 461500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-08-31",
+      "close_krw": 464500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-01",
+      "close_krw": 432500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-02",
+      "close_krw": 419000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-03",
+      "close_krw": 406000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-04",
+      "close_krw": 394000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-07",
+      "close_krw": 384000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-08",
+      "close_krw": 377000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-09",
+      "close_krw": 368500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-10",
+      "close_krw": 361000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-11",
+      "close_krw": 372000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-14",
+      "close_krw": 369000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-15",
+      "close_krw": 361500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-16",
+      "close_krw": 353000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-17",
+      "close_krw": 353000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-18",
+      "close_krw": 367000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-21",
+      "close_krw": 366000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-22",
+      "close_krw": 361500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-23",
+      "close_krw": 368500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-28",
+      "close_krw": 368500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-29",
+      "close_krw": 362500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-09-30",
+      "close_krw": 366000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-01",
+      "close_krw": 366000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-02",
+      "close_krw": 366000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-06",
+      "close_krw": 361000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-07",
+      "close_krw": 379000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-08",
+      "close_krw": 371500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-12",
+      "close_krw": 352000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-13",
+      "close_krw": 283000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-14",
+      "close_krw": 294500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-15",
+      "close_krw": 298000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-16",
+      "close_krw": 325500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-19",
+      "close_krw": 331500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-20",
+      "close_krw": 310000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-21",
+      "close_krw": 319000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-22",
+      "close_krw": 291000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-23",
+      "close_krw": 284500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-26",
+      "close_krw": 282000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-27",
+      "close_krw": 278000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-28",
+      "close_krw": 289000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-29",
+      "close_krw": 282500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-10-30",
+      "close_krw": 261000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-11-02",
+      "close_krw": 263500,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    },
+    {
+      "date": "2026-11-03",
+      "close_krw": 246000,
+      "volume": 0,
+      "usdkrw": null,
+      "eurkrw": null,
+      "close_usd": null,
+      "fx_usd_date": null,
+      "fx_eur_date": null
+    }
+  ],
+  "fx": [],
+  "logistics": {
+    "unit": "천원/2TEU",
+    "source": "국가물류통합정보센터 / 관세청 해상수출입 통계",
+    "air": [],
+    "sea": [
+      {
+        "month": "2026-05",
+        "us_west": 5465,
+        "us_east": 5607,
+        "eu": 3591
+      },
+      {
+        "month": "2026-06",
+        "us_west": 7705,
+        "us_east": 7114,
+        "eu": 4159
+      },
+      {
+        "month": "2026-07",
+        "us_west": 8527,
+        "us_east": 7952,
+        "eu": 5507
+      },
+      {
+        "month": "2026-08",
+        "us_west": 8470,
+        "us_east": 9461,
+        "eu": 4993
+      },
+      {
+        "month": "2026-09",
+        "us_west": 9511,
+        "us_east": 9339,
+        "eu": 5040
+      }
+    ]
+  }
+}

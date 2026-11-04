@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-11-04T00:00:00+00:00",
+  "timezone": "Asia/Seoul",
+  "price_last": "2026-11-03",
+  "price_coverage_start": "2026-08-20",
+  "fx_last": null,
+  "technical_last": "2026-11-03",
+  "technical_ohlc_days": 0,
+  "kbty_status": "상장 예정",
+  "news_count": 0,
+  "trends_points": 0,
+  "amazon_points": 0,
+  "errors": [
+    "초기 동봉 데이터는 최근 50거래일 KRW 종가만 검증됨. 5월 이후 전체 및 FX는 첫 온라인 갱신 필요."
+  ],
+  "data_policy": "확인된 데이터만 표시. 미공개·수집 실패는 공란."
+}
