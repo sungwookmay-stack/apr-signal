@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T12:02:46+00:00",
+  "updated_at": "2026-11-04T12:07:53+00:00",
   "countries": [
     {
       "code": "US",
@@ -88144,11 +88144,11 @@
   "amazon": [],
   "amazon_status": [
     "API.SH 상품 BSR 0건 확인, 검증된 ASIN 0개",
-    "이번 달 API.SH 호출예산 사용 34/750 크레딧 (시도 기준)"
+    "이번 달 API.SH 호출예산 사용 51/750 크레딧 (시도 기준)"
   ],
   "watchlist": [],
   "retail": [],
   "api_mode": "free_api_sh",
-  "api_credits_used_this_month": 34,
+  "api_credits_used_this_month": 51,
   "note": "BSR=카테고리 내 판매 순위이지 판매량이 아님. Google Trends=국가·기간·검색 그룹 내 상대지수(0~100)."
 }
