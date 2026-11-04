@@ -79,7 +79,7 @@ def update_trends(client,cfg,previous):
     NEVER merge independent Trends 0-100 normalizations for same country.
     """
     old=previous or []
-    grouped={x['country']:[] for x in cfg.get('markets',[]) if x.get('code')}
+    grouped={x['code']:[] for x in cfg.get('markets',[]) if x.get('code')}
     for row in old:
         if row.get('source','').startswith('API.SH') and row.get('country') in grouped:
             grouped[row['country']].append(row)
