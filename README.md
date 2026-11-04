@@ -119,32 +119,52 @@ python -m http.server 8787
 주의: 공짜 GitHub Pages 저장소는 **공개**됩니다. GitHub Actions의 실행 시점은 예약 시간보다 늦어질 수 있습니다. 데이터 제공처·API의 차단, 무료 정책 변경, 주식 분할·수정주가 이슈, 휴장일, 환율 고시 시차는 보고서의 수집 상태를 반드시 확인하세요.
 
 
-## Beauty 상위 순위 집계 (2026-11-04 추가)
+## Amazon Beauty 11개국 무료 일별 수집 (2026-11-04 최신 운영안)
 
-- 대상: 미국 Amazon Beauty는 매일, 다른 10개 마켓은 하루 2곳씩 순환 관측
-- 자료: API.SH `/amazon/v1/bestsellers?category=beauty&list=best_sellers`의 1·2페이지
-- 집계: 고유 ASIN 중 제목/브랜드에 `medicube`가 확인되는 항목을 합산
-- **중요:** API 제공 문서에 따르면 두 페이지에 약 50개만 제공될 수 있음. 1~100위를 모두 관측하지 못한 날의 수치는 **'확인된 최소 품목 수'**로만 표시함. 실제 전체 Top100 합계를 추정하지 않음
-- 추적: 날짜별 확인된 수, 실제 확보한 순위 항목 수, 동일한 관측 범위일 때의 신규 진입·이탈, 상품별 순위 및 ASIN
-- 최초 수집 이전 날짜의 순위를 소급해 만들지 않음
-- 무료 예산: Beauty 상위 목록 최대 하루 6크레딧(3개국 × 2페이지), 아마존 기존 개별 BSR 조회 하루 최대 2개로 조정. API.SH 모든 기능 합산 월 **750 크레딧 시도 상한**을 유지. GitHub 코드 변경 시 수집 API를 호출하지 않음
-- 1회 확인용 갱신은 GitHub Actions 수동 실행 또는 특별한 `[collect-now]` 표시 커밋으로 수행하고, 평상시는 한국시간 매일 07:30 자동 갱신. GitHub 예약 실행은 지연될 수 있음
-- 국가별 카테고리 정의가 다르면 단순 품목 수를 비교해 시장점유율이라고 단정할 수 없음
+**무료 운영이 제1원칙입니다.** Amazon BSR이 비어 있던 API.SH 개별 상품 조회는
+Scrape.do 토큰이 설정된 동안 실행하지 않고, Google Trends 수집은 기존 API.SH 키를 유지합니다.
+새로운 유료 구독·유료 프록시·자동 충전은 사용하지 않습니다.
 
+- 대상 독립 Amazon 마켓 11개국: US, GB, DE, FR, IT, ES, CA, JP, AE, SA, EG.
+  QA/KW/CL은 독립 Amazon 마켓이 아니므로 Google Trends와 별도 유통 채널로 관리합니다.
+- **07:30 KST 매일:** Scrape.do Best Sellers API의 국가별 Beauty 1·2페이지
+  (각 50순위) 수집을 시도합니다. 정상 동작하면 11×2=22요청/일입니다.
+- **ASIN 정합성:** 상품 카드에 없는 약 40개/국가의 브랜드는 국가별
+  `data/amazon_asin_identities.json`에 검증된 기존 상품명/브랜드를 대조하고,
+  미확인 ASIN만 무료 예산 내 PDP API로 추가 확인합니다. 미확인 ASIN은 메디큐브가
+  아니라고 가정하지 않습니다.
+- **PDP BSR:** Scrape.do 상품 상세페이지의 `best_seller_rankings`를
+  `data/scrapedo_pdp.json`에 날짜·국가·ASIN·카테고리별 누적합니다.
+  국가별 Beauty Top100 순위와 상품별 세부 카테고리 BSR은 **별도 그래프**입니다.
+- **유료 방지:** 무조건 요청당 3크레딧을 먼저 예약한 후, 성공 응답의
+  `Scrape.do-Request-Cost` 헤더가 있을 때만 실제 차감량으로 보정합니다.
+  실제 비용이 기본 1크레딧을 넘거나 월 900크레딧 보호 상한, 계정 잔여
+  20크레딧 이하라면 추가 수집을 자동 중단합니다.
+  비용 헤더가 없으면 3크레딧 예약을 유지합니다.
+- 월 31일 **가정상** Best Sellers 682 + PDP 최대 124 = **최대 806크레딧**입니다.
+  이 계산은 요청당 실제 비용이 1크레딧임이 확인된 경우에만 적용됩니다.
+  API가 실패하거나 비용 헤더가 없으면 수집량을 줄여서라도 안전한도 안에서 작동합니다.
+- 먼저 수집한 날짜부터 이력이 누적됩니다. 과거 날짜를 임의로 채우지 않습니다.
+  국가별 관측 실패/일부 순위 확보는 0건이 아니라 미수집 또는 최소 확인으로 구분합니다.
+- 독립적인 Top100 랭크 100개를 받더라도, 상품 정체가 확인되지 않은 ASIN이 남으면
+  메디큐브 진입품목 수는 **최소 확인 수**입니다. 진입·이탈은 동일 범위에서
+  정체를 모두 확인한 날 사이에만 확정합니다.
+- 최신 수집 방식은 `scrapedo_bestsellers.py`, `build_data.py`,
+  `assets/app.js`, `tests/test_scrapedo.py` 참조.
 
-- 2026-11-04: 아마존 부분 베스트셀러에서 확인된 ASIN을 BSR 추이와 연결하고, Ulta/Target/Boots 및 독립 주간 미국 Top100 참고지표를 근거·기준일과 함께 표시하도록 보강. 공개 판매처 갱신이 실패하면 마지막 확인값을 보존한다.
+### 설정
 
-## 영국 등 Top 100 누락 보완: 무료 대체 API (2026-11-04)
+1. [Scrape.do 무료 플랜](https://scrape.do/pricing/)에서 토큰 발급. 카드 정보 등록이나 유료 업그레이드 불필요.
+2. GitHub 저장소 Settings → Secrets and variables → Actions에 `SCRAPEDO_TOKEN`
+   을 등록합니다. 토큰은 저장소 파일이나 채팅에 붙여넣지 마세요.
+3. 기존 `APISH_KEY`는 Google Trends 수집을 위해 그대로 유지합니다.
+4. GitHub Actions → APR SIGNAL - free data refresh and Pages → Run workflow 실행,
+   완료 후 **데이터 수집 상태** 및 `data/scrapedo_usage.json`의
+   `last_verified_cost`와 `reserved_credits`를 확인합니다.
 
-**왜 영국 상품이 0개로 보였나?** 11월 4일 초기 API.SH 자료는 US/SA/EG 3개국만 저장되었고 영국은 미수집이었다. 따라서 영국은 0개가 아니라 미수집이다. 일부 아마존 목록은 페이지당 순위 50개 중 약 30개 상품만 제목을 제공한다. 순위와 ASIN만 있는 항목은 브랜드를 알 수 없어서, 숫자를 0개 혹은 전체 미진입으로 확정하면 오류가 된다.
-
-- 우선 지역: **미국·영국 매일**, 그 외 아마존 9개 마켓 중 하루 1개국 순환
-- 기존 API.SH: 무료 계정 키 `APISH_KEY` 유지, 부분 목록 제공 시 **최소 확인 개수**만 집계
-- 선택형 Scrape.do: [무료 플랜](https://scrape.do/pricing/)의 월 1,000 크레딧(신용카드 불필요); [Best Sellers API 문서](https://scrape.do/documentation/amazon-scraper-api/bestsellers/). [GitHub Actions Secret](https://github.com/sungwookmay-stack/apr-signal/settings/secrets/actions)에 `SCRAPEDO_TOKEN` 등록 시 `scrapedo_bestsellers.py` 자동 활성화. 코드에는 토큰을 넣지 않음.
-- Scrape.do 아마존 Beauty 1, 2페이지는 각각 랭킹 1~50, 51~100의 **전체 ASIN 순위**를 제공하지만, 제목은 일부만 제공. 확인된 종목의 제목과 이전에 검증한 ASIN 자료를 교차 대조한다.
-- **두 개의 독립적인 완전성 표식:** `rank_coverage_complete`는 1~100위 ASIN 확보, `coverage_complete`는 ASIN에 대한 상품명/브랜드까지 100개 검증한 경우만 `true`. 둘 다 확인하지 못하면 **메디큐브 최소 확인 품목 수**로 표시, 미수집/미진입 구분.
-- 공급사 요청 실제 비용과 무료 플랜은 변경될 수 있다. Scrape.do 코드는 요청당 3크레딧 보수적 예약·월 690크레딧 자체 한도로 차단하고 기본 `super=false`를 유지하며 프로바이더 `Scrape.do-Request-Cost` 헤더도 기록한다. 사용량은 `data/scrapedo_usage.json`에 누적. 가입 후 실제 계정에서 호출비용 및 무료 사용량 검증 필요.
-- **다른 참고자료:** [MetricsCart 영국 2026년 9월 분석](https://metricscart.com/bestseller-reports/amazon-uk/categories/Beauty/)에는 그달 베스트셀러 목록에 등장한 메디큐브 **서로 다른 15종**이 기록됐다. 이는 월간 관측치이며 특정 하루의 동시 Top 100 진입 15종이라는 뜻이 아니다. 사이트 `data/reference_signals.json`의 `amazon_monthly`에 따로 표기한다.
-- 미국·영국 외 마켓 역시 현재 확인 기록이 없으면 **미수집**이라고 표시하며 임의의 0개를 만들지 않는다.
-
-- 2026-11-04 21시 KST 기존 API.SH 키로 미국·영국 우선 수집 전환 동작을 1회 검증하도록 요청. 신규 Scrape.do 비밀키가 등록되기 전에는 새 공급사의 실호출이 수행되지 않음.
+*참고:* [Scrape.do Best Sellers 문서](https://scrape.do/documentation/amazon-scraper-api/bestsellers/) /
+[PDP 문서](https://scrape.do/documentation/amazon-scraper-api/pdp/) /
+[요청당 비용](https://scrape.do/documentation/request-costs/).
+국가별 카테고리 URL이 다른 경우 `config/markets.json`의 해당 국가에
+`amazon_beauty_slug`를 별도로 지정할 수 있습니다. API키를 이용한 국가별
+실호출 테스트는 토큰 등록 후에만 가능합니다.
