@@ -121,5 +121,19 @@
       "온라인 상품 수, 반올림된 구매 배지, 현지 검색은 매장별 POS 매출 자료가 아님",
       "제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰"
     ]
-  }
+  },
+  "amazon_monthly": [
+    {
+      "month": "2026-09",
+      "country": "GB",
+      "category": "Amazon.co.uk Beauty bestsellers",
+      "medicube_unique_products_seen": 15,
+      "all_unique_products_seen": 175,
+      "rank_scope": "1-100 (observed during the month)",
+      "source": "MetricsCart public September 2026 Amazon UK category report",
+      "source_url": "https://metricscart.com/bestseller-reports/amazon-uk/categories/Beauty/",
+      "status": "third_party_monthly_distinct",
+      "caveat": "2026년 9월 한 달간 순위권에 등장한 서로 다른 상품 15종. 특정 하루의 동시 Top 100 진입 상품 수 15종이라는 뜻은 아님."
+    }
+  ]
 }
