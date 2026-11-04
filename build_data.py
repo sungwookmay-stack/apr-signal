@@ -400,8 +400,8 @@ def collect_demand():
     output={'updated_at':NOW,'countries':config.get('markets',[]),'products':config.get('products',[]),
         'trends_terms':config.get('trends_terms',{}),'retailers':config.get('retailers',[]),
         'trends':trend,'trends_status':statuses or ['공식 CSV 데이터 없음 — Google Trends 원본 링크 이용'],
-        'amazon':amazon[-2000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
-        'top100':top100_history[-500:], 'top100_status':top100_status,
+        'amazon':amazon[-10000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
+        'top100':top100_history[-4000:], 'top100_status':top100_status,
         'scrapedo_reserved_credits':scrape_credits,
         'watchlist':[x for x in watched if x.get('asin')]+discovered,
         'retail':retail,'api_mode':('free_api_sh' if api_key else 'csv_or_public'),
@@ -410,7 +410,7 @@ def collect_demand():
     save('demand.json',output)
     # Small independent verification record so rankings can be checked without
     # downloading the (potentially large) multi-country Google Trends series.
-    save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-500:],
+    save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-4000:],
                         'status':top100_status,
                         'coverage_note':'Complete requires all ranks 1..100 AND all 100 products identified. Rank-only ASINs without title imply minimum confirmed count.',
                         'scrapedo_reserved_credits':scrape_credits})
