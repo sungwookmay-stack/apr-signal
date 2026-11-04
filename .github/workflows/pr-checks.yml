@@ -23,3 +23,5 @@ jobs:
         run: node --check assets/app.js
       - name: Dashboard smoke
         run: node tests/smoke_demand.cjs
+      - name: Verify Korean news rendering
+        run: node tests/smoke_news.cjs
