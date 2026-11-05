@@ -6,6 +6,8 @@ on:
   schedule:
     # 07:30 Korea time (KST, UTC+9) = 22:30 UTC on the preceding date; daily. Cron execution may be delayed.
     - cron: '30 22 * * *'
+    # 16:00 Korea time (KST) = 07:00 UTC; only Google News RSS + Korean headlines.
+    - cron: '0 7 * * *'
   workflow_dispatch:
 
 permissions:
@@ -41,15 +43,15 @@ jobs:
         run: python -m unittest tests/test_freight_official.py -v
       - name: Fetch data, calculate signals, update verified news
         # Code-only pushes avoid consuming credits; explicit [collect-now] commit runs one authorized refresh.
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
         env:
           APISH_KEY: ${{ secrets.APISH_KEY }}
           SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python build_data.py
       - name: Fetch US and other local news only without Amazon or paid APIs
-        # [news-now] uses only free Google News RSS plus free-limit translation.
-        # Do not run build_data.py: that would consume Amazon/Trends credits.
-        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[news-now]')
+        # Afternoon 16:00 KST and [news-now] run RSS + translation only.
+        # Do not call build_data.py: it would repeat Amazon/Trends collection.
+        if: (github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'push' && contains(github.event.head_commit.message, '[news-now]'))
         run: python -c "from build_data import collect_news; collect_news()"
       - name: Refresh Korean news only without Amazon or paid APIs
         # [translate-now] avoids a fresh Amazon collection, preserving credits.
