@@ -119,11 +119,44 @@ def valid_translation(original, translated):
 
 
 class FreeTranslator:
-    def __init__(self, utc_day=None, transport=None):
-        self.day = utc_day or dt.datetime.now(dt.timezone.utc).date().isoformat()
-        self.usage = read_json(USAGE, {})
-        if self.usage.get('day') != self.day:
-            self.usage = {'day': self.day, 'reserved_chars': 0, 'calls': 0}
+    def __init__(self, utc_day=None, transport=None, utc_now=None):
+        self.now = utc_now or dt.datetime.now(dt.timezone.utc)
+        if self.now.tzinfo is None:
+            raise ValueError('UTC-aware timestamp required')
+        self.day = utc_day or self.now.date().isoformat()
+        previous = read_json(USAGE, {})
+        if not isinstance(previous, dict):
+            previous = {}
+        rolling = previous.get('events')
+        if not isinstance(rolling, list):
+            rolling = []
+            # Migrate an older usage file which recorded only daily totals.
+            # For safety, count recent un-timestamped calls conservatively.
+            try:
+                old_date = dt.date.fromisoformat(previous.get('day', ''))
+                old_chars = int(previous.get('reserved_chars') or 0)
+                if (0 <= (self.now.date() - old_date).days <= 1 and old_chars > 0):
+                    rolling = [{'at_utc': self.now.isoformat(timespec='seconds'),
+                                'chars': min(old_chars, DAILY_CHAR_LIMIT)}]
+            except (ValueError, TypeError):
+                pass
+        cutoff = self.now - dt.timedelta(hours=24)
+        events = []
+        for event in rolling:
+            if not isinstance(event, dict):
+                continue
+            try:
+                when = dt.datetime.fromisoformat(event['at_utc'])
+                chars = int(event['chars'])
+                if when.tzinfo and cutoff <= when <= self.now and chars > 0:
+                    events.append({'at_utc': when.isoformat(timespec='seconds'),
+                                   'chars': min(chars, DAILY_CHAR_LIMIT)})
+            except (KeyError, TypeError, ValueError):
+                continue
+        if previous.get('day') != self.day:
+            previous = {'day': self.day, 'reserved_chars': 0, 'calls': 0}
+        self.usage = previous
+        self.usage['events'] = events
         self.transport = transport or self._http_get
         self.errors = []
         self.skipped_quota = 0
@@ -140,15 +173,22 @@ class FreeTranslator:
         if not title or language == 'ko':
             return title if language == 'ko' else None
         char_count = len(title)
+        rolling_chars = sum(e['chars'] for e in self.usage['events'])
         if (len(title.encode('utf-8')) > MAX_QUERY_BYTES or
             self.usage.get('reserved_chars', 0) + char_count > DAILY_CHAR_LIMIT or
+            rolling_chars + char_count > DAILY_CHAR_LIMIT or
             self.usage.get('calls', 0) >= MAX_REQUESTS_PER_RUN):
             self.skipped_quota += 1
             return None
 
-        # Reserve before the call so a retry/manual refresh cannot overspend.
+        # Both UTC-day and rolling 24h limits protect the morning/afternoon
+        # KST schedule across the UTC date boundary. Reserve before network.
         self.usage['reserved_chars'] += char_count
         self.usage['calls'] += 1
+        self.usage['events'].append({
+            'at_utc': self.now.isoformat(timespec='seconds'),
+            'chars': char_count
+        })
         write_json(USAGE, self.usage)
         query = urllib.parse.urlencode({'q': title, 'langpair': language + '|ko'})
         try:
@@ -216,6 +256,7 @@ def localize_items(items, translator=None):
         'pending': unavailable_count,
         'free_translation_chars_reserved_today': translator.usage.get('reserved_chars', 0),
         'free_translation_chars_daily_cap': DAILY_CHAR_LIMIT,
+        'free_translation_chars_reserved_24h': sum(e['chars'] for e in translator.usage.get('events', [])),
         'skipped_quota': translator.skipped_quota,
         'errors': translator.errors[:5]
     }
