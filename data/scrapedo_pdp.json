@@ -166,5 +166,89 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.de/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "CA",
+    "asin": "B0CVRCR6VF",
+    "product": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid - Ideal for All Skin Types -",
+    "title": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid - Ideal for All Skin Types -",
+    "bsr": 27,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ca/dp/B0CVRCR6VF"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "CA",
+    "asin": "B0CVRCR6VF",
+    "product": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid - Ideal for All Skin Types -",
+    "title": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid - Ideal for All Skin Types -",
+    "bsr": 1,
+    "category": "Facial Cleansing Pads",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ca/dp/B0CVRCR6VF"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "product": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "title": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "bsr": 68,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.jp/dp/B08HGZ5XPH"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "product": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "title": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "bsr": 2,
+    "category": "Pore Cleansing Strips",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.jp/dp/B08HGZ5XPH"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "product": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "title": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "bsr": 3,
+    "category": "Facial Toners & Astringents",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.jp/dp/B08HGZ5XPH"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "AE",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum Sodium DNA 1%, Pink glow serum, Peptide, Niacinamide, Hydrating & Moisturizing & Plumping, Uneven Skin Tone, Korean Skincare 30ML (1.01 fl.oz., Sal",
+    "title": "medicube PDRN Pink Peptide Serum Sodium DNA 1%, Pink glow serum, Peptide, Niacinamide, Hydrating & Moisturizing & Plumping, Uneven Skin Tone, Korean Skincare 30ML (1.01 fl.oz., Sal",
+    "bsr": 5,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ae/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-06",
+    "country": "AE",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum Sodium DNA 1%, Pink glow serum, Peptide, Niacinamide, Hydrating & Moisturizing & Plumping, Uneven Skin Tone, Korean Skincare 30ML (1.01 fl.oz., Sal",
+    "title": "medicube PDRN Pink Peptide Serum Sodium DNA 1%, Pink glow serum, Peptide, Niacinamide, Hydrating & Moisturizing & Plumping, Uneven Skin Tone, Korean Skincare 30ML (1.01 fl.oz., Sal",
+    "bsr": 1,
+    "category": "Facial Day Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ae/dp/B0DBF65JYY"
   }
 ]

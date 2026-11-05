@@ -54,5 +54,33 @@
     "asin": "B0CQJYSLD2",
     "identified": true,
     "bsr_categories": 0
+  },
+  {
+    "date": "2026-11-06",
+    "country": "CA",
+    "asin": "B0CVRCR6VF",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-06",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "identified": true,
+    "bsr_categories": 3
+  },
+  {
+    "date": "2026-11-06",
+    "country": "AE",
+    "asin": "B0DBF65JYY",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-06",
+    "country": "CA",
+    "asin": "B08628VNNK",
+    "identified": true,
+    "bsr_categories": 0
   }
 ]
