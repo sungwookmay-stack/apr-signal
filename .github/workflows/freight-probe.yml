@@ -1,0 +1,33 @@
+name: APR SIGNAL - Customs freight source live probe
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-official-freight:
+    if: contains(github.event.head_commit.message, '[freight-probe]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Customs release independently from paid data APIs
+        run: |
+          python - <<'PY'
+          import json
+          from freight_official import fetch_latest
+          from update_data import get_bytes, iso_today_kr
+          try:
+              observation, source_url = fetch_latest(get_bytes, today=iso_today_kr().date())
+              print(json.dumps({'status':'verified','observed':observation,
+                                'official_source':source_url},ensure_ascii=False))
+          except Exception as exc:
+              print(json.dumps({'status':'source_unavailable','error_type':type(exc).__name__,
+                                'message':str(exc)[:200]},ensure_ascii=False))
+              raise SystemExit(1)
+          PY
