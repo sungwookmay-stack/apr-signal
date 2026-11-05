@@ -89,8 +89,16 @@ def update_trends(client,cfg,previous):
     today=client.today.isoformat()
     attempts=dict(client.stats.get('last_trends_attempt_by_country') or {})
     observed={r.get('country') for r in old if r.get('country')}
+    # 'hl' changes interface labels, not the geographic market or search terms.
+    # 'es-419' yielded HTTP 400 for Spanish LATAM markets at first live run.
+    # Use the provider's known working en-US locale with geo AR/CL unchanged.
+    # Include locale in the per-country attempt key so a locale correction can
+    # be retried once immediately without repeating all other countries.
+    def locale(cc):
+        return 'pt-BR' if cc=='BR' else 'en-US'
     missing={country for country in grouped
-             if country not in observed and attempts.get(country)!=today}
+             if country not in observed and
+             attempts.get(country)!=today+'|'+locale(country)}
     normal=((client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=today
     if not normal and not missing:return old,0
     if normal:
@@ -102,15 +110,19 @@ def update_trends(client,cfg,previous):
         country=market['code'];terms=terms_for_country(cfg,country)
         if not normal and country not in missing:continue
         if not terms or client.remaining()<1:continue
-        attempts[country]=today
+        attempts[country]=today+'|'+locale(country)
         client.stats['last_trends_attempt_by_country']=attempts
         save(STATE,client.stats)
         urlparams={'q':','.join(terms),'geo':country,
                    'time':f'2026-05-01 {client.today.isoformat()}',
-                   'hl':'pt-BR' if country=='BR' else 'es-419' if country in ('AR','CL') else 'en-US',
+                   'hl':locale(country),
                    'sections':'time','property':'web','raw':'0'}
         j=client.get('google-trends/v1/interest',urlparams,1)
-        if not j or not isinstance(j.get('interest_over_time'),list):continue
+        if not j or not isinstance(j.get('interest_over_time'),list):
+            if hasattr(client,'errors'):
+                client.errors.append('Google Trends '+country+
+                                     ': 응답 미확인 (geo '+country+', hl '+locale(country)+')')
+            continue
         rows=[]
         for point in j['interest_over_time']:
             date=str(point.get('time') or '')[:10]
