@@ -83,16 +83,28 @@ def update_trends(client,cfg,previous):
     for row in old:
         if row.get('source','').startswith('API.SH') and row.get('country') in grouped:
             grouped[row['country']].append(row)
-    # On every other day; one full 2026-May-to-present scan. 16*16=256 cr/31-day month.
-    should_fetch=((client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=client.today.isoformat()
-    if not should_fetch:return old,0
-    client.stats['last_trends_run_day']=client.today.isoformat()
-    save(STATE,client.stats)
+    # Refresh all markets every other day, but also bootstrap newly added
+    # countries even when today's scheduled collection has already finished.
+    # Mark one attempt per missing country per day to avoid manual-run loops.
+    today=client.today.isoformat()
+    attempts=dict(client.stats.get('last_trends_attempt_by_country') or {})
+    observed={r.get('country') for r in old if r.get('country')}
+    missing={country for country in grouped
+             if country not in observed and attempts.get(country)!=today}
+    normal=((client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=today
+    if not normal and not missing:return old,0
+    if normal:
+        client.stats['last_trends_run_day']=today
+        save(STATE,client.stats)
     replaced=0
     # Pick a canonical single term set per country to preserve consistent comparisons.
     for market in cfg.get('markets',[]):
         country=market['code'];terms=terms_for_country(cfg,country)
+        if not normal and country not in missing:continue
         if not terms or client.remaining()<1:continue
+        attempts[country]=today
+        client.stats['last_trends_attempt_by_country']=attempts
+        save(STATE,client.stats)
         urlparams={'q':','.join(terms),'geo':country,
                    'time':f'2026-05-01 {client.today.isoformat()}',
                    'hl':'pt-BR' if country=='BR' else 'es-419' if country in ('AR','CL') else 'en-US',
