@@ -66,6 +66,17 @@ def make_topic_note(item, title_ko):
     """Editorial context from headline/category; not an article-body summary."""
     category = str(item.get('category') or '')
     raw = split_headline(item.get('title'))[0].lower()
+    # US-market reporting is a topic tag, not a guarantee of a US publisher.
+    # RSS headlines only: do not claim specific sales/store counts without source review.
+    if '미국 오프라인' in category:
+        return ('미국의 메디큐브 입점·오프라인 유통 채널 확대 관련 보도입니다. '
+                '매장 입점 사실과 실제 매장별 판매량·재주문은 구분해서 확인해야 합니다.')
+    if '미국 Amazon' in category:
+        return ('미국 Amazon·TikTok Shop 등 온라인 채널에서 메디큐브 판매·검색 동향을 다룬 기사입니다. '
+                '행사 매출이나 순위와 분기 전체 매출액은 직접 같지 않습니다.')
+    if '미국 뷰티기기' in category:
+        return ('미국 시장의 메디큐브 AGE-R 뷰티기기 또는 스킨케어 신제품 관련 보도입니다. '
+                '기사 제목만으로 판매량·제품 인증·매출 기여도를 확정할 수 없습니다.')
     if '브라질' in category:
         return ('브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. '
                 '실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.')

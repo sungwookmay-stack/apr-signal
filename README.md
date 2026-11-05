@@ -191,3 +191,13 @@ Scrape.do 토큰이 설정된 동안 실행하지 않고, Google Trends 수집�
 - **Google Trends:** 국가마다 0~100으로 별도 정규화되므로 브라질 60과 칠레 40을 실제 검색량 1.5배로 해석할 수 없습니다. 과거 시계열은 API가 정상 반환한 날짜만 표시합니다.
 
 공식 자료: [Scrape.do Amazon 마켓](https://scrape.do/documentation/amazon-scraper-api/), [베스트셀러 카테고리](https://scrape.do/documentation/amazon-scraper-api/bestsellers/).
+
+## 미국 관련 뉴스 자동 수집 (2026-11-05)
+
+- **미국 오프라인 유통:** Medicube와 Ulta, Target, Walmart, Costco, CVS, Nordstrom 등 소매점 관련 보도를 탐색합니다.
+- **미국 Amazon·온라인:** Medicube의 Amazon, Prime Day, TikTok Shop 관련 보도를 탐색합니다.
+- **미국 뷰티기기·신제품:** Medicube AGE-R, Booster Pro, 뷰티기기 및 PDRN 제품 동향을 탐색합니다.
+- Google News RSS의 미국 `hl=en-US&gl=US&ceid=US:en`을 사용합니다. 이는 **미국 시장 관련 검색**이라는 의미이며, 모든 기사의 발행사가 미국 언론이라는 보장은 없습니다.
+- 신사업 → 현지 뉴스 · 한글 요약 → **미국** 필터에서 최신 보도를 모아 볼 수 있습니다. 원문 제목·원문 링크는 보존합니다.
+- 기존 무료 MyMemory 한도 내에서 영어 제목을 한국어로 옮기고, 한 줄 설명은 **기사 제목 및 주제에 근거한 간략 설명**입니다. 원문 기사 본문을 자동으로 읽거나 검증된 매출로 단정하지 않습니다.
+- 매일 07:30 KST 기존 GitHub Actions 수집에 포함됩니다. 최초 확인용 `[news-now]` 커밋은 **Google News RSS와 무료 번역만** 실행하며 Scrape.do·API.SH 호출을 실행하지 않습니다. 유료 API는 추가되지 않습니다.

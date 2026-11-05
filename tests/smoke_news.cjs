@@ -35,6 +35,16 @@ const window = {
           published:'2026-11-05',
           url:'https://example.com/news'
         },{
+          title:'APR Medicube expands US Costco presence - UPI',
+          title_ko:'메디큐브, 미국 코스트코 유통 확대',
+          summary_ko:'미국 소매점 입점 관련 보도입니다. 판매 실적은 별도 확인이 필요합니다.',
+          summary_basis:'headline_only',
+          publisher:'UPI',
+          category:'미국 오프라인 유통',
+          country:'US',
+          published:'2026-11-05',
+          url:'https://example.com/us-retail'
+        },{
           title:'<img src=x onerror=alert(1)> - Bad News',
           category:'KBTY ETF',
           published:'2026-11-04',
@@ -70,6 +80,19 @@ ready().then(()=>{
   assert.match(html,/현지 기사 원문 확인/);
   assert.match(html,/&lt;img src=x onerror=alert\(1\)&gt;/);
   assert.doesNotMatch(html,/<img src=x onerror/);
-  assert.match(el('news-korean-status').textContent,/한국어 정리 1\/2건/);
+  assert.match(el('news-korean-status').textContent,/한국어 정리 2\/3건/);
+  assert.match(html,/미국 코스트코 유통 확대/);
+  el('news-filter').value='미국';
+  const update=callbacks.get('news-filter:change');
+  assert.equal(typeof update,'function','US filter handler must be registered');
+  update();
+  const usa=el('news-stack').innerHTML;
+  assert.match(usa,/미국 코스트코 유통 확대/);
+  assert.doesNotMatch(usa,/메디큐브, 칠레에서 신제품을 출시/);
+  assert.doesNotMatch(usa,/Bad News/);
+  assert.match(el('news-korean-status').textContent,/한국어 정리 1\/1건/);
+  el('news-filter').value='all'; update();
+  assert.match(el('news-stack').innerHTML,/메디큐브, 칠레에서 신제품을 출시/);
+  assert.match(el('news-stack').innerHTML,/미국 코스트코 유통 확대/);
   console.log('PASS: Korean summary, original source, headline scope, HTML escape');
 }).catch(err=>{console.error(err);process.exitCode=1;});
