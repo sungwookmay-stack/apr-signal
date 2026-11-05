@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-05T00:06:24+00:00",
+  "generated_at_utc": "2026-11-05T00:10:43+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-04",
   "price_coverage_start": "2025-07-01",
@@ -8,7 +8,7 @@
   "technical_ohlc_days": 329,
   "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
   "news_count": 24,
-  "trends_points": 9776,
+  "trends_points": 10721,
   "amazon_points": 95,
   "beauty_leaderboard_snapshots": 23,
   "retail_reference": {
@@ -24,6 +24,8 @@
     "external_weeks": 2
   },
   "errors": [
+    "무료 API: google-trends/v1/interest: HTTP Error 400: Bad Request",
+    "무료 API: google-trends/v1/interest: HTTP Error 400: Bad Request",
     "NLIC 해상운임 갱신 실패: NLIC tables not accessible or changed (이전 기록 유지)"
   ],
   "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
