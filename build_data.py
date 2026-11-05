@@ -176,6 +176,10 @@ def collect_kbty():
     return state
 
 NEWS_QUERIES=[
+  # United States: keep APR/Medicube explicit to avoid generic K-beauty headlines.
+  {'tag':'미국 오프라인 유통','country':'US','q':'"medicube" (Costco OR Ulta OR Target OR Walmart OR CVS OR Nordstrom)','hl':'en-US','gl':'US','ceid':'US:en'},
+  {'tag':'미국 Amazon·온라인','country':'US','q':'"medicube" (Amazon OR "Prime Day" OR "TikTok Shop")','hl':'en-US','gl':'US','ceid':'US:en'},
+  {'tag':'미국 뷰티기기·신제품','country':'US','q':'"medicube" ("AGE-R" OR "Booster Pro" OR "beauty device" OR PDRN)','hl':'en-US','gl':'US','ceid':'US:en'},
   {'tag':'브라질 메디큐브','country':'BR','q':'"medicube" beleza Brasil mercado','hl':'pt-BR','gl':'BR','ceid':'BR:pt-419'},
   {'tag':'아르헨티나 메디큐브','country':'AR','q':'"medicube" skincare Argentina','hl':'es-419','gl':'AR','ceid':'AR:es-419'},
   {'tag':'칠레 스킨부스터','country':'CL','q':'"medicube" "Kinegun" OR "skin booster" Chile','hl':'es-419','gl':'CL','ceid':'CL:es-419'},
