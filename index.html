@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./assets/style.css" />
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
-<script defer src="./assets/app.js?v=20261105-latam-1"></script>
+<script defer src="./assets/app.js?v=20261105-latam-visibility-1"></script>
 </head>
 <body>
 <div class="shell">
@@ -57,8 +57,10 @@
       <section class="page" id="demand" data-page="demand">
         <div class="intro compact"><p class="eyebrow">DEMAND SIGNALS</p><h1>글로벌 수요,<br /><em>실제로 늘고 있나.</em></h1><p class="lead">미국·유럽·중동·일본과 남미(브라질·아르헨티나·칠레)의 검색 관심도와 유통 채널을 분리해서 관찰합니다. 확인되지 않은 BSR·검색지수는 비워둡니다.</p></div>
         <div class="controls"><label for="country">국가 선택</label><select class="input" id="country"></select><label for="product">상품별 순위</label><select class="input" id="product"></select></div>
-        <div class="section-split latam-title"><div><h3>남미 3개국 모니터링</h3><p class="subtle">국가를 선택하면 아래 검색 관심도와 판매순위가 전환됩니다. 검색지수는 각 국가 내 상대값으로 국가 간 직접 비교할 수 없습니다.</p></div></div>
-        <div class="latam-overview" id="latam-overview"><div class="blankmini">브라질·아르헨티나·칠레 데이터 준비 중</div></div>
+        <div id="latam-region" hidden>
+          <div class="section-split latam-title"><div><h3>남미 3개국 모니터링</h3><p class="subtle">국가를 선택하면 아래 검색 관심도와 판매순위가 전환됩니다. 검색지수는 각 국가 내 상대값으로 국가 간 직접 비교할 수 없습니다.</p></div></div>
+          <div class="latam-overview" id="latam-overview"><div class="blankmini">브라질·아르헨티나·칠레 데이터 준비 중</div></div>
+        </div>
         <div class="rank-status-bar">
           <div><small>선택 국가 · 확인된 Beauty 상품</small><strong id="amazon-quick-count">—</strong></div>
           <div><small>최신 관측 범위</small><strong id="amazon-quick-date">원본 확인 중</strong></div>

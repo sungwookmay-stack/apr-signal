@@ -33,6 +33,8 @@ assert.equal(typeof ready,'function');
 ready().then(()=>{
  const options=el('country').innerHTML;
  for(const name of ['브라질','아르헨티나','칠레'])assert.ok(options.includes(name),name);
+ const region=el('latam-region');
+ assert.equal(region.hidden,true,'US country view must hide the LATAM section');
  const menu=el('latam-overview');
  for(const name of ['브라질','아르헨티나','칠레'])assert.ok(menu.innerHTML.includes(name),name);
  function choose(cc){
@@ -42,14 +44,25 @@ ready().then(()=>{
   assert.equal(el('country').value,cc);
  }
  choose('BR');
+ assert.equal(region.hidden,false,'Brazil should show the LATAM section');
  assert.match(el('amazon-link').href,/amazon\.com\.br/);
  assert.match(el('top100-url').href,/amazon\.com\.br\/gp\/bestsellers/);
  assert.match(el('amazon-quick-count').textContent,/미수집/);
  choose('AR');
+ assert.equal(region.hidden,false,'Argentina should show the LATAM section');
  assert.match(el('amazon-quick-count').textContent,/독립 마켓 없음/);
  assert.match(el('top100-url').href,/trends\.google\.com/);
  choose('CL');
+ assert.equal(region.hidden,false,'Chile should show the LATAM section');
  assert.match(el('amazon-quick-count').textContent,/독립 마켓 없음/);
  assert.match(menu.innerHTML,/브라질/);
+ for(const code of ['GB','JP','US']){
+   el('country').value=code;
+   callbacks.get('country:change')();
+   assert.equal(region.hidden,true,code+' country view must hide the LATAM section');
+ }
+ el('country').value='BR';
+ callbacks.get('country:change')();
+ assert.equal(region.hidden,false,'Switching back to Brazil shows the section again');
  console.log('PASS: BR AR CL selection, no fake Amazon for AR/CL, safe historical fallback');
 }).catch(e=>{console.error(e);process.exitCode=1;});

@@ -100,6 +100,9 @@ function trendsURL(country){
  const q=(terms||['medicube']).slice(0,5).join(',');return 'https://trends.google.com/trends/explore?date='+encodeURIComponent('2026-05-01 '+today())+'&geo='+encodeURIComponent(country)+'&q='+encodeURIComponent(q);
 }
 function renderLatinAmerica(){
+ // Keep the South America-only comparison out of US/Europe/Asia/Middle East views.
+ const region=$('latam-region');
+ if(region)region.hidden=!['BR','AR','CL'].includes(state.country);
  const el=$('latam-overview');if(!el)return;
  const d=state.demand||{};
  const markets=countryMarkets();
