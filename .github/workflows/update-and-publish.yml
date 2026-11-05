@@ -6,7 +6,7 @@ on:
   schedule:
     # 07:30 Korea time (KST, UTC+9) = 22:30 UTC on the preceding date; daily. Cron execution may be delayed.
     - cron: '30 22 * * *'
-    # 16:00 Korea time (KST) = 07:00 UTC; only Google News RSS + Korean headlines.
+    # 16:00 Korea time (KST) = 07:00 UTC; close-price technicals + local news (no paid APIs).
     - cron: '0 7 * * *'
   workflow_dispatch:
 
@@ -48,10 +48,14 @@ jobs:
           APISH_KEY: ${{ secrets.APISH_KEY }}
           SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python build_data.py
-      - name: Fetch US and other local news only without Amazon or paid APIs
-        # Afternoon 16:00 KST and [news-now] run RSS + translation only.
-        # Do not call build_data.py: it would repeat Amazon/Trends collection.
-        if: (github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'push' && contains(github.event.head_commit.message, '[news-now]'))
+      - name: Afternoon 16:00 KST - free close-price technical indicators and local news
+        # Actual APR daily OHLCV, recalculated technicals and free RSS only.
+        # No Scrape.do, API.SH, ECB or Customs freight requests in this step.
+        if: (github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'push' && contains(github.event.head_commit.message, '[afternoon-now]'))
+        run: python afternoon_refresh.py
+      - name: News-only manual refresh
+        # [news-now] remains news-only for separate manual tests.
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[news-now]')
         run: python -c "from build_data import collect_news; collect_news()"
       - name: Refresh Korean news only without Amazon or paid APIs
         # [translate-now] avoids a fresh Amazon collection, preserving credits.

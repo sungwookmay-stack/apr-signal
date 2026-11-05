@@ -1,39 +1,53 @@
-"""No-cost APR SIGNAL news schedule regression checks (no paid API calls)."""
+"""Offline APR SIGNAL schedule checks: no extra paid-API requests at 16:00."""
 import pathlib
 import unittest
 
-ROOT=pathlib.Path(__file__).resolve().parents[1]
-WORKFLOW=ROOT/'.github/workflows/update-and-publish.yml'
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+WORKFLOW = ROOT / '.github/workflows/update-and-publish.yml'
+
 
 class TwiceDailyNewsSchedule(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.workflow=WORKFLOW.read_text(encoding='utf-8')
+        cls.workflow = WORKFLOW.read_text(encoding='utf-8')
 
-    def test_morning_0730_and_afternoon_1600_kst_cron(self):
-        self.assertIn("- cron: '30 22 * * *'",self.workflow)
-        self.assertIn("- cron: '0 7 * * *'",self.workflow)
-        self.assertEqual(self.workflow.count("- cron:"),2,
-                         "No new third paid-collection schedule")
+    def section(self, name):
+        return self.workflow.split('      - name: '+name, 1)[1].split('      - name:', 1)[0]
 
-    def test_afternoon_only_runs_news_not_full_data_collector(self):
-        full=self.workflow.split('      - name: Fetch data, calculate signals, update verified news',1)[1].split('      - name:',1)[0]
-        news=self.workflow.split('      - name: Fetch US and other local news only without Amazon or paid APIs',1)[1].split('      - name:',1)[0]
-        self.assertIn("github.event.schedule == '30 22 * * *'",full)
-        self.assertNotIn("github.event.schedule == '0 7 * * *'",full)
-        self.assertIn('run: python build_data.py',full)
-        self.assertIn("github.event.schedule == '0 7 * * *'",news)
-        self.assertNotIn('run: python build_data.py',news)
-        self.assertIn('from build_data import collect_news; collect_news()',news)
-        self.assertNotIn('APISH_KEY:',news)
-        self.assertNotIn('SCRAPEDO_TOKEN:',news)
+    def test_schedules_are_0730_and_1600_kst(self):
+        self.assertIn("- cron: '30 22 * * *'", self.workflow)
+        self.assertIn("- cron: '0 7 * * *'", self.workflow)
+        self.assertEqual(self.workflow.count("- cron:"), 2)
 
-    def test_existing_manual_and_news_now_paths_preserved(self):
-        self.assertIn("github.event_name == 'workflow_dispatch'",self.workflow)
-        self.assertIn("'[collect-now]'",self.workflow)
-        self.assertIn("'[news-now]'",self.workflow)
-        self.assertIn("'[translate-now]'",self.workflow)
-        self.assertIn('actions/deploy-pages@v4',self.workflow)
+    def test_only_morning_runs_paid_eligible_data_collector(self):
+        morning = self.section('Fetch data, calculate signals, update verified news')
+        self.assertIn("github.event.schedule == '30 22 * * *'", morning)
+        self.assertNotIn("github.event.schedule == '0 7 * * *'", morning)
+        self.assertIn('run: python build_data.py', morning)
+        self.assertIn('APISH_KEY:', morning)
+        self.assertIn('SCRAPEDO_TOKEN:', morning)
 
-if __name__=='__main__':
+    def test_afternoon_includes_stock_technicals_and_news_without_api_keys(self):
+        afternoon = self.section(
+            'Afternoon 16:00 KST - free close-price technical indicators and local news'
+        )
+        self.assertIn("github.event.schedule == '0 7 * * *'", afternoon)
+        self.assertIn('run: python afternoon_refresh.py', afternoon)
+        self.assertNotIn('run: python build_data.py', afternoon)
+        self.assertNotIn('APISH_KEY:', afternoon)
+        self.assertNotIn('SCRAPEDO_TOKEN:', afternoon)
+
+    def test_manual_modes_and_deployment_unchanged(self):
+        news = self.section('News-only manual refresh')
+        self.assertIn("'[news-now]'", news)
+        self.assertIn('from build_data import collect_news; collect_news()', news)
+        self.assertNotIn("github.event.schedule == '0 7 * * *'", news)
+        self.assertIn("'[afternoon-now]'", self.workflow)
+        self.assertIn("'[translate-now]'", self.workflow)
+        self.assertIn("'[collect-now]'", self.workflow)
+        self.assertIn("github.event_name == 'workflow_dispatch'", self.workflow)
+        self.assertIn('actions/deploy-pages@v4', self.workflow)
+
+
+if __name__ == '__main__':
     unittest.main()
