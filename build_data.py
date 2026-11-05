@@ -66,10 +66,10 @@ def valid_url(s,official=None):
     return u.scheme=='https' and bool(u.netloc) and (not official or u.hostname in official)
 
 
-def collect_market():
+def collect_market(*, refresh_fx=True, refresh_freight=True):
     old=read_json(DATA/'data.json',{})
     try:
-        market=update_data.update(DATA)
+        market=update_data.update(DATA, refresh_fx=refresh_fx, refresh_freight=refresh_freight)
     except Exception as e:
         errors.append('주가/FX: '+str(e)[:260])
         market=old
