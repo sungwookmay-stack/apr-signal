@@ -112,6 +112,33 @@ class MonitorTests(unittest.TestCase):
                 self.assertEqual(n2,0)
                 self.assertEqual(budget.called.count('BR'),1)
                 self.assertEqual(budget.called.count('AR'),1)
+    def test_latin_country_failed_locale_can_retry_same_day_once(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        class FakeBudget:
+            today=dt.date(2026,11,5)
+            stats={'last_trends_run_day':'2026-11-05',
+                   'last_trends_attempt_by_country':{'AR':'2026-11-05','CL':'2026-11-05'}}
+            def __init__(self):self.calls=[]
+            def remaining(self):return 100
+            def get(self,route,params,cost):
+                self.calls.append((params['geo'],params['hl']))
+                return {'interest_over_time':[{'time':'2026-11-05',
+                        'values':{t:30 for t in params['q'].split(',')}}]}
+        cfg={'markets':[{'code':'BR'},{'code':'AR'},{'code':'CL'}],
+             'trends_terms':{'BR':['medicube'],'AR':['medicube'],'CL':['medicube']}}
+        prev=[{'date':'2026-11-04','country':'BR','term':'medicube','index':60,
+               'source':'API.SH Google Trends 공공 검색지수'}]
+        budget=FakeBudget()
+        with tempfile.TemporaryDirectory() as p:
+            with patch.object(api,'STATE',Path(p)/'usage.json'):
+                rows,n=api.update_trends(budget,cfg,prev)
+                self.assertEqual(n,2)
+                self.assertEqual(sorted(budget.calls),[('AR','en-US'),('CL','en-US')])
+                rows2,n2=api.update_trends(budget,cfg,rows)
+                self.assertEqual(n2,0)
+                self.assertEqual(len(budget.calls),2)
     def test_no_paid_key_needed(self):
         self.assertIsNone(api.Budget('').get('google-trends/v1/interest',{'q':'medicube'},1))
 
