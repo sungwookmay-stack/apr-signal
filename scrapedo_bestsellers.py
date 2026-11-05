@@ -215,7 +215,7 @@ def parsed_pdp(payload, country, asin, day):
             'source_quality': 'verified_product_rank',
             'source_url': 'https://www.amazon.' + ({
                 'US':'com','GB':'co.uk','DE':'de','FR':'fr','IT':'it',
-                'ES':'es','CA':'ca','JP':'co.jp','AE':'ae','SA':'sa','EG':'eg'
+                'ES':'es','CA':'ca','JP':'co.jp','BR':'com.br','AE':'ae','SA':'sa','EG':'eg'
             }.get(country, 'com')) + '/dp/' + asin
         })
     return identity, observations

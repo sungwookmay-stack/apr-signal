@@ -138,6 +138,23 @@ class ScrapeTests(unittest.TestCase):
         self.assertEqual(len(fake.calls), 22)
         self.assertEqual(len(fake.pdp_calls), 4)
 
+    def test_brazil_scrapedo_market_uses_own_domain(self):
+        fake=FakeQuota()
+        cfg={'markets':[{'code':'BR','amazon':'amazon.com.br',
+                          'amazon_beauty_slug':'beauty'}]}
+        rows,notes,n,_=track_scrapedo('test',cfg,[],client=fake)
+        self.assertEqual(n,1)
+        self.assertEqual(len(fake.calls),2)
+        self.assertEqual(rows[0]['marketplace'],'amazon.com.br')
+        self.assertEqual(rows[0]['coverage_count'],100)
+        self.assertFalse(rows[0]['coverage_complete'])
+        self.assertTrue(all(x[0]=='BR' for x in fake.calls))
+        identity,obs=parsed_pdp({'status':'success','asin':asin(2),
+            'name':'medicube PDRN cream','brand':'medicube',
+            'best_seller_rankings':[{'category':'Beauty','rank':21}]},
+            'BR',asin(2),'2026-11-06')
+        self.assertEqual(obs[0]['source_url'],
+                         'https://www.amazon.com.br/dp/'+asin(2))
     def test_brand_check_negative_does_not_create_fake_bsr(self):
         ident, obs = parsed_pdp({
             'asin': asin(45), 'name': 'Compatible with Medicube Device',

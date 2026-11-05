@@ -88,6 +88,11 @@ class KoreanNewsTests(unittest.TestCase):
         self.assertEqual(tr.skipped_quota, 1)
         self.assertEqual(tr.usage['reserved_chars'], nl.DAILY_CHAR_LIMIT - 8)
 
+    def test_brazil_and_argentina_news_languages(self):
+        self.assertEqual(nl.source_language('BR','Medicube no Brasil'),'pt')
+        self.assertEqual(nl.source_language('AR','Medicube en Argentina'),'es')
+        self.assertIn('매출',nl.make_topic_note(
+            {'category':'아르헨티나 메디큐브'},'메디큐브 뉴스'))
     def test_native_korean_remains_korean_without_external_call(self):
         item = {'title': '에이피알 의료기기 사업 확대 - 한국경제',
                 'country': 'KR', 'category': '의료기기 HIFU·RF'}

@@ -69,7 +69,7 @@ class Budget:
 
 def terms_for_country(cfg,country):
     look=cfg.get('trends_terms',{})
-    if country=='CL':return look.get('CL',[])[:5]
+    if country in ('BR','AR','CL'):return look.get(country,[])[:5]
     if country in ('SA','AE','EG','QA','KW'):return look.get('ME',[])[:5]
     return look.get('default',[])[:5]
 
@@ -83,7 +83,7 @@ def update_trends(client,cfg,previous):
     for row in old:
         if row.get('source','').startswith('API.SH') and row.get('country') in grouped:
             grouped[row['country']].append(row)
-    # On every other day; one full 2026-May-to-present scan. 14*15=210 cr/month.
+    # On every other day; one full 2026-May-to-present scan. 16*16=256 cr/31-day month.
     should_fetch=((client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=client.today.isoformat()
     if not should_fetch:return old,0
     client.stats['last_trends_run_day']=client.today.isoformat()
@@ -95,7 +95,7 @@ def update_trends(client,cfg,previous):
         if not terms or client.remaining()<1:continue
         urlparams={'q':','.join(terms),'geo':country,
                    'time':f'2026-05-01 {client.today.isoformat()}',
-                   'hl':'es-419' if country=='CL' else 'en-US',
+                   'hl':'pt-BR' if country=='BR' else 'es-419' if country in ('AR','CL') else 'en-US',
                    'sections':'time','property':'web','raw':'0'}
         j=client.get('google-trends/v1/interest',urlparams,1)
         if not j or not isinstance(j.get('interest_over_time'),list):continue
