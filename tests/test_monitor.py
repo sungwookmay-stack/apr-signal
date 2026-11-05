@@ -61,6 +61,22 @@ class MonitorTests(unittest.TestCase):
         p=['medicube PDRN pink peptide serum','medicube zero pore pad']
         self.assertEqual(api.canon_product('MEDICUBE Zero Pore Pads 70pcs',p),p[1])
         self.assertIsNone(api.canon_product('Generic collagen jelly cream',p))
+    def test_latin_america_markets_and_google_terms(self):
+        import json
+        from pathlib import Path
+        cfg=json.loads((Path(__file__).resolve().parents[1] /
+                        'config/markets.json').read_text(encoding='utf-8'))
+        markets={x['code']:x for x in cfg['markets']}
+        self.assertEqual(len(markets),16)
+        self.assertEqual(sum(bool(x.get('amazon')) for x in markets.values()),12)
+        for country in ('BR','AR','CL'):
+            self.assertEqual(markets[country]['region'],'남미')
+            self.assertEqual(len(api.terms_for_country(cfg,country)),5)
+        self.assertEqual(markets['BR']['amazon'],'amazon.com.br')
+        self.assertIsNone(markets['AR']['amazon'])
+        self.assertIsNone(markets['CL']['amazon'])
+        self.assertIn('medicube',api.terms_for_country(cfg,'BR'))
+        self.assertIn('medicube',api.terms_for_country(cfg,'AR'))
     def test_no_paid_key_needed(self):
         self.assertIsNone(api.Budget('').get('google-trends/v1/interest',{'q':'medicube'},1))
 

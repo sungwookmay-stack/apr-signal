@@ -176,6 +176,8 @@ def collect_kbty():
     return state
 
 NEWS_QUERIES=[
+  {'tag':'브라질 메디큐브','country':'BR','q':'"medicube" beleza Brasil mercado','hl':'pt-BR','gl':'BR','ceid':'BR:pt-419'},
+  {'tag':'아르헨티나 메디큐브','country':'AR','q':'"medicube" skincare Argentina','hl':'es-419','gl':'AR','ceid':'AR:es-419'},
   {'tag':'칠레 스킨부스터','country':'CL','q':'"medicube" "Kinegun" OR "skin booster" Chile','hl':'es-419','gl':'CL','ceid':'CL:es-419'},
   {'tag':'칠레 스킨부스터','country':'CL','q':'"medicube" "polinucleótidos" Chile','hl':'es-419','gl':'CL','ceid':'CL:es-419'},
   {'tag':'칠레 클리닉','country':'CL','q':'("Rejuran" OR "PN") "clínica" Santiago Chile','hl':'es-419','gl':'CL','ceid':'CL:es-419'},

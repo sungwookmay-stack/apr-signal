@@ -59,13 +59,19 @@ def split_headline(raw):
 def source_language(country, headline):
     if re.search(r'[가-힣]', headline):
         return 'ko'
-    return {'CL': 'es', 'JP': 'ja', 'KR': 'ko'}.get(country, 'en')
+    return {'BR': 'pt', 'AR': 'es', 'CL': 'es', 'JP': 'ja', 'KR': 'ko'}.get(country, 'en')
 
 
 def make_topic_note(item, title_ko):
     """Editorial context from headline/category; not an article-body summary."""
     category = str(item.get('category') or '')
     raw = split_headline(item.get('title'))[0].lower()
+    if '브라질' in category:
+        return ('브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. '
+                '실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.')
+    if '아르헨티나' in category:
+        return ('아르헨티나 현지의 메디큐브·스킨케어 유통 관련 보도입니다. '
+                '검색 관심도와 실제 매출·수입실적은 구분해서 확인해야 합니다.')
     if 'KBTY' in category:
         return ('K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. '
                 '실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.')
