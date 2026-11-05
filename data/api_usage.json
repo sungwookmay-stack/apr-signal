@@ -1,13 +1,13 @@
 {
   "month": "2026-11",
-  "attempted_credits": 85,
-  "calls": 73,
-  "last_call": "2026-11-05T00:10:57+00:00",
+  "attempted_credits": 87,
+  "calls": 75,
+  "last_call": "2026-11-05T00:15:15+00:00",
   "last_trends_run_day": "2026-11-04",
   "last_amazon_search_day": "2026-11-04",
   "last_trends_attempt_by_country": {
     "BR": "2026-11-05",
-    "AR": "2026-11-05",
-    "CL": "2026-11-05"
+    "AR": "2026-11-05|en-US",
+    "CL": "2026-11-05|en-US"
   }
 }

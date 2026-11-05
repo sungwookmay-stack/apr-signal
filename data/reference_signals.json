@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-11-05T00:11:04+00:00",
+  "updated_at_utc": "2026-11-05T00:15:22+00:00",
   "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님.",
   "retail": [
     {
@@ -108,7 +108,7 @@
     }
   ],
   "collection": {
-    "last_attempt_utc": "2026-11-05T00:11:04+00:00",
+    "last_attempt_utc": "2026-11-05T00:15:22+00:00",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
       "independent US Beauty 2026-W45"
