@@ -36,6 +36,40 @@ class USNewsTests(unittest.TestCase):
             self.assertIn('미국',note)
         self.assertEqual(nl.source_language('US','Medicube at Ulta'),'en')
 
+    def test_us_headline_relevance_avoids_generic_and_canada_only(self):
+        self.assertTrue(bd.us_news_headline_relevant(
+            'APR brings skincare brand Medicube to 400 Costco stores across U.S. - UPI',
+            '미국 오프라인 유통'))
+        self.assertTrue(bd.us_news_headline_relevant(
+            'Medicube’s Viral Favorites Are Up to 50% Off During Amazon’s October Prime Day - WWD',
+            '미국 Amazon·온라인'))
+        self.assertTrue(bd.us_news_headline_relevant(
+            'What Is That Viral Medicube Wand Actually For? - Byrdie',
+            '미국 뷰티기기·신제품'))
+        self.assertFalse(bd.us_news_headline_relevant(
+            'PDRN skincare trend at Nordstrom - Cleveland.com','미국 오프라인 유통'))
+        self.assertFalse(bd.us_news_headline_relevant(
+            'Medicube Enters Canada\'s Largest Drugstore Chain Shoppers Drug Mart - Daily',
+            '미국 오프라인 유통'))
+        self.assertFalse(bd.us_news_headline_relevant(
+            'I Tried $320 Of Medicube Korean Skincare - Refinery29',
+            '미국 오프라인 유통'))
+        self.assertTrue(bd.us_news_headline_relevant(
+            'Medicube Enters Canada\'s Market - Other',
+            '칠레 스킨부스터'))
+
+    def test_curated_us_localization_keeps_source_and_headline_scope(self):
+        text='APR brings skincare brand Medicube to 400 Costco stores across U.S. - upi'
+        item={'title':text,'country':'US','category':'미국 오프라인 유통',
+              'url':'https://www.upi.com/example'}
+        translated,info=nl.localize_items([item],nl.FreeTranslator(
+            utc_day='2026-11-05',transport=lambda _ : self.fail('Should be seeded')))
+        self.assertIn('400개',translated[0]['title_ko'])
+        self.assertEqual(translated[0]['summary_basis'],'headline_only')
+        self.assertIn('코스트코',translated[0]['summary_ko'])
+        self.assertEqual(translated[0]['url'],item['url'])
+        self.assertEqual(info['editorial'],1)
+
     def test_rss_us_collection_works_without_paid_apis_and_keeps_translation(self):
         xml=('<?xml version="1.0" encoding="UTF-8"?>'
              '<rss><channel><item>'

@@ -191,6 +191,27 @@ NEWS_QUERIES=[
   {'tag':'KBTY ETF','country':'US','q':'"KBTY" "Guinness" ETF','hl':'en','gl':'US','ceid':'US:en'},
 ]
 
+def us_news_headline_relevant(title, category):
+    """US-locale RSS can include global/generic articles; title must support tag.
+
+    Country is target market, not the nationality of the publishing outlet.
+    Keep brand-relevant reporting, and omit Canada-only headlines from US news.
+    """
+    if not str(category).startswith('미국 '):
+        return True
+    headline=str(title or '').rsplit(' - ',1)[0]
+    if not re.search(r'\b(medicube|APR|AGE[- ]?R)\b|메디큐브|에이피알',headline,re.I):
+        return False
+    if (re.search(r'\b(Canada|Canadian|Shoppers Drug Mart)\b',headline,re.I)
+        and not re.search(r'\b(US|U\.S\.|United States|American)\b',headline,re.I)):
+        return False
+    if category=='미국 오프라인 유통':
+        return bool(re.search(r'\b(Ulta|Target|Walmart|Costco|CVS|Nordstrom|stores?|retail)\b',headline,re.I))
+    if category=='미국 Amazon·온라인':
+        return bool(re.search(r'\b(Amazon|Prime|TikTok|sale|deals?|discount|off)\b',headline,re.I))
+    return True
+
+
 def collect_news():
     previous=read_json(DATA/'news.json',{})
     fresh=[]
@@ -200,7 +221,7 @@ def collect_news():
             xml=ET.fromstring(fetch(query,timeout=12))
             for r in xml.findall('./channel/item')[:12]:
                 title=r.findtext('title','').strip();url=r.findtext('link','').strip()
-                if not title or not valid_url(url):continue
+                if not title or not valid_url(url) or not us_news_headline_relevant(title,item['tag']):continue
                 raw=r.findtext('pubDate','')
                 try:date=email.utils.parsedate_to_datetime(raw).date().isoformat()
                 except Exception:date=None
@@ -209,7 +230,8 @@ def collect_news():
                               'classification':'관련 기사 — 미검증 (매출·인허가 확정 아님)','discovered_at':NOW})
         except Exception as e:errors.append('뉴스 '+item['tag']+': '+str(e)[:120])
     old=previous.get('items',[])
-    merged={(x['url'],x.get('category')):x for x in old if x.get('url')}
+    merged={(x['url'],x.get('category')):x for x in old
+            if x.get('url') and us_news_headline_relevant(x.get('title'),x.get('category'))}
     for item in fresh:
         key=(item['url'],item['category'])
         old_entry=merged.get(key)

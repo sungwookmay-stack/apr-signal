@@ -26,7 +26,7 @@ SEEDS = ROOT / 'config/news_korean_seed.json'
 USAGE = DATA / 'news_translation_usage.json'
 API = 'https://api.mymemory.translated.net/get'
 DAILY_CHAR_LIMIT = 4000  # MyMemory anonymous allowance: 5,000 chars/day
-MAX_REQUESTS_PER_RUN = 28
+MAX_REQUESTS_PER_RUN = 48  # still bounded by 4,000 anonymous chars/day
 MAX_QUERY_BYTES = 500
 FIELD_KEYS = ('title_ko', 'summary_ko', 'summary_basis',
               'translation_status', 'localized_at')
