@@ -24,6 +24,7 @@ import time
 from urllib import request, parse, error
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
+from freight_official import fetch_latest as fetch_customs_official_latest
 
 START = dt.date(2026, 5, 1)
 HISTORY_START = dt.date(2025, 7, 1)  # 기술적 지표 MA200 워밍업, 화면은 2026-05부터
@@ -306,7 +307,7 @@ def pack(stock,stock_source,fx,fx_sources,errors,previous,logistics):
           "coverage_start":stock[0]["date"] if stock else None,
           "complete":bool(stock and stock[0]["date"]<="2026-05-15" and len(stock)>=80 and len(usd_dates)>=80 and len(eur_dates)>=80),
           "errors":errors[:12],
-          "logistics_source":"국가물류통합정보센터 / 관세청 해상수출입 통계",
+          "logistics_source":logistics.get('source') or '관세청 해상수출 평균 운송비용 통계',
           "note":"주가는 수정주가 또는 공급사 종가. USD 환산=원화 종가/당일 또는 직전 최신 USD/KRW 환율. FX는 중앙은행 참고 환율(서울외국환중개 매매기준율과 다를 수 있음)."}
     return {"meta":meta,"series":series,"fx":fx_daily,"logistics":logistics}
 
@@ -366,11 +367,49 @@ def update(out_dir=BASE/"data", allow_partial=True):
     if not stock:
         raise RuntimeError("주가 정보를 어디에서도 가져오지 못했습니다. " + "; ".join(errors[:3]))
     logistics=previous.get("logistics",{"sea":[],"air":[],"unit":"천원/2TEU"})
+    freight_errors=[]
+    updated=False
+    # Prefer primary Customs press releases (monthly Customs declaration costs).
+    # Keep confirmed historical months and only overwrite a month when it is
+    # independently observed. A newer unpublished month is NEVER guessed.
     try:
-        sea=fetch_sea_nlic()
-        logistics={"sea":sea,"air":[],"unit":"천원/2TEU","source":"국가물류통합정보센터 / 관세청"}
+        official_row,official_url=fetch_customs_official_latest(
+            get_bytes,today=iso_today_kr().date())
+        existing={x['month']:x for x in logistics.get('sea',[]) if x.get('month')}
+        last=max(existing) if existing else ''
+        if official_row['month']>=last:
+            existing[official_row['month']]=official_row
+            logistics={**logistics,"sea":[existing[m] for m in sorted(existing)],
+                       "air":logistics.get("air",[]),
+                       "unit":"천원/2TEU",
+                       "source":"관세청 공식 보도자료 · 해상수출 평균 운송비용",
+                       "source_url":official_url,
+                       "last_verified_month":official_row['month'],
+                       "last_verified_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
+            updated=True
     except Exception as ex:
-        errors.append("NLIC 해상운임 갱신 실패: "+str(ex)[:120]+" (이전 기록 유지)")
+        freight_errors.append("관세청 보도자료: "+str(ex)[:130])
+    if not updated:
+        try:
+            sea=fetch_sea_nlic()
+            existing={x['month']:x for x in logistics.get('sea',[]) if x.get('month')}
+            for item in sea:existing[item['month']]=item
+            logistics={**logistics,"sea":[existing[m] for m in sorted(existing)],
+                       "unit":"천원/2TEU",
+                       "source":"국가물류통합정보센터 · 해상수출 운송비용",
+                       "source_url":"https://nlic.go.kr/nlic/seaDmstcOcn.action",
+                       "last_verified_month":sea[-1]['month'],
+                       "last_verified_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
+            updated=True
+        except Exception as ex:
+            freight_errors.append("NLIC: "+str(ex)[:130])
+    if not updated:
+        # Preserve last verified observations; make unsuccessful checks visible.
+        logistics={**logistics,"last_fetch_failed":True}
+        errors.append("해상수출 운송비용 갱신 실패: "+" / ".join(freight_errors[:2])+
+                      " (이전 관측치 유지)")
+    else:
+        logistics["last_fetch_failed"]=False
     data=pack(stock,source,fx,sources,errors,previous,logistics)
     save(data,out_dir)
     print(json.dumps({"status":"ok","stock_rows":len(stock),"fx_rows":len(data["fx"]),"complete":data["meta"]["complete"],"stock_last":data["meta"]["stock_last"],"fx_last":data["meta"]["usd_fx_last"],"errors":errors},ensure_ascii=False))

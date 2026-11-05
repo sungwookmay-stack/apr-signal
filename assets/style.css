@@ -73,3 +73,8 @@
 .latam-country[aria-pressed="true"]{border-color:#0b917f;background:#f3faf7}
 .latam-country:focus-visible{outline:2px solid #0b917f;outline-offset:2px}
 @media(max-width:720px){.latam-overview{grid-template-columns:1fr}.latam-country{padding:12px 14px}}
+
+/* Customs monthly sea EXPORT cost source/freshness note */
+.freight-asof{font-size:11px;line-height:1.75;color:#627d8f;margin:6px 16px 10px;overflow-wrap:anywhere}
+.freight-official-link{display:inline-block;margin:0 16px 16px;font-size:11px;font-weight:700;color:#0b917f;text-decoration:none}
+.freight-official-link:hover{text-decoration:underline}

@@ -37,6 +37,8 @@ jobs:
         run: node tests/smoke_news.cjs
       - name: Verify South America countries without external APIs
         run: node tests/smoke_latam.cjs
+      - name: Test official Customs freight parsing
+        run: python -m unittest tests/test_freight_official.py -v
       - name: Fetch data, calculate signals, update verified news
         # Code-only pushes avoid consuming credits; explicit [collect-now] commit runs one authorized refresh.
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))

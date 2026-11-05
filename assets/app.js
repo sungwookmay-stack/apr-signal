@@ -330,7 +330,22 @@ function renderLogistics(){
  chart('chart-region',data.map(x=>x.name),[{label:'2026 2Q',values:data.map(x=>x.q2),color:C.navy,background:'#193a5a'},
  {label:'2026 3Q',values:data.map(x=>x.q3),color:C.teal,background:'#0b917f'}],{type:'bar',legend:true});
  $('offline-table').innerHTML=`<table><thead><tr><th>지역</th><th>2Q</th><th>3Q</th><th>매출 QoQ</th></tr></thead><tbody>${data.slice(0,2).map(x=>`<tr><td>${escapeHtml(x.name)}</td><td>${x.of2===22?'약 20~23':x.of2}%</td><td>${x.of3}%</td><td>${signed(pct(x.q3,x.q2))}</td></tr>`).join('')}</tbody></table>`;
- const sea=(state.market?.logistics?.sea||[]);chart('chart-sea',sea.map(x=>x.month),[
+ const log=state.market?.logistics||{};
+ const sea=(log.sea||[]).slice().sort((a,b)=>String(a.month).localeCompare(String(b.month)));
+ const lastSea=sea.at(-1);
+ const asof=$('freight-asof');
+ if(asof){
+   const last=lastSea?.month||'미수집';
+   const source=log.source||'관세청 해상수출 운송비용';
+   const message=(log.last_fetch_failed?' · 최근 갱신 실패, 마지막 관측 유지':'');
+   asof.textContent='공식 통계 기준 '+last+' · 단위: 천원/2TEU (40피트 컨테이너) · '+source+
+    ' · 매월 다음 달 중순 발표되는 후행지표'+message;
+ }
+ const sourceLink=$('freight-source-url');
+ if(sourceLink){
+   sourceLink.href=validLink(log.source_url||'https://www.customs.go.kr/kcs/na/ntt/selectNttList.do?bbsId=1362&mi=2891');
+ }
+ chart('chart-sea',sea.map(x=>x.month),[
   {label:'미국 서안',values:sea.map(x=>x.us_west),color:C.navy},{label:'미국 동안',values:sea.map(x=>x.us_east),color:C.teal},
   {label:'유럽',values:sea.map(x=>x.eu),color:C.purple}],{decimals:0,legend:true});
  const errs=state.status?.errors||[];
