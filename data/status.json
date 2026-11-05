@@ -1,13 +1,13 @@
 {
-  "generated_at_utc": "2026-11-05T00:14:48+00:00",
+  "generated_at_utc": "2026-11-05T09:46:13+00:00",
   "timezone": "Asia/Seoul",
-  "price_last": "2026-11-04",
+  "price_last": "2026-11-05",
   "price_coverage_start": "2025-07-01",
   "fx_last": "2026-11-04",
-  "technical_last": "2026-11-04",
-  "technical_ohlc_days": 329,
+  "technical_last": "2026-11-05",
+  "technical_ohlc_days": 330,
   "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
-  "news_count": 24,
+  "news_count": 47,
   "trends_points": 12611,
   "amazon_points": 95,
   "beauty_leaderboard_snapshots": 23,
@@ -26,5 +26,9 @@
   "errors": [
     "NLIC 해상운임 갱신 실패: The read operation timed out (이전 기록 유지)"
   ],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
+  "afternoon_updated_at_utc": "2026-11-05T09:46:13+00:00",
+  "afternoon_price_date": "2026-11-05",
+  "afternoon_verified_same_day": true,
+  "afternoon_note": "공개 일봉 기준 당일 장마감 자료 확인"
 }

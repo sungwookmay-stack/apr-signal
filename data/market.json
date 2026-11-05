@@ -9,15 +9,13 @@
       "USD": "ECB official historical CSV ZIP (EUR/KRW ÷ EUR/USD)",
       "EUR": "ECB official historical CSV ZIP"
     },
-    "stock_last": "2026-11-04",
+    "stock_last": "2026-11-05",
     "usd_fx_last": "2026-11-04",
     "eur_fx_last": "2026-11-04",
-    "generated_at_utc": "2026-11-05T00:15:08+00:00",
+    "generated_at_utc": "2026-11-05T09:46:06+00:00",
     "coverage_start": "2025-07-01",
     "complete": true,
-    "errors": [
-      "NLIC 해상운임 갱신 실패: The read operation timed out (이전 기록 유지)"
-    ],
+    "errors": [],
     "logistics_source": "국가물류통합정보센터 / 관세청 해상수출입 통계",
     "note": "주가는 수정주가 또는 공급사 종가. USD 환산=원화 종가/당일 또는 직전 최신 USD/KRW 환율. FX는 중앙은행 참고 환율(서울외국환중개 매매기준율과 다를 수 있음)."
   },
@@ -4298,6 +4296,19 @@
       "fx_usd_date": "2026-11-04",
       "fx_eur_date": "2026-11-04",
       "close_usd": 189.7531
+    },
+    {
+      "date": "2026-11-05",
+      "close_krw": 267500,
+      "volume": 451043,
+      "open_krw": 276000,
+      "high_krw": 286000,
+      "low_krw": 262000,
+      "usdkrw": 1338.581699,
+      "eurkrw": 1508.18,
+      "fx_usd_date": "2026-11-04",
+      "fx_eur_date": "2026-11-04",
+      "close_usd": 199.8384
     }
   ],
   "fx": [
