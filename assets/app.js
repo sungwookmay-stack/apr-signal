@@ -110,7 +110,7 @@ function renderLatinAmerica(){
    const last=rows.at(-1);
    const snaps=rankSnapshots().filter(x=>x.country===cc).slice().sort((a,b)=>a.date.localeCompare(b.date));
    const snap=snaps.at(-1);
-   const amazon=market.amazon?(snap?'Beauty Top 100 관측 '+snap.date+' · 메디큐브 최소 '+snap.medicube_confirmed_count+'종':'Amazon Top 100 첫 수집 전'):'독립 Amazon 마켓 없음';
+   const amazon=market.amazon?(snap?'Beauty Top 100 관측 '+snap.date+' · '+(Number(snap.medicube_confirmed_count)>0?'메디큐브 최소 '+snap.medicube_confirmed_count+'종':'메디큐브 진입 여부 미확인')+' · 브랜드 식별 '+(snap.identity_coverage_count??'?')+'/100':'Amazon Top 100 첫 수집 전'):'독립 Amazon 마켓 없음';
    const trend=last?'검색 관심도 '+fmt(last.index)+'/100 · '+last.date:'Google Trends 첫 수집 전';
    return '<button type="button" class="latam-country" data-latam-country="'+cc+
      '" aria-pressed="'+(state.country===cc)+'">'+

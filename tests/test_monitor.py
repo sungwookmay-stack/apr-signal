@@ -77,6 +77,41 @@ class MonitorTests(unittest.TestCase):
         self.assertIsNone(markets['CL']['amazon'])
         self.assertIn('medicube',api.terms_for_country(cfg,'BR'))
         self.assertIn('medicube',api.terms_for_country(cfg,'AR'))
+    def test_new_latam_trends_bootstrap_after_regular_update(self):
+        import tempfile
+        from unittest.mock import patch
+        from pathlib import Path
+        class FakeBudget:
+            today=dt.date(2026,11,5)
+            stats={'attempted_credits':30,
+                   'last_trends_run_day':'2026-11-05'}
+            def __init__(self):
+                self.called=[]
+            def remaining(self):
+                return 100
+            def get(self,route,params,cost):
+                self.called.append(params['geo'])
+                terms=params['q'].split(',')
+                return {'interest_over_time':[
+                    {'time':'2026-11-05','values':{t:40 for t in terms}}
+                ]}
+        config={'markets':[{'code':'US'},{'code':'BR'},{'code':'AR'}],
+                'trends_terms':{'default':['medicube'],
+                     'BR':['medicube','medicube pdrn'],
+                     'AR':['medicube','medicube pdrn']}}
+        prev=[{'date':'2026-11-04','country':'US','term':'medicube',
+               'index':65,'source':'API.SH Google Trends 공공 검색지수'}]
+        budget=FakeBudget()
+        with tempfile.TemporaryDirectory() as d:
+            with patch.object(api,'STATE',Path(d)/'usage.json'):
+                rows,n=api.update_trends(budget,config,prev)
+                self.assertEqual(n,2)
+                self.assertEqual(sorted(budget.called),['AR','BR'])
+                self.assertEqual({r['country'] for r in rows},{'US','BR','AR'})
+                again,n2=api.update_trends(budget,config,rows)
+                self.assertEqual(n2,0)
+                self.assertEqual(budget.called.count('BR'),1)
+                self.assertEqual(budget.called.count('AR'),1)
     def test_no_paid_key_needed(self):
         self.assertIsNone(api.Budget('').get('google-trends/v1/interest',{'q':'medicube'},1))
 
