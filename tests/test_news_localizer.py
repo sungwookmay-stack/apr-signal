@@ -1,4 +1,5 @@
 import tempfile
+import datetime as dt
 import unittest
 import urllib.error
 import urllib.parse
@@ -87,6 +88,51 @@ class KoreanNewsTests(unittest.TestCase):
         self.assertEqual(tr.usage['calls'], 0)
         self.assertEqual(tr.skipped_quota, 1)
         self.assertEqual(tr.usage['reserved_chars'], nl.DAILY_CHAR_LIMIT - 8)
+
+    def test_morning_and_afternoon_share_rolling_24h_free_cap(self):
+        # 07:30 KST = 22:30 UTC (previous day);
+        # 16:00 KST = 07:00 UTC, so the UTC date differs.
+        nl.write_json(nl.USAGE, {
+            'day':'2026-11-04', 'reserved_chars':3990, 'calls':35,
+            'events':[{'at_utc':'2026-11-04T22:30:00+00:00','chars':3990}]
+        })
+        now=dt.datetime.fromisoformat('2026-11-05T07:00:00+00:00')
+        t=nl.FreeTranslator(utc_now=now,transport=lambda _:
+            self.fail('Rolling quota should prevent the second charge'))
+        self.assertEqual(t.usage['day'],'2026-11-05')
+        self.assertEqual(t.usage['reserved_chars'],0,
+                         'UTC daily counters reset but rolling cap remains')
+        self.assertIsNone(t.translate('Extra headline requiring quota', 'en'))
+        self.assertEqual(t.skipped_quota,1)
+
+    def test_expired_rolling_usage_allows_later_free_translation(self):
+        nl.write_json(nl.USAGE,{
+            'day':'2026-11-03','reserved_chars':3800,'calls':30,
+            'events':[{'at_utc':'2026-11-03T06:00:00+00:00','chars':3800}]
+        })
+        calls=[]
+        def fake(_):
+            calls.append(1)
+            return {'responseStatus':200,'responseData':{'translatedText':'한국어 기사 제목'}}
+        now=dt.datetime.fromisoformat('2026-11-05T07:00:00+00:00')
+        tr=nl.FreeTranslator(utc_now=now,transport=fake)
+        self.assertEqual(tr.translate('New US news headline', 'en'),'한국어 기사 제목')
+        self.assertEqual(len(calls),1)
+        self.assertEqual(sum(x['chars'] for x in tr.usage['events']),
+                         len('New US news headline'))
+
+    def test_migrates_older_daily_usage_to_conservative_rolling_cap(self):
+        # Previous deployed usage files had only day and total, no events.
+        nl.write_json(nl.USAGE,{
+            'day':'2026-11-04','reserved_chars':3980,'calls':30
+        })
+        tr=nl.FreeTranslator(
+            utc_now=dt.datetime.fromisoformat('2026-11-05T07:00:00+00:00'),
+            transport=lambda _ : self.fail('Legacy usage must count against free cap'))
+        self.assertEqual(tr.usage['reserved_chars'],0)
+        self.assertEqual(sum(x['chars'] for x in tr.usage['events']),3980)
+        self.assertIsNone(tr.translate('This is a longer than twenty character headline','en'))
+        self.assertEqual(tr.skipped_quota,1)
 
     def test_brazil_and_argentina_news_languages(self):
         self.assertEqual(nl.source_language('BR','Medicube no Brasil'),'pt')
