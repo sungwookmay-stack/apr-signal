@@ -225,3 +225,19 @@ APR SIGNAL의 **현지 뉴스/한글 제목 정리**는 다음과 같이 운영�
 - 기존 `[news-now]` 수동 호출 및 전체 `workflow_dispatch` 동작은 보존합니다. 오후 추가 워크플로는 새 유료 서비스나 개인 PC 상시 실행을 요구하지 않습니다.
 
 공식 참고: [GitHub Actions 공개 저장소 무료](https://docs.github.com/en/actions/concepts/billing-and-usage) · [MyMemory 익명 번역 5,000자/일](https://mymemory.translated.net/doc/usagelimits.php).
+
+## 16시 장마감 에이피알 기술적 분석 추가 (2026-11-05)
+
+**뉴스 하루 2회 무료 운영**에 기술적 분석도 오후 갱신하도록 보완했습니다.
+
+| 한국시간 | 데이터 수집 | 기술적 분석 |
+| --- | --- | --- |
+| 오전 07:30 | 주가·환율·운임·Amazon/BSR·Trends·뉴스 등 기존 전체 자료 | 저장된 확인 일봉으로 갱신 |
+| 오후 16:00 | **에이피알 종가·OHLCV 공개 일봉 + 글로벌 현지 뉴스만** | **SMA20/60/200·RSI14·MACD·볼린저밴드·일목균형표·ATR14 등 재계산** |
+
+- 오후 16시에는 `afternoon_refresh.py`만 실행하며, Naver/Yahoo 공개 일봉과 Google News RSS, 무료 한도 내 제목 번역을 사용합니다.
+- 오전 전체 갱신은 변경하지 않습니다. 오후에는 `SCRAPEDO_TOKEN`과 `APISH_KEY`를 전달하지 않으며, `update_data.update(refresh_fx=False, refresh_freight=False)`로 오후에 **ECB 환율·관세청 운임 데이터를 재조회하지 않습니다.**
+- 공개 시세 제공처에 당일 확정 일봉이 아직 없으면 이전 검증 일자를 유지하고, `status.json`의 `afternoon_price_date`·`afternoon_verified_same_day`·`afternoon_note`로 구분합니다. 당일 일봉이나 가격을 임의로 만들지 않습니다.
+- 오후 지표와 신규 뉴스는 `data/market.json`, `data/technical.json`, `data/status.json`, `data/bootstrap.js`에 반영됩니다. 오전에 수집한 글로벌 수요·BSR·ETF·운임 기록은 보존합니다.
+- GitHub Actions 예약 실행은 16:00보다 늦게 시작할 수 있고, 한국 주식시장 휴장일에는 새로운 당일 봉이 존재하지 않을 수 있습니다.
+- 전체 갱신을 다시 실행하지 않고 오후 경로만 검증하려면 `[afternoon-now]` 표시 커밋을 사용합니다. 기존 `[news-now]`는 뉴스 전용으로 유지합니다.
