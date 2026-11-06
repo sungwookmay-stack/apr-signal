@@ -44,6 +44,14 @@ ready().then(()=>{
   assert.match(f,/485BPOS/);
   assert.match(f,/485BXT/);
   assert.match(f,/485APOS/);
+  const related=el('sec-related-manager').innerHTML;
+  assert.match(related,/2026-11-05/);
+  assert.match(related,/13F-HR/);
+  assert.match(related,/CIK 0001409765/);
+  assert.match(related,/KBTY 자체 공시 아님/);
+  assert.match(related,/신고자/);
+  assert.doesNotMatch(f,/2026-11-05/,'13F must not pollute KBTY series filings');
+  assert.equal(el('sec-latest-date').textContent,'2026-10-28');
   assert.match(f,/2026-10-28/);
   assert.match(f,/SEC 공시 원문 확인/);
   assert.match(w,/에이피알/);
