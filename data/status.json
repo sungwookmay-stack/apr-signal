@@ -1,16 +1,16 @@
 {
-  "generated_at_utc": "2026-11-06T08:06:37+00:00",
+  "generated_at_utc": "2026-11-06T23:11:44+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-06",
   "price_coverage_start": "2025-07-01",
-  "fx_last": "2026-11-05",
+  "fx_last": "2026-11-06",
   "technical_last": "2026-11-06",
   "technical_ohlc_days": 331,
   "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
-  "news_count": 51,
+  "news_count": 52,
   "trends_points": 12663,
-  "amazon_points": 147,
-  "beauty_leaderboard_snapshots": 35,
+  "amazon_points": 199,
+  "beauty_leaderboard_snapshots": 47,
   "retail_reference": {
     "status": "ok",
     "successes": [
@@ -24,9 +24,5 @@
     "external_weeks": 2
   },
   "errors": [],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
-  "afternoon_updated_at_utc": "2026-11-06T08:06:37+00:00",
-  "afternoon_price_date": "2026-11-06",
-  "afternoon_verified_same_day": true,
-  "afternoon_note": "공개 일봉 기준 당일 장마감 자료 확인"
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }

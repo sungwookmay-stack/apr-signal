@@ -250,5 +250,89 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.ae/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "product": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "title": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "bsr": 56,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.jp/dp/B08HGZ5XPH"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "product": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "title": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "bsr": 2,
+    "category": "Pore Cleansing Strips",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.jp/dp/B08HGZ5XPH"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "product": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "title": "Medicube Zero Pore Pad 2.0 (70 Pads) Lotion Wiping Lotion Cleaning Pad",
+    "bsr": 3,
+    "category": "Facial Toners & Astringents",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.jp/dp/B08HGZ5XPH"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "AE",
+    "asin": "B0DGTMR754",
+    "product": "medicube Salmon DNA PDRN pink collagen jelly gel mask | overnight face mask for glass glow skin- elasticity, hydrating, firming and moisturizing | korean skincare, 28g, 4ea",
+    "title": "medicube Salmon DNA PDRN pink collagen jelly gel mask | overnight face mask for glass glow skin- elasticity, hydrating, firming and moisturizing | korean skincare, 28g, 4ea",
+    "bsr": 13,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ae/dp/B0DGTMR754"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "AE",
+    "asin": "B0DGTMR754",
+    "product": "medicube Salmon DNA PDRN pink collagen jelly gel mask | overnight face mask for glass glow skin- elasticity, hydrating, firming and moisturizing | korean skincare, 28g, 4ea",
+    "title": "medicube Salmon DNA PDRN pink collagen jelly gel mask | overnight face mask for glass glow skin- elasticity, hydrating, firming and moisturizing | korean skincare, 28g, 4ea",
+    "bsr": 1,
+    "category": "Facial Treatments & Masks",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ae/dp/B0DGTMR754"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "US",
+    "asin": "B0DYTQ5GYQ",
+    "product": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser",
+    "title": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser",
+    "bsr": 66,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DYTQ5GYQ"
+  },
+  {
+    "date": "2026-11-07",
+    "country": "US",
+    "asin": "B0DYTQ5GYQ",
+    "product": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser",
+    "title": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser",
+    "bsr": 5,
+    "category": "Facial Cleansing Washes",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DYTQ5GYQ"
   }
 ]

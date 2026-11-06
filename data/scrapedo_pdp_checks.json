@@ -82,5 +82,33 @@
     "asin": "B08628VNNK",
     "identified": true,
     "bsr_categories": 0
+  },
+  {
+    "date": "2026-11-07",
+    "country": "JP",
+    "asin": "B08HGZ5XPH",
+    "identified": true,
+    "bsr_categories": 3
+  },
+  {
+    "date": "2026-11-07",
+    "country": "AE",
+    "asin": "B0DGTMR754",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-07",
+    "country": "US",
+    "asin": "B0DYTQ5GYQ",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-07",
+    "country": "JP",
+    "asin": "B08256DM69",
+    "identified": true,
+    "bsr_categories": 0
   }
 ]
