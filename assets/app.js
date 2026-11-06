@@ -323,6 +323,32 @@ function renderKbtySec(){
      '<a href="'+href+'" target="_blank" rel="noopener noreferrer">SEC 공시 원문 확인 ↗</a>'+
      '</article>';
  }).join(''):'<p class="subtle">KBTY 시리즈로 확인된 SEC 공시가 없습니다.</p>';
+ const relatedEl=$('sec-related-manager');
+ if(relatedEl){
+   const managerRows=(Array.isArray(data.related_manager_filings)?
+     data.related_manager_filings:[]).filter(x=>
+       x.classification==='related_manager_not_kbty_series');
+   relatedEl.innerHTML=managerRows.length?managerRows.map(x=>{
+     const rawLink=validLink(x.source_url||'');
+     let sourceUrl='#';
+     try{
+       const host=new URL(rawLink).hostname;
+       if(host==='www.filingexplorer.com'||host==='filingexplorer.com')
+         sourceUrl=rawLink;
+     }catch{}
+     return '<article class="sec-filing">'+
+       '<div class="sec-filing-meta"><span>'+escapeHtml(x.filed_date||'')+
+       ' · '+escapeHtml(x.form||'')+'</span><small>KBTY 자체 공시 아님</small></div>'+
+       '<strong>'+escapeHtml(x.title_ko||'관련 운용사 SEC 보고')+'</strong>'+
+       '<p>'+escapeHtml(x.summary_ko||'')+'</p>'+
+       '<p class="sec-filing-change">'+escapeHtml(x.note_ko||'')+'</p>'+
+       '<p class="sec-filing-change">별도 신고자: '+escapeHtml(x.filer||'')+
+       ' · CIK '+escapeHtml(x.filer_cik||'')+
+       ' · 2차 집계자료 (SEC 원본 개별 접수번호 별도 미확인)</p>'+
+       '<a href="'+sourceUrl+'" target="_blank" rel="noopener noreferrer">13F 자료 출처 보기 ↗</a>'+
+       '</article>';
+   }).join(''):'<p class="subtle">KBTY와 구분해 표시할 운용사 공시가 없습니다.</p>';
+ }
  const watchEl=$('sec-watchlist');
  if(watchEl)watchEl.innerHTML=watchlist.map(x=>
    '<div class="sec-watch-row"><strong>'+escapeHtml(x.title||'추적 항목')+'</strong>'+

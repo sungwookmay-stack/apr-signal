@@ -104,5 +104,22 @@
     }
   ],
   "data_scope": "SEC 공시 검증 여부와 운용사 실제 상장·AUM·APR 편입은 별도",
-  "summary_basis": "검토된 3건은 SEC 본문 기반. 이후 자동 추가는 KBTY 시리즈 확인 및 서식 정보 기반."
+  "summary_basis": "검토된 3건은 SEC 본문 기반. 이후 자동 추가는 KBTY 시리즈 확인 및 서식 정보 기반.",
+  "related_manager_filings": [
+    {
+      "filed_date": "2026-11-05",
+      "reporting_period": "2026-09-30",
+      "form": "13F-HR",
+      "filer": "Guinness Atkinson Asset Management Inc",
+      "filer_cik": "0001409765",
+      "title_ko": "운용사 관련 13F 보고서 (KBTY ETF 자체 공시 아님)",
+      "summary_ko": "Guinness Atkinson Asset Management Inc가 2026년 3분기 말 미국 신고 대상 증권의 기관 보유현황을 제출했습니다. 공개 집계 기준 약 2억 2,470만 달러·108개 포지션입니다. KBTY ETF의 순자산(AUM)이나 에이피알 편입수량을 보여주는 보고서가 아닙니다.",
+      "note_ko": "13F는 해당 운용사의 분기 말 보유내역이며, 미국 13F 신고대상 증권 중심입니다. KBTY ETF(신탁 CIK 0000919160, 시리즈 S000109351)의 등록신고·일일 보유종목 공시와 구별해야 합니다.",
+      "source_url": "https://www.filingexplorer.com/investment-manager/guinness-atkinson-asset-management-inc/2026-q3",
+      "sec_filer_url": "https://www.sec.gov/edgar/browse/?CIK=1409765",
+      "source_type": "13F 보유현황 2차 집계 / SEC 운용사 조회",
+      "classification": "related_manager_not_kbty_series",
+      "accession_verified": false
+    }
+  ]
 }

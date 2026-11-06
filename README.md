@@ -279,3 +279,14 @@ KBTY SEC 첫 GitHub Actions 실조회에서 SEC submissions JSON 호스트가 HT
 - 자동 추가분은 **서식 기준 개요**일 뿐 본문을 정밀 검토한 요약이 아닙니다. ETF의 실제 APR 보유량은 계속 원문 공식 운용자료만 사용합니다.
 
 SEC의 두 호스트가 모두 차단되는 환경에서는 새 공시 자동 탐지가 실패할 수 있으며, 이는 **비용 문제가 아니라 접근성 한계**입니다. 사이트에는 마지막으로 확인한 공식 공시 3건과 접근 실패 상태가 그대로 유지됩니다.
+
+### 2026년 11월 5일 Guinness Atkinson 관련 SEC 공시 구분
+
+2026년 11월 5일 **Guinness Atkinson Asset Management Inc (CIK 0001409765)** 명의의 2026년 3분기 `13F-HR` 기관 보유주식 보고가 제출된 것으로 확인됩니다. 보고 기준일은 9월 30일이고, 제3자 공개 집계에서는 약 **2억 2,470만 달러 / 108개 포지션**으로 표시됩니다.
+
+**주의:** 이 보고는 펀드 등록주체 `Guinness Atkinson Funds (CIK 0000919160)`의 **KBTY ETF 개별 시리즈 S000109351 공시가 아닙니다.** 기관투자자의 미국 신고대상 증권 보유내역이므로 APR(278470)의 실제 ETF 편입비중·매수액·KBTY AUM을 산정할 근거가 아닙니다.
+
+- KBTY SEC 시리즈로 검증된 주요 공시의 최신 날짜는 별도 표기(현재 본문 확인 기준 2026-10-28).
+- 이 운용사 13F는 KBTY 페이지 아래 별도 참고자료로만 노출하고 **KBTY 자체 공시 이력의 최근 제출일 계산에 합치지 않습니다.**
+- 13F의 개별 SEC 원본 접수번호는 현재 직접 확인하지 못했으므로, 공개 2차 자료 [FilingExplorer 2026 Q3](https://www.filingexplorer.com/investment-manager/guinness-atkinson-asset-management-inc/2026-q3)와 [SEC 운용사 CIK 검색](https://www.sec.gov/edgar/browse/?CIK=1409765)을 출처로 병기합니다.
+- SEC 직접 API 접근 제한으로 **다른 2026년 11월 KBTY 자체 공시의 부재까지 확정하는 것은 아닙니다.** 새 KBTY 제출은 시리즈 번호 S000109351 확인 후 공시 이력에 추가합니다.

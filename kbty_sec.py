@@ -236,6 +236,8 @@ def assemble_base(registry, previous=None, checked_at=None):
         'new_detected': 0,
         'briefing': registry.get('briefing', []),
         'watchlist': registry.get('watchlist', []),
+        # Context only: these are manager 13F filings, NOT KBTY series docs.
+        'related_manager_filings': registry.get('related_manager_filings', []),
         'filings': filings,
         'data_scope': 'SEC 공시 검증 여부와 운용사 실제 상장·AUM·APR 편입은 별도',
         'summary_basis': '검토된 3건은 SEC 본문 기반. 이후 자동 추가는 KBTY 시리즈 확인 및 서식 정보 기반.'
