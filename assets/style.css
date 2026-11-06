@@ -78,3 +78,36 @@
 .freight-asof{font-size:11px;line-height:1.75;color:#627d8f;margin:6px 16px 10px;overflow-wrap:anywhere}
 .freight-official-link{display:inline-block;margin:0 16px 16px;font-size:11px;font-weight:700;color:#0b917f;text-decoration:none}
 .freight-official-link:hover{text-decoration:underline}
+
+/* KBTY SEC EDGAR: factual filing timeline and Korean prospectus guide */
+.sec-panel{margin-top:4px}
+.sec-status-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.sec-status-row>div{border:1px solid var(--border);border-radius:8px;padding:13px 15px;background:#fbfcfd}
+.sec-status-row small{display:block;font-size:10px;color:#758b99;margin-bottom:7px}
+.sec-status-row strong{font-size:14px;color:#25445b;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.sec-monitor-status{font-size:11px;color:#5b7f8b;margin:9px 0;line-height:1.7}
+.sec-scope-note{font-size:11px;line-height:1.8;color:#496476;background:#f6f8fa;padding:13px 15px;border-radius:8px}
+.sec-subtitle{margin:27px 0 12px}
+.sec-subtitle h3{font-size:15px}
+.sec-subtitle .subtle{margin-bottom:0;line-height:1.7}
+.sec-briefing{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sec-brief-card{padding:17px;border:1px solid var(--border);border-radius:9px;background:white;min-width:0}
+.sec-brief-card h4{font-size:13px;color:#193a5a;margin:0 0 9px}
+.sec-brief-card p{font-size:12px;color:#526b7c;line-height:1.85;margin:0;overflow-wrap:anywhere}
+.sec-brief-card .sec-implication{margin-top:10px;border-top:1px solid #edf1f3;padding-top:10px;color:#688497;font-size:11px}
+.sec-brief-card .sec-implication strong{color:#137f71}
+.sec-filings{display:grid;gap:10px}
+.sec-filing{padding:18px 20px;border:1px solid var(--border);background:#fff;border-radius:10px;min-width:0}
+.sec-filing-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:9px;font-size:11px;color:#8193a1}
+.sec-filing-meta small{font-size:10px;color:#527a82}
+.sec-filing>strong{font-size:14px;color:#25445b;display:block;line-height:1.6}
+.sec-filing p{font-size:12px;color:#526b7c;line-height:1.85;margin:9px 0;overflow-wrap:anywhere}
+.sec-filing .sec-filing-change{color:#718898;font-size:11px}
+.sec-filing>a{font-size:11px;font-weight:700;color:#0b917f;text-decoration:none;display:inline-block;margin-top:6px}
+.sec-filing>a:hover{text-decoration:underline}
+.sec-watchlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.sec-watch-row{border-bottom:1px solid #e9eff2;padding:10px 2px}
+.sec-watch-row strong{font-size:12px;color:#355b70}
+.sec-watch-row p{font-size:11px;color:#6a8798;line-height:1.75;margin:6px 0}
+.sec-source-note{font-size:10px;color:#8498a5;line-height:1.8}
+@media(max-width:760px){.sec-status-row,.sec-briefing,.sec-watchlist{grid-template-columns:1fr}.sec-filing{padding:15px}}
