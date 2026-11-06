@@ -61,6 +61,10 @@ jobs:
         # [translate-now] avoids a fresh Amazon collection, preserving credits.
         if: github.event_name == 'push' && contains(github.event.head_commit.message, '[translate-now]')
         run: python news_localizer.py --refresh-file
+      - name: Verify KBTY SEC EDGAR filings (free; fund-series match required)
+        # Daily morning SEC refresh; [sec-now] checks SEC only without Amazon/Trends.
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
+        run: python kbty_sec.py --refresh
       - name: Store historical snapshots in repo
         run: |
           git config user.name "github-actions[bot]"
