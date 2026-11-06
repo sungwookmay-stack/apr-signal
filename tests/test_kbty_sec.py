@@ -94,6 +94,63 @@ class KbtySecTests(unittest.TestCase):
         self.assertEqual(len(called),3)
         self.assertTrue((self.output).exists())
 
+    def test_free_sec_fulltext_fallback_is_identity_checked(self):
+        sample = {'hits': {'hits': [
+            {'_id':'0001213900-26-116010:filing.htm',
+             '_source': {'form':'497','file_date':'2026-11-06',
+                         'ciks':['0000919160']}},
+            {'_id':'0001213900-26-116011:other.htm',
+             '_source': {'form':'497','file_date':'2026-11-06',
+                         'ciks':['0000123456']}},
+            {'_id':'not-an-accession:malicious.htm',
+             '_source': {'form':'485BPOS','file_date':'2026-11-06',
+                         'ciks':['0000919160']}}
+        ]}}
+        called = []
+        def mock(url):
+            called.append(url)
+            if url == sec.SEC_SUBMISSIONS:
+                raise urllib.error.HTTPError(url,403,'Restricted',{},None)
+            if url.startswith(sec.SEC_FULLTEXT):
+                return json.dumps(sample).encode()
+            if '116010' in url and url.endswith('index-headers.html'):
+                return b'<SERIES-ID>S000109351\n'
+            raise OSError('Unknown request')
+        result = sec.refresh(transport=mock, output=self.output,now=self.now)
+        self.assertEqual(result['new_detected'],1)
+        self.assertEqual(len(result['filings']),4)
+        self.assertEqual(result['filings'][0]['accession'],'0001213900-26-116010')
+        self.assertIn('full-text',result['sec_monitor_status'])
+        self.assertEqual(result['last_successful_check_utc'],
+                         '2026-11-06T11:00:00+00:00')
+        self.assertEqual(len(called),3)
+        self.assertIn('ciks=0000919160',called[1])
+
+    def test_sec_search_hit_for_other_cik_cannot_be_kbty(self):
+        doc={'hits':{'hits':[
+             {'_id':'0001213900-26-116010:other.htm',
+              '_source':{'form':'497','file_date':'2026-11-06',
+                         'ciks':['0000919159']}}
+        ]}}
+        self.assertEqual(sec.fulltext_candidates(doc),[])
+        with self.assertRaises(ValueError):
+            sec.fulltext_candidates({'hits':{}})
+
+    def test_sec_header_access_failure_is_not_confirmed_latest(self):
+        doc={'cik':919160,'filings':{'recent':{
+             'accessionNumber':['0001213900-26-116010'],
+             'filingDate':['2026-11-06'],'form':['497'],
+             'primaryDocument':['kbty_filing.htm']}}}
+        def response(url):
+            if url==sec.SEC_SUBMISSIONS:
+                return json.dumps(doc).encode()
+            raise urllib.error.HTTPError(url,403,'Restricted',{},None)
+        report=sec.refresh(transport=response,output=self.output,now=self.now)
+        self.assertEqual(report['new_detected'],0)
+        self.assertEqual(report['latest_verified_filing_date'],'2026-10-28')
+        self.assertIsNone(report['last_successful_check_utc'])
+        self.assertIn('미확정',report['sec_monitor_status'])
+
     def test_sec_403_or_error_preserves_old_verified_records(self):
         def blocked(url):
             raise urllib.error.HTTPError(url,403,'Forbidden',{},None)
