@@ -20,12 +20,14 @@ import os
 import re
 import urllib.error
 import urllib.request
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / 'config/kbty_sec_registry.json'
 OUTPUT = ROOT / 'data/kbty_sec.json'
 SEC_SUBMISSIONS = 'https://data.sec.gov/submissions/CIK0000919160.json'
+SEC_FULLTEXT = 'https://efts.sec.gov/LATEST/search-index'
 SEC_ARCHIVE = 'https://www.sec.gov/Archives/edgar/data/919160'
 SERIES = 'S000109351'
 CIK = '0000919160'
@@ -119,6 +121,59 @@ def candidate_filings(payload, min_date='2026-07-01'):
                   reverse=True)
 
 
+def fulltext_url(on_date):
+    """SEC's free EDGAR full-text search, filtered to the correct trust CIK."""
+    params = urllib.parse.urlencode({
+        'q': '"Guinness Atkinson K-Beauty ETF"',
+        'ciks': CIK,
+        'dateRange': 'custom',
+        'startdt': '2026-10-01',
+        'enddt': on_date.strftime('%Y-%m-%d')
+    })
+    return SEC_FULLTEXT + '?' + params
+
+
+def fulltext_candidates(payload, min_date='2026-10-01'):
+    """SEC EFTS hits can be exhibits or unrelated funds: CIK filter is REQUIRED.
+
+    Returned entries are only *candidates*. Caller must fetch exact filing
+    index headers and check KBTY's series ID before publishing a new filing.
+    """
+    hits = (payload.get('hits') or {}).get('hits') if isinstance(payload, dict) else None
+    if not isinstance(hits, list):
+        raise ValueError('SEC full-text response not recognized')
+    result = {}
+    for hit in hits[:100]:
+        if not isinstance(hit, dict):
+            continue
+        source = hit.get('_source') or {}
+        if not isinstance(source, dict):
+            continue
+        ciks = source.get('ciks') or []
+        if not isinstance(ciks, list):
+            ciks = [ciks]
+        if CIK not in {str(v).zfill(10) for v in ciks}:
+            continue
+        ident = str(hit.get('_id') or '')
+        accession, sep, file = ident.partition(':')
+        if not sep or not ACCESSION_RE.fullmatch(accession):
+            continue
+        date = str(source.get('file_date') or '')
+        form = str(source.get('form') or '').upper()
+        if not re.fullmatch(r'20\d\d-\d\d-\d\d', date):
+            continue
+        if date < min_date or form not in INTERESTING_FORMS:
+            continue
+        # The search hit may be an exhibit; link new records to the SEC
+        # filing index, not to an unrelated attachment.
+        result[accession] = {
+            'accession': accession, 'filed_date': date, 'form': form,
+            'filename': accession + '-index.htm'
+        }
+    return sorted(result.values(), key=lambda x:(x['filed_date'],x['accession']),
+                  reverse=True)
+
+
 def filing_link(accession, filename):
     if not ACCESSION_RE.fullmatch(accession) or not FILENAME_RE.fullmatch(filename):
         raise ValueError('Unsafe SEC filing path')
@@ -199,9 +254,19 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
                            now.astimezone(dt.timezone.utc).isoformat(timespec='seconds'))
     seen = {x['accession'] for x in report['filings']}
     try:
-        raw = transport(SEC_SUBMISSIONS)
-        listings = candidate_filings(json.loads(raw.decode('utf-8')))
+        source_name = 'SEC submissions'
+        try:
+            raw = transport(SEC_SUBMISSIONS)
+            listings = candidate_filings(json.loads(raw.decode('utf-8')))
+        except (OSError, ValueError, KeyError, TimeoutError,
+                urllib.error.URLError) as initial_error:
+            # The SEC data host may block some cloud IP ranges. Try its
+            # separate official full-text index before reporting failure.
+            source_name = 'SEC full-text'
+            raw = transport(fulltext_url(now.date()))
+            listings = fulltext_candidates(json.loads(raw.decode('utf-8')))
         checked = 0
+        header_errors = 0
         newest_known = report['latest_verified_filing_date'] or '2026-07-01'
         possible = [x for x in listings if
                     x['accession'] not in seen and x['filed_date'] >= newest_known]
@@ -217,6 +282,7 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
                 seen.add(item['accession'])
             except (OSError, ValueError, TimeoutError, urllib.error.URLError):
                 # Fail closed: a header fetch failure is not a KBTY filing.
+                header_errors += 1
                 continue
         report['filings'].sort(key=lambda x: (x['filed_date'], x['accession']),
                                reverse=True)
@@ -225,12 +291,21 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
         report['new_detected'] = len(seen) - len(set(
             x['accession'] for x in assemble_base(registry, previous)['filings']))
         report['scan_count'] = checked
-        report['last_successful_check_utc'] = report['checked_at_utc']
-        report['sec_monitor_status'] = (
-            'SEC 제출목록 확인 완료 · KBTY 시리즈 일치 공시만 표시'
-            if checked < MAX_HEADER_CHECKS else
-            'SEC 제출목록 일부 확인 · 검증 범위 제한'
-        )
+        if checked and header_errors:
+            report['sec_monitor_status'] = (
+                source_name + ' 검색 완료 · 개별 공시 확인 일부 실패; '
+                '신규공시 최신 여부는 미확정'
+            )
+            report['sec_monitor_error'] = 'SECHeaderUnavailable'
+        elif len(possible) > MAX_HEADER_CHECKS:
+            report['sec_monitor_status'] = (
+                source_name + ' 일부 공시 확인 · 검증 범위 제한'
+            )
+        else:
+            report['sec_monitor_status'] = (
+                source_name + ' 조회 완료 · KBTY 시리즈 확인 공시만 표시'
+            )
+            report['last_successful_check_utc'] = report['checked_at_utc']
     except (OSError, ValueError, KeyError, TimeoutError, urllib.error.URLError) as exc:
         report['sec_monitor_status'] = (
             'SEC 자동 접근 실패 · 기존 확인 공시 유지 (최신 여부 미확인)')
