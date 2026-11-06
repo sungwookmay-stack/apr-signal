@@ -27,5 +27,7 @@ jobs:
         run: node tests/smoke_news.cjs
       - name: Verify South America countries without external APIs
         run: node tests/smoke_latam.cjs
+      - name: Verify Korean SEC KBTY filing UI
+        run: node tests/smoke_kbty_sec.cjs
       - name: Test official Customs freight parsing
         run: python -m unittest tests/test_freight_official.py -v
