@@ -267,3 +267,15 @@ APR SIGNAL의 **현지 뉴스/한글 제목 정리**는 다음과 같이 운영�
 공식 SEC 원문: [7월 등록](https://www.sec.gov/Archives/edgar/data/919160/000121390026077251/ea0297356-01_485apos.htm) /
 [9월 효력일 조정](https://www.sec.gov/Archives/edgar/data/919160/000121390026101996/ea0306094-02_485bxt.htm) /
 [10월 투자설명서](https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm).
+
+### SEC 자동 접근 제한 시 무료 대체 경로
+
+KBTY SEC 첫 GitHub Actions 실조회에서 SEC submissions JSON 호스트가 HTTP 오류로 차단되는 사례를 확인했습니다. 이를 보완하기 위해 `kbty_sec.py`는 SEC 공식 **Full-Text Search (efts.sec.gov)** API를 2차 경로로 사용합니다.
+
+- 1차: `data.sec.gov/submissions/CIK0000919160.json`
+- 2차: `efts.sec.gov/LATEST/search-index`, `"Guinness Atkinson K-Beauty ETF"` 검색 + 신탁 CIK 0000919160 확인
+- 새 공시 게시 전: 해당 공시의 SEC index header에 **정확한 시리즈 S000109351**가 있는지 확인
+- HTTP 차단·헤더 검증 실패 시 KBTY 신규 공시로 자동 인정하지 않고 상태와 마지막 정상 검증일을 분리
+- 자동 추가분은 **서식 기준 개요**일 뿐 본문을 정밀 검토한 요약이 아닙니다. ETF의 실제 APR 보유량은 계속 원문 공식 운용자료만 사용합니다.
+
+SEC의 두 호스트가 모두 차단되는 환경에서는 새 공시 자동 탐지가 실패할 수 있으며, 이는 **비용 문제가 아니라 접근성 한계**입니다. 사이트에는 마지막으로 확인한 공식 공시 3건과 접근 실패 상태가 그대로 유지됩니다.
