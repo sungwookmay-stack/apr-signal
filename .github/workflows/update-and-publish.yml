@@ -39,6 +39,8 @@ jobs:
         run: node tests/smoke_news.cjs
       - name: Verify South America countries without external APIs
         run: node tests/smoke_latam.cjs
+      - name: Verify Korean SEC KBTY filing UI
+        run: node tests/smoke_kbty_sec.cjs
       - name: Test official Customs freight parsing
         run: python -m unittest tests/test_freight_official.py -v
       - name: Fetch data, calculate signals, update verified news
@@ -61,6 +63,14 @@ jobs:
         # [translate-now] avoids a fresh Amazon collection, preserving credits.
         if: github.event_name == 'push' && contains(github.event.head_commit.message, '[translate-now]')
         run: python news_localizer.py --refresh-file
+      - name: Verify KBTY SEC EDGAR filings (free; fund-series match required)
+        # Daily morning SEC refresh; [sec-now] checks SEC only without Amazon/Trends.
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
+        run: python kbty_sec.py --refresh
+      - name: Refresh KBTY SEC EDGAR series-verified filings (free)
+        # SEC only. [sec-now] never invokes Amazon/Trends or whole APR collection.
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
+        run: python kbty_sec.py --refresh
       - name: Store historical snapshots in repo
         run: |
           git config user.name "github-actions[bot]"

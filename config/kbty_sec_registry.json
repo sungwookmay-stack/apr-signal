@@ -1,0 +1,99 @@
+{
+  "fund": "Guinness Atkinson K-Beauty ETF",
+  "ticker": "KBTY",
+  "cik": "0000919160",
+  "series_id": "S000109351",
+  "sec_filer_page": "https://www.sec.gov/edgar/browse/?CIK=919160",
+  "official_fund_page": "https://www.gafunds.com/kbty/",
+  "reviewed_date": "2026-11-06",
+  "briefing": [
+    {
+      "id": "overview",
+      "title": "투자 구조",
+      "summary": "KBTY는 Indxx K-Beauty Index를 추종하는 패시브 ETF이며, 통상 순자산 등 기준 최소 80%를 지수 편입 기업에 투자하도록 설계돼 있습니다.",
+      "implication": "ETF 투자대상 범위와 실제 에이피알 편입 여부는 별개입니다.",
+      "source_accession": "0001213900-26-113359"
+    },
+    {
+      "id": "value_chain",
+      "title": "투자 범위",
+      "summary": "K-뷰티 가치사슬을 브랜드·제조/ODM 및 원료·유통/소매·미용의료/피부과 관련 사업 등 네 영역으로 분류합니다.",
+      "implication": "스킨부스터·미용의료기기도 대상에 포함될 수 있으나, 특정 기업 보유를 보장하지 않습니다.",
+      "source_accession": "0001213900-26-113359"
+    },
+    {
+      "id": "fees",
+      "title": "보수와 비용",
+      "summary": "2026년 10월 28일 투자설명서 기준 연간 총운용비용률은 0.55%입니다. 매매수수료 등 일부 비용은 별도로 발생할 수 있습니다.",
+      "implication": "ETF 유입액만으로 한국 개별 종목의 실제 순매수액을 확정할 수 없습니다.",
+      "source_accession": "0001213900-26-113359"
+    },
+    {
+      "id": "risks",
+      "title": "공시상 주요 위험",
+      "summary": "단일국가·테마 집중, 원/달러 환율 변동, 한국시장과 미국시장 거래시간 차이에 따른 NAV 대비 괴리, 소규모 ETF 유동성 및 추적오차 위험을 명시합니다.",
+      "implication": "상장 초기에 AUM·호가 스프레드·NAV 괴리율을 함께 확인해야 합니다.",
+      "source_accession": "0001213900-26-113359"
+    },
+    {
+      "id": "creation",
+      "title": "설정·환매 구조",
+      "summary": "설정·환매 단위는 1만 주이며, 한국 주식의 현물 이전 제한 등으로 현금 설정·환매를 주로 활용할 수 있다는 내용이 포함돼 있습니다.",
+      "implication": "ETF 자금 유입→한국 주식 매수까지는 시점·환전·거래·대체 운용을 확인해야 합니다.",
+      "source_accession": "0001213900-26-113359"
+    }
+  ],
+  "watchlist": [
+    {
+      "title": "실제 거래 개시",
+      "desc": "NYSE Arca 실제 거래일·첫 거래가격과 운용사 공식 NAV 확인. SEC 등록신고 효력과 거래소 상장을 혼동하지 않음"
+    },
+    {
+      "title": "에이피알 편입·매입",
+      "desc": "운용사 공개 구성종목에서 APR(278470) 실제 비중·보유주식 수·기준일 확인. SEC 투자설명서만으로 확정하지 않음"
+    },
+    {
+      "title": "유입 자금의 규모",
+      "desc": "상장 후 NAV·AUM·설정주식 수 변화를 기록. ETF 설정 규모가 곧 APR 직접 순매수 금액은 아님"
+    },
+    {
+      "title": "지수 구성 변경",
+      "desc": "Indxx 방법론·편입종목·정기 리밸런싱 확인. 기초지수의 예정 종목과 ETF 실제 보유 내역은 분리"
+    }
+  ],
+  "filings": [
+    {
+      "accession": "0001213900-26-113359",
+      "filed_date": "2026-10-28",
+      "form": "485BPOS",
+      "title_ko": "KBTY 정식 투자설명서 포함 등록문서 제출",
+      "summary_ko": "Guinness Atkinson K-Beauty ETF의 지수(Indxx K-Beauty Index), 연간 총보수 0.55%, 최소 80% 지수 관련 투자, 투자 범위 및 위험요인이 담긴 공시입니다. 등록신고서 효력 발생과 실제 거래 개시는 별개입니다.",
+      "change_ko": "초기 7월 서류에서 공란이던 지수·운용보수 등 핵심 조건이 구체적으로 표시됐습니다.",
+      "stage": "투자설명서·등록신고",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
+      "review_level": "공시 본문 확인"
+    },
+    {
+      "accession": "0001213900-26-101996",
+      "filed_date": "2026-09-22",
+      "form": "485BXT",
+      "title_ko": "KBTY 등록신고 효력 발생일 재지정",
+      "summary_ko": "7월에 제출한 K-Beauty ETF 신규 시리즈 등록 변경신고의 효력 발생일을 2026년 9월 30일로 지정하기 위한 서류입니다. 이 서류만으로 실제 거래 개시를 확인할 수 없습니다.",
+      "change_ko": "상장 절차 관련 일정 조정이며, 종목 편입·매입 실적 발표는 아닙니다.",
+      "stage": "효력일 지정",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026101996/ea0306094-02_485bxt.htm",
+      "review_level": "공시 본문 확인"
+    },
+    {
+      "accession": "0001213900-26-077251",
+      "filed_date": "2026-07-10",
+      "form": "485APOS",
+      "title_ko": "KBTY 신규 ETF 시리즈 등록 추진",
+      "summary_ko": "Guinness Atkinson Funds가 K-Beauty ETF 신규 시리즈를 신설하기 위한 등록 변경신고서를 제출했습니다. 당시 예비 투자설명서에서 지수명·보수 등 일부 조건은 미정 상태였습니다.",
+      "change_ko": "신규 ETF 설정 준비 단계입니다. 등록 신청을 실제 상장 또는 APR 편입 확정으로 해석하지 않습니다.",
+      "stage": "신규 시리즈 등록 신청",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026077251/ea0297356-01_485apos.htm",
+      "review_level": "공시 본문 확인"
+    }
+  ]
+}
