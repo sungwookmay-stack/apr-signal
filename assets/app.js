@@ -284,7 +284,55 @@ function renderRetailReferences(){
      '<strong class="signal-value">'+escapeHtml(metric)+'</strong></article>';
  }).join('');
 }
+function secOfficialLink(url){
+ const u=validLink(url);
+ try {
+  const parsed=new URL(u);
+  return parsed.protocol==='https:' && parsed.hostname==='www.sec.gov' &&
+         parsed.pathname.startsWith('/Archives/edgar/data/919160/')?u:'#';
+ } catch{return '#'}
+}
+function renderKbtySec(){
+ const data=state.kbtySec||{};
+ const filings=Array.isArray(data.filings)?data.filings:[];
+ const briefing=Array.isArray(data.briefing)?data.briefing:[];
+ const watchlist=Array.isArray(data.watchlist)?data.watchlist:[];
+ set('sec-latest-date',data.latest_verified_filing_date||'공시 확인 전');
+ set('sec-last-checked',data.last_successful_check_utc?
+   data.last_successful_check_utc.slice(0,16).replace('T',' ')+' UTC':
+   '자동 확인 전 · 기존 공시자료');
+ set('sec-monitor-status',data.sec_monitor_status||
+     'SEC 자료를 불러올 수 없어 기존 KBTY 공식자료만 유지합니다.');
+ const briefEl=$('sec-briefing');
+ if(briefEl)briefEl.innerHTML=briefing.length?briefing.map(x=>
+   '<article class="sec-brief-card"><h4>'+escapeHtml(x.title)+'</h4>'+
+   '<p>'+escapeHtml(x.summary)+'</p>'+
+   '<p class="sec-implication"><strong>APR 관점</strong> '+escapeHtml(x.implication)+'</p>'+
+   '</article>').join(''):
+   '<p class="subtle">아직 검증된 투자설명서 요약이 없습니다.</p>';
+ const filingEl=$('sec-filings');
+ if(filingEl)filingEl.innerHTML=filings.length?filings.slice(0,24).map(item=>{
+   const href=secOfficialLink(item.source_url);
+   const label=escapeHtml(item.review_level||'KBTY 시리즈 확인');
+   return '<article class="sec-filing">'+
+     '<div class="sec-filing-meta"><span>'+escapeHtml(item.filed_date||'제출일 미확인')+
+     ' · '+escapeHtml(item.form||'')+'</span><small>'+label+'</small></div>'+
+     '<strong>'+escapeHtml(item.title_ko||'SEC 제출자료')+'</strong>'+
+     '<p>'+escapeHtml(item.summary_ko||'')+'</p>'+
+     (item.change_ko?'<p class="sec-filing-change">확인 사항: '+escapeHtml(item.change_ko)+'</p>':'')+
+     '<a href="'+href+'" target="_blank" rel="noopener noreferrer">SEC 공시 원문 확인 ↗</a>'+
+     '</article>';
+ }).join(''):'<p class="subtle">KBTY 시리즈로 확인된 SEC 공시가 없습니다.</p>';
+ const watchEl=$('sec-watchlist');
+ if(watchEl)watchEl.innerHTML=watchlist.map(x=>
+   '<div class="sec-watch-row"><strong>'+escapeHtml(x.title||'추적 항목')+'</strong>'+
+   '<p>'+escapeHtml(x.desc||'')+'</p></div>').join('')||
+   '<p class="subtle">추적할 공시 후속자료가 없습니다.</p>';
+ const filingLink=$('sec-filer-link');
+ if(filingLink)filingLink.href='https://www.sec.gov/edgar/browse/?CIK=919160';
+}
 function renderEtf(){const e=state.kbty;if(!e)return;
+ renderKbtySec();
  set('kbty-status',e.status||'상태 미확인');set('e-price',e.latest_price_usd!=null?'$'+fmt(e.latest_price_usd,2):'—');set('e-price-date',e.price_date||'거래 전 또는 시세 미확인');
  set('e-aum',e.aum_usd!=null?'$'+fmt(e.aum_usd,0):'—');set('e-apr',e.apr_weight_pct!=null?fmt(e.apr_weight_pct,2)+'%':'—');
  set('e-apr-date',e.apr_holding_as_of||'공식 APR 편입비중 미발표');set('e-shares',e.apr_shares!=null?fmt(e.apr_shares):'—');
@@ -380,7 +428,7 @@ function initControls(){
  });
 }
 async function init(){
- const names=['market','technical','kbty','news','demand','status','top100','reference_signals'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n]=data[i]);
+ const names=['market','technical','kbty','news','demand','status','top100','reference_signals','kbty_sec'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n]=data[i]);
  const sync=state.status?.generated_at_utc;
  set('last-synced',sync?'최종 수집 '+sync.slice(0,10)+' (UTC)':'최초 클라우드 갱신 전');
  initControls();showPage(location.hash);window.addEventListener('hashchange',()=>showPage(location.hash));
