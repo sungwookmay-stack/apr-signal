@@ -12,7 +12,7 @@
     "stock_last": "2026-11-06",
     "usd_fx_last": "2026-11-06",
     "eur_fx_last": "2026-11-06",
-    "generated_at_utc": "2026-11-07T07:48:23+00:00",
+    "generated_at_utc": "2026-11-07T23:05:15+00:00",
     "coverage_start": "2025-07-01",
     "complete": true,
     "errors": [],
@@ -5039,7 +5039,7 @@
     ],
     "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
     "last_verified_month": "2026-09",
-    "last_verified_at_utc": "2026-11-06T23:11:56+00:00",
+    "last_verified_at_utc": "2026-11-07T23:05:15+00:00",
     "last_fetch_failed": false
   }
 }

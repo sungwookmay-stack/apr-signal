@@ -1,11 +1,11 @@
 {
   "month": "2026-11",
-  "reserved_credits": 114,
-  "calls": 114,
-  "provider_credits_reported": 114,
-  "last_call_date": "2026-11-07",
+  "reserved_credits": 142,
+  "calls": 142,
+  "provider_credits_reported": 142,
+  "last_call_date": "2026-11-08",
   "last_verified_cost": 1,
-  "provider_remaining_last": 886,
-  "last_pdp_day": "2026-11-07",
+  "provider_remaining_last": 858,
+  "last_pdp_day": "2026-11-08",
   "pdp_strategy_version": 2
 }

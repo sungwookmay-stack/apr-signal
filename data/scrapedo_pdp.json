@@ -334,5 +334,77 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.com/dp/B0DYTQ5GYQ"
+  },
+  {
+    "date": "2026-11-08",
+    "country": "AE",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pads 2.0, Dual-Textured Facial Toner Pads for Exfoliation and Pore Care with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid, Ideal for All Skin Types, Korean Sk",
+    "title": "medicube Zero Pore Pads 2.0, Dual-Textured Facial Toner Pads for Exfoliation and Pore Care with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid, Ideal for All Skin Types, Korean Sk",
+    "bsr": 12,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ae/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-08",
+    "country": "AE",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pads 2.0, Dual-Textured Facial Toner Pads for Exfoliation and Pore Care with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid, Ideal for All Skin Types, Korean Sk",
+    "title": "medicube Zero Pore Pads 2.0, Dual-Textured Facial Toner Pads for Exfoliation and Pore Care with 4.5% AHA Lactic Acid & 0.45% BHA Salicylic Acid, Ideal for All Skin Types, Korean Sk",
+    "bsr": 1,
+    "category": "Face Astringents & Toners",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.ae/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-08",
+    "country": "US",
+    "asin": "B0GHMZXX8Y",
+    "product": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm",
+    "title": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm",
+    "bsr": 64,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0GHMZXX8Y"
+  },
+  {
+    "date": "2026-11-08",
+    "country": "US",
+    "asin": "B0GHMZXX8Y",
+    "product": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm",
+    "title": "medicube PDRN Collagen Volume Multi Balm Stick, Firming Face & Body Balm",
+    "bsr": 1,
+    "category": "Eye Treatment Balms",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0GHMZXX8Y"
+  },
+  {
+    "date": "2026-11-08",
+    "country": "GB",
+    "asin": "B0DGPSZVW3",
+    "product": "medicube Jelly Cream with Collagen & Niacinamide, 1.69 fl.oz",
+    "title": "medicube Jelly Cream with Collagen & Niacinamide, 1.69 fl.oz",
+    "bsr": 24,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DGPSZVW3"
+  },
+  {
+    "date": "2026-11-08",
+    "country": "GB",
+    "asin": "B0DGPSZVW3",
+    "product": "medicube Jelly Cream with Collagen & Niacinamide, 1.69 fl.oz",
+    "title": "medicube Jelly Cream with Collagen & Niacinamide, 1.69 fl.oz",
+    "bsr": 1,
+    "category": "Face Day Care Creams",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DGPSZVW3"
   }
 ]

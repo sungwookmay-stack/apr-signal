@@ -1,9 +1,9 @@
 {
-  "updated_at_utc": "2026-11-06T23:13:29+00:00",
+  "updated_at_utc": "2026-11-07T23:07:23+00:00",
   "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님.",
   "retail": [
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "retailer": "ulta",
       "country": "US",
       "metric": "catalog_items",
@@ -16,7 +16,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "retailer": "ulta",
       "country": "US",
       "metric": "online_only_items",
@@ -29,7 +29,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-08",
       "retailer": "ulta",
       "country": "US",
       "metric": "exclusive_items",
@@ -108,7 +108,7 @@
     }
   ],
   "collection": {
-    "last_attempt_utc": "2026-11-06T23:13:29+00:00",
+    "last_attempt_utc": "2026-11-07T23:07:23+00:00",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
       "independent US Beauty 2026-W45"
