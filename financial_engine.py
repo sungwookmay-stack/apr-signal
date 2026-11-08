@@ -83,7 +83,7 @@ def build(data):
                     'roe_ttm_pct':ratio(ttm,(b['equity']+base['equity'])/2),
                     'ttm_net_income_100m':rounded(ttm),
                     'base_equity_100m':base['equity'],'end_equity_100m':b['equity'],
-                    'method':'최근 12개월 연결 순이익 / 전년 동기와 현재 지배기업 자본의 평균; 참고 계산치 (기업 공시 정의와 차이 가능)'
+                    'method':'최근 12개월 연결 순이익 / 전년 동기와 현재 연결 자본총계의 평균; 총자본 ROE 참고치 (지배주주 ROE와 다름)'
                 })
 
     # TTM attributable profit in 100m KRW (억원). Source is audited/quarterly
