@@ -1,6 +1,6 @@
 {
   "updated_at_utc": "2026-11-07T23:07:23+00:00",
-  "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님.",
+  "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님. · 2026-11-08 Target 의심 구매 배지는 정량 추이 제외.",
   "retail": [
     {
       "date": "2026-11-08",
@@ -65,7 +65,9 @@
       "scope": "위 Target 카테고리 페이지의 Zero Pore Pad 단일 상품에 붙은 배지",
       "source_url": "https://www.target.com/c/facial-cleansers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9",
       "method": "official_bought_badge",
-      "note": "판매처의 반올림된 하한 배지. 실제 정확한 판매량·오프라인 POS 수치가 아님"
+      "note": "품목과 구매 배지의 인접성 검증이 불충분하여 실측 추이 계산 제외. 이전 104k는 사실상 의심 관측치이며 실제 오프라인 판매 수치로 해석 금지.",
+      "eligible_for_trend": false,
+      "verification_status": "대상상품 구매배지 오연계 가능성 · 품목별 재검증 전"
     },
     {
       "date": "2026-11-02",
@@ -119,7 +121,10 @@
     "notes": [
       "공식 사이트 자동 접근이 제한되면 마지막 출처확인 값을 유지",
       "온라인 상품 수, 반올림된 구매 배지, 현지 검색은 매장별 POS 매출 자료가 아님",
-      "제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰"
+      "제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰",
+      "Target 카테고리 9개는 브랜드 전체 SKU가 아님; 104k 구매 배지는 품목 연결 미검증으로 추이 계산에서 제외.",
+      "Ulta 비온라인전용 SKU=전체 등록 SKU-Online Only, 실제 점포 입점 SKU나 매출이 아님.",
+      "첫 실측일부터 날짜별 동일 정의 지표를 누적하며, 과거 수치를 임의 보간하지 않음."
     ]
   },
   "amazon_monthly": [
@@ -134,6 +139,93 @@
       "source_url": "https://metricscart.com/bestseller-reports/amazon-uk/categories/Beauty/",
       "status": "third_party_monthly_distinct",
       "caveat": "2026년 9월 한 달간 순위권에 등장한 서로 다른 상품 15종. 특정 하루의 동시 Top 100 진입 상품 수 15종이라는 뜻은 아님."
+    }
+  ],
+  "retail_history": [
+    {
+      "date": "2026-11-08",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "catalog_items",
+      "value": 69,
+      "display": "69개",
+      "label": "메디큐브 등록상품 수",
+      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님",
+      "eligible_for_trend": true
+    },
+    {
+      "date": "2026-11-08",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "online_only_items",
+      "value": 37,
+      "display": "37개",
+      "label": "온라인 전용 표시 상품",
+      "scope": "Ulta 브랜드 페이지 Online Only 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님",
+      "eligible_for_trend": true
+    },
+    {
+      "date": "2026-11-08",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "exclusive_items",
+      "value": 3,
+      "display": "3개",
+      "label": "Only at Ulta 상품",
+      "scope": "Ulta 브랜드 페이지 독점 상품",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님",
+      "eligible_for_trend": true
+    },
+    {
+      "date": "2026-11-04",
+      "retailer": "target",
+      "country": "US",
+      "metric": "category_items",
+      "value": 9,
+      "display": "9개",
+      "label": "페이스 클렌저 카테고리 등록 상품",
+      "scope": "Target 내 Face Washes & Makeup Removers / medicube 필터 결과만",
+      "source_url": "https://www.target.com/c/facial-cleansers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9",
+      "method": "official_category_page",
+      "note": "브랜드 전체 상품 수 아님. 온라인 등록 수이며 점포 입점 수가 아님",
+      "eligible_for_trend": true
+    },
+    {
+      "date": "2026-11-04",
+      "retailer": "target",
+      "country": "US",
+      "metric": "zero_pore_pad_bought_lower",
+      "value": 104000,
+      "display": "104k+ bought",
+      "label": "제로모공패드 최근 한 달 구매 표시",
+      "scope": "위 Target 카테고리 페이지의 Zero Pore Pad 단일 상품에 붙은 배지",
+      "source_url": "https://www.target.com/c/facial-cleansers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9",
+      "method": "official_bought_badge",
+      "note": "품목과 구매 배지의 인접성 검증이 불충분하여 실측 추이 계산 제외. 이전 104k는 사실상 의심 관측치이며 실제 오프라인 판매 수치로 해석 금지.",
+      "eligible_for_trend": false,
+      "verification_status": "대상상품 구매배지 오연계 가능성 · 품목별 재검증 전"
+    },
+    {
+      "date": "2026-11-02",
+      "retailer": "boots",
+      "country": "GB",
+      "metric": "brand_search_yoy_lower",
+      "value": 20,
+      "display": "20% 초과",
+      "label": "Boots 사이트 내 Medicube 검색량 YoY 증가",
+      "scope": "Boots UK 2026년 11월 공식 보도자료",
+      "source_url": "https://www.boots-uk.com/newsroom/news-item/from-k-beauty-to-k-wellness-boots-brings-korea-s-next-wellness-trend-to-the-uk-high-street-with-a-dedicated-new-offering/",
+      "method": "official_company_release",
+      "note": "Boots 공식 보도자료: boots.com 사이트 내 medicube 검색이 전년동기 대비 20% 초과 증가. 매출 또는 오프라인 판매 증가율 아님.",
+      "eligible_for_trend": true
     }
   ]
 }
