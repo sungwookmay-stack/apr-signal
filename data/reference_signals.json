@@ -250,5 +250,24 @@
       "summary_ko": "미국 보도에 따르면 메디큐브가 코스트코 약 400개 매장으로 유통 범위를 확대했습니다. 이는 입점 소식이지 판매·재주문 실적을 뜻하지 않습니다.",
       "source_url": "https://www.upi.com/amp/Top_News/World-News/2026/10/19/APR-Medicube-Costco-US/4431792417048/"
     }
-  ]
+  ],
+  "product_review_sources": [
+    {
+      "product_id": "target_zero_pore_95087437",
+      "retailer": "target",
+      "label": "medicube Zero Pore Pad",
+      "url": "https://www.target.com/p/-/A-95087437"
+    },
+    {
+      "product_id": "ulta_zero_pore_2645351",
+      "retailer": "ulta",
+      "label": "medicube Zero Pore Pad",
+      "url": "https://www.ulta.com/p/zero-pore-pad-pimprod2053434?sku=2645351"
+    }
+  ],
+  "product_review_status": {
+    "status": "최초 공식 상품페이지 관측 전",
+    "source_results": {},
+    "scope_note": "상품 후기 수/평점, 오프라인 POS 직접 측정치 아님"
+  }
 }
