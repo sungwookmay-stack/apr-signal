@@ -169,7 +169,7 @@ def calculate(rows):
             checks.append({'name':'RSI 과열 주의','status':'caution','detail':'추격 매수 위험'})
         latest_summary={
           'date':latest['date'],'label':label,'kind':kind,'score':score,'checks':checks,
-          'averaging_down':('분석 자료 부족' if not fully_ready else stage),
+          'averaging_down':('자료 부족 · 추가매수 판단 유보' if not fully_ready else stage),
           'entry_stage':stage,'rebound_points':rebound_points,
           'risk_elevated':risk_elevated,'macd_improving':macd_rising,
           'add_criteria':'반등 감시: RSI 상승·MACD 히스토그램 개선·5일선 회복 중 2개 이상. 20일선 접근·볼린저 하단 복귀 시 분할 검토. 120·200일선 아래에서는 반등 실패 위험 상승.',
