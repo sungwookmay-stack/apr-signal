@@ -27,6 +27,8 @@ jobs:
         run: node --check assets/research_dashboard.js
       - name: Test APR financial valuation offline Trend and retail panels
         run: node tests/smoke_research.cjs
+      - name: Verify 5 moving averages separate RSI and MACD charts
+        run: node tests/smoke_technical_2026.cjs
       - name: Dashboard smoke
         run: node tests/smoke_demand.cjs
       - name: Verify Korean news rendering

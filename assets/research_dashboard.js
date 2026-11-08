@@ -149,6 +149,24 @@ function renderFinancials(ctx){
  }
  bands(eps,'eps_won',multiplesPER,'chart-fin-per','PER');
  bands(book,'bps_won',multiplesPBR,'chart-fin-pbr','PBR');
+ function usdBands(events,key,multiples,id,name){
+  const base=history.map(x=>{const a=latestRelease(events,x.date,key);
+    return a&&num(a[key])>0&&num(x.usdkrw)>0?a[key]/x.usdkrw:null;});
+  const datasets=[{label:'실제 달러 환산 종가',values:history.map(x=>x.close_usd??null),color:C.navy,width:3}];
+  const colors=[C.grey,C.orange,C.teal,C.purple,C.red];
+  multiples.forEach((m,i)=>datasets.push({
+    label:name+' '+m+'배 (USD)',color:colors[i%colors.length],width:1,
+    values:base.map(x=>num(x)==null?null:Math.round(x*m*100)/100)
+  }));
+  chart(id,labels,datasets,{decimals:2,legend:true,xticks:5});
+ }
+ usdBands(eps,'eps_won',multiplesPER,'chart-fin-per-usd','PER');
+ usdBands(book,'bps_won',multiplesPBR,'chart-fin-pbr-usd','PBR');
+ const dartFin=state.dartFinancials||{};
+ set('dart-financials-status',dartFin.status||
+    'OpenDART 공식 연결재무 공시 수집 전 · 기존 분기보고서 확정자료 유지');
+ set('dart-financials-count',Array.isArray(dartFin.filings)?dartFin.filings.length+'개 정기보고서 확인':'DART 조회 전');
+
  const note=$('fin-valuation-note');
  if(note){
   const missingJune=history.length&&history[0].date>'2025-06-09';
@@ -160,8 +178,8 @@ function renderFinancials(ctx){
  }
 }
 
-function renderTheses(ctx){
- const {state,$,chart,escapeHtml,fmt,C}=ctx;
+function renderRetail(ctx){
+ const {state,$,chart,escapeHtml,fmt,C,validLink}=ctx;
  const r=state.reference||{},f=state.financials||{},d=state.demand||{},t=state.trendSignals||{};
  const metrics=safeArr(r.retail),history=safeArr(r.retail_history),amazonWeeks=safeArr(r.amazon_weekly);
  const find=name=>metrics.find(x=>x.metric===name);
@@ -183,9 +201,14 @@ function renderTheses(ctx){
    {label:'Target 브랜드 SKU',values:dates.map(date=>h.find(x=>x.metric==='brand_catalog_items'&&x.date===date)?.value??null),color:C.teal}
  ],{legend:true});
  const aw=amazonWeeks.slice().sort((a,b)=>String(a.week).localeCompare(String(b.week)));
- chart('chart-off-amazon',aw.map(x=>x.week),[
-  {label:'제3자 Amazon US Beauty Top100 메디큐브 종수',values:aw.map(x=>x.count),color:C.purple}
- ],{decimals:0,legend:true});
+ const reviews=safeArr(r.product_review_history).filter(x=>x.reviews_count!=null && x.verified);
+ const reviewsDates=[...new Set(reviews.map(x=>x.date))].sort();
+ const products=[...new Set(reviews.map(x=>x.product_id))].slice(0,4);
+ chart('chart-off-reviews',reviewsDates,products.map((id,i)=>({
+   label:reviews.find(x=>x.product_id===id)?.label||id,
+   values:reviewsDates.map(day=>reviews.find(x=>x.product_id===id&&x.date===day)?.reviews_count??null),
+   color:[C.teal,C.navy,C.orange,C.purple][i]
+ })),{decimals:0,legend:true});
  const el=$('off-status');
  if(el)el.innerHTML=metrics.map(x=>{
    const stale=x.retailer==='target'&&x.metric==='zero_pore_pad_bought_lower';
@@ -202,6 +225,27 @@ function renderTheses(ctx){
     '최신 브랜드 페이지에서 확인된 SKU만 사용합니다.')+
   ' 점포별 POS 매출·실제 재주문은 공개 관측치가 아닙니다.';
 
+ const reviewLatest=safeArr(r.product_review_history).filter(x=>x.verified).sort((a,b)=>String(a.date).localeCompare(String(b.date))).at(-1);
+ const summary=$('off-review-status');
+ if(summary)summary.textContent=reviewLatest?
+   '최근 검증된 상품 리뷰: '+reviewLatest.label+' · '+reviewLatest.reviews_count+'건 · '+reviewLatest.date+
+   ' (온라인 소비자 반응, 점포별 판매량 아님)':
+   '상품별 리뷰·평점의 일관된 공식 관측자료를 확보하면 추이를 표시합니다. 조회 차단/누락 시 임의값을 채우지 않습니다.';
+ const statements=$('retailer-statements');
+ if(statements)statements.innerHTML=safeArr(r.retailer_statements).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))).map(x=>
+   '<article class="retailer-statement"><small>'+escapeHtml(x.date||'')+
+   ' · '+escapeHtml(x.retailer||'')+' · '+(x.source_type==='official_retailer_newsroom'?'유통사 공식 발표':'독립 현지 언론 보도')+'</small>'+
+   '<strong>'+escapeHtml(x.title||'')+'</strong>'+
+   '<p>'+escapeHtml(x.summary_ko||'')+'</p>'+
+   '<a href="'+validLink(x.source_url||'')+'" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>'
+ ).join('')||'<p class="subtle">검증된 유통사 관련 발표를 아직 확보하지 못했습니다.</p>';
+}
+function renderTheses(ctx){
+ const {state,$,chart,escapeHtml,fmt,C}=ctx;
+ const r=state.reference||{},f=state.financials||{},d=state.demand||{},t=state.trendSignals||{};
+ const metrics=safeArr(r.retail),amazonWeeks=safeArr(r.amazon_weekly);
+ const find=name=>metrics.find(x=>x.metric===name);
+ const ulta=find('catalog_items'),online=find('online_only_items'),target=find('brand_catalog_items');
  const qq=safeArr(f.quarterly),latestQ=last(qq),priorQ=qq.length>1?qq[qq.length-2]:null;
  const latestB=last(safeArr(f.balance)),roe=last(safeArr(f.roe_ttm));
  const stock=last(safeArr(state.market?.series));
@@ -215,8 +259,7 @@ function renderTheses(ctx){
   pbr:pbr?fmt(pbr,1)+'배 (최근 공시 BPS)':'BPS 기준 미확인',
   revenue_yoy:num(yoy)!=null?(yoy>=0?'+':'')+fmt(yoy,1)+'% · '+latestQ.period:'전년 동기 비교 미확인',
   roe:roe?fmt(roe.roe_ttm_pct,1)+'% · '+roe.period:'비교 자본 자료 미확인',
-  consensus:'검증된 증권사 컨센서스 시계열 미수집',
-  insider:'DART 지분 변동 정량자료 미수집',
+  insider:state.dartOwnership?.filings?.length?state.dartOwnership.filings[0].reporter+' · '+(state.dartOwnership.filings[0].ownership_pct??'—')+'% ('+state.dartOwnership.filings[0].date+')':'OpenDART 신규 공시 확인 전',
   opm:latestQ?fmt(latestQ.op_margin_pct,1)+'% ('+latestQ.period+')'+
      (priorQ?' · QoQ '+fmt(latestQ.op_margin_pct-priorQ.op_margin_pct,1)+'%p':''):'자료 미확인',
   ads:latestQ?.ads_ratio_pct!=null?fmt(latestQ.ads_ratio_pct,1)+'%':qq.length>1?fmt(qq[qq.length-2].ads_ratio_pct,1)+'% ('+qq[qq.length-2].period+')':'미공개',
@@ -229,29 +272,142 @@ function renderTheses(ctx){
   ulta:ulta?fmt(ulta.value)+' SKU · '+ulta.date:'공식 SKU 미수집',
   target:target?fmt(target.value)+'개 (브랜드 전체)':'브랜드 전체 SKU 미수집 · 과거 카테고리 지표 별도',
   amazon:usTop?(Number(usTop.medicube_confirmed_count)>0?'최소 '+fmt(usTop.medicube_confirmed_count)+'개':'진입 여부 미확인')+' ('+usTop.date+')':'Beauty Top100 미수집',
-  weekly:aw.length?fmt(aw[0].count)+' → '+fmt(last(aw).count)+'개 ('+aw[0].week+'~'+last(aw).week+')':'주간 제3자 지표 미수집',
   trends:safeArr(t.alerts).some(x=>x.country==='US')?safeArr(t.alerts).filter(x=>x.country==='US').map(x=>x.keyword+' '+x.direction).join(', '):'미국에서 기준을 충족한 유의미 변화 미감지 또는 자료 부족',
-  reorders:'공식 POS·재주문 수량 미공개'
+  reorders:'공식 POS·재주문 수량 미공개',
+  reviews:(()=>{const items=safeArr(r.product_review_history).filter(x=>x.verified).sort((a,b)=>String(a.date).localeCompare(String(b.date)));const recent=items.at(-1);return recent?recent.retailer+' '+recent.reviews_count+'건 · '+recent.rating+'점 ('+recent.date+')':'공식 상품 상세페이지 첫 확인 전';})(),
+  retailer_statement:safeArr(r.retailer_statements).length?'공식 발표·현지 보도 '+r.retailer_statements.length+'건 분리 확인':'확인된 발표 없음'
  };
+ const fn=safeArr(f.quarterly),bn=safeArr(f.balance);
+ const mkt=safeArr(state.market?.series);
+ const retailHist=safeArr(r.retail_history).filter(x=>x.eligible_for_trend!==false);
+ const priceSnapshot=(key)=>mkt.filter(x=>x.close_krw>0).map(x=>({
+   date:x.date, value:(()=>{
+    const el=latestRelease(safeArr(f.valuation?.[key==='per'?'eps_events':'book_events']),x.date,
+                   key==='per'?'eps_won':'bps_won');
+    return el?.[key==='per'?'eps_won':'bps_won']>0?
+      x.close_krw/el[key==='per'?'eps_won':'bps_won']:null;
+   })()
+ })).filter(x=>num(x.value)!=null);
+ function observations(id){
+  const qkey={revenue_yoy:'sales_yoy_pct',opm:'op_margin_pct',ads:'ads_ratio_pct',
+              fees:'selling_fee_ratio_pct',freight:'shipping_ratio_pct',
+              cfo:'cash_conversion_pct'}[id];
+  if(qkey)return fn.filter(x=>num(x[qkey])!=null).map(x=>({date:x.period,value:x[qkey]}));
+  if(id==='per'||id==='pbr')return priceSnapshot(id);
+  if(id==='roe')return safeArr(f.roe_ttm).map(x=>({date:x.period,value:x.roe_ttm_pct})).filter(x=>num(x.value)!=null);
+  if(id==='inventory')return bn.filter(x=>num(x.reported_inventory_turnover)!=null).map(x=>({date:x.period,value:x.reported_inventory_turnover}));
+  if(id==='fx')return safeArr(state.market?.fx).filter(x=>num(x.usdkrw)!=null).map(x=>({date:x.date,value:x.usdkrw}));
+  if(id==='ulta'||id==='target')return retailHist.filter(x=>x.metric===(id==='ulta'?'catalog_items':'brand_catalog_items')).map(x=>({date:x.date,value:x.value}));
+  if(id==='amazon')return safeArr(state.top100?.snapshots)
+    .filter(x=>x.country==='US'&&x.coverage_complete&&num(x.medicube_confirmed_count)!=null)
+    .map(x=>({date:x.date,value:x.medicube_confirmed_count}));
+  if(id==='trends')return safeArr(d.trends).filter(x=>x.country==='US'&&String(x.term).toLowerCase()==='medicube'&&num(x.index)!=null)
+    .map(x=>({date:x.date,value:x.index}));
+  if(id==='insider')return safeArr(state.dartOwnership?.filings).filter(x=>num(x.ownership_pct)!=null)
+    .slice().sort((a,b)=>String(a.date).localeCompare(String(b.date)))
+    .filter((x,_,all)=>x.reporter===all[0]?.reporter)
+    .map(x=>({date:x.date,value:x.ownership_pct}));
+  if(id==='reviews'){
+   const rvs=safeArr(r.product_review_history).filter(x=>x.verified&&x.retailer==='target'&&num(x.reviews_count)!=null);
+   return rvs.map(x=>({date:x.date,value:x.reviews_count}));
+  }
+  if(id==='retailer_statement')return [];
+  if(id==='weekly')return amazonWeeks.map(x=>({date:x.week,value:x.count}));
+  return [];
+ }
+ function sparkline(points){
+   const rows=points.filter(x=>num(x.value)!=null).slice(-32);
+   if(rows.length<2)return '<small class="thesis-trend-pending">시계열 누적 중 / 공개자료 미확인</small>';
+   const vals=rows.map(x=>Number(x.value));
+   let lo=Math.min(...vals),hi=Math.max(...vals);if(lo===hi){lo-=1;hi+=1}
+   const coords=vals.map((v,i)=>[
+      (3+i*104/(vals.length-1)).toFixed(1),
+      (23-20*(v-lo)/(hi-lo)).toFixed(1)
+   ]);
+   const path=coords.map((p,i)=>(i?'L':'M')+p[0]+','+p[1]).join(' ');
+   const diff=vals[vals.length-1]-vals[0];
+   const pct=vals[0]?100*diff/Math.abs(vals[0]):null;
+   const desc='최근 '+rows.length+'개 관측 · '+rows[0].date+' ~ '+rows[rows.length-1].date+
+      ' · 변화 '+(pct==null?'절대 '+fmt(diff,1):fmt(pct,1)+'%');
+   return '<svg viewBox="0 0 110 27" role="img" aria-label="'+escapeHtml(desc)+
+     '" class="thesis-sparkline"><path d="'+path+
+     '" fill="none" stroke="'+(diff>=0?'#26756b':'#bb5b63')+
+     '" stroke-width="1.7" stroke-linecap="round" /></svg>'+
+     '<small class="thesis-trend-metadata">'+escapeHtml(desc)+'</small>';
+ }
  const root=$('thesis-blocks');
  if(root){
   const theses=safeArr(state.aprTheses?.theses);
   root.innerHTML=theses.map(group=>{
-   let subtitle='';
-   if(group.id==='margin'&&latestQ&&priorQ&&num(latestQ.op_margin_pct)!=null&&num(priorQ.op_margin_pct)!=null&&latestQ.op_margin_pct-priorQ.op_margin_pct<=-3){
-      subtitle='영업이익률이 전분기 대비 3%p 이상 낮아져 점검 필요';
-   } else if(group.id==='us')subtitle='초도 입점과 실제 판매·재주문을 별도로 확인';
-   else subtitle='단일 지표만으로 저평가·고평가를 단정하지 않음';
-   return '<article class="thesis-card"><div class="thesis-head"><div><small>'+escapeHtml(group.horizon||'')+'</small><h3>'+escapeHtml(group.title||'')+'</h3><p>'+escapeHtml(group.question||'')+'</p></div></div>'+
-    '<p class="thesis-status">'+escapeHtml(subtitle)+'</p>'+
-    '<div class="thesis-grid">'+safeArr(group.conditions).map(x=>
-     '<div class="thesis-line"><strong>'+escapeHtml(x.label||'')+'</strong>'+
-     '<span>'+escapeHtml(map[x.id]||'확인 필요')+'</span>'+
-     '<small>'+escapeHtml(x.source||'')+'</small></div>'
-    ).join('')+'</div></article>';
-  }).join('')||'<p class="subtle">투자 가설 확인 지표를 불러오지 못했습니다.</p>';
+   const subtitle=group.id==='margin'?'수익성 악화 신호는 광고비·수수료·현금흐름과 함께 확인':
+      group.id==='us'?'실제 재주문과 온라인 리뷰를 구분해서 점검':'과거 프리미엄과 이익 성장의 속도 차이를 확인';
+   return '<article class="thesis-card"><div class="thesis-head"><div><small>'+escapeHtml(group.horizon||'')+
+     '</small><h3>'+escapeHtml(group.title||'')+'</h3><p>'+escapeHtml(group.question||'')+
+     '</p></div></div><p class="thesis-status">'+escapeHtml(subtitle)+'</p>'+
+     '<div class="thesis-grid">'+safeArr(group.conditions).map(x=>
+       '<div class="thesis-line"><strong>'+escapeHtml(x.label||'')+'</strong>'+
+       '<span>'+escapeHtml(map[x.id]||'공식 공개자료 미확인')+'</span>'+
+       sparkline(observations(x.id))+
+       '<small>'+escapeHtml(x.source||'')+'</small></div>'
+     ).join('')+'</div></article>';
+  }).join('')||'<p class="subtle">지표를 불러오지 못했습니다.</p>';
  }
+ const own=state.dartOwnership||{},el=$('dart-ownership-status'),body=$('dart-ownership-rows');
+ if(el)el.textContent=own.status||'OpenDART API 조회 전 · 공개 공시 확보시 갱신';
+ if(body){
+  const filings=safeArr(own.filings);
+  body.innerHTML=filings.slice(0,35).map(x=>'<tr>'+
+    '<td>'+escapeHtml(x.date||'')+'</td><td>'+escapeHtml(x.reporter||'')+'</td>'+
+    '<td>'+escapeHtml(x.type_label||x.type||'')+'</td><td>'+
+    (num(x.ownership_pct)!=null?fmt(x.ownership_pct,2)+'%':'미표시')+'</td><td>'+
+    (num(x.ownership_pct_change)!=null?(x.ownership_pct_change>0?'+':'')+fmt(x.ownership_pct_change,2)+'%p':'미확인')+'</td>'+
+    '<td><a href="'+(x.source_url?.startsWith('https://dart.fss.or.kr/dsaf001/main.do?rcpNo=')?x.source_url:'#')+
+    '" target="_blank" rel="noopener noreferrer">공시</a></td></tr>').join('')||
+    '<tr><td colspan="6">OpenDART에서 검증된 에이피알 지분변동 기록이 아직 없습니다.</td></tr>';
+ }
+
+ const cap=state.dartCapital||{};
+ const capStatus=$('dart-capital-status');
+ if(capStatus)capStatus.textContent=cap.status||'OpenDART 배당·자기주식 공시 확인 전 · 기존 재무 기록 유지';
+ const capRecords=safeArr(cap.observations).slice().sort((a,b)=>
+   String(b.period||'').localeCompare(String(a.period||'')));
+ const treasury=capRecords.filter(x=>x.type==='treasury_total'&&num(x.value)!=null);
+ const byPeriod={};
+ for(const item of treasury){
+   if(!byPeriod[item.period])byPeriod[item.period]=[];
+   byPeriod[item.period].push(item);
+ }
+ const periods=Object.keys(byPeriod).sort();
+ const treasurySeries=periods.map(p=>{
+   const items=byPeriod[p];
+   // Different reported totals must not be arbitrarily combined.
+   const unique=[...new Set(items.map(x=>Number(x.value)))];
+   return unique.length===1?unique[0]:null;
+ });
+ chart('chart-dart-treasury',periods,[{
+   label:'공시상 보통주 자기주식 기말 수량 (주)',
+   values:treasurySeries,color:C.teal
+ }],{decimals:0,legend:true});
+ const capitalBody=$('dart-capital-rows');
+ if(capitalBody){
+  const rows=capRecords.filter(x=>x.type==='treasury_total'||
+      (x.type==='dividend'&&/배당|주당|현금/i.test(x.metric||''))).slice(0,45);
+  capitalBody.innerHTML=rows.length?rows.map(x=>{
+    const valid=typeof x.source_url==='string'&&
+      /^https:\/\/dart\.fss\.or\.kr\/dsaf001\/main\.do\?rcpNo=\d{14}$/.test(x.source_url);
+    const type=x.type==='treasury_total'?'자기주식 기말 수량':x.metric;
+    const stock=x.stock_type||'주식 종류 미확인';
+    return '<tr><td>'+escapeHtml(x.period||'')+'</td>'+
+     '<td>'+escapeHtml(type||'')+'</td>'+
+     '<td>'+escapeHtml(stock)+'</td>'+
+     '<td>'+fmt(x.value,0)+(x.type==='treasury_total'?'주':' (공시 단위)')+'</td>'+
+     '<td>'+(valid?'<a href="'+x.source_url+
+         '" target="_blank" rel="noopener noreferrer">원문</a>':'확인 전')+'</td></tr>';
+  }).join(''):
+  '<tr><td colspan="5">검증된 배당·자기주식 공시 자료가 아직 없습니다.</td></tr>';
+ }
+
 }
 
-global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses};
+global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses,renderRetail};
 })(window);

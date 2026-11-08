@@ -74,7 +74,7 @@ def calculate(rows):
     high=[float(r['high_krw']) if r.get('high_krw') is not None else None for r in clean]
     low=[float(r['low_krw']) if r.get('low_krw') is not None else None for r in clean]
     vol=[float(r.get('volume') or 0) or None for r in clean]
-    m20=sma(close,20);m60=sma(close,60);m200=sma(close,200)
+    m5=sma(close,5);m20=sma(close,20);m60=sma(close,60);m120=sma(close,120);m200=sma(close,200)
     v20=sma(vol,20)
     bb_std=[pstdev(close[i-19:i+1]) if i>=19 else None for i in range(len(close))]
     bb_u=[a+2*b if a is not None and b is not None else None for a,b in zip(m20,bb_std)]
@@ -94,7 +94,7 @@ def calculate(rows):
     for i,r in enumerate(clean):
         def roundn(v,k=2):return round(v,k) if v is not None else None
         out.append({'date':r['date'],'close':close[i],
-          'ma20':roundn(m20[i]),'ma60':roundn(m60[i]),'ma200':roundn(m200[i]),
+          'ma5':roundn(m5[i]),'ma20':roundn(m20[i]),'ma60':roundn(m60[i]),'ma120':roundn(m120[i]),'ma200':roundn(m200[i]),
           'bb_upper':roundn(bb_u[i]),'bb_mid':roundn(m20[i]),'bb_lower':roundn(bb_l[i]),
           'rsi14':roundn(strength[i]),'macd':roundn(macd[i],4),'macd_signal':roundn(signal[i],4),
           'macd_hist':roundn(hist[i],4),'tenkan':roundn(tenkan[i]),'kijun':roundn(kijun[i]),
@@ -136,7 +136,27 @@ def calculate(rows):
         pullback=(latest['ma20'] is not None and latest['ma20']*0.97<=c<=latest['ma20']*1.03)
         candidate_buy=(fully_ready and score>=5 and latest['macd_hist'] is not None and latest['macd_hist']>0 and r is not None and r<75)
         candidate_sell=(fully_ready and (score<=-3 or (a is not None and b is not None and c<min(a,b) and latest['macd_hist'] is not None and latest['macd_hist']<0)))
-        candidate_add=bool(fully_ready and trend_ok and rsi_up and (bb_reentry or pullback) and latest['macd_hist'] is not None and latest['macd_hist']>=0)
+        # Staged observation can identify improving momentum below long MAs.
+        # This is a research classification, not a trade-order recommendation.
+        macd_rising=bool(prev and latest['macd_hist'] is not None and
+                        prev['macd_hist'] is not None and latest['macd_hist']>prev['macd_hist'])
+        fast_ma_reclaim=bool(latest['ma5'] is not None and c>=latest['ma5'])
+        rsi_rebound=bool(rsi_up and r is not None and 25<=r<76)
+        rebound_points=sum((macd_rising,fast_ma_reclaim,rsi_rebound))
+        very_overheated=bool(r is not None and r>=80)
+        risk_elevated=bool(latest['ma120'] is not None and c<latest['ma120'] and
+                           latest['ma200'] is not None and c<latest['ma200'])
+        stage='관망 · 반등 신호 부족'
+        if fully_ready and rebound_points>=2 and not very_overheated:
+            stage='초기 반등 관찰'
+        if (fully_ready and rebound_points==3 and
+            (latest['ma20'] is None or c>=latest['ma20']*0.96) and not very_overheated):
+            stage='1차 분할매수 검토'
+        if (fully_ready and rebound_points>=2 and (bb_reentry or pullback) and not very_overheated):
+            stage='추가매수 조건 관찰' if risk_elevated else '추가매수 검토'
+        candidate_add=stage in ('추가매수 조건 관찰','추가매수 검토')
+        candidate_buy=(fully_ready and rebound_points>=2 and not very_overheated and score>=1)
+        candidate_sell=(fully_ready and score<=-5 and not macd_rising and risk_elevated)
         if not fully_ready:label='분석 유보 / OHLC 200거래일 필요';kind='unknown'
         elif candidate_sell:label='하락 위험 / 매도·비중축소 검토';kind='risk'
         elif candidate_buy:label='상승 추세 / 분할매수 관찰';kind='watch_buy'
@@ -149,14 +169,16 @@ def calculate(rows):
             checks.append({'name':'RSI 과열 주의','status':'caution','detail':'추격 매수 위험'})
         latest_summary={
           'date':latest['date'],'label':label,'kind':kind,'score':score,'checks':checks,
-          'averaging_down':('자료 부족으로 추가매수 신호 유보' if not fully_ready else ('추가매수 조건부 관찰' if candidate_add else '추가매수 보류 / 추가 확인 필요')),
-          'add_criteria':'구름 상단·장기추세 위 + RSI 반등 + 볼린저 하단 복귀 또는 20일선 부근 + MACD 음(-)이 아님',
+          'averaging_down':('자료 부족 · 추가매수 판단 유보' if not fully_ready else stage),
+          'entry_stage':stage,'rebound_points':rebound_points,
+          'risk_elevated':risk_elevated,'macd_improving':macd_rising,
+          'add_criteria':'반등 감시: RSI 상승·MACD 히스토그램 개선·5일선 회복 중 2개 이상. 20일선 접근·볼린저 하단 복귀 시 분할 검토. 120·200일선 아래에서는 반등 실패 위험 상승.',
           'risk_reference':round(c-2*latest['atr14']) if latest['atr14'] is not None else None,
           'risk_note':'종가 - 2×ATR은 변동성 참고 가격이며 손절 주문 가격을 뜻하지 않습니다.',
           'overheat':bool((r and r>=75) or (latest['bb_upper'] is not None and c>latest['bb_upper'])),
           'not_advice':True,'fully_ready':fully_ready,
         }
     else:latest_summary={'label':'시세 없음','kind':'unknown','checks':[],'date':None}
-    return {'method':'2026-11; SMA20/60/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14','series':out,
+    return {'method':'2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14','series':out,
       'last':latest_summary,'valid_high_low':sum(x is not None for x in high),
       'data_days':len(out),'has_real_data':bool(out)}
