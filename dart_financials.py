@@ -113,8 +113,7 @@ def extract_accounts(items,year,code):
                       ('sales','operating_profit','net_income','cost_of_sales','sga')
                       else 'year_to_date_or_balance'
                   )}
-    verified_income=all(key in out and out[key]['value_won']>=0
-                        for key in ('sales','operating_profit','net_income'))
+    verified_income=all(key in out for key in ('sales','operating_profit','net_income')) and out['sales']['value_won']>=0
     balanced=all(key in out for key in ('assets','equity','inventory'))
     return {'status':'verified_income' if verified_income else
                   'partial_accounts',
