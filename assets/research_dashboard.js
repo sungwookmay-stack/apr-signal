@@ -179,7 +179,7 @@ function renderFinancials(ctx){
 }
 
 function renderRetail(ctx){
- const {state,$,chart,escapeHtml,fmt,C}=ctx;
+ const {state,$,chart,escapeHtml,fmt,C,validLink}=ctx;
  const r=state.reference||{},f=state.financials||{},d=state.demand||{},t=state.trendSignals||{};
  const metrics=safeArr(r.retail),history=safeArr(r.retail_history),amazonWeeks=safeArr(r.amazon_weekly);
  const find=name=>metrics.find(x=>x.metric===name);
@@ -231,6 +231,14 @@ function renderRetail(ctx){
    '최근 검증된 상품 리뷰: '+reviewLatest.label+' · '+reviewLatest.reviews_count+'건 · '+reviewLatest.date+
    ' (온라인 소비자 반응, 점포별 판매량 아님)':
    '상품별 리뷰·평점의 일관된 공식 관측자료를 확보하면 추이를 표시합니다. 조회 차단/누락 시 임의값을 채우지 않습니다.';
+ const statements=$('retailer-statements');
+ if(statements)statements.innerHTML=safeArr(r.retailer_statements).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))).map(x=>
+   '<article class="retailer-statement"><small>'+escapeHtml(x.date||'')+
+   ' · '+escapeHtml(x.retailer||'')+' · '+(x.source_type==='official_retailer_newsroom'?'유통사 공식 발표':'독립 현지 언론 보도')+'</small>'+
+   '<strong>'+escapeHtml(x.title||'')+'</strong>'+
+   '<p>'+escapeHtml(x.summary_ko||'')+'</p>'+
+   '<a href="'+validLink(x.source_url||'')+'" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>'
+ ).join('')||'<p class="subtle">검증된 유통사 관련 발표를 아직 확보하지 못했습니다.</p>';
 }
 function renderTheses(ctx){
  const {state,$,chart,escapeHtml,fmt,C}=ctx;
@@ -251,7 +259,6 @@ function renderTheses(ctx){
   pbr:pbr?fmt(pbr,1)+'배 (최근 공시 BPS)':'BPS 기준 미확인',
   revenue_yoy:num(yoy)!=null?(yoy>=0?'+':'')+fmt(yoy,1)+'% · '+latestQ.period:'전년 동기 비교 미확인',
   roe:roe?fmt(roe.roe_ttm_pct,1)+'% · '+roe.period:'비교 자본 자료 미확인',
-  consensus:'검증된 증권사 컨센서스 시계열 미수집',
   insider:state.dartOwnership?.filings?.length?state.dartOwnership.filings[0].reporter+' · '+(state.dartOwnership.filings[0].ownership_pct??'—')+'% ('+state.dartOwnership.filings[0].date+')':'OpenDART 신규 공시 확인 전',
   opm:latestQ?fmt(latestQ.op_margin_pct,1)+'% ('+latestQ.period+')'+
      (priorQ?' · QoQ '+fmt(latestQ.op_margin_pct-priorQ.op_margin_pct,1)+'%p':''):'자료 미확인',
@@ -265,9 +272,10 @@ function renderTheses(ctx){
   ulta:ulta?fmt(ulta.value)+' SKU · '+ulta.date:'공식 SKU 미수집',
   target:target?fmt(target.value)+'개 (브랜드 전체)':'브랜드 전체 SKU 미수집 · 과거 카테고리 지표 별도',
   amazon:usTop?(Number(usTop.medicube_confirmed_count)>0?'최소 '+fmt(usTop.medicube_confirmed_count)+'개':'진입 여부 미확인')+' ('+usTop.date+')':'Beauty Top100 미수집',
-  weekly:aw.length?fmt(aw[0].count)+' → '+fmt(last(aw).count)+'개 ('+aw[0].week+'~'+last(aw).week+')':'주간 제3자 지표 미수집',
   trends:safeArr(t.alerts).some(x=>x.country==='US')?safeArr(t.alerts).filter(x=>x.country==='US').map(x=>x.keyword+' '+x.direction).join(', '):'미국에서 기준을 충족한 유의미 변화 미감지 또는 자료 부족',
-  reorders:'공식 POS·재주문 수량 미공개'
+  reorders:'공식 POS·재주문 수량 미공개',
+  reviews:(()=>{const items=safeArr(r.product_review_history).filter(x=>x.verified).sort((a,b)=>String(a.date).localeCompare(String(b.date)));const recent=items.at(-1);return recent?recent.retailer+' '+recent.reviews_count+'건 · '+recent.rating+'점 ('+recent.date+')':'공식 상품 상세페이지 첫 확인 전';})(),
+  retailer_statement:safeArr(r.retailer_statements).length?'공식 발표·현지 보도 '+r.retailer_statements.length+'건 분리 확인':'확인된 발표 없음'
  };
  const fn=safeArr(f.quarterly),bn=safeArr(f.balance);
  const mkt=safeArr(state.market?.series);
@@ -299,6 +307,11 @@ function renderTheses(ctx){
     .slice().sort((a,b)=>String(a.date).localeCompare(String(b.date)))
     .filter((x,_,all)=>x.reporter===all[0]?.reporter)
     .map(x=>({date:x.date,value:x.ownership_pct}));
+  if(id==='reviews'){
+   const rvs=safeArr(r.product_review_history).filter(x=>x.verified&&x.retailer==='target'&&num(x.reviews_count)!=null);
+   return rvs.map(x=>({date:x.date,value:x.reviews_count}));
+  }
+  if(id==='retailer_statement')return [];
   if(id==='weekly')return amazonWeeks.map(x=>({date:x.week,value:x.count}));
   return [];
  }
