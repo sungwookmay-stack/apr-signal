@@ -7,21 +7,27 @@
 <meta name="description" content="에이피알(278470) 무료 투자 모니터: 원화/달러 주가, 환율, 볼린저밴드, 일목균형표, KBTY ETF, 칠레 스킨부스터 뉴스" />
 <title>APR SIGNAL | 글로벌 투자 모니터</title>
 <link rel="stylesheet" href="./assets/style.css" />
+<link rel="stylesheet" href="./assets/apr_theme.css?v=20261108-3" />
+<link rel="stylesheet" href="./assets/apr_theme.css?v=20261108"/>
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
-<script defer src="./assets/app.js?v=20261106-kbty-series-only"></script>
+<script defer src="./assets/research_dashboard.js?v=20261108-research-1"></script>
+<script defer src="./assets/research_dashboard.js?v=20261108-3"></script>
+<script defer src="./assets/app.js?v=20261108-financials-signals-2"></script>
 </head>
 <body>
 <div class="shell">
   <aside class="rail" id="rail">
     <a class="identity" href="#overview" aria-label="APR SIGNAL 홈">
-      <span class="logo">A<span>·</span></span><span><strong>APR SIGNAL</strong><small>GLOBAL EQUITY MONITOR</small></span>
+      <span class="logo">A</span><span><strong>APR SIGNAL</strong><small>INDEPENDENT RESEARCH</small></span>
     </a>
     <div class="rail-caption">RESEARCH DESK</div>
     <nav class="rail-nav" aria-label="메뉴">
       <a href="#overview" class="navitem active" data-nav="overview"><span class="bullet"></span>시장 · 환율</a>
       <a href="#technical" class="navitem" data-nav="technical"><span class="bullet"></span>기술적 분석</a>
+      <a href="#financials" class="navitem" data-nav="financials"><span class="bullet"></span>재무 · 밸류에이션</a>
       <a href="#demand" class="navitem" data-nav="demand"><span class="bullet"></span>글로벌 판매 수요</a>
+      <a href="#theses" class="navitem" data-nav="theses"><span class="bullet"></span>투자 가설 · 오프라인</a>
       <a href="#kbty" class="navitem" data-nav="kbty"><span class="bullet"></span>KBTY ETF</a>
       <a href="#business" class="navitem" data-nav="business"><span class="bullet"></span>칠레 · 신사업</a>
       <a href="#logistics" class="navitem" data-nav="logistics"><span class="bullet"></span>물류 · 영업레버리지</a>
@@ -31,7 +37,7 @@
   <div class="workspace">
     <div class="mobile-head"><a href="#overview" class="mobile-brand">APR<span>·</span>SIGNAL</a><span class="mobile-head-right">278470 · KRX</span></div>
     <nav class="mobile-nav" aria-label="모바일 메뉴">
-      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#demand" data-mnav="demand">글로벌 수요</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·실적</a>
+      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요</a><a href="#theses" data-mnav="theses">오프라인·가설</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·실적</a>
     </nav>
     <header class="topline"><div><span class="top-caption">EQUITY / KOREA</span><span class="top-sep">/</span><span class="top-caption strong">APR · 278470</span></div><div class="updated"><span class="live-circle"></span><span id="last-synced">기록된 데이터 확인 중</span></div></header>
     <main>
@@ -56,6 +62,13 @@
       </section>
       <section class="page" id="demand" data-page="demand">
         <div class="intro compact"><p class="eyebrow">DEMAND SIGNALS</p><h1>글로벌 수요,<br /><em>실제로 늘고 있나.</em></h1><p class="lead">미국·유럽·중동·일본과 남미(브라질·아르헨티나·칠레)의 검색 관심도와 유통 채널을 분리해서 관찰합니다. 확인되지 않은 BSR·검색지수는 비워둡니다.</p></div>
+        <div class="panel padded trend-panel">
+          <div class="section-split"><div><h3>국가·키워드별 유의미한 검색 변화</h3>
+          <p class="subtle">최근 관측 평균과 이전 기준기간을 비교해 상승·하락 신호만 표시 · 데이터 없는 국가는 미수집</p></div>
+          <small id="trend-alert-count">신호 계산 중</small></div>
+          <div id="trend-alerts" class="trend-alerts"><p class="subtle">Google Trends 변화 분석을 불러오는 중입니다.</p></div>
+          <p class="under-note" id="trend-note">같은 국가·키워드의 정규화된 시계열에서만 비교합니다. 국가 간 상대지수 크기는 직접 비교할 수 없으며, 관심도 증감은 매출 증감을 의미하지 않습니다.</p>
+        </div>
         <div class="controls"><label for="country">국가 선택</label><select class="input" id="country"></select><label for="product">상품별 순위</label><select class="input" id="product"></select></div>
         <div id="latam-region" hidden>
           <div class="section-split latam-title"><div><h3>남미 3개국 모니터링</h3><p class="subtle">국가를 선택하면 아래 검색 관심도와 판매순위가 전환됩니다. 검색지수는 각 국가 내 상대값으로 국가 간 직접 비교할 수 없습니다.</p></div></div>
@@ -98,6 +111,67 @@
           <p class="under-note">판매처 상품 수와 ‘최근 한 달 구매’ 표시는 매장별 POS 매출이나 에이피알의 연결매출액이 아닙니다. 자동 수집에 실패하면 마지막 확인일을 유지합니다.</p>
         </div>
         <div class="section-title"><div><p class="eyebrow">PROVENANCE</p><h2>실측 데이터 수집 현황</h2></div></div><div class="panel padded" id="demand-sources"></div>
+      </section>
+
+      <section class="page" id="financials" data-page="financials">
+        <div class="intro compact"><p class="eyebrow">APR FINANCIAL INTELLIGENCE</p><h1>이익의 질과<br /><em>주가의 가격.</em></h1>
+        <p class="lead">실제 연결 공시와 당시 공개된 재무정보를 기준으로 분기 실적·재고·판관비·ROE 및 PER/PBR 밴드를 추적합니다. 추정과 잠정실적은 구분합니다.</p></div>
+        <div class="metrics four">
+          <div class="metric"><small>최신 연결 분기 매출</small><b id="fin-revenue">—</b><p id="fin-revenue-period">자료 확인 중</p></div>
+          <div class="metric accent"><small>분기 영업이익률</small><b id="fin-opm">—</b><p id="fin-opm-period">매출과 동일 기준</p></div>
+          <div class="metric"><small>최근 공시 재고자산</small><b id="fin-inventory">—</b><p id="fin-inventory-period">기준일과 회전율 별도 표기</p></div>
+          <div class="metric"><small>최근 공시 재고회전율</small><b id="fin-turnover">—</b><p id="fin-turnover-period">연환산 회전율</p></div>
+        </div>
+        <div class="panel padded">
+          <div class="section-split"><div><h3>분기별 연결 손익계산서</h3><p class="subtle">단위: 억원 · 2025 4Q는 2025년 연간−3Q 누계 · 2026 3Q는 잠정치</p></div></div>
+          <div class="graph"><canvas id="chart-fin-sales"></canvas></div>
+          <div class="graph small"><canvas id="chart-fin-margins"></canvas></div>
+          <div class="controls"><label for="fin-table-kind">재무표 선택</label><select id="fin-table-kind" class="input">
+             <option value="income">매출·영업이익·순이익</option>
+             <option value="expenses">판관비·광고·판매수수료·운반비</option>
+             <option value="balance">재고자산·총자산·매출채권·회전율</option>
+             <option value="cashflow">영업현금흐름·설비투자·FCF 참고값</option>
+             <option value="returns">ROE·ROIC 검증 상태</option>
+          </select></div>
+          <div class="fin-table-scroll"><table class="fin-matrix"><thead id="fin-table-head"></thead><tbody id="fin-table-body"></tbody></table></div>
+          <p class="under-note" id="fin-table-footnote">확정·잠정·추정·미공개 항목을 구분하여 표시합니다.</p>
+          <p class="under-note" id="fin-sources">원본: DART 정기보고서·잠정실적. 연결과 별도, 회계기준 변경분을 혼합하지 않습니다.</p>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">INVENTORY & CASH CONVERSION</p><h2>재고·현금·비용의 질</h2><span>선제 재고확보와 실제 판매 소진을 분리하여 평가</span></div></div>
+        <div class="grid two">
+          <div class="panel"><div class="panel-top"><strong>재고자산과 재고/총자산 비중</strong></div><div class="graph small"><canvas id="chart-fin-inventory"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>광고비·판매수수료·운반비 비중 (%)</strong></div><div class="graph small"><canvas id="chart-fin-expense"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>영업현금흐름 vs 순이익</strong></div><div class="graph small"><canvas id="chart-fin-cfo"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>TTM ROE 추이 (%)</strong></div><div class="graph small"><canvas id="chart-fin-roe"></canvas></div><p class="under-note">ROIC는 정확한 영업투하자본과 NOPAT 조정근거가 확보되기 전까지 미산출.</p></div>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">VALUATION · HISTORICAL PRICE</p><h2>2025년 6월부터 주가와 PER/PBR 밴드</h2><span>실제 일봉·해당일 이전 공개 EPS/BPS로 계산 · 미래 실적 반영 금지</span></div></div>
+        <div class="grid two">
+          <div class="panel"><div class="panel-top"><strong>APR 원화 종가 (KRW)</strong><small id="fin-price-date">공개 일봉</small></div><div class="graph small"><canvas id="chart-fin-krw"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>APR 달러 환산 종가 (USD)</strong><small>원화 종가 ÷ 해당일 참조 환율</small></div><div class="graph small"><canvas id="chart-fin-usd"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>PER 밴드 (원)</strong><small>TTM EPS 참고치 · 15/25/35/45/55배</small></div><div class="graph"><canvas id="chart-fin-per"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>PBR 밴드 (원)</strong><small>최근 공시 BPS · 5/10/15/20/25배</small></div><div class="graph"><canvas id="chart-fin-pbr"></canvas></div></div>
+        </div>
+        <p class="fineprint" id="fin-valuation-note">PER·PBR은 주당이익/자본의 공시 기준일과 실제 공개일을 구분합니다. 예상 EPS나 특정 목표주가가 아닙니다.</p>
+      </section>
+      <section class="page" id="theses" data-page="theses">
+        <div class="intro compact"><p class="eyebrow">APR INVESTMENT THESIS / DISTRIBUTION</p><h1>가설은 지표로.<br /><em>유통은 근거로.</em></h1><p class="lead">프리미엄 밸류에이션·마진 지속성·미국 수요의 세 가지 가설을 검증합니다. 온라인 상품 등록·구매 배지는 오프라인 POS와 구분합니다.</p></div>
+        <div class="section-title"><div><p class="eyebrow">OFFLINE PROXY</p><h2>미국 오프라인 유통 간접 지표</h2><span>Ulta · Target · Costco · Boots · 공식 공개자료와 출처·기준일 기록</span></div></div>
+        <div class="metrics four">
+          <div class="metric"><small>Ulta Medicube 등록 SKU</small><b id="off-ulta-total">—</b><p id="off-ulta-date">최종 확인일</p></div>
+          <div class="metric"><small>Ulta 온라인 전용 SKU</small><b id="off-ulta-online">—</b><p>오프라인 입점 SKU와 다름</p></div>
+          <div class="metric accent"><small>Ulta 비온라인전용 SKU</small><b id="off-ulta-eligible">—</b><p>실제 점포 취급 수량의 상한 참고</p></div>
+          <div class="metric"><small>Target 브랜드 등록 SKU</small><b id="off-target-total">—</b><p id="off-target-date">검증 전은 미수집</p></div>
+        </div>
+        <div class="panel padded">
+          <div class="section-split"><div><h3>판매처별 실측·대리지표 기록</h3><p class="subtle">같은 지표만 시계열 비교. 수집 실패 시 마지막 확인값은 유지하며 당일 갱신으로 표시하지 않습니다.</p></div></div>
+          <div class="graph small"><canvas id="chart-off-retail"></canvas></div>
+          <div class="graph small"><canvas id="chart-off-amazon"></canvas></div>
+          <div id="off-status" class="retail-signal-list"></div>
+          <p class="under-note" id="off-target-warning">Target 기존 카테고리 등록수와 브랜드 전체 SKU는 서로 다른 지표입니다. 품목 연계가 불확실한 구매 배지는 확정 매출로 사용하지 않습니다.</p>
+          <p class="under-note">Costco 입점 약 400개 매장은 관련 보도 기준이며, 현재 실판매량·재주문 데이터는 확인되지 않았습니다. 별도 확인 전까지 매출액을 추정하지 않습니다.</p>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">THESIS CHECKLIST</p><h2>핵심 투자 가설 3가지</h2><span>수치가 있는 지표는 실제 값을, 아직 공개되지 않은 항목은 '확인 필요'를 표시</span></div></div>
+        <div id="thesis-blocks" class="thesis-blocks"><div class="blankmini">재무·유통 데이터 기반 지표를 연결하는 중입니다.</div></div>
       </section>
       <section class="page" id="kbty" data-page="kbty">
         <div class="intro compact"><p class="eyebrow">US LISTED / THEMATIC ETF</p><h1>KBTY ETF.<br /><em>자금 유입을 읽다.</em></h1><p class="lead">K-Beauty ETF의 거래가격, AUM, 에이피알 편입비중을 분리해서 추적합니다. 아직 미공개인 항목은 숫자를 생성하지 않습니다.</p></div>
@@ -146,7 +220,7 @@
         <div class="panel padded final-diagnostics"><div class="section-split"><h3>데이터 수집 상태</h3><small id="diagnostic-date">—</small></div><div id="diagnostic-errors" class="checks"></div></div>
       </section>
     </main>
-    <footer class="footer"><span>APR SIGNAL · 개인 연구용 공개자료 대시보드</span><span>실측되지 않은 데이터는 공란 · 투자의 최종 판단은 사용자에게 있음</span></footer>
+    <footer class="footer"><span>APR SIGNAL · 독립 투자 리서치 · 에이피알 공식 운영 사이트 아님</span><span>실측되지 않은 데이터는 공란 · 투자의 최종 판단은 사용자에게 있음</span></footer>
   </div>
 </div>
 </body>

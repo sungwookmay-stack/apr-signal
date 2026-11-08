@@ -10,10 +10,16 @@ class RetailSignalParserTests(unittest.TestCase):
   self.assertEqual(parse_ulta("medicube 2 results Online Only 35 Products Available"),{'catalog_items':2})
  def test_target_context_specific(self):
   t="medicube 9 results 104k+ bought in last month $20.99 medicube Zero Pore Pad Korean Skincare"
-  self.assertEqual(parse_target(t),{'category_items':9,'zero_pore_pad_bought_lower':104000})
+  self.assertEqual(parse_target(t),{'brand_catalog_items':9,'brand_zero_pore_bought_lower':104000})
+  self.assertEqual(parse_target(t,scope='category'),{'category_items':9,'zero_pore_pad_bought_lower':104000})
  def test_target_rejects_non_matching_badges(self):
   t="medicube 9 results 104k+ bought in last month Other brand blah "+("foo "*80)+"medicube Zero Pore Pad"
   self.assertNotIn('zero_pore_pad_bought_lower',parse_target(t))
+ def test_target_offline_badge_requires_tight_product_context(self):
+  t='medicube 18 results 12k+ bought in last month unrelated product'
+  self.assertEqual(parse_target(t),{'brand_catalog_items':18})
+  t='medicube 18 results 12k+ bought in last month '+('other product '*45)+'medicube Zero Pore Pad Korean Skincare'
+  self.assertNotIn('brand_zero_pore_bought_lower',parse_target(t))
  def test_weekly_only_full_coverage(self):
   t="2026-W44 snapshot US Beauty best sellers observed 100/100 medicube medicube best product #2 · 8 items overall"
   self.assertEqual(parse_weekly(t),{'week':'2026-W44','count':8,'covered':100})

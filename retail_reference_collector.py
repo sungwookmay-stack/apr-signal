@@ -18,7 +18,8 @@ RECORD=ROOT/'data'/'reference_signals.json'
 USER_AGENT='Mozilla/5.0 (compatible; APR-SIGNAL-Research/1.2; public market data)'
 URLS={
  'ulta':'https://www.ulta.com/brand/medicube',
- 'target':'https://www.target.com/c/facial-cleansers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9',
+ 'target':'https://www.target.com/b/medicube/-/N-q643leg6jg9',
+ 'target_category':'https://www.target.com/c/face-washes-makeup-removers-skin-care-beauty/medicube/-/N-5xtziZq643leg6jg9',
  'amazon_weekly':'https://kbeautytmi.com/channels/amazon'
 }
 
@@ -57,16 +58,31 @@ def parse_ulta(text):
   if z and 0<=int(z.group(1))<=total:values[key]=int(z.group(1))
  return values
 
-def parse_target(text):
- if 'medicube' not in text.lower() or 'Zero Pore Pad' not in text:return {}
+def parse_target(text,scope='brand'):
+ """Match visible badges only to an adjacent named Medicube product.
+
+ Target's old slug returned a blocked/JS page. Start at the official brand
+ listing instead. On extraction failure leave missing rather than zero.
+ Bought badges are rounded online page observations NOT offline sales or
+ audited units.
+ """
+ if 'medicube' not in text.lower():return {}
  out={}
- m=re.search(r'\b(\d{1,3})\s+results\b',text,re.I)
- if m and 1<=int(m.group(1))<=300:out['category_items']=int(m.group(1))
- # Badge must be close to the specific product, not another product's badge.
- m=re.search(r'\b(\d{1,4}(?:\.\d+)?)\s*([kKmM]?)\+\s*bought in last month.{0,210}?medicube Zero Pore Pad',text,re.I)
- if m:
-  n=int(float(m.group(1))*{'k':1000,'m':1000000}.get(m.group(2).lower(),1))
-  if 100<=n<=100000000:out['zero_pore_pad_bought_lower']=n
+ count=re.search(r'\b(\d{1,3})\s+results\b',text,re.I)
+ if count and 1<=int(count.group(1))<=300:
+  out['brand_catalog_items' if scope=='brand' else 'category_items']=int(count.group(1))
+ # Search a short window before the exact product headline to avoid attaching
+ # a neighboring product's bought badge. Never sum badges across listings.
+ match=re.search(r'medicube\s+Zero Pore Pad\s+Korean Skincare',text,re.I)
+ if match:
+  earlier=text[max(0,match.start()-160):match.start()]
+  badges=list(re.finditer(r'\b(\d{1,4}(?:\.\d+)?)\s*([kKmM]?)\+\s*bought in last month\b',earlier,re.I))
+  if badges:
+   item=badges[-1]
+   if item.end()>len(earlier)-130:
+    n=int(float(item.group(1))*{'k':1000,'m':1000000}.get(item.group(2).lower(),1))
+    if 100<=n<=100000000:
+     out['brand_zero_pore_bought_lower' if scope=='brand' else 'zero_pore_pad_bought_lower']=n
  return out
 
 def parse_weekly(text):
@@ -94,22 +110,41 @@ def collect():
   'online_only_items':('ulta','US','온라인 전용 표시 상품','Ulta 브랜드 페이지 Online Only 필터'),
   'exclusive_items':('ulta','US','Only at Ulta 상품','Ulta 브랜드 페이지 독점 상품'),
   'category_items':('target','US','Target 세안 카테고리 내 상품','Target Face Washes 브랜드 필터(전체 상품 수 아님)'),
+  'brand_catalog_items':('target','US','Target 메디큐브 전체 등록상품','Target 공식 medicube 브랜드 전체 검색 결과 수'),
+  'brand_zero_pore_bought_lower':('target','US','Target 제로모공패드 월간 구매 배지 하한','Target 메디큐브 전체 브랜드 페이지 Zero Pore Pad 구매 배지'),
   'zero_pore_pad_bought_lower':('target','US','제로모공패드 최근 한 달 구매 표시','Target 상품의 반올림된 bought 배지(최소치)')
  }
  source={x['metric']:x for x in existing.get('retail',[])}
- success=[];failure=[]
+ success=[];failure=[];fresh_keys=set()
+ # Preserve first verified historical observations before updating in place.
+ history=list(existing.get('retail_history') or [])
+ recorded={(r.get('date'),r.get('retailer'),r.get('metric')) for r in history}
+ for v in existing.get('retail',[]):
+  k=(v.get('date'),v.get('retailer'),v.get('metric'))
+  if v.get('date') and v.get('value') is not None and k not in recorded:
+   history.append({**v});recorded.add(k)
  for place in ('ulta','target'):
   try:
    page=text_of(public_fetch(URLS[place]))
-   found=parse_ulta(page) if place=='ulta' else parse_target(page)
-   if not found:raise ValueError('expected branded visible fields not found')
+   found=parse_ulta(page) if place=='ulta' else parse_target(page,scope='brand')
+   if place=='target' and not found:
+    # Fallback to a narrower official category if brand listing is blocked.
+    try:
+     other=text_of(public_fetch(URLS['target_category']))
+     found=parse_target(other,scope='category')
+    except Exception:
+     pass
+   if not found:raise ValueError('Target/retailer JS rendering or bot restriction; no verified visible fields')
    for metric,value in found.items():
     retailer,country,label,scope=catalog[metric]
+    fresh_keys.add(metric)
     old=source.get(metric,{})
     source[metric]={
       **old,'date':today,'retailer':retailer,'country':country,'metric':metric,
       'value':value,'display':(str(value//1000)+'k+ bought' if metric=='zero_pore_pad_bought_lower' else str(value)+'개'),
-      'label':label,'scope':scope,'source_url':URLS[place],
+      'label':label,'scope':scope,'source_url':(
+       URLS['target_category'] if place=='target' and metric in ('category_items','zero_pore_pad_bought_lower')
+       else URLS[place]),
       'method':('official_bought_badge' if metric.endswith('_bought_lower') else 'official_catalog_page'),
       'note':('반올림된 온라인 구매 표기. 실제 매출·매장별 판매량과 다름' if metric.endswith('_bought_lower')
        else '판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님')
@@ -133,12 +168,18 @@ def collect():
  # the specific documented, successfully refreshed retailer metric.
  retained=[x for x in existing.get('retail',[]) if x.get('metric') not in source]
  existing['retail']=retained+list(source.values())
+ for metric in sorted(fresh_keys):
+  v=source[metric]
+  k=(v.get('date'),v.get('retailer'),v.get('metric'))
+  if k not in recorded and v.get('value') is not None:
+   history.append({**v});recorded.add(k)
+ existing['retail_history']=sorted(history,key=lambda r:(str(r.get('date')),str(r.get('retailer')),str(r.get('metric'))))[-2000:]
  existing.setdefault('collection',{})['last_attempt_utc']=dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
  existing['collection']['successes']=success
  existing['collection']['failures']=failure
  existing['collection']['notes']=[
   '공식 사이트 자동 접근이 제한되면 마지막 출처확인 값을 유지',
-  '온라인 상품 수, 반올림된 구매 배지, 현지 검색은 매장별 POS 매출 자료가 아님',
+  '판매처의 온라인 SKU·구매 배지·검색량은 오프라인 POS 매출이 아님',
   '제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰'
  ]
  existing['updated_at_utc']=dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
