@@ -104,7 +104,7 @@ def detect(trends, countries=None, today=None):
         'updated_at':dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'),
         'asof_date':today.isoformat(),
         'method':'trend-v1: weekly 4 vs 8 (daily 7 vs 28), absolute 8pt & relative +35%/-30% & >=1.15 baseline sigma, persistence and minimum level; same normalized series only',
-        'source_note':'Google Trends 0~100 within query/market/timeframe; different countries, query batches and dates are not absolute volume comparable. No sales or offline POS interpretation.',
+        'source_note':'Google Trends 지수는 국가·키워드·기간별 0~100 상대관심도이며 국가 간 절대량을 비교하지 않습니다. 검색관심도 변화는 실제 매출·판매량·오프라인 POS가 아닙니다.',
         'alerts':results[:30],
         'evaluated_pairs':len(series),'detected_pairs':len(results)
     }
