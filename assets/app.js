@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const fmt=(n,d=0)=>n==null||!Number.isFinite(Number(n))?'—':Number(n).toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
 const pct=(a,b)=>a!=null&&b!=null&&Number(b)!==0?(a/b-1)*100:null;
 const signed=(n,d=1)=>n==null?'—':(n>0?'+':'')+fmt(n,d)+'%';
-const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null};
+const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null};
 const C={navy:'#193a5a',teal:'#0b917f',orange:'#bf8854',purple:'#8c83b4',grey:'#98aab8',red:'#c35f58'};
 const missing='실측 데이터 없음 · 확인된 값만 표시합니다.';
 const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'BR',name:'브라질',region:'남미',amazon:'amazon.com.br',amazon_beauty_slug:'beauty'},{code:'AR',name:'아르헨티나',region:'남미',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
@@ -20,7 +20,8 @@ function escapeHtml(s){return safeText(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<
 function validLink(url){try{let u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:'#'}catch{return '#'}}
 async function getJSON(name){try{const r=await fetch('./data/'+name+'.json?v='+Date.now(),{cache:'no-store'});if(r.ok)return await r.json()}catch{}return window.APR_BOOTSTRAP?.[name]??null}
 function today(){return new Date().toISOString().slice(0,10)}
-function showPage(hash){const id=(hash||location.hash||'#overview').replace('#','');state.nav=['overview','technical','demand','kbty','business','logistics'].includes(id)?id:'overview';document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===state.nav));document.querySelectorAll('[data-nav]').forEach(x=>x.classList.toggle('active',x.dataset.nav===state.nav));document.querySelectorAll('[data-mnav]').forEach(x=>x.classList.toggle('active',x.dataset.mnav===state.nav));if(state.nav==='technical')renderTechnical();if(state.nav==='demand')renderDemand();if(state.nav==='kbty')renderEtf();if(state.nav==='business')renderNews();if(state.nav==='logistics')renderLogistics();if(state.nav==='overview')renderOverview();window.scrollTo({top:0,behavior:'instant'});}
+function showPage(hash){const id=(hash||location.hash||'#overview').replace('#','');state.nav=['overview','technical','financials','demand','theses','kbty','business','logistics'].includes(id)?id:'overview';document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===state.nav));document.querySelectorAll('[data-nav]').forEach(x=>x.classList.toggle('active',x.dataset.nav===state.nav));document.querySelectorAll('[data-mnav]').forEach(x=>x.classList.toggle('active',x.dataset.mnav===state.nav));if(state.nav==='technical')renderTechnical();if(state.nav==='financials'&&window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext());if(state.nav==='theses'&&window.APR_RESEARCH)window.APR_RESEARCH.renderTheses(researchContext());if(state.nav==='demand')renderDemand();if(state.nav==='kbty')renderEtf();if(state.nav==='business')renderNews();if(state.nav==='logistics')renderLogistics();if(state.nav==='overview')renderOverview();window.scrollTo({top:0,behavior:'instant'});}
+function researchContext(){return {state,$,chart,escapeHtml,fmt,C,validLink};}
 function marketRows(){return (state.market?.series||[]).filter(x=>x.date>='2026-05-01'&&x.close_krw).sort((a,b)=>a.date.localeCompare(b.date));}
 function dateLimit(rows){const n=Number(state.period);return Number.isFinite(n)&&n>0?rows.filter(x=>x.date>=new Date(Date.now()-n*86400000).toISOString().slice(0,10)):rows;}
 function chart(id,labels,series,extra={}){
@@ -122,7 +123,7 @@ function renderLatinAmerica(){
      '<small>'+escapeHtml(amazon)+'</small></button>';
  }).join('');
 }
-function renderDemand(){const d=state.demand||{countries:countryMarkets(),amazon:[],trends:[],retailers:[],retail:[],watchlist:[]};
+function renderDemand(){if(window.APR_RESEARCH)window.APR_RESEARCH.renderTrends(researchContext());const d=state.demand||{countries:countryMarkets(),amazon:[],trends:[],retailers:[],retail:[],watchlist:[]};
  const c=state.country,p=state.product,market=countryMarkets().find(x=>x.code===c);
  renderLatinAmerica();
  const observed=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
@@ -420,6 +421,13 @@ function initControls(){
  $('product').addEventListener('change',()=>{state.product=$('product').value;renderDemand()});
  $('period').addEventListener('change',e=>{state.period=e.target.value;renderOverview()});
  $('news-filter').addEventListener('change',renderNews);
+ const finTable=$('fin-table-kind');if(finTable)finTable.addEventListener('change',()=>{if(window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext())});
+ const trendAlerts=$('trend-alerts');if(trendAlerts)trendAlerts.addEventListener('click',e=>{
+    const node=e.target.closest?.('[data-trend-country]');
+    const cc=node?.dataset?.trendCountry;
+    if(!cc||!countryMarkets().some(x=>x.code===cc))return;
+    state.country=cc;country.value=cc;fillProductChoices();renderDemand();
+ });
  $('download-market').addEventListener('click',()=>{
   const rows=marketRows();if(!rows.length)return alert('내려받을 실제 시세 데이터가 없습니다.');
   const cols=['date','open_krw','high_krw','low_krw','close_krw','close_usd','usdkrw','eurkrw','volume'];
@@ -428,7 +436,7 @@ function initControls(){
  });
 }
 async function init(){
- const names=['market','technical','kbty','news','demand','status','top100','reference_signals','kbty_sec'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n]=data[i]);
+ const names=['market','technical','kbty','news','demand','status','top100','reference_signals','kbty_sec','financials','trend_signals','apr_theses'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n==='trend_signals'?'trendSignals':n==='apr_theses'?'aprTheses':n]=data[i]);
  const sync=state.status?.generated_at_utc;
  set('last-synced',sync?'최종 수집 '+sync.slice(0,10)+' (UTC)':'최초 클라우드 갱신 전');
  initControls();showPage(location.hash);window.addEventListener('hashchange',()=>showPage(location.hash));
