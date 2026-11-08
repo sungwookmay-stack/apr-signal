@@ -84,6 +84,8 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.equal(pbr.data.datasets.length,6);
  assert.equal(perUSD.data.datasets.length,6);
  assert.equal(pbrUSD.data.datasets.length,6);
+ assert.equal(html.match(/assets\/research_dashboard\.js/g)?.length,1);
+ assert.equal(html.match(/assets\/apr_theme\.css/g)?.length,1);
  assert.equal(per.data.datasets[0].label,'실제 원화 종가');
  assert.equal(per.data.datasets[1].label,'PER 15배');
  assert.equal(pbr.data.datasets[1].label,'PBR 5배');
@@ -101,13 +103,14 @@ events['window:DOMContentLoaded']().then(()=>{
  events['fin-table-kind:change']();
  assert.match($('fin-table-body').innerHTML,/미산출/);
  location.hash='#theses';events['window:hashchange']();
- assert.match($('thesis-blocks').innerHTML,/재평가 이후에도 저평가인가/);
- assert.match($('thesis-blocks').innerHTML,/미국 수요가 이 속도를 유지하는가/);
+ assert.match($('thesis-blocks').innerHTML,/이익 성장보다 주가가 앞서가지는 않는가/);
+ assert.match($('thesis-blocks').innerHTML,/미국 온·오프라인 수요의 지속성/);
  assert.match($('thesis-blocks').innerHTML,/thesis-sparkline/,'Historical watchpoints should show trends');
  location.hash='#demand';events['window:hashchange']();
  assert.match($('off-ulta-total').textContent,/69개/);
  assert.match($('off-ulta-eligible').textContent,/32개/);
  assert.match($('off-status').innerHTML,/검증 제외/);
+ assert.match($('retailer-statements').innerHTML,/유통사 공식 발표/);
  assert.doesNotMatch($('off-status').innerHTML,/<span>104k\+ bought<\/span>/);
  const al=$('trend-alerts').innerHTML;
  assert.match(al,/미국 · medicube/);
