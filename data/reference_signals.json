@@ -1,9 +1,9 @@
 {
-  "updated_at_utc": "2026-11-07T23:07:23+00:00",
+  "updated_at_utc": "2026-11-08T23:07:26+00:00",
   "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님. · 2026-11-08 Target 의심 구매 배지는 정량 추이 제외.",
   "retail": [
     {
-      "date": "2026-11-08",
+      "date": "2026-11-09",
       "retailer": "ulta",
       "country": "US",
       "metric": "catalog_items",
@@ -16,7 +16,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-08",
+      "date": "2026-11-09",
       "retailer": "ulta",
       "country": "US",
       "metric": "online_only_items",
@@ -29,7 +29,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-08",
+      "date": "2026-11-09",
       "retailer": "ulta",
       "country": "US",
       "metric": "exclusive_items",
@@ -113,22 +113,18 @@
     }
   ],
   "collection": {
-    "last_attempt_utc": "2026-11-07T23:07:23+00:00",
+    "last_attempt_utc": "2026-11-08T23:07:26+00:00",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
       "independent US Beauty 2026-W45"
     ],
     "failures": [
-      "target: expected branded visible fields not found"
+      "target: Target/retailer JS rendering or bot restriction; no verified visible fields"
     ],
     "notes": [
       "공식 사이트 자동 접근이 제한되면 마지막 출처확인 값을 유지",
-      "온라인 상품 수, 반올림된 구매 배지, 현지 검색은 매장별 POS 매출 자료가 아님",
-      "제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰",
-      "Target 카테고리 9개는 브랜드 전체 SKU가 아님; 104k 구매 배지는 품목 연결 미검증으로 추이 계산에서 제외.",
-      "Ulta 비온라인전용 SKU=전체 등록 SKU-Online Only, 실제 점포 입점 SKU나 매출이 아님.",
-      "첫 실측일부터 날짜별 동일 정의 지표를 누적하며, 과거 수치를 임의 보간하지 않음.",
-      "Target 기존 9개 카테고리/104k+ 구매 배지 레거시 관측은 품목·범위가 달라 추이와 수요 평가에 사용하지 않음"
+      "판매처의 온라인 SKU·구매 배지·검색량은 오프라인 POS 매출이 아님",
+      "제3자 미국 주간 Top100은 API.SH 부분 목록과 분리 관찰"
     ]
   },
   "amazon_monthly": [
@@ -147,43 +143,17 @@
   ],
   "retail_history": [
     {
-      "date": "2026-11-08",
-      "retailer": "ulta",
-      "country": "US",
-      "metric": "catalog_items",
-      "value": 69,
-      "display": "69개",
-      "label": "메디큐브 등록상품 수",
-      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
-      "source_url": "https://www.ulta.com/brand/medicube",
-      "method": "official_catalog_page",
-      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
-    },
-    {
-      "date": "2026-11-08",
-      "retailer": "ulta",
-      "country": "US",
-      "metric": "online_only_items",
-      "value": 37,
-      "display": "37개",
-      "label": "온라인 전용 표시 상품",
-      "scope": "Ulta 브랜드 페이지 Online Only 필터",
-      "source_url": "https://www.ulta.com/brand/medicube",
-      "method": "official_catalog_page",
-      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
-    },
-    {
-      "date": "2026-11-08",
-      "retailer": "ulta",
-      "country": "US",
-      "metric": "exclusive_items",
-      "value": 3,
-      "display": "3개",
-      "label": "Only at Ulta 상품",
-      "scope": "Ulta 브랜드 페이지 독점 상품",
-      "source_url": "https://www.ulta.com/brand/medicube",
-      "method": "official_catalog_page",
-      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+      "date": "2026-11-02",
+      "retailer": "boots",
+      "country": "GB",
+      "metric": "brand_search_yoy_lower",
+      "value": 20,
+      "display": "20% 초과",
+      "label": "Boots 사이트 내 Medicube 검색량 YoY 증가",
+      "scope": "Boots UK 2026년 11월 공식 보도자료",
+      "source_url": "https://www.boots-uk.com/newsroom/news-item/from-k-beauty-to-k-wellness-boots-brings-korea-s-next-wellness-trend-to-the-uk-high-street-with-a-dedicated-new-offering/",
+      "method": "official_company_release",
+      "note": "Boots 공식 보도자료: boots.com 사이트 내 medicube 검색이 전년동기 대비 20% 초과 증가. 매출 또는 오프라인 판매 증가율 아님."
     },
     {
       "date": "2026-11-04",
@@ -217,17 +187,82 @@
       "review_status": "항목별 수치·목표상품 연계 재검증 필요"
     },
     {
-      "date": "2026-11-02",
-      "retailer": "boots",
-      "country": "GB",
-      "metric": "brand_search_yoy_lower",
-      "value": 20,
-      "display": "20% 초과",
-      "label": "Boots 사이트 내 Medicube 검색량 YoY 증가",
-      "scope": "Boots UK 2026년 11월 공식 보도자료",
-      "source_url": "https://www.boots-uk.com/newsroom/news-item/from-k-beauty-to-k-wellness-boots-brings-korea-s-next-wellness-trend-to-the-uk-high-street-with-a-dedicated-new-offering/",
-      "method": "official_company_release",
-      "note": "Boots 공식 보도자료: boots.com 사이트 내 medicube 검색이 전년동기 대비 20% 초과 증가. 매출 또는 오프라인 판매 증가율 아님."
+      "date": "2026-11-08",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "catalog_items",
+      "value": 69,
+      "display": "69개",
+      "label": "메디큐브 등록상품 수",
+      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-08",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "exclusive_items",
+      "value": 3,
+      "display": "3개",
+      "label": "Only at Ulta 상품",
+      "scope": "Ulta 브랜드 페이지 독점 상품",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-08",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "online_only_items",
+      "value": 37,
+      "display": "37개",
+      "label": "온라인 전용 표시 상품",
+      "scope": "Ulta 브랜드 페이지 Online Only 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-09",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "catalog_items",
+      "value": 69,
+      "display": "69개",
+      "label": "메디큐브 등록상품 수",
+      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-09",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "exclusive_items",
+      "value": 3,
+      "display": "3개",
+      "label": "Only at Ulta 상품",
+      "scope": "Ulta 브랜드 페이지 독점 상품",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-09",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "online_only_items",
+      "value": 37,
+      "display": "37개",
+      "label": "온라인 전용 표시 상품",
+      "scope": "Ulta 브랜드 페이지 Online Only 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     }
   ],
   "product_review_history": [

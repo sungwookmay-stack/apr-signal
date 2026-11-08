@@ -406,5 +406,77 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.co.uk/dp/B0DGPSZVW3"
+  },
+  {
+    "date": "2026-11-09",
+    "country": "US",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin",
+    "bsr": 68,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-09",
+    "country": "US",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin",
+    "bsr": 4,
+    "category": "Facial Serums",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-09",
+    "country": "GB",
+    "asin": "B0DWMSM6Y9",
+    "product": "medicube Eye Cream with Salmon DNA PDRN & Pink Peptides",
+    "title": "medicube Eye Cream with Salmon DNA PDRN & Pink Peptides",
+    "bsr": 58,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DWMSM6Y9"
+  },
+  {
+    "date": "2026-11-09",
+    "country": "GB",
+    "asin": "B0DWMSM6Y9",
+    "product": "medicube Eye Cream with Salmon DNA PDRN & Pink Peptides",
+    "title": "medicube Eye Cream with Salmon DNA PDRN & Pink Peptides",
+    "bsr": 1,
+    "category": "Eye Creams",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DWMSM6Y9"
+  },
+  {
+    "date": "2026-11-09",
+    "country": "DE",
+    "asin": "B0D1G7XF9X",
+    "product": "medicube Zero Pore Blackhead Mud Mask for Pore Cleansing",
+    "title": "medicube Zero Pore Blackhead Mud Mask for Pore Cleansing",
+    "bsr": 71,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B0D1G7XF9X"
+  },
+  {
+    "date": "2026-11-09",
+    "country": "DE",
+    "asin": "B0D1G7XF9X",
+    "product": "medicube Zero Pore Blackhead Mud Mask for Pore Cleansing",
+    "title": "medicube Zero Pore Blackhead Mud Mask for Pore Cleansing",
+    "bsr": 4,
+    "category": "Face Treatments & Masks",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B0D1G7XF9X"
   }
 ]

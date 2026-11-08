@@ -3,8 +3,8 @@
   "stock_code": "278470",
   "corp_code": "01190568",
   "unit": "shares; %",
-  "checked_at_utc": "2026-11-08T16:23:48+00:00",
-  "last_successful_check_utc": "2026-11-08T16:23:48+00:00",
+  "checked_at_utc": "2026-11-08T23:07:26+00:00",
+  "last_successful_check_utc": "2026-11-08T23:07:26+00:00",
   "status": "정상 조회",
   "ready": true,
   "endpoint_status": {
@@ -404,7 +404,7 @@
     }
   ],
   "count": 26,
-  "new_disclosures": 26,
+  "new_disclosures": 0,
   "notes": [
     "대량보유 보고와 임원·주요주주 소유보고는 보고 대상·기준이 달라 서로 합산하면 안 됩니다.",
     "공시상 보유주식 및 지분율은 보고자별 시점 자료이며, 증감이 모두 장내 매수·매도라는 의미가 아닙니다.",

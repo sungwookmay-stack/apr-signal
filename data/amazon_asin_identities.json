@@ -24,10 +24,10 @@
     "verified_at": "2026-11-04"
   },
   "GB:B0DWMSM6Y9": {
-    "title": "medicube Eye Cream with Salmon DNA PDRN & Pink Peptides | 99% Purity Retinol for Fine Lines - PDRN & Niacinamide for Uneven Skin Tone, Korean Skincare, 1.01 fl.oz",
-    "brand": "",
-    "source": "Scrape.do Best Sellers card",
-    "verified_at": "2026-11-04"
+    "title": "medicube Eye Cream with Salmon DNA PDRN & Pink Peptides",
+    "brand": "medicube",
+    "verified_at": "2026-11-09",
+    "source": "Scrape.do PDP"
   },
   "GB:B0D1G7XF9X": {
     "title": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating | Blackhead-Removing Clay Mask with AHA BHA PHA, Pore Minimizing & Cooling Care, 3 Min Quick Dry, Korean",
@@ -48,10 +48,10 @@
     "source": "Scrape.do PDP"
   },
   "US:B0DBF65JYY": {
-    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin | Pink Glow Serum with Peptides & Niacinamide for Hydration, Firm-Looking Skin & Uneven Tone Care, Korea",
-    "brand": "",
-    "source": "Scrape.do Best Sellers card",
-    "verified_at": "2026-11-04"
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin",
+    "brand": "medicube",
+    "verified_at": "2026-11-09",
+    "source": "Scrape.do PDP"
   },
   "US:B0DYTQ5GYQ": {
     "title": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser",
@@ -4590,9 +4590,10 @@
     "verified_at": "2026-11-07"
   },
   "DE:B0D1G7XF9X": {
-    "title": "medicube Zero Pore Blackhead Mud Mask for Pore Cleansing | AHA BHA PHA Clay Mask, Pore & Blackhead Care, Cooling Skin Feeling, 3 Minutes Quick drying, Korean skin care",
-    "source": "Scrape.do Best Sellers card",
-    "verified_at": "2026-11-07"
+    "title": "medicube Zero Pore Blackhead Mud Mask for Pore Cleansing",
+    "brand": "medicube",
+    "verified_at": "2026-11-09",
+    "source": "Scrape.do PDP"
   },
   "DE:B07G1VKCND": {
     "title": "Rael Miracle Anti Pimple Patch Invisible (2 Sizes, 96 Pieces) | Korean Skincare, Ultra Thin Edges, Hydrocolloid Acne Plasters, Pimple Patches for Face, Vegan, Cruelty Free",
@@ -5519,6 +5520,377 @@
     "title": "VASELINE Moisturizing Petroleum Jelly, for dry skin, Original, to heal skin damage, 450ml",
     "brand": "Vaseline",
     "verified_at": "2026-11-08",
+    "source": "Scrape.do PDP"
+  },
+  "US:B0G1VBDXYF": {
+    "title": "Luxe Color Changing Foundation for Mature Skin, Color Matching, Medium | Color Matching, Adapts to Your Skin Tone, Lightweight, Hydrating Hyaluronic Acid & Peptides, Natural Matte ",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "US:B0F3J6W5KW": {
+    "title": "e.l.f. Sheer For It Blush Tint, Cherry Cola | Multi-Use, Long-Lasting Lip & Cheek Makeup, Creates A Natural Flush Finish, Vegan & Cruelty-Free",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "GB:B0015SXSKK": {
+    "title": "Vaseline Intensive Care Cocoa Radiant Body Oil 6x 200 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "GB:B097DY92MC": {
+    "title": "Baylis & Harding The Fuzzy Duck Luxury Present Stack, Gift Set for Women | Assorted Holiday Fragrances, Vegan Friendly, 1 Pack",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "GB:B000IB0G50": {
+    "title": "Just for men Original Formula Dark Brown Black Hair Dye H45 | Hair dye that targets grey hair with natural hair colour . Long lasting formula whilst rejuvenating hair for a fuller ",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "GB:B0GD6R7CFJ": {
+    "title": "BIODANCE Collagen Peptide Hydrogel Under Eye Patches. 60 Counts | [Deep Absorption with Advanced Hydrogel] - Eye Masks for Dark Circles, Puffy Eyes and Fine Lines | Eye Bags & Wrin",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0H2ZJHX9F": {
+    "title": "Essence Dancing Around The Xmas Tree Juicy Bomb Mini Shiny Lip Gloss (6 ml)",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B00CZCD63O": {
+    "title": "REVLON PROFESSIONAL Equave Hydro Instant Detangling Conditioner, 200 ml, Detangling Leave in Spray Conditioner for Normal to Dry Hair, Hair Care with 2-Phase Formula & Heat Protect",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0B18TNMP2": {
+    "title": "Wella Professionals Shinefinity Glaze Haarschonende Tönung – demi-permanent | pH-neutral & ohne Ammoniak - Für natürlichen Glanz bis zu 20 Haarwäschen – vegan",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0773R4X2R": {
+    "title": "ILLUMINA COLOR Professionale 5- Castano Chiaro hair care products",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B08HSJN4FH": {
+    "title": "Wella Professionals COLOR FRESH MASK Farbauffrischende Haarkur & Tönung | Mit pflegendem Avocadoöl, verschiedene Farben & Größen – Für blondes, braunes und dunkles Haar",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0H2Z86F3X": {
+    "title": "essence Juicy Bomb Mini Shiny Lip Gloss Set, No. 01, Instant Result, Natural, Shiny, Shimmering, Acetone-Free, Vegan, No Microplastic Particles, No Parabens, Pack of 1 (6 ml) | Sof",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B07X35RFNR": {
+    "title": "Kneipp Sekunden Hand Cream",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0CXTNS6S3": {
+    "title": "Old Spice Whitewater Deodorant Stick for Men, 6 x 50 ml, 24/7 Freshness | 24/7 freshness with daily use, long-lasting fragrance in perfume quality, protection against odours, witho",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0CWV72MHN": {
+    "title": "bedrop Propolis Nail Serum for Nail Problems - 10 ml | High-dose treatment of the skin and nail, nail care formula for nail fungus, quick and intense effect",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "DE:B0D69VZN34": {
+    "title": "JMEOWIO Nail Foil UV Hardening Cat's Eye UV Gel Nail Strips Nail Stickers Nail Stickers Nail Art Decoration Nail Design Accessories",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "FR:B0C8TNGR3V": {
+    "title": "Le Petit Marseillais Refill Berlingot Hand Wash Cream Milk 250 ml | Berlingot Refill for Hand Wash Cream Milk 250 ml, All Skin Types, With 92% Natural Ingredients",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "FR:B07W7F18SJ": {
+    "title": "Le Petit Marseillais Nutrition Lip Care Dried Lips, 0.5 g | Shea Butter Lip Balm, Sweet Almond & Argan Oil, Nourishing Lip Stick for Dry Lips",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "FR:B06XZQCNS9": {
+    "title": "PODERM - MYCOSIS NAIL TREATMENT 2in1 | With exceptional powerful antifungal and repairing plants | Professional foot care | Easy & fast | Swiss Made",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "FR:B0CZ5VPJ81": {
+    "title": "NYX Professional Makeup Buttermelt Blush Powder Melt Feeling Butta | 12-hour non-transfer hold, soft matte finish, Fade resistant, Vegan formula, 12 shades available",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "IT:B01D3TKQQC": {
+    "title": "L'Oréal Paris Perfect Touch Up Spray for Roots and White Hair, Lasting up to 1 Shampoo, Brown, 75 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "IT:B0CFYCPCL3": {
+    "title": "Vidal - Imperial Orchid Body Wash, Enveloping Formula, Orchid Fragrance, Dermatologically Tested, 500 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "IT:B08P4YPB8Q": {
+    "title": "Maybelline New York Sensational Eyelash Mascara Sky High, Intense Volume and Unlimited Length, Light Lashes, Defines, Curves and Multiplies, Volumizing and Lengthening, Black, 5 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "IT:B0FDKZ5Z6Z": {
+    "title": "L'Oréal Paris Revitalift Laser Day Face Cream for All Skin Types | For all skin types, anti-ageing action, firmer and toned skin, with hyaluronic acid, vitamin C and Pro-Retinol",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "IT:B0FVG6TCJS": {
+    "title": "Garnier Fructis Curly Method Moisturizing Spray for Curly Hair 150ml | For Defined and Hydrated Curly Hair, Enriched with Hyaluronic Acid and Shea Butter, Curly",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "ES:B0F9X7Y64N": {
+    "title": "Beter - Pack of 3 Natural Fibre Brush Charm, XS Format, Includes Chain to Hang on Bag, Backpack or Trousers, Made with Natural Materials, Soft Detanglement, 3 Colours",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "ES:B0H294WYY1": {
+    "title": "Philips OneBlade Original 360 Blades, Compatible with All OneBlade and Pro Handles, 4 Pack (Model QP440/60)",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "ES:B09XN22JBT": {
+    "title": "CeraVe, Loción Hidratante de Rostro SPF 50, Para Piel Normal a Seca, Hidratación y Alta Protección Contra los Rayos UVB/UVA, Enriquecida con Ceramidas, 52ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "ES:B0CJ5GW8RY": {
+    "title": "L'Oréal Paris Panorama Volumizing Mascara, Black | Panoramic Brush for 360º Volume, for All Types of Eyelashes, Up to 24 Hours of Duration, Volume Million Lashes",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "ES:B0CHZ5WN26": {
+    "title": "Philips OneBlade 360 with Bluetooth, Beard and Body Trimmer, Men's Electric Shaver, Male Hair Removal, 2 Blades, 5 Lengths, 60 Minutes Use with 1 Hour Charge, QP4631/30",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "ES:B00N9506RA": {
+    "title": "Olivia Garden Fingerbrush Care Iconic Cepillo Desenredante con Cerdas de Jabalí y Nylon para Cabello Saludable y Brillante",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "CA:B0CMYR1CNK": {
+    "title": "e.l.f. Cream Glide Lip Liner, Creamy High-Pigment, Mauve Aside | Semi-Matte Finish, Creamy Application, Smooth Glide Lip Pencil, Defines & Shapes, Vegan & Cruelty-Free",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "CA:B00BMJTOSW": {
+    "title": "Cetaphil Gentle Skin Cleanser (473ml) - Dermatolgoist Recommended Face Wash | Niacinamide & Vitamin B5, dermatologist recommended, gentle for dry sensitive skin, face & body, fragr",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "CA:B0FX418XT8": {
+    "title": "Arencia Vitamin C Booster Shot Serum with Glutathione, Niacinamide and Vitamin E for Dark Spot Care, Fine Lines & Wrinkles, Glass Skin, Korean Skincare 30ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "CA:B01MRX9US8": {
+    "title": "Crest 3D Whitestrips Vivid White At-home Teeth Whitening Kit, 10 Treatments, 6 Levels Whiter",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "CA:B09WMT8HYB": {
+    "title": "The Ordinary Multi-Peptide Serum for Hair Density, Peptide-Powered Formula for Thicker, Fuller Looking Hair, 60 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "JP:B00MWJS5WM": {
+    "title": "Tsumura's Kubiju Bath Herbs, 22.0 fl oz (650 ml), Tsumura Cuddled Hot Water",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "JP:B0FNBP437F": {
+    "title": "Bab 60 Tablets Variety Box, 5 Enjoyable Fragrances, Bath Additive [Medical External Product]",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "JP:B0D9YDRN1Q": {
+    "title": "CareCera AP Highly Moisturizing Barrier Emulsion 130ml (Petroleum Jelly High-Pressure Emulsification Technology x 8 Types of Natural Ceramides Formulated for High Moisturizing) for",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "JP:B08WMCZ1TJ": {
+    "title": "MARO17 DX Shampoo, Perfect Wash, Gentle Mint Scent, Refill, 20.3 fl oz (600 ml)",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "AE:B08KQVG7G7": {
+    "title": "NIVEA Pearl & Beauty Antiperspirant Deodorant Spray for Women, Soft & Smooth, 48H Active Protection, 0% Alcohol, with Pearl Extract and Avocado Oil, 2x150ml, Pack of 2",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "AE:B000C1UBRO": {
+    "title": "Calvin Klein Eternity Moment Perfume for Women Eau De Parfum 100ML",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "AE:B08HLSL2FV": {
+    "title": "Maybelline New York Lifter Gloss, Hydrating Lip Gloss with Hyaluronic Acid, 5.4 ml, Shade: 003 Moon",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "AE:B0FY69TM1Y": {
+    "title": "Maybelline New York, Super Stay Teddy Tint Plushwear and Transferproof, Delivers up to 12H Long-lasting Blurred Matte Soft Lip Color, 115 Coffee Date",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "AE:B07JPBJGJC": {
+    "title": "L’Oréal Paris Elnett Hairspray Extra Strong Hold 75ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B0BC8X45ST": {
+    "title": "NIVEA Body Lotion Dry Skin, Cocoa Butter Vitamin E, 3x400ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B0015SXSKK": {
+    "title": "Vaseline Intensive Care Cocoa Radiant Body Gel 200 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B07QK7HH7C": {
+    "title": "Johnson's Body Wash, 400ml, Anti-Bacterial, Almond Blossom, 3-in-1 formula that combines max protect germ-removal technology and pure glycerin",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B07MW2ZDSM": {
+    "title": "L'Oreal Paris Prodigy Developer 3.0 Permanent Hair Colour Cream, Dark Brown, 60g",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B0089WNKVC": {
+    "title": "Bioderma Atoderm Shower Gel For Normal To Dry Skin",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B00E4L0IVW": {
+    "title": "NIVEA MEN Shaving Gel, Sensitive Chamomile & Hamamelis, 200ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B09KQQZ71T": {
+    "title": "Axe Body Spray for Men Gold Temptation 150ML",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B0BN8J1RJ7": {
+    "title": "Eva Skin Care Senses Body Splash - Gold Spell 240 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B07MVV66DH": {
+    "title": "Garnier Skin Active Fast Bright Face Wash With Vitamin C And Lemon - 100Ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B0CBSJ3XJ7": {
+    "title": "CYBELE MATTE LIPSTICK N.319 magnetic mahogany",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B0CVQ8JKGT": {
+    "title": "Clary Hair Leave In Cream 300 gm",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B007B8UOPK": {
+    "title": "Maybelline New York Fit Me Concealer - Medium 25",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B07FZNXW64": {
+    "title": "Sunsilk Shampoo Black Shine 600ML",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B07FZMWXKR": {
+    "title": "L’Oréal Paris L'Oréal Paris Elvive Extraordinary Oil Jojoba 400 ML",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B0CR7G2S32": {
+    "title": "Real Man Fresh Mood Body Spray for Men 150 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "EG:B01G3OMSD8": {
+    "title": "L’Oréal Paris L'Oréal Paris elvive extra ordinary oil replacement 300 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B09RL4XW73": {
+    "title": "MANTECORP - Hidratante Epidrat Calm B5 - Hidrata e Acalma a Pele, Conforto Imediato, D-Pantenol",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B0BLZVD5S5": {
+    "title": "La Roche-Posay, Ultra Cover, Protetor Solar com Cor e Performance de Maquiagem, 12h de cobertura de base em uma única camada, Textura Fluida, Oil free, Toque Seco, FPS60, 30g",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B0DP82WCWS": {
+    "title": "Skin Care Hidratante Facial Garnier Uniform & Matte Toque Seco 85g | Creme com vitamina C e ácido hialurônico, reduz poros e controla brilho por 8h",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B0CTR4FL63": {
+    "title": "Principia Protetor Solar 16,5% Mix de Filtros UV + 5% Niacinamida FPS 60 Principia Skincare PS-01 com 40ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B0FKTRMVL4": {
+    "title": "Óleo Capilar Nutritivo 3 em 1 Ox Nutre para Controle de Frizz 120 ml | Nutrição, selamento e proteção térmica até 230°C.",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B07DKFQZYW": {
+    "title": "Desodorante Bozzano Aerossol Anti Extreme 150ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B09K2GVPG9": {
+    "title": "Rexona Antitranspirante Feminino Aerossol Antibacterial e Invisible 250 ML, Leve Mais Pague Menos, Embalagem Pode Variar",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B09RGRSJQ9": {
+    "title": "Máscara Hidratante Pantene Pro-V Miracles Colágeno Hidrata & Resgata 550 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B088P95YR5": {
+    "title": "Pantene Pro-V Máscara Capilar 3 em 1 Bambu Nutre e Cresce 600 ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B0FQQMJNYM": {
+    "title": "Dove Shampoo UV Repair & Glow + Ferúlico 600ml",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B0DS692QJR": {
+    "title": "GLOSS FRAN BY FRANCINY EHLKE LIPHONEY",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "BR:B07SLGHB35": {
+    "title": "Meu Cacho Minha Vida Máscara 450g , Lola Cosmetics",
+    "source": "Scrape.do Best Sellers card",
+    "verified_at": "2026-11-09"
+  },
+  "SA:B0BC93L3ZS": {
+    "title": "NIVEA Moisturizing Cream, Universal All Purpose Face Body Hands, Tin 3x400ml",
+    "brand": "NIVEA",
+    "verified_at": "2026-11-09",
     "source": "Scrape.do PDP"
   }
 }
