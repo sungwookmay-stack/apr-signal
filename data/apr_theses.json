@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "title": "APR 핵심 투자 가설 검증판",
+  "title": "APR 주식 추적기 · 주의 깊게 볼 점",
   "updated_at": "2026-11-08",
-  "note": "사용자 제공 투자 가설 스크린샷을 검증 지표로 전환. 사진 속 과거·미래 문구는 관찰 가정이지 확인된 공시 사실이 아님. 실제 매출·POS·동일카테고리 비교값만 수치화.",
+  "note": "확인된 공시/공식 유통 관측의 수치 및 변화. 확인되지 않은 EPS 컨센서스와 오프라인 POS를 추정하지 않음.",
   "theses": [
     {
       "id": "valuation",
-      "title": "재평가 이후에도 저평가인가?",
+      "title": "이익 성장보다 주가가 앞서가지는 않는가?",
       "horizon": "향후 12~24개월",
       "question": "이익 성장과 수익성이 프리미엄 PER·PBR을 정당화하는가?",
       "description": "주가의 프리미엄 여부는 TTM PER/PBR, ROE, 마진, 컨센서스 수정방향을 함께 봐야 함.",
@@ -36,15 +36,9 @@
           "threshold": "지속적 고ROE 여부 확인, 자기주식 감소로 왜곡 가능"
         },
         {
-          "id": "consensus",
-          "label": "EPS 컨센서스 상·하향",
-          "source": "동일 증권사 추정치 이력 유료/공식 자료 검증 필요",
-          "threshold": "검증된 컨센서스 데이터 부재 시 '미수집'"
-        },
-        {
           "id": "insider",
           "label": "내부자·대주주 지분 변화",
-          "source": "DART 임원·주요주주 소유상황보고",
+          "source": "OpenDART 무료 5% 대량보유·임원·주요주주 소유상황",
           "threshold": "기간별 지분 변동 검증 후 기록"
         }
       ]
@@ -102,7 +96,7 @@
     },
     {
       "id": "us",
-      "title": "미국 수요가 이 속도를 유지하는가?",
+      "title": "미국 온·오프라인 수요의 지속성",
       "horizon": "향후 12개월",
       "question": "초도 입점 이후 실제 재주문과 온·오프라인 반복 구매가 이어지는가?",
       "description": "Costco·Target·Ulta 매대 입점과 실제 POS 판매를 구분하고 판매처별 SKU·구매배지·리뷰·Amazon 순위를 누적.",
@@ -132,12 +126,6 @@
           "threshold": "브랜드 미식별 상품은 0으로 확정하지 않음"
         },
         {
-          "id": "weekly",
-          "label": "제3자 Amazon Top100 주간 품목",
-          "source": "KBeautyTMI 100순위 목록",
-          "threshold": "서로 다른 수집원 지표 비교·단일 판매량 환산 금지"
-        },
-        {
           "id": "trends",
           "label": "미국 Medicube 검색관심 변동",
           "source": "Google Trends 미국 국가·키워드 시계열",
@@ -148,6 +136,18 @@
           "label": "미국 오프라인 재주문·POS",
           "source": "공식 재주문 발표·유통사 POS 공개",
           "threshold": "자료 비공개 시 미확인"
+        },
+        {
+          "id": "reviews",
+          "label": "미국 판매처 대표 상품 누적 리뷰 수",
+          "source": "Target·Ulta 공식 메디큐브 제로모공패드 상품 상세페이지",
+          "threshold": "동일 상품·같은 판매처 리뷰 수 증가와 평점 유지 여부, POS 직접 자료 아님"
+        },
+        {
+          "id": "retailer_statement",
+          "label": "유통사·회사 공식 발표",
+          "source": "Boots·Costco 등 공식 보도자료·공시 및 출처확인 이벤트",
+          "threshold": "검색량·입점 발표와 실제 재주문·POS 매출을 별도 기록"
         }
       ]
     }
