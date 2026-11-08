@@ -24,7 +24,7 @@
       <a href="#overview" class="navitem active" data-nav="overview"><span class="bullet"></span>시장 · 환율</a>
       <a href="#technical" class="navitem" data-nav="technical"><span class="bullet"></span>기술적 분석</a>
       <a href="#financials" class="navitem" data-nav="financials"><span class="bullet"></span>재무 · 밸류에이션</a>
-      <a href="#demand" class="navitem" data-nav="demand"><span class="bullet"></span>글로벌 판매 수요</a>
+      <a href="#demand" class="navitem" data-nav="demand"><span class="bullet"></span>글로벌 수요 · 유통</a>
       <a href="#theses" class="navitem" data-nav="theses"><span class="bullet"></span>주의 깊게 볼 점</a>
       <a href="#kbty" class="navitem" data-nav="kbty"><span class="bullet"></span>KBTY ETF</a>
       <a href="#business" class="navitem" data-nav="business"><span class="bullet"></span>칠레 · 신사업</a>
@@ -35,7 +35,7 @@
   <div class="workspace">
     <div class="mobile-head"><a href="#overview" class="mobile-brand">APR 주식 추적기</a><span class="mobile-head-right">278470 · KRX</span></div>
     <nav class="mobile-nav" aria-label="모바일 메뉴">
-      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요</a><a href="#theses" data-mnav="theses">주의 지표</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·실적</a>
+      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요·유통</a><a href="#theses" data-mnav="theses">주의 지표</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·실적</a>
     </nav>
     <header class="topline"><div><span class="top-caption">EQUITY / KOREA</span><span class="top-sep">/</span><span class="top-caption strong">APR · 278470</span></div><div class="updated"><span class="live-circle"></span><span id="last-synced">기록된 데이터 확인 중</span></div></header>
     <main>
@@ -119,7 +119,7 @@
         <div class="panel padded">
           <div class="section-split"><div><h3>판매처 SKU·상품 리뷰·공식 발표 기록</h3><p class="subtle">같은 지표만 시계열 비교. 수집 실패 시 마지막 확인값은 유지하며 당일 갱신으로 표시하지 않습니다.</p></div></div>
           <div class="graph small"><canvas id="chart-off-retail"></canvas></div>
-          <div class="graph small"><canvas id="chart-off-reviews"></canvas></div><p class="under-note">온라인 상품 리뷰·평점 변화는 소비자 반응 참고치이며 오프라인 POS가 아닙니다. Amazon Top100은 위 대표 차트에서만 표시합니다.</p>
+          <div class="graph small"><canvas id="chart-off-reviews"></canvas></div><p class="under-note" id="off-review-status">공식 상품별 리뷰 수치 첫 수집을 확인 중</p><p class="under-note">온라인 상품 리뷰·평점 변화는 소비자 반응 참고치이며 오프라인 POS가 아닙니다. Amazon Top100은 위 대표 차트에서만 표시합니다.</p>
           <div id="off-status" class="retail-signal-list"></div>
           <p class="under-note" id="off-target-warning">Target 기존 카테고리 등록수와 브랜드 전체 SKU는 서로 다른 지표입니다. 품목 연계가 불확실한 구매 배지는 확정 매출로 사용하지 않습니다.</p>
           <p class="under-note">Costco 입점 약 400개 매장은 관련 보도 기준이며, 현재 실판매량·재주문 데이터는 확인되지 않았습니다. 별도 확인 전까지 매출액을 추정하지 않습니다.</p>
