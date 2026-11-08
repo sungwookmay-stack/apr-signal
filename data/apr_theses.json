@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "title": "APR 핵심 투자 가설 검증판",
+  "updated_at": "2026-11-08",
+  "note": "사용자 제공 투자 가설 스크린샷을 검증 지표로 전환. 사진 속 과거·미래 문구는 관찰 가정이지 확인된 공시 사실이 아님. 실제 매출·POS·동일카테고리 비교값만 수치화.",
+  "theses": [
+    {
+      "id": "valuation",
+      "title": "재평가 이후에도 저평가인가?",
+      "horizon": "향후 12~24개월",
+      "question": "이익 성장과 수익성이 프리미엄 PER·PBR을 정당화하는가?",
+      "description": "주가의 프리미엄 여부는 TTM PER/PBR, ROE, 마진, 컨센서스 수정방향을 함께 봐야 함.",
+      "conditions": [
+        {
+          "id": "per",
+          "label": "현재 TTM PER",
+          "source": "주가 × 과거 당시 공시 TTM EPS",
+          "threshold": "동일 회사 과거 분포, 장기 지속가능 수익성 함께 확인"
+        },
+        {
+          "id": "pbr",
+          "label": "현재 PBR",
+          "source": "주가 × 최근 공시 지배지분 기준 BPS",
+          "threshold": "동일 업종 동종기업과 ROE 대비 확인"
+        },
+        {
+          "id": "revenue_yoy",
+          "label": "분기 매출 YoY",
+          "source": "잠정 또는 확정 연결 공시",
+          "threshold": "성장 둔화 여부: 전년 대비 +30% 아래로 하락하면 점검"
+        },
+        {
+          "id": "roe",
+          "label": "TTM ROE",
+          "source": "동기 12개월 전후 지배주주 자본 및 순이익",
+          "threshold": "지속적 고ROE 여부 확인, 자기주식 감소로 왜곡 가능"
+        },
+        {
+          "id": "consensus",
+          "label": "EPS 컨센서스 상·하향",
+          "source": "동일 증권사 추정치 이력 유료/공식 자료 검증 필요",
+          "threshold": "검증된 컨센서스 데이터 부재 시 '미수집'"
+        },
+        {
+          "id": "insider",
+          "label": "내부자·대주주 지분 변화",
+          "source": "DART 임원·주요주주 소유상황보고",
+          "threshold": "기간별 지분 변동 검증 후 기록"
+        }
+      ]
+    },
+    {
+      "id": "margin",
+      "title": "확장 국면에서도 마진 유지 가능한가?",
+      "horizon": "향후 12개월",
+      "question": "물류·관세·광고·판매수수료 증가를 매출 및 규모의 경제가 상쇄하는가?",
+      "description": "총매출 성장보다 OPM·SG&A 비용비율·운전자본 현금전환이 중요.",
+      "conditions": [
+        {
+          "id": "opm",
+          "label": "분기 영업이익률",
+          "source": "연결 영업이익/매출",
+          "threshold": "분기 20% 하회 혹은 QoQ -3%p 아래면 점검"
+        },
+        {
+          "id": "ads",
+          "label": "광고선전비율",
+          "source": "광고선전비/매출",
+          "threshold": "비율 상승 시 매출 성장 및 반복구매 증거 함께 확인"
+        },
+        {
+          "id": "fees",
+          "label": "판매수수료율",
+          "source": "판매수수료/매출",
+          "threshold": "오프라인 확대에 따른 유통·플랫폼 비용 증가 점검"
+        },
+        {
+          "id": "freight",
+          "label": "운반비율",
+          "source": "운반비/매출, 실제 APR 회계 비용",
+          "threshold": "월간 관세청 평균 운송비용은 별도 선행/후행 참고 지표"
+        },
+        {
+          "id": "inventory",
+          "label": "재고회전율·재고자산",
+          "source": "공시상 연환산 재고회전율, 재고자산과 총자산 비교",
+          "threshold": "회전율 2회 안팎 하락 및 재고/자산 증가시 수요·환입 구분"
+        },
+        {
+          "id": "cfo",
+          "label": "영업현금 전환",
+          "source": "영업현금흐름/연결순이익",
+          "threshold": "증가 재고/매출채권으로 현금전환 약화 여부"
+        },
+        {
+          "id": "fx",
+          "label": "원달러 환율",
+          "source": "ECB 공개 참조환율",
+          "threshold": "APR 실현환율/현지 거래 구조와 직접 같지 않음"
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "title": "미국 수요가 이 속도를 유지하는가?",
+      "horizon": "향후 12개월",
+      "question": "초도 입점 이후 실제 재주문과 온·오프라인 반복 구매가 이어지는가?",
+      "description": "Costco·Target·Ulta 매대 입점과 실제 POS 판매를 구분하고 판매처별 SKU·구매배지·리뷰·Amazon 순위를 누적.",
+      "conditions": [
+        {
+          "id": "costco",
+          "label": "Costco 발표 입점 점포 수",
+          "source": "미국 UPI 2026-10-19 약 400개",
+          "threshold": "신규 점포·리오더 기사 확인 전에는 수치 고정, 매출로 환산 금지"
+        },
+        {
+          "id": "ulta",
+          "label": "Ulta 메디큐브 등록 SKU",
+          "source": "Ulta 공식 브랜드 페이지",
+          "threshold": "online-only SKU와 차감해 오프라인 판매가능 SKU 상한만 참고"
+        },
+        {
+          "id": "target",
+          "label": "Target 등록 SKU·구매 배지",
+          "source": "Target 공식 브랜드 페이지",
+          "threshold": "카테고리 9개와 브랜드 전체 SKU를 혼합하지 않음; 정량 POS 아님"
+        },
+        {
+          "id": "amazon",
+          "label": "미국 Amazon Top100 최소 확인 품목",
+          "source": "Beauty Top100 수집",
+          "threshold": "브랜드 미식별 상품은 0으로 확정하지 않음"
+        },
+        {
+          "id": "weekly",
+          "label": "제3자 Amazon Top100 주간 품목",
+          "source": "KBeautyTMI 100순위 목록",
+          "threshold": "서로 다른 수집원 지표 비교·단일 판매량 환산 금지"
+        },
+        {
+          "id": "trends",
+          "label": "미국 Medicube 검색관심 변동",
+          "source": "Google Trends 미국 국가·키워드 시계열",
+          "threshold": "과거 대비 큰 변화일 때만 제시; 검색량=매출 아님"
+        },
+        {
+          "id": "reorders",
+          "label": "미국 오프라인 재주문·POS",
+          "source": "공식 재주문 발표·유통사 POS 공개",
+          "threshold": "자료 비공개 시 미확인"
+        }
+      ]
+    }
+  ]
+}
