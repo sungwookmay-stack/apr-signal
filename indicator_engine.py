@@ -136,7 +136,27 @@ def calculate(rows):
         pullback=(latest['ma20'] is not None and latest['ma20']*0.97<=c<=latest['ma20']*1.03)
         candidate_buy=(fully_ready and score>=5 and latest['macd_hist'] is not None and latest['macd_hist']>0 and r is not None and r<75)
         candidate_sell=(fully_ready and (score<=-3 or (a is not None and b is not None and c<min(a,b) and latest['macd_hist'] is not None and latest['macd_hist']<0)))
-        candidate_add=bool(fully_ready and trend_ok and rsi_up and (bb_reentry or pullback) and latest['macd_hist'] is not None and latest['macd_hist']>=0)
+        # Staged observation can identify improving momentum below long MAs.
+        # This is a research classification, not a trade-order recommendation.
+        macd_rising=bool(prev and latest['macd_hist'] is not None and
+                        prev['macd_hist'] is not None and latest['macd_hist']>prev['macd_hist'])
+        fast_ma_reclaim=bool(latest['ma5'] is not None and c>=latest['ma5'])
+        rsi_rebound=bool(rsi_up and r is not None and 25<=r<76)
+        rebound_points=sum((macd_rising,fast_ma_reclaim,rsi_rebound))
+        very_overheated=bool(r is not None and r>=80)
+        risk_elevated=bool(latest['ma120'] is not None and c<latest['ma120'] and
+                           latest['ma200'] is not None and c<latest['ma200'])
+        stage='관망 · 반등 신호 부족'
+        if fully_ready and rebound_points>=2 and not very_overheated:
+            stage='초기 반등 관찰'
+        if (fully_ready and rebound_points==3 and
+            (latest['ma20'] is None or c>=latest['ma20']*0.96) and not very_overheated):
+            stage='1차 분할매수 검토'
+        if (fully_ready and rebound_points>=2 and (bb_reentry or pullback) and not very_overheated):
+            stage='추가매수 조건 관찰' if risk_elevated else '추가매수 검토'
+        candidate_add=stage in ('추가매수 조건 관찰','추가매수 검토')
+        candidate_buy=(fully_ready and rebound_points>=2 and not very_overheated and score>=1)
+        candidate_sell=(fully_ready and score<=-5 and not macd_rising and risk_elevated)
         if not fully_ready:label='분석 유보 / OHLC 200거래일 필요';kind='unknown'
         elif candidate_sell:label='하락 위험 / 매도·비중축소 검토';kind='risk'
         elif candidate_buy:label='상승 추세 / 분할매수 관찰';kind='watch_buy'
@@ -149,8 +169,10 @@ def calculate(rows):
             checks.append({'name':'RSI 과열 주의','status':'caution','detail':'추격 매수 위험'})
         latest_summary={
           'date':latest['date'],'label':label,'kind':kind,'score':score,'checks':checks,
-          'averaging_down':('자료 부족으로 추가매수 신호 유보' if not fully_ready else ('추가매수 조건부 관찰' if candidate_add else '추가매수 보류 / 추가 확인 필요')),
-          'add_criteria':'구름 상단·장기추세 위 + RSI 반등 + 볼린저 하단 복귀 또는 20일선 부근 + MACD 음(-)이 아님',
+          'averaging_down':('분석 자료 부족' if not fully_ready else stage),
+          'entry_stage':stage,'rebound_points':rebound_points,
+          'risk_elevated':risk_elevated,'macd_improving':macd_rising,
+          'add_criteria':'반등 감시: RSI 상승·MACD 히스토그램 개선·5일선 회복 중 2개 이상. 20일선 접근·볼린저 하단 복귀 시 분할 검토. 120·200일선 아래에서는 반등 실패 위험 상승.',
           'risk_reference':round(c-2*latest['atr14']) if latest['atr14'] is not None else None,
           'risk_note':'종가 - 2×ATR은 변동성 참고 가격이며 손절 주문 가격을 뜻하지 않습니다.',
           'overheat':bool((r and r>=75) or (latest['bb_upper'] is not None and c>latest['bb_upper'])),
