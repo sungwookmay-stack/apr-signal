@@ -58,6 +58,34 @@ def build(data):
         row['inventory_to_receivables']=rounded(b['inventory']/b['receivables']) if b.get('receivables') else None
         balances.append(row)
 
+    # ROE = trailing 12-month consolidated NI / average owners' equity.
+    # Only matching start/end balance dates permit a verified calculation.
+    balance_by_date={v['asof']:v for v in balances}
+    roe_points=[]
+    for b in balances:
+        end=dt.date.fromisoformat(b['asof'])
+        previous_day=dt.date(end.year-1,end.month,end.day)
+        base=balance_by_date.get(previous_day.isoformat())
+        if base and b.get('equity') and base.get('equity'):
+            annual=next((x for x in data.get('annual',[]) if x['asof']==b['asof']),None)
+            if annual and annual.get('net_income') is not None:
+                ttm=annual['net_income']
+            elif b['period']=='2026Q2':
+                fy=next(x for x in data['annual'] if x['period']=='2025FY')
+                h1=sum(x['ni'] for x in quarters if x['period'] in ('2026Q1','2026Q2'))
+                prior_h1=sum(x['ni'] for x in quarters if x['period'] in ('2025Q1','2025Q2'))
+                ttm=fy['net_income']-prior_h1+h1
+            else:
+                ttm=None
+            if ttm is not None:
+                roe_points.append({
+                    'asof':b['asof'],'period':b['period'],
+                    'roe_ttm_pct':ratio(ttm,(b['equity']+base['equity'])/2),
+                    'ttm_net_income_100m':rounded(ttm),
+                    'base_equity_100m':base['equity'],'end_equity_100m':b['equity'],
+                    'method':'최근 12개월 연결 순이익 / 전년 동기와 현재 지배기업 자본의 평균; 참고 계산치 (기업 공시 정의와 차이 가능)'
+                })
+
     # TTM attributable profit in 100m KRW (억원). Source is audited/quarterly
     # IFRS year-to-date NI difference, published no earlier than anchor date.
     eps_events=[
@@ -100,12 +128,12 @@ def build(data):
     return {
         'schema_version':1,'generated_at_utc':dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'),
         'company':data['company'],'ticker':data['ticker'],'unit':data['unit'],
-        'quarterly':quarters,'balance':balances,
+        'quarterly':quarters,'balance':balances,'roe_ttm':roe_points,
         'annual':data.get('annual',[]),
         'valuation':{
             'period_start':'2025-06-01',
             'eps_events':eps,'book_events':book,
-            'per_multiples':[10,15,20,25,30],
+            'per_multiples':[15,25,35,45,55],
             'pbr_multiples':[5,10,15,20,25],
             'method_note':data['evaluation']['valuation_method'],
             'forward_or_consensus_used':False,
