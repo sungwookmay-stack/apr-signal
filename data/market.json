@@ -3,7 +3,7 @@
     "name": "에이피알",
     "ticker": "278470",
     "market": "KRX",
-    "start": "2026-05-01",
+    "start": "2025-06-01",
     "stock_source": "네이버 금융 (일별 종가)",
     "fx_sources": {
       "USD": "ECB official historical CSV ZIP (EUR/KRW ÷ EUR/USD)",
@@ -12,8 +12,8 @@
     "stock_last": "2026-11-06",
     "usd_fx_last": "2026-11-06",
     "eur_fx_last": "2026-11-06",
-    "generated_at_utc": "2026-11-08T07:48:32+00:00",
-    "coverage_start": "2025-07-01",
+    "generated_at_utc": "2026-11-08T11:36:21+00:00",
+    "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
     "logistics_source": "관세청 공식 보도자료 · 해상수출 평균 운송비용",
@@ -21,17 +21,264 @@
   },
   "series": [
     {
+      "date": "2025-06-02",
+      "close_krw": 123200,
+      "volume": 749381,
+      "open_krw": 118400,
+      "high_krw": 125500,
+      "low_krw": 118100,
+      "usdkrw": 1376.828094,
+      "eurkrw": 1572.2,
+      "fx_usd_date": "2025-06-02",
+      "fx_eur_date": "2025-06-02",
+      "close_usd": 89.481
+    },
+    {
+      "date": "2025-06-04",
+      "close_krw": 124800,
+      "volume": 337544,
+      "open_krw": 123600,
+      "high_krw": 127500,
+      "low_krw": 121600,
+      "usdkrw": 1366.321152,
+      "eurkrw": 1555.42,
+      "fx_usd_date": "2025-06-04",
+      "fx_eur_date": "2025-06-04",
+      "close_usd": 91.3402
+    },
+    {
+      "date": "2025-06-05",
+      "close_krw": 120800,
+      "volume": 437164,
+      "open_krw": 125500,
+      "high_krw": 125600,
+      "low_krw": 118800,
+      "usdkrw": 1357.392979,
+      "eurkrw": 1550.55,
+      "fx_usd_date": "2025-06-05",
+      "fx_eur_date": "2025-06-05",
+      "close_usd": 88.9941
+    },
+    {
+      "date": "2025-06-09",
+      "close_krw": 127900,
+      "volume": 504906,
+      "open_krw": 119200,
+      "high_krw": 129200,
+      "low_krw": 118700,
+      "usdkrw": 1356.441718,
+      "eurkrw": 1547.7,
+      "fx_usd_date": "2025-06-09",
+      "fx_eur_date": "2025-06-09",
+      "close_usd": 94.2908
+    },
+    {
+      "date": "2025-06-10",
+      "close_krw": 129000,
+      "volume": 597092,
+      "open_krw": 127300,
+      "high_krw": 130900,
+      "low_krw": 126900,
+      "usdkrw": 1366.550004,
+      "eurkrw": 1561.83,
+      "fx_usd_date": "2025-06-10",
+      "fx_eur_date": "2025-06-10",
+      "close_usd": 94.3983
+    },
+    {
+      "date": "2025-06-11",
+      "close_krw": 136000,
+      "volume": 611006,
+      "open_krw": 129200,
+      "high_krw": 136300,
+      "low_krw": 128500,
+      "usdkrw": 1375.579463,
+      "eurkrw": 1572.7,
+      "fx_usd_date": "2025-06-11",
+      "fx_eur_date": "2025-06-11",
+      "close_usd": 98.8674
+    },
+    {
+      "date": "2025-06-12",
+      "close_krw": 135100,
+      "volume": 458800,
+      "open_krw": 134600,
+      "high_krw": 137200,
+      "low_krw": 131500,
+      "usdkrw": 1353.777816,
+      "eurkrw": 1569.57,
+      "fx_usd_date": "2025-06-12",
+      "fx_eur_date": "2025-06-12",
+      "close_usd": 99.7948
+    },
+    {
+      "date": "2025-06-13",
+      "close_krw": 131000,
+      "volume": 536455,
+      "open_krw": 136300,
+      "high_krw": 136400,
+      "low_krw": 127500,
+      "usdkrw": 1370.23975,
+      "eurkrw": 1577.42,
+      "fx_usd_date": "2025-06-13",
+      "fx_eur_date": "2025-06-13",
+      "close_usd": 95.6037
+    },
+    {
+      "date": "2025-06-16",
+      "close_krw": 132600,
+      "volume": 403522,
+      "open_krw": 129000,
+      "high_krw": 133900,
+      "low_krw": 128200,
+      "usdkrw": 1359.478141,
+      "eurkrw": 1573.46,
+      "fx_usd_date": "2025-06-16",
+      "fx_eur_date": "2025-06-16",
+      "close_usd": 97.5374
+    },
+    {
+      "date": "2025-06-17",
+      "close_krw": 131200,
+      "volume": 273441,
+      "open_krw": 132100,
+      "high_krw": 133800,
+      "low_krw": 129200,
+      "usdkrw": 1365.335408,
+      "eurkrw": 1579.42,
+      "fx_usd_date": "2025-06-17",
+      "fx_eur_date": "2025-06-17",
+      "close_usd": 96.0936
+    },
+    {
+      "date": "2025-06-18",
+      "close_krw": 133600,
+      "volume": 408295,
+      "open_krw": 131000,
+      "high_krw": 137000,
+      "low_krw": 130100,
+      "usdkrw": 1375.651721,
+      "eurkrw": 1583.1,
+      "fx_usd_date": "2025-06-18",
+      "fx_eur_date": "2025-06-18",
+      "close_usd": 97.1176
+    },
+    {
+      "date": "2025-06-19",
+      "close_krw": 137000,
+      "volume": 458247,
+      "open_krw": 137700,
+      "high_krw": 140300,
+      "low_krw": 134900,
+      "usdkrw": 1380.118488,
+      "eurkrw": 1584.1,
+      "fx_usd_date": "2025-06-19",
+      "fx_eur_date": "2025-06-19",
+      "close_usd": 99.2668
+    },
+    {
+      "date": "2025-06-20",
+      "close_krw": 139800,
+      "volume": 410881,
+      "open_krw": 139400,
+      "high_krw": 143800,
+      "low_krw": 135700,
+      "usdkrw": 1366.739036,
+      "eurkrw": 1573.8,
+      "fx_usd_date": "2025-06-20",
+      "fx_eur_date": "2025-06-20",
+      "close_usd": 102.2873
+    },
+    {
+      "date": "2025-06-23",
+      "close_krw": 141200,
+      "volume": 281094,
+      "open_krw": 136800,
+      "high_krw": 143600,
+      "low_krw": 136000,
+      "usdkrw": 1388.153766,
+      "eurkrw": 1592.49,
+      "fx_usd_date": "2025-06-23",
+      "fx_eur_date": "2025-06-23",
+      "close_usd": 101.7178
+    },
+    {
+      "date": "2025-06-24",
+      "close_krw": 141200,
+      "volume": 363828,
+      "open_krw": 144000,
+      "high_krw": 144800,
+      "low_krw": 138600,
+      "usdkrw": 1360.170587,
+      "eurkrw": 1578.75,
+      "fx_usd_date": "2025-06-24",
+      "fx_eur_date": "2025-06-24",
+      "close_usd": 103.8105
+    },
+    {
+      "date": "2025-06-25",
+      "close_krw": 151600,
+      "volume": 600305,
+      "open_krw": 141400,
+      "high_krw": 152100,
+      "low_krw": 139100,
+      "usdkrw": 1363.554061,
+      "eurkrw": 1581.45,
+      "fx_usd_date": "2025-06-25",
+      "fx_eur_date": "2025-06-25",
+      "close_usd": 111.18
+    },
+    {
+      "date": "2025-06-26",
+      "close_krw": 149300,
+      "volume": 362207,
+      "open_krw": 149500,
+      "high_krw": 150800,
+      "low_krw": 145300,
+      "usdkrw": 1357.101325,
+      "eurkrw": 1587.13,
+      "fx_usd_date": "2025-06-26",
+      "fx_eur_date": "2025-06-26",
+      "close_usd": 110.0139
+    },
+    {
+      "date": "2025-06-27",
+      "close_krw": 148700,
+      "volume": 513501,
+      "open_krw": 149800,
+      "high_krw": 158300,
+      "low_krw": 145500,
+      "usdkrw": 1360.816815,
+      "eurkrw": 1592.7,
+      "fx_usd_date": "2025-06-27",
+      "fx_eur_date": "2025-06-27",
+      "close_usd": 109.2726
+    },
+    {
+      "date": "2025-06-30",
+      "close_krw": 154200,
+      "volume": 472720,
+      "open_krw": 150300,
+      "high_krw": 159000,
+      "low_krw": 149500,
+      "usdkrw": 1355.127986,
+      "eurkrw": 1588.21,
+      "fx_usd_date": "2025-06-30",
+      "fx_eur_date": "2025-06-30",
+      "close_usd": 113.79
+    },
+    {
       "date": "2025-07-01",
       "close_krw": 154200,
       "volume": 291656,
       "open_krw": 156100,
       "high_krw": 158800,
       "low_krw": 152900,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1353.243014,
+      "eurkrw": 1598.18,
+      "fx_usd_date": "2025-07-01",
+      "fx_eur_date": "2025-07-01",
+      "close_usd": 113.9485
     },
     {
       "date": "2025-07-02",
@@ -40,11 +287,11 @@
       "open_krw": 155100,
       "high_krw": 157700,
       "low_krw": 141000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1359.906423,
+      "eurkrw": 1598.57,
+      "fx_usd_date": "2025-07-02",
+      "fx_eur_date": "2025-07-02",
+      "close_usd": 107.8015
     },
     {
       "date": "2025-07-03",
@@ -53,11 +300,11 @@
       "open_krw": 148800,
       "high_krw": 151200,
       "low_krw": 145300,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1362.077746,
+      "eurkrw": 1604.8,
+      "fx_usd_date": "2025-07-03",
+      "fx_eur_date": "2025-07-03",
+      "close_usd": 107.7031
     },
     {
       "date": "2025-07-04",
@@ -66,11 +313,11 @@
       "open_krw": 147200,
       "high_krw": 149300,
       "low_krw": 137500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1363.389139,
+      "eurkrw": 1604.3,
+      "fx_usd_date": "2025-07-04",
+      "fx_eur_date": "2025-07-04",
+      "close_usd": 101.0717
     },
     {
       "date": "2025-07-07",
@@ -79,11 +326,11 @@
       "open_krw": 134500,
       "high_krw": 152000,
       "low_krw": 133900,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1367.291951,
+      "eurkrw": 1603.56,
+      "fx_usd_date": "2025-07-07",
+      "fx_eur_date": "2025-07-07",
+      "close_usd": 109.3402
     },
     {
       "date": "2025-07-08",
@@ -92,11 +339,11 @@
       "open_krw": 153700,
       "high_krw": 161500,
       "low_krw": 149700,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1370.464243,
+      "eurkrw": 1605.91,
+      "fx_usd_date": "2025-07-08",
+      "fx_eur_date": "2025-07-08",
+      "close_usd": 117.6244
     },
     {
       "date": "2025-07-09",
@@ -105,11 +352,11 @@
       "open_krw": 159600,
       "high_krw": 164500,
       "low_krw": 159300,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1376.799453,
+      "eurkrw": 1610.58,
+      "fx_usd_date": "2025-07-09",
+      "fx_eur_date": "2025-07-09",
+      "close_usd": 118.6084
     },
     {
       "date": "2025-07-10",
@@ -118,11 +365,11 @@
       "open_krw": 162900,
       "high_krw": 164600,
       "low_krw": 160000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1373.251345,
+      "eurkrw": 1607.94,
+      "fx_usd_date": "2025-07-10",
+      "fx_eur_date": "2025-07-10",
+      "close_usd": 117.0944
     },
     {
       "date": "2025-07-11",
@@ -131,11 +378,11 @@
       "open_krw": 162000,
       "high_krw": 171900,
       "low_krw": 161200,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1374.99786,
+      "eurkrw": 1606.41,
+      "fx_usd_date": "2025-07-11",
+      "fx_eur_date": "2025-07-11",
+      "close_usd": 120.9456
     },
     {
       "date": "2025-07-14",
@@ -144,11 +391,11 @@
       "open_krw": 175300,
       "high_krw": 178000,
       "low_krw": 169800,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1380.650128,
+      "eurkrw": 1613.98,
+      "fx_usd_date": "2025-07-14",
+      "fx_eur_date": "2025-07-14",
+      "close_usd": 126.1724
     },
     {
       "date": "2025-07-15",
@@ -157,11 +404,11 @@
       "open_krw": 176700,
       "high_krw": 180700,
       "low_krw": 174200,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1381.063009,
+      "eurkrw": 1611.01,
+      "fx_usd_date": "2025-07-15",
+      "fx_eur_date": "2025-07-15",
+      "close_usd": 127.5105
     },
     {
       "date": "2025-07-16",
@@ -170,11 +417,11 @@
       "open_krw": 176800,
       "high_krw": 183300,
       "low_krw": 170400,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1391.182555,
+      "eurkrw": 1614.05,
+      "fx_usd_date": "2025-07-16",
+      "fx_eur_date": "2025-07-16",
+      "close_usd": 123.7796
     },
     {
       "date": "2025-07-17",
@@ -183,11 +430,11 @@
       "open_krw": 174400,
       "high_krw": 179900,
       "low_krw": 173400,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1394.472752,
+      "eurkrw": 1614.66,
+      "fx_usd_date": "2025-07-17",
+      "fx_eur_date": "2025-07-17",
+      "close_usd": 127.5034
     },
     {
       "date": "2025-07-18",
@@ -196,11 +443,11 @@
       "open_krw": 175100,
       "high_krw": 175700,
       "low_krw": 168400,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1390.145923,
+      "eurkrw": 1619.52,
+      "fx_usd_date": "2025-07-18",
+      "fx_eur_date": "2025-07-18",
+      "close_usd": 122.2893
     },
     {
       "date": "2025-07-21",
@@ -209,11 +456,11 @@
       "open_krw": 170700,
       "high_krw": 175900,
       "low_krw": 170100,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1383.937602,
+      "eurkrw": 1614.64,
+      "fx_usd_date": "2025-07-21",
+      "fx_eur_date": "2025-07-21",
+      "close_usd": 124.3553
     },
     {
       "date": "2025-07-22",
@@ -222,11 +469,11 @@
       "open_krw": 175400,
       "high_krw": 182000,
       "low_krw": 173200,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1386.101376,
+      "eurkrw": 1621.6,
+      "fx_usd_date": "2025-07-22",
+      "fx_eur_date": "2025-07-22",
+      "close_usd": 128.2734
     },
     {
       "date": "2025-07-23",
@@ -235,11 +482,11 @@
       "open_krw": 177100,
       "high_krw": 182700,
       "low_krw": 176600,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1374.944568,
+      "eurkrw": 1612.26,
+      "fx_usd_date": "2025-07-23",
+      "fx_eur_date": "2025-07-23",
+      "close_usd": 130.4053
     },
     {
       "date": "2025-07-24",
@@ -248,11 +495,11 @@
       "open_krw": 178900,
       "high_krw": 181700,
       "low_krw": 171100,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1369.58149,
+      "eurkrw": 1610.08,
+      "fx_usd_date": "2025-07-24",
+      "fx_eur_date": "2025-07-24",
+      "close_usd": 126.9731
     },
     {
       "date": "2025-07-25",
@@ -261,11 +508,11 @@
       "open_krw": 172000,
       "high_krw": 178400,
       "low_krw": 170900,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1381.269191,
+      "eurkrw": 1619.4,
+      "fx_usd_date": "2025-07-25",
+      "fx_eur_date": "2025-07-25",
+      "close_usd": 124.306
     },
     {
       "date": "2025-07-28",
@@ -274,11 +521,11 @@
       "open_krw": 169800,
       "high_krw": 172500,
       "low_krw": 165400,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1385.447057,
+      "eurkrw": 1614.6,
+      "fx_usd_date": "2025-07-28",
+      "fx_eur_date": "2025-07-28",
+      "close_usd": 120.8996
     },
     {
       "date": "2025-07-29",
@@ -287,11 +534,11 @@
       "open_krw": 166100,
       "high_krw": 182500,
       "low_krw": 165800,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1394.086534,
+      "eurkrw": 1607.8,
+      "fx_usd_date": "2025-07-29",
+      "fx_eur_date": "2025-07-29",
+      "close_usd": 130.0493
     },
     {
       "date": "2025-07-30",
@@ -300,11 +547,11 @@
       "open_krw": 179000,
       "high_krw": 180300,
       "low_krw": 173900,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1384.228333,
+      "eurkrw": 1595.6,
+      "fx_usd_date": "2025-07-30",
+      "fx_eur_date": "2025-07-30",
+      "close_usd": 126.1353
     },
     {
       "date": "2025-07-31",
@@ -313,11 +560,11 @@
       "open_krw": 176000,
       "high_krw": 188500,
       "low_krw": 175900,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1394.626944,
+      "eurkrw": 1596.29,
+      "fx_usd_date": "2025-07-31",
+      "fx_eur_date": "2025-07-31",
+      "close_usd": 131.7198
     },
     {
       "date": "2025-08-01",
@@ -326,11 +573,11 @@
       "open_krw": 179800,
       "high_krw": 180400,
       "low_krw": 167800,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1404.621186,
+      "eurkrw": 1601.83,
+      "fx_usd_date": "2025-08-01",
+      "fx_eur_date": "2025-08-01",
+      "close_usd": 122.4529
     },
     {
       "date": "2025-08-04",
@@ -339,11 +586,11 @@
       "open_krw": 173500,
       "high_krw": 179500,
       "low_krw": 173100,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1383.718115,
+      "eurkrw": 1600.27,
+      "fx_usd_date": "2025-08-04",
+      "fx_eur_date": "2025-08-04",
+      "close_usd": 129.0725
     },
     {
       "date": "2025-08-05",
@@ -352,11 +599,11 @@
       "open_krw": 184500,
       "high_krw": 189700,
       "low_krw": 181400,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1391.122467,
+      "eurkrw": 1606.19,
+      "fx_usd_date": "2025-08-05",
+      "fx_eur_date": "2025-08-05",
+      "close_usd": 134.6395
     },
     {
       "date": "2025-08-06",
@@ -365,11 +612,11 @@
       "open_krw": 194700,
       "high_krw": 224000,
       "low_krw": 185200,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1388.322992,
+      "eurkrw": 1611.01,
+      "fx_usd_date": "2025-08-06",
+      "fx_eur_date": "2025-08-06",
+      "close_usd": 150.1812
     },
     {
       "date": "2025-08-07",
@@ -378,11 +625,11 @@
       "open_krw": 216500,
       "high_krw": 221000,
       "low_krw": 210500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1383.629649,
+      "eurkrw": 1610.96,
+      "fx_usd_date": "2025-08-07",
+      "fx_eur_date": "2025-08-07",
+      "close_usd": 158.6407
     },
     {
       "date": "2025-08-08",
@@ -391,11 +638,11 @@
       "open_krw": 217000,
       "high_krw": 233000,
       "low_krw": 215000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1390.736607,
+      "eurkrw": 1619.93,
+      "fx_usd_date": "2025-08-08",
+      "fx_eur_date": "2025-08-08",
+      "close_usd": 165.38
     },
     {
       "date": "2025-08-11",
@@ -404,11 +651,11 @@
       "open_krw": 238000,
       "high_krw": 239000,
       "low_krw": 220000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1391.851661,
+      "eurkrw": 1617.61,
+      "fx_usd_date": "2025-08-11",
+      "fx_eur_date": "2025-08-11",
+      "close_usd": 162.3736
     },
     {
       "date": "2025-08-12",
@@ -417,11 +664,11 @@
       "open_krw": 228000,
       "high_krw": 228000,
       "low_krw": 218000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1390.168878,
+      "eurkrw": 1613.43,
+      "fx_usd_date": "2025-08-12",
+      "fx_eur_date": "2025-08-12",
+      "close_usd": 157.8945
     },
     {
       "date": "2025-08-13",
@@ -430,11 +677,11 @@
       "open_krw": 222000,
       "high_krw": 222500,
       "low_krw": 199850,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1378.362224,
+      "eurkrw": 1614.2,
+      "fx_usd_date": "2025-08-13",
+      "fx_eur_date": "2025-08-13",
+      "close_usd": 151.2665
     },
     {
       "date": "2025-08-14",
@@ -443,11 +690,11 @@
       "open_krw": 213000,
       "high_krw": 217000,
       "low_krw": 209000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1386.073567,
+      "eurkrw": 1620.32,
+      "fx_usd_date": "2025-08-14",
+      "fx_eur_date": "2025-08-14",
+      "close_usd": 154.0322
     },
     {
       "date": "2025-08-18",
@@ -456,11 +703,11 @@
       "open_krw": 210500,
       "high_krw": 218500,
       "low_krw": 207500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1386.250321,
+      "eurkrw": 1618.17,
+      "fx_usd_date": "2025-08-18",
+      "fx_eur_date": "2025-08-18",
+      "close_usd": 154.734
     },
     {
       "date": "2025-08-19",
@@ -469,11 +716,11 @@
       "open_krw": 216500,
       "high_krw": 224000,
       "low_krw": 212500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1388.803287,
+      "eurkrw": 1622.4,
+      "fx_usd_date": "2025-08-19",
+      "fx_eur_date": "2025-08-19",
+      "close_usd": 156.2496
     },
     {
       "date": "2025-08-20",
@@ -482,11 +729,11 @@
       "open_krw": 213000,
       "high_krw": 219000,
       "low_krw": 204000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1398.78122,
+      "eurkrw": 1629.72,
+      "fx_usd_date": "2025-08-20",
+      "fx_eur_date": "2025-08-20",
+      "close_usd": 152.2754
     },
     {
       "date": "2025-08-21",
@@ -495,11 +742,11 @@
       "open_krw": 214000,
       "high_krw": 221000,
       "low_krw": 214000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1398.694046,
+      "eurkrw": 1627.94,
+      "fx_usd_date": "2025-08-21",
+      "fx_eur_date": "2025-08-21",
+      "close_usd": 156.2172
     },
     {
       "date": "2025-08-22",
@@ -508,11 +755,11 @@
       "open_krw": 220000,
       "high_krw": 232500,
       "low_krw": 218000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1390.472088,
+      "eurkrw": 1614.06,
+      "fx_usd_date": "2025-08-22",
+      "fx_eur_date": "2025-08-22",
+      "close_usd": 163.9731
     },
     {
       "date": "2025-08-25",
@@ -521,11 +768,11 @@
       "open_krw": 233000,
       "high_krw": 233000,
       "low_krw": 224000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1387.278789,
+      "eurkrw": 1622.7,
+      "fx_usd_date": "2025-08-25",
+      "fx_eur_date": "2025-08-25",
+      "close_usd": 162.9089
     },
     {
       "date": "2025-08-26",
@@ -534,11 +781,11 @@
       "open_krw": 227000,
       "high_krw": 228000,
       "low_krw": 217000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1394.363418,
+      "eurkrw": 1625.27,
+      "fx_usd_date": "2025-08-26",
+      "fx_eur_date": "2025-08-26",
+      "close_usd": 161.7225
     },
     {
       "date": "2025-08-27",
@@ -547,11 +794,11 @@
       "open_krw": 225500,
       "high_krw": 225500,
       "low_krw": 213500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1397.817649,
+      "eurkrw": 1620.49,
+      "fx_usd_date": "2025-08-27",
+      "fx_eur_date": "2025-08-27",
+      "close_usd": 156.6728
     },
     {
       "date": "2025-08-28",
@@ -560,11 +807,11 @@
       "open_krw": 216500,
       "high_krw": 224500,
       "low_krw": 216500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1385.799931,
+      "eurkrw": 1618.06,
+      "fx_usd_date": "2025-08-28",
+      "fx_eur_date": "2025-08-28",
+      "close_usd": 161.2787
     },
     {
       "date": "2025-08-29",
@@ -573,11 +820,11 @@
       "open_krw": 224500,
       "high_krw": 229500,
       "low_krw": 221000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1391.542289,
+      "eurkrw": 1622.26,
+      "fx_usd_date": "2025-08-29",
+      "fx_eur_date": "2025-08-29",
+      "close_usd": 163.1284
     },
     {
       "date": "2025-09-01",
@@ -586,11 +833,11 @@
       "open_krw": 225500,
       "high_krw": 227500,
       "low_krw": 217500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1393.358942,
+      "eurkrw": 1632.32,
+      "fx_usd_date": "2025-09-01",
+      "fx_eur_date": "2025-09-01",
+      "close_usd": 161.8391
     },
     {
       "date": "2025-09-02",
@@ -599,11 +846,11 @@
       "open_krw": 224500,
       "high_krw": 227000,
       "low_krw": 217000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1395.337455,
+      "eurkrw": 1625.01,
+      "fx_usd_date": "2025-09-02",
+      "fx_eur_date": "2025-09-02",
+      "close_usd": 157.668
     },
     {
       "date": "2025-09-03",
@@ -612,11 +859,11 @@
       "open_krw": 222000,
       "high_krw": 225000,
       "low_krw": 208000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1389.427615,
+      "eurkrw": 1619.1,
+      "fx_usd_date": "2025-09-03",
+      "fx_eur_date": "2025-09-03",
+      "close_usd": 152.5808
     },
     {
       "date": "2025-09-04",
@@ -625,11 +872,11 @@
       "open_krw": 214000,
       "high_krw": 219000,
       "low_krw": 213500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1393.311582,
+      "eurkrw": 1622.79,
+      "fx_usd_date": "2025-09-04",
+      "fx_eur_date": "2025-09-04",
+      "close_usd": 156.1029
     },
     {
       "date": "2025-09-05",
@@ -638,11 +885,11 @@
       "open_krw": 217500,
       "high_krw": 218000,
       "low_krw": 213500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1390.783962,
+      "eurkrw": 1626.8,
+      "fx_usd_date": "2025-09-05",
+      "fx_eur_date": "2025-09-05",
+      "close_usd": 154.9486
     },
     {
       "date": "2025-09-08",
@@ -651,11 +898,11 @@
       "open_krw": 216000,
       "high_krw": 223000,
       "low_krw": 215000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1387.883697,
+      "eurkrw": 1627.71,
+      "fx_usd_date": "2025-09-08",
+      "fx_eur_date": "2025-09-08",
+      "close_usd": 160.6763
     },
     {
       "date": "2025-09-09",
@@ -664,11 +911,11 @@
       "open_krw": 225500,
       "high_krw": 231500,
       "low_krw": 218500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1386.708106,
+      "eurkrw": 1628.55,
+      "fx_usd_date": "2025-09-09",
+      "fx_eur_date": "2025-09-09",
+      "close_usd": 165.8604
     },
     {
       "date": "2025-09-10",
@@ -677,11 +924,11 @@
       "open_krw": 231000,
       "high_krw": 232000,
       "low_krw": 222000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1388.852823,
+      "eurkrw": 1625.93,
+      "fx_usd_date": "2025-09-10",
+      "fx_eur_date": "2025-09-10",
+      "close_usd": 163.8043
     },
     {
       "date": "2025-09-11",
@@ -690,11 +937,11 @@
       "open_krw": 227000,
       "high_krw": 241500,
       "low_krw": 226500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1392.956782,
+      "eurkrw": 1627.67,
+      "fx_usd_date": "2025-09-11",
+      "fx_eur_date": "2025-09-11",
+      "close_usd": 164.7574
     },
     {
       "date": "2025-09-12",
@@ -703,11 +950,11 @@
       "open_krw": 230500,
       "high_krw": 231000,
       "low_krw": 216500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1391.858679,
+      "eurkrw": 1630.98,
+      "fx_usd_date": "2025-09-12",
+      "fx_eur_date": "2025-09-12",
+      "close_usd": 156.6251
     },
     {
       "date": "2025-09-15",
@@ -716,11 +963,11 @@
       "open_krw": 215000,
       "high_krw": 220500,
       "low_krw": 213000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1387.982322,
+      "eurkrw": 1633.1,
+      "fx_usd_date": "2025-09-15",
+      "fx_eur_date": "2025-09-15",
+      "close_usd": 155.2613
     },
     {
       "date": "2025-09-16",
@@ -729,11 +976,11 @@
       "open_krw": 216500,
       "high_krw": 218000,
       "low_krw": 211000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1381.925976,
+      "eurkrw": 1631.64,
+      "fx_usd_date": "2025-09-16",
+      "fx_eur_date": "2025-09-16",
+      "close_usd": 154.1327
     },
     {
       "date": "2025-09-17",
@@ -742,11 +989,11 @@
       "open_krw": 218000,
       "high_krw": 219500,
       "low_krw": 214000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1378.558756,
+      "eurkrw": 1631.8,
+      "fx_usd_date": "2025-09-17",
+      "fx_eur_date": "2025-09-17",
+      "close_usd": 157.4108
     },
     {
       "date": "2025-09-18",
@@ -755,11 +1002,11 @@
       "open_krw": 218500,
       "high_krw": 222000,
       "low_krw": 214500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1386.495177,
+      "eurkrw": 1638.56,
+      "fx_usd_date": "2025-09-18",
+      "fx_eur_date": "2025-09-18",
+      "close_usd": 156.5097
     },
     {
       "date": "2025-09-19",
@@ -768,11 +1015,11 @@
       "open_krw": 216500,
       "high_krw": 225000,
       "low_krw": 215500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1398.159509,
+      "eurkrw": 1640.88,
+      "fx_usd_date": "2025-09-19",
+      "fx_eur_date": "2025-09-19",
+      "close_usd": 159.853
     },
     {
       "date": "2025-09-22",
@@ -781,11 +1028,11 @@
       "open_krw": 223500,
       "high_krw": 230000,
       "low_krw": 219000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1391.291062,
+      "eurkrw": 1639.08,
+      "fx_usd_date": "2025-09-22",
+      "fx_eur_date": "2025-09-22",
+      "close_usd": 161.7203
     },
     {
       "date": "2025-09-23",
@@ -794,11 +1041,11 @@
       "open_krw": 225000,
       "high_krw": 225500,
       "low_krw": 216500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1394.547613,
+      "eurkrw": 1644.59,
+      "fx_usd_date": "2025-09-23",
+      "fx_eur_date": "2025-09-23",
+      "close_usd": 156.3231
     },
     {
       "date": "2025-09-24",
@@ -807,11 +1054,11 @@
       "open_krw": 220000,
       "high_krw": 223000,
       "low_krw": 215500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1399.276965,
+      "eurkrw": 1644.99,
+      "fx_usd_date": "2025-09-24",
+      "fx_eur_date": "2025-09-24",
+      "close_usd": 155.4374
     },
     {
       "date": "2025-09-25",
@@ -820,11 +1067,11 @@
       "open_krw": 220500,
       "high_krw": 229000,
       "low_krw": 217500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1403.927081,
+      "eurkrw": 1648.07,
+      "fx_usd_date": "2025-09-25",
+      "fx_eur_date": "2025-09-25",
+      "close_usd": 159.1963
     },
     {
       "date": "2025-09-26",
@@ -833,11 +1080,11 @@
       "open_krw": 223000,
       "high_krw": 228500,
       "low_krw": 218500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1409.818369,
+      "eurkrw": 1645.54,
+      "fx_usd_date": "2025-09-26",
+      "fx_eur_date": "2025-09-26",
+      "close_usd": 159.595
     },
     {
       "date": "2025-09-29",
@@ -846,11 +1093,11 @@
       "open_krw": 221000,
       "high_krw": 247500,
       "low_krw": 218500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1401.78282,
+      "eurkrw": 1643.31,
+      "fx_usd_date": "2025-09-29",
+      "fx_eur_date": "2025-09-29",
+      "close_usd": 175.8475
     },
     {
       "date": "2025-09-30",
@@ -859,11 +1106,11 @@
       "open_krw": 245500,
       "high_krw": 257500,
       "low_krw": 243000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1403.670897,
+      "eurkrw": 1648.05,
+      "fx_usd_date": "2025-09-30",
+      "fx_eur_date": "2025-09-30",
+      "close_usd": 178.1044
     },
     {
       "date": "2025-10-01",
@@ -872,11 +1119,11 @@
       "open_krw": 253000,
       "high_krw": 264000,
       "low_krw": 252500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1405.254179,
+      "eurkrw": 1647.52,
+      "fx_usd_date": "2025-10-01",
+      "fx_eur_date": "2025-10-01",
+      "close_usd": 185.7315
     },
     {
       "date": "2025-10-02",
@@ -885,11 +1132,11 @@
       "open_krw": 258000,
       "high_krw": 265000,
       "low_krw": 255000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1401.403777,
+      "eurkrw": 1647.21,
+      "fx_usd_date": "2025-10-02",
+      "fx_eur_date": "2025-10-02",
+      "close_usd": 181.9604
     },
     {
       "date": "2025-10-10",
@@ -898,11 +1145,11 @@
       "open_krw": 252000,
       "high_krw": 258500,
       "low_krw": 248000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1421.032158,
+      "eurkrw": 1643.85,
+      "fx_usd_date": "2025-10-10",
+      "fx_eur_date": "2025-10-10",
+      "close_usd": 180.8545
     },
     {
       "date": "2025-10-13",
@@ -911,11 +1158,11 @@
       "open_krw": 252500,
       "high_krw": 263500,
       "low_krw": 250500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1427.59962,
+      "eurkrw": 1651.59,
+      "fx_usd_date": "2025-10-13",
+      "fx_eur_date": "2025-10-13",
+      "close_usd": 181.4234
     },
     {
       "date": "2025-10-14",
@@ -924,11 +1171,11 @@
       "open_krw": 256500,
       "high_krw": 257500,
       "low_krw": 246000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1434.709599,
+      "eurkrw": 1657.52,
+      "fx_usd_date": "2025-10-14",
+      "fx_eur_date": "2025-10-14",
+      "close_usd": 172.1603
     },
     {
       "date": "2025-10-15",
@@ -937,11 +1184,11 @@
       "open_krw": 248500,
       "high_krw": 251500,
       "low_krw": 245000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1423.593185,
+      "eurkrw": 1654.5,
+      "fx_usd_date": "2025-10-15",
+      "fx_eur_date": "2025-10-15",
+      "close_usd": 174.2071
     },
     {
       "date": "2025-10-16",
@@ -950,11 +1197,11 @@
       "open_krw": 251500,
       "high_krw": 258000,
       "low_krw": 241000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1417.881363,
+      "eurkrw": 1651.69,
+      "fx_usd_date": "2025-10-16",
+      "fx_eur_date": "2025-10-16",
+      "close_usd": 171.0298
     },
     {
       "date": "2025-10-17",
@@ -963,11 +1210,11 @@
       "open_krw": 242500,
       "high_krw": 245000,
       "low_krw": 234500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1420.58043,
+      "eurkrw": 1659.38,
+      "fx_usd_date": "2025-10-17",
+      "fx_eur_date": "2025-10-17",
+      "close_usd": 168.5931
     },
     {
       "date": "2025-10-20",
@@ -976,11 +1223,11 @@
       "open_krw": 239500,
       "high_krw": 239500,
       "low_krw": 228000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1423.543544,
+      "eurkrw": 1659.14,
+      "fx_usd_date": "2025-10-20",
+      "fx_eur_date": "2025-10-20",
+      "close_usd": 164.7298
     },
     {
       "date": "2025-10-21",
@@ -989,11 +1236,11 @@
       "open_krw": 234500,
       "high_krw": 236000,
       "low_krw": 229500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1430.498837,
+      "eurkrw": 1660.38,
+      "fx_usd_date": "2025-10-21",
+      "fx_eur_date": "2025-10-21",
+      "close_usd": 161.8317
     },
     {
       "date": "2025-10-22",
@@ -1002,11 +1249,11 @@
       "open_krw": 235500,
       "high_krw": 241500,
       "low_krw": 233000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1432.657288,
+      "eurkrw": 1660.02,
+      "fx_usd_date": "2025-10-22",
+      "fx_eur_date": "2025-10-22",
+      "close_usd": 165.0779
     },
     {
       "date": "2025-10-23",
@@ -1015,11 +1262,11 @@
       "open_krw": 241000,
       "high_krw": 245000,
       "low_krw": 235500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1440.42957,
+      "eurkrw": 1669.89,
+      "fx_usd_date": "2025-10-23",
+      "fx_eur_date": "2025-10-23",
+      "close_usd": 168.3526
     },
     {
       "date": "2025-10-24",
@@ -1028,11 +1275,11 @@
       "open_krw": 247500,
       "high_krw": 253000,
       "low_krw": 237500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1439.450568,
+      "eurkrw": 1671.49,
+      "fx_usd_date": "2025-10-24",
+      "fx_eur_date": "2025-10-24",
+      "close_usd": 165.6882
     },
     {
       "date": "2025-10-27",
@@ -1041,11 +1288,11 @@
       "open_krw": 236000,
       "high_krw": 247000,
       "low_krw": 232500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1432.319588,
+      "eurkrw": 1667.22,
+      "fx_usd_date": "2025-10-27",
+      "fx_eur_date": "2025-10-27",
+      "close_usd": 169.3058
     },
     {
       "date": "2025-10-28",
@@ -1054,11 +1301,11 @@
       "open_krw": 246000,
       "high_krw": 258000,
       "low_krw": 241500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1436.380052,
+      "eurkrw": 1670.51,
+      "fx_usd_date": "2025-10-28",
+      "fx_eur_date": "2025-10-28",
+      "close_usd": 171.612
     },
     {
       "date": "2025-10-29",
@@ -1067,11 +1314,11 @@
       "open_krw": 246000,
       "high_krw": 246500,
       "low_krw": 237000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1422.94603,
+      "eurkrw": 1655.74,
+      "fx_usd_date": "2025-10-29",
+      "fx_eur_date": "2025-10-29",
+      "close_usd": 167.9614
     },
     {
       "date": "2025-10-30",
@@ -1080,11 +1327,11 @@
       "open_krw": 241500,
       "high_krw": 256500,
       "low_krw": 239000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1434.987013,
+      "eurkrw": 1657.41,
+      "fx_usd_date": "2025-10-30",
+      "fx_eur_date": "2025-10-30",
+      "close_usd": 176.6567
     },
     {
       "date": "2025-10-31",
@@ -1093,11 +1340,11 @@
       "open_krw": 258500,
       "high_krw": 262500,
       "low_krw": 251000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1428.137442,
+      "eurkrw": 1650.07,
+      "fx_usd_date": "2025-10-31",
+      "fx_eur_date": "2025-10-31",
+      "close_usd": 178.5542
     },
     {
       "date": "2025-11-03",
@@ -1106,11 +1353,11 @@
       "open_krw": 260000,
       "high_krw": 274500,
       "low_krw": 256000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1430.024318,
+      "eurkrw": 1646.53,
+      "fx_usd_date": "2025-11-03",
+      "fx_eur_date": "2025-11-03",
+      "close_usd": 190.5562
     },
     {
       "date": "2025-11-04",
@@ -1119,11 +1366,11 @@
       "open_krw": 270500,
       "high_krw": 279500,
       "low_krw": 267000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1439.195892,
+      "eurkrw": 1653.78,
+      "fx_usd_date": "2025-11-04",
+      "fx_eur_date": "2025-11-04",
+      "close_usd": 191.7738
     },
     {
       "date": "2025-11-05",
@@ -1132,11 +1379,11 @@
       "open_krw": 273500,
       "high_krw": 275500,
       "low_krw": 254500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1444.004525,
+      "eurkrw": 1659.45,
+      "fx_usd_date": "2025-11-05",
+      "fx_eur_date": "2025-11-05",
+      "close_usd": 181.0936
     },
     {
       "date": "2025-11-06",
@@ -1145,11 +1392,11 @@
       "open_krw": 270000,
       "high_krw": 271500,
       "low_krw": 231500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1445.764328,
+      "eurkrw": 1667.4,
+      "fx_usd_date": "2025-11-06",
+      "fx_eur_date": "2025-11-06",
+      "close_usd": 161.8521
     },
     {
       "date": "2025-11-07",
@@ -1158,11 +1405,11 @@
       "open_krw": 237500,
       "high_krw": 247000,
       "low_krw": 231000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1459.64017,
+      "eurkrw": 1687.49,
+      "fx_usd_date": "2025-11-07",
+      "fx_eur_date": "2025-11-07",
+      "close_usd": 160.3135
     },
     {
       "date": "2025-11-10",
@@ -1171,11 +1418,11 @@
       "open_krw": 237500,
       "high_krw": 239500,
       "low_krw": 217000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1454.126696,
+      "eurkrw": 1682.57,
+      "fx_usd_date": "2025-11-10",
+      "fx_eur_date": "2025-11-10",
+      "close_usd": 151.6374
     },
     {
       "date": "2025-11-11",
@@ -1184,11 +1431,11 @@
       "open_krw": 219000,
       "high_krw": 221000,
       "low_krw": 206500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1465.097192,
+      "eurkrw": 1695.85,
+      "fx_usd_date": "2025-11-11",
+      "fx_eur_date": "2025-11-11",
+      "close_usd": 145.0416
     },
     {
       "date": "2025-11-12",
@@ -1197,11 +1444,11 @@
       "open_krw": 213000,
       "high_krw": 214000,
       "low_krw": 204000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1465.877678,
+      "eurkrw": 1696.9,
+      "fx_usd_date": "2025-11-12",
+      "fx_eur_date": "2025-11-12",
+      "close_usd": 143.9411
     },
     {
       "date": "2025-11-13",
@@ -1210,11 +1457,11 @@
       "open_krw": 211500,
       "high_krw": 217000,
       "low_krw": 209500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1463.482227,
+      "eurkrw": 1700.42,
+      "fx_usd_date": "2025-11-13",
+      "fx_eur_date": "2025-11-13",
+      "close_usd": 145.8849
     },
     {
       "date": "2025-11-14",
@@ -1223,11 +1470,11 @@
       "open_krw": 209500,
       "high_krw": 223500,
       "low_krw": 208500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1451.502404,
+      "eurkrw": 1690.71,
+      "fx_usd_date": "2025-11-14",
+      "fx_eur_date": "2025-11-14",
+      "close_usd": 151.2226
     },
     {
       "date": "2025-11-17",
@@ -1236,11 +1483,11 @@
       "open_krw": 222000,
       "high_krw": 225500,
       "low_krw": 217000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1461.459501,
+      "eurkrw": 1694.27,
+      "fx_usd_date": "2025-11-17",
+      "fx_eur_date": "2025-11-17",
+      "close_usd": 149.5081
     },
     {
       "date": "2025-11-18",
@@ -1249,11 +1496,11 @@
       "open_krw": 217000,
       "high_krw": 222500,
       "low_krw": 212000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1462.99396,
+      "eurkrw": 1695.61,
+      "fx_usd_date": "2025-11-18",
+      "fx_eur_date": "2025-11-18",
+      "close_usd": 146.9589
     },
     {
       "date": "2025-11-19",
@@ -1262,11 +1509,11 @@
       "open_krw": 216000,
       "high_krw": 225500,
       "low_krw": 213000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1466.010533,
+      "eurkrw": 1698.08,
+      "fx_usd_date": "2025-11-19",
+      "fx_eur_date": "2025-11-19",
+      "close_usd": 153.1367
     },
     {
       "date": "2025-11-20",
@@ -1275,11 +1522,11 @@
       "open_krw": 222500,
       "high_krw": 249000,
       "low_krw": 221000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1469.350356,
+      "eurkrw": 1691.81,
+      "fx_usd_date": "2025-11-20",
+      "fx_eur_date": "2025-11-20",
+      "close_usd": 161.2958
     },
     {
       "date": "2025-11-21",
@@ -1288,11 +1535,11 @@
       "open_krw": 242000,
       "high_krw": 242000,
       "low_krw": 232500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1474.288194,
+      "eurkrw": 1698.38,
+      "fx_usd_date": "2025-11-21",
+      "fx_eur_date": "2025-11-21",
+      "close_usd": 161.4338
     },
     {
       "date": "2025-11-24",
@@ -1301,11 +1548,11 @@
       "open_krw": 246000,
       "high_krw": 252500,
       "low_krw": 235000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1473.267498,
+      "eurkrw": 1700.74,
+      "fx_usd_date": "2025-11-24",
+      "fx_eur_date": "2025-11-24",
+      "close_usd": 167.9939
     },
     {
       "date": "2025-11-25",
@@ -1314,11 +1561,11 @@
       "open_krw": 248000,
       "high_krw": 255000,
       "low_krw": 243500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1464.8775,
+      "eurkrw": 1692.08,
+      "fx_usd_date": "2025-11-25",
+      "fx_eur_date": "2025-11-25",
+      "close_usd": 171.0041
     },
     {
       "date": "2025-11-26",
@@ -1327,11 +1574,11 @@
       "open_krw": 253000,
       "high_krw": 254000,
       "low_krw": 241500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1474.302496,
+      "eurkrw": 1706.8,
+      "fx_usd_date": "2025-11-26",
+      "fx_eur_date": "2025-11-26",
+      "close_usd": 169.5717
     },
     {
       "date": "2025-11-27",
@@ -1340,11 +1587,11 @@
       "open_krw": 248000,
       "high_krw": 266000,
       "low_krw": 247500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1462.238909,
+      "eurkrw": 1694.15,
+      "fx_usd_date": "2025-11-27",
+      "fx_eur_date": "2025-11-27",
+      "close_usd": 181.9128
     },
     {
       "date": "2025-11-28",
@@ -1353,11 +1600,11 @@
       "open_krw": 264000,
       "high_krw": 267500,
       "low_krw": 252500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1469.661076,
+      "eurkrw": 1699.81,
+      "fx_usd_date": "2025-11-28",
+      "fx_eur_date": "2025-11-28",
+      "close_usd": 173.8496
     },
     {
       "date": "2025-12-01",
@@ -1366,11 +1613,11 @@
       "open_krw": 258000,
       "high_krw": 258500,
       "low_krw": 246000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1465.146832,
+      "eurkrw": 1706.31,
+      "fx_usd_date": "2025-12-01",
+      "fx_eur_date": "2025-12-01",
+      "close_usd": 172.3377
     },
     {
       "date": "2025-12-02",
@@ -1379,11 +1626,11 @@
       "open_krw": 250500,
       "high_krw": 255500,
       "low_krw": 245000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1467.900809,
+      "eurkrw": 1704.82,
+      "fx_usd_date": "2025-12-02",
+      "fx_eur_date": "2025-12-02",
+      "close_usd": 168.6081
     },
     {
       "date": "2025-12-03",
@@ -1392,11 +1639,11 @@
       "open_krw": 248500,
       "high_krw": 251000,
       "low_krw": 238500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1464.5012,
+      "eurkrw": 1708.78,
+      "fx_usd_date": "2025-12-03",
+      "fx_eur_date": "2025-12-03",
+      "close_usd": 167.2925
     },
     {
       "date": "2025-12-04",
@@ -1405,11 +1652,11 @@
       "open_krw": 247500,
       "high_krw": 254500,
       "low_krw": 245000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1471.532659,
+      "eurkrw": 1716.69,
+      "fx_usd_date": "2025-12-04",
+      "fx_eur_date": "2025-12-04",
+      "close_usd": 168.192
     },
     {
       "date": "2025-12-05",
@@ -1418,11 +1665,11 @@
       "open_krw": 248500,
       "high_krw": 254500,
       "low_krw": 242500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1472.580507,
+      "eurkrw": 1714.82,
+      "fx_usd_date": "2025-12-05",
+      "fx_eur_date": "2025-12-05",
+      "close_usd": 172.8259
     },
     {
       "date": "2025-12-08",
@@ -1431,11 +1678,11 @@
       "open_krw": 258500,
       "high_krw": 275500,
       "low_krw": 258500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1466.194766,
+      "eurkrw": 1708.85,
+      "fx_usd_date": "2025-12-08",
+      "fx_eur_date": "2025-12-08",
+      "close_usd": 183.8091
     },
     {
       "date": "2025-12-09",
@@ -1444,11 +1691,11 @@
       "open_krw": 268000,
       "high_krw": 268000,
       "low_krw": 257500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1468.514222,
+      "eurkrw": 1708.91,
+      "fx_usd_date": "2025-12-09",
+      "fx_eur_date": "2025-12-09",
+      "close_usd": 177.0497
     },
     {
       "date": "2025-12-10",
@@ -1457,11 +1704,11 @@
       "open_krw": 265000,
       "high_krw": 267500,
       "low_krw": 251000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1469.967337,
+      "eurkrw": 1710.16,
+      "fx_usd_date": "2025-12-10",
+      "fx_eur_date": "2025-12-10",
+      "close_usd": 171.4324
     },
     {
       "date": "2025-12-11",
@@ -1470,11 +1717,11 @@
       "open_krw": 255000,
       "high_krw": 261500,
       "low_krw": 252000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1471.137101,
+      "eurkrw": 1723.29,
+      "fx_usd_date": "2025-12-11",
+      "fx_eur_date": "2025-12-11",
+      "close_usd": 172.3157
     },
     {
       "date": "2025-12-12",
@@ -1483,11 +1730,11 @@
       "open_krw": 256500,
       "high_krw": 260000,
       "low_krw": 247000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1477.12045,
+      "eurkrw": 1732.81,
+      "fx_usd_date": "2025-12-12",
+      "fx_eur_date": "2025-12-12",
+      "close_usd": 167.5557
     },
     {
       "date": "2025-12-15",
@@ -1496,11 +1743,11 @@
       "open_krw": 245500,
       "high_krw": 255500,
       "low_krw": 243000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1465.149324,
+      "eurkrw": 1721.99,
+      "fx_usd_date": "2025-12-15",
+      "fx_eur_date": "2025-12-15",
+      "close_usd": 171.3136
     },
     {
       "date": "2025-12-16",
@@ -1509,11 +1756,11 @@
       "open_krw": 252500,
       "high_krw": 271500,
       "low_krw": 250000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1473.242188,
+      "eurkrw": 1734.89,
+      "fx_usd_date": "2025-12-16",
+      "fx_eur_date": "2025-12-16",
+      "close_usd": 179.1966
     },
     {
       "date": "2025-12-17",
@@ -1522,11 +1769,11 @@
       "open_krw": 267500,
       "high_krw": 267500,
       "low_krw": 253000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1479.380652,
+      "eurkrw": 1734.13,
+      "fx_usd_date": "2025-12-17",
+      "fx_eur_date": "2025-12-17",
+      "close_usd": 173.3834
     },
     {
       "date": "2025-12-18",
@@ -1535,11 +1782,11 @@
       "open_krw": 256000,
       "high_krw": 256000,
       "low_krw": 243500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1477.242086,
+      "eurkrw": 1731.18,
+      "fx_usd_date": "2025-12-18",
+      "fx_eur_date": "2025-12-18",
+      "close_usd": 164.8342
     },
     {
       "date": "2025-12-19",
@@ -1548,11 +1795,11 @@
       "open_krw": 247000,
       "high_krw": 247500,
       "low_krw": 241000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1478.722678,
+      "eurkrw": 1731.88,
+      "fx_usd_date": "2025-12-19",
+      "fx_eur_date": "2025-12-19",
+      "close_usd": 164.331
     },
     {
       "date": "2025-12-22",
@@ -1561,11 +1808,11 @@
       "open_krw": 246500,
       "high_krw": 247500,
       "low_krw": 240500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1480.391656,
+      "eurkrw": 1738.72,
+      "fx_usd_date": "2025-12-22",
+      "fx_eur_date": "2025-12-22",
+      "close_usd": 164.8212
     },
     {
       "date": "2025-12-23",
@@ -1574,11 +1821,11 @@
       "open_krw": 244000,
       "high_krw": 244500,
       "low_krw": 235000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1480.875615,
+      "eurkrw": 1745.36,
+      "fx_usd_date": "2025-12-23",
+      "fx_eur_date": "2025-12-23",
+      "close_usd": 159.3652
     },
     {
       "date": "2025-12-24",
@@ -1587,11 +1834,11 @@
       "open_krw": 237000,
       "high_krw": 237000,
       "low_krw": 229500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1448.239586,
+      "eurkrw": 1707.04,
+      "fx_usd_date": "2025-12-24",
+      "fx_eur_date": "2025-12-24",
+      "close_usd": 160.885
     },
     {
       "date": "2025-12-26",
@@ -1600,11 +1847,11 @@
       "open_krw": 232500,
       "high_krw": 232500,
       "low_krw": 226000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1448.239586,
+      "eurkrw": 1707.04,
+      "fx_usd_date": "2025-12-24",
+      "fx_eur_date": "2025-12-24",
+      "close_usd": 158.8135
     },
     {
       "date": "2025-12-29",
@@ -1613,11 +1860,11 @@
       "open_krw": 232000,
       "high_krw": 238000,
       "low_krw": 227000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1437.149414,
+      "eurkrw": 1690.95,
+      "fx_usd_date": "2025-12-29",
+      "fx_eur_date": "2025-12-29",
+      "close_usd": 163.1702
     },
     {
       "date": "2025-12-30",
@@ -1626,11 +1873,11 @@
       "open_krw": 236000,
       "high_krw": 236500,
       "low_krw": 229000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1443.948286,
+      "eurkrw": 1697.65,
+      "fx_usd_date": "2025-12-30",
+      "fx_eur_date": "2025-12-30",
+      "close_usd": 159.978
     },
     {
       "date": "2026-01-02",
@@ -1639,11 +1886,11 @@
       "open_krw": 233500,
       "high_krw": 237000,
       "low_krw": 227000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1444.868185,
+      "eurkrw": 1693.53,
+      "fx_usd_date": "2026-01-02",
+      "fx_eur_date": "2026-01-02",
+      "close_usd": 161.2604
     },
     {
       "date": "2026-01-05",
@@ -1652,11 +1899,11 @@
       "open_krw": 234500,
       "high_krw": 237500,
       "low_krw": 230500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1449.279835,
+      "eurkrw": 1690.44,
+      "fx_usd_date": "2026-01-05",
+      "fx_eur_date": "2026-01-05",
+      "close_usd": 162.1495
     },
     {
       "date": "2026-01-06",
@@ -1665,11 +1912,11 @@
       "open_krw": 237000,
       "high_krw": 240500,
       "low_krw": 215000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1448.646109,
+      "eurkrw": 1695.93,
+      "fx_usd_date": "2026-01-06",
+      "fx_eur_date": "2026-01-06",
+      "close_usd": 149.4499
     },
     {
       "date": "2026-01-07",
@@ -1678,11 +1925,11 @@
       "open_krw": 217500,
       "high_krw": 221000,
       "low_krw": 210000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1447.680589,
+      "eurkrw": 1691.47,
+      "fx_usd_date": "2026-01-07",
+      "fx_eur_date": "2026-01-07",
+      "close_usd": 151.6218
     },
     {
       "date": "2026-01-08",
@@ -1691,11 +1938,11 @@
       "open_krw": 219500,
       "high_krw": 224000,
       "low_krw": 214000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1452.308351,
+      "eurkrw": 1695.57,
+      "fx_usd_date": "2026-01-08",
+      "fx_eur_date": "2026-01-08",
+      "close_usd": 149.4173
     },
     {
       "date": "2026-01-09",
@@ -1704,11 +1951,11 @@
       "open_krw": 219500,
       "high_krw": 231500,
       "low_krw": 215500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1459.843669,
+      "eurkrw": 1699.55,
+      "fx_usd_date": "2026-01-09",
+      "fx_eur_date": "2026-01-09",
+      "close_usd": 156.5236
     },
     {
       "date": "2026-01-12",
@@ -1717,11 +1964,11 @@
       "open_krw": 227000,
       "high_krw": 227000,
       "low_krw": 220500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1466.908998,
+      "eurkrw": 1715.11,
+      "fx_usd_date": "2026-01-12",
+      "fx_eur_date": "2026-01-12",
+      "close_usd": 152.0203
     },
     {
       "date": "2026-01-13",
@@ -1730,11 +1977,11 @@
       "open_krw": 223500,
       "high_krw": 223500,
       "low_krw": 215500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1474.07757,
+      "eurkrw": 1717.89,
+      "fx_usd_date": "2026-01-13",
+      "fx_eur_date": "2026-01-13",
+      "close_usd": 151.6202
     },
     {
       "date": "2026-01-14",
@@ -1743,11 +1990,11 @@
       "open_krw": 227500,
       "high_krw": 230500,
       "low_krw": 225000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1475.409836,
+      "eurkrw": 1719.0,
+      "fx_usd_date": "2026-01-14",
+      "fx_eur_date": "2026-01-14",
+      "close_usd": 155.8889
     },
     {
       "date": "2026-01-15",
@@ -1756,11 +2003,11 @@
       "open_krw": 230500,
       "high_krw": 239500,
       "low_krw": 229500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1468.315554,
+      "eurkrw": 1706.77,
+      "fx_usd_date": "2026-01-15",
+      "fx_eur_date": "2026-01-15",
+      "close_usd": 161.75
     },
     {
       "date": "2026-01-16",
@@ -1769,11 +2016,11 @@
       "open_krw": 239000,
       "high_krw": 247000,
       "low_krw": 235500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1472.927606,
+      "eurkrw": 1711.1,
+      "fx_usd_date": "2026-01-16",
+      "fx_eur_date": "2026-01-16",
+      "close_usd": 163.2803
     },
     {
       "date": "2026-01-19",
@@ -1782,11 +2029,11 @@
       "open_krw": 241000,
       "high_krw": 242000,
       "low_krw": 233000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1473.200929,
+      "eurkrw": 1713.48,
+      "fx_usd_date": "2026-01-19",
+      "fx_eur_date": "2026-01-19",
+      "close_usd": 160.8742
     },
     {
       "date": "2026-01-20",
@@ -1795,11 +2042,11 @@
       "open_krw": 235000,
       "high_krw": 248500,
       "low_krw": 235000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1476.799113,
+      "eurkrw": 1731.99,
+      "fx_usd_date": "2026-01-20",
+      "fx_eur_date": "2026-01-20",
+      "close_usd": 167.2536
     },
     {
       "date": "2026-01-21",
@@ -1808,11 +2055,11 @@
       "open_krw": 240000,
       "high_krw": 257750,
       "low_krw": 240000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1464.6222,
+      "eurkrw": 1719.32,
+      "fx_usd_date": "2026-01-21",
+      "fx_eur_date": "2026-01-21",
+      "close_usd": 175.1305
     },
     {
       "date": "2026-01-22",
@@ -1821,11 +2068,11 @@
       "open_krw": 254500,
       "high_krw": 293500,
       "low_krw": 253000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1467.71741,
+      "eurkrw": 1718.11,
+      "fx_usd_date": "2026-01-22",
+      "fx_eur_date": "2026-01-22",
+      "close_usd": 194.8604
     },
     {
       "date": "2026-01-23",
@@ -1834,11 +2081,11 @@
       "open_krw": 282000,
       "high_krw": 293500,
       "low_krw": 270000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1467.552376,
+      "eurkrw": 1723.2,
+      "fx_usd_date": "2026-01-23",
+      "fx_eur_date": "2026-01-23",
+      "close_usd": 188.4089
     },
     {
       "date": "2026-01-26",
@@ -1847,11 +2094,11 @@
       "open_krw": 276000,
       "high_krw": 280000,
       "low_krw": 268500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1447.769517,
+      "eurkrw": 1713.58,
+      "fx_usd_date": "2026-01-26",
+      "fx_eur_date": "2026-01-26",
+      "close_usd": 192.0195
     },
     {
       "date": "2026-01-27",
@@ -1860,11 +2107,11 @@
       "open_krw": 275500,
       "high_krw": 281000,
       "low_krw": 272500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1441.202112,
+      "eurkrw": 1719.21,
+      "fx_usd_date": "2026-01-27",
+      "fx_eur_date": "2026-01-27",
+      "close_usd": 191.5068
     },
     {
       "date": "2026-01-28",
@@ -1873,11 +2120,11 @@
       "open_krw": 276500,
       "high_krw": 280500,
       "low_krw": 265500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1428.82913,
+      "eurkrw": 1710.88,
+      "fx_usd_date": "2026-01-28",
+      "fx_eur_date": "2026-01-28",
+      "close_usd": 189.6658
     },
     {
       "date": "2026-01-29",
@@ -1886,11 +2133,11 @@
       "open_krw": 269500,
       "high_krw": 279500,
       "low_krw": 266500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1430.832219,
+      "eurkrw": 1712.42,
+      "fx_usd_date": "2026-01-29",
+      "fx_eur_date": "2026-01-29",
+      "close_usd": 193.2442
     },
     {
       "date": "2026-01-30",
@@ -1899,11 +2146,11 @@
       "open_krw": 277500,
       "high_krw": 282000,
       "low_krw": 270000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1442.629415,
+      "eurkrw": 1719.47,
+      "fx_usd_date": "2026-01-30",
+      "fx_eur_date": "2026-01-30",
+      "close_usd": 187.1583
     },
     {
       "date": "2026-02-02",
@@ -1912,11 +2159,11 @@
       "open_krw": 273500,
       "high_krw": 284000,
       "low_krw": 270500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1452.483108,
+      "eurkrw": 1719.74,
+      "fx_usd_date": "2026-02-02",
+      "fx_eur_date": "2026-02-02",
+      "close_usd": 188.6425
     },
     {
       "date": "2026-02-03",
@@ -1925,11 +2172,11 @@
       "open_krw": 279500,
       "high_krw": 279500,
       "low_krw": 255000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1448.555207,
+      "eurkrw": 1709.44,
+      "fx_usd_date": "2026-02-03",
+      "fx_eur_date": "2026-02-03",
+      "close_usd": 187.7733
     },
     {
       "date": "2026-02-04",
@@ -1938,11 +2185,11 @@
       "open_krw": 274500,
       "high_krw": 306500,
       "low_krw": 260500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1455.752961,
+      "eurkrw": 1720.7,
+      "fx_usd_date": "2026-02-04",
+      "fx_eur_date": "2026-02-04",
+      "close_usd": 181.3495
     },
     {
       "date": "2026-02-05",
@@ -1951,11 +2198,11 @@
       "open_krw": 271500,
       "high_krw": 298000,
       "low_krw": 270000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1465.146635,
+      "eurkrw": 1728.58,
+      "fx_usd_date": "2026-02-05",
+      "fx_eur_date": "2026-02-05",
+      "close_usd": 189.7421
     },
     {
       "date": "2026-02-06",
@@ -1964,11 +2211,11 @@
       "open_krw": 274000,
       "high_krw": 279000,
       "low_krw": 250500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1467.424114,
+      "eurkrw": 1730.68,
+      "fx_usd_date": "2026-02-06",
+      "fx_eur_date": "2026-02-06",
+      "close_usd": 174.7961
     },
     {
       "date": "2026-02-09",
@@ -1977,11 +2224,11 @@
       "open_krw": 263500,
       "high_krw": 271500,
       "low_krw": 260000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1462.047787,
+      "eurkrw": 1737.79,
+      "fx_usd_date": "2026-02-09",
+      "fx_eur_date": "2026-02-09",
+      "close_usd": 181.9366
     },
     {
       "date": "2026-02-10",
@@ -1990,11 +2237,11 @@
       "open_krw": 265500,
       "high_krw": 286000,
       "low_krw": 263500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1461.644527,
+      "eurkrw": 1738.48,
+      "fx_usd_date": "2026-02-10",
+      "fx_eur_date": "2026-02-10",
+      "close_usd": 188.4863
     },
     {
       "date": "2026-02-11",
@@ -2003,11 +2250,11 @@
       "open_krw": 281000,
       "high_krw": 292500,
       "low_krw": 277000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1451.966387,
+      "eurkrw": 1727.84,
+      "fx_usd_date": "2026-02-11",
+      "fx_eur_date": "2026-02-11",
+      "close_usd": 194.2194
     },
     {
       "date": "2026-02-12",
@@ -2016,11 +2263,11 @@
       "open_krw": 282500,
       "high_krw": 284000,
       "low_krw": 274000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1438.285329,
+      "eurkrw": 1707.82,
+      "fx_usd_date": "2026-02-12",
+      "fx_eur_date": "2026-02-12",
+      "close_usd": 196.0668
     },
     {
       "date": "2026-02-13",
@@ -2029,11 +2276,11 @@
       "open_krw": 279000,
       "high_krw": 280500,
       "low_krw": 270000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1446.450851,
+      "eurkrw": 1715.78,
+      "fx_usd_date": "2026-02-13",
+      "fx_eur_date": "2026-02-13",
+      "close_usd": 188.0465
     },
     {
       "date": "2026-02-19",
@@ -2042,11 +2289,11 @@
       "open_krw": 275500,
       "high_krw": 288000,
       "low_krw": 273500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1449.680933,
+      "eurkrw": 1703.81,
+      "fx_usd_date": "2026-02-19",
+      "fx_eur_date": "2026-02-19",
+      "close_usd": 196.9399
     },
     {
       "date": "2026-02-20",
@@ -2055,11 +2302,11 @@
       "open_krw": 283000,
       "high_krw": 294000,
       "low_krw": 280500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1449.655817,
+      "eurkrw": 1705.81,
+      "fx_usd_date": "2026-02-20",
+      "fx_eur_date": "2026-02-20",
+      "close_usd": 199.0128
     },
     {
       "date": "2026-02-23",
@@ -2068,11 +2315,11 @@
       "open_krw": 293500,
       "high_krw": 299500,
       "low_krw": 287500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1443.550577,
+      "eurkrw": 1701.08,
+      "fx_usd_date": "2026-02-23",
+      "fx_eur_date": "2026-02-23",
+      "close_usd": 206.0891
     },
     {
       "date": "2026-02-24",
@@ -2081,11 +2328,11 @@
       "open_krw": 295000,
       "high_krw": 302500,
       "low_krw": 292500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1443.296255,
+      "eurkrw": 1699.77,
+      "fx_usd_date": "2026-02-24",
+      "fx_eur_date": "2026-02-24",
+      "close_usd": 204.3932
     },
     {
       "date": "2026-02-25",
@@ -2094,11 +2341,11 @@
       "open_krw": 298000,
       "high_krw": 306000,
       "low_krw": 294500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1427.90224,
+      "eurkrw": 1682.64,
+      "fx_usd_date": "2026-02-25",
+      "fx_eur_date": "2026-02-25",
+      "close_usd": 211.4991
     },
     {
       "date": "2026-02-26",
@@ -2107,11 +2354,11 @@
       "open_krw": 302500,
       "high_krw": 332000,
       "low_krw": 300000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1425.639072,
+      "eurkrw": 1684.25,
+      "fx_usd_date": "2026-02-26",
+      "fx_eur_date": "2026-02-26",
+      "close_usd": 222.3564
     },
     {
       "date": "2026-02-27",
@@ -2120,11 +2367,11 @@
       "open_krw": 317000,
       "high_krw": 322000,
       "low_krw": 306000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1441.97374,
+      "eurkrw": 1702.25,
+      "fx_usd_date": "2026-02-27",
+      "fx_eur_date": "2026-02-27",
+      "close_usd": 216.7168
     },
     {
       "date": "2026-03-03",
@@ -2133,11 +2380,11 @@
       "open_krw": 306500,
       "high_krw": 313500,
       "low_krw": 284500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1478.502499,
+      "eurkrw": 1715.95,
+      "fx_usd_date": "2026-03-03",
+      "fx_eur_date": "2026-03-03",
+      "close_usd": 193.1008
     },
     {
       "date": "2026-03-04",
@@ -2146,11 +2393,11 @@
       "open_krw": 273500,
       "high_krw": 294000,
       "low_krw": 263000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1464.795261,
+      "eurkrw": 1706.34,
+      "fx_usd_date": "2026-03-04",
+      "fx_eur_date": "2026-03-04",
+      "close_usd": 182.278
     },
     {
       "date": "2026-03-05",
@@ -2159,11 +2406,11 @@
       "open_krw": 290500,
       "high_krw": 294500,
       "low_krw": 281000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1475.787571,
+      "eurkrw": 1714.57,
+      "fx_usd_date": "2026-03-05",
+      "fx_eur_date": "2026-03-05",
+      "close_usd": 191.762
     },
     {
       "date": "2026-03-06",
@@ -2172,11 +2419,11 @@
       "open_krw": 290000,
       "high_krw": 308000,
       "low_krw": 285500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1485.182943,
+      "eurkrw": 1717.02,
+      "fx_usd_date": "2026-03-06",
+      "fx_eur_date": "2026-03-06",
+      "close_usd": 206.0352
     },
     {
       "date": "2026-03-09",
@@ -2185,11 +2432,11 @@
       "open_krw": 291000,
       "high_krw": 308500,
       "low_krw": 284000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1485.123323,
+      "eurkrw": 1716.06,
+      "fx_usd_date": "2026-03-09",
+      "fx_eur_date": "2026-03-09",
+      "close_usd": 199.6467
     },
     {
       "date": "2026-03-10",
@@ -2198,11 +2445,11 @@
       "open_krw": 308000,
       "high_krw": 313000,
       "low_krw": 299500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1470.122842,
+      "eurkrw": 1711.37,
+      "fx_usd_date": "2026-03-10",
+      "fx_eur_date": "2026-03-10",
+      "close_usd": 205.0849
     },
     {
       "date": "2026-03-11",
@@ -2211,11 +2458,11 @@
       "open_krw": 310000,
       "high_krw": 331500,
       "low_krw": 308000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1477.109058,
+      "eurkrw": 1710.64,
+      "fx_usd_date": "2026-03-11",
+      "fx_eur_date": "2026-03-11",
+      "close_usd": 215.9624
     },
     {
       "date": "2026-03-12",
@@ -2224,11 +2471,11 @@
       "open_krw": 318500,
       "high_krw": 324500,
       "low_krw": 314000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1480.843509,
+      "eurkrw": 1709.93,
+      "fx_usd_date": "2026-03-12",
+      "fx_eur_date": "2026-03-12",
+      "close_usd": 217.7813
     },
     {
       "date": "2026-03-13",
@@ -2237,11 +2484,11 @@
       "open_krw": 316500,
       "high_krw": 347000,
       "low_krw": 314000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1491.695713,
+      "eurkrw": 1711.87,
+      "fx_usd_date": "2026-03-13",
+      "fx_eur_date": "2026-03-13",
+      "close_usd": 229.6045
     },
     {
       "date": "2026-03-16",
@@ -2250,11 +2497,11 @@
       "open_krw": 342000,
       "high_krw": 348000,
       "low_krw": 318500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1490.747517,
+      "eurkrw": 1711.08,
+      "fx_usd_date": "2026-03-16",
+      "fx_eur_date": "2026-03-16",
+      "close_usd": 220.3592
     },
     {
       "date": "2026-03-17",
@@ -2263,11 +2510,11 @@
       "open_krw": 331500,
       "high_krw": 355000,
       "low_krw": 331000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1487.182378,
+      "eurkrw": 1714.87,
+      "fx_usd_date": "2026-03-17",
+      "fx_eur_date": "2026-03-17",
+      "close_usd": 234.672
     },
     {
       "date": "2026-03-18",
@@ -2276,11 +2523,11 @@
       "open_krw": 357500,
       "high_krw": 367000,
       "low_krw": 349000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1503.547826,
+      "eurkrw": 1729.08,
+      "fx_usd_date": "2026-03-18",
+      "fx_eur_date": "2026-03-18",
+      "close_usd": 240.7639
     },
     {
       "date": "2026-03-19",
@@ -2289,11 +2536,11 @@
       "open_krw": 360000,
       "high_krw": 375000,
       "low_krw": 355000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1501.610236,
+      "eurkrw": 1725.2,
+      "fx_usd_date": "2026-03-19",
+      "fx_eur_date": "2026-03-19",
+      "close_usd": 245.7362
     },
     {
       "date": "2026-03-20",
@@ -2302,11 +2549,11 @@
       "open_krw": 373000,
       "high_krw": 377000,
       "low_krw": 358000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1500.796192,
+      "eurkrw": 1734.17,
+      "fx_usd_date": "2026-03-20",
+      "fx_eur_date": "2026-03-20",
+      "close_usd": 239.5395
     },
     {
       "date": "2026-03-23",
@@ -2315,11 +2562,11 @@
       "open_krw": 346000,
       "high_krw": 349000,
       "low_krw": 321000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1487.521559,
+      "eurkrw": 1724.93,
+      "fx_usd_date": "2026-03-23",
+      "fx_eur_date": "2026-03-23",
+      "close_usd": 218.1481
     },
     {
       "date": "2026-03-24",
@@ -2328,11 +2575,11 @@
       "open_krw": 340000,
       "high_krw": 342000,
       "low_krw": 330000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1498.859316,
+      "eurkrw": 1734.48,
+      "fx_usd_date": "2026-03-24",
+      "fx_eur_date": "2026-03-24",
+      "close_usd": 221.8354
     },
     {
       "date": "2026-03-25",
@@ -2341,11 +2588,11 @@
       "open_krw": 338000,
       "high_krw": 343000,
       "low_krw": 321000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1497.532781,
+      "eurkrw": 1735.94,
+      "fx_usd_date": "2026-03-25",
+      "fx_eur_date": "2026-03-25",
+      "close_usd": 219.3608
     },
     {
       "date": "2026-03-26",
@@ -2354,11 +2601,11 @@
       "open_krw": 332500,
       "high_krw": 332500,
       "low_krw": 307000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1506.317705,
+      "eurkrw": 1738.14,
+      "fx_usd_date": "2026-03-26",
+      "fx_eur_date": "2026-03-26",
+      "close_usd": 205.7999
     },
     {
       "date": "2026-03-27",
@@ -2367,11 +2614,11 @@
       "open_krw": 307500,
       "high_krw": 329000,
       "low_krw": 307000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1511.496049,
+      "eurkrw": 1740.79,
+      "fx_usd_date": "2026-03-27",
+      "fx_eur_date": "2026-03-27",
+      "close_usd": 216.3419
     },
     {
       "date": "2026-03-30",
@@ -2380,11 +2627,11 @@
       "open_krw": 319000,
       "high_krw": 333500,
       "low_krw": 314000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1517.702891,
+      "eurkrw": 1742.93,
+      "fx_usd_date": "2026-03-30",
+      "fx_eur_date": "2026-03-30",
+      "close_usd": 214.7983
     },
     {
       "date": "2026-03-31",
@@ -2393,11 +2640,11 @@
       "open_krw": 328500,
       "high_krw": 349000,
       "low_krw": 318000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1524.804314,
+      "eurkrw": 1753.22,
+      "fx_usd_date": "2026-03-31",
+      "fx_eur_date": "2026-03-31",
+      "close_usd": 221.012
     },
     {
       "date": "2026-04-01",
@@ -2406,11 +2653,11 @@
       "open_krw": 346000,
       "high_krw": 348000,
       "low_krw": 328500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1504.808272,
+      "eurkrw": 1746.33,
+      "fx_usd_date": "2026-04-01",
+      "fx_eur_date": "2026-04-01",
+      "close_usd": 228.9328
     },
     {
       "date": "2026-04-02",
@@ -2419,11 +2666,11 @@
       "open_krw": 346000,
       "high_krw": 358500,
       "low_krw": 332500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1516.650759,
+      "eurkrw": 1747.94,
+      "fx_usd_date": "2026-04-02",
+      "fx_eur_date": "2026-04-02",
+      "close_usd": 223.8485
     },
     {
       "date": "2026-04-03",
@@ -2432,11 +2679,11 @@
       "open_krw": 344000,
       "high_krw": 345000,
       "low_krw": 326000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1516.650759,
+      "eurkrw": 1747.94,
+      "fx_usd_date": "2026-04-02",
+      "fx_eur_date": "2026-04-02",
+      "close_usd": 215.6067
     },
     {
       "date": "2026-04-06",
@@ -2445,11 +2692,11 @@
       "open_krw": 327500,
       "high_krw": 337000,
       "low_krw": 324000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1516.650759,
+      "eurkrw": 1747.94,
+      "fx_usd_date": "2026-04-02",
+      "fx_eur_date": "2026-04-02",
+      "close_usd": 221.5408
     },
     {
       "date": "2026-04-07",
@@ -2458,11 +2705,11 @@
       "open_krw": 333000,
       "high_krw": 354500,
       "low_krw": 316000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1497.412823,
+      "eurkrw": 1730.56,
+      "fx_usd_date": "2026-04-07",
+      "fx_eur_date": "2026-04-07",
+      "close_usd": 212.3663
     },
     {
       "date": "2026-04-08",
@@ -2471,11 +2718,11 @@
       "open_krw": 332000,
       "high_krw": 340000,
       "low_krw": 318000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1474.226892,
+      "eurkrw": 1725.73,
+      "fx_usd_date": "2026-04-08",
+      "fx_eur_date": "2026-04-08",
+      "close_usd": 227.5769
     },
     {
       "date": "2026-04-09",
@@ -2484,11 +2731,11 @@
       "open_krw": 357000,
       "high_krw": 385000,
       "low_krw": 353500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1479.486521,
+      "eurkrw": 1728.78,
+      "fx_usd_date": "2026-04-09",
+      "fx_eur_date": "2026-04-09",
+      "close_usd": 247.0452
     },
     {
       "date": "2026-04-10",
@@ -2497,11 +2744,11 @@
       "open_krw": 373000,
       "high_krw": 396000,
       "low_krw": 372000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1483.272137,
+      "eurkrw": 1737.06,
+      "fx_usd_date": "2026-04-10",
+      "fx_eur_date": "2026-04-10",
+      "close_usd": 264.9548
     },
     {
       "date": "2026-04-13",
@@ -2510,11 +2757,11 @@
       "open_krw": 395000,
       "high_krw": 408500,
       "low_krw": 387000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1489.952071,
+      "eurkrw": 1740.86,
+      "fx_usd_date": "2026-04-13",
+      "fx_eur_date": "2026-04-13",
+      "close_usd": 268.1294
     },
     {
       "date": "2026-04-14",
@@ -2523,11 +2770,11 @@
       "open_krw": 399500,
       "high_krw": 402000,
       "low_krw": 381500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1470.516408,
+      "eurkrw": 1734.18,
+      "fx_usd_date": "2026-04-14",
+      "fx_eur_date": "2026-04-14",
+      "close_usd": 262.4928
     },
     {
       "date": "2026-04-15",
@@ -2536,11 +2783,11 @@
       "open_krw": 386500,
       "high_krw": 413500,
       "low_krw": 386500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1477.096774,
+      "eurkrw": 1740.02,
+      "fx_usd_date": "2026-04-15",
+      "fx_eur_date": "2026-04-15",
+      "close_usd": 279.6025
     },
     {
       "date": "2026-04-16",
@@ -2549,11 +2796,11 @@
       "open_krw": 416000,
       "high_krw": 417000,
       "low_krw": 401500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1476.506535,
+      "eurkrw": 1739.62,
+      "fx_usd_date": "2026-04-16",
+      "fx_eur_date": "2026-04-16",
+      "close_usd": 280.7302
     },
     {
       "date": "2026-04-17",
@@ -2562,11 +2809,11 @@
       "open_krw": 414500,
       "high_krw": 425000,
       "low_krw": 411000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1478.986183,
+      "eurkrw": 1744.76,
+      "fx_usd_date": "2026-04-17",
+      "fx_eur_date": "2026-04-17",
+      "close_usd": 283.6402
     },
     {
       "date": "2026-04-20",
@@ -2575,11 +2822,11 @@
       "open_krw": 424000,
       "high_krw": 424000,
       "low_krw": 412000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1470.246599,
+      "eurkrw": 1729.01,
+      "fx_usd_date": "2026-04-20",
+      "fx_eur_date": "2026-04-20",
+      "close_usd": 281.9255
     },
     {
       "date": "2026-04-21",
@@ -2588,11 +2835,11 @@
       "open_krw": 417000,
       "high_krw": 426000,
       "low_krw": 408000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1469.84788,
+      "eurkrw": 1729.57,
+      "fx_usd_date": "2026-04-21",
+      "fx_eur_date": "2026-04-21",
+      "close_usd": 278.9404
     },
     {
       "date": "2026-04-22",
@@ -2601,11 +2848,11 @@
       "open_krw": 422000,
       "high_krw": 441000,
       "low_krw": 418000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1478.053354,
+      "eurkrw": 1734.2,
+      "fx_usd_date": "2026-04-22",
+      "fx_eur_date": "2026-04-22",
+      "close_usd": 293.6295
     },
     {
       "date": "2026-04-23",
@@ -2614,11 +2861,11 @@
       "open_krw": 450000,
       "high_krw": 457000,
       "low_krw": 426500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1479.356935,
+      "eurkrw": 1729.96,
+      "fx_usd_date": "2026-04-23",
+      "fx_eur_date": "2026-04-23",
+      "close_usd": 294.7227
     },
     {
       "date": "2026-04-24",
@@ -2627,11 +2874,11 @@
       "open_krw": 450000,
       "high_krw": 450500,
       "low_krw": 438000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1477.040642,
+      "eurkrw": 1729.91,
+      "fx_usd_date": "2026-04-24",
+      "fx_eur_date": "2026-04-24",
+      "close_usd": 304.6632
     },
     {
       "date": "2026-04-27",
@@ -2640,11 +2887,11 @@
       "open_krw": 453000,
       "high_krw": 455500,
       "low_krw": 446500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1471.223083,
+      "eurkrw": 1728.54,
+      "fx_usd_date": "2026-04-27",
+      "fx_eur_date": "2026-04-27",
+      "close_usd": 305.1883
     },
     {
       "date": "2026-04-28",
@@ -2653,11 +2900,11 @@
       "open_krw": 447500,
       "high_krw": 468000,
       "low_krw": 444500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1476.892123,
+      "eurkrw": 1725.01,
+      "fx_usd_date": "2026-04-28",
+      "fx_eur_date": "2026-04-28",
+      "close_usd": 310.7878
     },
     {
       "date": "2026-04-29",
@@ -2666,11 +2913,11 @@
       "open_krw": 465000,
       "high_krw": 469500,
       "low_krw": 446500,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1478.378609,
+      "eurkrw": 1730.59,
+      "fx_usd_date": "2026-04-29",
+      "fx_eur_date": "2026-04-29",
+      "close_usd": 305.0639
     },
     {
       "date": "2026-04-30",
@@ -2679,11 +2926,11 @@
       "open_krw": 449000,
       "high_krw": 452500,
       "low_krw": 422000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1477.003931,
+      "eurkrw": 1728.39,
+      "fx_usd_date": "2026-04-30",
+      "fx_eur_date": "2026-04-30",
+      "close_usd": 287.4061
     },
     {
       "date": "2026-05-04",
@@ -4325,6 +4572,1176 @@
     }
   ],
   "fx": [
+    {
+      "date": "2025-06-02",
+      "usdkrw": 1376.828094,
+      "eurkrw": 1572.2
+    },
+    {
+      "date": "2025-06-03",
+      "usdkrw": 1376.7785,
+      "eurkrw": 1567.6
+    },
+    {
+      "date": "2025-06-04",
+      "usdkrw": 1366.321152,
+      "eurkrw": 1555.42
+    },
+    {
+      "date": "2025-06-05",
+      "usdkrw": 1357.392979,
+      "eurkrw": 1550.55
+    },
+    {
+      "date": "2025-06-06",
+      "usdkrw": 1359.293664,
+      "eurkrw": 1551.09
+    },
+    {
+      "date": "2025-06-09",
+      "usdkrw": 1356.441718,
+      "eurkrw": 1547.7
+    },
+    {
+      "date": "2025-06-10",
+      "usdkrw": 1366.550004,
+      "eurkrw": 1561.83
+    },
+    {
+      "date": "2025-06-11",
+      "usdkrw": 1375.579463,
+      "eurkrw": 1572.7
+    },
+    {
+      "date": "2025-06-12",
+      "usdkrw": 1353.777816,
+      "eurkrw": 1569.57
+    },
+    {
+      "date": "2025-06-13",
+      "usdkrw": 1370.23975,
+      "eurkrw": 1577.42
+    },
+    {
+      "date": "2025-06-16",
+      "usdkrw": 1359.478141,
+      "eurkrw": 1573.46
+    },
+    {
+      "date": "2025-06-17",
+      "usdkrw": 1365.335408,
+      "eurkrw": 1579.42
+    },
+    {
+      "date": "2025-06-18",
+      "usdkrw": 1375.651721,
+      "eurkrw": 1583.1
+    },
+    {
+      "date": "2025-06-19",
+      "usdkrw": 1380.118488,
+      "eurkrw": 1584.1
+    },
+    {
+      "date": "2025-06-20",
+      "usdkrw": 1366.739036,
+      "eurkrw": 1573.8
+    },
+    {
+      "date": "2025-06-23",
+      "usdkrw": 1388.153766,
+      "eurkrw": 1592.49
+    },
+    {
+      "date": "2025-06-24",
+      "usdkrw": 1360.170587,
+      "eurkrw": 1578.75
+    },
+    {
+      "date": "2025-06-25",
+      "usdkrw": 1363.554061,
+      "eurkrw": 1581.45
+    },
+    {
+      "date": "2025-06-26",
+      "usdkrw": 1357.101325,
+      "eurkrw": 1587.13
+    },
+    {
+      "date": "2025-06-27",
+      "usdkrw": 1360.816815,
+      "eurkrw": 1592.7
+    },
+    {
+      "date": "2025-06-30",
+      "usdkrw": 1355.127986,
+      "eurkrw": 1588.21
+    },
+    {
+      "date": "2025-07-01",
+      "usdkrw": 1353.243014,
+      "eurkrw": 1598.18
+    },
+    {
+      "date": "2025-07-02",
+      "usdkrw": 1359.906423,
+      "eurkrw": 1598.57
+    },
+    {
+      "date": "2025-07-03",
+      "usdkrw": 1362.077746,
+      "eurkrw": 1604.8
+    },
+    {
+      "date": "2025-07-04",
+      "usdkrw": 1363.389139,
+      "eurkrw": 1604.3
+    },
+    {
+      "date": "2025-07-07",
+      "usdkrw": 1367.291951,
+      "eurkrw": 1603.56
+    },
+    {
+      "date": "2025-07-08",
+      "usdkrw": 1370.464243,
+      "eurkrw": 1605.91
+    },
+    {
+      "date": "2025-07-09",
+      "usdkrw": 1376.799453,
+      "eurkrw": 1610.58
+    },
+    {
+      "date": "2025-07-10",
+      "usdkrw": 1373.251345,
+      "eurkrw": 1607.94
+    },
+    {
+      "date": "2025-07-11",
+      "usdkrw": 1374.99786,
+      "eurkrw": 1606.41
+    },
+    {
+      "date": "2025-07-14",
+      "usdkrw": 1380.650128,
+      "eurkrw": 1613.98
+    },
+    {
+      "date": "2025-07-15",
+      "usdkrw": 1381.063009,
+      "eurkrw": 1611.01
+    },
+    {
+      "date": "2025-07-16",
+      "usdkrw": 1391.182555,
+      "eurkrw": 1614.05
+    },
+    {
+      "date": "2025-07-17",
+      "usdkrw": 1394.472752,
+      "eurkrw": 1614.66
+    },
+    {
+      "date": "2025-07-18",
+      "usdkrw": 1390.145923,
+      "eurkrw": 1619.52
+    },
+    {
+      "date": "2025-07-21",
+      "usdkrw": 1383.937602,
+      "eurkrw": 1614.64
+    },
+    {
+      "date": "2025-07-22",
+      "usdkrw": 1386.101376,
+      "eurkrw": 1621.6
+    },
+    {
+      "date": "2025-07-23",
+      "usdkrw": 1374.944568,
+      "eurkrw": 1612.26
+    },
+    {
+      "date": "2025-07-24",
+      "usdkrw": 1369.58149,
+      "eurkrw": 1610.08
+    },
+    {
+      "date": "2025-07-25",
+      "usdkrw": 1381.269191,
+      "eurkrw": 1619.4
+    },
+    {
+      "date": "2025-07-28",
+      "usdkrw": 1385.447057,
+      "eurkrw": 1614.6
+    },
+    {
+      "date": "2025-07-29",
+      "usdkrw": 1394.086534,
+      "eurkrw": 1607.8
+    },
+    {
+      "date": "2025-07-30",
+      "usdkrw": 1384.228333,
+      "eurkrw": 1595.6
+    },
+    {
+      "date": "2025-07-31",
+      "usdkrw": 1394.626944,
+      "eurkrw": 1596.29
+    },
+    {
+      "date": "2025-08-01",
+      "usdkrw": 1404.621186,
+      "eurkrw": 1601.83
+    },
+    {
+      "date": "2025-08-04",
+      "usdkrw": 1383.718115,
+      "eurkrw": 1600.27
+    },
+    {
+      "date": "2025-08-05",
+      "usdkrw": 1391.122467,
+      "eurkrw": 1606.19
+    },
+    {
+      "date": "2025-08-06",
+      "usdkrw": 1388.322992,
+      "eurkrw": 1611.01
+    },
+    {
+      "date": "2025-08-07",
+      "usdkrw": 1383.629649,
+      "eurkrw": 1610.96
+    },
+    {
+      "date": "2025-08-08",
+      "usdkrw": 1390.736607,
+      "eurkrw": 1619.93
+    },
+    {
+      "date": "2025-08-11",
+      "usdkrw": 1391.851661,
+      "eurkrw": 1617.61
+    },
+    {
+      "date": "2025-08-12",
+      "usdkrw": 1390.168878,
+      "eurkrw": 1613.43
+    },
+    {
+      "date": "2025-08-13",
+      "usdkrw": 1378.362224,
+      "eurkrw": 1614.2
+    },
+    {
+      "date": "2025-08-14",
+      "usdkrw": 1386.073567,
+      "eurkrw": 1620.32
+    },
+    {
+      "date": "2025-08-15",
+      "usdkrw": 1388.963039,
+      "eurkrw": 1623.42
+    },
+    {
+      "date": "2025-08-18",
+      "usdkrw": 1386.250321,
+      "eurkrw": 1618.17
+    },
+    {
+      "date": "2025-08-19",
+      "usdkrw": 1388.803287,
+      "eurkrw": 1622.4
+    },
+    {
+      "date": "2025-08-20",
+      "usdkrw": 1398.78122,
+      "eurkrw": 1629.72
+    },
+    {
+      "date": "2025-08-21",
+      "usdkrw": 1398.694046,
+      "eurkrw": 1627.94
+    },
+    {
+      "date": "2025-08-22",
+      "usdkrw": 1390.472088,
+      "eurkrw": 1614.06
+    },
+    {
+      "date": "2025-08-25",
+      "usdkrw": 1387.278789,
+      "eurkrw": 1622.7
+    },
+    {
+      "date": "2025-08-26",
+      "usdkrw": 1394.363418,
+      "eurkrw": 1625.27
+    },
+    {
+      "date": "2025-08-27",
+      "usdkrw": 1397.817649,
+      "eurkrw": 1620.49
+    },
+    {
+      "date": "2025-08-28",
+      "usdkrw": 1385.799931,
+      "eurkrw": 1618.06
+    },
+    {
+      "date": "2025-08-29",
+      "usdkrw": 1391.542289,
+      "eurkrw": 1622.26
+    },
+    {
+      "date": "2025-09-01",
+      "usdkrw": 1393.358942,
+      "eurkrw": 1632.32
+    },
+    {
+      "date": "2025-09-02",
+      "usdkrw": 1395.337455,
+      "eurkrw": 1625.01
+    },
+    {
+      "date": "2025-09-03",
+      "usdkrw": 1389.427615,
+      "eurkrw": 1619.1
+    },
+    {
+      "date": "2025-09-04",
+      "usdkrw": 1393.311582,
+      "eurkrw": 1622.79
+    },
+    {
+      "date": "2025-09-05",
+      "usdkrw": 1390.783962,
+      "eurkrw": 1626.8
+    },
+    {
+      "date": "2025-09-08",
+      "usdkrw": 1387.883697,
+      "eurkrw": 1627.71
+    },
+    {
+      "date": "2025-09-09",
+      "usdkrw": 1386.708106,
+      "eurkrw": 1628.55
+    },
+    {
+      "date": "2025-09-10",
+      "usdkrw": 1388.852823,
+      "eurkrw": 1625.93
+    },
+    {
+      "date": "2025-09-11",
+      "usdkrw": 1392.956782,
+      "eurkrw": 1627.67
+    },
+    {
+      "date": "2025-09-12",
+      "usdkrw": 1391.858679,
+      "eurkrw": 1630.98
+    },
+    {
+      "date": "2025-09-15",
+      "usdkrw": 1387.982322,
+      "eurkrw": 1633.1
+    },
+    {
+      "date": "2025-09-16",
+      "usdkrw": 1381.925976,
+      "eurkrw": 1631.64
+    },
+    {
+      "date": "2025-09-17",
+      "usdkrw": 1378.558756,
+      "eurkrw": 1631.8
+    },
+    {
+      "date": "2025-09-18",
+      "usdkrw": 1386.495177,
+      "eurkrw": 1638.56
+    },
+    {
+      "date": "2025-09-19",
+      "usdkrw": 1398.159509,
+      "eurkrw": 1640.88
+    },
+    {
+      "date": "2025-09-22",
+      "usdkrw": 1391.291062,
+      "eurkrw": 1639.08
+    },
+    {
+      "date": "2025-09-23",
+      "usdkrw": 1394.547613,
+      "eurkrw": 1644.59
+    },
+    {
+      "date": "2025-09-24",
+      "usdkrw": 1399.276965,
+      "eurkrw": 1644.99
+    },
+    {
+      "date": "2025-09-25",
+      "usdkrw": 1403.927081,
+      "eurkrw": 1648.07
+    },
+    {
+      "date": "2025-09-26",
+      "usdkrw": 1409.818369,
+      "eurkrw": 1645.54
+    },
+    {
+      "date": "2025-09-29",
+      "usdkrw": 1401.78282,
+      "eurkrw": 1643.31
+    },
+    {
+      "date": "2025-09-30",
+      "usdkrw": 1403.670897,
+      "eurkrw": 1648.05
+    },
+    {
+      "date": "2025-10-01",
+      "usdkrw": 1405.254179,
+      "eurkrw": 1647.52
+    },
+    {
+      "date": "2025-10-02",
+      "usdkrw": 1401.403777,
+      "eurkrw": 1647.21
+    },
+    {
+      "date": "2025-10-03",
+      "usdkrw": 1405.565025,
+      "eurkrw": 1649.29
+    },
+    {
+      "date": "2025-10-06",
+      "usdkrw": 1412.228121,
+      "eurkrw": 1649.2
+    },
+    {
+      "date": "2025-10-07",
+      "usdkrw": 1413.200754,
+      "eurkrw": 1648.64
+    },
+    {
+      "date": "2025-10-08",
+      "usdkrw": 1424.331298,
+      "eurkrw": 1656.07
+    },
+    {
+      "date": "2025-10-09",
+      "usdkrw": 1419.171475,
+      "eurkrw": 1647.8
+    },
+    {
+      "date": "2025-10-10",
+      "usdkrw": 1421.032158,
+      "eurkrw": 1643.85
+    },
+    {
+      "date": "2025-10-13",
+      "usdkrw": 1427.59962,
+      "eurkrw": 1651.59
+    },
+    {
+      "date": "2025-10-14",
+      "usdkrw": 1434.709599,
+      "eurkrw": 1657.52
+    },
+    {
+      "date": "2025-10-15",
+      "usdkrw": 1423.593185,
+      "eurkrw": 1654.5
+    },
+    {
+      "date": "2025-10-16",
+      "usdkrw": 1417.881363,
+      "eurkrw": 1651.69
+    },
+    {
+      "date": "2025-10-17",
+      "usdkrw": 1420.58043,
+      "eurkrw": 1659.38
+    },
+    {
+      "date": "2025-10-20",
+      "usdkrw": 1423.543544,
+      "eurkrw": 1659.14
+    },
+    {
+      "date": "2025-10-21",
+      "usdkrw": 1430.498837,
+      "eurkrw": 1660.38
+    },
+    {
+      "date": "2025-10-22",
+      "usdkrw": 1432.657288,
+      "eurkrw": 1660.02
+    },
+    {
+      "date": "2025-10-23",
+      "usdkrw": 1440.42957,
+      "eurkrw": 1669.89
+    },
+    {
+      "date": "2025-10-24",
+      "usdkrw": 1439.450568,
+      "eurkrw": 1671.49
+    },
+    {
+      "date": "2025-10-27",
+      "usdkrw": 1432.319588,
+      "eurkrw": 1667.22
+    },
+    {
+      "date": "2025-10-28",
+      "usdkrw": 1436.380052,
+      "eurkrw": 1670.51
+    },
+    {
+      "date": "2025-10-29",
+      "usdkrw": 1422.94603,
+      "eurkrw": 1655.74
+    },
+    {
+      "date": "2025-10-30",
+      "usdkrw": 1434.987013,
+      "eurkrw": 1657.41
+    },
+    {
+      "date": "2025-10-31",
+      "usdkrw": 1428.137442,
+      "eurkrw": 1650.07
+    },
+    {
+      "date": "2025-11-03",
+      "usdkrw": 1430.024318,
+      "eurkrw": 1646.53
+    },
+    {
+      "date": "2025-11-04",
+      "usdkrw": 1439.195892,
+      "eurkrw": 1653.78
+    },
+    {
+      "date": "2025-11-05",
+      "usdkrw": 1444.004525,
+      "eurkrw": 1659.45
+    },
+    {
+      "date": "2025-11-06",
+      "usdkrw": 1445.764328,
+      "eurkrw": 1667.4
+    },
+    {
+      "date": "2025-11-07",
+      "usdkrw": 1459.64017,
+      "eurkrw": 1687.49
+    },
+    {
+      "date": "2025-11-10",
+      "usdkrw": 1454.126696,
+      "eurkrw": 1682.57
+    },
+    {
+      "date": "2025-11-11",
+      "usdkrw": 1465.097192,
+      "eurkrw": 1695.85
+    },
+    {
+      "date": "2025-11-12",
+      "usdkrw": 1465.877678,
+      "eurkrw": 1696.9
+    },
+    {
+      "date": "2025-11-13",
+      "usdkrw": 1463.482227,
+      "eurkrw": 1700.42
+    },
+    {
+      "date": "2025-11-14",
+      "usdkrw": 1451.502404,
+      "eurkrw": 1690.71
+    },
+    {
+      "date": "2025-11-17",
+      "usdkrw": 1461.459501,
+      "eurkrw": 1694.27
+    },
+    {
+      "date": "2025-11-18",
+      "usdkrw": 1462.99396,
+      "eurkrw": 1695.61
+    },
+    {
+      "date": "2025-11-19",
+      "usdkrw": 1466.010533,
+      "eurkrw": 1698.08
+    },
+    {
+      "date": "2025-11-20",
+      "usdkrw": 1469.350356,
+      "eurkrw": 1691.81
+    },
+    {
+      "date": "2025-11-21",
+      "usdkrw": 1474.288194,
+      "eurkrw": 1698.38
+    },
+    {
+      "date": "2025-11-24",
+      "usdkrw": 1473.267498,
+      "eurkrw": 1700.74
+    },
+    {
+      "date": "2025-11-25",
+      "usdkrw": 1464.8775,
+      "eurkrw": 1692.08
+    },
+    {
+      "date": "2025-11-26",
+      "usdkrw": 1474.302496,
+      "eurkrw": 1706.8
+    },
+    {
+      "date": "2025-11-27",
+      "usdkrw": 1462.238909,
+      "eurkrw": 1694.15
+    },
+    {
+      "date": "2025-11-28",
+      "usdkrw": 1469.661076,
+      "eurkrw": 1699.81
+    },
+    {
+      "date": "2025-12-01",
+      "usdkrw": 1465.146832,
+      "eurkrw": 1706.31
+    },
+    {
+      "date": "2025-12-02",
+      "usdkrw": 1467.900809,
+      "eurkrw": 1704.82
+    },
+    {
+      "date": "2025-12-03",
+      "usdkrw": 1464.5012,
+      "eurkrw": 1708.78
+    },
+    {
+      "date": "2025-12-04",
+      "usdkrw": 1471.532659,
+      "eurkrw": 1716.69
+    },
+    {
+      "date": "2025-12-05",
+      "usdkrw": 1472.580507,
+      "eurkrw": 1714.82
+    },
+    {
+      "date": "2025-12-08",
+      "usdkrw": 1466.194766,
+      "eurkrw": 1708.85
+    },
+    {
+      "date": "2025-12-09",
+      "usdkrw": 1468.514222,
+      "eurkrw": 1708.91
+    },
+    {
+      "date": "2025-12-10",
+      "usdkrw": 1469.967337,
+      "eurkrw": 1710.16
+    },
+    {
+      "date": "2025-12-11",
+      "usdkrw": 1471.137101,
+      "eurkrw": 1723.29
+    },
+    {
+      "date": "2025-12-12",
+      "usdkrw": 1477.12045,
+      "eurkrw": 1732.81
+    },
+    {
+      "date": "2025-12-15",
+      "usdkrw": 1465.149324,
+      "eurkrw": 1721.99
+    },
+    {
+      "date": "2025-12-16",
+      "usdkrw": 1473.242188,
+      "eurkrw": 1734.89
+    },
+    {
+      "date": "2025-12-17",
+      "usdkrw": 1479.380652,
+      "eurkrw": 1734.13
+    },
+    {
+      "date": "2025-12-18",
+      "usdkrw": 1477.242086,
+      "eurkrw": 1731.18
+    },
+    {
+      "date": "2025-12-19",
+      "usdkrw": 1478.722678,
+      "eurkrw": 1731.88
+    },
+    {
+      "date": "2025-12-22",
+      "usdkrw": 1480.391656,
+      "eurkrw": 1738.72
+    },
+    {
+      "date": "2025-12-23",
+      "usdkrw": 1480.875615,
+      "eurkrw": 1745.36
+    },
+    {
+      "date": "2025-12-24",
+      "usdkrw": 1448.239586,
+      "eurkrw": 1707.04
+    },
+    {
+      "date": "2025-12-29",
+      "usdkrw": 1437.149414,
+      "eurkrw": 1690.95
+    },
+    {
+      "date": "2025-12-30",
+      "usdkrw": 1443.948286,
+      "eurkrw": 1697.65
+    },
+    {
+      "date": "2025-12-31",
+      "usdkrw": 1444.204255,
+      "eurkrw": 1696.94
+    },
+    {
+      "date": "2026-01-02",
+      "usdkrw": 1444.868185,
+      "eurkrw": 1693.53
+    },
+    {
+      "date": "2026-01-05",
+      "usdkrw": 1449.279835,
+      "eurkrw": 1690.44
+    },
+    {
+      "date": "2026-01-06",
+      "usdkrw": 1448.646109,
+      "eurkrw": 1695.93
+    },
+    {
+      "date": "2026-01-07",
+      "usdkrw": 1447.680589,
+      "eurkrw": 1691.47
+    },
+    {
+      "date": "2026-01-08",
+      "usdkrw": 1452.308351,
+      "eurkrw": 1695.57
+    },
+    {
+      "date": "2026-01-09",
+      "usdkrw": 1459.843669,
+      "eurkrw": 1699.55
+    },
+    {
+      "date": "2026-01-12",
+      "usdkrw": 1466.908998,
+      "eurkrw": 1715.11
+    },
+    {
+      "date": "2026-01-13",
+      "usdkrw": 1474.07757,
+      "eurkrw": 1717.89
+    },
+    {
+      "date": "2026-01-14",
+      "usdkrw": 1475.409836,
+      "eurkrw": 1719.0
+    },
+    {
+      "date": "2026-01-15",
+      "usdkrw": 1468.315554,
+      "eurkrw": 1706.77
+    },
+    {
+      "date": "2026-01-16",
+      "usdkrw": 1472.927606,
+      "eurkrw": 1711.1
+    },
+    {
+      "date": "2026-01-19",
+      "usdkrw": 1473.200929,
+      "eurkrw": 1713.48
+    },
+    {
+      "date": "2026-01-20",
+      "usdkrw": 1476.799113,
+      "eurkrw": 1731.99
+    },
+    {
+      "date": "2026-01-21",
+      "usdkrw": 1464.6222,
+      "eurkrw": 1719.32
+    },
+    {
+      "date": "2026-01-22",
+      "usdkrw": 1467.71741,
+      "eurkrw": 1718.11
+    },
+    {
+      "date": "2026-01-23",
+      "usdkrw": 1467.552376,
+      "eurkrw": 1723.2
+    },
+    {
+      "date": "2026-01-26",
+      "usdkrw": 1447.769517,
+      "eurkrw": 1713.58
+    },
+    {
+      "date": "2026-01-27",
+      "usdkrw": 1441.202112,
+      "eurkrw": 1719.21
+    },
+    {
+      "date": "2026-01-28",
+      "usdkrw": 1428.82913,
+      "eurkrw": 1710.88
+    },
+    {
+      "date": "2026-01-29",
+      "usdkrw": 1430.832219,
+      "eurkrw": 1712.42
+    },
+    {
+      "date": "2026-01-30",
+      "usdkrw": 1442.629415,
+      "eurkrw": 1719.47
+    },
+    {
+      "date": "2026-02-02",
+      "usdkrw": 1452.483108,
+      "eurkrw": 1719.74
+    },
+    {
+      "date": "2026-02-03",
+      "usdkrw": 1448.555207,
+      "eurkrw": 1709.44
+    },
+    {
+      "date": "2026-02-04",
+      "usdkrw": 1455.752961,
+      "eurkrw": 1720.7
+    },
+    {
+      "date": "2026-02-05",
+      "usdkrw": 1465.146635,
+      "eurkrw": 1728.58
+    },
+    {
+      "date": "2026-02-06",
+      "usdkrw": 1467.424114,
+      "eurkrw": 1730.68
+    },
+    {
+      "date": "2026-02-09",
+      "usdkrw": 1462.047787,
+      "eurkrw": 1737.79
+    },
+    {
+      "date": "2026-02-10",
+      "usdkrw": 1461.644527,
+      "eurkrw": 1738.48
+    },
+    {
+      "date": "2026-02-11",
+      "usdkrw": 1451.966387,
+      "eurkrw": 1727.84
+    },
+    {
+      "date": "2026-02-12",
+      "usdkrw": 1438.285329,
+      "eurkrw": 1707.82
+    },
+    {
+      "date": "2026-02-13",
+      "usdkrw": 1446.450851,
+      "eurkrw": 1715.78
+    },
+    {
+      "date": "2026-02-16",
+      "usdkrw": 1441.417124,
+      "eurkrw": 1708.8
+    },
+    {
+      "date": "2026-02-17",
+      "usdkrw": 1445.822763,
+      "eurkrw": 1709.83
+    },
+    {
+      "date": "2026-02-18",
+      "usdkrw": 1445.892782,
+      "eurkrw": 1712.66
+    },
+    {
+      "date": "2026-02-19",
+      "usdkrw": 1449.680933,
+      "eurkrw": 1703.81
+    },
+    {
+      "date": "2026-02-20",
+      "usdkrw": 1449.655817,
+      "eurkrw": 1705.81
+    },
+    {
+      "date": "2026-02-23",
+      "usdkrw": 1443.550577,
+      "eurkrw": 1701.08
+    },
+    {
+      "date": "2026-02-24",
+      "usdkrw": 1443.296255,
+      "eurkrw": 1699.77
+    },
+    {
+      "date": "2026-02-25",
+      "usdkrw": 1427.90224,
+      "eurkrw": 1682.64
+    },
+    {
+      "date": "2026-02-26",
+      "usdkrw": 1425.639072,
+      "eurkrw": 1684.25
+    },
+    {
+      "date": "2026-02-27",
+      "usdkrw": 1441.97374,
+      "eurkrw": 1702.25
+    },
+    {
+      "date": "2026-03-02",
+      "usdkrw": 1462.113182,
+      "eurkrw": 1710.38
+    },
+    {
+      "date": "2026-03-03",
+      "usdkrw": 1478.502499,
+      "eurkrw": 1715.95
+    },
+    {
+      "date": "2026-03-04",
+      "usdkrw": 1464.795261,
+      "eurkrw": 1706.34
+    },
+    {
+      "date": "2026-03-05",
+      "usdkrw": 1475.787571,
+      "eurkrw": 1714.57
+    },
+    {
+      "date": "2026-03-06",
+      "usdkrw": 1485.182943,
+      "eurkrw": 1717.02
+    },
+    {
+      "date": "2026-03-09",
+      "usdkrw": 1485.123323,
+      "eurkrw": 1716.06
+    },
+    {
+      "date": "2026-03-10",
+      "usdkrw": 1470.122842,
+      "eurkrw": 1711.37
+    },
+    {
+      "date": "2026-03-11",
+      "usdkrw": 1477.109058,
+      "eurkrw": 1710.64
+    },
+    {
+      "date": "2026-03-12",
+      "usdkrw": 1480.843509,
+      "eurkrw": 1709.93
+    },
+    {
+      "date": "2026-03-13",
+      "usdkrw": 1491.695713,
+      "eurkrw": 1711.87
+    },
+    {
+      "date": "2026-03-16",
+      "usdkrw": 1490.747517,
+      "eurkrw": 1711.08
+    },
+    {
+      "date": "2026-03-17",
+      "usdkrw": 1487.182378,
+      "eurkrw": 1714.87
+    },
+    {
+      "date": "2026-03-18",
+      "usdkrw": 1503.547826,
+      "eurkrw": 1729.08
+    },
+    {
+      "date": "2026-03-19",
+      "usdkrw": 1501.610236,
+      "eurkrw": 1725.2
+    },
+    {
+      "date": "2026-03-20",
+      "usdkrw": 1500.796192,
+      "eurkrw": 1734.17
+    },
+    {
+      "date": "2026-03-23",
+      "usdkrw": 1487.521559,
+      "eurkrw": 1724.93
+    },
+    {
+      "date": "2026-03-24",
+      "usdkrw": 1498.859316,
+      "eurkrw": 1734.48
+    },
+    {
+      "date": "2026-03-25",
+      "usdkrw": 1497.532781,
+      "eurkrw": 1735.94
+    },
+    {
+      "date": "2026-03-26",
+      "usdkrw": 1506.317705,
+      "eurkrw": 1738.14
+    },
+    {
+      "date": "2026-03-27",
+      "usdkrw": 1511.496049,
+      "eurkrw": 1740.79
+    },
+    {
+      "date": "2026-03-30",
+      "usdkrw": 1517.702891,
+      "eurkrw": 1742.93
+    },
+    {
+      "date": "2026-03-31",
+      "usdkrw": 1524.804314,
+      "eurkrw": 1753.22
+    },
+    {
+      "date": "2026-04-01",
+      "usdkrw": 1504.808272,
+      "eurkrw": 1746.33
+    },
+    {
+      "date": "2026-04-02",
+      "usdkrw": 1516.650759,
+      "eurkrw": 1747.94
+    },
+    {
+      "date": "2026-04-07",
+      "usdkrw": 1497.412823,
+      "eurkrw": 1730.56
+    },
+    {
+      "date": "2026-04-08",
+      "usdkrw": 1474.226892,
+      "eurkrw": 1725.73
+    },
+    {
+      "date": "2026-04-09",
+      "usdkrw": 1479.486521,
+      "eurkrw": 1728.78
+    },
+    {
+      "date": "2026-04-10",
+      "usdkrw": 1483.272137,
+      "eurkrw": 1737.06
+    },
+    {
+      "date": "2026-04-13",
+      "usdkrw": 1489.952071,
+      "eurkrw": 1740.86
+    },
+    {
+      "date": "2026-04-14",
+      "usdkrw": 1470.516408,
+      "eurkrw": 1734.18
+    },
+    {
+      "date": "2026-04-15",
+      "usdkrw": 1477.096774,
+      "eurkrw": 1740.02
+    },
+    {
+      "date": "2026-04-16",
+      "usdkrw": 1476.506535,
+      "eurkrw": 1739.62
+    },
+    {
+      "date": "2026-04-17",
+      "usdkrw": 1478.986183,
+      "eurkrw": 1744.76
+    },
+    {
+      "date": "2026-04-20",
+      "usdkrw": 1470.246599,
+      "eurkrw": 1729.01
+    },
+    {
+      "date": "2026-04-21",
+      "usdkrw": 1469.84788,
+      "eurkrw": 1729.57
+    },
+    {
+      "date": "2026-04-22",
+      "usdkrw": 1478.053354,
+      "eurkrw": 1734.2
+    },
+    {
+      "date": "2026-04-23",
+      "usdkrw": 1479.356935,
+      "eurkrw": 1729.96
+    },
+    {
+      "date": "2026-04-24",
+      "usdkrw": 1477.040642,
+      "eurkrw": 1729.91
+    },
+    {
+      "date": "2026-04-27",
+      "usdkrw": 1471.223083,
+      "eurkrw": 1728.54
+    },
+    {
+      "date": "2026-04-28",
+      "usdkrw": 1476.892123,
+      "eurkrw": 1725.01
+    },
+    {
+      "date": "2026-04-29",
+      "usdkrw": 1478.378609,
+      "eurkrw": 1730.59
+    },
+    {
+      "date": "2026-04-30",
+      "usdkrw": 1477.003931,
+      "eurkrw": 1728.39
+    },
     {
       "date": "2026-05-04",
       "usdkrw": 1472.034188,
