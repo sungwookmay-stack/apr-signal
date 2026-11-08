@@ -41,8 +41,8 @@ ready().then(()=>{
  assert(trend,'Moving average chart should render');
  assert(macd,'MACD must be a separate chart from RSI');
  assert(rsi,'RSI must be a separate chart');
- assert.deepEqual(trend.data.datasets.map(x=>x.label),['종가','MA5','MA20','MA60','MA120','MA200']);
- assert.deepEqual(macd.data.datasets.map(x=>x.label),['MACD선','시그널선','히스토그램']);
+ assert.equal(trend.data.datasets.map(x=>x.label).join(','),'종가,MA5,MA20,MA60,MA120,MA200');
+ assert.equal(macd.data.datasets.map(x=>x.label).join(','),'MACD선,시그널선,히스토그램');
  assert.equal(macd.data.datasets[2].type,'bar');
  assert.equal(macd.data.datasets[0].type,undefined);
  assert.equal(rsi.data.datasets.length,1);
