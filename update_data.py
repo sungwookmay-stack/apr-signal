@@ -26,8 +26,8 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from freight_official import fetch_latest as fetch_customs_official_latest
 
-START = dt.date(2026, 5, 1)
-HISTORY_START = dt.date(2025, 7, 1)  # 기술적 지표 MA200 워밍업, 화면은 2026-05부터
+START = dt.date(2025, 6, 1) # FX reference history for valuation charts from Jun 2025
+HISTORY_START = dt.date(2025, 6, 1)  # 기술적 지표 MA200 워밍업, 화면은 2026-05부터
 BASE = Path(__file__).resolve().parent
 UA = "Mozilla/5.0 (compatible; APRMarketMonitor/1.0; personal dashboard)"
 
@@ -76,7 +76,7 @@ def normalize_rows(entries):
 
 
 def fetch_stock_naver_xml():
-    q = parse.urlencode({"symbol": "278470", "timeframe": "day", "count": 350, "requestType": 0})
+    q = parse.urlencode({"symbol": "278470", "timeframe": "day", "count": 500, "requestType": 0})
     raw = get_bytes("https://fchart.stock.naver.com/sise.nhn?"+q, extra_headers={"Referer":"https://finance.naver.com/"})
     # Naver publishes EUC-KR XML. ElementTree's byte parser does not support this
     # multi-byte encoding in some Python builds, so decode first.
@@ -91,7 +91,7 @@ def fetch_stock_naver_xml():
 
 
 def fetch_stock_naver_js():
-    q = parse.urlencode({"symbol": "278470", "requestType":1,"startTime":"20250625","endTime":iso_today_kr().strftime("%Y%m%d"),"timeframe":"day"})
+    q = parse.urlencode({"symbol": "278470", "requestType":1,"startTime":"20250601","endTime":iso_today_kr().strftime("%Y%m%d"),"timeframe":"day"})
     raw = get_bytes("https://api.finance.naver.com/siseJson.naver?"+q, extra_headers={"Referer":"https://finance.naver.com/"}).decode("utf-8-sig",errors="replace")
     # Returned as JS-like arrays with a header row and optional trailing commas.
     chunks = re.findall(r"\[\s*(20\d{6})\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)",raw)
@@ -103,7 +103,7 @@ def fetch_stock_naver_js():
 
 
 def fetch_stock_yahoo():
-    first=int(time.mktime(dt.datetime(2025,6,25,0,0).timetuple()))
+    first=int(time.mktime(dt.datetime(2025,6,1,0,0).timetuple()))
     last=int(time.time())+86400
     q=parse.urlencode({"period1":first,"period2":last,"interval":"1d"})
     urls=["https://query1.finance.yahoo.com/v8/finance/chart/278470.KS?"+q, "https://query2.finance.yahoo.com/v8/finance/chart/278470.KS?"+q]
