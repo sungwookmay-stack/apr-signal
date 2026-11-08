@@ -102,6 +102,11 @@ jobs:
         run: |
           python dart_ownership.py
           python dart_financials.py
+          python dart_capital.py
+      - name: Track public US Medicube product review counts (no API tokens)
+        # Only official product-level aggregate counters. Never duplicate Amazon rankings.
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[retail-now]'))
+        run: python retail_reviews.py
       - name: Generate APR financial and Google Trends research snapshots (free)
         # Reuse local verified filings and existing Trends observations; no new APIs.
         run: python build_research_data.py
