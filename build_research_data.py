@@ -53,6 +53,9 @@ def build():
     snapshot['trend_signals']=trends
     snapshot['apr_theses']=read(DATA/'apr_theses.json',{})
     snapshot['reference_signals']=read(DATA/'reference_signals.json',{})
+    snapshot['dart_ownership']=read(DATA/'dart_ownership.json',{})
+    snapshot['dart_financials']=read(DATA/'dart_financials.json',{})
+    snapshot['dart_capital']=read(DATA/'dart_capital.json',{})
     bootstrap.write_text('window.APR_BOOTSTRAP = '+
         json.dumps(snapshot,ensure_ascii=False,separators=(',',':'))+';\n',
         encoding='utf-8')
