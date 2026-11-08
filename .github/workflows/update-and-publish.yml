@@ -73,6 +73,26 @@ jobs:
         # SEC only. [sec-now] never invokes Amazon/Trends or whole APR collection.
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
         run: python kbty_sec.py --refresh
+      - name: Backfill June 2025 APR prices and official FX (no paid data APIs)
+        # [price-backfill] fetches only free public APR OHLCV and ECB FX history.
+        # Do not execute the Amazon/Trends full collector on this mode.
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[price-backfill]')
+        run: |
+          python - <<'PY'
+          from build_data import collect_market, read_json, save, DATA
+          market, technical = collect_market(refresh_fx=True, refresh_freight=False)
+          status = read_json(DATA/'status.json', {})
+          if isinstance(status, dict):
+              status.update({
+                  'price_last': market.get('meta', {}).get('stock_last'),
+                  'price_coverage_start': market.get('meta', {}).get('coverage_start'),
+                  'fx_last': market.get('meta', {}).get('usd_fx_last'),
+                  'technical_last': technical.get('last', {}).get('date'),
+                  'technical_ohlc_days': technical.get('valid_high_low', 0)
+              })
+              save('status.json', status)
+          print('Free historical price/FX backfill complete:', market.get('meta', {}).get('coverage_start'))
+          PY
       - name: Generate APR financial and Google Trends research snapshots (free)
         # Reuse local verified filings and existing Trends observations; no new APIs.
         run: python build_research_data.py
