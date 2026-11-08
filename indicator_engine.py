@@ -74,7 +74,7 @@ def calculate(rows):
     high=[float(r['high_krw']) if r.get('high_krw') is not None else None for r in clean]
     low=[float(r['low_krw']) if r.get('low_krw') is not None else None for r in clean]
     vol=[float(r.get('volume') or 0) or None for r in clean]
-    m20=sma(close,20);m60=sma(close,60);m200=sma(close,200)
+    m5=sma(close,5);m20=sma(close,20);m60=sma(close,60);m120=sma(close,120);m200=sma(close,200)
     v20=sma(vol,20)
     bb_std=[pstdev(close[i-19:i+1]) if i>=19 else None for i in range(len(close))]
     bb_u=[a+2*b if a is not None and b is not None else None for a,b in zip(m20,bb_std)]
@@ -94,7 +94,7 @@ def calculate(rows):
     for i,r in enumerate(clean):
         def roundn(v,k=2):return round(v,k) if v is not None else None
         out.append({'date':r['date'],'close':close[i],
-          'ma20':roundn(m20[i]),'ma60':roundn(m60[i]),'ma200':roundn(m200[i]),
+          'ma5':roundn(m5[i]),'ma20':roundn(m20[i]),'ma60':roundn(m60[i]),'ma120':roundn(m120[i]),'ma200':roundn(m200[i]),
           'bb_upper':roundn(bb_u[i]),'bb_mid':roundn(m20[i]),'bb_lower':roundn(bb_l[i]),
           'rsi14':roundn(strength[i]),'macd':roundn(macd[i],4),'macd_signal':roundn(signal[i],4),
           'macd_hist':roundn(hist[i],4),'tenkan':roundn(tenkan[i]),'kijun':roundn(kijun[i]),
@@ -157,6 +157,6 @@ def calculate(rows):
           'not_advice':True,'fully_ready':fully_ready,
         }
     else:latest_summary={'label':'시세 없음','kind':'unknown','checks':[],'date':None}
-    return {'method':'2026-11; SMA20/60/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14','series':out,
+    return {'method':'2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14','series':out,
       'last':latest_summary,'valid_high_low':sum(x is not None for x in high),
       'data_days':len(out),'has_real_data':bool(out)}
