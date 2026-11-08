@@ -229,5 +229,26 @@
       "method": "official_company_release",
       "note": "Boots 공식 보도자료: boots.com 사이트 내 medicube 검색이 전년동기 대비 20% 초과 증가. 매출 또는 오프라인 판매 증가율 아님."
     }
+  ],
+  "product_review_history": [],
+  "retailer_statements": [
+    {
+      "date": "2026-11-02",
+      "country": "GB",
+      "retailer": "Boots",
+      "source_type": "official_retailer_newsroom",
+      "title": "Boots, Medicube 사이트 내 검색 관심 증가 언급",
+      "summary_ko": "Boots UK 공식 발표에서 Boots 사이트의 메디큐브 검색량이 전년 동기 대비 20% 이상 증가했다고 언급했습니다. 제품 수요 관련 발언으로, 매출 성장률이나 오프라인 POS는 아닙니다.",
+      "source_url": "https://www.boots-uk.com/newsroom/news-item/from-k-beauty-to-k-wellness-boots-brings-korea-s-next-wellness-trend-to-the-uk-high-street-with-a-dedicated-new-offering/"
+    },
+    {
+      "date": "2026-10-19",
+      "country": "US",
+      "retailer": "Costco",
+      "source_type": "independent_media_report",
+      "title": "미국 코스트코 약 400개 매장 입점 보도",
+      "summary_ko": "미국 보도에 따르면 메디큐브가 코스트코 약 400개 매장으로 유통 범위를 확대했습니다. 이는 입점 소식이지 판매·재주문 실적을 뜻하지 않습니다.",
+      "source_url": "https://www.upi.com/Top_News/World-News/2026/10/19/South-Korea-APR-Medicube-Costco-stores/8031760862748/"
+    }
   ]
 }
