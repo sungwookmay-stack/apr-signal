@@ -45,6 +45,10 @@ def build():
         if not isinstance(snapshot,dict):snapshot={}
     except (OSError,ValueError):
         snapshot={}
+    # Keep the static bootstrap fallback synchronized with explicitly
+    # refreshed market/technical files after the free historical backfill.
+    snapshot['market']=read(DATA/'market.json', snapshot.get('market', {}))
+    snapshot['technical']=read(DATA/'technical.json', snapshot.get('technical', {}))
     snapshot['financials']=financial
     snapshot['trend_signals']=trends
     snapshot['apr_theses']=read(DATA/'apr_theses.json',{})
