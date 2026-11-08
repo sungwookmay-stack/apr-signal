@@ -87,7 +87,7 @@ jobs:
         run: |
           mkdir -p _site/assets _site/data
           cp index.html _site/index.html
-          cp assets/style.css assets/app.js assets/research_dashboard.js _site/assets/
+          cp assets/style.css assets/apr_theme.css assets/app.js assets/research_dashboard.js _site/assets/
           cp data/*.json _site/data/
           cp data/bootstrap.js _site/data/ 2>/dev/null || true
           touch _site/.nojekyll
