@@ -71,6 +71,9 @@ jobs:
         # SEC only. [sec-now] never invokes Amazon/Trends or whole APR collection.
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
         run: python kbty_sec.py --refresh
+      - name: Generate APR financial and Google Trends research snapshots (free)
+        # Reuse local verified filings and existing Trends observations; no new APIs.
+        run: python build_research_data.py
       - name: Store historical snapshots in repo
         run: |
           git config user.name "github-actions[bot]"
@@ -84,7 +87,7 @@ jobs:
         run: |
           mkdir -p _site/assets _site/data
           cp index.html _site/index.html
-          cp assets/style.css assets/app.js _site/assets/
+          cp assets/style.css assets/app.js assets/research_dashboard.js _site/assets/
           cp data/*.json _site/data/
           cp data/bootstrap.js _site/data/ 2>/dev/null || true
           touch _site/.nojekyll
