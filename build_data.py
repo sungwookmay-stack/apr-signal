@@ -27,6 +27,8 @@ from top100_tracker import track_bestsellers
 from scrapedo_bestsellers import track_scrapedo
 from retail_reference_collector import collect as refresh_retail_references
 from news_localizer import localize_items, FIELD_KEYS
+from financial_engine import update as refresh_financials
+from trend_signals import detect as detect_trend_shifts
 
 ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'data';IMPORTS=ROOT/'imports'
@@ -465,6 +467,19 @@ def main():
     kbty=collect_kbty()
     news=collect_news()
     demand=collect_demand()
+    # Derived research: no extra external or paid API requests.
+    try:
+        financials=refresh_financials()
+    except Exception as exc:
+        financials=read_json(DATA/'financials.json',{})
+        errors.append('재무자료 계산 실패: '+str(exc)[:140])
+    try:
+        trend_signals=detect_trend_shifts(demand.get('trends',[]),demand.get('countries',[]))
+        save('trend_signals.json',trend_signals)
+    except Exception as exc:
+        trend_signals=read_json(DATA/'trend_signals.json',{})
+        errors.append('Google Trends 변화 분석 실패: '+str(exc)[:140])
+    apr_theses=read_json(DATA/'apr_theses.json',{})
     # Independent, free official-retailer snapshot collection. Its failures
     # retain the last verified values and do not block other market updates.
     try:
@@ -483,7 +498,8 @@ def main():
       'retail_reference':retail_refs,
       'errors':errors+market.get('meta',{}).get('errors',[]),'data_policy':'모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.'}
     save('status.json',status)
-    payload={'market':market,'technical':technical,'kbty':kbty,'news':news,'demand':demand,'status':status}
+    payload={'market':market,'technical':technical,'kbty':kbty,'news':news,'demand':demand,'status':status,
+             'financials':financials,'trend_signals':trend_signals,'apr_theses':apr_theses}
     (DATA/'bootstrap.js').write_text('window.APR_BOOTSTRAP = '+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
     print(json.dumps(status,ensure_ascii=False,indent=2))
     return 0
