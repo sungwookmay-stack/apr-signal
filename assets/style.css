@@ -111,3 +111,43 @@
 .sec-watch-row p{font-size:11px;color:#6a8798;line-height:1.75;margin:6px 0}
 .sec-source-note{font-size:10px;color:#8498a5;line-height:1.8}
 @media(max-width:760px){.sec-status-row,.sec-briefing,.sec-watchlist{grid-template-columns:1fr}.sec-filing{padding:15px}}
+
+
+/* Finance / valuation / offline research pages, consistent with APR editorial UI */
+.fin-table-scroll{width:100%;overflow-x:auto;margin-top:16px;-webkit-overflow-scrolling:touch}
+.fin-matrix{min-width:640px;border-collapse:collapse;width:100%;font-size:12px}
+.fin-matrix th,.fin-matrix td{white-space:nowrap;padding:12px 15px;border-bottom:1px solid #e8eef1;text-align:right;font-variant-numeric:tabular-nums}
+.fin-matrix th:first-child,.fin-matrix td:first-child{text-align:left;font-weight:700}
+.fin-matrix td:nth-child(2){max-width:220px;overflow:hidden;text-overflow:ellipsis}
+.fin-matrix thead{background:#f6f9fa;color:#6e8392}
+.fin-matrix tbody tr:hover{background:#f7fafb}
+#fin-sources a,.fin-table-scroll a{color:#0b917f;text-decoration:underline;text-underline-offset:2px}
+#fin-sources{font-size:11px;line-height:1.9;margin-top:14px}
+.trend-panel{margin:0 0 21px}
+.trend-alerts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:12px 0}
+.trend-alert{font:inherit;display:flex;flex-direction:column;gap:7px;align-items:flex-start;text-align:left;padding:14px 17px;background:#fff;border:1px solid var(--border);border-radius:10px;cursor:pointer;min-width:0}
+.trend-alert:focus-visible{outline:2px solid #0b917f;outline-offset:2px}
+.trend-alert-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%;font-size:12px;color:#213d52}
+.trend-alert-heading em{font-size:10px;font-style:normal;font-weight:700}
+.trend-up{color:#158875}.trend-down{color:#bc6752}
+.trend-alert-values{font-size:11px;color:#526d7f;font-variant-numeric:tabular-nums;line-height:1.7}
+.trend-alert small{font-size:10px;color:#95a5af;line-height:1.7}
+.trend-alert:hover{background:#f6faf9;border-color:#c1dcd4}
+.off-signal{padding:16px;border:1px solid var(--border);border-radius:9px;background:white;min-width:0}
+.off-signal strong{font-size:12px;color:#27475e;display:block;margin-bottom:5px;line-height:1.5}
+.off-signal span{font-size:19px;color:#0b917f;font-weight:750;letter-spacing:-.025em;display:block;font-variant-numeric:tabular-nums}
+.off-signal small{display:block;color:#8196a3;font-size:10px;margin-top:6px}
+.off-signal p{font-size:10px;color:#91a3ad;line-height:1.65;margin:6px 0 0;overflow-wrap:anywhere}
+.thesis-blocks{display:grid;gap:16px;margin:13px 0 34px}
+.thesis-card{padding:22px 24px;background:white;border:1px solid var(--border);border-radius:12px}
+.thesis-head small{color:#0b917f;font-size:10px;letter-spacing:.06em}
+.thesis-head h3{color:#254b63;font-size:17px;letter-spacing:-.04em;margin:7px 0 5px}
+.thesis-head p{color:#657d8f;font-size:12px;line-height:1.7;margin:0}
+.thesis-status{font-size:11px;margin:13px 0 15px;color:#738b9a;border-top:1px solid #edf2f4;padding-top:12px}
+.thesis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.thesis-line{border:1px solid #e5edf0;border-radius:8px;padding:13px;background:#fbfcfd;min-width:0}
+.thesis-line strong{font-size:11px;color:#24475f;display:block;line-height:1.5}
+.thesis-line span{display:block;font-size:13px;color:#0a8878;font-weight:750;margin-top:6px;line-height:1.55;overflow-wrap:anywhere}
+.thesis-line small{display:block;font-size:10px;color:#8296a3;line-height:1.7;margin-top:8px;overflow-wrap:anywhere}
+@media(max-width:790px){.trend-alerts,.thesis-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.thesis-card{padding:17px}.fin-matrix{font-size:11px}.fin-matrix th,.fin-matrix td{padding:10px 12px}.mobile-nav{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;justify-content:flex-start;scrollbar-width:none}.mobile-nav a{flex:0 0 auto;white-space:nowrap}}
