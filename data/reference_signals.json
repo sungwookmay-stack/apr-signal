@@ -230,7 +230,22 @@
       "note": "Boots 공식 보도자료: boots.com 사이트 내 medicube 검색이 전년동기 대비 20% 초과 증가. 매출 또는 오프라인 판매 증가율 아님."
     }
   ],
-  "product_review_history": [],
+  "product_review_history": [
+    {
+      "date": "2026-11-09",
+      "country": "US",
+      "product_id": "ulta_zero_pore_2645351",
+      "retailer": "ulta",
+      "label": "Medicube Zero Pore Pad",
+      "source_url": "https://www.ulta.com/p/zero-pore-pad-pimprod2053434?sku=2645351",
+      "method": "official_individual_product_page",
+      "verified": true,
+      "scope": "온라인 상품 상세페이지의 누적 고객 리뷰·평점",
+      "note": "실제 오프라인 매장별 판매량·매출, 리뷰 내용이 아님",
+      "rating": 3.9,
+      "reviews_count": 211
+    }
+  ],
   "retailer_statements": [
     {
       "date": "2026-11-02",
@@ -253,21 +268,24 @@
   ],
   "product_review_sources": [
     {
-      "product_id": "target_zero_pore_95087437",
       "retailer": "target",
-      "label": "medicube Zero Pore Pad",
+      "name": "Medicube Zero Pore Pad",
+      "product_id": "target_zero_pore_95087437",
       "url": "https://www.target.com/p/-/A-95087437"
     },
     {
-      "product_id": "ulta_zero_pore_2645351",
       "retailer": "ulta",
-      "label": "medicube Zero Pore Pad",
+      "name": "Medicube Zero Pore Pad",
+      "product_id": "ulta_zero_pore_2645351",
       "url": "https://www.ulta.com/p/zero-pore-pad-pimprod2053434?sku=2645351"
     }
   ],
   "product_review_status": {
-    "status": "최초 공식 상품페이지 관측 전",
-    "source_results": {},
-    "scope_note": "상품 후기 수/평점, 오프라인 POS 직접 측정치 아님"
+    "checked_date": "2026-11-09",
+    "source_results": {
+      "target_zero_pore_95087437": "공식 페이지 읽기 제한/검증 실패 · ValueError",
+      "ulta_zero_pore_2645351": "정상 관측"
+    },
+    "scope_note": "상품 상세페이지에 공개된 온라인 고객 리뷰·평점. 오프라인 POS 매출·출고량이나 재주문 증거 아님"
   }
 }
