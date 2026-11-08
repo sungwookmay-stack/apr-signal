@@ -73,6 +73,8 @@ events['window:DOMContentLoaded']().then(()=>{
  const income=MockChart.instances['chart-fin-sales'];
  const per=MockChart.instances['chart-fin-per'];
  const pbr=MockChart.instances['chart-fin-pbr'];
+ const perUSD=MockChart.instances['chart-fin-per-usd'];
+ const pbrUSD=MockChart.instances['chart-fin-pbr-usd'];
  assert.match(matrix,/2025Q4/);
  assert.match(matrix,/2026Q3/);
  assert.match($('fin-revenue').textContent,/7,731/);
@@ -80,6 +82,8 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.equal(income.data.datasets.length,3);
  assert.equal(per.data.datasets.length,6);
  assert.equal(pbr.data.datasets.length,6);
+ assert.equal(perUSD.data.datasets.length,6);
+ assert.equal(pbrUSD.data.datasets.length,6);
  assert.equal(per.data.datasets[0].label,'실제 원화 종가');
  assert.equal(per.data.datasets[1].label,'PER 15배');
  assert.equal(pbr.data.datasets[1].label,'PBR 5배');
@@ -99,11 +103,12 @@ events['window:DOMContentLoaded']().then(()=>{
  location.hash='#theses';events['window:hashchange']();
  assert.match($('thesis-blocks').innerHTML,/재평가 이후에도 저평가인가/);
  assert.match($('thesis-blocks').innerHTML,/미국 수요가 이 속도를 유지하는가/);
+ assert.match($('thesis-blocks').innerHTML,/thesis-sparkline/,'Historical watchpoints should show trends');
+ location.hash='#demand';events['window:hashchange']();
  assert.match($('off-ulta-total').textContent,/69개/);
  assert.match($('off-ulta-eligible').textContent,/32개/);
  assert.match($('off-status').innerHTML,/검증 제외/);
  assert.doesNotMatch($('off-status').innerHTML,/<span>104k\+ bought<\/span>/);
- location.hash='#demand';events['window:hashchange']();
  const al=$('trend-alerts').innerHTML;
  assert.match(al,/미국 · medicube/);
  assert.match(al,/브라질 · AGE-R/);
