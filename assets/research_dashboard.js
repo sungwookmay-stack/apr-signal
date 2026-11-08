@@ -366,6 +366,47 @@ function renderTheses(ctx){
     '<tr><td colspan="6">OpenDART에서 검증된 에이피알 지분변동 기록이 아직 없습니다.</td></tr>';
  }
 
+ const cap=state.dartCapital||{};
+ const capStatus=$('dart-capital-status');
+ if(capStatus)capStatus.textContent=cap.status||'OpenDART 배당·자기주식 공시 확인 전 · 기존 재무 기록 유지';
+ const capRecords=safeArr(cap.observations).slice().sort((a,b)=>
+   String(b.period||'').localeCompare(String(a.period||'')));
+ const treasury=capRecords.filter(x=>x.type==='treasury_total'&&num(x.value)!=null);
+ const byPeriod={};
+ for(const item of treasury){
+   if(!byPeriod[item.period])byPeriod[item.period]=[];
+   byPeriod[item.period].push(item);
+ }
+ const periods=Object.keys(byPeriod).sort();
+ const treasurySeries=periods.map(p=>{
+   const items=byPeriod[p];
+   // Different reported totals must not be arbitrarily combined.
+   const unique=[...new Set(items.map(x=>Number(x.value)))];
+   return unique.length===1?unique[0]:null;
+ });
+ chart('chart-dart-treasury',periods,[{
+   label:'공시상 보통주 자기주식 기말 수량 (주)',
+   values:treasurySeries,color:C.teal
+ }],{decimals:0,legend:true});
+ const capitalBody=$('dart-capital-rows');
+ if(capitalBody){
+  const rows=capRecords.filter(x=>x.type==='treasury_total'||
+      (x.type==='dividend'&&/배당|주당|현금/i.test(x.metric||''))).slice(0,45);
+  capitalBody.innerHTML=rows.length?rows.map(x=>{
+    const valid=typeof x.source_url==='string'&&
+      /^https:\/\/dart\.fss\.or\.kr\/dsaf001\/main\.do\?rcpNo=\d{14}$/.test(x.source_url);
+    const type=x.type==='treasury_total'?'자기주식 기말 수량':x.metric;
+    const stock=x.stock_type||'주식 종류 미확인';
+    return '<tr><td>'+escapeHtml(x.period||'')+'</td>'+
+     '<td>'+escapeHtml(type||'')+'</td>'+
+     '<td>'+escapeHtml(stock)+'</td>'+
+     '<td>'+fmt(x.value,0)+(x.type==='treasury_total'?'주':' (공시 단위)')+'</td>'+
+     '<td>'+(valid?'<a href="'+x.source_url+
+         '" target="_blank" rel="noopener noreferrer">원문</a>':'확인 전')+'</td></tr>';
+  }).join(''):
+  '<tr><td colspan="5">검증된 배당·자기주식 공시 자료가 아직 없습니다.</td></tr>';
+ }
+
 }
 
 global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses,renderRetail};
