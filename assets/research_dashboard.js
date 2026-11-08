@@ -21,9 +21,15 @@ function renderTrends(ctx){
    return;
  }
  const list=safeArr(d.alerts);
- if(count)count.textContent='분석 '+fmt(d.evaluated_pairs)+'개 키워드 조합 · 감지 '+list.length+'개';
+ // Show at most two strongest signals per country to prioritize geographic spread.
+ const countries={};
+ const featured=list.filter(x=>{
+  countries[x.country]=(countries[x.country]||0)+1;
+  return countries[x.country]<=2;
+ }).slice(0,12);
+ if(count)count.textContent='분석 '+fmt(d.evaluated_pairs)+'개 키워드 조합 · 감지 '+list.length+'개 · 국가별 대표 최대 2개';
  if(note)note.textContent='판정 기준: 최근 평균이 기준기간보다 8p 이상 및 상승 +35%/하락 -30% 이상, 변동성·지속성 필터 통과. '+(d.source_note||'검색 관심도는 실제 판매량이 아닙니다.');
- e.innerHTML=list.length?list.slice(0,12).map(x=>
+ e.innerHTML=featured.length?featured.map(x=>
    '<button type="button" class="trend-alert" data-trend-country="'+escapeHtml(x.country||'')+'">'+
    '<span class="trend-alert-heading"><b>'+escapeHtml(x.country_name||x.country)+' · '+escapeHtml(x.keyword||'')+'</b><em class="'+(x.direction==='관심도 상승'?'trend-up':'trend-down')+'">'+escapeHtml(x.direction||'')+'</em></span>'+
    '<span class="trend-alert-values">기준 '+asNum(x.baseline_avg,fmt,1)+' → 최근 '+asNum(x.recent_avg,fmt,1)+' / 100 · 변화 '+(num(x.change_pct)!=null&&x.change_pct>0?'+':'')+asNum(x.change_pct,fmt,1)+'% · '+escapeHtml(x.asof||'')+'</span>'+
@@ -185,7 +191,7 @@ function renderTheses(ctx){
    const stale=x.retailer==='target'&&x.metric==='zero_pore_pad_bought_lower';
    const verified=x.eligible_for_trend!==false&&!stale;
    return '<div class="off-signal"><strong>'+escapeHtml(x.label||x.metric)+'</strong>'+
-     '<span>'+escapeHtml(x.display||String(x.value))+'</span>'+
+     '<span>'+escapeHtml(verified?(x.display||String(x.value)):'검증 제외')+'</span>'+
      '<small>'+escapeHtml(x.retailer||'')+' · '+escapeHtml(x.date||'')+
        (verified?' · 확인된 화면 관측':' · 품목 연계 미확인/추이 제외')+'</small>'+
      '<p>'+escapeHtml(x.scope||'')+'</p></div>';
