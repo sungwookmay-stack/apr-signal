@@ -1,0 +1,149 @@
+/* APR SIGNAL | Independent research dashboard
+   Visual direction: APR Corp. corporate identity (black/white, APR red #E6002A),
+   without reproducing its logos, icons, photography, or copyrighted layout.
+   Strong data hierarchy, white editorial surfaces, very limited red accents.
+*/
+:root{
+ --apr-red:#e6002a;
+ --apr-red-dark:#be0023;
+ --apr-black:#161719;
+ --apr-ink:#222328;
+ --apr-muted:#777a81;
+ --apr-surface:#fff;
+ --apr-page:#f8f8f9;
+ --apr-line:#e9e9ec;
+ --ink:#232428;--navy:#202124;--teal:#e6002a;--muted:#797d84;
+ --bg:#f8f8f9;--border:#e9e9ec;--card:#fff;
+ --good:#148b65;--bad:#c04e42;--warn:#bb8741;--purple:#766780;
+}
+body{background:var(--apr-page);color:var(--apr-ink);font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Apple SD Gothic Neo","Noto Sans KR","Segoe UI",sans-serif;letter-spacing:-.035em;line-height:1.62}
+a:hover{color:var(--apr-red)}
+.shell{grid-template-columns:247px minmax(0,1fr)}
+.rail{background:#fff;color:var(--apr-ink);border-right:1px solid var(--apr-line);padding:30px 18px 21px}
+.identity{margin:0 4px 55px;gap:13px;color:#1b1c1f}
+.logo{border:3px solid var(--apr-red);color:var(--apr-red);background:white;width:43px;height:43px;border-radius:50%;font-size:26px;box-shadow:inset 0 0 0 4px white,0 0 0 2px rgba(230,0,42,.14);font-weight:840;letter-spacing:-.1em}
+.logo span{color:var(--apr-red)}
+.identity strong{font-size:17px;letter-spacing:-.02em;font-weight:800}
+.identity small{font-size:8px;color:#8e9095;letter-spacing:.14em;font-weight:680;margin-top:3px}
+.rail-caption{color:#a1a2a8;letter-spacing:.11em;font-size:9px;margin-bottom:9px;padding-left:17px}
+.rail-nav{gap:4px}
+.navitem{color:#62656c;padding:12px 16px;gap:10px;border-radius:7px;font-size:12.5px;font-weight:630;min-height:43px;position:relative}
+.navitem .bullet{width:5px;height:5px;border-radius:50%;border-color:#c9cbd0}
+.navitem.active,.navitem:hover{background:#fbf2f4;color:#b90021}
+.navitem.active:before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;background:var(--apr-red);border-radius:3px}
+.navitem.active .bullet{background:var(--apr-red);border-color:var(--apr-red)}
+.rail-bottom{border-top:1px solid var(--apr-line);color:#777a80;padding-left:14px;font-size:10px}
+.rail-bottom small{color:#aaabb0}
+.rail-dot,.live-circle{background:var(--apr-red)}
+.workspace{background:var(--apr-page)}
+.topline{height:76px;background:#fff;border-bottom:1px solid var(--apr-line)}
+.top-caption{color:#8f9095;letter-spacing:.09em}
+.top-caption.strong{color:#25262a}
+.top-sep{color:#d4d4d7}
+.updated{color:#91949a}
+main{padding-top:52px;max-width:1500px}
+.intro{padding-bottom:36px}
+.intro.compact{padding-bottom:32px}
+.eyebrow{color:var(--apr-red);letter-spacing:.16em;font-size:10px;font-weight:820;margin-bottom:12px}
+h1{font-size:clamp(35px,4.3vw,55px);font-weight:770;letter-spacing:-.077em;line-height:1.14}
+h1 em{color:var(--apr-red)}
+.lead{color:#74767e;line-height:1.92;max-width:780px;font-size:13px}
+.section-title{margin:39px 0 15px}
+.section-title h2{font-size:22px;font-weight:790;color:#25262a}
+.section-title span{font-size:11px;color:#898b91;line-height:1.7}
+.metrics{gap:12px}
+.metric{border:1px solid var(--apr-line);border-radius:9px;min-height:127px;padding:20px 20px 18px;box-shadow:0 3px 14px rgba(23,24,27,.018)}
+.metric:before{background:#c0c1c6;width:19px;height:2px;left:19px;top:0}
+.metric.accent:before{background:var(--apr-red);width:36px;height:3px}
+.metric small{color:#777a80;font-weight:650;font-size:10.5px}
+.metric b{color:#26272b;font-weight:800}
+.metric.accent b{color:#cb0027}
+.metric p{color:#91939a}
+.panel{border:1px solid var(--apr-line);border-radius:9px;box-shadow:0 3px 13px rgba(27,27,29,.015)}
+.panel-top strong{color:#27282b;font-size:13px;font-weight:750}
+.panel-top small,.data-label{color:#85878d;font-size:10.5px}
+.graph{height:335px}
+.graph.small{height:270px}
+.padded{padding:26px}
+.padded h3{color:#26282c}
+.notice-line,.sec-scope-note{background:#fafafa;border:1px solid #ececef;color:#686b72;border-radius:8px}
+.input{border-color:#dadbdf;border-radius:6px;color:#2a2b30;outline-color:#c60028;font-weight:630;min-height:40px}
+.input:focus-visible,.minor-button:focus-visible{outline:2px solid #e6002a;outline-offset:2px}
+.minor-button{color:#303238;background:#fff;border-radius:6px}
+.minor-button:hover{background:#fcf1f3;color:var(--apr-red);border-color:#e8b8c2}
+th{color:#70727a;background:#fafafa}
+td{color:#42454b}
+tbody tr:hover td{background:#fdfbfc}
+.legend{color:#7b7e85}
+.blankmini,.blank{color:#999ca2}
+.risk-panel,.etf-ribbon{background:#242428;border-radius:9px}
+.risk-panel .eyebrow{color:#ff6b85}
+.risk-panel p:not(.eyebrow),.risk-value span,.risk-value small{color:#bdc0c5}
+.ribbon-symbol{color:#ff6582;border-right-color:#5a5b60}
+.ribbon-status{color:#ffe8ed;border-color:#9a505f}
+.panel-links,.panel-links a,.event a,.retailer a,.sec-filing>a,
+.sec-brief-card .sec-implication strong,.fin-valuation-note a{color:var(--apr-red)}
+.retailer{border-radius:9px}
+.retailer a,.news-article-link,.freight-official-link,.sec-filing>a{color:#cc0026}
+.source-links a{background:#fff4f6;color:#bb0022;border-color:#f0d8dd;border-radius:6px}
+.news-card{border-radius:9px}
+.event:before{background:var(--apr-red);box-shadow:0 0 0 4px #fff1f4}
+.timeline{border-left-color:#f1c6d0}
+.sec-status-row>div{background:#fcfbfb}
+.sec-brief-card,.sec-filing{border-radius:8px}
+.sec-brief-card h4,.sec-filing>strong{color:#27282c}
+.sec-watch-row strong{color:#303238}
+.thesis-card{border-radius:9px}
+.thesis-head h3{color:#25262b}
+.thesis-head small{color:#ce0025}
+.thesis-status{color:#868991}
+.thesis-line{background:#fcfcfd;border-color:#ececef}
+.thesis-line strong{color:#42434a}
+.thesis-line span{color:#c30024}
+.fin-table-scroll{border:1px solid #ececef;border-radius:8px}
+.fin-matrix th{background:#fbfbfb}
+.fin-matrix tbody tr:hover{background:#fff8f9}
+.trend-alert{border-radius:8px}
+.trend-alert:hover{background:#fffbfc;border-color:#edced4}
+.trend-alert-heading b{color:#27282d}
+.trend-up{color:#0e9772}
+.trend-down{color:#c8444a}
+.off-signal{border-radius:8px}
+.off-signal strong{color:#45474d}
+.off-signal span{color:#b80023}
+.latam-country{border-radius:8px}
+.latam-country strong{color:#292b30}
+.latam-country[aria-pressed="true"]{border-color:#e6002a;background:#fff6f7}
+.latam-country:focus-visible{outline-color:var(--apr-red)}
+.trend-alert:focus-visible{outline-color:var(--apr-red)}
+.footer{border-top-color:var(--apr-line)}
+@media(max-width:1200px){
+ .shell{grid-template-columns:223px minmax(0,1fr)}
+ .rail{width:223px;padding-left:12px;padding-right:12px}
+}
+@media(max-width:820px){
+ .shell{display:block}
+ .rail{display:none}
+ .mobile-head{background:#fff;color:#25262a;border-bottom:1px solid #eeeef0;height:62px}
+ .mobile-brand{font-size:17px;letter-spacing:-.035em}
+ .mobile-brand span{color:var(--apr-red)}
+ .mobile-head-right{color:#77797f}
+ .mobile-nav{background:#fff;border-bottom:1px solid #eeeef0;box-shadow:none}
+ .mobile-nav a{color:#696b73;font-weight:650}
+ .mobile-nav a.active{color:var(--apr-red);border-bottom-color:var(--apr-red)}
+ main{padding-top:28px}
+ .intro.compact{padding-bottom:21px}
+ .topline{height:52px}
+}
+@media(max-width:560px){
+ h1{font-size:clamp(31px,8.1vw,40px)}
+ .section-title{margin-top:31px}
+ .section-title h2{font-size:19px}
+ .metric{padding:17px 15px;min-height:120px}
+ .metric b{font-size:22px}
+ .padded{padding:20px}
+ .graph{height:290px}
+ .graph.small{height:240px}
+ .topline{padding-inline:17px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
