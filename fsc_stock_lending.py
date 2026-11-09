@@ -186,3 +186,49 @@ def collect(price_rows,previous_rows=None,key=None,http=None,max_days=8):
         "source_url":SERVICE_PAGE,
         "license":"KOGL_type2_source_attribution_noncommercial"
     }
+
+
+def update():
+    """Independent cheap 16:00 KST FSC-only refresh; no KIS/pykrx call."""
+    from flows_engine import evaluate
+    base=Path(__file__).resolve().parent/"data"
+    def read(name):
+        try:return json.loads((base/name).read_text(encoding="utf-8"))
+        except (OSError,ValueError):return {}
+    current=read("flows.json")
+    market=read("market.json")
+    prices=market.get("series") or []
+    if not prices:
+        return {"status":"no_prices"}
+    old=current.get("lending_daily") or []
+    latest,meta=collect(prices,old)
+    allrows={r["date"]:dict(r) for r in old if r.get("date")}
+    for item in latest:
+        prev=allrows.get(item["date"],{})
+        allrows[item["date"]]={
+            **prev,**{k:v for k,v in item.items() if v is not None}}
+    lending=[allrows[d] for d in sorted(allrows)][-400:]
+    tech=read("technical.json")
+    analysis=evaluate(prices,current.get("daily") or [],
+                      current.get("short_daily") or [],
+                      lending,tech.get("series") or [])
+    status=current.get("data_status") or {}
+    status["fsc_stock_lending_key_configured"]=bool(os.getenv(
+        "FSC_STOCK_LENDING_API_KEY"))
+    status["fsc_lending_status"]=meta.get("status")
+    status["fsc_lending_result"]=meta
+    record={**current,**analysis,"lending_daily":lending,
+            "data_status":status}
+    (base/"flows.json").write_text(json.dumps(
+        record,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
+    print(json.dumps({
+        "fsc_lending":meta.get("status"),
+        "observations":len(lending),
+        "latest":analysis.get("lending",{}).get("last_date"),
+        "queries":meta.get("queries"),"errors":meta.get("errors")
+    },ensure_ascii=False))
+    return meta
+
+
+if __name__=="__main__":
+    update()
