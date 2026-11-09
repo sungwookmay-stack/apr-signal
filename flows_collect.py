@@ -231,7 +231,7 @@ def read_imports(path, keys):
             if not day or not raw.get('source_url','').startswith('https://'):
                 continue
             row={'date':day,'source':raw['source_url'],
-                 'record_status':'manual_verified'}
+                 'record_status':'manual_source_linked_unverified'}
             for name in keys:
                 val=raw.get(name,'')
                 try:
