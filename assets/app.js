@@ -403,30 +403,63 @@ function previousMonth(month,offset){
 }
 function renderKitaRates(){
  const k=state.kitaRates||{}, customs=state.market?.logistics||{};
- const all=(k.sea_routes||[]).filter(x=>
-   x.origin==='Busan'&&x.destination==='Long Beach'&&x.month)
-   .slice().sort((a,b)=>a.month.localeCompare(b.month));
- const last=all.at(-1),prior=all.at(-2);
- const verified=last?.source_type?.startsWith('KITA_RADIS_')&&last?.source_url;
- chart('chart-kita-sea',all.map(x=>x.month),[
-   {label:'TEU (20피트)',values:all.map(x=>x.teu_usd),color:C.teal},
-   {label:'FEU (40피트)',values:all.map(x=>x.feu_usd),color:C.navy}
- ],{legend:true,decimals:0});
- set('kita-feu',last?.feu_usd!=null?'$'+fmt(last.feu_usd):'—');
- set('kita-teu',last?.teu_usd!=null?'$'+fmt(last.teu_usd):'—');
- set('kita-feu-mom',last&&prior&&prior.feu_usd>0?
-    signed(pct(last.feu_usd,prior.feu_usd)):'—');
- set('kita-asof','KITA 최근 관측 월 '+(last?.month||'미수집')+
-   ' · 시장 조사 참고운임 (USD / TEU·FEU), 매월 첫째 주 갱신');
- set('kita-lead-lag','현재 확인자료 KITA '+(last?.month||'미수집')+
-    ' / 관세청 '+(customs.last_verified_month||'미수집')+
-    ' · 서로 다른 모집단·단위로 직접 가격 비교하지 않음');
- set('kita-quality',verified?
-    '출처: KITA RADIS 공식 공개표 · 검증 스냅샷 '+(last.verified_on||k.verified_snapshot_date||'미확인')+
-    (k.latest_access_ok===false?' · 최근 자동 접근 실패: 이전 실측 유지':
-      k.latest_access_ok===true?' · 공식 페이지 자동 수집 성공':' · 실시간 자동 재조회 전')+
-    ' · 확인한 항로는 부산→롱비치만, 항공 기준 선택은 결과 미확인':
-    'KITA 운임 미수집 · 원문 링크에서 확인 바랍니다');
+ const all=(k.sea_routes||[]).filter(r=>r?.origin==='Busan'&&r.month&&
+      ['Long Beach','New York'].includes(r.destination));
+ const west=all.filter(r=>r.destination==='Long Beach').slice().sort((a,b)=>a.month.localeCompare(b.month));
+ const east=all.filter(r=>r.destination==='New York').slice().sort((a,b)=>a.month.localeCompare(b.month));
+ const lastW=west.at(-1),previousW=west.at(-2);
+ const lastE=east.at(-1),previousE=east.at(-2);
+ const commonMonths=[...new Set(all.map(r=>r.month))].sort();
+ const wm=new Map(west.map(r=>[r.month,r]));
+ const em=new Map(east.map(r=>[r.month,r]));
+ chart('chart-kita-sea',commonMonths,[
+    {label:'미국 서안 · 롱비치 FEU',values:commonMonths.map(m=>wm.get(m)?.feu_usd??null),color:C.navy},
+    {label:'미국 동안 · 뉴욕 FEU',values:commonMonths.map(m=>em.get(m)?.feu_usd??null),color:C.teal}
+ ],{legend:true,decimals:0,xticks:10});
+ const eastDirect=lastE?.source_type==='KITA_RADIS_PUBLIC_HTML'||
+      lastE?.source_type==='KITA_RADIS_OFFICIAL_BULLETIN';
+ const sameMonth=lastW&&lastE&&lastW.month===lastE.month;
+ set('kita-feu',lastW?.feu_usd!=null?'$'+fmt(lastW.feu_usd):'—');
+ set('kita-east-feu',lastE?.feu_usd!=null?'$'+fmt(lastE.feu_usd):'—');
+ set('kita-feu-mom',lastW&&previousW&&previousW.month===previousMonth(lastW.month,1)
+   ?signed(pct(lastW.feu_usd,previousW.feu_usd))+' 전월대비':'전월 비교월 미확인');
+ set('kita-east-mom',lastE&&previousE&&previousE.month===previousMonth(lastE.month,1)
+   ?signed(pct(lastE.feu_usd,previousE.feu_usd))+' 전월대비':'전월 비교월 미확인');
+ set('kita-spread',sameMonth?'$'+fmt(lastE.feu_usd-lastW.feu_usd):'—');
+ set('kita-teu',lastW?.teu_usd!=null?'$'+fmt(lastW.teu_usd):'—');
+ set('kita-asof','KITA 미 서안 '+(lastW?.month||'미수집')+
+     ' / 미 동안 '+(lastE?.month||'미수집')+
+     ' · 시장참고 USD/FEU, 공시 조건·할증료에 유의');
+ set('kita-lead-lag','관세청 후행 운송비용 기준월 '+
+      (customs.last_verified_month||'미수집')+
+      ' · KITA 시장 참고운임은 APR 계약운임 또는 관세청 신고평균과 다름');
+ const sourceName=r=>r?.source_type==='KITA_RADIS_PUBLIC_HTML'||
+      r?.source_type==='KITA_RADIS_OFFICIAL_BULLETIN'?'KITA 직접 확인':
+      r?.source_type?.includes('SECONDARY')?'2차 출처 · KITA 인용':'기존 확인 스냅샷';
+ const makeRow=(r,prev,reg,port)=>{
+   if(!r)return '<tr><td>'+reg+'</td><td>'+port+'</td><td colspan="4">공식 기록 없음</td></tr>';
+   const mom=prev&&prev.month===previousMonth(r.month,1)?signed(pct(r.feu_usd,prev.feu_usd)):'—';
+   return '<tr><td>'+reg+'</td><td>'+port+'</td><td>'+escapeHtml(r.month)+
+      '</td><td>$'+fmt(r.feu_usd)+'</td><td>'+mom+'</td><td><a href="'+
+      validLink(r.source_url||k.sea_source_url)+'" target="_blank" rel="noopener noreferrer">'+
+      escapeHtml(sourceName(r))+' ↗</a></td></tr>';
+ };
+ const tb=$('kita-route-table');
+ if(tb)tb.innerHTML=makeRow(lastW,previousW,'미국 서안','롱비치')+
+                      makeRow(lastE,previousE,'미국 동안','뉴욕');
+ const wcount=west.filter(r=>r.source_type==='KITA_RADIS_PUBLIC_HTML'||
+                            r.source_type==='KITA_RADIS_OFFICIAL_BULLETIN').length;
+ const ecount=east.filter(r=>r.source_type==='KITA_RADIS_PUBLIC_HTML'||
+                            r.source_type==='KITA_RADIS_OFFICIAL_BULLETIN').length;
+ const secondary=east.filter(r=>r.source_type?.includes('SECONDARY')).length;
+ set('kita-quality','서안 KITA 직접 조회 '+wcount+'개월 · 동안 직접 확인 '+ecount+
+   '개월 / KITA 인용 2차 출처 '+secondary+'개월. '+
+   (k.latest_access_ok===false?'최근 서안 자동 접속 실패 · 기존 실측 유지. ':'')+
+   (!eastDirect&&lastE?'동안 최신 월은 KITA 직접 확인 전 · 출처 신뢰등급이 서안과 다릅니다.':''));
+ set('kita-source-note',
+   '권역 대표항로만 비교합니다. KITA 공식 해상수출 공지 자료의 뉴욕/노퍽/서배너 값은 일부 동일하나 전국 동일 운임은 아닙니다. '+
+   '동안 '+(lastE?.month||'미수집')+' 값의 출처: '+sourceName(lastE)+
+   '. 공식 확인된 월만 역사자료로 인정하고 중간 미수집 월은 보간하지 않습니다.');
 }
 function renderLogistics(){
  renderKitaRates();
