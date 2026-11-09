@@ -12,7 +12,7 @@
     "stock_last": "2026-11-06",
     "usd_fx_last": "2026-11-06",
     "eur_fx_last": "2026-11-06",
-    "generated_at_utc": "2026-11-09T03:16:51+00:00",
+    "generated_at_utc": "2026-11-09T03:24:00+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -6430,8 +6430,25 @@
         "china": 716,
         "japan": 656,
         "vietnam": 1741,
+        "reported_mom_pct": {
+          "us_west": 16.6,
+          "us_east": 23.3,
+          "eu": -0.8,
+          "china": 2.7,
+          "japan": 4.6,
+          "vietnam": 8.0
+        },
+        "reported_yoy_pct": {
+          "us_west": -0.6,
+          "us_east": 11.6,
+          "eu": -34.5,
+          "china": 28.4,
+          "japan": -5.2,
+          "vietnam": 48.3
+        },
         "month": "2025-06",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10145684&nttSnUrl=017b2422f80aa4f518d64af965679ac9"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10145684&nttSnUrl=017b2422f80aa4f518d64af965679ac9",
+        "rate_check_complete": true
       },
       {
         "us_west": 5539,
@@ -6440,8 +6457,25 @@
         "china": 634,
         "japan": 697,
         "vietnam": 1577,
+        "reported_mom_pct": {
+          "us_west": -8.5,
+          "us_east": -4.5,
+          "eu": 6.3,
+          "china": -6.2,
+          "japan": 11.9,
+          "vietnam": -5.7
+        },
+        "reported_yoy_pct": {
+          "us_west": -25.4,
+          "us_east": -16.1,
+          "eu": -48.2,
+          "china": -8.1,
+          "japan": 1.6,
+          "vietnam": -13.1
+        },
         "month": "2025-07",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10149246&nttSnUrl=3f4ee0a9eb59169b4cf34f0e5e68c56d"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10149246&nttSnUrl=3f4ee0a9eb59169b4cf34f0e5e68c56d",
+        "rate_check_complete": true
       },
       {
         "us_west": 4989,
@@ -6450,8 +6484,25 @@
         "china": 704,
         "japan": 678,
         "vietnam": 1349,
+        "reported_mom_pct": {
+          "us_west": -5.6,
+          "us_east": -3.7,
+          "eu": -4.5,
+          "china": 20.4,
+          "japan": -3.6,
+          "vietnam": -11.6
+        },
+        "reported_yoy_pct": {
+          "us_west": -30.3,
+          "us_east": -30.4,
+          "eu": -45.1,
+          "china": -12.7,
+          "japan": 1.1,
+          "vietnam": -21.3
+        },
         "month": "2025-09",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10152047&nttSnUrl=4e3e05639139a1a8f7d29e6b2211a61c"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10152047&nttSnUrl=4e3e05639139a1a8f7d29e6b2211a61c",
+        "rate_check_complete": true
       },
       {
         "us_west": 5152,
@@ -6460,8 +6511,25 @@
         "china": 532,
         "japan": 563,
         "vietnam": 1504,
+        "reported_mom_pct": {
+          "us_west": 3.5,
+          "us_east": -2.8,
+          "eu": -11.6,
+          "china": -24.7,
+          "japan": -18.1,
+          "vietnam": 13.2
+        },
+        "reported_yoy_pct": {
+          "us_west": -23.9,
+          "us_east": -27.6,
+          "eu": -40.5,
+          "china": -27.0,
+          "japan": -13.8,
+          "vietnam": -1.3
+        },
         "month": "2025-10",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10152649&nttSnUrl=d302ddd61498f56147b3cc2e63c53c40"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10152649&nttSnUrl=d302ddd61498f56147b3cc2e63c53c40",
+        "rate_check_complete": true
       },
       {
         "us_west": 5340,
@@ -6470,8 +6538,25 @@
         "china": 515,
         "japan": 545,
         "vietnam": 1604,
+        "reported_mom_pct": {
+          "us_west": 5.7,
+          "us_east": 3.3,
+          "eu": 3.6,
+          "china": -0.3,
+          "japan": 0.2,
+          "vietnam": 10.8
+        },
+        "reported_yoy_pct": {
+          "us_west": -23.6,
+          "us_east": -31.4,
+          "eu": -36.8,
+          "china": -36.1,
+          "japan": -18.8,
+          "vietnam": 1.6
+        },
         "month": "2025-11",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10153245&nttSnUrl=fd29d22ac4a7eeb6c7828cc2a9ef1c76"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10153245&nttSnUrl=fd29d22ac4a7eeb6c7828cc2a9ef1c76",
+        "rate_check_complete": true
       },
       {
         "us_west": 5147,
@@ -6480,8 +6565,25 @@
         "china": 544,
         "japan": 670,
         "vietnam": 1501,
+        "reported_mom_pct": {
+          "us_west": -0.4,
+          "us_east": 2.2,
+          "eu": 10.2,
+          "china": 9.8,
+          "japan": 22.2,
+          "vietnam": -1.8
+        },
+        "reported_yoy_pct": {
+          "us_west": -26.1,
+          "us_east": -25.4,
+          "eu": -40.2,
+          "china": -28.3,
+          "japan": 2.6,
+          "vietnam": -15.3
+        },
         "month": "2025-12",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10153744&nttSnUrl=a00de2f6c5858bad1f61c904e6c985c0"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10153744&nttSnUrl=a00de2f6c5858bad1f61c904e6c985c0",
+        "rate_check_complete": true
       },
       {
         "us_west": 4769,
@@ -6490,8 +6592,25 @@
         "china": 676,
         "japan": 774,
         "vietnam": 1547,
+        "reported_mom_pct": {
+          "us_west": -6.1,
+          "us_east": 2.9,
+          "eu": -1.8,
+          "china": 29.0,
+          "japan": 21.9,
+          "vietnam": 6.7
+        },
+        "reported_yoy_pct": {
+          "us_west": -35.9,
+          "us_east": -31.5,
+          "eu": -31.7,
+          "china": -17.8,
+          "japan": -6.5,
+          "vietnam": -18.8
+        },
         "month": "2026-01",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10155384&nttSnUrl=32dbf92626ff0503f22d8eabdb86f919"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10155384&nttSnUrl=32dbf92626ff0503f22d8eabdb86f919",
+        "rate_check_complete": true
       },
       {
         "us_west": 5611,
@@ -6501,8 +6620,27 @@
         "china": 501,
         "japan": 759,
         "vietnam": 1402,
+        "reported_mom_pct": {
+          "us_west": 24.3,
+          "us_east": 0.3,
+          "eu": 5.8,
+          "middle_east": 42.7,
+          "china": -9.4,
+          "japan": -10.1,
+          "vietnam": 6.7
+        },
+        "reported_yoy_pct": {
+          "us_west": 1.7,
+          "us_east": -12.9,
+          "eu": -20.3,
+          "middle_east": 40.5,
+          "china": -38.4,
+          "japan": 3.3,
+          "vietnam": -15.9
+        },
         "month": "2026-03",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10161406&nttSnUrl=a9b44ec42b1e74b12d0e7e51e15fd3e7"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10161406&nttSnUrl=a9b44ec42b1e74b12d0e7e51e15fd3e7",
+        "rate_check_complete": true
       },
       {
         "us_west": 5053,
@@ -6512,8 +6650,27 @@
         "china": 702,
         "japan": 765,
         "vietnam": 1709,
+        "reported_mom_pct": {
+          "us_west": -9.2,
+          "us_east": -1.4,
+          "eu": 9.1,
+          "middle_east": 22.8,
+          "china": 40.9,
+          "japan": 0.1,
+          "vietnam": 23.1
+        },
+        "reported_yoy_pct": {
+          "us_west": -12.0,
+          "us_east": -7.8,
+          "eu": -5.2,
+          "middle_east": 73.2,
+          "china": -1.2,
+          "japan": 8.0,
+          "vietnam": -0.2
+        },
         "month": "2026-04",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10164145&nttSnUrl=a339ef9693d02f8149fabbcaadc1ecbe"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10164145&nttSnUrl=a339ef9693d02f8149fabbcaadc1ecbe",
+        "rate_check_complete": true
       },
       {
         "us_west": 5432,
@@ -6523,8 +6680,27 @@
         "china": 623,
         "japan": 738,
         "vietnam": 1737,
+        "reported_mom_pct": {
+          "us_west": 10.1,
+          "us_east": 9.9,
+          "eu": 1.3,
+          "middle_east": 4.9,
+          "china": -6.7,
+          "japan": 0.6,
+          "vietnam": -0.1
+        },
+        "reported_yoy_pct": {
+          "us_west": 1.7,
+          "us_east": 3.1,
+          "eu": -2.4,
+          "middle_east": 100.2,
+          "china": -10.8,
+          "japan": 16.2,
+          "vietnam": 5.3
+        },
         "month": "2026-05",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10166825&nttSnUrl=7165f29308d85363e87120ca30b47f4c"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10166825&nttSnUrl=7165f29308d85363e87120ca30b47f4c",
+        "rate_check_complete": true
       },
       {
         "us_west": 7866,
@@ -6534,8 +6710,27 @@
         "china": 683,
         "japan": 681,
         "vietnam": 1695,
+        "reported_mom_pct": {
+          "us_west": 45.5,
+          "us_east": 26.6,
+          "eu": 17.4,
+          "middle_east": 15.1,
+          "china": 13.1,
+          "japan": -4.2,
+          "vietnam": -0.7
+        },
+        "reported_yoy_pct": {
+          "us_west": 30.0,
+          "us_east": 6.2,
+          "eu": 12.7,
+          "middle_east": 123.9,
+          "china": 1.2,
+          "japan": 9.5,
+          "vietnam": 0.9
+        },
         "month": "2026-06",
-        "source_url": "https://www.customs.go.kr/foreign/na/ntt/selectNttInfo.do?bbsId=1362&mi=3202&nttSn=10170124&nttSnUrl=dc430818d80eca09eafad1c3858cb47e"
+        "source_url": "https://www.customs.go.kr/foreign/na/ntt/selectNttInfo.do?bbsId=1362&mi=3202&nttSn=10170124&nttSnUrl=dc430818d80eca09eafad1c3858cb47e",
+        "rate_check_complete": true
       },
       {
         "us_west": 8559,
@@ -6545,8 +6740,27 @@
         "china": 859,
         "japan": 694,
         "vietnam": 1762,
+        "reported_mom_pct": {
+          "us_west": 11.1,
+          "us_east": 14.4,
+          "eu": 36.4,
+          "middle_east": 14.5,
+          "china": 26.5,
+          "japan": 0.8,
+          "vietnam": 7.1
+        },
+        "reported_yoy_pct": {
+          "us_west": 54.8,
+          "us_east": 26.9,
+          "eu": 47.0,
+          "middle_east": 123.2,
+          "china": 41.2,
+          "japan": -2.9,
+          "vietnam": 10.4
+        },
         "month": "2026-07",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10173585&nttSnUrl=623b71ead9d2c77d728a59d8fee6b3ed"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10173585&nttSnUrl=623b71ead9d2c77d728a59d8fee6b3ed",
+        "rate_check_complete": true
       },
       {
         "us_west": 8589,
@@ -6556,8 +6770,27 @@
         "china": 652,
         "japan": 662,
         "vietnam": 1558,
+        "reported_mom_pct": {
+          "us_west": 0.5,
+          "us_east": 24.8,
+          "eu": -9.4,
+          "middle_east": 1.7,
+          "china": -22.4,
+          "japan": -0.7,
+          "vietnam": -9.0
+        },
+        "reported_yoy_pct": {
+          "us_west": 59.4,
+          "us_east": 75.8,
+          "eu": 36.3,
+          "middle_east": 133.7,
+          "china": 13.8,
+          "japan": -7.9,
+          "vietnam": 0.05
+        },
         "month": "2026-08",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10176744&nttSnUrl=3d882ad4c9ae38a38038fe09e94c70bf"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10176744&nttSnUrl=3d882ad4c9ae38a38038fe09e94c70bf",
+        "rate_check_complete": true
       },
       {
         "us_west": 9511,
@@ -6567,8 +6800,27 @@
         "china": 511,
         "japan": 623,
         "vietnam": 1448,
+        "reported_mom_pct": {
+          "us_west": 12.3,
+          "us_east": -1.3,
+          "eu": 0.9,
+          "middle_east": 11.2,
+          "china": -18.7,
+          "japan": -3.2,
+          "vietnam": -4.3
+        },
+        "reported_yoy_pct": {
+          "us_west": 89.0,
+          "us_east": 72.4,
+          "eu": 47.1,
+          "middle_east": 150.5,
+          "china": -27.4,
+          "japan": -13.2,
+          "vietnam": 8.1
+        },
         "month": "2026-09",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7"
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
+        "rate_check_complete": true
       }
     ],
     "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
@@ -6577,12 +6829,12 @@
     "last_fetch_failed": false,
     "history_verified_this_run": 13,
     "history_backfill_errors": [],
-    "last_checked_at_utc": "2026-11-09T03:15:52+00:00",
+    "last_checked_at_utc": "2026-11-09T03:23:19+00:00",
     "last_fetch_errors": [],
     "unverified_months": [
       "2025-08",
       "2026-02"
     ],
-    "last_successful_check_utc": "2026-11-09T03:15:52+00:00"
+    "last_successful_check_utc": "2026-11-09T03:23:19+00:00"
   }
 }
