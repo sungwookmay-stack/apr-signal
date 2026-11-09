@@ -347,13 +347,13 @@
           <p class="lead">개인·외국인·기관·연기금 순매수의 방향과 지속성을 보고, 공매도 및 대차 신규·상환·잔고를 별도 검증합니다. 기관에는 연기금이 포함되므로 이중 합산하지 않습니다.</p>
         </div>
         <div class="panel padded flow-status">
-          <div class="section-split"><h3>APR 수급 종합 판정</h3><small>종목별 KRX 실측 기준</small></div>
+          <div class="section-split"><h3>APR 수급 종합 판정</h3><small>KRX 공개 수급·증권사 데이터 기준 / 추정금액 별도 표시</small></div>
           <h2 id="flow-total-label">일간 수급 확인 중</h2>
           <p id="flow-total-detail" class="under-note">순매수 지속성과 주가를 대조하고 있습니다.</p>
           <p id="flow-collection-status" class="flow-source-line">최근 수집 상태 확인 중</p>
           <p id="flow-price-bottom" class="under-note">기술적 바닥 분석과 연결 중</p>
         </div>
-        <div class="section-title"><div><p class="eyebrow">INVESTOR TYPES</p><h2>누적 순매수와 매집·매도 강도</h2><span>원 단위 실제 순매수 거래대금 → 억원 표시. 관측치 미확인 시 공란.</span></div></div>
+        <div class="section-title"><div><p class="eyebrow">INVESTOR TYPES</p><h2>누적 순매수와 매집·매도 강도</h2><span>KRX 공개 주수 기준 · 현금 순매수 미확인 때는 종가×주수 추정금액(≈) 표시. 미확인 시 공란.</span></div></div>
         <div class="panel padded">
           <div class="tablebox"><table aria-label="APR 투자주체별 순매수 및 수급 품질">
             <thead><tr><th>투자자</th><th>최근 5일</th><th>최근 20일</th><th>최근 60일</th><th>수급 판단</th></tr></thead>
@@ -364,11 +364,11 @@
         <div class="section-title"><div><p class="eyebrow">CUMULATIVE MONEY FLOW</p><h2>개인·외국인·기관·연기금 누적</h2></div><label for="flow-period"><span class="sr-only">수급 관찰 기간</span><select id="flow-period" class="input">
           <option value="5">최근 5거래일</option><option value="20" selected>최근 20거래일</option><option value="60">최근 60거래일</option>
         </select></label></div>
-        <div class="panel"><div class="panel-top"><strong>실제 거래일별 누적 순매수 (억원)</strong><small>일별 실측 공백은 선을 이어 그리지 않음</small></div>
+        <div class="panel"><div class="panel-top"><strong>거래일별 누적 순매수 · 실측 또는 근사 (억원)</strong><small>미확인 거래일은 0으로 채우지 않음</small></div>
           <div class="graph"><canvas id="flow-cum-chart"></canvas></div>
           <p id="flow-latest-daily" class="under-note flow-pad">최근 수급 확인 중</p>
         </div>
-        <div class="section-title"><div><p class="eyebrow">CROSS-CHECK</p><h2>공식 수집 전 외부 참고 요약</h2></div></div>
+        <div class="section-title"><div><p class="eyebrow">CROSS-CHECK</p><h2>별도 출처의 외부 참고 요약</h2></div></div>
         <div class="panel padded" id="flow-external-reference">
           <p class="under-note">검증된 출처가 있는 2차 집계만 참고 표시합니다. 공식 20일 매집 판정에는 사용하지 않습니다.</p>
         </div>
@@ -404,7 +404,7 @@
           <tbody id="flow-daily-body"><tr><td colspan="5">일별 수급 미수집</td></tr></tbody>
         </table></div>
         <div class="notice-line">
-          <strong>해석 원칙:</strong> 연기금은 기관 합계의 부분집합입니다. KRX 투자자별 거래대금과 NXT 거래 범위가 일치하는지 확인해야 하며, 단기 매수와 장기 매도는 별도로 봅니다. '매집' 판정은 규칙 기반 참고 분류이지 투자 주체의 실제 의도나 향후 수익률을 보여주는 증거는 아닙니다.
+          <strong>해석 원칙:</strong> 연기금은 기관 합계의 부분집합입니다. 네이버 KRX 공개 수급 자료에는 연기금 내역이 없어 임의로 채우지 않습니다. KRX 투자자별 거래대금과 NXT 거래 범위가 일치하는지 확인해야 하며, 단기 매수와 장기 매도는 별도로 봅니다. '매집' 판정은 규칙 기반 참고 분류이지 투자 주체의 실제 의도나 향후 수익률을 보여주는 증거는 아닙니다.
         </div>
         <div class="source-links">
           <a href="https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT023" target="_blank" rel="noopener noreferrer">KRX 투자자별 거래실적 원문 ↗</a>
