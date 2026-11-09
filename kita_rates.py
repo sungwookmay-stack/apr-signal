@@ -22,6 +22,7 @@ TARGET = ROOT / 'data' / 'kita_rates.json'
 SEA_URL = 'https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do'
 AIR_URL = 'https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do'
 SECONDARY_URL = 'https://logisight.net/rates'
+SECONDARY_LIVE_URL = 'https://logisight.net/dashboard'
 
 WEST_HISTORY = [
     ('2026-01', 2500, 3100), ('2026-02', 1450, 1850),
@@ -159,6 +160,33 @@ def parse_sea_bulletin(html, source_url):
     return result
 
 
+
+def parse_secondary_east(html):
+    """Best-effort parse of labelled KITA *citation* from a third-party page.
+
+    This is strictly lower-provenance than the KITA official data. Keep only
+    a dated New York FEU reference; TEU is unknown, never derived from FEU.
+    """
+    cleaned=html_lib.unescape(re.sub(
+        r'(?is)<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>',
+        ' ', html))
+    plain=re.sub(r'\s+', ' ', re.sub(r'(?s)<[^>]*>', ' ', cleaned))
+    if 'KITA' not in plain or '해상' not in plain:
+        return None
+    match=re.search(
+        r'부산\s*→\s*뉴욕\s*\$\s*([\d,]+)\s*/\s*FEU'
+        r'.{0,100}?(20\d{2}-(?:0[1-9]|1[0-2]))',
+        plain)
+    if not match:
+        return None
+    feu=int(match.group(1).replace(',',''))
+    month=match.group(2)
+    if month>dt.date.today().strftime('%Y-%m'):
+        return None
+    return _rate_record(month,'New York',None,feu,SECONDARY_LIVE_URL,
+        'KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY',
+        dt.date.today().isoformat())
+
 def _seed():
     west = [_rate_record(m,'Long Beach',teu,feu,SEA_URL,
                         'KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09','2026-11-09')
@@ -186,7 +214,8 @@ def _sort_key(row):
     return (row['month'], 1 if row['destination']=='Long Beach' else 0)
 
 
-def update(output=TARGET, fetch_html=None, fetch_bulletin=None):
+def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
+           fetch_secondary=None):
     """Fetch latest KITA public table + dated East official bulletins as needed.
 
     Optional, separately sourced 2026 Sep/Oct East figures remain clearly
@@ -212,6 +241,7 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None):
     errors=[]
     west_access=False
     live_east=False
+    live_collection = fetch_html is None
     fetch_html=fetch_html or (lambda: _fetch(SEA_URL))
     try:
         parsed=parse_sea_rates(fetch_html())
@@ -241,6 +271,26 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None):
                     official_backfilled+=1
         except Exception as exc:
             errors.append(month+' 공식 보도자료: '+type(exc).__name__)
+    # The optional third-party reference is never presented as a KITA
+    # confirmed market quote. It gives a new-month signal while the KITA
+    # direct New York destination selector is not supported by this scraper.
+    secondary_ok=None
+    if fetch_secondary is None and live_collection:
+        fetch_secondary=lambda: _fetch(SECONDARY_LIVE_URL)
+    if fetch_secondary is not None:
+        try:
+            second=parse_secondary_east(fetch_secondary())
+            if not second:
+                raise ValueError('Dated KITA-citing New York FEU row absent')
+            key=(second['month'],'New York')
+            existing=rows.get(key,{})
+            if not (existing.get('source_type') in
+                    ('KITA_RADIS_OFFICIAL_BULLETIN','KITA_RADIS_PUBLIC_HTML')):
+                rows[key]=second
+            secondary_ok=True
+        except Exception as exc:
+            secondary_ok=False
+            errors.append('미 동안 2차 공개자료: '+type(exc).__name__)
     records=sorted(rows.values(),key=_sort_key)
     west=[r for r in records if r['destination']=='Long Beach']
     east=[r for r in records if r['destination']=='New York']
@@ -260,7 +310,9 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None):
         'east_latest_primary_verified':bool(
             east_latest.get('source_type','').startswith('KITA_RADIS_OFFICIAL_') or
             east_latest.get('source_type')=='KITA_RADIS_PUBLIC_HTML'),
-        'east_auto_updated':live_east or official_backfilled>0,
+        'east_auto_updated':live_east or official_backfilled>0 or secondary_ok is True,
+        'east_secondary_access_ok':secondary_ok,
+        'east_secondary_url':SECONDARY_LIVE_URL,
         'east_note':'최근 2026-09/10 뉴욕값은 KITA 인용 제3자 2차 출처이며 공식 항로별 조회 대조 전. 공란은 보간하지 않음.',
         'air_routes':old.get('air_routes',[]) if isinstance(old,dict) else [],
         'air_status':'KITA 항공 수출 기본 선택은 실측 확인 전 (기존 정책 유지)',
