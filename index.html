@@ -222,10 +222,34 @@
         <div class="panel"><div class="panel-top"><strong>북미·유럽·아시아·국내 및 기타</strong><span class="data-label">QoQ 분기별 증감</span></div><div class="graph"><canvas id="chart-region"></canvas></div></div>
         <div class="grid two"><div class="panel padded"><h3>오프라인 비중과 매출 변화</h3><div id="offline-table"></div><p class="under-note">지역별 오프라인 비중의 분모와 전사 B2B 비중의 분모는 다릅니다.</p></div><div class="panel padded"><h3>다음 분기 확인할 비용률</h3><div class="cost-list"><div><span>판매수수료 / 매출</span><b>중요</b></div><div><span>광고선전비 / 매출</span><b>중요</b></div><div><span>운반비 + 원가 속 국제운송비</span><b>중요</b></div><div><span>환율 제거 후 OPM</span><b>비교</b></div><div><span>재고 회전율·오프라인 재주문</span><b>확인</b></div></div></div></div>
         <div class="section-title"><div><p class="eyebrow">FREIGHT COST</p><h2>해상·항공운임 관찰</h2></div></div>
-        <div class="grid two"><div class="panel"><div class="panel-top"><strong>해상수출 평균 운송비용</strong><small>관세청 · 월간 후행지표</small></div><div class="graph small"><canvas id="chart-sea"></canvas></div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>해상수출 평균 운송비용</strong><label for="freight-group"><span class="sr-only">항로 구분</span><select id="freight-group" class="input"><option value="long">장거리 · 미국/유럽/중동</option><option value="near">단거리 · 중국/일본/베트남</option></select></label></div><div class="graph small"><canvas id="chart-sea"></canvas></div>
      <p class="freight-asof" id="freight-asof">공식 운송비용 통계의 발표 기준월 확인 중</p>
      <p class="freight-asof">운임 외 할증료·수수료를 포함한 신고수리일 기준 평균 비용으로, 실시간 컨테이너 운임지수나 에이피알 실제 계약 운임이 아닙니다.</p>
      <a class="freight-official-link" id="freight-source-url" href="https://www.customs.go.kr/kcs/na/ntt/selectNttList.do?bbsId=1362&amp;mi=2891" target="_blank" rel="noopener noreferrer">관세청 공식 발표 원문 ↗</a></div><div class="panel padded"><h3>KITA 운임 자료 바로가기</h3><p class="content-note">해상·항공 참고운임은 지역·수송중량·부대비용 기준이 다릅니다. 실제 물량 및 현지 풀필먼트 비용도 함께 고려해야 합니다.</p><div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener">KITA 해상운임 ↗</a><a href="https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do" target="_blank" rel="noopener">KITA 항공운임 ↗</a><a href="https://www.customs.go.kr/kcs/na/ntt/selectNttList.do?bbsId=1362&amp;mi=2891" target="_blank" rel="noopener">관세청 월간 운송비용 보도자료 ↗</a></div><div class="empty-inset">항공운임 자동 시계열은 공개 API 확인 전까지 미수집으로 표시합니다.</div></div></div>
+        <div class="panel padded freight-breakdown">
+          <div class="section-split"><h3>항로별 최신 해상수출 운송비용</h3><small>월별 관세청 자료 · 천원 / 2TEU</small></div>
+          <div class="tablebox"><table aria-label="공식 해상 운송비용 변동률"><thead><tr><th>항로</th><th>기준월</th><th>비용</th><th>전월대비</th><th>전년동월대비</th><th>원문</th></tr></thead><tbody id="freight-route-table"><tr><td colspan="6">관세청 자료 수집 전</td></tr></tbody></table></div>
+          <p id="freight-history-quality" class="under-note">출처 확인 상태 및 빠진 월을 확인 중입니다.</p>
+        </div>
+        <div class="panel padded freight-model">
+          <div class="section-split"><h3>APR 운반비·영업이익 민감도</h3><small>공시비용 기반 가상 시나리오</small></div>
+          <p class="under-note">APR가 공시한 전체 운반비 가운데 해상운송 관련 비중은 별도로 확인되지 않았습니다. 아래 비중·운임 상승률은 가정값이며 관세청 평균 운송비용을 실제 APR 계약운임으로 적용한 것이 아닙니다.</p>
+          <div class="freight-inputs">
+            <label for="freight-share">운반비 중 해상운송 관련 비중(가정) <output id="freight-share-value" for="freight-share">40%</output>
+              <input id="freight-share" type="range" min="0" max="100" step="5" value="40" />
+            </label>
+            <label for="freight-shock">해상운송 관련 비용 상승률(가정) <output id="freight-shock-value" for="freight-shock">20%</output>
+              <input id="freight-shock" type="range" min="0" max="100" step="5" value="20" />
+            </label>
+          </div>
+          <div class="freight-results">
+            <div><small>분기 가정상 추가 운반비</small><strong id="freight-impact-cost">—</strong></div>
+            <div><small>분기 영업이익 감소 (상쇄 전)</small><strong id="freight-impact-profit">—</strong></div>
+            <div><small>영업이익률 하락폭 (상쇄 전)</small><strong id="freight-impact-opm">—</strong></div>
+          </div>
+          <p id="freight-model-basis" class="under-note">최근 운반비가 공시된 분기의 비용을 확인 중입니다.</p>
+          <p class="under-note">계산식: 공시 운반비 × 가정한 해상 관련 비중 × 비용 상승률. 운송계약·환율·상품별 운임·비용 전가·수송시차·원가 포함 국제운임은 반영되지 않았습니다. 예측 실적이나 매매 신호가 아닙니다.</p>
+        </div>
         <div class="panel padded final-diagnostics"><div class="section-split"><h3>데이터 수집 상태</h3><small id="diagnostic-date">—</small></div><div id="diagnostic-errors" class="checks"></div></div>
       </section>
     </main>
