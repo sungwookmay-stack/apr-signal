@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-09T16:01:29+00:00",
+  "generated_at_utc": "2026-11-09T16:13:12+00:00",
   "ticker": "278470",
   "source_scope": "KRX 매매주체(기관 합계에 연기금 포함) / 별도 공매도 순보유잔고 / KSD 증권대차",
   "price_last_date": "2026-11-09",
@@ -223,7 +223,7 @@
     "unit": "KRW_ESTIMATED_NOT_ACTUAL",
     "amount_estimated": true,
     "amount_estimation": "individual net shares × KRX official-page close",
-    "observed_at_utc": "2026-11-09T16:01:24+00:00"
+    "observed_at_utc": "2026-11-09T16:11:59+00:00"
   },
   "short": {
     "last_date": null,
@@ -234,9 +234,19 @@
     "note": "공매도 거래비중과 순보유잔고는 별개; 순보유잔고는 T+2 신고 지연"
   },
   "lending": {
-    "last_date": null,
-    "latest": null,
-    "balance_change": null,
+    "last_date": "2026-11-06",
+    "latest": {
+      "date": "2026-11-06",
+      "new_qty": 144414,
+      "returned_qty": 83187,
+      "balance_qty": 3880006,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    "balance_change": 61227,
     "note": "대차잔고 증가 ≠ 공매도 실행. 대차 상환 ≠ 숏커버 확정"
   },
   "methods": {
@@ -251,7 +261,7 @@
     "double_counting": "연기금은 기관 합계 내 포함; 외국인+기관 계산에 연기금 중복 더하지 않음"
   },
   "not_trade_advice": true,
-  "checked_at_utc": "2026-11-09T16:01:29+00:00",
+  "checked_at_utc": "2026-11-09T16:12:39+00:00",
   "data_status": {
     "krx_investor_live_ok": false,
     "kis_short_key_configured": false,
@@ -261,7 +271,17 @@
       "calls": 0
     },
     "fsc_stock_lending_key_configured": true,
-    "fsc_lending_status": "needs_endpoint_mapping",
+    "fsc_lending_status": "ok",
+    "fsc_lending_result": {
+      "status": "ok",
+      "queries": 8,
+      "rows": 7,
+      "date_last": "2026-11-06",
+      "errors": [],
+      "source_update_lag": "next_business_day_after_13_kst",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "license": "KOGL_type2_source_attribution_noncommercial"
+    },
     "kiwoom_app_configured": true,
     "kiwoom_enabled_for_host": false,
     "kiwoom_read_only_result": {
@@ -332,7 +352,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-06-30",
@@ -351,7 +371,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-01",
@@ -370,7 +390,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-02",
@@ -389,7 +409,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-03",
@@ -408,7 +428,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-06",
@@ -427,7 +447,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-07",
@@ -446,7 +466,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-08",
@@ -465,7 +485,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-09",
@@ -484,7 +504,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-10",
@@ -503,7 +523,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:29+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-13",
@@ -522,7 +542,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-14",
@@ -541,7 +561,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-15",
@@ -560,7 +580,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-16",
@@ -579,7 +599,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-20",
@@ -598,7 +618,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-21",
@@ -617,7 +637,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-22",
@@ -636,7 +656,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-23",
@@ -655,7 +675,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-24",
@@ -674,7 +694,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-27",
@@ -693,7 +713,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:28+00:00"
+      "observed_at_utc": "2026-11-09T16:12:04+00:00"
     },
     {
       "date": "2026-07-28",
@@ -712,7 +732,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-07-29",
@@ -731,7 +751,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-07-30",
@@ -750,7 +770,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-07-31",
@@ -769,7 +789,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-03",
@@ -788,7 +808,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-04",
@@ -807,7 +827,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-05",
@@ -826,7 +846,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-06",
@@ -845,7 +865,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-07",
@@ -864,7 +884,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-10",
@@ -883,7 +903,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:03+00:00"
     },
     {
       "date": "2026-08-11",
@@ -902,7 +922,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-12",
@@ -921,7 +941,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-13",
@@ -940,7 +960,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-14",
@@ -959,7 +979,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-18",
@@ -978,7 +998,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-19",
@@ -997,7 +1017,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-20",
@@ -1016,7 +1036,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-21",
@@ -1035,7 +1055,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-24",
@@ -1054,7 +1074,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-25",
@@ -1073,7 +1093,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:27+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-26",
@@ -1092,7 +1112,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-27",
@@ -1111,7 +1131,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-28",
@@ -1130,7 +1150,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-08-31",
@@ -1149,7 +1169,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-01",
@@ -1168,7 +1188,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-02",
@@ -1187,7 +1207,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-03",
@@ -1206,7 +1226,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-04",
@@ -1225,7 +1245,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-07",
@@ -1244,7 +1264,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-08",
@@ -1263,7 +1283,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:02+00:00"
     },
     {
       "date": "2026-09-09",
@@ -1282,7 +1302,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-10",
@@ -1301,7 +1321,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-11",
@@ -1320,7 +1340,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-14",
@@ -1339,7 +1359,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-15",
@@ -1358,7 +1378,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-16",
@@ -1377,7 +1397,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-17",
@@ -1396,7 +1416,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-18",
@@ -1415,7 +1435,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-21",
@@ -1434,7 +1454,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-22",
@@ -1453,7 +1473,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:26+00:00"
+      "observed_at_utc": "2026-11-09T16:12:01+00:00"
     },
     {
       "date": "2026-09-23",
@@ -1472,7 +1492,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-09-28",
@@ -1491,7 +1511,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-09-29",
@@ -1510,7 +1530,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-09-30",
@@ -1529,7 +1549,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-01",
@@ -1548,7 +1568,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-02",
@@ -1567,7 +1587,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-06",
@@ -1586,7 +1606,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-07",
@@ -1605,7 +1625,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-08",
@@ -1624,7 +1644,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-12",
@@ -1643,7 +1663,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:12:00+00:00"
     },
     {
       "date": "2026-10-13",
@@ -1662,7 +1682,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-14",
@@ -1681,7 +1701,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-15",
@@ -1700,7 +1720,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-16",
@@ -1719,7 +1739,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-19",
@@ -1738,7 +1758,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-20",
@@ -1757,7 +1777,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-21",
@@ -1776,7 +1796,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-22",
@@ -1795,7 +1815,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-23",
@@ -1814,7 +1834,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-26",
@@ -1833,7 +1853,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:25+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-27",
@@ -1852,7 +1872,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-28",
@@ -1871,7 +1891,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-29",
@@ -1890,7 +1910,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-10-30",
@@ -1909,7 +1929,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-11-02",
@@ -1928,7 +1948,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-11-03",
@@ -1947,7 +1967,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-11-04",
@@ -1966,7 +1986,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-11-05",
@@ -1985,7 +2005,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-11-06",
@@ -2004,7 +2024,7 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     },
     {
       "date": "2026-11-09",
@@ -2023,9 +2043,153 @@
       "unit": "KRW_ESTIMATED_NOT_ACTUAL",
       "amount_estimated": true,
       "amount_estimation": "individual net shares × KRX official-page close",
-      "observed_at_utc": "2026-11-09T16:01:24+00:00"
+      "observed_at_utc": "2026-11-09T16:11:59+00:00"
     }
   ],
   "short_daily": [],
-  "lending_daily": []
+  "lending_daily": [
+    {
+      "date": "2026-10-21",
+      "new_qty": 124557,
+      "returned_qty": 268508,
+      "balance_qty": 3704019,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-22",
+      "new_qty": 50259,
+      "returned_qty": 734,
+      "balance_qty": 3753544,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-23",
+      "new_qty": 299265,
+      "returned_qty": 22708,
+      "balance_qty": 4030101,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-26",
+      "new_qty": 150690,
+      "returned_qty": 148673,
+      "balance_qty": 4032118,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-27",
+      "new_qty": 57579,
+      "returned_qty": 64014,
+      "balance_qty": 4025683,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-28",
+      "new_qty": 380060,
+      "returned_qty": 475678,
+      "balance_qty": 3930065,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-29",
+      "new_qty": 33003,
+      "returned_qty": 160939,
+      "balance_qty": 3802129,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-10-30",
+      "new_qty": 390568,
+      "returned_qty": 195093,
+      "balance_qty": 3997604,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-11-02",
+      "new_qty": 52137,
+      "returned_qty": 134946,
+      "balance_qty": 3914795,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-11-03",
+      "new_qty": 262114,
+      "returned_qty": 132565,
+      "balance_qty": 4044344,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-11-04",
+      "new_qty": 116904,
+      "returned_qty": 375777,
+      "balance_qty": 3785471,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-11-05",
+      "new_qty": 176341,
+      "returned_qty": 143033,
+      "balance_qty": 3818779,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-11-06",
+      "new_qty": 144414,
+      "returned_qty": 83187,
+      "balance_qty": 3880006,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    }
+  ]
 }
