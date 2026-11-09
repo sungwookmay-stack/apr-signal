@@ -1,0 +1,52 @@
+name: temporary APR short sale public page probe
+on:
+  push:
+    branches: [probe/short-sale-public-20261110]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Public short data HTTP and table detection without credentials
+        run: |
+          python - <<'PY'
+          from urllib import request, error
+          from html.parser import HTMLParser
+          import re
+          endpoints=[
+            'https://finance.naver.com/item/short_trade.naver?code=278470',
+            'https://finance.naver.com/item/short_trade.naver?code=278470&page=2',
+            'https://finance.naver.com/sise/short_trade.naver',
+            'https://m.stock.naver.com/front-api/stock/domestic/short?code=278470',
+            'https://m.stock.naver.com/front-api/stock/domestic/shortSelling?code=278470',
+          ]
+          class P(HTMLParser):
+            def __init__(self):
+              super().__init__();self.rows=[];self.capture=False;self.current=[]
+            def handle_starttag(self,tag,attrs):
+              if tag=='tr':self.capture=True;self.current=[]
+            def handle_data(self,data):
+              if self.capture and data.strip():self.current.append(data.strip())
+            def handle_endtag(self,tag):
+              if tag=='tr' and self.capture:
+                if self.current:self.rows.append(self.current)
+                self.capture=False
+          for url in endpoints:
+            print('ENDPOINT',url.split('?')[0],flush=True)
+            req=request.Request(url,headers={
+              'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36',
+              'Accept':'text/html,application/json,*/*',
+              'Referer':'https://finance.naver.com/item/main.naver?code=278470',
+            })
+            try:
+              with request.urlopen(req,timeout=10) as res:
+                b=res.read(200000);ct=res.headers.get('Content-Type','')
+                print('HTTP',res.status,'length',len(b),'type',ct,flush=True)
+              c=b.decode('euc-kr','replace') if 'html' in ct else b.decode('utf-8','replace')
+              p=P();p.feed(c)
+              print('TABLE_ROWS',len(p.rows),'SAMPLES',p.rows[:6],flush=True)
+              print('TEXT_SAMPLE',re.sub(r'<[^>]+>',' ',c)[:440],flush=True)
+            except Exception as exc:
+              print('ERROR',type(exc).__name__,str(exc)[:130],flush=True)
+          PY
