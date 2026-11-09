@@ -1,13 +1,13 @@
 {
-  "generated_at_utc": null,
+  "generated_at_utc": "2026-11-09T11:52:21+00:00",
   "ticker": "278470",
-  "source_scope": "KRX 투자자별 수급 / 공매도 거래·순보유잔고 / KSD 대차",
-  "price_last_date": null,
+  "source_scope": "KRX 매매주체(기관 합계에 연기금 포함) / 별도 공매도 순보유잔고 / KSD 증권대차",
+  "price_last_date": "2026-11-09",
   "flow_last_date": null,
   "price_aligned": false,
   "actors": {
     "individual": {
-      "label": "실측 수집 전 · 판정 보류",
+      "label": "판정 보류 · 20거래일 미확보",
       "level": "unknown",
       "score": null,
       "windows": {
@@ -16,11 +16,11 @@
         "60": null
       },
       "reasons": [
-        "종목별 일별 수급 수집 필요"
+        "20거래일 연속 실측 부족"
       ]
     },
     "foreign": {
-      "label": "실측 수집 전 · 판정 보류",
+      "label": "판정 보류 · 20거래일 미확보",
       "level": "unknown",
       "score": null,
       "windows": {
@@ -29,11 +29,11 @@
         "60": null
       },
       "reasons": [
-        "종목별 일별 수급 수집 필요"
+        "20거래일 연속 실측 부족"
       ]
     },
     "institution": {
-      "label": "실측 수집 전 · 판정 보류",
+      "label": "판정 보류 · 20거래일 미확보",
       "level": "unknown",
       "score": null,
       "windows": {
@@ -42,11 +42,11 @@
         "60": null
       },
       "reasons": [
-        "종목별 일별 수급 수집 필요"
+        "20거래일 연속 실측 부족"
       ]
     },
     "pension": {
-      "label": "실측 수집 전 · 판정 보류",
+      "label": "판정 보류 · 20거래일 미확보",
       "level": "unknown",
       "score": null,
       "windows": {
@@ -55,14 +55,14 @@
         "60": null
       },
       "reasons": [
-        "종목별 일별 수급 수집 필요"
+        "20거래일 연속 실측 부족"
       ]
     }
   },
   "combined": {
     "label": "종합 수급 판정 보류",
     "level": "unknown",
-    "detail": "공식 종목별 5·20거래일 자료가 아직 수집되지 않았습니다."
+    "detail": "최신 주가와 수급 일자 및 5·20거래일 연속 관측 확인 필요"
   },
   "latest_daily": {},
   "short": {
@@ -70,13 +70,13 @@
     "latest": null,
     "short_ratio_mean20_pct": null,
     "ratio_points20": 0,
-    "note": "공매도 거래비중과 T+2 순보유잔고는 별개"
+    "note": "공매도 거래비중과 순보유잔고는 별개; 순보유잔고는 T+2 신고 지연"
   },
   "lending": {
     "last_date": null,
     "latest": null,
     "balance_change": null,
-    "note": "대차 상환은 공매도 숏커버 확정이 아님"
+    "note": "대차잔고 증가 ≠ 공매도 실행. 대차 상환 ≠ 숏커버 확정"
   },
   "methods": {
     "windows": [
@@ -84,10 +84,13 @@
       20,
       60
     ],
-    "double_counting": "연기금은 기관 합계에 포함됨",
-    "quality": "완전한 일별 수급 없이 판정하지 않음",
-    "normalizer": "종가×거래량 근사 거래대금"
+    "quality": "20일 실측과 5일 수급 지속성·거래대금 대비 강도·주가 동행으로 분류",
+    "normalizer": "일별 종가×거래량 근사 거래대금; 실제 KRX 거래대금 아님",
+    "alignment": "마지막 수급일과 마지막 주가일이 일치하지 않으면 종합 판정 보류",
+    "double_counting": "연기금은 기관 합계 내 포함; 외국인+기관 계산에 연기금 중복 더하지 않음"
   },
+  "not_trade_advice": true,
+  "checked_at_utc": "2026-11-09T11:52:21+00:00",
   "data_status": {
     "krx_investor_live_ok": false,
     "ksd_api_key_present": false,
@@ -97,13 +100,13 @@
     "short_source_url": "https://data.krx.co.kr/contents/MDC/STAT/srt/MDCSTAT300.jsp",
     "lending_source_url": "https://www.data.go.kr/data/15157426/openapi.do",
     "issues": [
-      "KRX 최초 수집 전",
-      "KSD_SLB_API_KEY 미등록"
+      "KRX 상세 수급: ValueError · 이전 검증값 유지",
+      "KRX 종목별 공매도/잔고: ValueError · 이전 검증값 유지",
+      "KSD_SLB_API_KEY 미등록 · 대차 신규/상환/잔고 미확인"
     ],
-    "warning": "누락 자료는 0이 아니며 기관 합계에 연기금이 포함됩니다."
+    "warning": "KRX 범위와 NXT 포함 여부·거래시간 구분을 원천 자료와 대조. 단위는 순매수 거래대금(원), 연기금은 기관 합계의 부분집합"
   },
   "daily": [],
   "short_daily": [],
-  "lending_daily": [],
-  "not_trade_advice": true
+  "lending_daily": []
 }
