@@ -1,0 +1,109 @@
+{
+  "generated_at_utc": null,
+  "ticker": "278470",
+  "source_scope": "KRX 투자자별 수급 / 공매도 거래·순보유잔고 / KSD 대차",
+  "price_last_date": null,
+  "flow_last_date": null,
+  "price_aligned": false,
+  "actors": {
+    "individual": {
+      "label": "실측 수집 전 · 판정 보류",
+      "level": "unknown",
+      "score": null,
+      "windows": {
+        "5": null,
+        "20": null,
+        "60": null
+      },
+      "reasons": [
+        "종목별 일별 수급 수집 필요"
+      ]
+    },
+    "foreign": {
+      "label": "실측 수집 전 · 판정 보류",
+      "level": "unknown",
+      "score": null,
+      "windows": {
+        "5": null,
+        "20": null,
+        "60": null
+      },
+      "reasons": [
+        "종목별 일별 수급 수집 필요"
+      ]
+    },
+    "institution": {
+      "label": "실측 수집 전 · 판정 보류",
+      "level": "unknown",
+      "score": null,
+      "windows": {
+        "5": null,
+        "20": null,
+        "60": null
+      },
+      "reasons": [
+        "종목별 일별 수급 수집 필요"
+      ]
+    },
+    "pension": {
+      "label": "실측 수집 전 · 판정 보류",
+      "level": "unknown",
+      "score": null,
+      "windows": {
+        "5": null,
+        "20": null,
+        "60": null
+      },
+      "reasons": [
+        "종목별 일별 수급 수집 필요"
+      ]
+    }
+  },
+  "combined": {
+    "label": "종합 수급 판정 보류",
+    "level": "unknown",
+    "detail": "공식 종목별 5·20거래일 자료가 아직 수집되지 않았습니다."
+  },
+  "latest_daily": {},
+  "short": {
+    "last_date": null,
+    "latest": null,
+    "short_ratio_mean20_pct": null,
+    "ratio_points20": 0,
+    "note": "공매도 거래비중과 T+2 순보유잔고는 별개"
+  },
+  "lending": {
+    "last_date": null,
+    "latest": null,
+    "balance_change": null,
+    "note": "대차 상환은 공매도 숏커버 확정이 아님"
+  },
+  "methods": {
+    "windows": [
+      5,
+      20,
+      60
+    ],
+    "double_counting": "연기금은 기관 합계에 포함됨",
+    "quality": "완전한 일별 수급 없이 판정하지 않음",
+    "normalizer": "종가×거래량 근사 거래대금"
+  },
+  "data_status": {
+    "krx_investor_live_ok": false,
+    "ksd_api_key_present": false,
+    "last_verified_flow_date": null,
+    "primary_source": "KRX detailed investor-by-security transactions",
+    "flow_source_url": "https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT023",
+    "short_source_url": "https://data.krx.co.kr/contents/MDC/STAT/srt/MDCSTAT300.jsp",
+    "lending_source_url": "https://www.data.go.kr/data/15157426/openapi.do",
+    "issues": [
+      "KRX 최초 수집 전",
+      "KSD_SLB_API_KEY 미등록"
+    ],
+    "warning": "누락 자료는 0이 아니며 기관 합계에 연기금이 포함됩니다."
+  },
+  "daily": [],
+  "short_daily": [],
+  "lending_daily": [],
+  "not_trade_advice": true
+}
