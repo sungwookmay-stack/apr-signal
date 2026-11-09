@@ -347,8 +347,8 @@ def collect():
             issues.append('Kiwoom 투자주체 수급: '+type(exc).__name__+
                           ' · 이전값 유지 (키·토큰은 공개 안 함)')
     kiwoom_short_lending_meta={
-        'short':{'status':'not_configured'},
-        'lending':{'status':'not_configured'}
+        'short':{'status':('disabled_dynamic_runner_ip' if kiwoom_key_present else 'not_configured')},
+        'lending':{'status':('disabled_dynamic_runner_ip' if kiwoom_key_present else 'not_configured')}
     }
     if kiwoom_enabled:
         try:
