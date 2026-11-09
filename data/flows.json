@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-09T12:05:36+00:00",
+  "generated_at_utc": "2026-11-09T12:14:47+00:00",
   "ticker": "278470",
   "source_scope": "KRX 매매주체(기관 합계에 연기금 포함) / 별도 공매도 순보유잔고 / KSD 증권대차",
   "price_last_date": "2026-11-09",
@@ -69,6 +69,7 @@
     "last_date": null,
     "latest": null,
     "short_ratio_mean20_pct": null,
+    "short_volume_period20_pct": null,
     "ratio_points20": 0,
     "note": "공매도 거래비중과 순보유잔고는 별개; 순보유잔고는 T+2 신고 지연"
   },
@@ -90,7 +91,7 @@
     "double_counting": "연기금은 기관 합계 내 포함; 외국인+기관 계산에 연기금 중복 더하지 않음"
   },
   "not_trade_advice": true,
-  "checked_at_utc": "2026-11-09T12:05:36+00:00",
+  "checked_at_utc": "2026-11-09T12:14:47+00:00",
   "data_status": {
     "krx_investor_live_ok": false,
     "kiwoom_app_configured": false,
@@ -98,6 +99,14 @@
       "status": "not_configured",
       "pages": 0,
       "truncated": false
+    },
+    "kiwoom_short_lending_result": {
+      "short": {
+        "status": "not_configured"
+      },
+      "lending": {
+        "status": "not_configured"
+      }
     },
     "krx_investor_mode": null,
     "krx_collection_diagnostics": {
