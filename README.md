@@ -386,6 +386,16 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - **KRX 공매도 순보유잔고:** KIS 위 API는 제공하지 않습니다. KRX Data Marketplace 공매도 순보유잔고(신고 시차·과소보고 가능성)만 별도로 확인합니다. 공매도 체결량 누적, 대차잔고, 대차상환을 순보유잔고라고 잘못 표현하지 않습니다.
 - **KIS 계정 연결:** 한국투자증권 실제 계좌의 KIS Developers에서 앱키와 앱시크릿을 발급받아 GitHub Actions > Secrets > KI-S가 아니라 **KIS_APP_KEY**와 **KIS_APP_SECRET**으로 각각 등록합니다. 키 값은 공개 코드, 데이터 JSON, 채팅에 입력하지 않습니다. 단순 KIS 시장 데이터 API만 사용하며 계좌/주문 API는 호출하지 않습니다. 실제 거래 키 기준이고 모의투자 전용 API는 지원되지 않을 수 있습니다.
 - 기존 GitHub 오전 07:30·저녁 20:30 수집에 연결되므로 집 PC, 별도 서버, 키움 고정 IP는 사용하지 않습니다. 계정 조건·실제 접근 권한은 등록 뒤 Runner에서 확인해야 합니다. KIS 키가 없거나 실패하면 이전 검증 데이터를 유지하면서 실패 상태를 표시합니다.
-- **금융위원회 주식대차정보 별도 API:** 사용자가 신청한 공공데이터포털 서비스키는 GitHub secret FSC_STOCK_LENDING_API_KEY 이름으로 넣어야 하며, KIS 공매도 API와는 서로 다른 데이터입니다. 현재 금융위 공식 서비스 Base URL은 https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2 (포털 카탈로그 15059612). 키 저장 여부만 확인하고 서비스 operation과 APR 종목별 필드 매핑은 실제 API 명세로 검증될 때까지 미연결 상태를 유지합니다. KSD_SLB_API_KEY는 KSD 별도 API에 사용하는 다른 Secret입니다.
+- **금융위원회 주식대차정보 별도 API:** 사용자가 신청한 공공데이터포털 서비스키는 GitHub secret FSC_STOCK_LENDING_API_KEY 이름으로 넣어야 하며, KIS 공매도 API와는 서로 다른 데이터입니다. 현재 금융위 공식 서비스 Base URL은 https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2 (포털 카탈로그 15059612). 공식 Swagger에서 종목별 조회 경로 getStItemLendAndBorrStatu_V2, 필터 isinCdNm, 대차체결주수/상환주수/잔여주식수 필드를 검증해 별도 수집을 연결했습니다. 다만 첫 Live 테스트는 403으로 키 활성화 또는 API 이용권한 확인이 필요합니다. 인증 실패 시 실제 대차잔고가 0이라고 표시하지 않습니다. KSD_SLB_API_KEY는 KSD 별도 API에 사용하는 다른 Secret입니다.
 - KSD·금융위 주식대차 API 자료는 공공누리 2유형(출처표시 + 비상업적 이용)이며 광고가 없는 사이트에서도 원천 출처표시와 다른 이용 조건을 따라야 합니다.
 - 테스트: tests/test_kis_short_sales.py. 5·20일 공매도 거래비중은 단기 압력 판단에 사용하되, 포지션 감소나 숏커버 확정이라고 표시하지 않습니다.
+
+
+#### 금융위원회 대차 API 연결 검증 및 상태
+- Source: https://www.data.go.kr/data/15059612/openapi.do
+- Swagger Base URL: https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2
+- Operation: GET /getStItemLendAndBorrStatu_V2
+- Required serviceKey, numOfRows, pageNo, resultType. Optional basDt, isinCdNm.
+- APR identifies ISIN KR7278470000 and name 에이피알. Source fields: lnbCclStckCnt (대차체결주수), lnbRdptStckCnt (상환주수), lnbRmanStckCnt (잔여주식수). No inference of net short positions.
+- Daily FSC update occurs next business day after 13:00 KST. Existing GitHub Actions 16:00 KST runs only FSC update and keeps morning/evening free flow refresh.
+- GitHub Actions test with registered FSC_STOCK_LENDING_API_KEY returned HTTP 403 on 2026-11-10 KST. FSC FAQ: verify approval/serviceKey or recheck after short activation interval; no key value exposed. The collector stops after the first 403, retains verified historical values, and reports authorization_denied.
