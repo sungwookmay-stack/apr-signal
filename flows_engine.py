@@ -160,7 +160,12 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
         combined20 = f20['net_krw'] + i20['net_krw']
         combined5 = f5['net_krw'] + i5['net_krw']
         if combined20 > 0 and combined5 > 0:
-            if p20 and p20['net_krw'] > 0 and all(x['level'] in ('positive','strong','watch') for x in (foreign, inst)):
+            last20_prices=prices[-20:]
+            price_confirmed=(bool(last20_prices) and
+              (num(last20_prices[-1].get('close_krw')) or 0) >=
+              (num(last20_prices[0].get('close_krw')) or float('inf')))
+            if (p20 and p20['net_krw'] > 0 and price_confirmed
+                and all(x['level'] in ('positive','strong') for x in (foreign, inst))):
                 combined = {'label': '외국인·기관 동반 매집 관찰',
                             'level': 'positive',
                             'detail': '5·20거래일 합계 순매수, 연기금 동참; 주가·거래량의 지속 확인 필요'}
