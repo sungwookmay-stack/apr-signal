@@ -43,8 +43,15 @@ def month_data(price_rows, flow_rows, actor, n):
         if v <= 0:
             break
         streak += 1
+    estimate_days=sum(bool(by_day[d].get('amount_estimated')) for d in dates)
+    quantity_values=[num(by_day[d].get(actor+'_net_qty')) for d in dates]
+    net_qty=round(sum(quantity_values)) if all(v is not None for v in quantity_values) else None
     result = {
         'net_krw': round(total),
+        'estimated_value_days':estimate_days,
+        'net_qty_shares':net_qty,
+        'value_basis':('closing_price_times_net_shares_estimate'
+                       if estimate_days else 'reported_net_trading_cash'),
         'buy_days': positive,
         'observed_days': n,
         'buy_day_ratio_pct': round(positive/n*100, 1),
@@ -124,6 +131,12 @@ def actor_quality(price_rows, flow_rows, actor, price_technical=None):
         label, level = '20일 순매수지만 단기 매도 전환', 'mixed'
     else:
         label, level = '순매수 관찰 · 확인 부족', 'watch'
+    if monthly.get('estimated_value_days',0):
+        reasons.append('비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정')
+        if level=='strong':
+            label, level = '매집 지속성 관찰 (추정 수급)', 'positive'
+        elif level=='positive':
+            label = label+' (참고 주수)'
     return {'label': label, 'level': level, 'score': score,
             'max_score': 10, 'windows': windows, 'reasons': reasons,
             'price_20d_change_pct': round((plast/pfirst-1)*100, 2) if pfirst and plast else None,
@@ -183,6 +196,15 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
                         'detail': '5·20일 주요 투자자 순매수 방향이 일치하지 않음'}
         combined['foreign_plus_inst_5d_krw'] = combined5
         combined['foreign_plus_inst_20d_krw'] = combined20
+    if any(
+        (r.get('amount_estimated') for r in valid_flows[-20:])):
+        combined['value_basis']='closing_price_times_net_shares_estimate'
+        if combined['level']=='positive':
+            combined['level']='watch'
+            combined['label']='외국인·기관 동반 매수 지속 (참고·가격 확인 필요)'
+        combined['detail']=combined.get('detail','') + (
+            ' · 순매수 금액은 Naver 공개 KRX 주수 × 당일 KRX 종가 추정치이며'
+            ' 공식 순매수 거래대금 아님. 연기금은 미공개.')
     short = sorted(short_rows or [], key=lambda x:x.get('date') or '')
     lending = sorted(lending_rows or [], key=lambda x:x.get('date') or '')
     short20 = short[-20:]
