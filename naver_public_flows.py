@@ -26,7 +26,7 @@ from urllib import parse, request
 
 URL = "https://m.stock.naver.com/front-api/stock/domestic/trend"
 SOURCE_PAGE = "https://stock.naver.com/domestic/stock/278470/investmentinfo"
-ORIGIN = "Naver Finance public investor trend (unofficial internal endpoint)"
+ORIGIN = "Naver Finance KRX investor trend (unofficial public internal endpoint)"
 TICKER = "278470"
 ACTOR_COLUMNS = {
     "foreign": ("foreignNetVolume", "foreignBuyVolume", "foreignSellVolume"),
