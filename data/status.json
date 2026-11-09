@@ -1,52 +1,28 @@
 {
-  "generated_at_utc": "2026-11-09T08:14:36+00:00",
+  "generated_at_utc": "2026-11-09T23:13:51+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-09",
   "price_coverage_start": "2025-06-02",
-  "fx_last": "2026-11-06",
+  "fx_last": "2026-11-09",
   "technical_last": "2026-11-09",
   "technical_ohlc_days": 351,
-  "kbty_status": "2026년 11월 둘째 주 상장 예정 (공식 사이트)",
-  "news_count": 52,
-  "trends_points": 12797,
-  "amazon_points": 308,
-  "beauty_leaderboard_snapshots": 71,
+  "kbty_status": "출시 준비 중 (공식 사이트)",
+  "news_count": 55,
+  "trends_points": 12931,
+  "amazon_points": 364,
+  "beauty_leaderboard_snapshots": 83,
   "retail_reference": {
     "status": "ok",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
-      "independent US Beauty 2026-W45"
+      "independent US Beauty 2026-W46"
     ],
     "failures": [
       "target: Target/retailer JS rendering or bot restriction; no verified visible fields"
     ],
     "retail_metrics": 6,
-    "external_weeks": 2
+    "external_weeks": 3
   },
-  "errors": [
-    "뉴스 미국 오프라인 유통: HTTP Error 503: Service Unavailable",
-    "뉴스 미국 Amazon·온라인: HTTP Error 503: Service Unavailable",
-    "뉴스 미국 뷰티기기·신제품: HTTP Error 503: Service Unavailable",
-    "뉴스 브라질 메디큐브: HTTP Error 503: Service Unavailable",
-    "뉴스 아르헨티나 메디큐브: HTTP Error 503: Service Unavailable",
-    "뉴스 칠레 스킨부스터: HTTP Error 503: Service Unavailable",
-    "뉴스 칠레 클리닉: HTTP Error 503: Service Unavailable",
-    "뉴스 일본·중동 스킨부스터: HTTP Error 503: Service Unavailable",
-    "뉴스 의료기기 HIFU·RF: HTTP Error 503: Service Unavailable",
-    "뉴스 KBTY ETF: HTTP Error 503: Service Unavailable"
-  ],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
-  "freight_latest_month": "2026-09",
-  "freight_latest_check_failed": false,
-  "freight_missing_months": [
-    "2025-08",
-    "2026-02"
-  ],
-  "bottom_analysis_asof": "2026-11-06",
-  "bottom_stage": "투매 후 반등 탐색 · 바닥 미확인",
-  "bottom_analysis_checked_at_utc": "2026-11-09T05:52:37+00:00",
-  "afternoon_updated_at_utc": "2026-11-09T08:14:36+00:00",
-  "afternoon_price_date": "2026-11-09",
-  "afternoon_verified_same_day": true,
-  "afternoon_note": "공개 일봉 기준 당일 장마감 자료 확인"
+  "errors": [],
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }

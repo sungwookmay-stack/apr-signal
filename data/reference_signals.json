@@ -1,9 +1,9 @@
 {
-  "updated_at_utc": "2026-11-08T23:07:26+00:00",
+  "updated_at_utc": "2026-11-09T23:16:19+00:00",
   "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님. · 2026-11-08 Target 의심 구매 배지는 정량 추이 제외.",
   "retail": [
     {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "retailer": "ulta",
       "country": "US",
       "metric": "catalog_items",
@@ -16,7 +16,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "retailer": "ulta",
       "country": "US",
       "metric": "online_only_items",
@@ -29,7 +29,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "retailer": "ulta",
       "country": "US",
       "metric": "exclusive_items",
@@ -110,13 +110,25 @@
       "source_url": "https://kbeautytmi.com/channels/amazon",
       "method": "independent_weekly_full_list",
       "note": "아마존 공식 데이터가 아니며 API.SH 부분 관측과 합산하지 않음"
+    },
+    {
+      "week": "2026-W46",
+      "count": 9,
+      "covered": 100,
+      "date": "2026-11-10",
+      "country": "US",
+      "category": "Beauty & Personal Care",
+      "source": "KBeautyTMI 제3자 주간 공개 자료 (100개 랭킹 표본)",
+      "source_url": "https://kbeautytmi.com/channels/amazon",
+      "method": "independent_weekly_full_list",
+      "note": "아마존 공식 데이터가 아니며 API.SH 부분 관측과 합산하지 않음"
     }
   ],
   "collection": {
-    "last_attempt_utc": "2026-11-08T23:07:26+00:00",
+    "last_attempt_utc": "2026-11-09T23:16:19+00:00",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
-      "independent US Beauty 2026-W45"
+      "independent US Beauty 2026-W46"
     ],
     "failures": [
       "target: Target/retailer JS rendering or bot restriction; no verified visible fields"
@@ -263,11 +275,64 @@
       "source_url": "https://www.ulta.com/brand/medicube",
       "method": "official_catalog_page",
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-10",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "catalog_items",
+      "value": 69,
+      "display": "69개",
+      "label": "메디큐브 등록상품 수",
+      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-10",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "exclusive_items",
+      "value": 3,
+      "display": "3개",
+      "label": "Only at Ulta 상품",
+      "scope": "Ulta 브랜드 페이지 독점 상품",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-10",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "online_only_items",
+      "value": 37,
+      "display": "37개",
+      "label": "온라인 전용 표시 상품",
+      "scope": "Ulta 브랜드 페이지 Online Only 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     }
   ],
   "product_review_history": [
     {
       "date": "2026-11-09",
+      "country": "US",
+      "product_id": "ulta_zero_pore_2645351",
+      "retailer": "ulta",
+      "label": "Medicube Zero Pore Pad",
+      "source_url": "https://www.ulta.com/p/zero-pore-pad-pimprod2053434?sku=2645351",
+      "method": "official_individual_product_page",
+      "verified": true,
+      "scope": "온라인 상품 상세페이지의 누적 고객 리뷰·평점",
+      "note": "실제 오프라인 매장별 판매량·매출, 리뷰 내용이 아님",
+      "rating": 3.9,
+      "reviews_count": 211
+    },
+    {
+      "date": "2026-11-10",
       "country": "US",
       "product_id": "ulta_zero_pore_2645351",
       "retailer": "ulta",
@@ -316,7 +381,7 @@
     }
   ],
   "product_review_status": {
-    "checked_date": "2026-11-09",
+    "checked_date": "2026-11-10",
     "source_results": {
       "target_zero_pore_95087437": "공식 페이지 읽기 제한/검증 실패 · ValueError",
       "ulta_zero_pore_2645351": "정상 관측"

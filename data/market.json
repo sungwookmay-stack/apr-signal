@@ -10,9 +10,9 @@
       "EUR": "ECB official historical CSV ZIP"
     },
     "stock_last": "2026-11-09",
-    "usd_fx_last": "2026-11-06",
-    "eur_fx_last": "2026-11-06",
-    "generated_at_utc": "2026-11-09T08:13:07+00:00",
+    "usd_fx_last": "2026-11-09",
+    "eur_fx_last": "2026-11-09",
+    "generated_at_utc": "2026-11-09T23:14:03+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4572,16 +4572,16 @@
     },
     {
       "date": "2026-11-09",
-      "close_krw": 241500,
-      "volume": 304375,
+      "close_krw": 243500,
+      "volume": 310069,
       "open_krw": 256000,
       "high_krw": 256000,
       "low_krw": 238000,
-      "usdkrw": 1358.728168,
-      "eurkrw": 1517.02,
-      "fx_usd_date": "2026-11-06",
-      "fx_eur_date": "2026-11-06",
-      "close_usd": 177.7397
+      "usdkrw": 1346.788171,
+      "eurkrw": 1507.46,
+      "fx_usd_date": "2026-11-09",
+      "fx_eur_date": "2026-11-09",
+      "close_usd": 180.8005
     }
   ],
   "fx": [
@@ -6429,6 +6429,11 @@
       "date": "2026-11-06",
       "usdkrw": 1358.728168,
       "eurkrw": 1517.02
+    },
+    {
+      "date": "2026-11-09",
+      "usdkrw": 1346.788171,
+      "eurkrw": 1507.46
     }
   ],
   "logistics": {
@@ -6840,14 +6845,14 @@
     "last_verified_month": "2026-09",
     "last_verified_at_utc": "2026-11-08T23:06:02+00:00",
     "last_fetch_failed": false,
-    "history_verified_this_run": 13,
+    "history_verified_this_run": 0,
     "history_backfill_errors": [],
-    "last_checked_at_utc": "2026-11-09T03:23:19+00:00",
+    "last_checked_at_utc": "2026-11-09T23:13:54+00:00",
     "last_fetch_errors": [],
     "unverified_months": [
       "2025-08",
       "2026-02"
     ],
-    "last_successful_check_utc": "2026-11-09T03:23:19+00:00"
+    "last_successful_check_utc": "2026-11-09T23:13:54+00:00"
   }
 }

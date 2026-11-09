@@ -478,5 +478,77 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.de/dp/B0D1G7XF9X"
+  },
+  {
+    "date": "2026-11-10",
+    "country": "US",
+    "asin": "B0DTKCN3Z4",
+    "product": "medicube Capsule Cream with Salmon DNA PDRN, Glow & Firming Moisturizer",
+    "title": "medicube Capsule Cream with Salmon DNA PDRN, Glow & Firming Moisturizer",
+    "bsr": 98,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DTKCN3Z4"
+  },
+  {
+    "date": "2026-11-10",
+    "country": "US",
+    "asin": "B0DTKCN3Z4",
+    "product": "medicube Capsule Cream with Salmon DNA PDRN, Glow & Firming Moisturizer",
+    "title": "medicube Capsule Cream with Salmon DNA PDRN, Glow & Firming Moisturizer",
+    "bsr": 7,
+    "category": "Face Moisturizers",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B0DTKCN3Z4"
+  },
+  {
+    "date": "2026-11-10",
+    "country": "GB",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA",
+    "bsr": 69,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-10",
+    "country": "GB",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA",
+    "bsr": 4,
+    "category": "Face Serums",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-10",
+    "country": "DE",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "title": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "bsr": 22,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-10",
+    "country": "DE",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "title": "medicube Zero Pore Pad 2.0 Peeling Toner Pads for Pore Care",
+    "bsr": 1,
+    "category": "Face Astringents & Toners",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B09V7Z4TJG"
   }
 ]
