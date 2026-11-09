@@ -1,0 +1,43 @@
+name: temporary FSC public spec discovery
+on:
+  push:
+    branches: [probe/fsc-lending-spec-20261110]
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read public FSC lending swagger hints without any API key
+        run: |
+          python - <<'PY'
+          import re, urllib.request, urllib.error
+          urls=[
+            "https://www.data.go.kr/data/15059612/openapi.do",
+            "https://www.data.go.kr/catalog/15059612/openapi.json",
+            "https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2",
+          ]
+          for url in urls:
+            print("URL",url,flush=True)
+            req=urllib.request.Request(url,headers={
+              "User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130.0 Safari/537.36",
+              "Accept":"text/html,application/json,*/*",
+              "Referer":"https://www.data.go.kr/"
+            })
+            try:
+              with urllib.request.urlopen(req,timeout=14) as r:
+                data=r.read(600000).decode("utf8","replace")
+                print("HTTP",r.status,"SIZE",len(data),flush=True)
+              terms=["GetStocLendBorrInfoService_V2","주식종목별대차거래현황",
+                     "swagger-ui","specUrl","operationId","getStoc","API 명세"]
+              for term in terms:
+                places=list(re.finditer(re.escape(term),data,re.I))
+                print("TERM",term,"COUNT",len(places),flush=True)
+                for pos in places[:3]:
+                  snippet=re.sub(r"\s+"," ",data[max(0,pos.start()-100):pos.end()+180])
+                  print("CONTEXT",repr(snippet),flush=True)
+              paths=sorted(set(re.findall(r'/get[A-Za-z0-9_]{7,100}',data)))
+              print("GET_PATHS",paths[:35],flush=True)
+            except Exception as e:
+              print("ERR",type(e).__name__,str(e)[:170],flush=True)
+          PY
