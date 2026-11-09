@@ -12,12 +12,10 @@
     "stock_last": "2026-11-06",
     "usd_fx_last": "2026-11-06",
     "eur_fx_last": "2026-11-06",
-    "generated_at_utc": "2026-11-09T03:11:58+00:00",
+    "generated_at_utc": "2026-11-09T03:16:51+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
-    "errors": [
-      "해상수출 운송비용 최신 확인 실패: 관세청 최신 발표: 관세청 공식 해상수출 운송비용 표 미확인 / NLIC: NLIC tables not accessible or changed (마지막 관측 유지)"
-    ],
+    "errors": [],
     "logistics_source": "관세청 공식 보도자료 · 해상수출 평균 운송비용",
     "note": "주가는 수정주가 또는 공급사 종가. USD 환산=원화 종가/당일 또는 직전 최신 USD/KRW 환율. FX는 중앙은행 참고 환율(서울외국환중개 매매기준율과 다를 수 있음)."
   },
@@ -6426,79 +6424,165 @@
     "air": [],
     "sea": [
       {
+        "us_west": 6087,
+        "us_east": 6767,
+        "eu": 3793,
+        "china": 716,
+        "japan": 656,
+        "vietnam": 1741,
+        "month": "2025-06",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10145684&nttSnUrl=017b2422f80aa4f518d64af965679ac9"
+      },
+      {
+        "us_west": 5539,
+        "us_east": 6402,
+        "eu": 4002,
+        "china": 634,
+        "japan": 697,
+        "vietnam": 1577,
+        "month": "2025-07",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10149246&nttSnUrl=3f4ee0a9eb59169b4cf34f0e5e68c56d"
+      },
+      {
+        "us_west": 4989,
+        "us_east": 5538,
+        "eu": 3585,
+        "china": 704,
+        "japan": 678,
+        "vietnam": 1349,
+        "month": "2025-09",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10152047&nttSnUrl=4e3e05639139a1a8f7d29e6b2211a61c"
+      },
+      {
+        "us_west": 5152,
+        "us_east": 5343,
+        "eu": 3102,
+        "china": 532,
+        "japan": 563,
+        "vietnam": 1504,
+        "month": "2025-10",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10152649&nttSnUrl=d302ddd61498f56147b3cc2e63c53c40"
+      },
+      {
+        "us_west": 5340,
+        "us_east": 5366,
+        "eu": 3246,
+        "china": 515,
+        "japan": 545,
+        "vietnam": 1604,
+        "month": "2025-11",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10153245&nttSnUrl=fd29d22ac4a7eeb6c7828cc2a9ef1c76"
+      },
+      {
+        "us_west": 5147,
+        "us_east": 5387,
+        "eu": 3569,
+        "china": 544,
+        "japan": 670,
+        "vietnam": 1501,
+        "month": "2025-12",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10153744&nttSnUrl=a00de2f6c5858bad1f61c904e6c985c0"
+      },
+      {
+        "us_west": 4769,
+        "us_east": 5494,
+        "eu": 3492,
+        "china": 676,
+        "japan": 774,
+        "vietnam": 1547,
+        "month": "2026-01",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10155384&nttSnUrl=32dbf92626ff0503f22d8eabdb86f919"
+      },
+      {
+        "us_west": 5611,
+        "us_east": 5324,
+        "eu": 3414,
+        "middle_east": 5251,
+        "china": 501,
+        "japan": 759,
+        "vietnam": 1402,
+        "month": "2026-03",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10161406&nttSnUrl=a9b44ec42b1e74b12d0e7e51e15fd3e7"
+      },
+      {
+        "us_west": 5053,
+        "us_east": 5216,
+        "eu": 3698,
+        "middle_east": 6437,
+        "china": 702,
+        "japan": 765,
+        "vietnam": 1709,
+        "month": "2026-04",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10164145&nttSnUrl=a339ef9693d02f8149fabbcaadc1ecbe"
+      },
+      {
+        "us_west": 5432,
+        "us_east": 5639,
+        "eu": 3714,
+        "middle_east": 6813,
+        "china": 623,
+        "japan": 738,
+        "vietnam": 1737,
         "month": "2026-05",
-        "us_west": 5465,
-        "us_east": 5607,
-        "eu": 3591
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10166825&nttSnUrl=7165f29308d85363e87120ca30b47f4c"
       },
       {
+        "us_west": 7866,
+        "us_east": 7118,
+        "eu": 4246,
+        "middle_east": 7780,
+        "china": 683,
+        "japan": 681,
+        "vietnam": 1695,
         "month": "2026-06",
-        "us_west": 7705,
-        "us_east": 7114,
-        "eu": 4159
+        "source_url": "https://www.customs.go.kr/foreign/na/ntt/selectNttInfo.do?bbsId=1362&mi=3202&nttSn=10170124&nttSnUrl=dc430818d80eca09eafad1c3858cb47e"
       },
       {
+        "us_west": 8559,
+        "us_east": 8143,
+        "eu": 5680,
+        "middle_east": 8780,
+        "china": 859,
+        "japan": 694,
+        "vietnam": 1762,
         "month": "2026-07",
-        "us_west": 8527,
-        "us_east": 7952,
-        "eu": 5507
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10173585&nttSnUrl=623b71ead9d2c77d728a59d8fee6b3ed"
       },
       {
+        "us_west": 8589,
+        "us_east": 9973,
+        "eu": 5014,
+        "middle_east": 8838,
+        "china": 652,
+        "japan": 662,
+        "vietnam": 1558,
         "month": "2026-08",
-        "us_west": 8470,
-        "us_east": 9461,
-        "eu": 4993
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10176744&nttSnUrl=3d882ad4c9ae38a38038fe09e94c70bf"
       },
       {
         "us_west": 9511,
         "us_east": 9339,
         "eu": 5040,
-        "month": "2026-09"
+        "middle_east": 9326,
+        "china": 511,
+        "japan": 623,
+        "vietnam": 1448,
+        "month": "2026-09",
+        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7"
       }
     ],
     "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
     "last_verified_month": "2026-09",
     "last_verified_at_utc": "2026-11-08T23:06:02+00:00",
-    "last_fetch_failed": true,
-    "history_verified_this_run": 0,
-    "history_backfill_errors": [
-      "2026-09: 표 정합성 검증 실패",
-      "2026-08: 표 정합성 검증 실패",
-      "2026-07: 표 정합성 검증 실패",
-      "2026-06: 표 정합성 검증 실패",
-      "2026-05: 표 정합성 검증 실패",
-      "2026-04: 표 정합성 검증 실패",
-      "2026-03: 표 정합성 검증 실패",
-      "2026-01: 표 정합성 검증 실패",
-      "2025-12: 표 정합성 검증 실패",
-      "2025-11: 표 정합성 검증 실패",
-      "2025-10: 표 정합성 검증 실패",
-      "2025-09: 표 정합성 검증 실패",
-      "2025-07: 표 정합성 검증 실패",
-      "2025-06: 표 정합성 검증 실패"
-    ],
-    "last_checked_at_utc": "2026-11-09T03:11:22+00:00",
-    "last_fetch_errors": [
-      "관세청 최신 발표: 관세청 공식 해상수출 운송비용 표 미확인",
-      "NLIC: NLIC tables not accessible or changed"
-    ],
+    "last_fetch_failed": false,
+    "history_verified_this_run": 13,
+    "history_backfill_errors": [],
+    "last_checked_at_utc": "2026-11-09T03:15:52+00:00",
+    "last_fetch_errors": [],
     "unverified_months": [
-      "2025-06",
-      "2025-07",
       "2025-08",
-      "2025-09",
-      "2025-10",
-      "2025-11",
-      "2025-12",
-      "2026-01",
-      "2026-02",
-      "2026-03",
-      "2026-04",
-      "2026-05",
-      "2026-06",
-      "2026-07",
-      "2026-08",
-      "2026-09"
-    ]
+      "2026-02"
+    ],
+    "last_successful_check_utc": "2026-11-09T03:15:52+00:00"
   }
 }
