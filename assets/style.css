@@ -242,3 +242,30 @@
 .bottom-analysis .fineprint{margin:15px 0 0}
 @media(max-width:960px){.bottom-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.bottom-overview>div:first-child{grid-column:1/-1}}
 @media(max-width:620px){.bottom-checks{grid-template-columns:1fr}.bottom-overview{gap:8px}.bottom-overview>div{padding:13px 12px}.bottom-overview>div strong{font-size:17px}.kita-us-results{grid-template-columns:repeat(3,minmax(0,1fr))}.kita-us-results>div:last-child{grid-column:auto}.kita-us-results strong{font-size:15px}.kita-us-results small{font-size:9px}.kita-us-results>div{padding:9px}}
+
+
+/* APR investor flows / securities lending (provenance-first research) */
+.flow-status h2{margin:16px 0 8px;font-size:clamp(19px,2.6vw,27px);color:#234c50;line-height:1.45}
+.flow-source-line{font-size:11px;border-top:1px solid #e6ebec;padding:12px 0;color:#718996;line-height:1.8}
+#flow-summary-body td{font-size:12px;white-space:nowrap}
+#flow-summary-body td strong{display:block}
+#flow-summary-body td small{display:block;color:#8699a6;font-size:10px;font-weight:450;margin-top:3px}
+#flow-external-reference{margin-bottom:17px}
+#flow-external-reference a{text-decoration:underline;text-underline-offset:2px;color:#26756b}
+.flow-ref-head{display:flex;justify-content:space-between;gap:13px;align-items:center;flex-wrap:wrap}
+.flow-ref-head small{color:#8a98a2;font-size:10px}
+#flow-external-reference .tablebox{margin:13px 0}
+#flow-external-reference td,#flow-external-reference th{padding:10px 12px}
+.flow-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:18px 0}
+.flow-stat-grid>div{background:#fafcfb;border:1px solid #e6eeef;padding:15px 11px;border-radius:9px;min-width:0}
+.flow-stat-grid small{display:block;font-size:10px;line-height:1.5;color:#8596a3}
+.flow-stat-grid strong{display:block;font-size:clamp(17px,1.9vw,25px);color:#244b4c;letter-spacing:-.05em;margin-top:9px;overflow-wrap:anywhere}
+.flow-pad{padding:10px 22px 14px}
+#flows .panel .tablebox{overflow-x:auto}
+#flows #flow-daily-body td{padding:12px 15px}
+#flows #flow-daily-body td:first-child{font-weight:700}
+#flows .source-links a{white-space:normal}
+#flow-risk-note{font-weight:620}
+#flows .under-note{line-height:1.8}
+@media(max-width:820px){#flows .section-title{flex-wrap:wrap}.flow-stat-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.flow-stat-grid>div{padding:13px 9px}.flow-stat-grid strong{font-size:18px}#flow-summary-body td,#flow-summary-body th{padding:10px}#flow-summary-body td strong{font-size:11px}}
+@media(max-width:480px){.flow-stat-grid{grid-template-columns:1fr 1fr}.flow-stat-grid>div:last-child{grid-column:1/-1}#flows .flow-status{padding:19px}#flows .flow-source-line{overflow-wrap:anywhere}.flow-stat-grid small{font-size:9px}}

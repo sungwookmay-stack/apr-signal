@@ -17,7 +17,8 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
     def test_schedules_are_0730_and_1600_kst(self):
         self.assertIn("- cron: '30 22 * * *'", self.workflow)
         self.assertIn("- cron: '0 7 * * *'", self.workflow)
-        self.assertEqual(self.workflow.count("- cron:"), 2)
+        self.assertIn("- cron: '30 11 * * *'", self.workflow)
+        self.assertEqual(self.workflow.count("- cron:"), 3)
 
     def test_only_morning_runs_paid_eligible_data_collector(self):
         morning = self.section('Fetch data, calculate signals, update verified news')
@@ -36,6 +37,13 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         self.assertNotIn('run: python build_data.py', afternoon)
         self.assertNotIn('APISH_KEY:', afternoon)
         self.assertNotIn('SCRAPEDO_TOKEN:', afternoon)
+
+    def test_night_investor_collection_does_not_run_paid_global_collector(self):
+        flow = self.section('Collect APR investor, pension, short and KSD lending (free)')
+        self.assertIn("github.event.schedule == '30 11 * * *'", flow)
+        self.assertIn('run: python flows_collect.py', flow)
+        self.assertNotIn('APISH_KEY:', flow)
+        self.assertNotIn('SCRAPEDO_TOKEN:', flow)
 
     def test_manual_modes_and_deployment_unchanged(self):
         news = self.section('News-only manual refresh')

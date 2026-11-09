@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-11-09",
+  "provider": "maedong.kr (KRX 자료 기반 제3자 수급 요약)",
+  "provider_url": "https://maedong.kr/stock/278470",
+  "market_scope": "KRX (NXT 제외, 외국인=기타외국인 포함)",
+  "source_quality": "secondary_krx_derived_aggregate",
+  "not_official_api": true,
+  "note": "외부 사이트에 공개된 5·20·60일 누적 요약만 기록. 일별 KRX 원자료/연기금 실측으로 오인하거나 공식 품질점수에 투입하지 않습니다.",
+  "net_by_actor_100m_krw": {
+    "foreign": {
+      "5": 97,
+      "20": -115,
+      "60": 2242
+    },
+    "institution": {
+      "5": 215,
+      "20": -538,
+      "60": -2607
+    },
+    "individual": {
+      "5": -295,
+      "20": 650,
+      "60": 396
+    }
+  },
+  "short_ratio_pct": {
+    "5": 5.03,
+    "20": 9.23,
+    "60": 8.26
+  },
+  "daily_short_ratio_pct": 3.3,
+  "source_label": "2026-11-09 마감 잠정 (다음날 확정치 반영 가능)"
+}
