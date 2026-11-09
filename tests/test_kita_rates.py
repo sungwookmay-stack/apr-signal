@@ -3,7 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from kita_rates import parse_sea_rates, parse_sea_bulletin, update, SEA_URL
+from kita_rates import parse_sea_rates, parse_sea_bulletin, parse_secondary_east, update, SEA_URL
 
 
 class KitaRatesTests(unittest.TestCase):
@@ -99,6 +99,33 @@ class KitaRatesTests(unittest.TestCase):
             east={x['month'] for x in d['sea_routes'] if x['destination']=='New York'}
             self.assertNotIn('2026-08',east)
             self.assertIn('2026-06',east)
+
+
+    def test_secondary_new_month_is_never_called_official_kita(self):
+        snippet="""<div>해상 노선 모니터</div>
+        <section>🚢 부산 → 뉴욕 $12,200/FEU ▲ +2.5% 2026-11</section>
+        <footer>출처 KITA 해상운임</footer>"""
+        parsed=parse_secondary_east(snippet)
+        self.assertEqual(parsed['feu_usd'],12200)
+        self.assertIsNone(parsed['teu_usd'])
+        self.assertEqual(parsed['month'],'2026-11')
+        self.assertIn('SECONDARY',parsed['source_type'])
+        with tempfile.TemporaryDirectory() as tmp:
+            records=update(Path(tmp)/'data.json',
+                fetch_html=lambda:('<table><tr>'
+                   '<td>Busan</td><td>Long Beach</td><td>2026</td><td>10</td>'
+                   '<td>6700</td><td>8500</td></tr></table>'),
+                fetch_secondary=lambda:snippet)
+            east=[r for r in records['sea_routes'] if r['destination']=='New York']
+            self.assertEqual(east[-1]['month'],'2026-11')
+            self.assertFalse(records['east_latest_primary_verified'])
+            self.assertTrue(records['east_secondary_access_ok'])
+
+    def test_secondary_bad_or_future_quote_is_not_backfilled(self):
+        self.assertIsNone(parse_secondary_east(
+            '<div>부산 → 뉴욕 $14,000/FEU 2027-01 KITA 해상운임</div>'))
+        self.assertIsNone(parse_secondary_east(
+            '<div>부산 → 뉴욕 $14,000/FEU 2026-10</div>'))
 
 
 if __name__ == '__main__':
