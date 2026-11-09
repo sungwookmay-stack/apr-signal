@@ -386,32 +386,94 @@ function renderNews(){
  }).join(''):
  '<div class="panel padded" style="grid-column:1/-1"><p class="subtle">현재 저장된 RSS 기사 실측이 없습니다. 자동 갱신이 성공하면 날짜별로 여기에 누적됩니다.</p><a class="minor-button" href="https://news.google.com/search?q=medicube%20Chile%20Kinegun&hl=es-419&gl=CL&ceid=CL%3Aes-419" target="_blank" rel="noopener">칠레 스페인어 뉴스 직접 검색 ↗</a></div>';
 }
+const FREIGHT_ROUTES=[
+ {key:'us_west',name:'미국 서부',group:'long',color:C.navy},
+ {key:'us_east',name:'미국 동부',group:'long',color:C.teal},
+ {key:'eu',name:'유럽연합',group:'long',color:C.purple},
+ {key:'middle_east',name:'중동',group:'long',color:C.orange},
+ {key:'china',name:'중국',group:'near',color:C.navy},
+ {key:'japan',name:'일본',group:'near',color:C.teal},
+ {key:'vietnam',name:'베트남',group:'near',color:C.purple}
+];
+function previousMonth(month,offset){
+ if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(String(month)))return null;
+ const d=new Date(month+'-01T00:00:00Z');
+ d.setUTCMonth(d.getUTCMonth()-offset);
+ return d.toISOString().slice(0,7);
+}
+function renderFreightModel(){
+ const fields=(state.financials?.quarterly||[]).filter(q=>
+    q.logistics!=null&&Number(q.logistics)>0&&
+    Number(q.sales)>0&&Number.isFinite(Number(q.op)));
+ const q=fields.at(-1);
+ if(!q){
+   set('freight-model-basis','공시상 운반비와 분기 매출액이 모두 확인된 자료가 없어 계산을 보류합니다.');
+   ['freight-impact-cost','freight-impact-profit','freight-impact-opm'].forEach(id=>set(id,'—'));
+   return;
+ }
+ const rawShare=Number($('freight-share')?.value),rawShock=Number($('freight-shock')?.value);
+ const share=Number.isFinite(rawShare)?Math.min(100,Math.max(0,rawShare)):40;
+ const shock=Number.isFinite(rawShock)?Math.min(100,Math.max(0,rawShock)):20;
+ const extra=Number(q.logistics)*share/100*shock/100;
+ const opm=extra/Number(q.sales)*100;
+ set('freight-share-value',fmt(share)+'%');
+ set('freight-shock-value',fmt(shock)+'%');
+ set('freight-impact-cost',fmt(extra,1)+'억원');
+ set('freight-impact-profit','−'+fmt(extra,1)+'억원');
+ set('freight-impact-opm','−'+fmt(opm,2)+'%p');
+ set('freight-model-basis',
+     '기준: '+q.period+' 연결 기준 · 매출 '+fmt(q.sales,1)+'억원 / 공시 운반비 '+
+     fmt(q.logistics,1)+'억원 / 영업이익 '+fmt(q.op,1)+'억원 ('+
+     (q.status||'보고서 확인')+'). 판매단가·물량·기타 비용 불변 가정이며 2026년 3분기 잠정실적에는 운반비가 없어 사용하지 않습니다.');
+}
 function renderLogistics(){
  const data=[{name:'북미',q2:3763,q3:3556,of2:22,of3:30},{name:'유럽',q2:1451,q3:1778,of2:50,of3:40},{name:'아시아',q2:1211,q3:1160},{name:'기타 해외',q2:617,q3:735},{name:'한국',q2:633,q3:502}];
  chart('chart-region',data.map(x=>x.name),[{label:'2026 2Q',values:data.map(x=>x.q2),color:C.navy,background:'#193a5a'},
  {label:'2026 3Q',values:data.map(x=>x.q3),color:C.teal,background:'#0b917f'}],{type:'bar',legend:true});
- $('offline-table').innerHTML=`<table><thead><tr><th>지역</th><th>2Q</th><th>3Q</th><th>매출 QoQ</th></tr></thead><tbody>${data.slice(0,2).map(x=>`<tr><td>${escapeHtml(x.name)}</td><td>${x.of2===22?'약 20~23':x.of2}%</td><td>${x.of3}%</td><td>${signed(pct(x.q3,x.q2))}</td></tr>`).join('')}</tbody></table>`;
+ $('offline-table').innerHTML='<table><thead><tr><th>지역</th><th>2Q</th><th>3Q</th><th>매출 QoQ</th></tr></thead><tbody>'+
+   data.slice(0,2).map(x=>'<tr><td>'+escapeHtml(x.name)+'</td><td>'+(x.of2===22?'약 20~23':x.of2)+'%</td><td>'+x.of3+'%</td><td>'+signed(pct(x.q3,x.q2))+'</td></tr>').join('')+'</tbody></table>';
  const log=state.market?.logistics||{};
- const sea=(log.sea||[]).slice().sort((a,b)=>String(a.month).localeCompare(String(b.month)));
+ const sea=(log.sea||[]).filter(x=>x?.month).slice().sort((a,b)=>String(a.month).localeCompare(String(b.month)));
+ const seaByMonth=new Map(sea.map(x=>[x.month,x]));
  const lastSea=sea.at(-1);
- const asof=$('freight-asof');
- if(asof){
-   const last=lastSea?.month||'미수집';
-   const source=log.source||'관세청 해상수출 운송비용';
-   const message=(log.last_fetch_failed?' · 최근 갱신 실패, 마지막 관측 유지':'');
-   asof.textContent='공식 통계 기준 '+last+' · 단위: 천원/2TEU (40피트 컨테이너) · '+source+
-    ' · 매월 다음 달 중순 발표되는 후행지표'+message;
- }
+ const last=lastSea?.month||'미수집';
+ const message=log.last_fetch_failed?' · 최근 공식 조회 실패: 과거 확인값 유지':'';
+ set('freight-asof','최근 보유 월 '+last+' · 단위: 천원/2TEU (40피트) · '+
+   (log.source||'관세청 해상수출 운송비용')+' · 월간 후행지표'+message);
  const sourceLink=$('freight-source-url');
- if(sourceLink){
-   sourceLink.href=validLink(log.source_url||'https://www.customs.go.kr/kcs/na/ntt/selectNttList.do?bbsId=1362&mi=2891');
- }
- chart('chart-sea',sea.map(x=>x.month),[
-  {label:'미국 서안',values:sea.map(x=>x.us_west),color:C.navy},{label:'미국 동안',values:sea.map(x=>x.us_east),color:C.teal},
-  {label:'유럽',values:sea.map(x=>x.eu),color:C.purple}],{decimals:0,legend:true});
+ if(sourceLink)sourceLink.href=validLink(log.source_url||
+    'https://www.customs.go.kr/kcs/na/ntt/selectNttList.do?bbsId=1362&mi=2891');
+ const group=$('freight-group')?.value==='near'?'near':'long';
+ const selected=FREIGHT_ROUTES.filter(x=>x.group===group);
+ chart('chart-sea',sea.map(x=>x.month),selected.map(route=>({
+   label:route.name,values:sea.map(x=>x[route.key]??null),color:route.color
+ })),{decimals:0,legend:true});
+ const rows=FREIGHT_ROUTES.map(route=>{
+   const observed=sea.filter(x=>x[route.key]!=null&&Number.isFinite(Number(x[route.key]))).at(-1);
+   if(!observed)return '<tr><td>'+escapeHtml(route.name)+'</td><td>—</td><td colspan="4">해당 항로 공식 관측값 없음</td></tr>';
+   const previous=seaByMonth.get(previousMonth(observed.month,1));
+   const lastYear=seaByMonth.get(previousMonth(observed.month,12));
+   const mom=previous?.[route.key]!=null?pct(observed[route.key],previous[route.key]):null;
+   const yoy=lastYear?.[route.key]!=null?pct(observed[route.key],lastYear[route.key]):null;
+   const source=observed.source_url
+     ?'<a href="'+validLink(observed.source_url)+'" target="_blank" rel="noopener noreferrer">원문 ↗</a>'
+     :'<span title="해당 월 공식 링크 재검증 전">재검증 전</span>';
+   return '<tr><td>'+escapeHtml(route.name)+'</td><td>'+escapeHtml(observed.month)+
+     '</td><td>'+fmt(observed[route.key])+'</td><td>'+signed(mom)+
+     '</td><td>'+signed(yoy)+'</td><td>'+source+'</td></tr>';
+ });
+ const tb=$('freight-route-table');if(tb)tb.innerHTML=rows.join('');
+ const gaps=log.unverified_months||[];
+ set('freight-history-quality',
+   '원문 기준 월 '+sea.filter(x=>x.source_url).length+'개 확인 / 전체 보유 '+sea.length+
+   '개월 · 원문 재검증 전/누락 월: '+(gaps.length?gaps.join(', '):'확인된 누락 없음')+
+   (log.history_backfill_errors?.length?' · 과거 자료 일부 접근/파싱 실패':'')+
+   (log.last_fetch_failed?' · 최신 재조회 실패':'')+
+   '. 전년동월 비교는 양쪽 월 모두 실제 확인값이 있는 경우에만 표시.');
+ renderFreightModel();
  const errs=state.status?.errors||[];
  set('diagnostic-date',state.status?.generated_at_utc||'최초 데이터 수집 전');
- $('diagnostic-errors').innerHTML=errs.length?errs.slice(0,12).map(x=>`<div class="check"><span class="check-icon caution">!</span><div><b>데이터 접근 또는 출처 확인</b><p>${escapeHtml(x)}</p></div></div>`).join(''):'<div class="check"><span class="check-icon positive">✓</span><div><b>저장된 자료의 필수 오류 미발견</b><p>각 자료의 기준일이 최신인지 별도로 확인하세요.</p></div></div>';
+ $('diagnostic-errors').innerHTML=errs.length?errs.slice(0,12).map(x=>'<div class="check"><span class="check-icon caution">!</span><div><b>데이터 접근 또는 출처 확인</b><p>'+escapeHtml(x)+'</p></div></div>').join(''):'<div class="check"><span class="check-icon positive">✓</span><div><b>저장된 자료의 필수 오류 미발견</b><p>각 자료의 기준일이 최신인지 별도로 확인하세요.</p></div></div>';
 }
 function fillProductChoices(){
  const observed=rankSnapshots().filter(s=>s.country===state.country).flatMap(s=>s.medicube_listings||[]);
@@ -434,6 +496,10 @@ function initControls(){
  $('period').addEventListener('change',e=>{state.period=e.target.value;renderOverview()});
  $('news-filter').addEventListener('change',renderNews);
  const view=$('technical-view');if(view)view.addEventListener('change',()=>{state.techView=view.value;renderTechnical();});
+ const fg=$('freight-group');if(fg)fg.addEventListener('change',renderLogistics);
+ for(const id of ['freight-share','freight-shock']){
+   const input=$(id);if(input)input.addEventListener('input',renderFreightModel);
+ }
  const finTable=$('fin-table-kind');if(finTable)finTable.addEventListener('change',()=>{if(window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext())});
  const trendAlerts=$('trend-alerts');if(trendAlerts)trendAlerts.addEventListener('click',e=>{
     const node=e.target.closest?.('[data-trend-country]');

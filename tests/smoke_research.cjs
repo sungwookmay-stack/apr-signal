@@ -118,5 +118,21 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match(al,/관심도 상승/);
  assert.match(al,/관심도 하락/);
  assert.match($('trend-alert-count').textContent,/감지 2개/);
- console.log('PASS: financial tables, Q4 expenses, PER/PBR point-in-time, retail Target quarantine, country-keyword alerts');
+ // Freight analysis uses the last quarter with DISCLOSED shipping costs, not
+ // a fabricated 2026Q3 transport expense. Regional chart shows provenance.
+ $('freight-group').value='long';
+ $('freight-share').value='40';
+ $('freight-shock').value='20';
+ location.hash='#logistics';events['window:hashchange']();
+ assert.match($('freight-model-basis').textContent,/2026Q2/);
+ assert.match($('freight-impact-cost').textContent,/45.2억원/);
+ assert.match($('freight-impact-opm').textContent,/0.59%p/);
+ assert.match($('freight-route-table').innerHTML,/중동/);
+ assert.match($('freight-route-table').innerHTML,/베트남/);
+ assert.equal(MockChart.instances['chart-sea'].data.datasets.length,4);
+ $('freight-group').value='near';events['freight-group:change']();
+ assert.equal(MockChart.instances['chart-sea'].data.datasets.length,3);
+ $('freight-share').value='100';events['freight-share:input']();
+ assert.match($('freight-impact-cost').textContent,/113.1억원/);
+ console.log('PASS: financial tables, Q4 expenses, PER/PBR point-in-time, retail Target quarantine, country-keyword alerts and freight cost sensitivity');
 }).catch(e=>{console.error(e);process.exitCode=1;});

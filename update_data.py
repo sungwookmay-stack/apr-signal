@@ -24,7 +24,9 @@ import time
 from urllib import request, parse, error
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
-from freight_official import fetch_latest as fetch_customs_official_latest
+from freight_official import (fetch_latest as fetch_customs_official_latest,
+                              fetch_history as fetch_customs_history,
+                              ROUTES as FREIGHT_ROUTES)
 
 START = dt.date(2025, 6, 1) # FX reference history for valuation charts from Jun 2025
 HISTORY_START = dt.date(2025, 6, 1)  # 기술적 지표 MA200 워밍업, 화면은 2026-05부터
@@ -262,7 +264,7 @@ def fetch_sea_nlic():
     h=_TableRows();h.feed(html)
     out=[]
     for row in h.rows:
-        date=next((x for x in row if re.fullmatch(r"2026-(0[5-9]|1[0-2])",x)),None)
+        date=next((x for x in row if re.fullmatch(r"20\d{2}-(0[1-9]|1[0-2])",x) and x >= "2025-06"),None)
         if not date:continue
         ix=row.index(date)
         v=[]
@@ -273,7 +275,7 @@ def fetch_sea_nlic():
         if len(v)==3 and all(300<n<30000 for n in v):
             out.append({"month":date,"us_west":v[0],"us_east":v[1],"eu":v[2]})
     out=sorted({x["month"]:x for x in out}.values(),key=lambda x:x["month"])
-    if len(out)<5 or out[0]["month"]>"2026-05":raise ValueError("NLIC tables not accessible or changed")
+    if not out:raise ValueError("NLIC tables not accessible or changed")
     return out
 
 
@@ -336,7 +338,7 @@ def save(data,out_dir):
     for row in data["series"]: w.writerow(row)
     write_atomic(out_dir/"history.csv",sb.getvalue())
     sb=io.StringIO()
-    w=csv.DictWriter(sb,fieldnames=["month","us_west","us_east","eu"])
+    w=csv.DictWriter(sb,fieldnames=["month",*FREIGHT_ROUTES,"source_url"],extrasaction="ignore")
     w.writeheader()
     for row in data.get("logistics",{}).get("sea",[]):w.writerow(row)
     write_atomic(out_dir/"sea_history.csv",sb.getvalue())
@@ -385,49 +387,80 @@ def update(out_dir=BASE/"data", allow_partial=True, refresh_fx=True, refresh_fre
         raise RuntimeError("주가 정보를 어디에서도 가져오지 못했습니다. " + "; ".join(errors[:3]))
     logistics=previous.get("logistics",{"sea":[],"air":[],"unit":"천원/2TEU"})
     if refresh_freight:
-        freight_errors=[]
-        updated=False
-        # Prefer primary Customs press releases (monthly Customs declaration costs).
-        # Keep confirmed historical months and only overwrite a month when it is
-        # independently observed. A newer unpublished month is NEVER guessed.
+        checked_at=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+        existing={x["month"]:x for x in logistics.get("sea",[]) if x.get("month")}
+        fetch_errors=[]
+        latest_success=False
+        # First confirm the latest official monthly release, independently of
+        # all older backfill attempts. Never treat a failed fetch as "up to date".
         try:
             official_row,official_url=fetch_customs_official_latest(
                 get_bytes,today=iso_today_kr().date())
-            existing={x['month']:x for x in logistics.get('sea',[]) if x.get('month')}
-            last=max(existing) if existing else ''
-            if official_row['month']>=last:
-                existing[official_row['month']]=official_row
-                logistics={**logistics,"sea":[existing[m] for m in sorted(existing)],
-                           "air":logistics.get("air",[]),
-                           "unit":"천원/2TEU",
-                           "source":"관세청 공식 보도자료 · 해상수출 평균 운송비용",
-                           "source_url":official_url,
-                           "last_verified_month":official_row['month'],
-                           "last_verified_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
-                updated=True
+            official_row["source_url"]=official_url
+            existing[official_row["month"]]=official_row
+            latest_success=True
+            logistics["source_url"]=official_url
+            logistics["last_verified_month"]=official_row["month"]
+            logistics["last_successful_check_utc"]=checked_at
         except Exception as ex:
-            freight_errors.append("관세청 보도자료: "+str(ex)[:130])
-        if not updated:
+            fetch_errors.append("관세청 최신 발표: "+str(ex)[:140])
+        # Recheck unverified 2026 legacy observations and fill available 2025
+        # monthly bulletins. Each month requires an independently parsed URL.
+        history, history_errors=fetch_customs_history(
+            get_bytes,previous=list(existing.values()),
+            today=iso_today_kr().date(),pages=0,max_fetch=24)
+        for item in history:
+            existing[item["month"]]=item
+        logistics["history_verified_this_run"]=len(history)
+        logistics["history_backfill_errors"]=history_errors[:20]
+        logistics["last_checked_at_utc"]=checked_at
+        logistics["sea"]=[existing[month] for month in sorted(existing)]
+        logistics["air"]=logistics.get("air",[])
+        logistics["unit"]="천원/2TEU"
+        # Fallback cannot silently replace months already sourced from Customs.
+        # It is used ONLY if the primary source could not be checked.
+        if not latest_success:
             try:
                 sea=fetch_sea_nlic()
-                existing={x['month']:x for x in logistics.get('sea',[]) if x.get('month')}
-                for item in sea:existing[item['month']]=item
-                logistics={**logistics,"sea":[existing[m] for m in sorted(existing)],
-                           "unit":"천원/2TEU",
-                           "source":"국가물류통합정보센터 · 해상수출 운송비용",
-                           "source_url":"https://nlic.go.kr/nlic/seaDmstcOcn.action",
-                           "last_verified_month":sea[-1]['month'],
-                           "last_verified_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
-                updated=True
+                for item in sea:
+                    month=item["month"]
+                    if month not in existing or not existing[month].get("source_url"):
+                        existing[month]={**item,"source_url":
+                            "https://nlic.go.kr/nlic/seaDmstcOcn.action"}
+                logistics["sea"]=[existing[m] for m in sorted(existing)]
+                if sea and sea[-1]["month"] >= logistics.get("last_verified_month",""):
+                    logistics["last_verified_month"]=sea[-1]["month"]
+                    logistics["source_url"]="https://nlic.go.kr/nlic/seaDmstcOcn.action"
+                    logistics["source"]="국가물류통합정보센터 · 해상수출 운송비용"
+                    logistics["last_successful_check_utc"]=checked_at
+                    latest_success=True
             except Exception as ex:
-                freight_errors.append("NLIC: "+str(ex)[:130])
-        if not updated:
-            # Preserve last verified observations; make unsuccessful checks visible.
-            logistics={**logistics,"last_fetch_failed":True}
-            errors.append("해상수출 운송비용 갱신 실패: "+" / ".join(freight_errors[:2])+
-                          " (이전 관측치 유지)")
-        else:
-            logistics["last_fetch_failed"]=False
+                fetch_errors.append("NLIC: "+str(ex)[:140])
+        if latest_success:
+            logistics["source"]=(
+                "관세청 공식 보도자료 · 해상수출 평균 운송비용"
+                if "customs.go.kr" in logistics.get("source_url","") else
+                "국가물류통합정보센터 · 해상수출 운송비용")
+        logistics["last_fetch_failed"]=not latest_success
+        logistics["last_fetch_errors"]=fetch_errors[:3]
+        if not latest_success:
+            errors.append("해상수출 운송비용 최신 확인 실패: "+
+                          " / ".join(fetch_errors[:2])+" (마지막 관측 유지)")
+        # An historical backfill may be partial even when latest release worked.
+        # Show gaps separately from latest-source availability.
+        months=sorted(existing)
+        if months:
+            cursor=dt.date(2025,6,1)
+            final=dt.date.fromisoformat(months[-1]+"-01")
+            missing=[]
+            while cursor <= final:
+                key=cursor.strftime("%Y-%m")
+                if key not in existing or not existing[key].get("source_url"):
+                    missing.append(key)
+                cursor=(cursor.replace(day=28)+dt.timedelta(days=4)).replace(day=1)
+            logistics["unverified_months"]=missing
+    # On an afternoon refresh, do not make a new freight claim or reset the
+    # morning check status; the next monthly scheduled check owns freshness.
     # Otherwise preserve monthly Customs/NLIC rows without contacting those sources.
     data=pack(stock,source,fx,sources,errors,previous,logistics)
     save(data,out_dir)
