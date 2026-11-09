@@ -226,22 +226,27 @@
         <div class="section-title"><div><p class="eyebrow">LEADING INDICATOR · KITA RADIS</p><h2>시장 운임 · 월초 선행지표</h2><span>협력업체 조사 참고운임 · 매월 첫째 주 갱신 · APR 계약운임과 구별</span></div></div>
         <div class="grid two">
           <div class="panel">
-            <div class="panel-top"><strong>부산 → 롱비치 해상운임 (USD)</strong><small>TEU / FEU · 공식 공개 기본조회</small></div>
+            <div class="panel-top"><strong>부산 → 미국 서안 vs 동안 (FEU)</strong><small>USD / 40피트 · 항로별 실측만 연결</small></div>
             <div class="graph small"><canvas id="chart-kita-sea"></canvas></div>
-            <p class="freight-asof" id="kita-asof">KITA 선행 운임 자료 확인 중</p>
-            <p class="freight-asof" id="kita-lead-lag">관세청 통계와 기준 시점을 비교 중</p>
+            <p class="freight-asof" id="kita-asof">KITA 미 서부·동부 운임 확인 중</p>
+            <p class="freight-asof" id="kita-lead-lag">관세청 후행 통계와 발표월 비교</p>
           </div>
           <div class="panel padded">
-            <h3>최신 KITA 관측</h3>
-            <div class="freight-results">
-              <div><small>FEU (40피트)</small><strong id="kita-feu">—</strong></div>
-              <div><small>전월 대비</small><strong id="kita-feu-mom">—</strong></div>
-              <div><small>TEU (20피트)</small><strong id="kita-teu">—</strong></div>
+            <h3>미국 서안·동안 최신 운임 비교</h3>
+            <div class="freight-results kita-us-results">
+              <div><small>서안 · 롱비치 FEU</small><strong id="kita-feu">—</strong><span id="kita-feu-mom">—</span></div>
+              <div><small>동안 · 뉴욕 FEU</small><strong id="kita-east-feu">—</strong><span id="kita-east-mom">—</span></div>
+              <div><small>동안 − 서안 격차</small><strong id="kita-spread">—</strong><span>동일 월·동일 FEU 비교</span></div>
             </div>
-            <p id="kita-quality" class="under-note">KITA 사이트 데이터 수집 상태 확인 중</p>
-            <p class="under-note">KITA는 40피트 컨테이너당 USD 참고운임, 관세청은 원화 기준 신고 평균 운송비용입니다. 단위·시장 조사 방법이 다르므로 수치를 직접 이어 붙이지 않습니다.</p>
-            <div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener noreferrer">KITA 해상 원문 ↗</a><a href="https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do" target="_blank" rel="noopener noreferrer">KITA 항공 조회 ↗</a></div>
+            <p id="kita-quality" class="under-note">항로별 직접 확인·2차 인용 출처를 검사 중</p>
+            <p class="under-note">서안 대표: 롱비치(동일 공지 내 LA·시애틀·오클랜드). 동안 대표: 뉴욕(동일 공지 내 노퍽·서배너). 지역 전체 평균이 아니라 대표 항로 비교입니다.</p>
+            <div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener noreferrer">KITA 월간 해상 기본조회 ↗</a><a href="https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3394&amp;morgueCode=8" target="_blank" rel="noopener noreferrer">KITA 7월 공식 동서부 원문 ↗</a><a href="https://logisight.net/rates" target="_blank" rel="noopener noreferrer">동안 최신 인용자료 ↗</a></div>
           </div>
+        </div>
+        <div class="panel padded kita-coast-detail">
+          <div class="section-split"><h3>KITA 대표 항로별 확인월·출처</h3><small>같은 월·FEU만 직접 비교</small></div>
+          <div class="tablebox"><table><thead><tr><th>권역</th><th>대표 목적항</th><th>확인월</th><th>FEU 운임</th><th>전월 대비</th><th>자료 검증</th></tr></thead><tbody id="kita-route-table"><tr><td colspan="6">확인 중</td></tr></tbody></table></div>
+          <p class="under-note" id="kita-source-note">KITA 공식 원문과 별도 운임 추적 서비스의 인용값은 구분됩니다. 확인되지 않은 과거 월은 연결하지 않습니다.</p>
         </div>
         <div class="section-title"><div><p class="eyebrow">LAGGING INDICATOR · CUSTOMS</p><h2>신고 기반 해상수출 평균 비용</h2><span>관세청 발표월 통계 · 2TEU당 평균, USD 표시 KITA와 직접 비교 불가</span></div></div>
         <div class="grid two"><div class="panel"><div class="panel-top"><strong>해상수출 평균 운송비용</strong><label for="freight-group"><span class="sr-only">항로 구분</span><select id="freight-group" class="input"><option value="long">장거리 · 미국/유럽/중동</option><option value="near">단거리 · 중국/일본/베트남</option></select></label></div><div class="graph small"><canvas id="chart-sea"></canvas></div>
