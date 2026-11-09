@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-08T23:05:50+00:00",
+  "generated_at_utc": "2026-11-09T03:11:58+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-06",
   "price_coverage_start": "2025-06-02",
@@ -23,6 +23,28 @@
     "retail_metrics": 6,
     "external_weeks": 2
   },
-  "errors": [],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
+  "errors": [
+    "해상수출 운송비용 최신 확인 실패: 관세청 최신 발표: 관세청 공식 해상수출 운송비용 표 미확인 / NLIC: NLIC tables not accessible or changed (마지막 관측 유지)"
+  ],
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
+  "freight_latest_month": "2026-09",
+  "freight_latest_check_failed": true,
+  "freight_missing_months": [
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09"
+  ]
 }

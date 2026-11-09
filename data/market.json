@@ -12,10 +12,12 @@
     "stock_last": "2026-11-06",
     "usd_fx_last": "2026-11-06",
     "eur_fx_last": "2026-11-06",
-    "generated_at_utc": "2026-11-08T23:06:02+00:00",
+    "generated_at_utc": "2026-11-09T03:11:58+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
-    "errors": [],
+    "errors": [
+      "해상수출 운송비용 최신 확인 실패: 관세청 최신 발표: 관세청 공식 해상수출 운송비용 표 미확인 / NLIC: NLIC tables not accessible or changed (마지막 관측 유지)"
+    ],
     "logistics_source": "관세청 공식 보도자료 · 해상수출 평균 운송비용",
     "note": "주가는 수정주가 또는 공급사 종가. USD 환산=원화 종가/당일 또는 직전 최신 USD/KRW 환율. FX는 중앙은행 참고 환율(서울외국환중개 매매기준율과 다를 수 있음)."
   },
@@ -6457,6 +6459,46 @@
     "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
     "last_verified_month": "2026-09",
     "last_verified_at_utc": "2026-11-08T23:06:02+00:00",
-    "last_fetch_failed": false
+    "last_fetch_failed": true,
+    "history_verified_this_run": 0,
+    "history_backfill_errors": [
+      "2026-09: 표 정합성 검증 실패",
+      "2026-08: 표 정합성 검증 실패",
+      "2026-07: 표 정합성 검증 실패",
+      "2026-06: 표 정합성 검증 실패",
+      "2026-05: 표 정합성 검증 실패",
+      "2026-04: 표 정합성 검증 실패",
+      "2026-03: 표 정합성 검증 실패",
+      "2026-01: 표 정합성 검증 실패",
+      "2025-12: 표 정합성 검증 실패",
+      "2025-11: 표 정합성 검증 실패",
+      "2025-10: 표 정합성 검증 실패",
+      "2025-09: 표 정합성 검증 실패",
+      "2025-07: 표 정합성 검증 실패",
+      "2025-06: 표 정합성 검증 실패"
+    ],
+    "last_checked_at_utc": "2026-11-09T03:11:22+00:00",
+    "last_fetch_errors": [
+      "관세청 최신 발표: 관세청 공식 해상수출 운송비용 표 미확인",
+      "NLIC: NLIC tables not accessible or changed"
+    ],
+    "unverified_months": [
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-09",
+      "2025-10",
+      "2025-11",
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09"
+    ]
   }
 }
