@@ -321,8 +321,15 @@ def collect():
     # via GitHub Secrets. No user account/balance/trade/order API is called.
     kiwoom_key_present=bool(os.environ.get('KIWOOM_APP_KEY')) and bool(
         os.environ.get('KIWOOM_SECRET_KEY'))
-    kiwoom_meta={'status':'not_configured','pages':0,'truncated':False}
-    if kiwoom_key_present:
+    # GH-hosted runners use unpredictable public IPs; repeated OAuth requests
+    # from unregistered IPs are futile and could trigger brokerage protection.
+    # Credentials may remain stored; API calls need an explicitly enabled,
+    # separately authorized environment with an IP matching Kiwoom's list.
+    kiwoom_enabled=(kiwoom_key_present and
+                    os.environ.get('KIWOOM_ALLOW_DYNAMIC_IP') == '1')
+    kiwoom_meta={'status':('disabled_dynamic_runner_ip' if kiwoom_key_present
+                           else 'not_configured'),'pages':0,'truncated':False}
+    if kiwoom_enabled:
         try:
             kiwoom_rows, kiwoom_meta=kiwoom_investors(prices)
             if kiwoom_rows:
@@ -340,10 +347,10 @@ def collect():
             issues.append('Kiwoom 투자주체 수급: '+type(exc).__name__+
                           ' · 이전값 유지 (키·토큰은 공개 안 함)')
     kiwoom_short_lending_meta={
-        'short':{'status':'not_configured'},
-        'lending':{'status':'not_configured'}
+        'short':{'status':('disabled_dynamic_runner_ip' if kiwoom_key_present else 'not_configured')},
+        'lending':{'status':('disabled_dynamic_runner_ip' if kiwoom_key_present else 'not_configured')}
     }
-    if kiwoom_key_present:
+    if kiwoom_enabled:
         try:
             kshort, klend, kiwoom_short_lending_meta=kiwoom_short_lending(
                 os.environ['KIWOOM_APP_KEY'],
@@ -421,6 +428,7 @@ def collect():
        'data_status':{
            'krx_investor_live_ok':krx_ok,
            'kiwoom_app_configured':kiwoom_key_present,
+           'kiwoom_enabled_for_host':kiwoom_enabled,
            'kiwoom_read_only_result':kiwoom_meta,
            'naver_public_result':naver_meta,
            'naver_flow_is_estimated':any(x.get('amount_estimated') for x in daily),
