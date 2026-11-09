@@ -142,7 +142,8 @@ function render(ctx){
    '<tr><td>'+ctx.escapeHtml(item.name)+'</td><td>'+
    number(ctx,item.value)+'</td><td>'+
    (item.value>=0?'영업이익 증가 방향':'영업이익 감소 방향')+'</td></tr>').join('');
- ctx.chart('sens-chart',result.contributions.map(x=>x.name),[
+ const chartLabels=['매출 증감','외화 매출','외화 비용','해상','항공','풀필먼트','광고비','판매수수료','매출원가'];
+ ctx.chart('sens-chart',chartLabels,[
   {label:'가정한 분기 영업이익 증감 (억원)',
     values:result.contributions.map(x=>Number(x.value.toFixed(3))),
     color:ctx.C.teal,background:'rgba(38,117,107,.48)'}
