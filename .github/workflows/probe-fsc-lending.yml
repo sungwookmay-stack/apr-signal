@@ -41,3 +41,87 @@ jobs:
             except Exception as e:
               print("ERR",type(e).__name__,str(e)[:170],flush=True)
           PY
+
+      - name: Parse public Swagger operation and test authorized APR lookup
+        env:
+          FSC_STOCK_LENDING_API_KEY: \${{ secrets.FSC_STOCK_LENDING_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json,re,os,urllib.parse,urllib.request,urllib.error
+          url="https://www.data.go.kr/data/15059612/openapi.do"
+          with urllib.request.urlopen(urllib.request.Request(url,headers={
+            'User-Agent':'Mozilla/5.0','Accept':'text/html'}),timeout=20) as r:
+            html=r.read(400000).decode("utf8","replace")
+          spec=None
+          target="getStItemLendAndBorrStatu_V2"
+          for script in re.findall(r'<script\b[^>]*>(.*?)</script>',html,re.I|re.S):
+            if target not in script:continue
+            pos=script.find('"host":"apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2"')
+            if pos<0:continue
+            for marker in ('{"swagger":','{"info":','{"paths":'):
+              start=script.rfind(marker,0,pos)
+              if start<0:continue
+              try:
+                decoded,_=json.JSONDecoder().raw_decode(script[start:])
+              except (ValueError,TypeError):
+                continue
+              if isinstance(decoded,dict) and 'paths' in decoded:
+                spec=decoded;break
+            if spec:break
+          if not spec:
+            # Locate root using full script brace scanning near known host.
+            for script in re.findall(r'<script\b[^>]*>(.*?)</script>',html,re.I|re.S):
+              if target not in script:continue
+              for m in re.finditer(r'\{',script):
+                if m.start()>60000:break
+                try:
+                  d,_=json.JSONDecoder().raw_decode(script[m.start():])
+                except (ValueError,TypeError):
+                  continue
+                if isinstance(d,dict) and target in str(d.get('paths',{})):
+                  spec=d;break
+              if spec:break
+          print("SPEC_FOUND",bool(spec),flush=True)
+          if spec:
+            for path,method in spec.get('paths',{}).items():
+              if target not in path:continue
+              definition=method.get('get',{})
+              print("OPERATION",path,flush=True)
+              params=definition.get('parameters') or method.get('parameters') or []
+              print("PARAMS",[(p.get('name'),p.get('required'),p.get('type')) for p in params],flush=True)
+              response=definition.get('responses',{}).get('200',{})
+              print("RESPONSE_TOP",list(response.keys()),flush=True)
+              print("RESPONSE_SCHEMA",json.dumps(response.get('schema',{}),ensure_ascii=False)[:2200],flush=True)
+          key=os.environ.get("FSC_STOCK_LENDING_API_KEY","")
+          print("FSC_SECRET_CONFIGURED",bool(key),flush=True)
+          if not key:
+            print("SKIP_LIVE_CALL",flush=True)
+          else:
+            api="https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2/getStItemLendAndBorrStatu_V2"
+            for params in [
+              {"numOfRows":10,"pageNo":1,"basDt":"20261106","isinCd":"KR7278470000","resultType":"json"},
+              {"numOfRows":10,"pageNo":1,"basDt":"20261106","isinCd":"KR7278470000","_type":"json"}
+            ]:
+              q={"serviceKey":urllib.parse.unquote(key),**params}
+              # The URL includes private serviceKey: NEVER log it or its HTTPError text.
+              targeturl=api+"?"+urllib.parse.urlencode(q)
+              print("API_VARIANT",params.get('resultType') or params.get('_type'),flush=True)
+              try:
+                with urllib.request.urlopen(urllib.request.Request(targeturl,headers={
+                  'User-Agent':'APR research read-only','Accept':'application/json,application/xml'}),timeout=18) as r:
+                  raw=r.read(110000)
+                  print("LIVE_STATUS",r.status,"CT",r.headers.get('Content-Type'),"BYTES",len(raw),flush=True)
+                if raw.lstrip().startswith(b'<'):
+                  from xml.etree import ElementTree as E
+                  root=E.fromstring(raw)
+                  print("XML_TAGS",[(el.tag,str(el.text or '')[:85]) for el in root.iter()][:28],flush=True)
+                else:
+                  j=json.loads(raw.decode('utf8','replace'))
+                  print("JSON_TOP",list(j.keys()) if isinstance(j,dict) else type(j).__name__,flush=True)
+                  resp=j.get('response',{}) if isinstance(j,dict) else {}
+                  print("JSON_RESPONSE",json.dumps(resp,ensure_ascii=False)[:1700],flush=True)
+              except urllib.error.HTTPError as exc:
+                print("LIVE_HTTP_ERROR_CODE",exc.code,flush=True)
+              except Exception as exc:
+                print("LIVE_ERR_TYPE",type(exc).__name__,flush=True)
+          PY
