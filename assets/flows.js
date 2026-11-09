@@ -32,8 +32,10 @@ function render(ctx){
  const sourceInfo=data.data_status||{};
  const kiwoomInfo=sourceInfo.kiwoom_read_only_result||{};
  const kiwoomStatus=sourceInfo.kiwoom_app_configured?
-   ('키움 REST 설정됨 · 조회 '+(kiwoomInfo.status||'미확인')+
-    (kiwoomInfo.asof?' · 기준일 '+kiwoomInfo.asof:'')):
+   (kiwoomInfo.status==='disabled_dynamic_runner_ip'?
+     '키움 키 보관 중 · GitHub IP 제한으로 호출 생략':
+     '키움 REST '+(kiwoomInfo.status||'미확인')+
+     (kiwoomInfo.asof?' · 기준일 '+kiwoomInfo.asof:'')):
    '키움 REST 미연결 (선택 사항)';
  const status=$('flow-collection-status');
  if(status)status.textContent='시세 기준 '+(priceDay||'미확인')+
