@@ -48,14 +48,14 @@ class BottomDetectorTests(unittest.TestCase):
                 today['latest_confirmed_swing_low']['confirmed_on'],today['date'])
 
     def test_pivot_requires_three_sessions_on_right(self):
-        vals=[12,11,10,11,12,11,9.5,11,12,13]
+        vals=[14,13,12,10,11,12,11,9.5,11,12,13]
         rows=[{'date':f'2026-01-{i+1:02d}','low':p,'rsi14':30+i}
               for i,p in enumerate(vals)]
-        early=confirmed_lows(rows[:9])
-        self.assertEqual([x['index'] for x in early],[2])
+        early=confirmed_lows(rows[:10])
+        self.assertEqual([x['index'] for x in early],[3])
         later=confirmed_lows(rows)
-        self.assertEqual([x['index'] for x in later],[2,6])
-        self.assertEqual(later[-1]['confirmed_on'],'2026-01-10')
+        self.assertEqual([x['index'] for x in later],[3,7])
+        self.assertEqual(later[-1]['confirmed_on'],'2026-01-11')
 
     def test_bullish_rsi_divergence_requires_confirmed_price_low(self):
         n=80
