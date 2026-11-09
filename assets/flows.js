@@ -147,9 +147,13 @@ function render(ctx){
  $('flow-loan-date').textContent=lending.last_date?
    '대차 관측 '+lending.last_date+' · 단위 주':
    '대차 실측 미수집 · 금융위 API '+(
-     sourceInfo.fsc_stock_lending_key_configured?'키 등록 확인, 응답 매핑 점검 필요':
-     'GitHub FSC_STOCK_LENDING_API_KEY 등록 필요')+
-   ' · KSD/API 별도';
+     !sourceInfo.fsc_stock_lending_key_configured?
+       'GitHub FSC_STOCK_LENDING_API_KEY 미등록':
+     fscInfo==='authorization_denied'?
+       '인증 403 · 활용승인/키 활성화 확인 필요':
+     fscInfo==='ok'?'최근 거래일 자료 없음':
+       '조회 '+fscInfo+' · 공식 응답 검증 대기')+
+   ' · 출처: 금융위원회';
  const risk=[];
  if(short.short_ratio_mean20_pct!=null&&short.short_ratio_mean20_pct>=10)
    risk.push('최근 20일 공매도 거래대금 근사 비중 높음(10% 이상)');
