@@ -340,3 +340,19 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - 구현: flows_collect.py / flows_engine.py / assets/flows.js / data/flows.json / tests/test_flows.py / tests/smoke_flows.cjs.
 
 공식 원문: https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT023 / https://data.krx.co.kr/contents/MDC/STAT/srt/MDCSTAT300.jsp / https://www.data.go.kr/data/15157426/openapi.do
+
+
+### Kiwoom REST API 실측 수급 (KRX 공개화면 접근 제한 대체, 2026-11-09)
+
+**KRX 공개 홈페이지에서 종목별 일간 수급은 GitHub Actions 실행 시 상세·기본 모두 0행으로 실패했습니다.** 실제 값을 자동으로 누적하려면 공식 증권사 데이터 API를 대안으로 사용할 수 있습니다.
+
+1. [키움 REST API](https://openapi.kiwoom.com/m/guide/apiguide) 또는 [신청 페이지](https://openapi2.kiwoom.com/intro)에서 본인 키움 계좌로 REST API 서비스 신청 후 appkey와 secretkey 발급. 계좌 및 키 발급 조건은 증권사의 현행 안내를 따릅니다.
+2. GitHub 저장소 Settings → Secrets and variables → Actions → New repository secret으로 **KIWOOM_APP_KEY**, **KIWOOM_SECRET_KEY** 두 개를 각각 등록. 절대 키를 코드·Issues·채팅이나 공개 JSON에 입력하지 않습니다.
+3. GitHub Actions의 APR SIGNAL 기존 일일 예약(07:30 및 20:30 한국시간)이 일간 키움 **ka10059** 수급을 호출합니다. KRX 공개 pykrx와 Kiwoom API 중 실측이 확보된 값만 날짜별 합산해 5·20·60 거래일 수급을 판단합니다. 장내 주문/계좌/잔고/매수·매도 API를 전혀 사용하지 않습니다.
+4. 키움 ka10059의 amt_qty_tp=1은 **금액**, trde_tp=0은 **순매수**, 투자자/연기금 금액은 **백만원** 단위이므로 원화 KRW로 ×1,000,000 변환합니다. 연기금은 기관합계에 포함됩니다. unit_tp=1은 수량 조회에 사용하는 구분으로 금액 변환과 혼동하지 않습니다. 누락/빈 문자열은 0으로 대체하지 않습니다. 페이지 일부만 수신되면 데이터 품질 경고를 보존합니다.
+5. 이후 키움 API 수급과 KRX 투자자 분류, NXT 포함 여부를 대조해야 합니다. KSD 대차 실측은 키움과 별개의 무료 서비스키 **KSD_SLB_API_KEY** 등록 여부로 관리하며 계좌 데이터와 무관합니다.
+
+- 구현: kiwoom_flows.py (au10001 읽기 전용 OAuth / ka10059 일별 투자자 수급) → flows_collect.py → data/flows.json → assets/flows.js.
+- 검증: tests/test_kiwoom_flows.py의 인증·백만원→원 환산·연기금·페이지 연속조회·누락보존·토큰 비공개 단위검사.
+- 공식 OAuth 명세: https://openapi.kiwoom.com/guide/apiguide?jobTpCode=07
+- 공식 API 목록: https://openapi.kiwoom.com/m/guide/apiguide
