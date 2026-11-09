@@ -49,6 +49,8 @@ def build():
     # refreshed market/technical files after the free historical backfill.
     snapshot['market']=read(DATA/'market.json', snapshot.get('market', {}))
     snapshot['technical']=read(DATA/'technical.json', snapshot.get('technical', {}))
+    snapshot['flows']=read(DATA/'flows.json', snapshot.get('flows', {}))
+    snapshot['flow_reference']=read(DATA/'flow_reference.json', snapshot.get('flow_reference', {}))
     snapshot['kita_rates']=read(DATA/'kita_rates.json', snapshot.get('kita_rates', {}))
     snapshot['financials']=financial
     snapshot['trend_signals']=trends
