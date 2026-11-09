@@ -1,10 +1,10 @@
 {
   "method": "2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14 + 3-stage bottom classifier (no lookahead)",
   "bottom": {
-    "date": "2026-11-06",
-    "stage": "투매 후 반등 탐색 · 바닥 미확인",
+    "date": "2026-11-09",
+    "stage": "투매 관찰 · 바닥 미확인",
     "kind": "early",
-    "score": 2,
+    "score": 1,
     "max_score": 10,
     "checks": [
       {
@@ -30,38 +30,38 @@
       },
       {
         "name": "MACD 히스토그램 연속 개선",
-        "passed": true,
-        "points": 1,
+        "passed": false,
+        "points": 0,
         "max_points": 1,
-        "detail": "최근 MACD 히스토그램 -963 · 3개 관측값 연속 상승 여부"
+        "detail": "최근 MACD 히스토그램 -1,249 · 3개 관측값 연속 상승 여부"
       },
       {
         "name": "RSI 40 이상으로 복귀·상승",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "RSI(14) 36.0 · 30 미만은 과매도일 뿐 바닥 아님"
+        "detail": "RSI(14) 33.2 · 30 미만은 과매도일 뿐 바닥 아님"
       },
       {
         "name": "5일 이동평균 회복",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "종가 255,000원 / 5일선 257,400원"
+        "detail": "종가 241,500원 / 5일선 253,000원"
       },
       {
         "name": "20일선 3거래일 유지",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "현재 20일선 287,025원 · 단일 장중 돌파로 미확정"
+        "detail": "현재 20일선 281,825원 · 단일 장중 돌파로 미확정"
       },
       {
         "name": "10일 전고점·거래량 돌파",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "이전 10일 최고종가 287,000원 / 거래량배수 0.66"
+        "detail": "이전 10일 최고종가 287,000원 / 거래량배수 0.74"
       }
     ],
     "data_ready": true,
@@ -100,12 +100,12 @@
       "recent_20d_low": 231000,
       "recent_20d_low_date": "2026-10-30",
       "prev_20d_low": 231000,
-      "ma5": 257400,
-      "ma20": 287025,
-      "ma60": 354183,
+      "ma5": 253000,
+      "ma20": 281825,
+      "ma60": 351758,
       "prior_10d_high_close": 287000,
-      "atr14": 24228,
-      "drawdown_60d_pct": -45.1
+      "atr14": 23783,
+      "drawdown_60d_pct": -48.0
     },
     "note": "과매도·투매는 저점 후보에 불과합니다. RSI 상승 다이버전스/저점 재확인 이후 5·20일선 회복과 거래량 동반 전고점 돌파를 구분해 판정합니다. 단계별 규칙은 과거 수익률로 검증된 승률 또는 가격 예측이 아닙니다.",
     "not_prediction": true,
@@ -7815,12 +7815,34 @@
       "cloud_b": 390750.0,
       "volume_ratio20": 0.66,
       "atr14": 24228.16
+    },
+    {
+      "date": "2026-11-09",
+      "close": 241500.0,
+      "ma5": 253000.0,
+      "ma20": 281825.0,
+      "ma60": 351758.33,
+      "ma120": 366687.5,
+      "ma200": 353215.0,
+      "bb_upper": 330916.01,
+      "bb_mid": 281825.0,
+      "bb_lower": 232733.99,
+      "rsi14": 33.18,
+      "macd": -26231.7443,
+      "macd_signal": -24982.9559,
+      "macd_hist": -1248.7884,
+      "tenkan": 262000.0,
+      "kijun": 307750.0,
+      "cloud_a": 385625.0,
+      "cloud_b": 390750.0,
+      "volume_ratio20": 0.74,
+      "atr14": 23783.29
     }
   ],
   "last": {
-    "date": "2026-11-06",
-    "label": "중립 / 확인 대기",
-    "kind": "neutral",
+    "date": "2026-11-09",
+    "label": "하락 위험 / 매도·비중축소 검토",
+    "kind": "risk",
     "score": -8,
     "checks": [
       {
@@ -7861,21 +7883,21 @@
     ],
     "averaging_down": "관망 · 반등 신호 부족",
     "entry_stage": "관망 · 반등 신호 부족",
-    "rebound_points": 1,
+    "rebound_points": 0,
     "risk_elevated": true,
-    "macd_improving": true,
+    "macd_improving": false,
     "add_criteria": "반등 감시: RSI 상승·MACD 히스토그램 개선·5일선 회복 중 2개 이상. 20일선 접근·볼린저 하단 복귀 시 분할 검토. 120·200일선 아래에서는 반등 실패 위험 상승.",
-    "risk_reference": 206544,
+    "risk_reference": 193933,
     "risk_note": "종가 - 2×ATR은 변동성 참고 가격이며 손절 주문 가격을 뜻하지 않습니다.",
     "overheat": false,
     "not_advice": true,
     "fully_ready": true,
-    "bottom_stage": "투매 후 반등 탐색 · 바닥 미확인",
-    "bottom_score": 2,
+    "bottom_stage": "투매 관찰 · 바닥 미확인",
+    "bottom_score": 1,
     "bottom_kind": "early",
     "source": "네이버 금융 (일별 종가)"
   },
-  "valid_high_low": 350,
-  "data_days": 350,
+  "valid_high_low": 351,
+  "data_days": 351,
   "has_real_data": true
 }
