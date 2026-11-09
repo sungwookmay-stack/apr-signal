@@ -83,6 +83,7 @@ const lastday=approx.daily.at(-1);
 lastday.amount_estimated=true;
 lastday.foreign_net_qty=12;
 lastday.foreign=12*240000;
+approx.latest_daily=lastday;
 approx.data_status.naver_flow_is_estimated=true;
 approx.data_status.naver_public_result={status:'ok',rows:80,pages:8};
 approx.actors.foreign.windows['5'].estimated_value_days=5;
