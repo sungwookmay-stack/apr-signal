@@ -378,13 +378,13 @@
             <h3>공매도 부담 모니터</h3>
             <div class="flow-stat-grid">
               <div><small>최근 확인 공매도 거래비중</small><strong id="flow-short-ratio">—</strong></div>
-              <div><small>20일 평균 (20일 완전 관측만)</small><strong id="flow-short-mean20">—</strong></div>
+              <div><small>20거래일 공매도 수량 비중 (기간 합계 기준)</small><strong id="flow-short-mean20">—</strong></div>
               <div><small>보고된 순공매도 잔고주수</small><strong id="flow-short-position">—</strong></div>
             </div>
             <p id="flow-short-day" class="under-note">공매도 데이터 확인 중</p>
             <p id="flow-short-position-note" class="under-note">공매도 순보유잔고는 신고 시차가 있습니다.</p>
           </div>
-          <div class="panel"><div class="panel-top"><strong>공매도 거래대금 비중 추이</strong><small>일간 근사치 · 정규 KRX 비중과 다름</small></div>
+          <div class="panel"><div class="panel-top"><strong>공매도 거래 비중 추이</strong><small>공매도 수량/전체 거래량 우선 · 금액 기준과 구분</small></div>
             <div class="graph small"><canvas id="flow-short-chart"></canvas></div>
           </div>
         </div>
@@ -397,7 +397,7 @@
           </div>
           <p id="flow-loan-date" class="under-note">KSD 대차 API 실측 확인 중</p>
           <p id="flow-risk-note" class="under-note">대차 거래와 공매도를 혼동하지 않습니다.</p>
-          <p class="fineprint">대차잔고는 빌린 주식의 잔량이며 공매도 순보유잔고와 다릅니다. 대차 상환이 증가해도 숏커버가 일어났다고 단정할 수 없습니다. 대차 수치는 별도 KSD 공식 API 접속키가 필요한 경우에만 표시합니다.</p>
+          <p class="fineprint">대차잔고는 빌린 주식의 잔량이며 공매도 순보유잔고와 다릅니다. 대차 상환이 증가해도 숏커버가 일어났다고 단정할 수 없습니다. 대차 수치는 키움 REST ka20068 또는 KSD 공식 API에서 실제 확인된 경우에만 표시합니다.</p>
         </div>
         <div class="section-title"><div><p class="eyebrow">DAILY EVIDENCE</p><h2>최근 20거래일 투자주체 순매수</h2></div></div>
         <div class="panel tablebox"><table><thead><tr><th>일자</th><th>외국인</th><th>기관</th><th>연기금</th><th>개인</th></tr></thead>
