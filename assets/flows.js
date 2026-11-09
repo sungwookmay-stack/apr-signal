@@ -109,22 +109,27 @@ function render(ctx){
  }
  const short=data.short||{}, sh=short.latest||{};
  const qty=sh.reported_net_short_balance_qty;
- $('flow-short-ratio').textContent=sh.short_value_ratio_pct!=null?
-    fmt(sh.short_value_ratio_pct,2)+'%':'—';
+ const sourceShortVolume=sh.short_volume_ratio_pct!=null;
+ const latestShortRatio=sourceShortVolume?sh.short_volume_ratio_pct:sh.short_value_ratio_pct;
+ $('flow-short-ratio').textContent=latestShortRatio!=null?
+    fmt(latestShortRatio,2)+'%':'—';
  $('flow-short-day').textContent=short.last_date?
     '공매도 거래 기준 '+short.last_date+
-    (sh.ratio_estimated_from_close_volume?' · 종가×거래량 대비 근사치':''):
+    (sourceShortVolume?' · 공매도 주수 / 당일 전체 거래량':
+     sh.ratio_estimated_from_close_volume?' · 종가×거래량 대비 금액 근사치':
+     ' · 산출 기준 확인 필요'):
     '종목별 공매도 거래 실측 미확인';
  $('flow-short-position').textContent=qty!=null?count(qty,fmt):'—';
- $('flow-short-mean20').textContent=short.short_ratio_mean20_pct!=null?
-     fmt(short.short_ratio_mean20_pct,2)+'%':'—';
+ $('flow-short-mean20').textContent=short.short_volume_period20_pct!=null?
+     fmt(short.short_volume_period20_pct,2)+'%':
+     short.short_ratio_mean20_pct!=null?fmt(short.short_ratio_mean20_pct,2)+'%':'—';
  $('flow-short-position-note').textContent='공매도 순보유잔고: 신고의무 대상자의 보고분. T+2 시차 및 사후 정정 가능. 대차잔고와 다릅니다.';
  const lending=data.lending||{},l=lending.latest||{};
  $('flow-loan-new').textContent=count(l.new_qty,fmt);
  $('flow-loan-return').textContent=count(l.returned_qty,fmt);
  $('flow-loan-bal').textContent=count(l.balance_qty,fmt);
  $('flow-loan-date').textContent=lending.last_date?
-   '대차 관측 '+lending.last_date+' · 단위 주':'대차 API 실측 미수집 · KSD 무료 서비스키 연결 필요';
+   '대차 관측 '+lending.last_date+' · 단위 주':'대차 실측 미수집 · 키움 REST 또는 KSD API 연동 필요';
  const risk=[];
  if(short.short_ratio_mean20_pct!=null&&short.short_ratio_mean20_pct>=10)
    risk.push('최근 20일 공매도 거래대금 근사 비중 높음(10% 이상)');
@@ -142,8 +147,8 @@ function render(ctx){
    '<tr><td colspan="5">KRX 상세 일간 수급 실측 없음. 출처가 검증된 자료가 모이면 누적합니다.</td></tr>';
  const histShort=(data.short_daily||[]).slice(-n);
  chart('flow-short-chart',histShort.map(x=>x.date?.slice(5)||''),[
-   {label:'공매도 거래비중 (근사%)',
-    values:histShort.map(x=>x.short_value_ratio_pct??null),color:C.red}
+   {label:'공매도 거래비중 (수량 기준 우선)',
+    values:histShort.map(x=>x.short_volume_ratio_pct??x.short_value_ratio_pct??null),color:C.red}
  ],{legend:true,decimals:1,suffix:'%'});
  $('flow-policy').textContent=
    '판정 기준은 5·20·60일 일별 실측, 매수일 비율, 거래대금 대비 순매수 강도와 주가 동행입니다. '+
