@@ -317,3 +317,26 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - 바닥은 절대 '확정'이라고 판정하지 않으며 저점 재이탈 경계, 투매 후 반등 탐색, 바닥 형성 가능성, 추세 전환 1차 확인 등 근거 기반 단계로 표시합니다. 각 지표의 계산 기준일과 최근 저가·MA5·MA20·직전 10일 고가를 공개합니다. 미래 가격을 미리 읽거나 공시되지 않은 거시 정보를 결합하지 않습니다.
 - 초기 분류 규칙은 과거 성과 백테스트가 완료된 투자 전략이 아닙니다. 거래비용·슬리피지·시장국면에 따라 효과가 달라질 수 있습니다.
 - 참고: https://content.cmtassociation.org/a/spotting-a-market-bottom / https://help.stockcharts.com/scanning-and-alerts/scan-writing-resource-center/scanning-case-studies/scanning-for-divergences / https://www.fidelity.com/learning-center/trading-investing/technical-analysis/what-is-technical-analysis
+
+
+## 에이피알 기관/외국인/연기금 수급 · 공매도/대차 (2026-11-09)
+
+### 수급 탭과 판정 의미
+- KRX 투자자별 거래실적(개별종목)에서 278470에 대해 개인·외국인(기타외국인 포함)·기관합계·연기금 등을 분리 수집합니다. **연기금은 기관합계의 구성원**이므로 외국인+기관과 별도로 더하지 않습니다. 연기금 매매동향과 국민연금의 공시 보유율도 서로 다른 정보입니다.
+- 최근 5·20·60 **완전한 거래일**의 누적 순매수/순매도, 매수일 비율, 5일 매수세 가속도, 종가×거래량으로 근사한 거래대금 대비 순매수, 가격 추세·MA20·거래량을 종합해 각 주체의 수급을 연구용으로 구분합니다. 날짜 누락·KRX 접속 실패·거래소 범위 불일치가 있을 때는 판정 보류합니다. 참고 점수는 미래 성공확률이나 실제 수급 주체의 의도를 의미하지 않습니다.
+- 외국인과 기관의 장단기 방향이 다르거나 주가가 하락하는데 외국인만 사는 상황을 무조건 좋은 수급으로 판정하지 않습니다. KRX와 NXT 포함 여부·시간외 거래 기준을 함께 살핍니다.
+- 2026-11-09 **제3자 KRX 기반 5/20/60일 외부 요약**은 data/flow_reference.json에 별도 기록하며 공식 원자료와 섞지 않습니다.
+
+### 공매도와 대차를 혼동하지 않기
+- KRX 공매도 종합정보: 당일 거래대금/수량과 보고된 순보유잔고를 별도로 제시합니다. 순보유잔고는 T+2 보고 시차 및 정정 가능성이 있습니다. 거래비중을 종가×거래량으로 근사한 경우 공식 집계와 다를 수 있음을 표시합니다.
+- 한국예탁결제원(KSD) 대차: 신규·상환·잔고(주)를 분리합니다. 대차잔고 증가는 신규 공매도의 확정 증거가 아니며 대차상환이 반드시 숏커버를 뜻하지 않습니다.
+- 최종 투자자별 매매 정보는 오후 8시경 제공되므로 매일 저녁 20:30 KST에 수급을 재조회합니다. 오전 07:30 수집도 유지합니다.
+
+### 무료 연결과 API 키
+- KRX 종목별 투자자 실적과 공매도는 KRX 데이터정보시스템의 공개 화면을 pykrx 무료 클라이언트로 조회합니다. KRX의 공식 Open API 상품은 현재 종목별 투자자 수급·공매도 항목을 제공하지 않습니다. 공개 사이트 접속 제한으로 pykrx가 실패할 경우 이전 검증값과 오류 상태를 유지합니다.
+- KSD 종목별 대차: 공공데이터포털의 **한국예탁결제원_증권대차서비스_GW** (https://www.data.go.kr/data/15157426/openapi.do) 활용신청 후, 발급받은 serviceKey를 GitHub 저장소 Settings > Secrets and variables > Actions > New repository secret에 **KSD_SLB_API_KEY** 이름으로 등록합니다. 키 원문은 공개 파일/채팅/화면에 적지 않습니다. 무료 개발계정 서비스이지만 **출처표시·상업적 이용금지** 조건이 있으므로 사이트 목적과 라이선스를 확인해야 합니다.
+- KSD API 응답 항목명이 예상 스키마와 달라질 경우 해당 지표는 미확인으로 유지합니다. KSD API 키가 KRX 상세 연기금·외국인 수급을 대신하지는 않습니다.
+- 수동 대안: imports/apr_investor_daily.csv, imports/apr_short_daily.csv, imports/apr_lending_daily.csv에 실제 확인한 날짜·원 단위 순매수·출처 URL을 기입합니다. 수동값은 별도로 출처 첨부 수동자료로 관리합니다.
+- 구현: flows_collect.py / flows_engine.py / assets/flows.js / data/flows.json / tests/test_flows.py / tests/smoke_flows.cjs.
+
+공식 원문: https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT023 / https://data.krx.co.kr/contents/MDC/STAT/srt/MDCSTAT300.jsp / https://www.data.go.kr/data/15157426/openapi.do
