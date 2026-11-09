@@ -18,8 +18,8 @@ assert(app.includes("if(state.nav==='flows'"));
 
 const nodes=new Map(),events={};const charts={};
 class E{
- constructor(id){this.textContent='';this.innerHTML='';this.value=id==='flow-period'?'20':'';}
- addEventListener(event,callback){events[this.eventKey=arguments[2]||'']??=null;events[this.id+':'+event]=callback;}
+ constructor(id){this.id=id;this.textContent='';this.innerHTML='';this.value=id==='flow-period'?'20':'';}
+ addEventListener(event,callback){events[this.id+':'+event]=callback;}
 }
 const $=id=>{if(!nodes.has(id))nodes.set(id,new E(id));return nodes.get(id);};
 const state={
