@@ -84,8 +84,8 @@ def sum_group(row, columns):
     return sum(values)
 
 
-def normalize_investor_dataframe(df):
-    """Map detailed pykrx *net trade VALUE (KRW)*, not share counts."""
+def normalize_investor_dataframe(df, detail=True):
+    """Map detailed or basic KRX net trade VALUE (KRW), not share counts."""
     if df is None or getattr(df,'empty',True):
         return []
     result=[]
@@ -95,17 +95,25 @@ def normalize_investor_dataframe(df):
         if not date:
             continue
         individual=sum_group(item,('개인',))
-        foreign=sum_group(item,('외국인','기타외국인'))
-        institution=sum_group(item,('금융투자','보험','투신','사모','은행','기타금융','연기금'))
-        pension=sum_group(item,('연기금',))
-        if pension is None and '연기금 등' in item:
-            pension=sum_group(item,('연기금 등',))
+        # Basic group totals are official when explicitly present.
+        # Avoid summing foreign twice when "외국인합계" is provided.
+        foreign=(sum_group(item,('외국인합계',))
+                 if '외국인합계' in item
+                 else sum_group(item,('외국인','기타외국인')))
+        pension_key='연기금' if '연기금' in item else '연기금 등'
+        pension=sum_group(item,(pension_key,))
+        institution=(sum_group(item,('기관합계',))
+                     if '기관합계' in item
+                     else sum_group(item,('금융투자','보험','투신','사모',
+                                         '은행','기타금융',pension_key)))
         # Strict: if a detail column is missing, hold the entire category.
         result.append({'date':date,'individual':individual,
                        'foreign':foreign,'institution':institution,
                        'pension':pension,
-                       'source':'KRX investor-by-security detailed net value (pykrx)',
-                       'unit':'KRW','record_status':'primary'})
+                       'source':('KRX investor-by-security detailed net value (pykrx)' if detail
+                                 else 'KRX investor-by-security basic net value (pykrx)'),
+                       'unit':'KRW','record_status':'primary',
+                       'institution_subgroup_covered':pension is not None})
     return result
 
 
@@ -268,17 +276,35 @@ def collect():
     shorts=list(prior.get('short_daily',[]))
     lending=list(prior.get('lending_daily',[]))
     krx_ok=False
+    krx_mode=None
+    diagnostics={}
     try:
         from pykrx import stock
-        d=stock.get_market_trading_value_by_date(start,end,TICKER,detail=True)
-        new=normalize_investor_dataframe(d)
-        if not new or not any(x.get('foreign') is not None
-                              and x.get('institution') is not None for x in new):
-            raise ValueError('KRX investor detailed response empty or columns changed')
+        try:
+            d=stock.get_market_trading_value_by_date(start,end,TICKER,detail=True)
+            diagnostics['detail_rows']=len(d) if d is not None else 0
+            diagnostics['detail_columns']=list(map(str,d.columns))[:15] if d is not None else []
+            new=normalize_investor_dataframe(d,detail=True)
+            if not any(x.get('foreign') is not None
+                       and x.get('institution') is not None for x in new):
+                raise ValueError('KRX investor detail columns/rows missing')
+            krx_mode='detailed'
+        except Exception as detail_error:
+            diagnostics['detail_error_type']=type(detail_error).__name__
+            # Re-query the official KRX basic group view, rather than
+            # wrongly interpreting absent detailed pension rows as zero.
+            d=stock.get_market_trading_value_by_date(start,end,TICKER,detail=False)
+            diagnostics['basic_rows']=len(d) if d is not None else 0
+            diagnostics['basic_columns']=list(map(str,d.columns))[:10] if d is not None else []
+            new=normalize_investor_dataframe(d,detail=False)
+            if not any(x.get('foreign') is not None
+                       and x.get('institution') is not None for x in new):
+                raise ValueError('KRX basic group data unavailable too')
+            krx_mode='basic_no_pension'
         daily=merge_by_date(daily,new)
         krx_ok=True
     except (Exception, ImportError) as exc:
-        issues.append('KRX 상세 수급: '+type(exc).__name__+' · 이전 검증값 유지')
+        issues.append('KRX 상세·기본 수급: '+type(exc).__name__+' · 이전 검증값 유지')
     try:
         from pykrx import stock
         d=stock.get_shorting_status_by_date(start,end,TICKER)
@@ -315,6 +341,8 @@ def collect():
        'checked_at_utc':now,
        'data_status':{
            'krx_investor_live_ok':krx_ok,
+           'krx_investor_mode':krx_mode,
+           'krx_collection_diagnostics':diagnostics,
            'ksd_api_key_present':bool(ksd_key),
            'last_verified_flow_date':analysis.get('flow_last_date'),
            'primary_source':'KRX detailed investor-by-security transactions',
