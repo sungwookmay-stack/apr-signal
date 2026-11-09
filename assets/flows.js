@@ -27,10 +27,17 @@ function render(ctx){
  const hasFull20=!!(actors.foreign?.windows?.['20']&&actors.institution?.windows?.['20']);
  const totalReady=matched&&hasFull20;
  const statusNote=(data.data_status?.issues||[]).join(' · ');
+ const sourceInfo=data.data_status||{};
+ const kiwoomInfo=sourceInfo.kiwoom_read_only_result||{};
+ const kiwoomStatus=sourceInfo.kiwoom_app_configured?
+   ('키움 REST 설정됨 · 조회 '+(kiwoomInfo.status||'미확인')+
+    (kiwoomInfo.asof?' · 기준일 '+kiwoomInfo.asof:'')):
+   '키움 REST 미연결 (KIWOOM_APP_KEY / KIWOOM_SECRET_KEY 필요)';
  const status=$('flow-collection-status');
  if(status)status.textContent='시세 기준 '+(priceDay||'미확인')+
-    ' / KRX 투자자별 실측 '+(flowDay||'미수집')+
+    ' / 투자자별 실측 '+(flowDay||'미수집')+
     ' · '+(matched?'날짜 정합성 충족':'날짜 불일치·자료 부족')+
+    ' · '+kiwoomStatus+
     (statusNote?' · '+statusNote:'');
  const title=$('flow-total-label');
  if(title)title.textContent=totalReady?(summary.label||'수급 분석 대기'):
