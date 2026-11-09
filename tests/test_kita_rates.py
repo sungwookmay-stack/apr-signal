@@ -3,7 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from kita_rates import parse_sea_rates, update, SEA_URL
+from kita_rates import parse_sea_rates, parse_sea_bulletin, update, SEA_URL
 
 
 class KitaRatesTests(unittest.TestCase):
@@ -52,6 +52,53 @@ class KitaRatesTests(unittest.TestCase):
             self.assertIn('snapshot',saved['sea_routes'][-1]['source_type'].lower())
             self.assertEqual(saved['air_routes'],[])
             self.assertTrue(saved['errors'])
+
+
+    def test_east_and_west_ports_from_primary_table(self):
+        html="""<table>
+        <tr><td>Busan</td><td>Long Beach</td><td>2026</td><td>10</td><td>6700 300</td><td>8500 600</td></tr>
+        <tr><td>Busan</td><td>New York</td><td>2026</td><td>10</td><td>9500 300</td><td>11900 600</td></tr>
+        </table>"""
+        rows=parse_sea_rates(html)
+        self.assertEqual({r['destination'] for r in rows},{'New York','Long Beach'})
+        self.assertEqual([r for r in rows if r['destination']=='New York'][0]['feu_usd'],11900)
+
+    def test_archive_bulletin_parses_only_sea_export(self):
+        sample="""<html><body><h1>2026년 7월 RADIS 참고 운임 안내 (해상 수출운임)</h1>
+        <table><tr><th>도착지</th><th>TEU</th><th>FEU</th></tr>
+        <tr><td>Long Beach</td><td>6,000</td><td>7,550</td></tr>
+        <tr><td>New York</td><td>7,500</td><td>9,500</td></tr></table></body></html>"""
+        url='https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3394&morgueCode=8'
+        rows=parse_sea_bulletin(sample,url)
+        self.assertEqual(len(rows),2)
+        east=next(r for r in rows if r['destination']=='New York')
+        self.assertEqual(east['feu_usd'],9500)
+        self.assertEqual(east['teu_usd'],7500)
+        self.assertEqual(east['source_type'],'KITA_RADIS_OFFICIAL_BULLETIN')
+        self.assertEqual(parse_sea_bulletin(
+           sample.replace('해상 수출운임','항공 수출운임'),url),[])
+
+    def test_east_latest_is_marked_secondary_unless_directly_verified(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'data.json'
+            out=update(path,fetch_html=lambda:('<table><tr>'
+               '<td>Busan</td><td>Long Beach</td><td>2026</td><td>10</td>'
+               '<td>6700 300</td><td>8500 600</td></tr></table>'))
+            self.assertEqual(out['west_latest_month'],'2026-10')
+            self.assertEqual(out['east_latest_month'],'2026-10')
+            self.assertFalse(out['east_latest_primary_verified'])
+            east=[x for x in out['sea_routes'] if x['destination']=='New York']
+            self.assertIsNone(east[-1]['teu_usd'])
+            self.assertIn('SECONDARY',east[-1]['source_type'])
+
+    def test_missing_east_months_not_interpolated(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            d=update(Path(tmp)/'data.json',fetch_html=lambda:('<table><tr>'
+               '<td>Busan</td><td>Long Beach</td><td>2026</td><td>10</td>'
+               '<td>6700</td><td>8500</td></tr></table>'))
+            east={x['month'] for x in d['sea_routes'] if x['destination']=='New York'}
+            self.assertNotIn('2026-08',east)
+            self.assertIn('2026-06',east)
 
 
 if __name__ == '__main__':
