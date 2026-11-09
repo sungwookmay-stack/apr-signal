@@ -188,6 +188,24 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
     short20 = short[-20:]
     ratio = [num(x.get('short_value_ratio_pct')) for x in short20]
     ratio = [x for x in ratio if x is not None]
+    # A 20-day SHORT-VOLUME percentage is calculated using the SUM of
+    # verified short volume / SUM of total traded volume on exactly the
+    # last 20 PRICE sessions; never average daily percentages.
+    last20_sessions=prices[-20:] if len(prices)>=20 else []
+    short_by_date={r['date']:r for r in short if r.get('date')}
+    q_pairs=[]
+    if len(last20_sessions)==20:
+        for row in last20_sessions:
+            sh=short_by_date.get(row['date'],{})
+            sq=num(sh.get('short_trade_qty'))
+            aq=num(sh.get('total_traded_qty'))
+            if sq is None or aq is None or aq<=0:
+                q_pairs=[]
+                break
+            q_pairs.append((sq,aq))
+    short_volume_period20=round(
+        sum(sq for sq,aq in q_pairs)/sum(aq for sq,aq in q_pairs)*100,2
+    ) if len(q_pairs)==20 and sum(aq for _,aq in q_pairs)>0 else None
     lent = lending[-1] if lending else {}
     prior_lent = lending[-2] if len(lending) >= 2 else {}
     # Borrowed shares are NOT the same as a reportable net short balance;
@@ -205,6 +223,7 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
             'latest': short[-1] if short else None,
             'short_ratio_mean20_pct': round(sum(ratio)/len(ratio), 2)
                                       if len(ratio)==20 else None,
+            'short_volume_period20_pct':short_volume_period20,
             'ratio_points20': len(ratio),
             'note': '공매도 거래비중과 순보유잔고는 별개; 순보유잔고는 T+2 신고 지연'
         },

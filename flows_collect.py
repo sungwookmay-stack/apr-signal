@@ -24,6 +24,7 @@ from xml.etree import ElementTree as ET
 
 from flows_engine import evaluate
 from kiwoom_flows import collect_if_connected as kiwoom_investors
+from kiwoom_short_lending import fetch_short_lending as kiwoom_short_lending
 
 BASE = Path(__file__).resolve().parent
 DATA = BASE / 'data'
@@ -337,12 +338,39 @@ def collect():
                          'pages':0,'truncated':False}
             issues.append('Kiwoom 투자주체 수급: '+type(exc).__name__+
                           ' · 이전값 유지 (키·토큰은 공개 안 함)')
+    kiwoom_short_lending_meta={
+        'short':{'status':'not_configured'},
+        'lending':{'status':'not_configured'}
+    }
+    if kiwoom_key_present:
+        try:
+            kshort, klend, kiwoom_short_lending_meta=kiwoom_short_lending(
+                os.environ['KIWOOM_APP_KEY'],
+                os.environ['KIWOOM_SECRET_KEY'], prices)
+            if kshort:
+                shorts=merge_by_date(shorts,kshort)
+            if klend:
+                lending=merge_by_date(lending,klend)
+            for key in ('short','lending'):
+                meta=kiwoom_short_lending_meta.get(key,{})
+                if meta.get('status') not in ('ok',):
+                    issues.append('Kiwoom '+key+' 자료: '+
+                                  str(meta.get('status','미확인'))+
+                                  ' · 기존 검증값 유지')
+        except Exception as exc:
+            kiwoom_short_lending_meta={
+                'short':{'status':'failed','error_type':type(exc).__name__},
+                'lending':{'status':'failed','error_type':type(exc).__name__}}
+            issues.append('Kiwoom 공매도·대차: '+type(exc).__name__+
+                          ' (키·토큰은 노출하지 않음)')
     ksd_key=os.environ.get('KSD_SLB_API_KEY','')
     try:
         new,msg=read_ksd(ksd_key,base_date=prices[-1]['date'] if prices else None)
-        if msg:
+        if msg and not lending:
             issues.append(msg)
         if new:
+            # KSD official values take precedence over broker-supplied lending
+            # for the same day when both were independently verified.
             lending=merge_by_date(lending,new)
     except Exception as exc:
         issues.append('KSD 대차 API: '+type(exc).__name__+' · 이전값 유지')
@@ -366,6 +394,7 @@ def collect():
            'krx_investor_live_ok':krx_ok,
            'kiwoom_app_configured':kiwoom_key_present,
            'kiwoom_read_only_result':kiwoom_meta,
+           'kiwoom_short_lending_result':kiwoom_short_lending_meta,
            'krx_investor_mode':krx_mode,
            'krx_collection_diagnostics':diagnostics,
            'ksd_api_key_present':bool(ksd_key),
@@ -388,6 +417,8 @@ def collect():
        'flow_rows':len(daily),'short_rows':len(shorts),'lending_rows':len(lending),
        'krx_live_ok':krx_ok,'kiwoom_connected':kiwoom_key_present,
        'kiwoom_status':kiwoom_meta.get('status'),
+       'kiwoom_short_status':kiwoom_short_lending_meta.get('short',{}).get('status'),
+       'kiwoom_lending_status':kiwoom_short_lending_meta.get('lending',{}).get('status'),
        'ksd_key_present':bool(ksd_key),
        'issues':issues
     },ensure_ascii=False))
