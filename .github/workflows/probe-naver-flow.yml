@@ -45,6 +45,29 @@ jobs:
                   if d:describe(d[0],depth+1)
               describe(doc)
               print("SAMPLE_PUBLIC",json.dumps(doc,ensure_ascii=False)[:1100],flush=True)
+
+              if "/front-api/stock/domestic/trend" in u:
+                result=doc.get("result",{})
+                cur=result.get("cursor")
+                print("CURSOR",repr(cur),"HASNEXT",result.get("hasNext"),flush=True)
+                from urllib.parse import urlencode
+                params=[{"code":"278470","cursor":str(cur)},{"code":"278470","page":2},
+                        {"code":"278470","pageSize":60}]
+                for qs in params:
+                  v=u.split("?")[0]+"?"+urlencode(qs)
+                  print("PAGINATION",str(qs),flush=True)
+                  try:
+                    rr=urllib.request.Request(v,headers={
+                      'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/130.0 Safari/537.36',
+                      'Accept':'application/json,text/plain,*/*','Referer':'https://stock.naver.com/'})
+                    with urllib.request.urlopen(rr,timeout=9) as response:
+                      jj=json.loads(response.read().decode('utf8','replace'))
+                    res=jj.get("result",{})
+                    days=[x.get('localTradedAt') for x in res.get('items',[]) if isinstance(x,dict)]
+                    print("PAGE_REPLY",len(days),days[:2],days[-2:],"CURSOR",repr(res.get('cursor')),flush=True)
+                  except Exception as exc:
+                    print("PAGE_ERR",type(exc).__name__,str(exc)[:100],flush=True)
+
             except Exception as e:
               print("ERROR",type(e).__name__,str(e)[:150],flush=True)
           PY
