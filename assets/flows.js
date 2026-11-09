@@ -121,8 +121,7 @@ function render(ctx){
     '종목별 공매도 거래 실측 미확인';
  $('flow-short-position').textContent=qty!=null?count(qty,fmt):'—';
  $('flow-short-mean20').textContent=short.short_volume_period20_pct!=null?
-     fmt(short.short_volume_period20_pct,2)+'%':
-     short.short_ratio_mean20_pct!=null?fmt(short.short_ratio_mean20_pct,2)+'%':'—';
+     fmt(short.short_volume_period20_pct,2)+'%':'—';
  $('flow-short-position-note').textContent='공매도 순보유잔고: 신고의무 대상자의 보고분. T+2 시차 및 사후 정정 가능. 대차잔고와 다릅니다.';
  const lending=data.lending||{},l=lending.latest||{};
  $('flow-loan-new').textContent=count(l.new_qty,fmt);
@@ -144,7 +143,7 @@ function render(ctx){
  if(tbody)tbody.innerHTML=rows.length?
    rows.map(x=>'<tr><td>'+escapeHtml(x.date||'')+'</td>'+
      ACTORS.map(([key])=>'<td>'+won(x[key],fmt)+'</td>').join('')+'</tr>').join(''):
-   '<tr><td colspan="5">KRX 상세 일간 수급 실측 없음. 출처가 검증된 자료가 모이면 누적합니다.</td></tr>';
+   '<tr><td colspan="5">검증된 일간 수급 실측 없음. 조회 일자가 확인된 기록만 누적합니다.</td></tr>';
  const histShort=(data.short_daily||[]).slice(-n);
  chart('flow-short-chart',histShort.map(x=>x.date?.slice(5)||''),[
    {label:'공매도 거래비중 (수량 기준 우선)',
