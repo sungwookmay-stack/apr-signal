@@ -77,4 +77,18 @@ assert.equal(charts['flow-cum-chart'].series[2].values.at(-1),null);
 $('flow-period').value='5';events['flow-period:change']();
 assert.equal(charts['flow-cum-chart'].labels.length,5);
 assert.match($('flow-latest-daily').textContent,/외국인/);
+
+const approx=state.flows;
+const lastday=approx.daily.at(-1);
+lastday.amount_estimated=true;
+lastday.foreign_net_qty=12;
+lastday.foreign=12*240000;
+approx.data_status.naver_flow_is_estimated=true;
+approx.data_status.naver_public_result={status:'ok',rows:80,pages:8};
+approx.actors.foreign.windows['5'].estimated_value_days=5;
+mod.render(ctx);
+assert.match($('flow-policy').textContent,/종가/);
+assert.match($('flow-summary-body').innerHTML,/≈/);
+assert.match($('flow-latest-daily').textContent,/추정금액/);
+assert.match($('flow-collection-status').textContent,/네이버 KRX 공개 데이터 ok 80거래일/);
 console.log('PASS: APR four investor flow groups, 5/20/60, unknown pension, source-labeled reference, short and KSD null handling');
