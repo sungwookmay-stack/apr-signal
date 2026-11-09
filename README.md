@@ -307,3 +307,13 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - 외화 노출·운송수단 배분·비용 인식 비중은 **회사 공식 공시가 없는 사용자 가정**으로 라벨을 붙입니다. 통화 노출과 운송비 배분 합계가 100%를 초과하면 계산을 보류합니다. 현지 풀필먼트는 독립 확인된 재무 계정이 아니므로 운반비의 가정상 내부 배분으로만 처리하여 중복 계상하지 않습니다.
 - KITA 원문: https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do / 항공: https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do
 - 무료 오프라인 검사: python -m unittest tests/test_kita_rates.py -v 및 node tests/smoke_sensitivity.cjs
+
+## KITA 미국 서안·동안 운임 / 기술적 바닥 형성 판별 (2026-11-09)
+
+- 물류 탭의 KITA FEU 선행지표는 **미국 서안 부산→롱비치**와 **미국 동안 부산→뉴욕**을 같은 USD/40피트 기준으로 비교합니다. 서안의 주요 비교 항구는 LA·시애틀·오클랜드, 동안은 노퍽·서배너지만 모든 항구의 비용이 같다고 가정하지 않습니다.
+- 서안은 KITA 공식 기본조회 페이지에서 2026년 1~10월을 직접 읽어왔습니다. 동안은 KITA 월간 공식 해상수출 공지에서 2026년 4·6·7월 값을 확인했으며, 2026년 9·10월은 KITA 운임을 인용한 별도 공개 운임 추적 서비스의 2차 값으로 **구분 표시**합니다. 동부의 미수집 8월, 9·10월 TEU는 공란으로 유지합니다.
+- 매일 오전 공식 KITA 기본조회와 함께, 공식 뉴욕 운임 데이터가 부족한 동안에는 출처가 낮은 별도 운임 추적 서비스의 발표월을 무료로 모니터링합니다. 이 2차 인용값은 **절대 KITA 원문 직접 검증값이라고 표시하지 않습니다.** 데이터 소스 접근이 실패하면 검증 상태와 기존값을 함께 보존합니다.
+- 바닥 판별 모듈 bottom_detector.py는 (i) 투매/평균거래량 급증, (ii) 3거래일 오른쪽 확인을 요구하는 스윙 저점과 RSI 상승 다이버전스/저점 재시험, (iii) MACD 히스토그램·RSI·5/20일선·전고점 돌파/거래량을 각각 확인합니다. 임의 가중치 0~10점은 **상승 확률이나 실증된 성공률이 아닙니다.**
+- 바닥은 절대 '확정'이라고 판정하지 않으며 저점 재이탈 경계, 투매 후 반등 탐색, 바닥 형성 가능성, 추세 전환 1차 확인 등 근거 기반 단계로 표시합니다. 각 지표의 계산 기준일과 최근 저가·MA5·MA20·직전 10일 고가를 공개합니다. 미래 가격을 미리 읽거나 공시되지 않은 거시 정보를 결합하지 않습니다.
+- 초기 분류 규칙은 과거 성과 백테스트가 완료된 투자 전략이 아닙니다. 거래비용·슬리피지·시장국면에 따라 효과가 달라질 수 있습니다.
+- 참고: https://content.cmtassociation.org/a/spotting-a-market-bottom / https://help.stockcharts.com/scanning-and-alerts/scan-writing-resource-center/scanning-case-studies/scanning-for-divergences / https://www.fidelity.com/learning-center/trading-investing/technical-analysis/what-is-technical-analysis
