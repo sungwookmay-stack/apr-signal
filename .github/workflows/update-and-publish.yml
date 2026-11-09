@@ -144,7 +144,7 @@ jobs:
       - name: Install free KRX client for end-of-day investor and short data
         # pykrx is only installed when the investor-flow collection runs.
         if: (github.event_name == 'schedule' && (github.event.schedule == '30 22 * * *' || github.event.schedule == '30 11 * * *')) || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[flows-now]'))
-        run: python -m pip install --disable-pip-version-check --quiet pykrx
+        run: python -m pip install --disable-pip-version-check --quiet pykrx || echo "Warning: pykrx installation failed; verified stored investor values retained and flow status will report unavailable."
       - name: Collect APR investor, pension, short and KSD lending (free)
         # After 20:00 the KRX final investor print should be available.
         # API keys remain in runner secrets; missing/blocked fields stay null.
