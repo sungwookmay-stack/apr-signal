@@ -208,6 +208,14 @@ jobs:
         # Only official product-level aggregate counters. Never duplicate Amazon rankings.
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[retail-now]'))
         run: python retail_reviews.py
+      - name: Refresh FSC verified APR stock lending after 13:00 KST
+        # FSC releases T-1 business-day data after 13:00; avoid treating
+        # 16:00 intraday API response as current-day short positions.
+        # Also supports a deliberate free [fsc-now] one-off after key activation.
+        if: (github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'push' && contains(github.event.head_commit.message, '[fsc-now]'))
+        env:
+          FSC_STOCK_LENDING_API_KEY: ${{ secrets.FSC_STOCK_LENDING_API_KEY }}
+        run: python fsc_stock_lending.py
       - name: Generate APR financial and Google Trends research snapshots (free)
         # Reuse local verified filings and existing Trends observations; no new APIs.
         run: python build_research_data.py

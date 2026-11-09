@@ -24,6 +24,7 @@ from xml.etree import ElementTree as ET
 
 from flows_engine import evaluate
 from kis_short_sales import collect as kis_short_sales
+from fsc_stock_lending import collect as fsc_stock_lending
 from naver_public_flows import collect as naver_investors
 from kiwoom_flows import collect_if_connected as kiwoom_investors
 from kiwoom_short_lending import fetch_short_lending as kiwoom_short_lending
@@ -431,6 +432,26 @@ def collect():
                         'rows':0,'pages':0}
             issues.append('네이버 공개 KRX 수급: '+type(exc).__name__+
                           ' · 이전 기록 유지')
+    # Official FSC lending service (dataset 15059612) is distinct from
+    # KRX short-sale transaction and reportable net short-position data.
+    # API date is updated at T+1 business day after 13:00 KST.
+    fsc_key=os.environ.get('FSC_STOCK_LENDING_API_KEY','')
+    fsc_result={'status':'not_configured','queries':0,'rows':0}
+    if fsc_key:
+        try:
+            official_rows,fsc_result=fsc_stock_lending(
+                prices,lending,key=fsc_key)
+            if official_rows:
+                lending=merge_by_date(lending,official_rows)
+            if fsc_result.get('status') not in ('ok',):
+                issues.append('금융위원회 대차 API: '+
+                    str(fsc_result.get('status','미확인'))+
+                    ' · 수치 검증 전에는 기존값 유지')
+        except Exception as exc:
+            fsc_result={'status':'failed','error_type':type(exc).__name__,
+                        'queries':0,'rows':0}
+            issues.append('금융위원회 대차 API: '+
+                          type(exc).__name__+' · 기존값 유지')
     imports={
       'daily': read_imports(IMPORTS/'apr_investor_daily.csv',INVESTOR_KEYS),
       'short': read_imports(IMPORTS/'apr_short_daily.csv',
@@ -452,8 +473,8 @@ def collect():
            'kis_short_key_configured':kis_key_present,
            'kis_short_daily_result':kis_result,
            'fsc_stock_lending_key_configured':bool(os.environ.get('FSC_STOCK_LENDING_API_KEY')),
-           'fsc_lending_status':('needs_endpoint_mapping' if os.environ.get('FSC_STOCK_LENDING_API_KEY')
-                                 else 'not_configured'),
+           'fsc_lending_status':fsc_result.get('status'),
+           'fsc_lending_result':fsc_result,
            'kiwoom_app_configured':kiwoom_key_present,
            'kiwoom_enabled_for_host':kiwoom_enabled,
            'kiwoom_read_only_result':kiwoom_meta,
@@ -482,6 +503,7 @@ def collect():
        'flow_rows':len(daily),'short_rows':len(shorts),'lending_rows':len(lending),
        'krx_live_ok':krx_ok,'kis_short_status':kis_result.get('status'),
        'fsc_lending_key_present':bool(os.environ.get('FSC_STOCK_LENDING_API_KEY')),
+       'fsc_lending_result':fsc_result.get('status'),
        'naver_status':naver_meta.get('status'),
        'naver_records':naver_meta.get('rows'),'kiwoom_connected':kiwoom_key_present,
        'kiwoom_status':kiwoom_meta.get('status'),
