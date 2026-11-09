@@ -27,21 +27,24 @@ function render(ctx){
  const hasFull20=!!(actors.foreign?.windows?.['20']&&actors.institution?.windows?.['20']);
  const totalReady=matched&&hasFull20;
  const statusNote=(data.data_status?.issues||[]).join(' · ');
+ const naverInfo=data.data_status?.naver_public_result||{};
+ const naverEstimated=!!data.data_status?.naver_flow_is_estimated;
  const sourceInfo=data.data_status||{};
  const kiwoomInfo=sourceInfo.kiwoom_read_only_result||{};
  const kiwoomStatus=sourceInfo.kiwoom_app_configured?
    ('키움 REST 설정됨 · 조회 '+(kiwoomInfo.status||'미확인')+
     (kiwoomInfo.asof?' · 기준일 '+kiwoomInfo.asof:'')):
-   '키움 REST 미연결 (KIWOOM_APP_KEY / KIWOOM_SECRET_KEY 필요)';
+   '키움 REST 미연결 (선택 사항)';
  const status=$('flow-collection-status');
  if(status)status.textContent='시세 기준 '+(priceDay||'미확인')+
     ' / 투자자별 실측 '+(flowDay||'미수집')+
     ' · '+(matched?'날짜 정합성 충족':'날짜 불일치·자료 부족')+
-    ' · '+kiwoomStatus+
+    ' · 네이버 KRX 공개 데이터 '+(naverInfo.status||'미수집')+
+    ' '+(naverInfo.rows||0)+'거래일 · '+kiwoomStatus+
     (statusNote?' · '+statusNote:'');
  const title=$('flow-total-label');
  if(title)title.textContent=totalReady?(summary.label||'수급 분석 대기'):
-    '공식 종목별 수급 미확인 · 판정 보류';
+    '종목별 연속 수급 미확인 · 판정 보류';
  const desc=$('flow-total-detail');
  if(desc)desc.textContent=totalReady?(summary.detail||''):
     '기준일이 다른 정보·5/20일 미충족 자료를 합산해 매집 확정으로 표시하지 않습니다.';
@@ -58,7 +61,9 @@ function render(ctx){
      const type=a.level||'unknown';
      return '<tr><td><strong>'+escapeHtml(name)+'</strong><small>'+
          escapeHtml(a.label||'실측 부족')+'</small></td>'+
-       rec.map(([n])=>'<td>'+won(w(n),fmt)+'</td>').join('')+
+       rec.map(([n])=>'<td>'+
+        (status[n]?.estimated_value_days?'≈':'')+
+        won(w(n),fmt)+'</td>').join('')+
        '<td>'+escapeHtml(LABEL[type]||LABEL.unknown)+'</td></tr>';
    }).join('');
  }
@@ -83,11 +88,13 @@ function render(ctx){
  chart('flow-cum-chart',days.map(d=>d.slice(5)),vis,{legend:true,decimals:1,xticks:8,suffix:'억원'});
  const latest=data.latest_daily||{};
  $('flow-latest-daily').textContent=flowDay?
-   flowDay+' 순매수(실제 거래대금) · 외국인 '+won(latest.foreign,fmt)+
+   flowDay+(latest.amount_estimated?
+      ' KRX 순매수 주수 × 당일 종가 추정금액 · 외국인 ':
+      ' 실제 순매수 거래대금 · 외국인 ')+won(latest.foreign,fmt)+
    ' / 기관 '+won(latest.institution,fmt)+
    ' / 연기금 '+won(latest.pension,fmt)+
    ' / 개인 '+won(latest.individual,fmt):
-   '종목별 일간 실측 미수집. 수집된 날짜만 표시하며 데이터 공백은 0으로 채우지 않습니다.';
+   '종목별 일간 수급 미수집. 수집된 날짜만 표시하며 데이터 공백은 0으로 채우지 않습니다.';
  const refBox=$('flow-external-reference');
  if(refBox){
    const values=ref.net_by_actor_100m_krw||{};
@@ -150,7 +157,8 @@ function render(ctx){
     values:histShort.map(x=>x.short_volume_ratio_pct??x.short_value_ratio_pct??null),color:C.red}
  ],{legend:true,decimals:1,suffix:'%'});
  $('flow-policy').textContent=
-   '판정 기준은 5·20·60일 일별 실측, 매수일 비율, 거래대금 대비 순매수 강도와 주가 동행입니다. '+
+   (naverEstimated?'≈ 표시: 네이버 공개 KRX 순매수 주수 × KRX 당일 종가로 계산한 참고금액입니다. 실제 체결 순매수 거래대금이 아닙니다. 연기금 개별 데이터도 없습니다. ':'')+
+   '판정 기준은 5·20·60일 일별 수급, 매수일 비율, 거래대금 대비 순매수 강도와 주가 동행입니다. '+
    '연기금은 기관 합계에 포함하므로 외국인+기관과 따로 더하지 않습니다. '+
    '시장 범위(KRX/NXT)·확정 시각이 다른 자료는 단순 합산하지 않습니다.';
 }
