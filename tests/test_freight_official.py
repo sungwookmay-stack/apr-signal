@@ -141,6 +141,11 @@ class TestCustomsFreight(unittest.TestCase):
             self.assertEqual(rows2,[])
             self.assertEqual(failures2,[])
 
+    def test_live_official_links_have_required_url_token(self):
+        self.assertIn('nttSnUrl=', KNOWN_RELEASES['2026-09'])
+        self.assertIn('nttSnUrl=', KNOWN_RELEASES['2025-09'])
+        self.assertIn('/foreign/', KNOWN_RELEASES['2026-06'])
+
     def test_history_does_not_accept_wrong_month(self):
         from unittest.mock import patch
         fake_url='https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?nttSn=10145684'

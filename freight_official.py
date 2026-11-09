@@ -48,6 +48,29 @@ KNOWN_RELEASES = {
     month: BASE+'/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn='+num
     for month, num in _IDS.items()
 }
+# Customs requires nttSnUrl in its accessible canonical article links.
+# A bare nttSn URL may return an empty/not-found article on the live host.
+_VERIFIED_HASHES = {
+    '2025-06': '017b2422f80aa4f518d64af965679ac9',
+    '2025-07': '3f4ee0a9eb59169b4cf34f0e5e68c56d',
+    '2025-09': '4e3e05639139a1a8f7d29e6b2211a61c',
+    '2025-10': 'd302ddd61498f56147b3cc2e63c53c40',
+    '2025-11': 'fd29d22ac4a7eeb6c7828cc2a9ef1c76',
+    '2025-12': 'a00de2f6c5858bad1f61c904e6c985c0',
+    '2026-01': '32dbf92626ff0503f22d8eabdb86f919',
+    '2026-03': 'a9b44ec42b1e74b12d0e7e51e15fd3e7',
+    '2026-04': 'a339ef9693d02f8149fabbcaadc1ecbe',
+    '2026-05': '7165f29308d85363e87120ca30b47f4c',
+    '2026-06': 'dc430818d80eca09eafad1c3858cb47e',
+    '2026-07': '623b71ead9d2c77d728a59d8fee6b3ed',
+    '2026-08': '3d882ad4c9ae38a38038fe09e94c70bf',
+    '2026-09': '85ecfa8eed3f4098ece86ef6db0520a7',
+}
+for _month, _token in _VERIFIED_HASHES.items():
+    KNOWN_RELEASES[_month] += '&nttSnUrl=' + _token
+# June 2026 is accessible through the Customs overseas-support mirror.
+KNOWN_RELEASES['2026-06'] = (BASE+'/foreign/na/ntt/selectNttInfo.do?'
+    'bbsId=1362&mi=3202&nttSn=10170124&nttSnUrl=dc430818d80eca09eafad1c3858cb47e')
 
 
 def strip_markup(body):
@@ -167,7 +190,8 @@ def discover_releases(get_bytes, pages=4):
         try:
             doc = get_bytes(url, timeout=9).decode('utf-8', errors='replace')
             for month, link in collect_release_links(doc):
-                candidates[month] = link
+                if month not in candidates or 'nttSnUrl=' in link:
+                    candidates[month] = link
         except Exception as exc:
             errors.append(type(exc).__name__)
             if page >= 2:
