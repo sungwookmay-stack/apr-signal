@@ -5,11 +5,11 @@
   "method": "협력업체 조사 시장 참고운임·매월 첫째 주·USD/TEU 및 USD/FEU",
   "source_scope": "부산→롱비치 공개 기본 조회 항로만 확인. 기타 항로와 항공은 미확인.",
   "latest_month": "2026-10",
-  "latest_access_checked_at_utc": null,
-  "latest_access_ok": null,
+  "latest_access_checked_at_utc": "2026-11-09T05:17:36+00:00",
+  "latest_access_ok": true,
   "verified_snapshot_date": "2026-11-09",
   "air_routes": [],
-  "air_status": "항공 기본 조회 결과 없음: 공란 유지",
+  "air_status": "항공 공개 기본 조회는 결과 없음: 공란 유지",
   "sea_routes": [
     {
       "month": "2026-01",
@@ -18,8 +18,7 @@
       "teu_usd": 2500,
       "feu_usd": 3100,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-02",
@@ -28,8 +27,7 @@
       "teu_usd": 1450,
       "feu_usd": 1850,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-03",
@@ -38,8 +36,7 @@
       "teu_usd": 2300,
       "feu_usd": 2860,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-04",
@@ -48,8 +45,7 @@
       "teu_usd": 2900,
       "feu_usd": 3100,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-05",
@@ -58,8 +54,7 @@
       "teu_usd": 2400,
       "feu_usd": 2900,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-06",
@@ -68,8 +63,7 @@
       "teu_usd": 3960,
       "feu_usd": 4950,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-07",
@@ -78,8 +72,7 @@
       "teu_usd": 6000,
       "feu_usd": 7550,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-08",
@@ -88,8 +81,7 @@
       "teu_usd": 6200,
       "feu_usd": 7600,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-09",
@@ -98,8 +90,7 @@
       "teu_usd": 6400,
       "feu_usd": 7900,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     },
     {
       "month": "2026-10",
@@ -108,8 +99,7 @@
       "teu_usd": 6700,
       "feu_usd": 8500,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_VERIFIED_SNAPSHOT_2026-11-09",
-      "verified_on": "2026-11-09"
+      "source_type": "KITA_RADIS_PUBLIC_HTML"
     }
   ],
   "errors": []
