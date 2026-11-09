@@ -2,8 +2,8 @@
   "provider": "한국무역협회 KITA RADIS",
   "sea_source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
   "air_source_url": "https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do",
-  "method": "협력업체 조사 시장 참고운임·매월 첫째 주·USD/TEU 및 USD/FEU",
-  "source_scope": "부산→롱비치 공개 기본 조회 항로만 확인. 기타 항로와 항공은 미확인.",
+  "method": "KITA 협력 포워더 시장 참고운임 (USD/TEU·FEU), 직접 조회와 제3자 인용값 출처 구분",
+  "source_scope": "미 서안 부산→롱비치 / 미 동안 부산→뉴욕 대표. APR 계약운임과 구분",
   "latest_month": "2026-10",
   "latest_access_checked_at_utc": "2026-11-09T05:17:36+00:00",
   "latest_access_ok": true,
@@ -18,7 +18,8 @@
       "teu_usd": 2500,
       "feu_usd": 3100,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
     },
     {
       "month": "2026-02",
@@ -27,7 +28,8 @@
       "teu_usd": 1450,
       "feu_usd": 1850,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
     },
     {
       "month": "2026-03",
@@ -36,7 +38,19 @@
       "teu_usd": 2300,
       "feu_usd": 2860,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
+    },
+    {
+      "month": "2026-04",
+      "origin": "Busan",
+      "destination": "New York",
+      "region": "미국 동안",
+      "teu_usd": 3100,
+      "feu_usd": 4000,
+      "source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3375&morgueCode=8",
+      "source_type": "KITA_RADIS_OFFICIAL_BULLETIN",
+      "verified_on": "2026-11-09"
     },
     {
       "month": "2026-04",
@@ -45,7 +59,8 @@
       "teu_usd": 2900,
       "feu_usd": 3100,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
     },
     {
       "month": "2026-05",
@@ -54,7 +69,19 @@
       "teu_usd": 2400,
       "feu_usd": 2900,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
+    },
+    {
+      "month": "2026-06",
+      "origin": "Busan",
+      "destination": "New York",
+      "region": "미국 동안",
+      "teu_usd": 5000,
+      "feu_usd": 6150,
+      "source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3390&morgueCode=8",
+      "source_type": "KITA_RADIS_OFFICIAL_BULLETIN",
+      "verified_on": "2026-11-09"
     },
     {
       "month": "2026-06",
@@ -63,7 +90,19 @@
       "teu_usd": 3960,
       "feu_usd": 4950,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
+    },
+    {
+      "month": "2026-07",
+      "origin": "Busan",
+      "destination": "New York",
+      "region": "미국 동안",
+      "teu_usd": 7500,
+      "feu_usd": 9500,
+      "source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3394&morgueCode=8",
+      "source_type": "KITA_RADIS_OFFICIAL_BULLETIN",
+      "verified_on": "2026-11-09"
     },
     {
       "month": "2026-07",
@@ -72,7 +111,8 @@
       "teu_usd": 6000,
       "feu_usd": 7550,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
     },
     {
       "month": "2026-08",
@@ -81,7 +121,19 @@
       "teu_usd": 6200,
       "feu_usd": 7600,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
+    },
+    {
+      "month": "2026-09",
+      "origin": "Busan",
+      "destination": "New York",
+      "region": "미국 동안",
+      "teu_usd": null,
+      "feu_usd": 11300,
+      "source_url": "https://logisight.net/rates",
+      "source_type": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
+      "verified_on": "2026-11-09"
     },
     {
       "month": "2026-09",
@@ -90,7 +142,19 @@
       "teu_usd": 6400,
       "feu_usd": 7900,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
+    },
+    {
+      "month": "2026-10",
+      "origin": "Busan",
+      "destination": "New York",
+      "region": "미국 동안",
+      "teu_usd": null,
+      "feu_usd": 11900,
+      "source_url": "https://logisight.net/rates",
+      "source_type": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
+      "verified_on": "2026-11-09"
     },
     {
       "month": "2026-10",
@@ -99,8 +163,15 @@
       "teu_usd": 6700,
       "feu_usd": 8500,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
-      "source_type": "KITA_RADIS_PUBLIC_HTML"
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "region": "미국 서안"
     }
   ],
-  "errors": []
+  "errors": [],
+  "west_latest_month": "2026-10",
+  "east_latest_month": "2026-10",
+  "east_latest_source": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
+  "east_latest_primary_verified": false,
+  "east_auto_updated": false,
+  "east_note": "2026-09/10 뉴욕 40피트 운임은 KITA를 인용한 제3자 2차 출처로 공식 항로별 직접 재확인 전. 동부 TEU 및 빠진 월은 공란 유지."
 }

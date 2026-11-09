@@ -57,6 +57,21 @@
         <div class="section-title"><div><p class="eyebrow">BOLLINGER + ICHIMOKU</p><h2>가격 · 5·20·60·120·200일 이평선</h2><span>이동평균과 볼린저·일목을 선택해 비교합니다.</span></div><select class="input" id="technical-view" aria-label="가격 차트 지표 선택"><option value="ma">5종 이평선</option><option value="cloud">볼린저·일목균형표</option></select></div>
         <div class="panel"><div class="panel-top"><strong>가격과 주요 지표</strong><span class="data-label">마지막 90거래일 · 실제 OHLC만 사용</span></div><div class="graph tall"><canvas id="chart-technical"></canvas></div><div class="legend technical-legend"><span><i class="swatch" style="background:#152b40"></i>종가</span><span><i class="swatch" style="background:#12a08d"></i>BB 상·하단</span><span><i class="swatch" style="background:#bf8854"></i>일목 전환·기준선</span><span><i class="swatch" style="background:#7485b0"></i>구름 상·하단</span></div><div class="info-under">이평선은 실제 종가의 과거 이동평균입니다. 일목구름 선택 시 26거래일 전 형성된 선행스팬을 사용하며 미래 종가는 사용하지 않습니다.</div></div>
         <div class="grid two technical-bottom"><div class="panel"><div class="panel-top"><strong>RSI(14)</strong><small>30 / 70 과매도·과열 참고</small></div><div class="graph small"><canvas id="chart-rsi"></canvas></div></div><div class="panel"><div class="panel-top"><strong>MACD(12,26,9)</strong><small>MACD선 · 시그널 · 히스토그램</small></div><div class="graph small"><canvas id="chart-macd"></canvas></div></div></div><div class="panel padded technical-reasons"><h3>매수·매도 판단 근거와 최신 지표</h3><div class="under-metrics" id="t-short-metrics"></div><div id="technical-checks" class="checks"></div></div>
+        <div class="section-title"><div><p class="eyebrow">BOTTOM FORMATION · EVIDENCE</p><h2>저점 형성 · 확인 단계별 판별</h2><span>투매 → 저점 재시험·RSI 다이버전스 → 이평선·거래량 돌파 확인</span></div></div>
+        <div class="panel padded bottom-analysis">
+          <div class="section-split"><h3>바닥 형성 신호</h3><small id="bottom-date">분석 기준일 확인 중</small></div>
+          <div class="bottom-overview">
+            <div><small>현재 판별 단계</small><strong id="bottom-stage">분석 중</strong><span id="bottom-guidance">확인 지표를 계산하고 있습니다.</span></div>
+            <div><small>기술적 확인 조건</small><strong id="bottom-score">—</strong><span>승률·바닥 확률 아님</span></div>
+            <div><small>최근 20일 가격 저점</small><strong id="bottom-low">—</strong><span id="bottom-low-date">실제 저가 기준</span></div>
+            <div><small>20일 이동평균선</small><strong id="bottom-ma20">—</strong><span>회복·유지 확인 대상</span></div>
+          </div>
+          <p class="under-note" id="bottom-washout">투매와 저점 재시험 관측 중</p>
+          <div id="bottom-checks" class="bottom-checks"></div>
+          <p class="under-note" id="bottom-conditions">확정 저점은 오른쪽 3거래일이 경과한 이후에만 기록합니다.</p>
+          <div class="source-links"><a href="https://content.cmtassociation.org/a/spotting-a-market-bottom" target="_blank" rel="noopener noreferrer">CMT 3단계 바닥 형성 근거 ↗</a><a href="https://help.stockcharts.com/scanning-and-alerts/scan-writing-resource-center/scanning-case-studies/scanning-for-divergences" target="_blank" rel="noopener noreferrer">RSI 다이버전스 판단법 ↗</a><a href="https://www.fidelity.com/learning-center/trading-investing/technical-analysis/what-is-technical-analysis" target="_blank" rel="noopener noreferrer">Fidelity 기술적 분석 안내 ↗</a></div>
+          <p class="fineprint">이 판별은 APR 일봉으로 계산한 휴리스틱 연구 지표이며 저점을 확정하거나 향후 상승 확률을 의미하지 않습니다. 200일 이평선 아래에서도 단기 반등은 가능하지만 추세 회복을 별도로 확인합니다. 장중 실시간 판단이나 투자 주문을 수행하지 않습니다.</p>
+        </div>
         <div class="risk-panel"><div><p class="eyebrow">RISK FIRST</p><h3>분할매수 / 물타기 가이드</h3><p id="t-risk-message">RSI·MACD 개선과 5일선 회복을 함께 관찰합니다. 위험 구간도 표시합니다.</p></div><div class="risk-value"><small>ATR(14) 기반 하방 참고선</small><strong id="t-risk-price">—</strong><span>실제 손절 주문 가격이 아닙니다</span></div></div>
         <p class="fineprint">일봉 기반의 참고 지표입니다. 수익 보장, 개인별 매매 권유, 실시간 호가 또는 주문 기능을 제공하지 않습니다. 장기 이동평균과 일목은 충분한 과거 데이터가 필요하며 미확보 시 계산하지 않습니다.</p>
       </section>
@@ -226,22 +241,27 @@
         <div class="section-title"><div><p class="eyebrow">LEADING INDICATOR · KITA RADIS</p><h2>시장 운임 · 월초 선행지표</h2><span>협력업체 조사 참고운임 · 매월 첫째 주 갱신 · APR 계약운임과 구별</span></div></div>
         <div class="grid two">
           <div class="panel">
-            <div class="panel-top"><strong>부산 → 롱비치 해상운임 (USD)</strong><small>TEU / FEU · 공식 공개 기본조회</small></div>
+            <div class="panel-top"><strong>부산 → 미국 서안 vs 동안 (FEU)</strong><small>USD / 40피트 · 항로별 실측만 연결</small></div>
             <div class="graph small"><canvas id="chart-kita-sea"></canvas></div>
-            <p class="freight-asof" id="kita-asof">KITA 선행 운임 자료 확인 중</p>
-            <p class="freight-asof" id="kita-lead-lag">관세청 통계와 기준 시점을 비교 중</p>
+            <p class="freight-asof" id="kita-asof">KITA 미 서부·동부 운임 확인 중</p>
+            <p class="freight-asof" id="kita-lead-lag">관세청 후행 통계와 발표월 비교</p>
           </div>
           <div class="panel padded">
-            <h3>최신 KITA 관측</h3>
-            <div class="freight-results">
-              <div><small>FEU (40피트)</small><strong id="kita-feu">—</strong></div>
-              <div><small>전월 대비</small><strong id="kita-feu-mom">—</strong></div>
-              <div><small>TEU (20피트)</small><strong id="kita-teu">—</strong></div>
+            <h3>미국 서안·동안 최신 운임 비교</h3>
+            <div class="freight-results kita-us-results">
+              <div><small>서안 · 롱비치 FEU</small><strong id="kita-feu">—</strong><span id="kita-feu-mom">—</span></div>
+              <div><small>동안 · 뉴욕 FEU</small><strong id="kita-east-feu">—</strong><span id="kita-east-mom">—</span></div>
+              <div><small>동안 − 서안 격차</small><strong id="kita-spread">—</strong><span>동일 월·동일 FEU 비교</span></div>
             </div>
-            <p id="kita-quality" class="under-note">KITA 사이트 데이터 수집 상태 확인 중</p>
-            <p class="under-note">KITA는 40피트 컨테이너당 USD 참고운임, 관세청은 원화 기준 신고 평균 운송비용입니다. 단위·시장 조사 방법이 다르므로 수치를 직접 이어 붙이지 않습니다.</p>
-            <div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener noreferrer">KITA 해상 원문 ↗</a><a href="https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do" target="_blank" rel="noopener noreferrer">KITA 항공 조회 ↗</a></div>
+            <p id="kita-quality" class="under-note">항로별 직접 확인·2차 인용 출처를 검사 중</p>
+            <p class="under-note">서안 대표: 롱비치(동일 공지 내 LA·시애틀·오클랜드). 동안 대표: 뉴욕(동일 공지 내 노퍽·서배너). 지역 전체 평균이 아니라 대표 항로 비교입니다.</p>
+            <div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener noreferrer">KITA 월간 해상 기본조회 ↗</a><a href="https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3394&amp;morgueCode=8" target="_blank" rel="noopener noreferrer">KITA 7월 공식 동서부 원문 ↗</a><a href="https://logisight.net/rates" target="_blank" rel="noopener noreferrer">동안 최신 인용자료 ↗</a></div>
           </div>
+        </div>
+        <div class="panel padded kita-coast-detail">
+          <div class="section-split"><h3>KITA 대표 항로별 확인월·출처</h3><small>같은 월·FEU만 직접 비교</small></div>
+          <div class="tablebox"><table><thead><tr><th>권역</th><th>대표 목적항</th><th>확인월</th><th>FEU 운임</th><th>전월 대비</th><th>자료 검증</th></tr></thead><tbody id="kita-route-table"><tr><td colspan="6">확인 중</td></tr></tbody></table></div>
+          <p class="under-note" id="kita-source-note">KITA 공식 원문과 별도 운임 추적 서비스의 인용값은 구분됩니다. 확인되지 않은 과거 월은 연결하지 않습니다.</p>
         </div>
         <div class="section-title"><div><p class="eyebrow">LAGGING INDICATOR · CUSTOMS</p><h2>신고 기반 해상수출 평균 비용</h2><span>관세청 발표월 통계 · 2TEU당 평균, USD 표시 KITA와 직접 비교 불가</span></div></div>
         <div class="grid two"><div class="panel"><div class="panel-top"><strong>해상수출 평균 운송비용</strong><label for="freight-group"><span class="sr-only">항로 구분</span><select id="freight-group" class="input"><option value="long">장거리 · 미국/유럽/중동</option><option value="near">단거리 · 중국/일본/베트남</option></select></label></div><div class="graph small"><canvas id="chart-sea"></canvas></div>

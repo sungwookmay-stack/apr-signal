@@ -19,6 +19,21 @@ jobs:
           python-version: '3.12'
       - name: Python tests (mock API only)
         run: python -m unittest discover -s tests -v
+      - name: Validate bottom stage on saved APR daily OHLCV (offline)
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from indicator_engine import calculate
+          market=json.loads(Path('data/market.json').read_text(encoding='utf-8'))
+          output=calculate(market['series'])
+          bottom=output['bottom']
+          assert bottom['data_ready'], bottom
+          assert bottom['date']==market['series'][-1]['date']
+          assert len(bottom['checks'])==8
+          assert bottom['not_prediction']
+          print('APR bottom stage:',bottom['stage'],'date:',bottom['date'])
+          PY
       - name: JavaScript syntax
         run: node --check assets/app.js
       - name: Standalone sensitivity JS syntax

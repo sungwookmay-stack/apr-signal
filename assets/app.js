@@ -78,7 +78,54 @@ function renderOverview(){
  $('monthly-body').innerHTML=Object.keys(buckets).sort().reverse().map(mon=>{const o=buckets[mon];const p=o.prices.at(-1);const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
  return `<tr><td>${escapeHtml(mon)}${p&&mon===lastDate.slice(0,7)?' (진행 중 · '+escapeHtml(p.date.slice(5))+')':''}</td><td>${p?'₩'+fmt(p.close_krw):'—'}</td><td>${p&&p.close_usd!=null?'$'+fmt(p.close_usd,2):'—'}</td><td>${fmt(avg(o.fxusd),1)}</td><td>${fmt(avg(o.fxeur),1)}</td></tr>`}).join('');
 }
+function renderBottomAnalysis(b){
+ set('bottom-date',b?.date?'확인 일봉 '+b.date:'자료 검증 전');
+ set('bottom-stage',b?.stage||'자료 부족 · 판단 유보');
+ set('bottom-score',b?.score!=null?b.score+' / '+(b.max_score||10):'—');
+ set('bottom-low',b?.reference?.recent_20d_low!=null?'₩'+fmt(b.reference.recent_20d_low):'—');
+ set('bottom-low-date',b?.reference?.recent_20d_low_date||
+     '최근 20거래일 저가 확인 전');
+ set('bottom-ma20',b?.reference?.ma20!=null?'₩'+fmt(b.reference.ma20):'—');
+ const stage=(b?.kind||'unknown');
+ const guidance={
+    confirmation:'반등 흐름의 1차 확인 조건을 충족했으나 이후 저점 재시험 가능',
+    building:'다이버전스·재시험과 모멘텀이 동반돼 형성 가능성 상승',
+    early:'투매 후 매도압력이 둔화될 수 있으나 저점 확정 전',
+    risk:'저점 재이탈·하락 지속 가능성 점검 필요',
+    unknown:'바닥이 확인됐다는 근거 부족'
+ }[stage]||'추가 거래일이 필요';
+ set('bottom-guidance',guidance);
+ if(!b?.data_ready){
+    set('bottom-washout','OHLCV·RSI·MACD 자료 검증 전: 저점 판단 보류');
+    set('bottom-conditions','자료가 충분한 실제 일봉이 확보된 후 표시합니다.');
+    const checks=$('bottom-checks');if(checks)checks.innerHTML='';
+    return;
+ }
+ const w=b.washout,low=b.reference||{};
+ set('bottom-washout',w?
+   '최근 투매 관측: '+w.date+' · 이전 20일 평균 대비 거래량 '+
+    fmt(w.volume_multiple,1)+'배 · 최근 60일 고점 대비 당일 -'+
+    fmt(Math.abs(w.drawdown_from_60d_top_pct),1)+'%':
+   '최근 20거래일 기준에 맞는 투매·거래량 급증 신호는 미확인');
+ const checks=$('bottom-checks');if(checks){
+   checks.innerHTML=(b.checks||[]).map(x=>
+      '<div class="check"><span class="check-icon '+(x.passed?'positive':'caution')+'">'+
+      (x.passed?'✓':'·')+'</span><div><b>'+escapeHtml(x.name)+
+      ' <small>+'+(x.passed?x.points:0)+' / '+x.max_points+'</small></b><p>'+
+      escapeHtml(x.detail)+'</p></div></div>'
+   ).join('');
+ }
+ const pivot=b.latest_confirmed_swing_low;
+ set('bottom-conditions','관찰 기준: 최근 20일 저점 '+
+   (low.recent_20d_low!=null?'₩'+fmt(low.recent_20d_low):'미확인')+
+   ' · 5일선 '+(low.ma5!=null?'₩'+fmt(low.ma5):'—')+
+   ' · 직전 10거래일 최고종가 '+(low.prior_10d_high_close!=null?'₩'+fmt(low.prior_10d_high_close):'—')+
+   ' · 마지막 확인된 스윙 저점 '+(pivot?pivot.date+' ₩'+fmt(pivot.low)+
+      ' (확인일 '+pivot.confirmed_on+')':'없음')+
+   ' · 3거래일 이후에만 스윙 저점 확정. 이는 지지·손절 보장선이 아닙니다.');
+}
 function renderTechnical(){const d=state.technical,last=d?.last;
+ renderBottomAnalysis(d?.bottom);
  if(!last||!last.date){set('t-decision','분석 자료 미확보');set('t-add','보류');return}
  set('t-decision',last.label||'—');set('t-date','분석일 '+last.date);set('t-score',last.score!=null?(last.score>0?'+':'')+last.score:'—');
  set('t-add',last.averaging_down||'미확인');set('t-risk-message',last.add_criteria||'구름 및 볼린저 반등 확인 필요');
@@ -403,30 +450,65 @@ function previousMonth(month,offset){
 }
 function renderKitaRates(){
  const k=state.kitaRates||{}, customs=state.market?.logistics||{};
- const all=(k.sea_routes||[]).filter(x=>
-   x.origin==='Busan'&&x.destination==='Long Beach'&&x.month)
-   .slice().sort((a,b)=>a.month.localeCompare(b.month));
- const last=all.at(-1),prior=all.at(-2);
- const verified=last?.source_type?.startsWith('KITA_RADIS_')&&last?.source_url;
- chart('chart-kita-sea',all.map(x=>x.month),[
-   {label:'TEU (20피트)',values:all.map(x=>x.teu_usd),color:C.teal},
-   {label:'FEU (40피트)',values:all.map(x=>x.feu_usd),color:C.navy}
- ],{legend:true,decimals:0});
- set('kita-feu',last?.feu_usd!=null?'$'+fmt(last.feu_usd):'—');
- set('kita-teu',last?.teu_usd!=null?'$'+fmt(last.teu_usd):'—');
- set('kita-feu-mom',last&&prior&&prior.feu_usd>0?
-    signed(pct(last.feu_usd,prior.feu_usd)):'—');
- set('kita-asof','KITA 최근 관측 월 '+(last?.month||'미수집')+
-   ' · 시장 조사 참고운임 (USD / TEU·FEU), 매월 첫째 주 갱신');
- set('kita-lead-lag','현재 확인자료 KITA '+(last?.month||'미수집')+
-    ' / 관세청 '+(customs.last_verified_month||'미수집')+
-    ' · 서로 다른 모집단·단위로 직접 가격 비교하지 않음');
- set('kita-quality',verified?
-    '출처: KITA RADIS 공식 공개표 · 검증 스냅샷 '+(last.verified_on||k.verified_snapshot_date||'미확인')+
-    (k.latest_access_ok===false?' · 최근 자동 접근 실패: 이전 실측 유지':
-      k.latest_access_ok===true?' · 공식 페이지 자동 수집 성공':' · 실시간 자동 재조회 전')+
-    ' · 확인한 항로는 부산→롱비치만, 항공 기준 선택은 결과 미확인':
-    'KITA 운임 미수집 · 원문 링크에서 확인 바랍니다');
+ const all=(k.sea_routes||[]).filter(r=>r?.origin==='Busan'&&r.month&&
+      ['Long Beach','New York'].includes(r.destination));
+ const west=all.filter(r=>r.destination==='Long Beach').slice().sort((a,b)=>a.month.localeCompare(b.month));
+ const east=all.filter(r=>r.destination==='New York').slice().sort((a,b)=>a.month.localeCompare(b.month));
+ const lastW=west.at(-1),previousW=west.at(-2);
+ const lastE=east.at(-1),previousE=east.at(-2);
+ const commonMonths=[...new Set(all.map(r=>r.month))].sort();
+ const wm=new Map(west.map(r=>[r.month,r]));
+ const em=new Map(east.map(r=>[r.month,r]));
+ chart('chart-kita-sea',commonMonths,[
+    {label:'미국 서안 · 롱비치 FEU',values:commonMonths.map(m=>wm.get(m)?.feu_usd??null),color:C.navy},
+    {label:'미국 동안 · 뉴욕 FEU',values:commonMonths.map(m=>em.get(m)?.feu_usd??null),color:C.teal}
+ ],{legend:true,decimals:0,xticks:10});
+ const eastDirect=lastE?.source_type==='KITA_RADIS_PUBLIC_HTML'||
+      lastE?.source_type==='KITA_RADIS_OFFICIAL_BULLETIN';
+ const sameMonth=lastW&&lastE&&lastW.month===lastE.month;
+ set('kita-feu',lastW?.feu_usd!=null?'$'+fmt(lastW.feu_usd):'—');
+ set('kita-east-feu',lastE?.feu_usd!=null?'$'+fmt(lastE.feu_usd):'—');
+ set('kita-feu-mom',lastW&&previousW&&previousW.month===previousMonth(lastW.month,1)
+   ?signed(pct(lastW.feu_usd,previousW.feu_usd))+' 전월대비':'전월 비교월 미확인');
+ set('kita-east-mom',lastE&&previousE&&previousE.month===previousMonth(lastE.month,1)
+   ?signed(pct(lastE.feu_usd,previousE.feu_usd))+' 전월대비':'전월 비교월 미확인');
+ set('kita-spread',sameMonth?'$'+fmt(lastE.feu_usd-lastW.feu_usd):'—');
+ set('kita-teu',lastW?.teu_usd!=null?'$'+fmt(lastW.teu_usd):'—');
+ set('kita-asof','KITA 미 서안 '+(lastW?.month||'미수집')+
+     ' / 미 동안 '+(lastE?.month||'미수집')+
+     ' · 시장참고 USD/FEU, 공시 조건·할증료에 유의');
+ set('kita-lead-lag','관세청 후행 운송비용 기준월 '+
+      (customs.last_verified_month||'미수집')+
+      ' · KITA 시장 참고운임은 APR 계약운임 또는 관세청 신고평균과 다름');
+ const sourceName=r=>r?.source_type==='KITA_RADIS_PUBLIC_HTML'||
+      r?.source_type==='KITA_RADIS_OFFICIAL_BULLETIN'?'KITA 직접 확인':
+      r?.source_type?.includes('SECONDARY')?'2차 출처 · KITA 인용':'기존 확인 스냅샷';
+ const makeRow=(r,prev,reg,port)=>{
+   if(!r)return '<tr><td>'+reg+'</td><td>'+port+'</td><td colspan="4">공식 기록 없음</td></tr>';
+   const mom=prev&&prev.month===previousMonth(r.month,1)?signed(pct(r.feu_usd,prev.feu_usd)):'—';
+   return '<tr><td>'+reg+'</td><td>'+port+'</td><td>'+escapeHtml(r.month)+
+      '</td><td>$'+fmt(r.feu_usd)+'</td><td>'+mom+'</td><td><a href="'+
+      validLink(r.source_url||k.sea_source_url)+'" target="_blank" rel="noopener noreferrer">'+
+      escapeHtml(sourceName(r))+' ↗</a></td></tr>';
+ };
+ const tb=$('kita-route-table');
+ if(tb)tb.innerHTML=makeRow(lastW,previousW,'미국 서안','롱비치')+
+                      makeRow(lastE,previousE,'미국 동안','뉴욕');
+ const wcount=west.filter(r=>r.source_type==='KITA_RADIS_PUBLIC_HTML'||
+                            r.source_type==='KITA_RADIS_OFFICIAL_BULLETIN').length;
+ const ecount=east.filter(r=>r.source_type==='KITA_RADIS_PUBLIC_HTML'||
+                            r.source_type==='KITA_RADIS_OFFICIAL_BULLETIN').length;
+ const secondary=east.filter(r=>r.source_type?.includes('SECONDARY')).length;
+ set('kita-quality','서안 KITA 직접 조회 '+wcount+'개월 · 동안 직접 확인 '+ecount+
+   '개월 / KITA 인용 2차 출처 '+secondary+'개월. '+
+   (k.latest_access_ok===false?'최근 서안 자동 접속 실패 · 기존 실측 유지. ':'')+
+   (!eastDirect&&lastE?'동안 최신 월은 KITA 직접 확인 전 · 출처 신뢰등급이 서안과 다릅니다. ':'')+
+   (k.east_secondary_access_ok===true?'동안 2차 공개자료 자동 확인 성공. ':k.east_secondary_access_ok===false?'동안 2차 공개자료 최근 접근 실패. ':''));
+ set('kita-source-note',
+   '권역 대표항로만 비교합니다. KITA 공식 해상수출 공지 자료의 뉴욕/노퍽/서배너 값은 일부 동일하나 전국 동일 운임은 아닙니다. '+
+   '동안 '+(lastE?.month||'미수집')+' 값의 출처: '+sourceName(lastE)+
+   '. 일부 KITA 월간 공지(예: 2026년 4월)는 할증료 제외 조건으로 안내돼 월간 비교에 유의해야 합니다.'+
+   ' 동·서부 최신 비교도 출처 등급이 서로 다를 수 있습니다. 중간 미수집 월은 보간하지 않습니다.');
 }
 function renderLogistics(){
  renderKitaRates();

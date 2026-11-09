@@ -10,6 +10,7 @@ values are emitted separately for optional chart projection.
 from __future__ import annotations
 from math import sqrt
 from statistics import pstdev
+from bottom_detector import analyze as analyze_bottom
 
 
 def sma(v, n):
@@ -179,6 +180,14 @@ def calculate(rows):
           'not_advice':True,'fully_ready':fully_ready,
         }
     else:latest_summary={'label':'시세 없음','kind':'unknown','checks':[],'date':None}
-    return {'method':'2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14','series':out,
+    # Independent bottom-formation classification (price/RSI divergence,
+    # confirmed swing lows, recent washout, MACD/MA/volume confirmation).
+    # This never upgrades the existing trend score into an unconditional buy.
+    bottom = analyze_bottom(clean, out)
+    latest_summary['bottom_stage'] = bottom['stage']
+    latest_summary['bottom_score'] = bottom['score']
+    latest_summary['bottom_kind'] = bottom['kind']
+
+    return {'method':'2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14 + 3-stage bottom classifier (no lookahead)','bottom':bottom,'series':out,
       'last':latest_summary,'valid_high_low':sum(x is not None for x in high),
       'data_days':len(out),'has_real_data':bool(out)}
