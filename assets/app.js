@@ -502,11 +502,13 @@ function renderKitaRates(){
  set('kita-quality','서안 KITA 직접 조회 '+wcount+'개월 · 동안 직접 확인 '+ecount+
    '개월 / KITA 인용 2차 출처 '+secondary+'개월. '+
    (k.latest_access_ok===false?'최근 서안 자동 접속 실패 · 기존 실측 유지. ':'')+
-   (!eastDirect&&lastE?'동안 최신 월은 KITA 직접 확인 전 · 출처 신뢰등급이 서안과 다릅니다.':''));
+   (!eastDirect&&lastE?'동안 최신 월은 KITA 직접 확인 전 · 출처 신뢰등급이 서안과 다릅니다. ':'')+
+   (k.east_secondary_access_ok===true?'동안 2차 공개자료 자동 확인 성공. ':k.east_secondary_access_ok===false?'동안 2차 공개자료 최근 접근 실패. ':''));
  set('kita-source-note',
    '권역 대표항로만 비교합니다. KITA 공식 해상수출 공지 자료의 뉴욕/노퍽/서배너 값은 일부 동일하나 전국 동일 운임은 아닙니다. '+
    '동안 '+(lastE?.month||'미수집')+' 값의 출처: '+sourceName(lastE)+
-   '. 공식 확인된 월만 역사자료로 인정하고 중간 미수집 월은 보간하지 않습니다.');
+   '. 일부 KITA 월간 공지(예: 2026년 4월)는 할증료 제외 조건으로 안내돼 월간 비교에 유의해야 합니다.'+
+   ' 동·서부 최신 비교도 출처 등급이 서로 다를 수 있습니다. 중간 미수집 월은 보간하지 않습니다.');
 }
 function renderLogistics(){
  renderKitaRates();
