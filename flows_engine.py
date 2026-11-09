@@ -172,7 +172,7 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
             else:
                 combined = {'label': '주요 수급 단기 우위 · 연기금 확인 필요',
                             'level': 'watch',
-                            'detail': '외국인+기관은 5·20일 순매수이나 연기금·가격 추세 미확정'}
+                            'detail': '외국인+기관은 5·20일 순매수이나 연기금·가격 추세 확인 필요'}
         elif combined20 < 0:
             combined = {'label': '20거래일 주요 수급 매도 우위',
                         'level': 'weak',
