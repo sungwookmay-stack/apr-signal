@@ -26,7 +26,6 @@ class FSCLendingTest(unittest.TestCase):
 
     def test_other_stock_or_future_date_is_excluded(self):
         self.assertEqual(normalize(resp(isin="KR7005930003")),[])
-        self.assertEqual(normalize(resp(day="20300101")),[]) if False else None
         self.assertEqual(normalize(resp(),allowed_dates={"2026-10-05"}),[])
 
     def test_invalid_or_unpublished_values_never_reinterpreted_as_zero(self):
