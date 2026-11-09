@@ -68,6 +68,9 @@ _VERIFIED_HASHES = {
 }
 for _month, _token in _VERIFIED_HASHES.items():
     KNOWN_RELEASES[_month] += '&nttSnUrl=' + _token
+# June 2026 is accessible through the Customs overseas-support mirror.
+KNOWN_RELEASES['2026-06'] = (BASE+'/foreign/na/ntt/selectNttInfo.do?'
+    'bbsId=1362&mi=3202&nttSn=10170124&nttSnUrl=dc430818d80eca09eafad1c3858cb47e')
 
 
 def strip_markup(body):
