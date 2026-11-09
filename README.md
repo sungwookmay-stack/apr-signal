@@ -378,3 +378,14 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 
 ### 키움 키는 유지하되 GitHub 동적 IP에서 호출 중단 (2026-11-09)
 키움 appkey/secretkey는 등록한 채로 두어도 됩니다. 다만 GitHub 호스팅 러너는 공인 IP가 가변이라 등록된 집 IP와 다릅니다. 연속 인증 실패/계정 보호를 피하기 위해 일반 GitHub 예약에서는 키움 OAuth/주문/조회 호출을 자동으로 생략하도록 했습니다. 네이버 공개 KRX 투자자 일별 주수 수집에는 키나 등록 IP가 필요 없습니다. 향후 별도 고정 IP 실행 환경을 구축하는 경우에만 KIWOOM_ALLOW_DYNAMIC_IP 환경값을 명시적으로 허용해 호출하도록 전환합니다(일반 GitHub에서는 권장하지 않음).
+
+
+### APR 공매도 핵심 분석: KIS 일별 거래 + KRX 순보유잔고 (2026-11-10)
+
+- **공매도 거래 자동 수집:** KIS 한국투자증권 OpenAPI FHPST04830000, GET /uapi/domestic-stock/v1/quotations/daily-short-sale. 주식코드 278470, 시장코드 J, 월단위 기간 조회. 응답 output2의 일자(stck_bsop_date), 공매도 체결수량(ssts_cntg_qty), 전체 거래량(acml_vol)을 검증해 공매도 주수 비율을 계산합니다.
+- **KRX 공매도 순보유잔고:** KIS 위 API는 제공하지 않습니다. KRX Data Marketplace 공매도 순보유잔고(신고 시차·과소보고 가능성)만 별도로 확인합니다. 공매도 체결량 누적, 대차잔고, 대차상환을 순보유잔고라고 잘못 표현하지 않습니다.
+- **KIS 계정 연결:** 한국투자증권 실제 계좌의 KIS Developers에서 앱키와 앱시크릿을 발급받아 GitHub Actions > Secrets > KI-S가 아니라 **KIS_APP_KEY**와 **KIS_APP_SECRET**으로 각각 등록합니다. 키 값은 공개 코드, 데이터 JSON, 채팅에 입력하지 않습니다. 단순 KIS 시장 데이터 API만 사용하며 계좌/주문 API는 호출하지 않습니다. 실제 거래 키 기준이고 모의투자 전용 API는 지원되지 않을 수 있습니다.
+- 기존 GitHub 오전 07:30·저녁 20:30 수집에 연결되므로 집 PC, 별도 서버, 키움 고정 IP는 사용하지 않습니다. 계정 조건·실제 접근 권한은 등록 뒤 Runner에서 확인해야 합니다. KIS 키가 없거나 실패하면 이전 검증 데이터를 유지하면서 실패 상태를 표시합니다.
+- **금융위원회 주식대차정보 별도 API:** 사용자가 신청한 공공데이터포털 서비스키는 GitHub secret FSC_STOCK_LENDING_API_KEY 이름으로 넣어야 하며, KIS 공매도 API와는 서로 다른 데이터입니다. 현재 금융위 공식 서비스 Base URL은 https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2 (포털 카탈로그 15059612). 키 저장 여부만 확인하고 서비스 operation과 APR 종목별 필드 매핑은 실제 API 명세로 검증될 때까지 미연결 상태를 유지합니다. KSD_SLB_API_KEY는 KSD 별도 API에 사용하는 다른 Secret입니다.
+- KSD·금융위 주식대차 API 자료는 공공누리 2유형(출처표시 + 비상업적 이용)이며 광고가 없는 사이트에서도 원천 출처표시와 다른 이용 조건을 따라야 합니다.
+- 테스트: tests/test_kis_short_sales.py. 5·20일 공매도 거래비중은 단기 압력 판단에 사용하되, 포지션 감소나 숏커버 확정이라고 표시하지 않습니다.
