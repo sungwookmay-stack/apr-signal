@@ -169,3 +169,51 @@
 .freight-results small{font-size:11px;color:#8496a4;display:block}
 .freight-results strong{display:block;margin-top:9px;font-size:clamp(17px,1.8vw,24px);letter-spacing:-.04em;color:#273e48;font-variant-numeric:tabular-nums}
 @media(max-width:820px){.freight-breakdown .tablebox{margin:14px -18px 0}.freight-inputs{grid-template-columns:1fr;gap:19px}.freight-results{grid-template-columns:1fr 1fr}.freight-results>div:last-child{grid-column:1/-1}.freight-results>div{padding:15px}.freight-results strong{font-size:20px}}
+
+
+/* APR scenario lab (source-reported baselines + explicitly assumed shocks) */
+.sens-top{margin-bottom:20px}
+.sens-toolbar{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px}
+.sens-toolbar>label{display:grid;gap:6px;font-size:11px;color:#5b7180;font-weight:740}
+.sens-presets{display:flex;gap:7px;flex-wrap:wrap}
+.sens-presets .minor-button{font-weight:700}
+.sens-validation{font-size:11px;color:#637b83;border-top:1px solid #ecf0f2;padding-top:12px;margin-top:14px;line-height:1.7}
+.sens-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px;margin:17px 0}
+.sens-controls.sens-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sens-controls.sens-one{grid-template-columns:1fr}
+.sens-control{padding:13px;border:1px solid #e6edf0;border-radius:9px;background:#fdfefe;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;min-width:0;font-size:12px;font-weight:710;color:#415662}
+.sens-control>span{line-height:1.35}
+.sens-control output{font-variant-numeric:tabular-nums;color:#26756b;white-space:nowrap;font-size:14px;letter-spacing:-.02em}
+.sens-control input[type=range]{grid-column:1/-1;width:100%;height:22px;margin:0;accent-color:#26756b;cursor:pointer}
+.sens-control small{grid-column:1/-1;color:#92a0a9;font-weight:450;font-size:10px;line-height:1.55}
+.sens-bridge .tablebox{max-height:400px;overflow:auto}
+.sens-bridge td,.sens-bridge th{padding:10px 12px;white-space:normal;font-size:11px}
+.sens-bridge .graph{height:370px}
+.sens-bridge .panel{min-width:0}
+#sensitivity .metric b{font-size:clamp(19px,2.3vw,27px)}
+#sensitivity .metric b.medium{font-size:15px}
+#sensitivity .panel h3{line-height:1.5}
+#sensitivity .notice-line{background:#f4f8f7;border-color:#e3ecea;color:#597078}
+#logistics #kita-asof,#logistics #kita-lead-lag{padding-left:19px;padding-right:19px;font-size:11px}
+#logistics #kita-quality{line-height:1.8}
+#logistics .freight-results{margin:5px 0 12px;gap:7px}
+#logistics .freight-results>div{padding:12px}
+#logistics .freight-results strong{font-size:clamp(16px,2vw,23px)}
+@media(max-width:940px){
+ .sens-controls.sens-three{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:620px){
+ .sens-toolbar{align-items:stretch}
+ .sens-toolbar>label{width:100%}
+ .sens-toolbar .input{width:100%}
+ .sens-presets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+ .sens-presets .minor-button{font-size:11px;padding:10px 5px}
+ .sens-controls,.sens-controls.sens-three{grid-template-columns:1fr;gap:10px}
+ .sens-control{padding:14px}
+ .sens-bridge .graph{height:300px}
+ #sensitivity .metrics.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #logistics .freight-results{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #logistics .freight-results>div:last-child{grid-column:auto}
+ #logistics .freight-results small{font-size:9px}
+ #logistics .freight-results strong{font-size:15px}
+}
