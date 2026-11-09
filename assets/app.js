@@ -78,7 +78,54 @@ function renderOverview(){
  $('monthly-body').innerHTML=Object.keys(buckets).sort().reverse().map(mon=>{const o=buckets[mon];const p=o.prices.at(-1);const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
  return `<tr><td>${escapeHtml(mon)}${p&&mon===lastDate.slice(0,7)?' (진행 중 · '+escapeHtml(p.date.slice(5))+')':''}</td><td>${p?'₩'+fmt(p.close_krw):'—'}</td><td>${p&&p.close_usd!=null?'$'+fmt(p.close_usd,2):'—'}</td><td>${fmt(avg(o.fxusd),1)}</td><td>${fmt(avg(o.fxeur),1)}</td></tr>`}).join('');
 }
+function renderBottomAnalysis(b){
+ set('bottom-date',b?.date?'확인 일봉 '+b.date:'자료 검증 전');
+ set('bottom-stage',b?.stage||'자료 부족 · 판단 유보');
+ set('bottom-score',b?.score!=null?b.score+' / '+(b.max_score||10):'—');
+ set('bottom-low',b?.reference?.recent_20d_low!=null?'₩'+fmt(b.reference.recent_20d_low):'—');
+ set('bottom-low-date',b?.reference?.recent_20d_low_date||
+     '최근 20거래일 저가 확인 전');
+ set('bottom-ma20',b?.reference?.ma20!=null?'₩'+fmt(b.reference.ma20):'—');
+ const stage=(b?.kind||'unknown');
+ const guidance={
+    confirmation:'반등 흐름의 1차 확인 조건을 충족했으나 이후 저점 재시험 가능',
+    building:'다이버전스·재시험과 모멘텀이 동반돼 형성 가능성 상승',
+    early:'투매 후 매도압력이 둔화될 수 있으나 저점 확정 전',
+    risk:'저점 재이탈·하락 지속 가능성 점검 필요',
+    unknown:'바닥이 확인됐다는 근거 부족'
+ }[stage]||'추가 거래일이 필요';
+ set('bottom-guidance',guidance);
+ if(!b?.data_ready){
+    set('bottom-washout','OHLCV·RSI·MACD 자료 검증 전: 저점 판단 보류');
+    set('bottom-conditions','자료가 충분한 실제 일봉이 확보된 후 표시합니다.');
+    const checks=$('bottom-checks');if(checks)checks.innerHTML='';
+    return;
+ }
+ const w=b.washout,low=b.reference||{};
+ set('bottom-washout',w?
+   '최근 투매 관측: '+w.date+' · 이전 20일 평균 대비 거래량 '+
+    fmt(w.volume_multiple,1)+'배 · 최근 60일 고점 대비 당일 -'+
+    fmt(Math.abs(w.drawdown_from_60d_top_pct),1)+'%':
+   '최근 20거래일 기준에 맞는 투매·거래량 급증 신호는 미확인');
+ const checks=$('bottom-checks');if(checks){
+   checks.innerHTML=(b.checks||[]).map(x=>
+      '<div class="check"><span class="check-icon '+(x.passed?'positive':'caution')+'">'+
+      (x.passed?'✓':'·')+'</span><div><b>'+escapeHtml(x.name)+
+      ' <small>+'+(x.passed?x.points:0)+' / '+x.max_points+'</small></b><p>'+
+      escapeHtml(x.detail)+'</p></div></div>'
+   ).join('');
+ }
+ const pivot=b.latest_confirmed_swing_low;
+ set('bottom-conditions','관찰 기준: 최근 20일 저점 '+
+   (low.recent_20d_low!=null?'₩'+fmt(low.recent_20d_low):'미확인')+
+   ' · 5일선 '+(low.ma5!=null?'₩'+fmt(low.ma5):'—')+
+   ' · 직전 10거래일 최고종가 '+(low.prior_10d_high_close!=null?'₩'+fmt(low.prior_10d_high_close):'—')+
+   ' · 마지막 확인된 스윙 저점 '+(pivot?pivot.date+' ₩'+fmt(pivot.low)+
+      ' (확인일 '+pivot.confirmed_on+')':'없음')+
+   ' · 3거래일 이후에만 스윙 저점 확정. 이는 지지·손절 보장선이 아닙니다.');
+}
 function renderTechnical(){const d=state.technical,last=d?.last;
+ renderBottomAnalysis(d?.bottom);
  if(!last||!last.date){set('t-decision','분석 자료 미확보');set('t-add','보류');return}
  set('t-decision',last.label||'—');set('t-date','분석일 '+last.date);set('t-score',last.score!=null?(last.score>0?'+':'')+last.score:'—');
  set('t-add',last.averaging_down||'미확인');set('t-risk-message',last.add_criteria||'구름 및 볼린저 반등 확인 필요');
