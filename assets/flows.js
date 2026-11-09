@@ -31,6 +31,14 @@ function render(ctx){
  const naverEstimated=!!data.data_status?.naver_flow_is_estimated;
  const sourceInfo=data.data_status||{};
  const kiwoomInfo=sourceInfo.kiwoom_read_only_result||{};
+ const kisInfo=sourceInfo.kis_short_daily_result||{};
+ const fscInfo=sourceInfo.fsc_lending_status||'not_configured';
+ const kisText='공매도 거래 KIS: '+
+   (sourceInfo.kis_short_key_configured?
+      (kisInfo.status||'조회 상태 미확인')+
+      ' · '+(kisInfo.rows||0)+'거래일':
+      'API 키 미연결')+
+   ' (순보유잔고는 별도)';
  const kiwoomStatus=sourceInfo.kiwoom_app_configured?
    (kiwoomInfo.status==='disabled_dynamic_runner_ip'?
      '키움 키 보관 중 · GitHub IP 제한으로 호출 생략':
@@ -42,7 +50,7 @@ function render(ctx){
     ' / 투자자별 실측 '+(flowDay||'미수집')+
     ' · '+(matched?'날짜 정합성 충족':'날짜 불일치·자료 부족')+
     ' · 네이버 KRX 공개 데이터 '+(naverInfo.status||'미수집')+
-    ' '+(naverInfo.rows||0)+'거래일 · '+kiwoomStatus+
+    ' '+(naverInfo.rows||0)+'거래일 · '+kisText+' · '+kiwoomStatus+
     (statusNote?' · '+statusNote:'');
  const title=$('flow-total-label');
  if(title)title.textContent=totalReady?(summary.label||'수급 분석 대기'):
@@ -137,7 +145,11 @@ function render(ctx){
  $('flow-loan-return').textContent=count(l.returned_qty,fmt);
  $('flow-loan-bal').textContent=count(l.balance_qty,fmt);
  $('flow-loan-date').textContent=lending.last_date?
-   '대차 관측 '+lending.last_date+' · 단위 주':'대차 실측 미수집 · 키움 REST 또는 KSD API 연동 필요';
+   '대차 관측 '+lending.last_date+' · 단위 주':
+   '대차 실측 미수집 · 금융위 API '+(
+     sourceInfo.fsc_stock_lending_key_configured?'키 등록 확인, 응답 매핑 점검 필요':
+     'GitHub FSC_STOCK_LENDING_API_KEY 등록 필요')+
+   ' · KSD/API 별도';
  const risk=[];
  if(short.short_ratio_mean20_pct!=null&&short.short_ratio_mean20_pct>=10)
    risk.push('최근 20일 공매도 거래대금 근사 비중 높음(10% 이상)');

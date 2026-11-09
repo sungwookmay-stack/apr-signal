@@ -23,6 +23,7 @@ from urllib import parse, request
 from xml.etree import ElementTree as ET
 
 from flows_engine import evaluate
+from kis_short_sales import collect as kis_short_sales
 from naver_public_flows import collect as naver_investors
 from kiwoom_flows import collect_if_connected as kiwoom_investors
 from kiwoom_short_lending import fetch_short_lending as kiwoom_short_lending
@@ -317,6 +318,27 @@ def collect():
         shorts=merge_by_date(shorts,new)
     except (Exception, ImportError) as exc:
         issues.append('KRX 종목별 공매도/잔고: '+type(exc).__name__+' · 이전 검증값 유지')
+    # KIS free read-only daily short-selling TR FHPST04830000.
+    # Unlike KRX marketplace scraping, KIS is operational from GitHub
+    # runners once optional production KIS credentials are configured.
+    # KIS does NOT supply reported net short balances.
+    kis_key_present=bool(os.environ.get('KIS_APP_KEY')) and bool(
+        os.environ.get('KIS_APP_SECRET'))
+    kis_result={'status':'not_configured','rows':0,'calls':0}
+    if kis_key_present:
+        try:
+            kis_short_rows,kis_result=kis_short_sales(prices)
+            if kis_short_rows:
+                shorts=merge_by_date(shorts,kis_short_rows)
+            if kis_result.get('status') != 'ok':
+                issues.append('KIS 공매도 일별거래: '+
+                              str(kis_result.get('status','미확인'))+
+                              ' · 구체적 수치 미확인 날짜는 공란')
+        except Exception as exc:
+            kis_result={'status':'failed','error_type':type(exc).__name__,
+                        'rows':0,'calls':0}
+            issues.append('KIS 공매도 일별거래: '+type(exc).__name__+
+                          ' · 이전 검증값 유지')
     # Read-only licensed securities API, if the user supplied app credentials
     # via GitHub Secrets. No user account/balance/trade/order API is called.
     kiwoom_key_present=bool(os.environ.get('KIWOOM_APP_KEY')) and bool(
@@ -427,6 +449,11 @@ def collect():
        'checked_at_utc':now,
        'data_status':{
            'krx_investor_live_ok':krx_ok,
+           'kis_short_key_configured':kis_key_present,
+           'kis_short_daily_result':kis_result,
+           'fsc_stock_lending_key_configured':bool(os.environ.get('FSC_STOCK_LENDING_API_KEY')),
+           'fsc_lending_status':('needs_endpoint_mapping' if os.environ.get('FSC_STOCK_LENDING_API_KEY')
+                                 else 'not_configured'),
            'kiwoom_app_configured':kiwoom_key_present,
            'kiwoom_enabled_for_host':kiwoom_enabled,
            'kiwoom_read_only_result':kiwoom_meta,
@@ -453,7 +480,9 @@ def collect():
        'price_asof':analysis.get('price_last_date'),
        'aligned':analysis.get('price_aligned'),
        'flow_rows':len(daily),'short_rows':len(shorts),'lending_rows':len(lending),
-       'krx_live_ok':krx_ok,'naver_status':naver_meta.get('status'),
+       'krx_live_ok':krx_ok,'kis_short_status':kis_result.get('status'),
+       'fsc_lending_key_present':bool(os.environ.get('FSC_STOCK_LENDING_API_KEY')),
+       'naver_status':naver_meta.get('status'),
        'naver_records':naver_meta.get('rows'),'kiwoom_connected':kiwoom_key_present,
        'kiwoom_status':kiwoom_meta.get('status'),
        'kiwoom_short_status':kiwoom_short_lending_meta.get('short',{}).get('status'),
