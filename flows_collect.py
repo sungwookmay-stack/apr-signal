@@ -23,6 +23,7 @@ from urllib import parse, request
 from xml.etree import ElementTree as ET
 
 from flows_engine import evaluate
+from kiwoom_flows import collect_if_connected as kiwoom_investors
 
 BASE = Path(__file__).resolve().parent
 DATA = BASE / 'data'
@@ -314,6 +315,28 @@ def collect():
         shorts=merge_by_date(shorts,new)
     except (Exception, ImportError) as exc:
         issues.append('KRX 종목별 공매도/잔고: '+type(exc).__name__+' · 이전 검증값 유지')
+    # Read-only licensed securities API, if the user supplied app credentials
+    # via GitHub Secrets. No user account/balance/trade/order API is called.
+    kiwoom_key_present=bool(os.environ.get('KIWOOM_APP_KEY')) and bool(
+        os.environ.get('KIWOOM_SECRET_KEY'))
+    kiwoom_meta={'status':'not_configured','pages':0,'truncated':False}
+    if kiwoom_key_present:
+        try:
+            kiwoom_rows, kiwoom_meta=kiwoom_investors(prices)
+            if kiwoom_rows:
+                # Kiwoom ka10059 gives individual, foreign, institution and
+                # pension individually. Pension is included in institution.
+                daily=merge_by_date(daily,kiwoom_rows)
+            else:
+                issues.append('Kiwoom ka10059: 일간 수급 미확인 · 이전값 유지')
+            if kiwoom_meta.get('truncated'):
+                issues.append('Kiwoom ka10059: 페이지 제한으로 과거 이력 일부만 수집')
+        except Exception as exc:
+            # NEVER log auth response, original HTTP error text or credentials.
+            kiwoom_meta={'status':'failed','error_type':type(exc).__name__,
+                         'pages':0,'truncated':False}
+            issues.append('Kiwoom 투자주체 수급: '+type(exc).__name__+
+                          ' · 이전값 유지 (키·토큰은 공개 안 함)')
     ksd_key=os.environ.get('KSD_SLB_API_KEY','')
     try:
         new,msg=read_ksd(ksd_key,base_date=prices[-1]['date'] if prices else None)
@@ -341,6 +364,8 @@ def collect():
        'checked_at_utc':now,
        'data_status':{
            'krx_investor_live_ok':krx_ok,
+           'kiwoom_app_configured':kiwoom_key_present,
+           'kiwoom_read_only_result':kiwoom_meta,
            'krx_investor_mode':krx_mode,
            'krx_collection_diagnostics':diagnostics,
            'ksd_api_key_present':bool(ksd_key),
@@ -361,7 +386,9 @@ def collect():
        'price_asof':analysis.get('price_last_date'),
        'aligned':analysis.get('price_aligned'),
        'flow_rows':len(daily),'short_rows':len(shorts),'lending_rows':len(lending),
-       'krx_live_ok':krx_ok,'ksd_key_present':bool(ksd_key),
+       'krx_live_ok':krx_ok,'kiwoom_connected':kiwoom_key_present,
+       'kiwoom_status':kiwoom_meta.get('status'),
+       'ksd_key_present':bool(ksd_key),
        'issues':issues
     },ensure_ascii=False))
     return result
