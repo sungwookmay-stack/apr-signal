@@ -54,6 +54,35 @@ jobs:
           APISH_KEY: ${{ secrets.APISH_KEY }}
           SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python build_data.py
+      - name: Refresh bottom-formation analysis from saved OHLCV (free)
+        # [bottom-now] triggers no stock, freight, Amazon or Trends API calls.
+        # Morning and 16:00 collections already recalculate indicator_engine.
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[bottom-now]')
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          from build_data import DATA, save, read_json
+          from indicator_engine import calculate
+          market=read_json(DATA/'market.json',{})
+          series=market.get('series') or []
+          if len(series)<65:
+              raise RuntimeError('No valid APR daily series for bottom analysis')
+          technical=calculate(series)
+          technical['last']['source']=market.get('meta',{}).get('stock_source')
+          save('technical.json',technical)
+          status=read_json(DATA/'status.json',{})
+          status['bottom_analysis_asof']=technical['bottom']['date']
+          status['bottom_stage']=technical['bottom']['stage']
+          status['bottom_analysis_checked_at_utc']=dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
+          save('status.json',status)
+          print('Bottom analysis:',json.dumps({
+              'date':technical['bottom']['date'],
+              'stage':technical['bottom']['stage'],
+              'score':technical['bottom']['score'],
+              'support':technical['bottom'].get('reference',{}).get('recent_20d_low')
+          },ensure_ascii=False))
+          PY
       - name: Afternoon 16:00 KST - free close-price technical indicators and local news
         # Actual APR daily OHLCV, recalculated technicals and free RSS only.
         # No Scrape.do, API.SH, ECB or Customs freight requests in this step.
