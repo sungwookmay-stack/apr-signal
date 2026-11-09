@@ -119,6 +119,17 @@ class FlowTests(unittest.TestCase):
         self.assertEqual(data[0]['pension'],70)
         self.assertEqual(data[0]['unit'],'KRW')
 
+    def test_basic_krx_group_fallback_has_no_invented_pension(self):
+        sample={'기관합계':1500000000,'외국인합계':-300000000,
+                '개인':-1200000000,'기타법인':0}
+        rows=normalize_investor_dataframe(
+            Frame([('2026-11-06',sample)]),detail=False)
+        self.assertEqual(rows[0]['foreign'],-300000000)
+        self.assertEqual(rows[0]['institution'],1500000000)
+        self.assertEqual(rows[0]['individual'],-1200000000)
+        self.assertIsNone(rows[0]['pension'])
+        self.assertFalse(rows[0]['institution_subgroup_covered'])
+
     def test_absent_KRX_detail_category_is_missing_not_zero(self):
         sample={'개인':2,'외국인':3,'연기금':1}
         rows=normalize_investor_dataframe(Frame([('2026-11-06',sample)]))
