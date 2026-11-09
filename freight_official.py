@@ -111,6 +111,7 @@ def parse_release(text, url):
     if end:
         tail = tail[:end.start()]
     result = {}
+    reported_mom, reported_yoy = {}, {}
     for key, label in ROUTES.items():
         match = re.search(
             label+r'\s*[\|:]?\s*(\d[\d,]*)\s*천\s*원', tail)
@@ -124,6 +125,21 @@ def parse_release(text, url):
                 return None
             continue
         result[key] = value
+        # Use the rates printed in the SAME dated Customs release. A later
+        # release can revise an earlier month's raw transport cost, so
+        # calculating MoM from two original bulletins can disagree with the
+        # officially announced movement.
+        following = tail[match.end():match.end()+65]
+        rates = re.match(
+            r'^\s*\|?\s*([−+\-]?\d+(?:\.\d+)?)\s*%\s*\|?\s*'
+            r'([−+\-]?\d+(?:\.\d+)?)\s*%',
+            following)
+        if rates:
+            reported_mom[key] = float(rates.group(1).replace('−', '-'))
+            reported_yoy[key] = float(rates.group(2).replace('−', '-'))
+    if reported_mom:
+        result['reported_mom_pct'] = reported_mom
+        result['reported_yoy_pct'] = reported_yoy
     result['month'] = month
     return result
 
@@ -223,7 +239,8 @@ def fetch_history(get_bytes, previous=(), today=None, pages=0,
                   max_fetch=24):
     """Backfill/reverify historical observations once, without fabricated data.
 
-    Existing rows with official per-month source_url are not fetched again.
+    Existing verified rows are only refetched once to add the official
+    published comparison percentages; later updates reuse their provenance.
     Unverified legacy three-route rows are replaced only if the actual dated
     official release is parsed successfully. Returns (new rows, failures).
     """
@@ -236,7 +253,7 @@ def fetch_history(get_bytes, previous=(), today=None, pages=0,
         if month < MIN_MONTH or month > today.strftime('%Y-%m'):
             continue
         existing = previous_by_month.get(month) or {}
-        if existing.get('source_url') and all(
+        if existing.get('source_url') and existing.get('rate_check_complete') and all(
                 existing.get(key) is not None for key in
                 ('us_west', 'us_east', 'eu')):
             continue
@@ -251,6 +268,7 @@ def fetch_history(get_bytes, previous=(), today=None, pages=0,
                 errors.append(month+': 표 정합성 검증 실패')
                 continue
             row['source_url'] = url
+            row['rate_check_complete'] = True
             updates.append(row)
         except Exception as exc:
             errors.append(month+': '+type(exc).__name__)

@@ -120,6 +120,9 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match($('trend-alert-count').textContent,/감지 2개/);
  // Freight analysis uses the last quarter with DISCLOSED shipping costs, not
  // a fabricated 2026Q3 transport expense. Regional chart shows provenance.
+ // The source-quoted rate must win over (possibly revised) prior raw cost.
+ market.logistics.sea.at(-1).reported_mom_pct={us_west:12.3};
+ market.logistics.sea.at(-1).reported_yoy_pct={us_west:89.0};
  $('freight-group').value='long';
  $('freight-share').value='40';
  $('freight-shock').value='20';
@@ -127,6 +130,7 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match($('freight-model-basis').textContent,/2026Q2/);
  assert.match($('freight-impact-cost').textContent,/45.2억원/);
  assert.match($('freight-impact-opm').textContent,/0.59%p/);
+ assert.match($('freight-route-table').innerHTML,/12\.3%/);
  assert.match($('freight-route-table').innerHTML,/중동/);
  assert.match($('freight-route-table').innerHTML,/베트남/);
  assert.equal(MockChart.instances['chart-sea'].data.datasets.length,4);

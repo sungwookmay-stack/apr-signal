@@ -453,8 +453,12 @@ function renderLogistics(){
    if(!observed)return '<tr><td>'+escapeHtml(route.name)+'</td><td>—</td><td colspan="4">해당 항로 공식 관측값 없음</td></tr>';
    const previous=seaByMonth.get(previousMonth(observed.month,1));
    const lastYear=seaByMonth.get(previousMonth(observed.month,12));
-   const mom=previous?.[route.key]!=null?pct(observed[route.key],previous[route.key]):null;
-   const yoy=lastYear?.[route.key]!=null?pct(observed[route.key],lastYear[route.key]):null;
+   // Publication rates take precedence: later Customs releases may revise
+   // preceding months, so recomputed movement can differ from official MoM.
+   const mom=observed.reported_mom_pct?.[route.key] ??
+     (previous?.[route.key]!=null?pct(observed[route.key],previous[route.key]):null);
+   const yoy=observed.reported_yoy_pct?.[route.key] ??
+     (lastYear?.[route.key]!=null?pct(observed[route.key],lastYear[route.key]):null);
    const source=observed.source_url
      ?'<a href="'+validLink(observed.source_url)+'" target="_blank" rel="noopener noreferrer">원문 ↗</a>'
      :'<span title="해당 월 공식 링크 재검증 전">재검증 전</span>';
@@ -469,7 +473,7 @@ function renderLogistics(){
    '개월 · 원문 재검증 전/누락 월: '+(gaps.length?gaps.join(', '):'확인된 누락 없음')+
    (log.history_backfill_errors?.length?' · 과거 자료 일부 접근/파싱 실패':'')+
    (log.last_fetch_failed?' · 최신 재조회 실패':'')+
-   '. 전년동월 비교는 양쪽 월 모두 실제 확인값이 있는 경우에만 표시.');
+   '. 증감률은 관세청 해당 월 공식 발표치 우선, 미확인 경우에만 보유 월간 수치로 계산. 사후 통계 정정으로 단순 계산과 차이가 날 수 있습니다.');
  renderFreightModel();
  const errs=state.status?.errors||[];
  set('diagnostic-date',state.status?.generated_at_utc||'최초 데이터 수집 전');

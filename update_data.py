@@ -397,6 +397,7 @@ def update(out_dir=BASE/"data", allow_partial=True, refresh_fx=True, refresh_fre
             official_row,official_url=fetch_customs_official_latest(
                 get_bytes,today=iso_today_kr().date())
             official_row["source_url"]=official_url
+            official_row["rate_check_complete"]=True
             existing[official_row["month"]]=official_row
             latest_success=True
             logistics["source_url"]=official_url

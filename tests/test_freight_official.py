@@ -103,6 +103,28 @@ class TestCustomsFreight(unittest.TestCase):
         self.assertEqual(result['vietnam'], 1520)
         self.assertEqual(result['eu'], 5040)
 
+    def test_authoritative_customs_published_percentages(self):
+        # The released previous-month figures are sometimes revised in
+        # subsequent Customs bulletins, so their headline rates are primary.
+        sept = """
+        <h1>2026년 9월 수출입 운송비용 현황</h1>
+        □〔해상수출〕<table>
+        <tr><td>미국서부</td><td>9,511 천원</td><td>12.3%</td><td>89.0%</td></tr>
+        <tr><td>미국동부</td><td>9,339 천원</td><td>-1.3%</td><td>72.4%</td></tr>
+        <tr><td>유럽연합</td><td>5,040 천원</td><td>0.9%</td><td>47.1%</td></tr>
+        <tr><td>중동</td><td>9,326 천원</td><td>11.2%</td><td>150.5%</td></tr>
+        <tr><td>중국</td><td>511 천원</td><td>-18.7%</td><td>-27.4%</td></tr>
+        <tr><td>일본</td><td>623 천원</td><td>-3.2%</td><td>-13.2%</td></tr>
+        <tr><td>베트남</td><td>1,448 천원</td><td>-4.3%</td><td>8.1%</td></tr>
+        </table>
+        □〔해상수입〕<table><tr><td>중동</td><td>1,593 천원</td>
+        <td>9.1%</td><td>-13%</td></tr></table>"""
+        row = parse_release(sept, SEPT_URL)
+        self.assertEqual(row['reported_mom_pct']['us_west'], 12.3)
+        self.assertEqual(row['reported_yoy_pct']['middle_east'], 150.5)
+        self.assertEqual(row['reported_mom_pct']['us_east'], -1.3)
+        self.assertEqual(row['reported_yoy_pct']['china'], -27.4)
+
     def test_2025_bulletin_without_middle_east_preserves_missing(self):
         doc = """
         <h2>2025 년 9 월 수출입 운송비용 현황</h2>
