@@ -1,5 +1,120 @@
 {
-  "method": "2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14",
+  "method": "2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14 + 3-stage bottom classifier (no lookahead)",
+  "bottom": {
+    "date": "2026-11-06",
+    "stage": "투매 후 반등 탐색 · 바닥 미확인",
+    "kind": "early",
+    "score": 2,
+    "max_score": 10,
+    "checks": [
+      {
+        "name": "투매·거래량 급증 확인",
+        "passed": true,
+        "points": 1,
+        "max_points": 1,
+        "detail": "마지막 투매 2026-10-30, 거래량 3.7배 · 과매도는 단독 바닥 신호 아님"
+      },
+      {
+        "name": "가격·RSI 상승 다이버전스",
+        "passed": false,
+        "points": 0,
+        "max_points": 2,
+        "detail": "확정된 두 저점에서 저가 하락·RSI 저점 상승을 동시 확인하지 못함"
+      },
+      {
+        "name": "지지선 재시험 또는 높아진 저점",
+        "passed": false,
+        "points": 0,
+        "max_points": 2,
+        "detail": "저점이 높아지는 구조는 아직 확인 전 (3일 우측 확인 필요)"
+      },
+      {
+        "name": "MACD 히스토그램 연속 개선",
+        "passed": true,
+        "points": 1,
+        "max_points": 1,
+        "detail": "최근 MACD 히스토그램 -963 · 3개 관측값 연속 상승 여부"
+      },
+      {
+        "name": "RSI 40 이상으로 복귀·상승",
+        "passed": false,
+        "points": 0,
+        "max_points": 1,
+        "detail": "RSI(14) 36.0 · 30 미만은 과매도일 뿐 바닥 아님"
+      },
+      {
+        "name": "5일 이동평균 회복",
+        "passed": false,
+        "points": 0,
+        "max_points": 1,
+        "detail": "종가 255,000원 / 5일선 257,400원"
+      },
+      {
+        "name": "20일선 3거래일 유지",
+        "passed": false,
+        "points": 0,
+        "max_points": 1,
+        "detail": "현재 20일선 287,025원 · 단일 장중 돌파로 미확정"
+      },
+      {
+        "name": "10일 전고점·거래량 돌파",
+        "passed": false,
+        "points": 0,
+        "max_points": 1,
+        "detail": "이전 10일 최고종가 287,000원 / 거래량배수 0.66"
+      }
+    ],
+    "data_ready": true,
+    "washout": {
+      "date": "2026-10-30",
+      "volume_multiple": 3.7,
+      "drawdown_from_60d_top_pct": -45.0
+    },
+    "latest_confirmed_swing_low": {
+      "index": 344,
+      "date": "2026-10-30",
+      "low": 231000,
+      "rsi14": 30.42,
+      "confirmed_on": "2026-11-04"
+    },
+    "recent_two_confirmed_lows": [
+      {
+        "index": 332,
+        "date": "2026-10-14",
+        "low": 266500,
+        "rsi14": 29.62,
+        "confirmed_on": "2026-10-19"
+      },
+      {
+        "index": 344,
+        "date": "2026-10-30",
+        "low": 231000,
+        "rsi14": 30.42,
+        "confirmed_on": "2026-11-04"
+      }
+    ],
+    "bullish_rsi_divergence": false,
+    "retest_confirmed": false,
+    "breakdown": false,
+    "reference": {
+      "recent_20d_low": 231000,
+      "recent_20d_low_date": "2026-10-30",
+      "prev_20d_low": 231000,
+      "ma5": 257400,
+      "ma20": 287025,
+      "ma60": 354183,
+      "prior_10d_high_close": 287000,
+      "atr14": 24228,
+      "drawdown_60d_pct": -45.1
+    },
+    "note": "과매도·투매는 저점 후보에 불과합니다. RSI 상승 다이버전스/저점 재확인 이후 5·20일선 회복과 거래량 동반 전고점 돌파를 구분해 판정합니다. 단계별 규칙은 과거 수익률로 검증된 승률 또는 가격 예측이 아닙니다.",
+    "not_prediction": true,
+    "sources": [
+      "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/what-is-technical-analysis",
+      "https://help.stockcharts.com/scanning-and-alerts/scan-writing-resource-center/scanning-case-studies/scanning-for-divergences",
+      "https://content.cmtassociation.org/a/spotting-a-market-bottom"
+    ]
+  },
   "series": [
     {
       "date": "2025-06-02",
@@ -7755,6 +7870,9 @@
     "overheat": false,
     "not_advice": true,
     "fully_ready": true,
+    "bottom_stage": "투매 후 반등 탐색 · 바닥 미확인",
+    "bottom_score": 2,
+    "bottom_kind": "early",
     "source": "네이버 금융 (일별 종가)"
   },
   "valid_high_low": 350,

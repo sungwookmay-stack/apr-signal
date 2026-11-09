@@ -30,5 +30,8 @@
   "freight_missing_months": [
     "2025-08",
     "2026-02"
-  ]
+  ],
+  "bottom_analysis_asof": "2026-11-06",
+  "bottom_stage": "투매 후 반등 탐색 · 바닥 미확인",
+  "bottom_analysis_checked_at_utc": "2026-11-09T05:52:37+00:00"
 }
