@@ -57,6 +57,49 @@ jobs:
         # No Scrape.do, API.SH, ECB or Customs freight requests in this step.
         if: (github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'push' && contains(github.event.head_commit.message, '[afternoon-now]'))
         run: python afternoon_refresh.py
+      - name: Source-verified Customs historical backfill (free, no paid APIs)
+        # A one-off [freight-now] push collects Customs releases and free stock
+        # history only, without Amazon or Google Trends API credits.
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[freight-now]')
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import json
+          from build_data import collect_market, read_json, save, DATA
+          market, technical = collect_market(refresh_fx=False, refresh_freight=True)
+          status = read_json(DATA/'status.json', {})
+          if not isinstance(status, dict):
+              status = {}
+          status.update({
+              'generated_at_utc': dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'),
+              'price_last': market.get('meta', {}).get('stock_last'),
+              'fx_last': market.get('meta', {}).get('usd_fx_last'),
+              'technical_last': technical.get('last', {}).get('date'),
+              'technical_ohlc_days': technical.get('valid_high_low', 0),
+              'freight_latest_month': market.get('logistics',{}).get('last_verified_month'),
+              'freight_latest_check_failed': market.get('logistics',{}).get('last_fetch_failed'),
+              'freight_missing_months': market.get('logistics',{}).get('unverified_months',[]),
+              'errors': market.get('meta',{}).get('errors',[])
+          })
+          save('status.json',status)
+          bootstrap = DATA/'bootstrap.js'
+          previous={}
+          if bootstrap.exists():
+              txt=bootstrap.read_text(encoding='utf-8')
+              prefix='window.APR_BOOTSTRAP = '
+              if txt.startswith(prefix):
+                  try:
+                      previous=json.loads(txt[len(prefix):].strip().removesuffix(';'))
+                  except (ValueError,TypeError):
+                      pass
+          previous.update({'market':market,'technical':technical,'status':status})
+          bootstrap.write_text('window.APR_BOOTSTRAP = '+
+              json.dumps(previous,ensure_ascii=False,separators=(',',':'))+';\n',
+              encoding='utf-8')
+          print('Official freight months verified:',
+                len([r for r in market.get('logistics',{}).get('sea',[]) if r.get('source_url')]))
+          print('Missing/unverified months:',status['freight_missing_months'])
+          PY
       - name: News-only manual refresh
         # [news-now] remains news-only for separate manual tests.
         if: github.event_name == 'push' && contains(github.event.head_commit.message, '[news-now]')
@@ -121,7 +164,7 @@ jobs:
           git add data/ || true
           if ! git diff --cached --quiet; then
             git commit -m "data: refresh APR public observations [skip ci]"
-            git push || echo "Warning: unable to commit history; today's published data is still used"
+            git push
           fi
       - name: Generate static site
         run: |
