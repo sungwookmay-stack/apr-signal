@@ -11,7 +11,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
 <script defer src="./assets/research_dashboard.js?v=20261109-3"></script>
-<script defer src="./assets/app.js?v=20261109-3"></script>
+<script defer src="./assets/sensitivity.js?v=20261109-4"></script>
+<script defer src="./assets/app.js?v=20261109-4"></script>
 </head>
 <body>
 <div class="shell">
@@ -28,14 +29,15 @@
       <a href="#theses" class="navitem" data-nav="theses"><span class="bullet"></span>주의 깊게 볼 점</a>
       <a href="#kbty" class="navitem" data-nav="kbty"><span class="bullet"></span>KBTY ETF</a>
       <a href="#business" class="navitem" data-nav="business"><span class="bullet"></span>칠레 · 신사업</a>
-      <a href="#logistics" class="navitem" data-nav="logistics"><span class="bullet"></span>물류 · 영업레버리지</a>
+      <a href="#logistics" class="navitem" data-nav="logistics"><span class="bullet"></span>물류 · 운임 추이</a>
+      <a href="#sensitivity" class="navitem" data-nav="sensitivity"><span class="bullet"></span>실적 민감도 · 시나리오</a>
     </nav>
     <div class="rail-bottom"><span class="rail-dot"></span> 공개 데이터만 사용 <br /><small>유료 API 없이 / 휴대폰 상시 접속</small></div>
   </aside>
   <div class="workspace">
     <div class="mobile-head"><a href="#overview" class="mobile-brand">APR 주식 추적기</a><span class="mobile-head-right">278470 · KRX</span></div>
     <nav class="mobile-nav" aria-label="모바일 메뉴">
-      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요·유통</a><a href="#theses" data-mnav="theses">주의 지표</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·실적</a>
+      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요·유통</a><a href="#theses" data-mnav="theses">주의 지표</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·운임</a><a href="#sensitivity" data-mnav="sensitivity">실적 민감도</a>
     </nav>
     <header class="topline"><div><span class="top-caption">EQUITY / KOREA</span><span class="top-sep">/</span><span class="top-caption strong">APR · 278470</span></div><div class="updated"><span class="live-circle"></span><span id="last-synced">기록된 데이터 확인 중</span></div></header>
     <main>
@@ -221,7 +223,27 @@
         <div class="section-title"><div><p class="eyebrow">SECTOR MIX / 2026</p><h2>지역별 매출 성장</h2><span>에이피알 2·3분기 IR 요약 자료 · 억원</span></div></div>
         <div class="panel"><div class="panel-top"><strong>북미·유럽·아시아·국내 및 기타</strong><span class="data-label">QoQ 분기별 증감</span></div><div class="graph"><canvas id="chart-region"></canvas></div></div>
         <div class="grid two"><div class="panel padded"><h3>오프라인 비중과 매출 변화</h3><div id="offline-table"></div><p class="under-note">지역별 오프라인 비중의 분모와 전사 B2B 비중의 분모는 다릅니다.</p></div><div class="panel padded"><h3>다음 분기 확인할 비용률</h3><div class="cost-list"><div><span>판매수수료 / 매출</span><b>중요</b></div><div><span>광고선전비 / 매출</span><b>중요</b></div><div><span>운반비 + 원가 속 국제운송비</span><b>중요</b></div><div><span>환율 제거 후 OPM</span><b>비교</b></div><div><span>재고 회전율·오프라인 재주문</span><b>확인</b></div></div></div></div>
-        <div class="section-title"><div><p class="eyebrow">FREIGHT COST</p><h2>해상·항공운임 관찰</h2></div></div>
+        <div class="section-title"><div><p class="eyebrow">LEADING INDICATOR · KITA RADIS</p><h2>시장 운임 · 월초 선행지표</h2><span>협력업체 조사 참고운임 · 매월 첫째 주 갱신 · APR 계약운임과 구별</span></div></div>
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-top"><strong>부산 → 롱비치 해상운임 (USD)</strong><small>TEU / FEU · 공식 공개 기본조회</small></div>
+            <div class="graph small"><canvas id="chart-kita-sea"></canvas></div>
+            <p class="freight-asof" id="kita-asof">KITA 선행 운임 자료 확인 중</p>
+            <p class="freight-asof" id="kita-lead-lag">관세청 통계와 기준 시점을 비교 중</p>
+          </div>
+          <div class="panel padded">
+            <h3>최신 KITA 관측</h3>
+            <div class="freight-results">
+              <div><small>FEU (40피트)</small><strong id="kita-feu">—</strong></div>
+              <div><small>전월 대비</small><strong id="kita-feu-mom">—</strong></div>
+              <div><small>TEU (20피트)</small><strong id="kita-teu">—</strong></div>
+            </div>
+            <p id="kita-quality" class="under-note">KITA 사이트 데이터 수집 상태 확인 중</p>
+            <p class="under-note">KITA는 40피트 컨테이너당 USD 참고운임, 관세청은 원화 기준 신고 평균 운송비용입니다. 단위·시장 조사 방법이 다르므로 수치를 직접 이어 붙이지 않습니다.</p>
+            <div class="source-links"><a href="https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do" target="_blank" rel="noopener noreferrer">KITA 해상 원문 ↗</a><a href="https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do" target="_blank" rel="noopener noreferrer">KITA 항공 조회 ↗</a></div>
+          </div>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">LAGGING INDICATOR · CUSTOMS</p><h2>신고 기반 해상수출 평균 비용</h2><span>관세청 발표월 통계 · 2TEU당 평균, USD 표시 KITA와 직접 비교 불가</span></div></div>
         <div class="grid two"><div class="panel"><div class="panel-top"><strong>해상수출 평균 운송비용</strong><label for="freight-group"><span class="sr-only">항로 구분</span><select id="freight-group" class="input"><option value="long">장거리 · 미국/유럽/중동</option><option value="near">단거리 · 중국/일본/베트남</option></select></label></div><div class="graph small"><canvas id="chart-sea"></canvas></div>
      <p class="freight-asof" id="freight-asof">공식 운송비용 통계의 발표 기준월 확인 중</p>
      <p class="freight-asof">운임 외 할증료·수수료를 포함한 신고수리일 기준 평균 비용으로, 실시간 컨테이너 운임지수나 에이피알 실제 계약 운임이 아닙니다.</p>
@@ -231,26 +253,70 @@
           <div class="tablebox"><table aria-label="공식 해상 운송비용 변동률"><thead><tr><th>항로</th><th>기준월</th><th>비용</th><th>전월대비</th><th>전년동월대비</th><th>원문</th></tr></thead><tbody id="freight-route-table"><tr><td colspan="6">관세청 자료 수집 전</td></tr></tbody></table></div>
           <p id="freight-history-quality" class="under-note">출처 확인 상태 및 빠진 월을 확인 중입니다.</p>
         </div>
-        <div class="panel padded freight-model">
-          <div class="section-split"><h3>APR 운반비·영업이익 민감도</h3><small>공시비용 기반 가상 시나리오</small></div>
-          <p class="under-note">APR가 공시한 전체 운반비 가운데 해상운송 관련 비중은 별도로 확인되지 않았습니다. 아래 비중·운임 상승률은 가정값이며 관세청 평균 운송비용을 실제 APR 계약운임으로 적용한 것이 아닙니다.</p>
-          <div class="freight-inputs">
-            <label for="freight-share">운반비 중 해상운송 관련 비중(가정) <output id="freight-share-value" for="freight-share">40%</output>
-              <input id="freight-share" type="range" min="0" max="100" step="5" value="40" />
-            </label>
-            <label for="freight-shock">해상운송 관련 비용 상승률(가정) <output id="freight-shock-value" for="freight-shock">20%</output>
-              <input id="freight-shock" type="range" min="0" max="100" step="5" value="20" />
-            </label>
-          </div>
-          <div class="freight-results">
-            <div><small>분기 가정상 추가 운반비</small><strong id="freight-impact-cost">—</strong></div>
-            <div><small>분기 영업이익 감소 (상쇄 전)</small><strong id="freight-impact-profit">—</strong></div>
-            <div><small>영업이익률 하락폭 (상쇄 전)</small><strong id="freight-impact-opm">—</strong></div>
-          </div>
-          <p id="freight-model-basis" class="under-note">최근 운반비가 공시된 분기의 비용을 확인 중입니다.</p>
-          <p class="under-note">계산식: 공시 운반비 × 가정한 해상 관련 비중 × 비용 상승률. 운송계약·환율·상품별 운임·비용 전가·수송시차·원가 포함 국제운임은 반영되지 않았습니다. 예측 실적이나 매매 신호가 아닙니다.</p>
-        </div>
+        <div class="panel padded freight-model"><h3>환율·물류비·광고비·판매수수료는 별도 시나리오에서 함께 분석해요.</h3><p class="under-note">공시로 확인된 비용과 공개되지 않은 회사별 노출 비중을 구분해 운용합니다. 실제 운임이 곧 회사 운반비가 되는 것으로 계산하지 않습니다.</p><a class="minor-button" href="#sensitivity">실적 민감도 탭으로 이동</a></div>
         <div class="panel padded final-diagnostics"><div class="section-split"><h3>데이터 수집 상태</h3><small id="diagnostic-date">—</small></div><div id="diagnostic-errors" class="checks"></div></div>
+      </section>
+      <section class="page" id="sensitivity" data-page="sensitivity">
+        <div class="intro compact">
+          <p class="eyebrow">APR EARNINGS · WHAT-IF LAB</p>
+          <h1>실적 민감도,<br /><em>변수별로 분해하다.</em></h1>
+          <p class="lead">기준은 확인 가능한 분기 연결재무정보, 변경값은 사용자 가정입니다. 서로 다른 요인을 분리해서 영업이익·영업이익률에 미치는 영향을 계산하며 미래 실적을 예측한 값은 아닙니다.</p>
+        </div>
+        <div class="panel padded sens-top">
+          <div class="sens-toolbar">
+            <label for="sens-quarter">비용 공시 확인 분기
+              <select id="sens-quarter" class="input"><option value="">분기 조회 중</option></select>
+            </label>
+            <div class="sens-presets" aria-label="가정 시나리오">
+              <button type="button" class="minor-button" id="sens-preset-neutral">변동 없음</button>
+              <button type="button" class="minor-button" id="sens-preset-freight">물류 충격</button>
+              <button type="button" class="minor-button" id="sens-preset-demand">매출 성장</button>
+              <button type="button" class="minor-button" id="sens-preset-stress">복합 악화</button>
+            </div>
+          </div>
+          <p class="under-note" id="sens-baseline">최근 비용 공시 기준을 확인하는 중입니다.</p>
+          <p class="sens-validation" id="sens-validation">가정 비중 합계 검증 중</p>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">ILLUSTRATIVE EBIT</p><h2>설정한 가정이 실적에 미치는 영향</h2></div></div>
+        <div class="metrics four">
+          <div class="metric"><small>가정 매출액</small><b id="sens-revenue-out">—</b><p>기존 매출 ± 매출·환율 변동</p></div>
+          <div class="metric accent"><small>가정 영업이익</small><b id="sens-op">—</b><p id="sens-op-delta">증감 계산 중</p></div>
+          <div class="metric"><small>가정 영업이익률</small><b id="sens-opm">—</b><p id="sens-opm-delta">증감 계산 중</p></div>
+          <div class="metric"><small>수치 신뢰 구분</small><b class="medium">공시 + 사용자 가정</b><p>확정 실적 전망 아님</p></div>
+        </div>
+        <div class="grid two">
+          <div class="panel padded">
+            <h3>1. 판매량·매출 변화</h3>
+            <p class="under-note">매출 변동분에만 공시 매출원가·판매수수료·운반비율을 적용합니다. 광고비 증감 등은 별도로 조정합니다.</p>
+            <div class="sens-controls"><label class="sens-control" for="sens-revenue"><span>매출액 증감 (환율효과 제외)</span><output id="sens-revenue-val" for="sens-revenue">0%</output><input id="sens-revenue" type="range" min="-25" max="40" step="1" value="0"/><small>매출 ±% · 미래 수요는 별도의 가정</small></label></div>
+            <p class="under-note" id="sens-variable-cost">증분 공헌이익률 계산 중</p>
+          </div>
+          <div class="panel padded">
+            <h3>2. 환율 변동: 매출과 비용을 나눠 계산</h3>
+            <p class="under-note">실제 USD/EUR 결제 노출은 공시에서 확인되지 않아 가정값입니다. 매출통화·영업비용통화의 노출을 따로 설정하고 상쇄를 고려합니다.</p>
+            <div class="sens-controls"><label class="sens-control" for="sens-usd"><span>USD/KRW 변화</span><output id="sens-usd-val" for="sens-usd">0%</output><input id="sens-usd" type="range" min="-20" max="20" step="1" value="0"/><small>원/달러 상승은 달러 매출·비용 모두 원화 환산 증가</small></label><label class="sens-control" for="sens-eur"><span>EUR/KRW 변화</span><output id="sens-eur-val" for="sens-eur">0%</output><input id="sens-eur" type="range" min="-20" max="20" step="1" value="0"/><small>원/유로 변동을 별도로 계산</small></label><label class="sens-control" for="sens-usd-rev"><span>USD 노출 매출 비중 (가정)</span><output id="sens-usd-rev-val" for="sens-usd-rev">35%</output><input id="sens-usd-rev" type="range" min="0" max="100" step="5" value="35"/><small>매출액 중 달러 환산에 영향을 받는 부분</small></label><label class="sens-control" for="sens-eur-rev"><span>EUR 노출 매출 비중 (가정)</span><output id="sens-eur-rev-val" for="sens-eur-rev">10%</output><input id="sens-eur-rev" type="range" min="0" max="100" step="5" value="10"/><small>USD+EUR 매출노출 합계 최대 100%</small></label><label class="sens-control" for="sens-usd-cost"><span>USD 노출 영업비용 비중 (가정)</span><output id="sens-usd-cost-val" for="sens-usd-cost">20%</output><input id="sens-usd-cost" type="range" min="0" max="100" step="5" value="20"/><small>총 영업비용 대비 달러 노출</small></label><label class="sens-control" for="sens-eur-cost"><span>EUR 노출 영업비용 비중 (가정)</span><output id="sens-eur-cost-val" for="sens-eur-cost">5%</output><input id="sens-eur-cost" type="range" min="0" max="100" step="5" value="5"/><small>USD+EUR 비용노출 합계 최대 100%</small></label></div>
+            <p class="under-note" id="sens-fx-basis">ECB 참조환율 확인 중</p>
+          </div>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">SUPPLY CHAIN COST</p><h2>3. 운반비를 해상·항공·풀필먼트로 분리</h2></div></div>
+        <div class="panel padded">
+          <p class="under-note">분기 운반비를 가상의 해상·항공·현지 풀필먼트 비중으로 나눕니다. <strong>배분합계가 100%를 넘으면 계산을 중단</strong>하며, 비용 상승 반영률은 계약·재고·운송 시차를 고려한 별도 가정입니다. 풀필먼트는 회사 공시상 독립 계정이 확인되지 않아 다른 항목과 중복되지 않도록 운반비 안에서만 배분합니다.</p>
+          <div class="sens-controls sens-three"><label class="sens-control" for="sens-sea-share"><span>해상 관련 운반비 비중</span><output id="sens-sea-share-val" for="sens-sea-share">25%</output><input id="sens-sea-share" type="range" min="0" max="100" step="5" value="25"/><small>회사 실제 비중 미공개</small></label><label class="sens-control" for="sens-air-share"><span>항공 관련 운반비 비중</span><output id="sens-air-share-val" for="sens-air-share">20%</output><input id="sens-air-share" type="range" min="0" max="100" step="5" value="20"/><small>회사 실제 비중 미공개</small></label><label class="sens-control" for="sens-fulfill-share"><span>풀필먼트 관련 운반비 비중</span><output id="sens-fulfill-share-val" for="sens-fulfill-share">15%</output><input id="sens-fulfill-share" type="range" min="0" max="100" step="5" value="15"/><small>독립 회계금액 미공개</small></label></div>
+          <div class="sens-controls sens-three"><label class="sens-control" for="sens-sea-change"><span>해상 단가 변화</span><output id="sens-sea-change-val" for="sens-sea-change">0%</output><input id="sens-sea-change" type="range" min="-50" max="150" step="5" value="0"/><small>KITA 시장참고율을 APR 전체에 자동 적용하지 않음</small></label><label class="sens-control" for="sens-air-change"><span>항공 단가 변화</span><output id="sens-air-change-val" for="sens-air-change">0%</output><input id="sens-air-change" type="range" min="-50" max="150" step="5" value="0"/><small>항공수출 실측 수집 미확인</small></label><label class="sens-control" for="sens-fulfill-change"><span>풀필먼트 단가 변화</span><output id="sens-fulfill-change-val" for="sens-fulfill-change">0%</output><input id="sens-fulfill-change" type="range" min="-50" max="150" step="5" value="0"/><small>현지 보관·처리비 등 가정</small></label></div>
+          <div class="sens-controls sens-one"><label class="sens-control" for="sens-recognized"><span>현재 분기 비용 반영률</span><output id="sens-recognized-val" for="sens-recognized">60%</output><input id="sens-recognized" type="range" min="0" max="100" step="10" value="60"/><small>운송비의 즉시 손익 반영 비율 (비용 인식 시차 가정)</small></label></div>
+          <p class="under-note" id="sens-kita-note">KITA 선행 운임 확인 중</p>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">OTHER COST LEVERS</p><h2>4. 광고비 · 판매수수료 · 매출원가</h2></div></div>
+        <div class="panel padded">
+          <p class="under-note">기본 광고선전비·판매수수료·매출원가는 분기 공시값을 사용합니다. 매출 증가분의 기존 수수료율은 1번 계산에 포함되므로, 아래 수수료 입력은 **추가 수수료율 변동(%p)**만 반영합니다.</p>
+          <div class="sens-controls sens-three"><label class="sens-control" for="sens-ads"><span>광고선전비 지출 변동</span><output id="sens-ads-val" for="sens-ads">0%</output><input id="sens-ads" type="range" min="-30" max="80" step="5" value="0"/><small>기존 광고비에 대한 증가/감소율</small></label><label class="sens-control" for="sens-fee-pp"><span>판매수수료율 추가 변화(%p)</span><output id="sens-fee-pp-val" for="sens-fee-pp">0%</output><input id="sens-fee-pp" type="range" min="-5" max="5" step="0.1" value="0"/><small>변경된 매출액 × 추가 수수료율</small></label><label class="sens-control" for="sens-cogs"><span>매출원가 단가 충격</span><output id="sens-cogs-val" for="sens-cogs">0%</output><input id="sens-cogs" type="range" min="-30" max="50" step="5" value="0"/><small>기존 매출원가에만 추가 물가·제조비 충격</small></label></div>
+        </div>
+        <div class="section-title"><div><p class="eyebrow">EXPLAINABLE BRIDGE</p><h2>영업이익 증감 기여도</h2></div></div>
+        <div class="grid two sens-bridge">
+          <div class="panel"><div class="panel-top"><strong>요인별 영업이익 증감 (억원)</strong><small>0보다 크면 증가, 작으면 감소</small></div><div class="graph"><canvas id="sens-chart"></canvas></div></div>
+          <div class="panel padded"><div class="tablebox"><table aria-label="손익 민감도 기여도"><thead><tr><th>요인</th><th>영업이익 영향</th><th>방향</th></tr></thead><tbody id="sens-breakdown"></tbody></table></div></div>
+        </div>
+        <div class="notice-line"><strong>분석 한계:</strong> 회사별 실제 통화·운송수단·국제운임 계약·헤지·가격전가율·물량배분은 확인되지 않았습니다. 상호작용을 무시한 1차 선형 민감도이며, 환율과 원화 기준 물류비의 중복 및 유통계약 조건에 유의해야 합니다. 당기순이익·EPS 추정치는 산출하지 않습니다. 공시 비용 항목이 없는 2026년 3분기 잠정 실적은 기준분기에서 제외합니다.</div>
       </section>
     </main>
     <footer class="footer"><span>APR 주식 추적기 · 비공식 독립 투자 리서치 · 에이피알 공식 운영 사이트 아님</span><span>실측되지 않은 데이터는 공란 · 투자의 최종 판단은 사용자에게 있음</span></footer>
