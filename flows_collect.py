@@ -23,6 +23,7 @@ from urllib import parse, request
 from xml.etree import ElementTree as ET
 
 from flows_engine import evaluate
+from naver_public_flows import collect as naver_investors
 from kiwoom_flows import collect_if_connected as kiwoom_investors
 from kiwoom_short_lending import fetch_short_lending as kiwoom_short_lending
 
@@ -374,6 +375,33 @@ def collect():
             lending=merge_by_date(lending,new)
     except Exception as exc:
         issues.append('KSD 대차 API: '+type(exc).__name__+' · 이전값 유지')
+    # Unauthenticated, read-only Naver public stock-page investor trend.
+    # Source values are KR X net SHARES and the legacy net_krw fields are
+    # explicitly tagged estimated (shares x the Naver KRX close).
+    # Never overwrite more authoritative actual cash-value rows.
+    naver_meta={'status':'unavailable','rows':0,'pages':0}
+    if prices:
+        try:
+            naver_rows,naver_meta=naver_investors(prices[-1]['date'])
+            by_day={x['date']:x for x in daily if x.get('date')}
+            additions=[]
+            for item in naver_rows:
+                old=by_day.get(item['date'],{})
+                if old and old.get('record_status') not in (
+                    None,'public_website_derived_estimate'):
+                    continue
+                additions.append(item)
+            if additions:
+                daily=merge_by_date(daily,additions)
+            if not naver_rows:
+                issues.append('네이버 공개 KRX 수급: 조회 실패 · 이전 기록 유지')
+            elif naver_meta.get('status')!='ok':
+                issues.append('네이버 공개 KRX 수급: 일부 기간만 수신 · 수치 검증 필요')
+        except Exception as exc:
+            naver_meta={'status':'failed','error_type':type(exc).__name__,
+                        'rows':0,'pages':0}
+            issues.append('네이버 공개 KRX 수급: '+type(exc).__name__+
+                          ' · 이전 기록 유지')
     imports={
       'daily': read_imports(IMPORTS/'apr_investor_daily.csv',INVESTOR_KEYS),
       'short': read_imports(IMPORTS/'apr_short_daily.csv',
@@ -394,6 +422,8 @@ def collect():
            'krx_investor_live_ok':krx_ok,
            'kiwoom_app_configured':kiwoom_key_present,
            'kiwoom_read_only_result':kiwoom_meta,
+           'naver_public_result':naver_meta,
+           'naver_flow_is_estimated':any(x.get('amount_estimated') for x in daily),
            'kiwoom_short_lending_result':kiwoom_short_lending_meta,
            'krx_investor_mode':krx_mode,
            'krx_collection_diagnostics':diagnostics,
@@ -415,7 +445,8 @@ def collect():
        'price_asof':analysis.get('price_last_date'),
        'aligned':analysis.get('price_aligned'),
        'flow_rows':len(daily),'short_rows':len(shorts),'lending_rows':len(lending),
-       'krx_live_ok':krx_ok,'kiwoom_connected':kiwoom_key_present,
+       'krx_live_ok':krx_ok,'naver_status':naver_meta.get('status'),
+       'naver_records':naver_meta.get('rows'),'kiwoom_connected':kiwoom_key_present,
        'kiwoom_status':kiwoom_meta.get('status'),
        'kiwoom_short_status':kiwoom_short_lending_meta.get('short',{}).get('status'),
        'kiwoom_lending_status':kiwoom_short_lending_meta.get('lending',{}).get('status'),
