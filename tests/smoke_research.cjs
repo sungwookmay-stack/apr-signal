@@ -6,6 +6,8 @@ const {URL}=require('node:url');
 
 const read=path=>JSON.parse(fs.readFileSync(path,'utf8'));
 const app=fs.readFileSync('assets/app.js','utf8');
+const sensitivityJs=fs.readFileSync('assets/sensitivity.js','utf8');
+const kita=read('data/kita_rates.json');
 const moduleJs=fs.readFileSync('assets/research_dashboard.js','utf8');
 const html=fs.readFileSync('index.html','utf8');
 const fin=read('data/financials.json');
@@ -43,7 +45,7 @@ class MockChart{
 const location={hash:'#financials'};
 const window={
  APR_BOOTSTRAP:{
-  market,financials:fin,reference_signals:reference,apr_theses:theses,
+  market,financials:fin,reference_signals:reference,apr_theses:theses,kita_rates:kita,
   trend_signals:alerts,technical:{series:[],last:{}},
   demand:{countries:[
       {code:'US',name:'미국',amazon:'amazon.com',region:'북미'},
@@ -66,6 +68,7 @@ const context=vm.createContext({
  alert:()=>{throw Error('Unexpected alert')}
 });
 vm.runInContext(moduleJs,context,{filename:'research_dashboard.js'});
+vm.runInContext(sensitivityJs,context,{filename:'sensitivity.js'});
 vm.runInContext(app,context,{filename:'app.js'});
 assert.equal(typeof events['window:DOMContentLoaded'],'function');
 events['window:DOMContentLoaded']().then(()=>{
@@ -118,25 +121,26 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match(al,/관심도 상승/);
  assert.match(al,/관심도 하락/);
  assert.match($('trend-alert-count').textContent,/감지 2개/);
- // Freight analysis uses the last quarter with DISCLOSED shipping costs, not
- // a fabricated 2026Q3 transport expense. Regional chart shows provenance.
- // The source-quoted rate must win over (possibly revised) prior raw cost.
- market.logistics.sea.at(-1).reported_mom_pct={us_west:12.3};
- market.logistics.sea.at(-1).reported_yoy_pct={us_west:89.0};
+ // KITA market reference rates are leading signals; the separate
+ // sensitivity tab uses disclosed APR baselines and explicit user assumptions.
  $('freight-group').value='long';
- $('freight-share').value='40';
- $('freight-shock').value='20';
  location.hash='#logistics';events['window:hashchange']();
- assert.match($('freight-model-basis').textContent,/2026Q2/);
- assert.match($('freight-impact-cost').textContent,/45.2억원/);
- assert.match($('freight-impact-opm').textContent,/0.59%p/);
- assert.match($('freight-route-table').innerHTML,/12\.3%/);
  assert.match($('freight-route-table').innerHTML,/중동/);
  assert.match($('freight-route-table').innerHTML,/베트남/);
  assert.equal(MockChart.instances['chart-sea'].data.datasets.length,4);
+ assert.equal(MockChart.instances['chart-kita-sea'].data.datasets.length,2);
+ assert.match($('kita-feu').textContent,/8,500/);
+ assert.match($('kita-asof').textContent,/2026-10/);
  $('freight-group').value='near';events['freight-group:change']();
  assert.equal(MockChart.instances['chart-sea'].data.datasets.length,3);
- $('freight-share').value='100';events['freight-share:input']();
- assert.match($('freight-impact-cost').textContent,/113.1억원/);
- console.log('PASS: financial tables, Q4 expenses, PER/PBR point-in-time, retail Target quarantine, country-keyword alerts and freight cost sensitivity');
+ location.hash='#sensitivity';events['window:hashchange']();
+ assert.match($('sens-baseline').textContent,/2026Q2/);
+ assert.match($('sens-op').textContent,/1,905/);
+ assert.match($('sens-opm').textContent,/24\.83%/);
+ assert.match($('sens-kita-note').textContent,/롱비치/);
+ $('sens-sea-change').value='20';events['sens-sea-change:input']();
+ assert.match($('sens-op-delta').textContent,/17\.0억원/);
+ $('sens-preset-neutral').value='button';events['sens-preset-neutral:click']();
+ assert.match($('sens-op-delta').textContent,/\+0\.0억원/);
+ console.log('PASS: financial tables, Q4 expenses, PER/PBR point-in-time, retail Target quarantine, country-keyword alerts and KITA leading rates with separate sensitivity tab');
 }).catch(e=>{console.error(e);process.exitCode=1;});

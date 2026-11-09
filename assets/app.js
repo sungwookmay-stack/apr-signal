@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const fmt=(n,d=0)=>n==null||!Number.isFinite(Number(n))?'—':Number(n).toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
 const pct=(a,b)=>a!=null&&b!=null&&Number(b)!==0?(a/b-1)*100:null;
 const signed=(n,d=1)=>n==null?'—':(n>0?'+':'')+fmt(n,d)+'%';
-const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null,dartOwnership:null,dartFinancials:null,dartCapital:null,techView:'ma'};
+const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null,kitaRates:null,dartOwnership:null,dartFinancials:null,dartCapital:null,techView:'ma'};
 const C={navy:'#293841',teal:'#26756b',orange:'#c19561',purple:'#786a9d',grey:'#a1a9b0',red:'#bb5b63'};
 const missing='실측 데이터 없음 · 확인된 값만 표시합니다.';
 const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'BR',name:'브라질',region:'남미',amazon:'amazon.com.br',amazon_beauty_slug:'beauty'},{code:'AR',name:'아르헨티나',region:'남미',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
@@ -20,7 +20,7 @@ function escapeHtml(s){return safeText(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<
 function validLink(url){try{let u=new URL(url);return ['https:','http:'].includes(u.protocol)?u.href:'#'}catch{return '#'}}
 async function getJSON(name){try{const r=await fetch('./data/'+name+'.json?v='+Date.now(),{cache:'no-store'});if(r.ok)return await r.json()}catch{}return window.APR_BOOTSTRAP?.[name]??null}
 function today(){return new Date().toISOString().slice(0,10)}
-function showPage(hash){const id=(hash||location.hash||'#overview').replace('#','');state.nav=['overview','technical','financials','demand','theses','kbty','business','logistics'].includes(id)?id:'overview';document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===state.nav));document.querySelectorAll('[data-nav]').forEach(x=>x.classList.toggle('active',x.dataset.nav===state.nav));document.querySelectorAll('[data-mnav]').forEach(x=>x.classList.toggle('active',x.dataset.mnav===state.nav));if(state.nav==='technical')renderTechnical();if(state.nav==='financials'&&window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext());if(state.nav==='theses'&&window.APR_RESEARCH)window.APR_RESEARCH.renderTheses(researchContext());if(state.nav==='demand'){renderDemand();if(window.APR_RESEARCH)window.APR_RESEARCH.renderRetail(researchContext());}if(state.nav==='kbty')renderEtf();if(state.nav==='business')renderNews();if(state.nav==='logistics')renderLogistics();if(state.nav==='overview')renderOverview();window.scrollTo({top:0,behavior:'instant'});}
+function showPage(hash){const id=(hash||location.hash||'#overview').replace('#','');state.nav=['overview','technical','financials','demand','theses','kbty','business','logistics','sensitivity'].includes(id)?id:'overview';document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===state.nav));document.querySelectorAll('[data-nav]').forEach(x=>x.classList.toggle('active',x.dataset.nav===state.nav));document.querySelectorAll('[data-mnav]').forEach(x=>x.classList.toggle('active',x.dataset.mnav===state.nav));if(state.nav==='technical')renderTechnical();if(state.nav==='financials'&&window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext());if(state.nav==='theses'&&window.APR_RESEARCH)window.APR_RESEARCH.renderTheses(researchContext());if(state.nav==='demand'){renderDemand();if(window.APR_RESEARCH)window.APR_RESEARCH.renderRetail(researchContext());}if(state.nav==='kbty')renderEtf();if(state.nav==='business')renderNews();if(state.nav==='logistics')renderLogistics();if(state.nav==='sensitivity'&&window.APR_SENSITIVITY)window.APR_SENSITIVITY.render(researchContext());if(state.nav==='overview')renderOverview();window.scrollTo({top:0,behavior:'instant'});}
 function researchContext(){return {state,$,chart,escapeHtml,fmt,C,validLink};}
 function marketRows(){return (state.market?.series||[]).filter(x=>x.date>='2025-06-01'&&x.close_krw).sort((a,b)=>a.date.localeCompare(b.date));}
 function dateLimit(rows){const n=Number(state.period);return Number.isFinite(n)&&n>0?rows.filter(x=>x.date>=new Date(Date.now()-n*86400000).toISOString().slice(0,10)):rows;}
@@ -401,32 +401,35 @@ function previousMonth(month,offset){
  d.setUTCMonth(d.getUTCMonth()-offset);
  return d.toISOString().slice(0,7);
 }
-function renderFreightModel(){
- const fields=(state.financials?.quarterly||[]).filter(q=>
-    q.logistics!=null&&Number(q.logistics)>0&&
-    Number(q.sales)>0&&Number.isFinite(Number(q.op)));
- const q=fields.at(-1);
- if(!q){
-   set('freight-model-basis','공시상 운반비와 분기 매출액이 모두 확인된 자료가 없어 계산을 보류합니다.');
-   ['freight-impact-cost','freight-impact-profit','freight-impact-opm'].forEach(id=>set(id,'—'));
-   return;
- }
- const rawShare=Number($('freight-share')?.value),rawShock=Number($('freight-shock')?.value);
- const share=Number.isFinite(rawShare)?Math.min(100,Math.max(0,rawShare)):40;
- const shock=Number.isFinite(rawShock)?Math.min(100,Math.max(0,rawShock)):20;
- const extra=Number(q.logistics)*share/100*shock/100;
- const opm=extra/Number(q.sales)*100;
- set('freight-share-value',fmt(share)+'%');
- set('freight-shock-value',fmt(shock)+'%');
- set('freight-impact-cost',fmt(extra,1)+'억원');
- set('freight-impact-profit','−'+fmt(extra,1)+'억원');
- set('freight-impact-opm','−'+fmt(opm,2)+'%p');
- set('freight-model-basis',
-     '기준: '+q.period+' 연결 기준 · 매출 '+fmt(q.sales,1)+'억원 / 공시 운반비 '+
-     fmt(q.logistics,1)+'억원 / 영업이익 '+fmt(q.op,1)+'억원 ('+
-     (q.status||'보고서 확인')+'). 판매단가·물량·기타 비용 불변 가정이며 2026년 3분기 잠정실적에는 운반비가 없어 사용하지 않습니다.');
+function renderKitaRates(){
+ const k=state.kitaRates||{}, customs=state.market?.logistics||{};
+ const all=(k.sea_routes||[]).filter(x=>
+   x.origin==='Busan'&&x.destination==='Long Beach'&&x.month)
+   .slice().sort((a,b)=>a.month.localeCompare(b.month));
+ const last=all.at(-1),prior=all.at(-2);
+ const verified=last?.source_type?.startsWith('KITA_RADIS_')&&last?.source_url;
+ chart('chart-kita-sea',all.map(x=>x.month),[
+   {label:'TEU (20피트)',values:all.map(x=>x.teu_usd),color:C.teal},
+   {label:'FEU (40피트)',values:all.map(x=>x.feu_usd),color:C.navy}
+ ],{legend:true,decimals:0});
+ set('kita-feu',last?.feu_usd!=null?'$'+fmt(last.feu_usd):'—');
+ set('kita-teu',last?.teu_usd!=null?'$'+fmt(last.teu_usd):'—');
+ set('kita-feu-mom',last&&prior&&prior.feu_usd>0?
+    signed(pct(last.feu_usd,prior.feu_usd)):'—');
+ set('kita-asof','KITA 최근 관측 월 '+(last?.month||'미수집')+
+   ' · 시장 조사 참고운임 (USD / TEU·FEU), 매월 첫째 주 갱신');
+ set('kita-lead-lag','현재 확인자료 KITA '+(last?.month||'미수집')+
+    ' / 관세청 '+(customs.last_verified_month||'미수집')+
+    ' · 서로 다른 모집단·단위로 직접 가격 비교하지 않음');
+ set('kita-quality',verified?
+    '출처: KITA RADIS 공식 공개표 · 검증 스냅샷 '+(last.verified_on||k.verified_snapshot_date||'미확인')+
+    (k.latest_access_ok===false?' · 최근 자동 접근 실패: 이전 실측 유지':
+      k.latest_access_ok===true?' · 공식 페이지 자동 수집 성공':' · 실시간 자동 재조회 전')+
+    ' · 확인한 항로는 부산→롱비치만, 항공 기준 선택은 결과 미확인':
+    'KITA 운임 미수집 · 원문 링크에서 확인 바랍니다');
 }
 function renderLogistics(){
+ renderKitaRates();
  const data=[{name:'북미',q2:3763,q3:3556,of2:22,of3:30},{name:'유럽',q2:1451,q3:1778,of2:50,of3:40},{name:'아시아',q2:1211,q3:1160},{name:'기타 해외',q2:617,q3:735},{name:'한국',q2:633,q3:502}];
  chart('chart-region',data.map(x=>x.name),[{label:'2026 2Q',values:data.map(x=>x.q2),color:C.navy,background:'#193a5a'},
  {label:'2026 3Q',values:data.map(x=>x.q3),color:C.teal,background:'#0b917f'}],{type:'bar',legend:true});
@@ -474,7 +477,6 @@ function renderLogistics(){
    (log.history_backfill_errors?.length?' · 과거 자료 일부 접근/파싱 실패':'')+
    (log.last_fetch_failed?' · 최신 재조회 실패':'')+
    '. 증감률은 관세청 해당 월 공식 발표치 우선, 미확인 경우에만 보유 월간 수치로 계산. 사후 통계 정정으로 단순 계산과 차이가 날 수 있습니다.');
- renderFreightModel();
  const errs=state.status?.errors||[];
  set('diagnostic-date',state.status?.generated_at_utc||'최초 데이터 수집 전');
  $('diagnostic-errors').innerHTML=errs.length?errs.slice(0,12).map(x=>'<div class="check"><span class="check-icon caution">!</span><div><b>데이터 접근 또는 출처 확인</b><p>'+escapeHtml(x)+'</p></div></div>').join(''):'<div class="check"><span class="check-icon positive">✓</span><div><b>저장된 자료의 필수 오류 미발견</b><p>각 자료의 기준일이 최신인지 별도로 확인하세요.</p></div></div>';
@@ -501,9 +503,6 @@ function initControls(){
  $('news-filter').addEventListener('change',renderNews);
  const view=$('technical-view');if(view)view.addEventListener('change',()=>{state.techView=view.value;renderTechnical();});
  const fg=$('freight-group');if(fg)fg.addEventListener('change',renderLogistics);
- for(const id of ['freight-share','freight-shock']){
-   const input=$(id);if(input)input.addEventListener('input',renderFreightModel);
- }
  const finTable=$('fin-table-kind');if(finTable)finTable.addEventListener('change',()=>{if(window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext())});
  const trendAlerts=$('trend-alerts');if(trendAlerts)trendAlerts.addEventListener('click',e=>{
     const node=e.target.closest?.('[data-trend-country]');
@@ -519,10 +518,10 @@ function initControls(){
  });
 }
 async function init(){
- const names=['market','technical','kbty','news','demand','status','top100','reference_signals','kbty_sec','financials','trend_signals','apr_theses','dart_ownership','dart_financials','dart_capital'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n==='trend_signals'?'trendSignals':n==='apr_theses'?'aprTheses':n==='dart_ownership'?'dartOwnership':n==='dart_financials'?'dartFinancials':n==='dart_capital'?'dartCapital':n]=data[i]);
+ const names=['market','technical','kbty','news','demand','status','top100','reference_signals','kbty_sec','financials','trend_signals','apr_theses','dart_ownership','dart_financials','dart_capital','kita_rates'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n==='trend_signals'?'trendSignals':n==='apr_theses'?'aprTheses':n==='dart_ownership'?'dartOwnership':n==='dart_financials'?'dartFinancials':n==='dart_capital'?'dartCapital':n==='kita_rates'?'kitaRates':n]=data[i]);
  const sync=state.status?.generated_at_utc;
  set('last-synced',sync?'최종 수집 '+sync.slice(0,10)+' (UTC)':'최초 클라우드 갱신 전');
- initControls();showPage(location.hash);window.addEventListener('hashchange',()=>showPage(location.hash));
+ initControls();if(window.APR_SENSITIVITY)window.APR_SENSITIVITY.init(researchContext());showPage(location.hash);window.addEventListener('hashchange',()=>showPage(location.hash));
 }
 window.addEventListener('DOMContentLoaded',init);
 })();
