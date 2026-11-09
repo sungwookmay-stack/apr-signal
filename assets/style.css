@@ -217,3 +217,28 @@
  #logistics .freight-results small{font-size:9px}
  #logistics .freight-results strong{font-size:15px}
 }
+
+
+/* KITA US coast comparison + technical bottom-formation evidence */
+.kita-coast-detail{margin-top:17px}
+.kita-coast-detail .tablebox{overflow-x:auto;margin:11px 0}
+.kita-coast-detail th,.kita-coast-detail td{padding:12px 14px;font-size:11px}
+.kita-coast-detail a{color:#26756b;text-decoration:underline;text-underline-offset:2px}
+.kita-us-results>div span{font-size:10px;color:#687f8b;display:block;margin-top:5px}
+#bottom-stage{line-height:1.35}
+.bottom-analysis{margin-top:10px}
+.bottom-analysis .section-split h3{margin:0}
+.bottom-overview{display:grid;grid-template-columns:2fr repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 16px}
+.bottom-overview>div{border:1px solid #e6edef;background:#fbfcfc;padding:16px 14px;border-radius:9px;min-width:0}
+.bottom-overview>div small{font-size:10px;color:#8698a5;display:block}
+.bottom-overview>div strong{display:block;color:#234e53;font-size:clamp(15px,1.8vw,23px);margin-top:9px;letter-spacing:-.05em;line-height:1.4}
+.bottom-overview>div span{display:block;color:#8595a3;font-size:10px;margin-top:8px;line-height:1.5}
+.bottom-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:16px 0 17px}
+.bottom-checks .check{border:1px solid #e7edef;border-radius:9px;padding:13px 12px;margin:0;min-width:0}
+.bottom-checks .check b{font-size:12px;line-height:1.5}
+.bottom-checks .check b small{color:#8799a6;font-size:10px;white-space:nowrap;margin-left:4px}
+.bottom-checks .check p{overflow-wrap:anywhere;line-height:1.65}
+.bottom-analysis .source-links{margin:13px 0}
+.bottom-analysis .fineprint{margin:15px 0 0}
+@media(max-width:960px){.bottom-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.bottom-overview>div:first-child{grid-column:1/-1}}
+@media(max-width:620px){.bottom-checks{grid-template-columns:1fr}.bottom-overview{gap:8px}.bottom-overview>div{padding:13px 12px}.bottom-overview>div strong{font-size:17px}.kita-us-results{grid-template-columns:repeat(3,minmax(0,1fr))}.kita-us-results>div:last-child{grid-column:auto}.kita-us-results strong{font-size:15px}.kita-us-results small{font-size:9px}.kita-us-results>div{padding:9px}}
