@@ -356,3 +356,11 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - 검증: tests/test_kiwoom_flows.py의 인증·백만원→원 환산·연기금·페이지 연속조회·누락보존·토큰 비공개 단위검사.
 - 공식 OAuth 명세: https://openapi.kiwoom.com/guide/apiguide?jobTpCode=07
 - 공식 API 목록: https://openapi.kiwoom.com/m/guide/apiguide
+
+
+### 공매도 거래·대차도 키움 REST 하나로 연결 (2026-11-09)
+- 키움 REST appkey/secretkey를 Actions Secrets에 입력하면 수급 ka10059 외에 **ka10014 공매도 거래추이**와 **ka20068 종목별 대차 신규·상환·잔고**도 조회하도록 구성했습니다. 별도 KSD 키 없이 대차 실측부터 채울 수 있지만, KSD는 독립적인 공식 교차검증 데이터로 추가 활용할 수 있습니다.
+- ka10014의 shrts_qty는 **당일 공매도 체결주수**, trde_qty는 **당일 전체 거래주수**입니다. 두 수량으로 계산한 공매도 거래비중은 **수량 비율**이며 공매도 거래대금 비중이나 공매도 순보유잔고가 아닙니다. 20거래일 기간 비중은 일간 백분율 단순 평균이 아니라 당일 공매도주수 합계 / 일간 전체 거래주수 합계로 계산하고, 반드시 해당 20거래일이 모두 확인될 때만 표시합니다.
+- ka20068의 dbrt_trde_cntrcnt / dbrt_trde_rpy / rmnd는 각각 **대차 신규 체결주수 / 대차 상환주수 / 대차잔고주수**입니다. ka10014의 ovr_shrts_qty는 기간 누적 공매도 체결량이지 잔고가 아닙니다. 대차잔고와 공매도 순보유잔고는 별개이며 대차상환은 확정 숏커버가 아닙니다.
+- 공매도 순보유잔고는 ka10014나 ka20068에 없으므로 KRX 신고 기반 개별 잔고 자료를 따로 수집하지 않는 한 미확인 상태로 둡니다. 두 API의 원본 금액 단위가 확정되지 않은 항목은 가격을 곱해 억지 금액을 만들지 않습니다. 미확인 수치는 0으로 채우지 않습니다.
+- 개발·검증: kiwoom_short_lending.py 및 tests/test_kiwoom_short_lending.py. 원문: https://openapi.kiwoom.com/m/guide/apiguide
