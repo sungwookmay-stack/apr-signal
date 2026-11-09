@@ -38,6 +38,8 @@ jobs:
         run: node --check assets/app.js
       - name: Standalone sensitivity JS syntax
         run: node --check assets/sensitivity.js
+      - name: Investor flow JS syntax
+        run: node --check assets/flows.js
       - name: Build research snapshots without network or keys
         run: python build_research_data.py
       - name: Verify research JavaScript syntax
@@ -46,6 +48,8 @@ jobs:
         run: node tests/smoke_research.cjs
       - name: Scenario lab and KITA data provenance smoke
         run: node tests/smoke_sensitivity.cjs
+      - name: Institutional APR flow and lending source QA
+        run: node tests/smoke_flows.cjs
       - name: Verify 5 moving averages separate RSI and MACD charts
         run: node tests/smoke_technical_2026.cjs
       - name: Dashboard smoke
