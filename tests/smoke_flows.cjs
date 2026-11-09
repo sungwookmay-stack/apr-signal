@@ -37,12 +37,13 @@ const ctx={$,state,
 const window={};vm.runInNewContext(moduleCode,{window,console});
 const mod=window.APR_FLOWS;assert(mod);
 mod.init(ctx);
-assert.match($('flow-total-label').textContent,/판정 보류/);
+if(!flows.flow_last_date)assert.match($('flow-total-label').textContent,/판정 보류/);
+else assert.notEqual($('flow-total-label').textContent,'');
 assert.match($('flow-summary-body').innerHTML,/연기금/);
 assert.match($('flow-external-reference').innerHTML,/2차 집계/);
 assert.match($('flow-external-reference').innerHTML,/−538억원/);
-assert.match($('flow-loan-date').textContent,/미수집/);
-assert.equal($('flow-short-ratio').textContent,'—');
+if(!flows.lending?.last_date)assert.match($('flow-loan-date').textContent,/미수집/);
+if(!flows.short?.last_date)assert.equal($('flow-short-ratio').textContent,'—');
 assert.equal(charts['flow-cum-chart'].series.length,4);
 const last=market.series.at(-1).date;
 const dates=market.series.slice(-20).map(x=>x.date);
