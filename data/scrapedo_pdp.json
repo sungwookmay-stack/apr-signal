@@ -550,5 +550,77 @@
     "source": "Scrape.do Amazon PDP",
     "source_quality": "verified_product_rank",
     "source_url": "https://www.amazon.de/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-11",
+    "country": "US",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "bsr": 6,
+    "category": "Beauty & Personal Care",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-11",
+    "country": "US",
+    "asin": "B09V7Z4TJG",
+    "product": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care",
+    "bsr": 1,
+    "category": "Facial Toners & Astringents",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.com/dp/B09V7Z4TJG"
+  },
+  {
+    "date": "2026-11-11",
+    "country": "GB",
+    "asin": "B0D1G7XF9X",
+    "product": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating",
+    "title": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating",
+    "bsr": 77,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0D1G7XF9X"
+  },
+  {
+    "date": "2026-11-11",
+    "country": "GB",
+    "asin": "B0D1G7XF9X",
+    "product": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating",
+    "title": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating",
+    "bsr": 3,
+    "category": "Face Treatments & Masks",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.co.uk/dp/B0D1G7XF9X"
+  },
+  {
+    "date": "2026-11-11",
+    "country": "DE",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "bsr": 73,
+    "category": "Beauty",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B0DBF65JYY"
+  },
+  {
+    "date": "2026-11-11",
+    "country": "DE",
+    "asin": "B0DBF65JYY",
+    "product": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "title": "medicube PDRN Pink Peptide Serum with Salmon DNA 30 ml",
+    "bsr": 5,
+    "category": "Facial Serums",
+    "source": "Scrape.do Amazon PDP",
+    "source_quality": "verified_product_rank",
+    "source_url": "https://www.amazon.de/dp/B0DBF65JYY"
   }
 ]

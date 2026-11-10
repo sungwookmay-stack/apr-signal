@@ -194,5 +194,33 @@
     "asin": "B0DT1FTTDG",
     "identified": true,
     "bsr_categories": 0
+  },
+  {
+    "date": "2026-11-11",
+    "country": "US",
+    "asin": "B09V7Z4TJG",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-11",
+    "country": "GB",
+    "asin": "B0D1G7XF9X",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-11",
+    "country": "DE",
+    "asin": "B0DBF65JYY",
+    "identified": true,
+    "bsr_categories": 2
+  },
+  {
+    "date": "2026-11-11",
+    "country": "BR",
+    "asin": "B0DJHCX662",
+    "identified": true,
+    "bsr_categories": 0
   }
 ]
