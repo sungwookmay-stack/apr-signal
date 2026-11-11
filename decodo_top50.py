@@ -40,7 +40,7 @@ def eligibility(env, now, morning_cron):
     if env.get('GITHUB_RUN_ATTEMPT') != '1':
         return 'rerun_blocked'
     if (env.get('GITHUB_EVENT_NAME') == 'push' and
-            env.get('DECODO_INITIAL_RUN') == 'initial-20261112'):
+            env.get('DECODO_INITIAL_RUN') in ('initial-20261112','uae-recheck-20261112')):
         return None if now.astimezone(KST).date().isoformat() == '2026-11-12' else 'initial_run_expired'
     if (env.get('GITHUB_EVENT_NAME') != 'schedule' or
             env.get('GITHUB_EVENT_SCHEDULE') != morning_cron):
@@ -153,11 +153,14 @@ def collect(state, env, now, morning_cron, persist, request=request_page):
     local = now.astimezone(KST)
     day, month = local.date().isoformat(), local.strftime('%Y-%m')
     ledger = state.setdefault('attempts_by_month',{})
-    daily = state.setdefault('attempts_by_day',{}).setdefault(day,[])
+    # An explicitly authorized UAE recheck has its own once-only ledger.
+    daily_key=day+':uae-recheck' if initial=='uae-recheck-20261112' else day
+    daily = state.setdefault('attempts_by_day',{}).setdefault(daily_key,[])
     observations = state.setdefault('latest_complete',{})
     checks = state.setdefault('latest_checks',{})
     made = 0
-    pending=[(cc,domain) for cc,domain in MARKETS.items() if cc not in daily]
+    markets={'AE':MARKETS['AE']} if initial=='uae-recheck-20261112' else MARKETS
+    pending=[(cc,domain) for cc,domain in markets.items() if cc not in daily]
     capacity=max(0,MONTHLY_ATTEMPT_CAP-ledger.get(month,0))
     planned=pending[:capacity]
     if not planned and pending:
@@ -209,9 +212,6 @@ BRANDS = {
     'aprilskin': ('에이프릴스킨', r'(?<![a-z])april\s*skin(?![a-z])|에이프릴\s*스킨|エイプリルスキン'),
     'forment': ('포맨트', r'(?<![a-z])forment(?![a-z])|포맨트'),
     'glamd': ('글램디 바이오', r'(?<![a-z])glam[.\s]*d(?:\s+bio)?(?![a-z])|글램디'),
-    # Short NDY and generic English "nerdy" need more evidence; do not match them.
-    'ndy': ('NDY', r'널디'),
-    'photogray': ('포토그레이', r'(?<![a-z])photogray(?![a-z])|포토그레이'),
 }
 BRAND_SOURCE = 'https://www.apr-in.com/en/apr_about.html'
 
@@ -298,6 +298,9 @@ def main():
         public=json.loads(public_path.read_text())
     except FileNotFoundError:
         public={'snapshots':[]}
+    for snapshot in public.get('snapshots',[]):
+        for removed in ('ndy','photogray'):
+            snapshot.get('brands',{}).pop(removed,None)
     for cc,current in state.get('latest_complete',{}).items():
         if current.get('observed_at_utc')==before.get(cc,{}).get('observed_at_utc'): continue
         public.setdefault('snapshots',[]).append(display_snapshot(current,before.get(cc)))

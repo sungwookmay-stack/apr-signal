@@ -93,6 +93,17 @@ class Tests(unittest.TestCase):
         def forbidden(*a): self.fail('initial run duplicated')
         result=collect(state,env,when,CRON,lambda s:None,forbidden)
         self.assertEqual(result['reason'],'initial_run_already_consumed')
+    def test_uae_recheck_is_exactly_once_and_one_market(self):
+        env={**ENV,'GITHUB_EVENT_NAME':'push','DECODO_INITIAL_RUN':'uae-recheck-20261112'}
+        when=dt.datetime(2026,11,11,16,0,tzinfo=dt.timezone.utc)
+        state={'attempts_by_month':{'2026-11':12},'attempts_by_day':{'2026-11-12':list(MARKETS)}}
+        calls=[]
+        def req(key,domain):calls.append(domain);return page(domain)
+        self.assertEqual(collect(state,env,when,CRON,lambda s:None,req)['attempts'],1)
+        self.assertEqual(calls,['ae'])
+        self.assertEqual(state['attempts_by_month']['2026-11'],13)
+        self.assertEqual(collect(state,env,when,CRON,lambda s:None,req)['attempts'],0)
+        self.assertEqual(calls,['ae'])
     def test_other_brands_and_ambiguity(self):
         self.assertEqual(candidate_brands('APRIL SKIN cleansing balm'),['aprilskin'])
         self.assertEqual(candidate_brands('FORMENT perfume'),['forment'])

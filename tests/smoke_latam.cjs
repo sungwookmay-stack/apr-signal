@@ -47,14 +47,14 @@ ready().then(()=>{
  assert.equal(region.hidden,false,'Brazil should show the LATAM section');
  assert.match(el('amazon-link').href,/amazon\.com\.br/);
  assert.match(el('top100-url').href,/amazon\.com\.br\/gp\/bestsellers/);
- assert.match(el('amazon-quick-count').textContent,/미수집/);
+ assert.match(el('top100-count').textContent,/미수집/);
  choose('AR');
  assert.equal(region.hidden,false,'Argentina should show the LATAM section');
- assert.match(el('amazon-quick-count').textContent,/독립 마켓 없음/);
+ assert.match(el('top100-quality').textContent,/독립 Amazon 마켓/);
  assert.match(el('top100-url').href,/trends\.google\.com/);
  choose('CL');
  assert.equal(region.hidden,false,'Chile should show the LATAM section');
- assert.match(el('amazon-quick-count').textContent,/독립 마켓 없음/);
+ assert.match(el('top100-quality').textContent,/독립 Amazon 마켓/);
  assert.match(menu.innerHTML,/브라질/);
  for(const code of ['GB','JP','US']){
    el('country').value=code;
