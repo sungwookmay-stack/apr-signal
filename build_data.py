@@ -22,9 +22,7 @@ from urllib import parse, request
 import xml.etree.ElementTree as ET
 from indicator_engine import calculate
 import update_data
-from optional_free_api import Budget, update_trends, update_amazon
-from top100_tracker import track_bestsellers
-from scrapedo_bestsellers import track_scrapedo
+from optional_free_api import Budget, update_trends
 from retail_reference_collector import collect as refresh_retail_references
 from news_localizer import localize_items, FIELD_KEYS
 from financial_engine import update as refresh_financials
@@ -309,7 +307,6 @@ def collect_demand():
         except Exception as e:errors.append(f'Trends {f.name}: {str(e)[:110]}')
     if not trend:trend=prev.get('trends',[])
     api_key=os.environ.get('APISH_KEY','').strip()
-    scrape_token=os.environ.get('SCRAPEDO_TOKEN','').strip()
     budget=Budget(api_key)
     api_count=0
     if api_key:
@@ -318,129 +315,8 @@ def collect_demand():
         api_count+=replaced
     else:
         statuses.append('APISH_KEY 미설정 — API 자동 수집 비활성 (CSV 이용 가능)')
-    # Verified BSR observations CSV; no invention or fabricated ASINs.
-    amazon=[]
-    for r in load_csv('amazon_observations.csv'):
-        cc=r.get('country','').upper();asin=r.get('asin','').upper()
-        n=safe_num(r.get('bsr'),1,1e8)
-        if (cc not in {x['code'] for x in config.get('markets',[]) if x.get('amazon')} or
-            not re.fullmatch(r'[A-Z0-9]{10}',asin) or not re.fullmatch(r'20\d\d-\d\d-\d\d',r.get('date','')) or not n or
-            not valid_url(r.get('source_url',''))):continue
-        amazon.append({'date':r['date'],'country':cc,'product':r.get('product',''),'asin':asin,'bsr':int(n),
-                       'category':r.get('category',''),'reviews':safe_num(r.get('reviews')),'price':safe_num(r.get('price')),
-                       'source_url':r.get('source_url'),'source':'사용자 확인·출처 URL 기록'})
-    for x in prev.get('amazon',[]):
-        if not any((x.get('date'),x.get('country'),x.get('asin'))==(y['date'],y['country'],y['asin']) for y in amazon):amazon.append(x)
-    amazon.sort(key=lambda x:x.get('date',''))
-    # Best-effort anonymous Amazon BSR; bounded requests, avoid CAPTCHA circumvention.
-    watched=load_csv('amazon_watchlist.csv')
-    # Reuse explicitly verified ASINs from Beauty list observations as a free
-    # discovery source. Product rank calls are still cost-capped separately.
-    for snapshot in prev.get('top100',[]):
-        cc=snapshot.get('country','')
-        for item in snapshot.get('medicube_listings',[]):
-            asin=str(item.get('asin','')).upper()
-            if re.fullmatch(r'[A-Z0-9]{10}',asin):
-                watched.append({'country':cc,'asin':asin,
-                    'product':item.get('title','')[:100]})
-    auto_status=[]
-    for r in ([] if api_key else watched[:12]):
-        cc=r.get('country','').upper();asin=r.get('asin','').upper()
-        market=next((x for x in config.get('markets',[]) if x['code']==cc and x.get('amazon')),None)
-        if not market or not re.fullmatch('[A-Z0-9]{10}',asin):continue
-        url='https://www.'+market['amazon']+'/dp/'+asin
-        try:
-            html=fetch(url,timeout=10).decode('utf-8',errors='ignore')
-            if re.search('captcha|robot check|automated access',html,re.I):raise ValueError('자동 접근 차단')
-            txt=unescape(re.sub(r'<[^>]+>',' ',html))
-            mt=re.search(r'(Best Sellers Rank|Bestsellers Rank|Bestseller-Rang|Classement des meilleures ventes|Classifica Bestseller|ترتيب الأفضل مبيعاً).{0,180}?[#＃]\s*([\d,\.\s]{1,14})',txt,re.I|re.S)
-            if not mt:raise ValueError('BSR 확인 불가')
-            rank=int(re.sub(r'\D','',mt.group(2)))
-            if not 1<=rank<=1e8:raise ValueError('BSR 비정상')
-            today=dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date().isoformat()
-            k=(today,cc,asin)
-            amazon=[x for x in amazon if (x.get('date'),x.get('country'),x.get('asin'))!=k]
-            amazon.append({'date':today,'country':cc,'product':r.get('product',''),'asin':asin,'bsr':rank,
-                           'category':'자동 추출·카테고리 미검증','source_url':url,'source':'아마존 공개 페이지 (자동 확인, 카테고리 재검증 권장)'})
-            auto_status.append(f'{cc} {asin}: BSR #{rank}')
-        except Exception as e:auto_status.append(f'{cc} {asin}: 확인 실패 ({str(e)[:65]})')
-        time.sleep(.6)
-    # When a free key is configured, verified cross-market ASIN discovery + BSR lookup.
-    if api_key and not scrape_token:
-        # Legacy fallback only: API.SH product BSR is often absent. Do not
-        # spend product credits when Scrape.do is configured.
-        amazon,discovered,count=update_amazon(budget,config,amazon,watched)
-        api_count+=count
-        auto_status.append(f'API.SH 보조 상품 BSR {count}건 확인')
-    else:
-        discovered=read_json(DATA/'discovered_asins.json',[])
-        if scrape_token:
-            auto_status.append('Scrape.do 모드: API.SH 개별 상품 BSR 호출 생략')
-    if api_key:
-        auto_status.append(f'API.SH 당월 예약 {budget.stats["attempted_credits"]}/750 크레딧')
-        for err in budget.errors[:5]:errors.append('무료 API: '+err)
-    # Separate from product BSR. Scrape.do provides ranked ASINs 1-100;
-    # ranks without a confirmed brand/title MUST remain unidentified.
-    top100_history=prev.get('top100',[])
-    top100_status=[]
-    scrape_credits=None
-    if scrape_token:
-        try:
-            top100_history,notes,_,scrape_credits=track_scrapedo(
-                scrape_token,config,top100_history,amazon)
-            top100_status.extend(notes)
-        except Exception as exc:
-            top100_status.append('Scrape.do 수집 실패: '+type(exc).__name__)
-            errors.append('Scrape.do 순위 수집 예외: '+type(exc).__name__)
-    if api_key:
-        try:
-            top100_history,notes,_=track_bestsellers(budget,config,top100_history)
-            top100_status.extend(notes)
-        except Exception as exc:
-            top100_status.append('API.SH Top 100 관측 실패: '+type(exc).__name__)
-            errors.append(top100_status[-1])
-    elif not scrape_token:
-        top100_status.append('무료 API 키 미설정 — Top 100 자동 수집 보류')
-    # Rankings observed inside a verified Beauty bestseller page ARE a
-    # product's Beauty-category BSR for that date. Make them visible on the
-    # product chart even when separate Amazon Product API returns no results.
-    known={(x.get('date'),x.get('country'),x.get('asin')) for x in amazon}
-    for snap in top100_history:
-        if snap.get('category')!='beauty' or not snap.get('date'):
-            continue
-        market=next((z for z in config.get('markets',[])
-                     if z.get('code')==snap.get('country') and z.get('amazon')),None)
-        if not market:
-            continue
-        for item in snap.get('medicube_listings',[]):
-            asin=str(item.get('asin','')).upper()
-            rank=item.get('rank')
-            try:rank=int(rank)
-            except (TypeError,ValueError):continue
-            key=(snap['date'],snap['country'],asin)
-            if not re.fullmatch(r'[A-Z0-9]{10}',asin) or not 1<=rank<=100 or key in known:
-                continue
-            title=str(item.get('title') or 'medicube '+asin)
-            lower=title.lower()
-            if 'zero pore pad' in lower:product='medicube zero pore pad'
-            elif 'pink peptide serum' in lower:product='medicube PDRN pink peptide serum'
-            elif 'collagen jelly cream' in lower:product='medicube collagen jelly cream'
-            elif 'night wrapping' in lower:product='medicube collagen night wrapping mask'
-            elif 'booster pro' in lower:product='medicube AGE-R booster pro'
-            else:product=title[:95]
-            amazon.append({'date':snap['date'],'country':snap['country'],
-                'product':product,'title':title,'asin':asin,'bsr':rank,
-                'category':'Beauty & Personal Care (전체 베스트셀러 카테고리)',
-                'reviews':None,'price':None,
-                'source_url':'https://www.'+market['amazon']+'/dp/'+asin,
-                'source':'Amazon Beauty 베스트셀러 순위 관측('+('Scrape.do' if str(snap.get('source','')).startswith('Scrape.do') else 'API.SH')+')',
-                'observed_coverage':snap.get('coverage_count'),
-                'source_quality':'verified_list_rank'})
-            known.add(key)
-    # Separately observed, category-specific PDP BSR: never assume this is
-    # the Beauty Top100 position and never fabricate missing historical ranks.
-    pdp_rows=read_json(DATA/'scrapedo_pdp.json',[])
-    amazon=merge_saved_pdp(amazon,pdp_rows,config.get('markets',[]))
+    # Amazon Top100 and out-of-list PDP BSR retired by user request.
+    # Decodo Top50 is a separate schedule-gated step, never called here.
     for err in budget.errors[:5]:
         msg='무료 API: '+err
         if msg not in errors:errors.append(msg)
@@ -452,20 +328,12 @@ def collect_demand():
     output={'updated_at':NOW,'countries':config.get('markets',[]),'products':config.get('products',[]),
         'trends_terms':config.get('trends_terms',{}),'retailers':config.get('retailers',[]),
         'trends':trend,'trends_status':statuses or ['공식 CSV 데이터 없음 — Google Trends 원본 링크 이용'],
-        'amazon':amazon[-10000:],'amazon_status':auto_status or ['등록된 검증 ASIN 없음 / 수집 전. BSR 자동 수집은 접근 제한 가능'],
-        'top100':top100_history[-4000:], 'top100_status':top100_status,
-        'scrapedo_reserved_credits':scrape_credits,
-        'watchlist':[x for x in watched if x.get('asin')]+discovered,
+        'amazon':[], 'amazon_status':['개별 상품 BSR 추적 종료. Beauty Top50 관측만 사용'],
+        'watchlist':[],
         'retail':retail,'api_mode':('free_api_sh' if api_key else 'csv_or_public'),
         'api_credits_used_this_month':budget.stats.get('attempted_credits',0) if api_key else None,
         'note':'BSR=카테고리 내 판매 순위이지 판매량이 아님. Google Trends=국가·기간·검색 그룹 내 상대지수(0~100).'}
     save('demand.json',output)
-    # Small independent verification record so rankings can be checked without
-    # downloading the (potentially large) multi-country Google Trends series.
-    save('top100.json',{'updated_at':NOW,'snapshots':top100_history[-4000:],
-                        'status':top100_status,
-                        'coverage_note':'Complete requires all ranks 1..100 AND all 100 products identified. Rank-only ASINs without title imply minimum confirmed count.',
-                        'scrapedo_reserved_credits':scrape_credits})
     return output
 
 
