@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "MFDS medical-device product registry API 15057456",
+  "source_url": "https://www.data.go.kr/data/15057456/openapi.do",
+  "checked_at": null,
+  "events": [],
+  "current_scan_complete": false,
+  "observed_count": null,
+  "candidate_count": null,
+  "queries": [
+    "에이피알",
+    "에이피알팩토리"
+  ],
+  "limitations": [
+    "신규 발견은 신규 허가가 아님. 허가일·변경일·최초 관측일을 구분합니다.",
+    "수출전용/국내 판매 범위는 API만으로 검증되지 않습니다.",
+    "미검색·조회 실패는 무허가나 신청 반려를 의미하지 않습니다.",
+    "심사 중 신청과 예정 승인일은 이 공개 등록부로 확인할 수 없습니다.",
+    "품목허가·인증·신고, 공장 GMP, 임상시험 승인 및 출시·매출은 별개입니다.",
+    "업체명 일치 후보는 처음에 사업자번호·공시로 실체를 대조해야 합니다."
+  ],
+  "records": [],
+  "last_success_at": null,
+  "event_history": [],
+  "status": "not_configured",
+  "configuration_note": "API 연결 전. 첫 성공 수집과 업체·국내/수출 범위 검증을 아직 수행하지 않았습니다."
+}

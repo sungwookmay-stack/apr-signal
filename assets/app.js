@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const fmt=(n,d=0)=>n==null||!Number.isFinite(Number(n))?'—':Number(n).toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
 const pct=(a,b)=>a!=null&&b!=null&&Number(b)!==0?(a/b-1)*100:null;
 const signed=(n,d=1)=>n==null?'—':(n>0?'+':'')+fmt(n,d)+'%';
-const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null,kitaRates:null,flows:null,flowReference:null,dartOwnership:null,dartFinancials:null,dartCapital:null,techView:'ma'};
+const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null,kitaRates:null,flows:null,flowReference:null,dartOwnership:null,dartFinancials:null,dartCapital:null,techView:'ma',techPeriod:'120'};
 const C={navy:'#293841',teal:'#26756b',orange:'#c19561',purple:'#786a9d',grey:'#a1a9b0',red:'#bb5b63'};
 const missing='실측 데이터 없음 · 확인된 값만 표시합니다.';
 const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'BR',name:'브라질',region:'남미',amazon:'amazon.com.br',amazon_beauty_slug:'beauty'},{code:'AR',name:'아르헨티나',region:'남미',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
@@ -128,26 +128,39 @@ function renderTechnical(){const d=state.technical,last=d?.last;
  renderBottomAnalysis(d?.bottom);
  if(!last||!last.date){set('t-decision','분석 자료 미확보');set('t-add','보류');return}
  set('t-decision',last.label||'—');set('t-date','분석일 '+last.date);set('t-score',last.score!=null?(last.score>0?'+':'')+last.score:'—');
- set('t-add',last.averaging_down||'미확인');set('t-risk-message',last.add_criteria||'구름 및 볼린저 반등 확인 필요');
- set('t-risk-price',last.risk_reference!=null?'₩'+fmt(last.risk_reference):'—');
+ set('t-add',last.averaging_down||'미확인');
  const checks=last.checks||[];
  $('technical-checks').innerHTML=checks.length?checks.map(x=>`<div class="check"><span class="check-icon ${escapeHtml(x.status)}">${x.status==='positive'?'✓':x.status==='negative'?'×':'?'}</span><div><b>${escapeHtml(x.name)}</b><p>${escapeHtml(x.detail||({positive:'상승 방향',negative:'약세 방향',unknown:'데이터 부족',caution:'주의'}[x.status]||''))}</p></div></div>`).join(''):`<div class="blankmini">${missing}</div>`;
- const arr=(d.series||[]).filter(x=>x.date>='2025-06-01').slice(-120);
+ const all=(d.series||[]),count=Number(state.techPeriod);
+ const arr=Number.isFinite(count)&&count>0?all.slice(-count):all;
+ set('technical-coverage',arr.length?`${arr[0].date} ~ ${arr.at(-1).date} · ${arr.length}거래일`:'자료 없음');
  const view=state.techView||'ma';
  const trendLines=view==='cloud'?
   [['close','종가',C.navy,2.7],['bb_upper','BB 상단',C.teal,1.6],['bb_lower','BB 하단',C.teal,1.6],['tenkan','전환선',C.orange,1.4],['kijun','기준선','#d9aa65',1.4],['cloud_a','구름 A','#787d9a',1.3],['cloud_b','구름 B','#adb0c8',1.3]]:
   [['close','종가',C.navy,3],['ma5','MA5',C.red,1.5],['ma20','MA20',C.orange,1.7],['ma60','MA60',C.teal,1.7],['ma120','MA120',C.purple,1.6],['ma200','MA200',C.grey,1.7]];
- chart('chart-technical',arr.map(x=>x.date.slice(5)),trendLines.map(([key,label,color,width])=>
+ chart('chart-technical',arr.map(x=>x.date),trendLines.map(([key,label,color,width])=>
    ({label,values:arr.map(x=>x[key]),color,width,dash:key.startsWith('cloud')?[4,3]:[]})),
    {yformat:'k',decimals:0,legend:true,xticks:8});
- chart('chart-rsi',arr.map(x=>x.date.slice(5)),[
-   {label:'RSI(14)',color:C.orange,values:arr.map(x=>x.rsi14)}
- ],{decimals:1,yOptions:{min:0,max:100},xticks:6});
- chart('chart-macd',arr.map(x=>x.date.slice(5)),[
+ chart('chart-rsi',arr.map(x=>x.date),[
+   {label:'RSI(14)',color:C.orange,values:arr.map(x=>x.rsi14)},
+   {label:'과열 참고 70',color:C.red,values:arr.map(()=>70),dash:[4,4],width:1},
+   {label:'과매도 참고 30',color:C.grey,values:arr.map(()=>30),dash:[4,4],width:1}
+ ],{decimals:1,yOptions:{min:0,max:100},xticks:6,legend:true});
+ chart('chart-macd',arr.map(x=>x.date),[
    {label:'MACD선',values:arr.map(x=>x.macd),color:C.navy,width:2},
    {label:'시그널선',values:arr.map(x=>x.macd_signal),color:C.orange,width:1.7},
    {label:'히스토그램',values:arr.map(x=>x.macd_hist),color:C.teal,type:'bar',background:'rgba(38,117,107,0.29)',width:1}
  ],{legend:true,decimals:1,xticks:6,smooth:0});
+ chart('chart-volume',arr.map(x=>x.date),[
+   {label:'거래량',values:arr.map(x=>x.volume??null),color:C.grey,type:'bar',background:'rgba(116,133,176,0.35)'},
+   {label:'20일 평균',values:arr.map(x=>x.volume_ma20??null),color:C.orange,width:2}
+ ],{legend:true,decimals:0,xticks:6,smooth:0,yOptions:{min:0}});
+ const current=arr.at(-1);
+ const displayPrice=v=>v==null?'미확인':'₩'+fmt(v);
+ if(current){
+   set('technical-volume-note','오늘 거래량 / 직전 20거래일 평균: '+(current.volume_ratio_prior20==null?'미확인':fmt(current.volume_ratio_prior20,2)+'배')+' · 비교 평균에서 오늘을 제외합니다. 장중 자료는 하루 전체 거래량과 직접 비교하기 어렵습니다.');
+   $('technical-position').innerHTML=[['직전 20일 고가',displayPrice(current.prior20_high)],['직전 20일 저가',displayPrice(current.prior20_low)],['20일선 이격',signed(pct(current.close,current.ma20))],['ATR / 종가',current.atr_pct==null?'미확인':fmt(current.atr_pct,2)+'%']].map(([k,v])=>`<span>${escapeHtml(k)} <strong>${escapeHtml(v)}</strong></span>`).join('');
+ }
  const t=arr.at(-1);if(t){$('t-short-metrics').innerHTML=[['RSI(14)',t.rsi14!=null?fmt(t.rsi14,1):null],['MACD',t.macd!=null?fmt(t.macd,1):null],['MACD 히스토그램',t.macd_hist!=null?fmt(t.macd_hist,1):null],['BB 하단',t.bb_lower!=null?'₩'+fmt(t.bb_lower):null],['BB 상단',t.bb_upper!=null?'₩'+fmt(t.bb_upper):null],['ATR(14)',t.atr14!=null?'₩'+fmt(t.atr14):null]].map(([a,b])=>`<span>${escapeHtml(a)} <strong>${escapeHtml(b||'—')}</strong></span>`).join('')}
 }
 function trendsURL(country){
@@ -596,6 +609,7 @@ function initControls(){
  $('product').addEventListener('change',()=>{state.product=$('product').value;renderDemand()});
  $('period').addEventListener('change',e=>{state.period=e.target.value;renderOverview()});
  $('news-filter').addEventListener('change',renderNews);
+ const period=$('technical-period');if(period)period.addEventListener('change',()=>{state.techPeriod=period.value;renderTechnical();});
  const view=$('technical-view');if(view)view.addEventListener('change',()=>{state.techView=view.value;renderTechnical();});
  const fg=$('freight-group');if(fg)fg.addEventListener('change',renderLogistics);
  const finTable=$('fin-table-kind');if(finTable)finTable.addEventListener('change',()=>{if(window.APR_RESEARCH)window.APR_RESEARCH.renderFinancials(researchContext())});

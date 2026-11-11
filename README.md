@@ -411,4 +411,11 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - `valuation_audit.py` separately compares saved OpenDART consolidated profit/equity amounts against the operating financial table. Its match/mismatch is not the verification status of the independently sourced parent-attributable EPS/BPS inputs.
 - Run `python -m unittest discover -s tests -v`, `python build_research_data.py`, all `tests/smoke_*.cjs`, and JavaScript syntax checks.
 
+### Technical context (2026-11)
+- Removed the requested “분할매수 / 물타기 가이드” card and its ATR-based downside price from the page. The existing separate trend/bottom classifications remain; no new buy/sell or allocation rule was added.
+- The price, RSI, MACD and volume charts share a 60/120/250/all-session window, with exact date coverage. MA5/20/60/120/200 remain; selected chart series supply the legend. RSI shows 30/70 reference lines.
+- Volume bars and its inclusive 20-session SMA are separate from **today volume / prior 20-session mean**, which excludes today's volume. Missing data is not zero; a reported zero volume is preserved. Intraday volume is not directly comparable to a completed-session mean.
+- The context panel shows prior 20-session observed highs/lows (excludes today), MA20 distance, and ATR14/close. These are descriptive ranges, not guaranteed support/resistance or stops.
+- Nonfinite/nonpositive closing prices are excluded. Inconsistent high/low ranges are unavailable, and ATR restarts its 14-observation warmup after invalid ranges rather than bridging them. Tests cover no future/today leakage, null/zero volume, invalid OHLC and chart period switching.
+
 - Forward PER assumption calculator removed at user request; verified historical PER/PBR bands and primary-source audit remain.

@@ -8,7 +8,7 @@ not compare today's price to *future* cloud values. Displaced future cloud
 values are emitted separately for optional chart projection.
 """
 from __future__ import annotations
-from math import sqrt
+from math import sqrt, isfinite
 from statistics import pstdev
 from bottom_detector import analyze as analyze_bottom
 
@@ -57,26 +57,35 @@ def atr(high,low,close,n=14):
         if h is None or l is None or c is None:tr.append(None)
         elif i==0:tr.append(h-l)
         else:tr.append(max(h-l,abs(h-close[i-1]),abs(l-close[i-1])))
-    out=[None]*len(close)
-    if len(tr)<n or any(x is None for x in tr[:n]):return out
-    v=sum(tr[:n])/n;out[n-1]=v
-    for i in range(n,len(tr)):
-        if tr[i] is None:continue
-        v=(v*(n-1)+tr[i])/n;out[i]=v
+    out=[None]*len(close); v=None; window=[]
+    for i,t in enumerate(tr):
+        if t is None:
+            window=[]; v=None
+            continue
+        if v is None:
+            window.append(t)
+            if len(window)<n:continue
+            v=sum(window[-n:])/n
+        else:v=(v*(n-1)+t)/n
+        out[i]=v
     return out
 
 
 def calculate(rows):
-    clean=[r for r in rows if isinstance(r.get('close_krw'),(int,float)) and r.get('date')]
+    clean=[r for r in rows if isinstance(r.get('close_krw'),(int,float)) and not isinstance(r.get('close_krw'),bool) and isfinite(r['close_krw']) and r['close_krw']>0 and r.get('date')]
     clean.sort(key=lambda r:r['date'])
     # Guard duplicated dates and corrupt OHLC. Invalid H/L -> Ichimoku unavailable on those sessions.
     series={r['date']:r for r in clean};clean=[series[d] for d in sorted(series)]
     close=[float(r['close_krw']) for r in clean]
-    high=[float(r['high_krw']) if r.get('high_krw') is not None else None for r in clean]
-    low=[float(r['low_krw']) if r.get('low_krw') is not None else None for r in clean]
-    vol=[float(r.get('volume') or 0) or None for r in clean]
+    def finite(v):
+        return isinstance(v,(int,float)) and not isinstance(v,bool) and isfinite(v)
+    valid_hl=[finite(r.get('high_krw')) and finite(r.get('low_krw')) and 0<r['low_krw']<=r['close_krw']<=r['high_krw'] for r in clean]
+    high=[float(r['high_krw']) if ok else None for r,ok in zip(clean,valid_hl)]
+    low=[float(r['low_krw']) if ok else None for r,ok in zip(clean,valid_hl)]
+    vol=[float(r['volume']) if finite(r.get('volume')) and r['volume']>=0 else None for r in clean]
     m5=sma(close,5);m20=sma(close,20);m60=sma(close,60);m120=sma(close,120);m200=sma(close,200)
     v20=sma(vol,20)
+    prior_v20=[None]+v20[:-1] if vol else []
     bb_std=[pstdev(close[i-19:i+1]) if i>=19 else None for i in range(len(close))]
     bb_u=[a+2*b if a is not None and b is not None else None for a,b in zip(m20,bb_std)]
     bb_l=[a-2*b if a is not None and b is not None else None for a,b in zip(m20,bb_std)]
@@ -101,6 +110,11 @@ def calculate(rows):
           'macd_hist':roundn(hist[i],4),'tenkan':roundn(tenkan[i]),'kijun':roundn(kijun[i]),
           'cloud_a':roundn(cloud_a[i]),'cloud_b':roundn(cloud_b[i]),
           'volume_ratio20':roundn(vol[i]/v20[i]) if vol[i] and v20[i] else None,
+          'volume':vol[i], 'volume_ma20':roundn(v20[i]),
+          'volume_ratio_prior20':roundn(vol[i]/prior_v20[i]) if vol[i] is not None and prior_v20[i] else None,
+          'prior20_high':max(high[i-20:i]) if i>=20 and all(x is not None for x in high[i-20:i]) else None,
+          'prior20_low':min(low[i-20:i]) if i>=20 and all(x is not None for x in low[i-20:i]) else None,
+          'atr_pct':roundn(100*volat[i]/close[i]) if volat[i] is not None else None,
           'atr14':roundn(volat[i])})
     latest=out[-1] if out else None
     prev=out[-2] if len(out)>1 else None
@@ -190,4 +204,4 @@ def calculate(rows):
 
     return {'method':'2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14 + 3-stage bottom classifier (no lookahead)','bottom':bottom,'series':out,
       'last':latest_summary,'valid_high_low':sum(x is not None for x in high),
-      'data_days':len(out),'has_real_data':bool(out)}
+      'invalid_high_low_days':sum(not x for x in valid_hl),'data_days':len(out),'has_real_data':bool(out)}
