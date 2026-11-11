@@ -175,7 +175,7 @@ jobs:
                   for number in (1,):
                       payload = {"target": "amazon_bestsellers", "query": "beauty",
                                  "domain": domain, "page_from": str(number),
-                                 "parse": True, "proxy_pool": "premium"}
+                                 "parse": True}
                       request = urllib.request.Request(
                           ENDPOINT, data=json.dumps(payload).encode(),
                           headers={"Authorization": "Bearer " + token,
