@@ -32,7 +32,7 @@ jobs:
           from urllib.parse import urlsplit
           
           ENDPOINT = "https://data.decodo.com/v1/scrape"
-          MARKETS = (("US", "com"), ("JP", "co.jp"), ("SA", "sa"), ("EG", "eg"))
+          MARKETS = (("US", "com"), ("GB", "co.uk"), ("AE", "ae"), ("BR", "com.br"))
           
           class InvalidResponse(Exception):
               pass
