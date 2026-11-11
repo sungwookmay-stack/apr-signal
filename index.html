@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="./assets/apr_theme.css?v=20261109-neutral" />
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
-<script defer src="./assets/research_dashboard.js?v=20261109-3"></script>
+<script defer src="./assets/valuation_scenario.js?v=20261111-1"></script>
+<script defer src="./assets/research_dashboard.js?v=20261111-1"></script>
 <script defer src="./assets/sensitivity.js?v=20261109-4"></script>
 <script defer src="./assets/flows.js?v=20261109-flow1"></script>
 <script defer src="./assets/app.js?v=20261109-flow1"></script>
@@ -181,12 +182,32 @@
         <div class="grid two">
           <div class="panel"><div class="panel-top"><strong>APR 원화 종가 (KRW)</strong><small id="fin-price-date">공개 일봉</small></div><div class="graph small"><canvas id="chart-fin-krw"></canvas></div></div>
           <div class="panel"><div class="panel-top"><strong>APR 달러 환산 종가 (USD)</strong><small>원화 종가 ÷ 해당일 참조 환율</small></div><div class="graph small"><canvas id="chart-fin-usd"></canvas></div></div>
-          <div class="panel"><div class="panel-top"><strong>PER 밴드 (원)</strong><small>TTM EPS 참고치 · 15/25/35/45/55배</small></div><div class="graph"><canvas id="chart-fin-per"></canvas></div></div>
-          <div class="panel"><div class="panel-top"><strong>PBR 밴드 (원)</strong><small>최근 공시 BPS · 5/10/15/20/25배</small></div><div class="graph"><canvas id="chart-fin-pbr"></canvas></div></div>
-          <div class="panel"><div class="panel-top"><strong>PER 밴드 (USD)</strong><small>각 거래일 밴드 원화 ÷ USD/KRW</small></div><div class="graph"><canvas id="chart-fin-per-usd"></canvas></div></div>
-          <div class="panel"><div class="panel-top"><strong>PBR 밴드 (USD)</strong><small>각 거래일 밴드 원화 ÷ USD/KRW</small></div><div class="graph"><canvas id="chart-fin-pbr-usd"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>PER 대리 밴드 (원)</strong><small>TTM EPS 참고치 · 15/25/35/45/55배</small></div><div class="graph"><canvas id="chart-fin-per"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>PBR 대리 밴드 (원)</strong><small>최근 공시 BPS · 5/10/15/20/25배</small></div><div class="graph"><canvas id="chart-fin-pbr"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>PER 대리 밴드 (USD)</strong><small>각 거래일 밴드 원화 ÷ USD/KRW</small></div><div class="graph"><canvas id="chart-fin-per-usd"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>PBR 대리 밴드 (USD)</strong><small>각 거래일 밴드 원화 ÷ USD/KRW</small></div><div class="graph"><canvas id="chart-fin-pbr-usd"></canvas></div></div>
         </div>
         <p class="fineprint" id="fin-valuation-note">PER·PBR은 주당이익/자본의 공시 기준일과 실제 공개일을 구분합니다. 예상 EPS나 특정 목표주가가 아닙니다.</p>
+        <div class="panel">
+          <div class="panel-top"><strong>산식·입력값 검수</strong><small>표준 지배주주 PER/PBR 검증과 구분</small></div>
+          <p id="fin-anchor-detail" class="fineprint"></p>
+          <p id="fin-audit-summary" class="fineprint"></p>
+          <div class="table-wrap"><table><thead><tr><th>기간</th><th>계정</th><th>입력 (억원)</th><th>DART (억원)</th><th>대조</th></tr></thead><tbody id="fin-audit-rows"></tbody></table></div>
+        </div>
+        <div class="panel" id="forward-per-panel">
+          <div class="panel-top"><strong>Forward PER 가정 계산기</strong><small>컨센서스 아님 · 입력 가정으로만 계산</small></div>
+          <label>예측 기간 <select id="forward-horizon"><option>향후 12개월 (NTM)</option><option>다음 회계연도 (FY+1)</option><option>직접 정한 기간</option></select></label>
+          <label>산정 방식 <select id="forward-mode"><option value="eps">예상 EPS 직접 입력</option><option value="profit">예상 지배주주 순이익 ÷ 예상 가중평균 주식수</option><option value="growth">현재 TTM 대리 EPS × 성장률 (단순 가정)</option></select></label>
+          <label>주가 (원) <input id="forward-price" type="number" min="0" step="any"></label>
+          <label>예상 EPS (원) <input id="forward-eps" type="number" step="any" placeholder="출처가 있는 예상 EPS"></label>
+          <label>예상 지배주주 순이익 (억원) <input id="forward-profit" type="number" step="any"></label>
+          <label>예상 가중평균 주식수 (주) <input id="forward-shares" type="number" min="0" step="1"></label>
+          <label>이익 성장률 가정 (%) <input id="forward-growth" type="number" step="any" value="0"></label>
+          <label>추정 근거·작성일 <input id="forward-source" type="text" placeholder="예: 증권사 보고서명·작성일 또는 나의 가정"></label>
+          <p id="forward-result" aria-live="polite"></p>
+          <p class="fineprint">Forward PER = 현재 주가 ÷ 해당 예측 기간의 예상 EPS. 순이익 방식은 비지배지분을 제외한 보통주 귀속 이익과 같은 기간의 주식수를 사용하세요. 희석효과를 반영하려면 희석 EPS 또는 희석 주식수를 입력하세요. 성장률 방식은 연결 TTM 대리 EPS에 대한 민감도일 뿐 실적 전망이 아닙니다. NTM과 FY+1은 서로 다르며 이익이 0 이하이면 PER은 산출하지 않습니다. 입력값은 서버로 전송하지 않습니다.</p>
+        </div>
+
         <div class="panel padded"><div class="section-split"><h3>OpenDART 연결 재무제표 검증</h3><span id="dart-financials-count" class="data-label">공식 공시 확인 중</span></div><p id="dart-financials-status" class="subtle">API 조회 전 · 기존 검증한 분기보고서 데이터 유지</p><p class="under-note">OpenDART 새 제출이 확인되면 연결 손익·자산·재고 계정을 출처와 함께 대조합니다. 항목이 달라지면 검증 전 자동 대체하지 않습니다.</p></div>
       </section>
       <section class="page" id="theses" data-page="theses">

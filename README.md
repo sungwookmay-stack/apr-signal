@@ -399,3 +399,13 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - APR identifies ISIN KR7278470000 and name 에이피알. Source fields: lnbCclStckCnt (대차체결주수), lnbRdptStckCnt (상환주수), lnbRmanStckCnt (잔여주식수). No inference of net short positions.
 - Daily FSC update occurs next business day after 13:00 KST. Existing GitHub Actions 16:00 KST runs only FSC update and keeps morning/evening free flow refresh.
 - GitHub Actions test with registered FSC_STOCK_LENDING_API_KEY returned HTTP 403 on 2026-11-10 KST. FSC FAQ: verify approval/serviceKey or recheck after short activation interval; no key value exposed. The collector stops after the first 403, retains verified historical values, and reports authorization_denied.
+
+
+### 2026-11 valuation audit
+
+- PER/PBR bands are explicitly **proxies**, not verified parent-attributable or diluted multiples. Fixed multiples are scenario lines, not historical percentiles.
+- EPS observations are in `config/apr_financial_source.json`; where four contiguous quarters exist, their displayed consolidated net income drives the TTM numerator. The latest component publication date gates use.
+- The 2025 audited result is available from 2026-03-23, not the earlier preliminary release. 2024 comparative EPS/equity is conservatively gated at its verified source report's 2025-08-14 availability; earlier blank bands mean unverified, not zero.
+- `valuation_audit.py` independently compares saved OpenDART consolidated profit/equity amounts and preserves mismatches. This does not validate share counts or parent-attributable EPS. Future DART refreshes collect parent-attributable profit and equity where exact accounts exist; they are not silently substituted into historical series.
+- Forward PER calculator supports user-supplied expected EPS, expected attributable profit / forecast weighted-average shares, or a clearly labeled TTM growth sensitivity. No analyst consensus is fabricated. NTM and FY+1 are user-selected horizons, and nonpositive earnings produce no PER.
+- Run `python -m unittest discover -s tests -v`, `python build_research_data.py`, all `tests/smoke_*.cjs`, and JavaScript syntax checks.

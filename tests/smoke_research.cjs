@@ -26,6 +26,8 @@ assert(html.includes('id="theses"'));
 assert(html.includes('id="trend-alerts"'));
 assert(html.includes('./assets/apr_theme.css'));
 assert(html.includes('./assets/research_dashboard.js'));
+assert(html.includes('defer src="./assets/valuation_scenario.js'));
+assert(html.indexOf('valuation_scenario.js')<html.indexOf('research_dashboard.js'));
 
 const nodes=new Map(),events={};
 class MockEl{
@@ -67,6 +69,7 @@ const context=vm.createContext({
  setTimeout:()=>{},clearTimeout:()=>{},
  alert:()=>{throw Error('Unexpected alert')}
 });
+vm.runInContext(fs.readFileSync('assets/valuation_scenario.js','utf8'),context);
 vm.runInContext(moduleJs,context,{filename:'research_dashboard.js'});
 vm.runInContext(sensitivityJs,context,{filename:'sensitivity.js'});
 vm.runInContext(app,context,{filename:'app.js'});
@@ -90,14 +93,25 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.equal(html.match(/assets\/research_dashboard\.js/g)?.length,1);
  assert.equal(html.match(/assets\/apr_theme\.css/g)?.length,1);
  assert.equal(per.data.datasets[0].label,'실제 원화 종가');
- assert.equal(per.data.datasets[1].label,'PER 15배');
- assert.equal(pbr.data.datasets[1].label,'PBR 5배');
+ assert.equal(per.data.datasets[1].label,'PER 대리 15배');
+ assert.equal(pbr.data.datasets[1].label,'PBR 대리 5배');
  assert.equal(per.data.datasets[1].data.length,market.series.filter(x=>x.date>='2025-06-01').length);
  const priceDay=market.series.findIndex(x=>x.date>='2025-06-01');
  const day=market.series[priceDay].date;
  const firstEvent=fin.valuation.eps_events.filter(x=>x.available_from<=day).at(-1);
- assert(firstEvent,'At least one TTM earnings event should exist');
- assert.equal(per.data.datasets[1].data[0],Math.round(15*firstEvent.eps_won));
+ assert.equal(firstEvent,undefined,'Unverified pre-release history must remain empty');
+ assert.equal(per.data.datasets[1].data[0],null);
+ assert.match($('fin-valuation-note').textContent,/지배주주/);
+ assert.match($('fin-anchor-detail').textContent,/주식수/);
+ $('forward-mode').value='eps';$('forward-eps').value='10000';$('forward-price').value='200000';
+ $('forward-eps').oninput();assert.match($('forward-result').textContent,/20.00배/);
+ $('forward-eps').value='-1';$('forward-eps').oninput();assert.match($('forward-result').textContent,/산출 불가/);
+ $('forward-eps').value='';$('forward-eps').oninput();assert.match($('forward-result').textContent,/미입력/);
+ $('forward-mode').value='profit';$('forward-profit').value='4000';$('forward-shares').value='40000000';
+ $('forward-shares').oninput();assert.match($('forward-result').textContent,/20.00배/);
+ $('forward-mode').value='growth';$('forward-growth').value='25';$('forward-growth').oninput();
+ assert.match($('forward-result').textContent,/단순 가정/);
+
  $('fin-table-kind').value='expenses';
  events['fin-table-kind:change']();
  assert.match($('fin-table-head').innerHTML,/광고선전비/);

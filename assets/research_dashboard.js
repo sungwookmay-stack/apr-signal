@@ -39,7 +39,7 @@ function renderTrends(ctx){
 
 function latestRelease(events,date,amount){
  const list=safeArr(events).filter(x=>x.available_from<=date && num(x[amount])>0);
- return last(list);
+ return last(list.sort((a,b)=>String(a.available_from).localeCompare(String(b.available_from))));
 }
 
 function renderFinancials(ctx){
@@ -141,7 +141,7 @@ function renderFinancials(ctx){
   const series=[{label:'실제 원화 종가',values:prices,color:C.navy,width:3}];
   const colors=[C.grey,C.orange,C.teal,C.purple,C.red];
   multiples.forEach((mult,i)=>series.push({
-   label:name+' '+mult+'배',
+   label:name+' 대리 '+mult+'배',
    values:arr.map(v=>num(v)>0?Math.round(v*mult):null),
    color:colors[i%colors.length],width:1
   }));
@@ -155,7 +155,7 @@ function renderFinancials(ctx){
   const datasets=[{label:'실제 달러 환산 종가',values:history.map(x=>x.close_usd??null),color:C.navy,width:3}];
   const colors=[C.grey,C.orange,C.teal,C.purple,C.red];
   multiples.forEach((m,i)=>datasets.push({
-    label:name+' '+m+'배 (USD)',color:colors[i%colors.length],width:1,
+    label:name+' 대리 '+m+'배 (USD)',color:colors[i%colors.length],width:1,
     values:base.map(x=>num(x)==null?null:Math.round(x*m*100)/100)
   }));
   chart(id,labels,datasets,{decimals:2,legend:true,xticks:5});
@@ -170,12 +170,35 @@ function renderFinancials(ctx){
  const note=$('fin-valuation-note');
  if(note){
   const missingJune=history.length&&history[0].date>'2025-06-09';
-  note.textContent='PER 밴드는 단순 TTM EPS·PBR 밴드는 당시 공개 BPS로 산출한 참고가격이며 목표주가가 아닙니다. '+
-    '미래에 발표된 손익·주식수를 과거 날짜에 소급하지 않습니다. '+
-    '달러 시세는 당일(또는 확인 가능한 가장 가까운 직전일) 중앙은행 참조 USD/KRW 적용. '+
-    (missingJune?'2025년 6월 초기 일봉은 아직 미수집되어 자료 확보일 이후만 표시합니다. ':'')+
-    '실적/지배지분/지분율은 자료시차와 IFRS 1118 비교재표시 차이가 있을 수 있습니다.';
+  note.textContent='PER·PBR 대리 밴드: 연결 순이익·총자본과 저장 주식수 기준입니다. 지배주주 이익·지분 및 가중평균·희석·자기주식 조정은 검증되지 않아 표준 PER/PBR과 다를 수 있습니다. '+
+    '밴드 배수는 고정 시나리오이며 역사적 평균·분위수나 목표주가가 아닙니다. DART 자동 수집값이 밴드 입력을 자동 교체하지는 않습니다. '+
+    '2024 EPS/자본은 확인한 비교보고서 공개일인 2025-08-14 이후, 2025 연간 확정이익은 2026-03-23 이후에만 적용합니다. 그 이전 빈 구간은 미검증이며 0이 아닙니다. '+
+    '달러 밴드는 해당 거래일의 원화 밴드 ÷ USD/KRW입니다.';
+
  }
+ const current=last(history);
+ const anchor=current?latestRelease(eps,current.date,'eps_won'):null;
+ const capital=current?latestRelease(book,current.date,'bps_won'):null;
+ set('fin-anchor-detail', '주가 기준일 '+(current?.date||'없음')+' · EPS '+(anchor?fmt(anchor.eps_won,2)+'원 / 재무 '+anchor.asof+' / 적용 '+anchor.available_from+' / 주식수 '+fmt(anchor.shares,0)+'주 / '+anchor.source:'확인 전')+
+   ' · BPS '+(capital?fmt(capital.bps_won,2)+'원 / 총자본 '+fmt(capital.equity_100m,2)+'억원 / 재무 '+capital.asof+' / 적용 '+capital.available_from:'확인 전'));
+ const audit=f.dart_reconciliation||{};
+ set('fin-audit-summary',(audit.note||'DART 독립 대조 전')+' · 수집 '+(audit.checked_at_utc||'미확인'));
+ const auditBody=$('fin-audit-rows');
+ if(auditBody)auditBody.innerHTML=safeArr(audit.rows).map(x=>'<tr><td>'+escapeHtml(x.period)+'</td><td>'+escapeHtml(x.account==='equity'?'연결 총자본':'연결 순이익')+'</td><td>'+asNum(x.input_100m,fmt,2)+'</td><td>'+asNum(x.dart_100m,fmt,2)+'</td><td>'+escapeHtml(x.status==='match_rounding'?'반올림 범위 일치':x.status==='mismatch'?'불일치: 확인 필요':'독립 미검증')+(/^https:\/\/dart\.fss\.or\.kr\/dsaf001\/main\.do\?rcpNo=\d{14}$/.test(x.source_url||'')?' <a href="'+x.source_url+'" target="_blank" rel="noopener noreferrer">공시</a>':'')+'</td></tr>').join('');
+ const ids=['price','eps','profit','shares','growth','mode','horizon','source'];
+ const field=k=>$('forward-'+k);
+ const priceField=field('price');
+ if(priceField && !priceField.dataset.initialized){priceField.value=current?.close_krw??'';priceField.dataset.initialized='1';}
+ const read=k=>{const raw=String(field(k)?.value??'').trim();return raw===''?null:Number(raw);};
+ const calculate=()=>{
+   if(!global.APR_VALUATION)return;
+   const mode=field('mode')?.value||'eps';
+   const r=global.APR_VALUATION.forward({price:read('price'),eps:mode==='growth'?anchor?.eps_won:read('eps'),profit100m:read('profit'),shares:read('shares'),growthPct:read('growth'),mode});
+   set('forward-result',r.error||((field('horizon')?.value||'선택 기간')+' · 예상 EPS '+fmt(r.eps,2)+'원 · Forward PER '+fmt(r.per,2)+'배 · '+(mode==='growth'?'TTM 성장률 단순 가정':(field('source')?.value||'추정 근거 미입력: 검증되지 않은 사용자 가정'))));
+ };
+ ids.forEach(k=>{if(field(k))field(k).oninput=calculate;});
+ calculate();
+
 }
 
 function renderRetail(ctx){
