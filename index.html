@@ -225,8 +225,9 @@
       <section class="page" id="kbty" data-page="kbty">
         <div class="intro compact"><p class="eyebrow">US LISTED / THEMATIC ETF</p><h1>KBTY ETF.<br /><em>자금 유입을 읽다.</em></h1><p class="lead">K-Beauty ETF의 거래가격, AUM, 에이피알 편입비중을 분리해서 추적합니다. 아직 미공개인 항목은 숫자를 생성하지 않습니다.</p></div>
         <div class="etf-ribbon"><div><span class="ribbon-symbol">KBTY</span><div><strong>Guinness Atkinson K-Beauty ETF</strong><small>NYSE Arca · Indxx K-Beauty Index</small></div></div><span class="ribbon-status" id="kbty-status">공식 상태 확인 중</span></div>
+        <p id="kbty-data-scope" class="under-note">가격: Yahoo 비공식 일별시세 자동 조회. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 비중·보유주식수: 수동 검증 CSV 입력이며 자동 수집되지 않습니다.</p>
         <div class="metrics four"><div class="metric"><small>ETF 거래 종가 (USD)</small><b id="e-price">—</b><p id="e-price-date">상장 후 확인</p></div><div class="metric"><small>순자산 AUM (USD)</small><b id="e-aum">—</b><p>공식 순자산 발표 기준</p></div><div class="metric accent"><small>에이피알 편입비중</small><b id="e-apr">—</b><p id="e-apr-date">구성종목 공식 발표 기준</p></div><div class="metric"><small>에이피알 보유주식 수</small><b id="e-shares">—</b><p>공식 ETF 보유자료 확인 후</p></div></div>
-        <div class="grid two"><div class="panel"><div class="panel-top"><strong>ETF 가격 추이</strong><small>상장 후 USD 종가</small></div><div class="graph small"><canvas id="chart-etf"></canvas></div><div id="etf-price-empty" class="blankmini"></div></div><div class="panel"><div class="panel-top"><strong>AUM 유입 추이</strong><small>달러 기준 순자산</small></div><div class="graph small"><canvas id="chart-aum"></canvas></div><div id="etf-aum-empty" class="blankmini"></div></div></div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>ETF 가격 추이</strong><small>상장 후 USD 종가</small></div><div class="graph small"><canvas id="chart-etf"></canvas></div><div id="etf-price-empty" class="blankmini"></div></div><div class="panel"><div class="panel-top"><strong>AUM 잔액 추이</strong><small>달러 기준 순자산</small></div><div class="graph small"><canvas id="chart-aum"></canvas></div><div id="etf-aum-empty" class="blankmini"></div></div></div>
         <div class="panel padded"><div class="section-split"><div><h3>편입종목 및 APR 노출도</h3><p class="subtle">상장 후 운용사 일별 구성종목 공시와 대조</p></div><a class="minor-button" href="https://www.gafunds.com/kbty/" target="_blank" rel="noopener">공식 ETF 자료 ↗</a></div><div id="etf-holdings" class="holdings-list"></div><div class="feature-line">예정 구성종목 <strong>25개</strong> · 연 보수 <strong>0.55%</strong> · AUM 증가만으로 APR 매수액을 확정할 수는 없습니다.</div></div>
         <div class="section-title"><div><p class="eyebrow">SEC EDGAR / KBTY</p><h2>KBTY SEC 공시 · 한국어 해설</h2><span>등록·투자전략·보수·위험요인·실제 상장 확인을 분리해서 추적합니다.</span></div></div>
         <div class="panel padded sec-panel">
@@ -363,7 +364,7 @@
       </section>
       <section class="page" id="flows" data-page="flows">
         <div class="intro compact">
-          <p class="eyebrow">APR INVESTOR FLOWS · KRX & KSD</p>
+          <p class="eyebrow">APR INVESTOR FLOWS · SOURCE-AWARE</p>
           <h1>누가 사고,<br /><em>누가 팔고 있나.</em></h1>
           <p class="lead">개인·외국인·기관·연기금 순매수의 방향과 지속성을 보고, 공매도 및 대차 신규·상환·잔고를 별도 검증합니다. 기관에는 연기금이 포함되므로 이중 합산하지 않습니다.</p>
         </div>
@@ -409,16 +410,16 @@
             <div class="graph small"><canvas id="flow-short-chart"></canvas></div>
           </div>
         </div>
-        <div class="section-title"><div><p class="eyebrow">SECURITIES LENDING / KSD</p><h2>대차 신규·상환·잔고</h2></div></div>
+        <div class="section-title"><div><p class="eyebrow">SECURITIES LENDING / VERIFIED SOURCE</p><h2>대차 신규·상환·잔고</h2></div></div>
         <div class="panel padded">
           <div class="flow-stat-grid">
             <div><small>일별 대차 신규</small><strong id="flow-loan-new">—</strong></div>
             <div><small>일별 대차 상환</small><strong id="flow-loan-return">—</strong></div>
             <div><small>대차 잔고</small><strong id="flow-loan-bal">—</strong></div>
           </div>
-          <p id="flow-loan-date" class="under-note">KSD 대차 API 실측 확인 중</p>
+          <p id="flow-loan-date" class="under-note">대차 관측 원천과 기준일 확인 중</p>
           <p id="flow-risk-note" class="under-note">대차 거래와 공매도를 혼동하지 않습니다.</p>
-          <p class="fineprint">대차잔고는 빌린 주식의 잔량이며 공매도 순보유잔고와 다릅니다. 대차 상환이 증가해도 숏커버가 일어났다고 단정할 수 없습니다. 대차 수치는 키움 REST ka20068 또는 KSD 공식 API에서 실제 확인된 경우에만 표시합니다.</p>
+          <p class="fineprint">대차잔고는 빌린 주식의 잔량이며 공매도 순보유잔고와 다릅니다. 대차 상환이 증가해도 숏커버가 일어났다고 단정할 수 없습니다. 대차 수치는 관측에 기록된 실제 원천을 따릅니다. 현재 금융위원회 공공 API를 사용하며, 금융위·KSD·키움 자료를 같은 출처로 표시하지 않습니다.</p>
         </div>
         <div class="section-title"><div><p class="eyebrow">DAILY EVIDENCE</p><h2>최근 20거래일 투자주체 순매수</h2></div></div>
         <div class="panel tablebox"><table><thead><tr><th>일자</th><th>외국인</th><th>기관</th><th>연기금</th><th>개인</th></tr></thead>
@@ -430,7 +431,7 @@
         <div class="source-links">
           <a href="https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT023" target="_blank" rel="noopener noreferrer">KRX 투자자별 거래실적 원문 ↗</a>
           <a href="https://data.krx.co.kr/contents/MDC/STAT/srt/MDCSTAT300.jsp" target="_blank" rel="noopener noreferrer">KRX 개별종목 공매도 종합정보 ↗</a>
-          <a href="https://www.data.go.kr/data/15157426/openapi.do" target="_blank" rel="noopener noreferrer">KSD 증권대차 공식 OpenAPI ↗</a>
+          <a id="flow-lending-source" href="https://www.data.go.kr/data/15059612/openapi.do" target="_blank" rel="noopener noreferrer">금융위원회 대차정보 OpenAPI ↗</a>
         </div>
       </section>
     </main>

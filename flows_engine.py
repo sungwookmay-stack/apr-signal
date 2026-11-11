@@ -235,7 +235,7 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
     return {
         'generated_at_utc': now,
         'ticker': '278470',
-        'source_scope': 'KRX 매매주체(기관 합계에 연기금 포함) / 별도 공매도 순보유잔고 / KSD 증권대차',
+        'source_scope': '투자자 수급·공매도·대차는 별도 자료이며 각 관측의 source/source_url 및 기준일을 따름',
         'price_last_date': latest_price, 'flow_last_date': last_flow,
         'price_aligned': synced,
         'actors': actor_results, 'combined': combined,

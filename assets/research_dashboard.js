@@ -263,6 +263,13 @@ function renderRetail(ctx){
    '<a href="'+validLink(x.source_url||'')+'" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>'
  ).join('')||'<p class="subtle">검증된 유통사 관련 발표를 아직 확보하지 못했습니다.</p>';
 }
+function ownershipSeries(filings){
+ const ordered=safeArr(filings).filter(x=>x.reporter&&x.type&&num(x.ownership_pct)!=null)
+   .slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))||String(b.receipt_no||'').localeCompare(String(a.receipt_no||'')));
+ const latest=ordered[0];
+ return {latest,points:latest?ordered.filter(x=>x.reporter===latest.reporter&&x.type===latest.type)
+   .reverse().map(x=>({date:x.date,value:x.ownership_pct})):[]};
+}
 function renderTheses(ctx){
  const {state,$,chart,escapeHtml,fmt,C}=ctx;
  const r=state.reference||{},f=state.financials||{},d=state.demand||{},t=state.trendSignals||{};
@@ -277,12 +284,13 @@ function renderTheses(ctx){
  const per=stock&&eps?stock.close_krw/eps.eps_won:null,pbr=stock&&bps?stock.close_krw/bps.bps_won:null;
  const usTop=last(safeArr(state.top100?.snapshots).filter(x=>x.country==='US').sort((a,b)=>a.date.localeCompare(b.date)));
  const yoy=latestQ?.sales_yoy_pct;
+ const insider=ownershipSeries(state.dartOwnership?.filings);
  const map={
   per:per?fmt(per,1)+'배 (TTM 참고)':'EPS 기준 미확인',
   pbr:pbr?fmt(pbr,1)+'배 (최근 공시 BPS)':'BPS 기준 미확인',
   revenue_yoy:num(yoy)!=null?(yoy>=0?'+':'')+fmt(yoy,1)+'% · '+latestQ.period:'전년 동기 비교 미확인',
   roe:roe?fmt(roe.roe_ttm_pct,1)+'% · '+roe.period:'비교 자본 자료 미확인',
-  insider:state.dartOwnership?.filings?.length?state.dartOwnership.filings[0].reporter+' · '+(state.dartOwnership.filings[0].ownership_pct??'—')+'% ('+state.dartOwnership.filings[0].date+')':'OpenDART 신규 공시 확인 전',
+  insider:insider.latest?insider.latest.reporter+' · '+insider.latest.ownership_pct+'% ('+insider.latest.date+') · '+(insider.latest.type_label||insider.latest.type)+' · 동일 보고자·유형 이력':'OpenDART 신규 공시 확인 전',
   opm:latestQ?fmt(latestQ.op_margin_pct,1)+'% ('+latestQ.period+')'+
      (priorQ?' · QoQ '+fmt(latestQ.op_margin_pct-priorQ.op_margin_pct,1)+'%p':''):'자료 미확인',
   ads:latestQ?.ads_ratio_pct!=null?fmt(latestQ.ads_ratio_pct,1)+'%':qq.length>1?fmt(qq[qq.length-2].ads_ratio_pct,1)+'% ('+qq[qq.length-2].period+')':'미공개',
@@ -326,10 +334,7 @@ function renderTheses(ctx){
     .map(x=>({date:x.date,value:x.medicube_confirmed_count}));
   if(id==='trends')return safeArr(d.trends).filter(x=>x.country==='US'&&String(x.term).toLowerCase()==='medicube'&&num(x.index)!=null)
     .map(x=>({date:x.date,value:x.index}));
-  if(id==='insider')return safeArr(state.dartOwnership?.filings).filter(x=>num(x.ownership_pct)!=null)
-    .slice().sort((a,b)=>String(a.date).localeCompare(String(b.date)))
-    .filter((x,_,all)=>x.reporter===all[0]?.reporter)
-    .map(x=>({date:x.date,value:x.ownership_pct}));
+  if(id==='insider')return insider.points;
   if(id==='reviews'){
    const rvs=safeArr(r.product_review_history).filter(x=>x.verified&&x.retailer==='target'&&num(x.reviews_count)!=null);
    return rvs.map(x=>({date:x.date,value:x.reviews_count}));
@@ -432,5 +437,5 @@ function renderTheses(ctx){
 
 }
 
-global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses,renderRetail};
+global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses,renderRetail,ownershipSeries};
 })(window);

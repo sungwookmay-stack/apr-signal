@@ -43,6 +43,8 @@ jobs:
         run: node --check assets/flows.js
       - name: Test Amazon ranking visibility (with and without API / charts)
         run: node tests/smoke_demand.cjs
+      - name: Verify ownership and source provenance
+        run: node tests/smoke_source_provenance.cjs
       - name: Verify Korean news rendering
         run: node tests/smoke_news.cjs
       - name: Verify South America countries without external APIs
