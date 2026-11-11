@@ -428,7 +428,7 @@ def collect_demand():
             k=(day,cc,asin,category,'verified_product_rank')
             if (cc not in valid_countries or
                 not re.fullmatch(r'[A-Z0-9]{10}',asin) or
-                not re.fullmatch(r'20\\d\\d-\\d\\d-\\d\\d',str(day)) or
+                not re.fullmatch(r'20\d\d-\d\d-\d\d',str(day)) or
                 not category or rank is None or k in present):continue
             record=dict(row)
             record['bsr']=int(rank)
