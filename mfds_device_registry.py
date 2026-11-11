@@ -52,6 +52,9 @@ def normalize(row):
         raise RegistryError("invalid_record")
     out = {name: _text(row.get(field)) for name, field in FIELDS.items()}
     if not out["registry_id"] and not out["permit_number"]:
+        # Field names only: never values, request URLs or credentials.
+        safe_fields = sorted(str(k) for k in row if re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,63}", str(k)))[:80]
+        print("MFDS record field names:", json.dumps(safe_fields))
         raise RegistryError("missing_record_identity")
     out["record_key"] = ("id:" + out["registry_id"] if out["registry_id"] else
                          "permit:" + out["permit_number"])
