@@ -94,3 +94,27 @@ assert.match($('flow-summary-body').innerHTML,/≈/);
 assert.match($('flow-latest-daily').textContent,/추정금액/);
 assert.match($('flow-collection-status').textContent,/네이버 KRX 공개 데이터 ok 80거래일/);
 console.log('PASS: APR four investor flow groups, 5/20/60, unknown pension, source-labeled reference, short and KSD null handling');
+
+// Date-lag reference is explicit; today remains withheld.
+state.flows={...state.flows,flow_last_date:dates.at(-2),
+ asof_analysis:{date:dates.at(-2),lag_price_sessions:1,
+ actors:state.flows.actors,combined:{label:'참고 분석',detail:'이전일'}}};
+mod.render(ctx);
+assert.match($('flow-total-label').textContent,/현재일 판정 보류/);
+assert.match($('flow-asof-detail').textContent,/1거래일 차이/);
+assert(!charts['flow-cum-chart'].labels.includes(last.slice(5)));
+// Lending fields have separate units/meaning and missing observations are null.
+state.flows.lending={last_date:dates.at(-1),latest:{date:dates.at(-1),returned_qty:0,new_qty:10,balance_qty:500}};
+state.flows.lending_daily=[{date:dates.at(-3),returned_qty:100,new_qty:20,balance_qty:490},
+ {date:dates.at(-1),returned_qty:0,new_qty:10,balance_qty:500}];
+mod.render(ctx);
+const repayment=charts['flow-lending-trades-chart'].series[0].values;
+assert.equal(repayment.at(-1),0);
+assert.equal(repayment.at(-2),null);
+assert.equal(repayment.at(-3),100);
+assert.equal(charts['flow-lending-balance-chart'].series[0].values.at(-1),500);
+assert.match($('flow-lending-coverage').textContent,/관측 2일/);
+assert.match($('flow-lending-body').innerHTML,/상환|500주/);
+state.flows.lending={};state.flows.lending_daily=[];mod.render(ctx);
+assert.equal(charts['flow-lending-trades-chart'].labels.length,0);
+assert.match($('flow-lending-coverage').textContent,/미수집/);

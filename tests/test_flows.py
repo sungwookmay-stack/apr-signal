@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from flows_engine import evaluate, month_data
+from flows_engine import evaluate, month_data, refresh_saved_analysis
 from flows_collect import (get_isin, normalize_investor_dataframe, merge_by_date,
                            normalize_short_dataframe, read_ksd)
 
@@ -75,6 +75,43 @@ class FlowTests(unittest.TestCase):
         r=evaluate(p,flow_rows(p[:-1]),technical_rows=technical(p))
         self.assertEqual(r['combined']['level'],'unknown')
         self.assertFalse(r['price_aligned'])
+
+    def test_stale_common_date_keeps_reference_windows(self):
+        p=days(80)
+        r=evaluate(p,flow_rows(p[:-1]))
+        self.assertEqual(r['combined']['level'],'unknown')
+        ref=r['asof_analysis']
+        self.assertEqual(ref['date'],p[-2]['date'])
+        self.assertEqual(ref['lag_price_sessions'],1)
+        self.assertEqual(ref['actors']['foreign']['windows']['20']['observed_days'],20)
+
+    def test_asof_never_skips_missing_middle_day(self):
+        p=days(80)
+        f=flow_rows(p[:-1]); del f[-10]
+        r=evaluate(p,f)
+        self.assertIsNone(r['asof_analysis']['actors']['foreign']['windows']['20'])
+        self.assertEqual(r['asof_analysis']['combined']['level'],'unknown')
+
+    def test_offline_refresh_preserves_source_check_time(self):
+        import json
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); p=days(80)
+            (root/'market.json').write_text(json.dumps({'series':p}))
+            (root/'flows.json').write_text(json.dumps({
+                'daily':flow_rows(p[:-1]),'checked_at_utc':'source-check',
+                'data_status':{'source_status':'unchanged'}}))
+            refresh_saved_analysis(root)
+            saved=json.loads((root/'flows.json').read_text())
+            self.assertEqual(saved['checked_at_utc'],'source-check')
+            self.assertEqual(saved['data_status'],{'source_status':'unchanged'})
+            self.assertEqual(saved['asof_analysis']['date'],p[-2]['date'])
+
+    def test_no_asof_without_common_observation(self):
+        self.assertIsNone(evaluate(days(80),[])['asof_analysis'])
+
+    def test_no_redundant_asof_when_current(self):
+        p=days(80)
+        self.assertIsNone(evaluate(p,flow_rows(p))['asof_analysis'])
 
     def test_foreign_buying_while_price_falls_is_not_confirmed(self):
         p=days(80,neg=True)

@@ -26,6 +26,8 @@ def read(path,default):
 def build():
     from source_provenance import normalize_saved_sources
     normalize_saved_sources(DATA)
+    from flows_engine import refresh_saved_analysis
+    refresh_saved_analysis(DATA)
     financial=financial_engine.update()
     try:
         trends=trend_signals.update()
