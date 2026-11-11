@@ -1,10 +1,10 @@
-name: Decodo Top100 - manual 8-request smoke test
+name: Decodo Top100 - single-request diagnostic
 
 on:
   workflow_dispatch:
     inputs:
       free_plan_confirmed:
-        description: 'Active Free plan, no paid top-up, at least $0.02 free credit; run this test once only'
+        description: 'Active Free plan, no paid top-up, at least $0.02 free credit; one US page request only'
         required: true
         type: boolean
         default: false
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Validate parser and perform at most eight official API requests
+      - name: Validate parser and perform one official API diagnostic request
         env:
           DECODO_API_KEY: ${{ secrets.DECODO_API_KEY }}
           FREE_PLAN_CONFIRMED: ${{ inputs.free_plan_confirmed }}
@@ -32,7 +32,7 @@ jobs:
           from urllib.parse import urlsplit
           
           ENDPOINT = "https://data.decodo.com/v1/scrape"
-          MARKETS = (("US", "com"), ("GB", "co.uk"), ("AE", "ae"), ("BR", "com.br"))
+          MARKETS = (("US", "com"),)
           
           class InvalidResponse(Exception):
               pass
@@ -125,6 +125,28 @@ jobs:
               else:
                   raise AssertionError()
           
+          def classify_error(raw):
+              # Never return arbitrary server text, values, keys, URLs or headers.
+              if len(raw) > 65536:
+                  return {"error_class": "oversize_error"}
+              text = raw.decode("utf-8", errors="replace").lower()
+              fields = ("target", "query", "domain", "page_from", "parse", "proxy_pool",
+                        "url", "authorization", "api_key", "headless", "geo")
+              terms = ("required", "invalid", "unsupported", "not supported", "unknown",
+                       "not allowed", "missing", "must", "expected", "not permitted")
+              labels = [field for field in fields if re.search(r"\b"+field+r"\b", text)]
+              classes = []
+              for label, words in (
+                  ("validation", terms),
+                  ("credential", ("unauthorized", "invalid token", "api key", "api_key", "authorization")),
+                  ("access", ("forbidden", "permission", "access denied", "not allowed")),
+                  ("quota", ("quota", "balance", "credit", "subscription")),
+                  ("json", ("json", "decode", "syntax"))):
+                  if any(word in text for word in words):
+                      classes.append(label)
+              return {"error_class": classes or ["unclassified"],
+                      "mentioned_fields": labels, "body_present": bool(raw)}
+
           class NoRedirect(urllib.request.HTTPRedirectHandler):
               def redirect_request(self, req, fp, code, msg, headers, newurl):
                   return None
@@ -145,12 +167,12 @@ jobs:
               opener = urllib.request.build_opener(NoRedirect())
               calls = 0
               all_complete = True
-              print("Manual smoke test: at most 8 attempts, no retries or raw response logging.")
-              print("Expected successful-call debit: $0.008 equivalent; actual debit requires dashboard comparison.")
+              print("Manual smoke test: at most 1 attempt, no retries or raw response logging.")
+              print("Expected successful-call debit: $0.001 equivalent; actual debit requires dashboard comparison.")
               for country, domain in MARKETS:
                   combined = []
                   pages_ok = True
-                  for number in (1, 2):
+                  for number in (1,):
                       payload = {"target": "amazon_bestsellers", "query": "beauty",
                                  "domain": domain, "page_from": str(number),
                                  "parse": True, "proxy_pool": "premium"}
@@ -159,7 +181,7 @@ jobs:
                           headers={"Authorization": "Bearer " + token,
                                    "Content-Type": "application/json", "Accept": "application/json"},
                           method="POST")
-                      if calls >= 8:
+                      if calls >= 1:
                           sys.exit("Attempt cap reached.")
                       calls += 1
                       try:
@@ -170,9 +192,13 @@ jobs:
                               document = json.loads(raw)
                           rows, stats = inspect_page(document, domain, number)
                       except urllib.error.HTTPError as error:
-                          # Never log error body, headers, URLs or exception strings.
+                          # Inspect only in memory and emit a closed vocabulary. Never log raw text.
+                          try:
+                              diagnostic = classify_error(error.read(65537))
+                          except Exception:
+                              diagnostic = {"error_class": "unreadable_error"}
                           print(json.dumps({"country": country, "page": number,
-                                            "attempts": calls, "http_status": error.code}))
+                                            "attempts": calls, "http_status": error.code, **diagnostic}))
                           sys.exit("Stopped on HTTP error; no retries.")
                       except Exception:
                           print(json.dumps({"country": country, "page": number,
@@ -181,6 +207,9 @@ jobs:
                       combined.extend(rows)
                       pages_ok = pages_ok and stats["complete_50"]
                       print(json.dumps({"country": country, "page": number, **stats}))
+                  print(json.dumps({"attempts": calls, "single_page_diagnostic": True,
+                                    "actual_debit_verified": False}))
+                  return
                   complete = (pages_ok and len(combined) == 100
                               and len({r[1] for r in combined}) == 100
                               and {r[0] for r in combined} == set(range(1, 101)))
