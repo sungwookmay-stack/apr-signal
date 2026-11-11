@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 import urllib.error
+from unittest.mock import patch
 from pathlib import Path
 
 import kbty_sec as sec
@@ -16,6 +17,9 @@ class KbtySecTests(unittest.TestCase):
         self.output = Path(self.temp.name) / 'kbty_sec.json'
         self.now = dt.datetime.fromisoformat('2026-11-06T11:00:00+00:00')
         self.registry = sec.read_json(sec.SOURCE, {})
+        self.registry['filings'] = [x for x in self.registry['filings'] if x['form'] != 'CERT']
+        self.registry_file = Path(self.temp.name) / 'registry.json'
+        sec.write_json(self.registry_file, self.registry)
 
     def test_curated_sec_timeline_and_performance_are_not_fabricated(self):
         out = sec.assemble_base(self.registry)
@@ -80,7 +84,7 @@ class KbtySecTests(unittest.TestCase):
             if '116003' in url:
                 return b'<SERIES-ID>S000109351\n'
             return b'<SERIES-ID>S000005895\n'
-        result = sec.refresh(transport=fake,output=self.output,now=self.now)
+        result = sec.refresh(registry_file=self.registry_file, transport=fake,output=self.output,now=self.now)
         self.assertEqual(result['new_detected'],1)
         self.assertEqual(result['latest_verified_filing_date'],'2026-11-06')
         self.assertEqual(result['last_successful_check_utc'],
@@ -118,7 +122,7 @@ class KbtySecTests(unittest.TestCase):
             if '116010' in url and url.endswith('index-headers.html'):
                 return b'<SERIES-ID>S000109351\n'
             raise OSError('Unknown request')
-        result = sec.refresh(transport=mock, output=self.output,now=self.now)
+        result = sec.refresh(registry_file=self.registry_file, transport=mock, output=self.output,now=self.now)
         self.assertEqual(result['new_detected'],1)
         self.assertEqual(len(result['filings']),4)
         self.assertEqual(result['filings'][0]['accession'],'0001213900-26-116010')
@@ -147,7 +151,7 @@ class KbtySecTests(unittest.TestCase):
             if url==sec.SEC_SUBMISSIONS:
                 return json.dumps(doc).encode()
             raise urllib.error.HTTPError(url,403,'Restricted',{},None)
-        report=sec.refresh(transport=response,output=self.output,now=self.now)
+        report=sec.refresh(registry_file=self.registry_file, transport=response,output=self.output,now=self.now)
         self.assertEqual(report['new_detected'],0)
         self.assertEqual(report['latest_verified_filing_date'],'2026-10-28')
         self.assertIsNone(report['last_successful_check_utc'])
@@ -156,12 +160,39 @@ class KbtySecTests(unittest.TestCase):
     def test_sec_403_or_error_preserves_old_verified_records(self):
         def blocked(url):
             raise urllib.error.HTTPError(url,403,'Forbidden',{},None)
-        result=sec.refresh(transport=blocked,output=self.output,now=self.now)
+        result=sec.refresh(registry_file=self.registry_file, transport=blocked,output=self.output,now=self.now)
         self.assertEqual(len(result['filings']),3)
         self.assertIn('접근 실패',result['sec_monitor_status'])
         self.assertIsNone(result['last_successful_check_utc'])
         self.assertEqual(result['sec_monitor_error'],'HTTPError')
+        self.assertEqual([x['http_status'] for x in result['retrieval_diagnostics']],[403,403])
+        self.assertNotIn('https:',str(result['retrieval_diagnostics']))
         self.assertIsNotNone(result['checked_at_utc'])
+
+    def test_cert_is_not_filtered_out(self):
+        payload={'cik':919160,'filings':{'recent':{'accessionNumber':['0001143362-26-000444'],'filingDate':['2026-11-10'],'form':['CERT'],'primaryDocument':['KBTY111026.pdf']}}}
+        rows=sec.candidate_filings(payload)
+        self.assertEqual(rows[0]['form'],'CERT')
+        def transport(url):
+            if url==sec.SEC_SUBMISSIONS: return json.dumps(payload).encode()
+            return b'<CIK>0000919160'
+        with patch.object(sec,'certificate_identity',return_value=True):
+            result=sec.refresh(registry_file=self.registry_file,transport=transport,output=self.output,now=self.now)
+        self.assertEqual(result['latest_verified_filing_date'],'2026-11-10')
+        self.assertEqual(result['filings'][0]['review_level'],'CERT 원문 펀드명·거래소 확인')
+        self.output.unlink()
+        with patch.object(sec,'certificate_identity',return_value=False):
+            result=sec.refresh(registry_file=self.registry_file,transport=transport,output=self.output,now=self.now)
+        self.assertIsNone(result['last_successful_check_utc'])
+        self.assertEqual(len(result['pending_review']),1)
+        self.assertEqual(result['latest_verified_filing_date'],'2026-10-28')
+
+    def test_http_diagnostics_do_not_expose_response_or_url(self):
+        error=urllib.error.HTTPError('https://secret.invalid/?token=secret',429,'private response',{},None)
+        detail=sec.failure_detail(error,'SEC submissions')
+        self.assertEqual(detail['http_status'],429)
+        self.assertNotIn('secret',str(detail))
+        self.assertNotIn('private response',str(detail))
 
     def test_malicious_filename_or_wrong_company_cannot_create_sec_link(self):
         self.assertIsNone(sec.candidate_filings({
@@ -189,7 +220,7 @@ class KbtySecTests(unittest.TestCase):
         previous['filings'].insert(0,item)
         previous['last_successful_check_utc']='2026-11-06T09:00:00+00:00'
         sec.write_json(self.output,previous)
-        result=sec.refresh(transport=lambda _: (_ for _ in ()).throw(
+        result=sec.refresh(registry_file=self.registry_file, transport=lambda _: (_ for _ in ()).throw(
             OSError('unavailable')), output=self.output,now=self.now)
         self.assertEqual(result['latest_verified_filing_date'],'2026-11-06')
         self.assertEqual(len(result['filings']),4)

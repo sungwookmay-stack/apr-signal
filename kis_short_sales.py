@@ -13,6 +13,7 @@ from __future__ import annotations
 import calendar
 import datetime as dt
 import json
+import math
 import os
 import re
 from urllib import parse, request
@@ -28,6 +29,36 @@ def as_int(v):
         return None
     s=str(v).strip().replace(",","")
     return int(s) if re.fullmatch(r"[+-]?\d+",s) else None
+
+def value_ratio(row):
+    """Dimensionless daily value ratio, never volume ratio or cumulative value.
+
+    Absolute API amount units have not been live-verified, so do not publish
+    those as KRW. Both daily amount fields share a unit; their ratio is safe.
+    A conflict with the provider's rounded ratio quarantines only this metric.
+    """
+    def number(value):
+        if value is None or isinstance(value, bool):
+            return None
+        try:
+            n = float(str(value).replace(',', '').strip())
+            return n if math.isfinite(n) else None
+        except (ValueError, TypeError):
+            return None
+    short = number(row.get('ssts_tr_pbmn'))
+    total = number(row.get('acml_tr_pbmn'))
+    reported = number(row.get('ssts_tr_pbmn_rlim'))
+    if reported is not None and not 0 <= reported <= 100:
+        return None, 'invalid_reported_value_ratio'
+    if short is not None and total is not None:
+        if total <= 0 or short < 0 or short > total:
+            return None, 'invalid_daily_value_pair'
+        computed = short / total * 100
+        if reported is not None and abs(computed - reported) > 0.02:
+            return None, 'daily_value_ratio_conflict'
+        return round(computed, 3), 'reported_daily_short_value_divided_by_daily_trade_value'
+    return reported, ('provider_daily_value_ratio' if reported is not None
+                      else 'daily_value_ratio_missing')
 
 def norm_date(s):
     s=str(s or "").strip()
@@ -57,18 +88,20 @@ def normalize(payload,allowed_days=None):
         traded=as_int(row.get("acml_vol"))
         if short is None or traded is None or short<0 or traded<=0 or short>traded:
             continue
+        amount_ratio, amount_ratio_method = value_ratio(row)
         rows[day]={
             "date":day,"short_trade_qty":short,
             "total_traded_qty":traded,
             "short_volume_ratio_pct":round(short/traded*100,3),
-            "short_trade_value_krw":None,"short_value_ratio_pct":None,
+            "short_trade_value_krw":None,"short_value_ratio_pct":amount_ratio,
+            "short_value_ratio_method":amount_ratio_method,
             "reported_net_short_balance_qty":None,
             "reported_net_short_balance_krw":None,
             "source":"KIS OpenAPI FHPST04830000 short-selling daily trades",
             "source_url":"https://apiportal.koreainvestment.com/docs",
             "record_status":"broker_market_data",
             "ratio_method":"short_sold_shares_divided_by_reported_trade_shares",
-            "note":"공매도 체결수량·수량비중. 공매도 순보유잔고와 대차잔고는 미제공"
+            "note":"공매도 수량비중·거래대금비중 구분. 절대 거래대금 단위 미검증으로 원화금액 미표시. 공매도 순보유잔고와 대차잔고는 미제공"
         }
     return [rows[k] for k in sorted(rows)]
 

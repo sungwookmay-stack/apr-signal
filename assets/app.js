@@ -298,9 +298,14 @@ function renderKbtySec(){
  set('sec-latest-date',data.latest_verified_filing_date||'공시 확인 전');
  set('sec-last-checked',data.last_successful_check_utc?
    data.last_successful_check_utc.slice(0,16).replace('T',' ')+' UTC':
-   '자동 확인 전 · 기존 공시자료');
- set('sec-monitor-status',data.sec_monitor_status||
-     'SEC 자료를 불러올 수 없어 기존 KBTY 공식자료만 유지합니다.');
+   '자동 확인 성공 기록 없음 · 기존 검토자료');
+ const secIssues=(data.retrieval_diagnostics||[]).map(x=>
+   (x.endpoint||'SEC')+': '+(x.http_status?'HTTP '+x.http_status:(x.error_type||'조회 실패'))).join(' · ');
+ set('sec-monitor-status',(data.sec_monitor_status||
+     'SEC 자료를 불러올 수 없어 기존 KBTY 공식자료만 유지합니다.')+
+     ' · 최근 시도: '+(data.checked_at_utc?data.checked_at_utc.slice(0,16).replace('T',' ')+' UTC':'기록 없음')+
+     (secIssues?' · '+secIssues:'')+
+     ((data.pending_review||[]).length?' · 원문 식별 검토 대기 '+data.pending_review.length+'건':''));
  const briefEl=$('sec-briefing');
  if(briefEl)briefEl.innerHTML=briefing.length?briefing.map(x=>
    '<article class="sec-brief-card"><h4>'+escapeHtml(x.title)+'</h4>'+

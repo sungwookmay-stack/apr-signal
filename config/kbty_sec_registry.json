@@ -5,7 +5,7 @@
   "series_id": "S000109351",
   "sec_filer_page": "https://www.sec.gov/edgar/browse/?CIK=919160",
   "official_fund_page": "https://www.gafunds.com/kbty/",
-  "reviewed_date": "2026-11-06",
+  "reviewed_date": "2026-11-12",
   "briefing": [
     {
       "id": "overview",
@@ -62,6 +62,17 @@
     }
   ],
   "filings": [
+    {
+      "accession": "0001143362-26-000444",
+      "filed_date": "2026-11-10",
+      "form": "CERT",
+      "title_ko": "NYSE Arca의 KBTY 상장·등록 승인 확인서",
+      "summary_ko": "NYSE Arca가 Guinness Atkinson K-Beauty ETF 지분의 거래소 상장 및 등록 승인을 SEC에 확인한 문서입니다.",
+      "change_ko": "등록 추진 단계에서 거래소 승인 확인 문서가 추가됐습니다. 실제 첫 거래 체결이나 APR 편입·매입 내역은 이 문서로 확인되지 않습니다.",
+      "stage": "거래소 승인 확인",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/919160/000114336226000444/KBTY111026.pdf",
+      "review_level": "공시 본문 확인"
+    },
     {
       "accession": "0001213900-26-113359",
       "filed_date": "2026-10-28",

@@ -32,22 +32,26 @@ const context=vm.createContext({
 });
 vm.runInContext(app,context,{filename:'assets/app.js'});
 assert.equal(typeof ready,'function');
-ready().then(()=>{
-  assert.equal(el('sec-latest-date').textContent,'2026-10-28');
+ready().then(async()=>{
+  assert.equal(el('sec-latest-date').textContent,sec.latest_verified_filing_date);
   assert.match(el('sec-monitor-status').textContent,/SEC/);
-  assert.match(el('sec-last-checked').textContent,/자동 확인 전/);
+  if(sec.last_successful_check_utc)assert.match(el('sec-last-checked').textContent,/UTC/);
+  else assert.match(el('sec-last-checked').textContent,/자동 확인 성공 기록 없음/);
+  assert.match(el('sec-monitor-status').textContent,/최근 시도/);
   const b=el('sec-briefing').innerHTML;
   const f=el('sec-filings').innerHTML;
   const w=el('sec-watchlist').innerHTML;
   assert.match(b,/0\.55%/);
   assert.match(b,/APR 관점/);
+  assert.match(f,/CERT/);
+  assert.match(f,/2026-11-10/);
   assert.match(f,/485BPOS/);
   assert.match(f,/485BXT/);
   assert.match(f,/485APOS/);
   assert.ok(!app.includes('sec-related-manager'), 'No unrelated manager filing UI');
   assert.ok(!Object.prototype.hasOwnProperty.call(sec,'related_manager_filings'), 'Only KBTY series disclosures should be stored');
   assert.doesNotMatch(f,/2026-11-05/,'Unrelated 13F must not appear as KBTY filing');
-  assert.equal(el('sec-latest-date').textContent,'2026-10-28');
+  assert.equal(el('sec-latest-date').textContent,sec.latest_verified_filing_date);
   assert.match(f,/2026-10-28/);
   assert.match(f,/SEC 공시 원문 확인/);
   assert.match(w,/에이피알/);
@@ -56,5 +60,10 @@ ready().then(()=>{
   assert.equal(el('e-shares').textContent,'—','No fabricated shares');
   assert.equal(el('e-aum').textContent,'—','No fabricated AUM');
   assert.match(el('sec-filer-link').href,/sec\.gov\/edgar\/browse/);
+  sec.last_successful_check_utc=null;
+  sec.retrieval_diagnostics=[{endpoint:'SEC submissions',http_status:403}];
+  await ready();
+  assert.match(el('sec-last-checked').textContent,/성공 기록 없음/);
+  assert.match(el('sec-monitor-status').textContent,/HTTP 403/);
   console.log('PASS: KBTY SEC Korean filing history, cost, risks and no invented holdings');
 }).catch(err=>{console.error(err);process.exitCode=1;});
