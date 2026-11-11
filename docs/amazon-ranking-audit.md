@@ -28,3 +28,26 @@ API.SH's fallback previously computed entry/exit when two snapshots had the same
 188 Python tests and all existing Node smoke tests pass. Added integration test proves saved valid PDP rows reach demand.json, invalid dates are excluded, repeated builds do not duplicate records, and no network is used. Added test prevents false entry/exit from equally sized partial snapshots. Actual browser rendering was not tested here. No deployment has occurred as part of this audit.
 
 Code-only deployment also merges saved PDP observations through a pure offline helper, preserving original collection timestamps and synchronizing demand/bootstrap. It does not call collect_demand, API.SH, Scrape.do or Amazon.
+
+## Identity enrichment follow-up
+
+The unchanged daily budget is 2 Best Sellers pages per configured market and
+at most 4 PDP calls, under the same monthly fail-closed credit ceiling. PDP
+selection reserves 2 slots for confirmed Medicube BSR and 2 for unresolved
+identities; spare slots use the other pool. Market round-robin and oldest-check
+priority remain. Strategy upgrades do not trigger additional same-day PDP calls.
+Stored checks also bound resumed runs to the daily allowance (a process crash
+before saving checks remains subject to the pre-existing quota reservation).
+
+New snapshots record observed ranking/card counts, absent cards, empty card
+identities, cache fills, rejected ranking rows, and unresolved identities after
+PDP enrichment. These are page-row counts, not a provider-throttling diagnosis.
+Legacy snapshots are not backfilled with inferred response diagnostics. Cache
+identity is not claimed to be freshly verified. An invalid response is marked
+invalid/unavailable without inventing the provider's error reason.
+
+Offline fixture: 11 markets with 60 card identities each, 4 PDP calls total:
+2 confirmed-brand calls remain, while 2 unknown ASINs gain fixture identities
+(previous allocation allowed 1). This is a synthetic allocation regression,
+not measured production uplift. No live API request or extra subscription was
+made for this change. Next scheduled collection must establish real coverage.

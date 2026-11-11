@@ -104,6 +104,27 @@ class ScrapeTests(unittest.TestCase):
         self.assertEqual(page[44][2], 'medicube official PDRN pad')
         self.assertEqual(page[44][4], 'Medicube')
 
+    def test_identity_diagnostics_distinguish_cards_cache_and_invalid_rows(self):
+        data = payload(1)
+        data['products'][0]['title'] = ''
+        data['ranking'].append({'rank': 101, 'asin': asin(101)})
+        diag = {}
+        rows = normalize_page(data, 1, {asin(31): {'title': 'cached'}}, diagnostics=diag)
+        self.assertEqual(len(rows), 50)
+        self.assertEqual(diag['product_cards'], 30)
+        self.assertEqual(diag['card_identity_rows'], 29)
+        self.assertEqual(diag['missing_card_rows'], 20)
+        self.assertEqual(diag['empty_card_identity_rows'], 1)
+        self.assertEqual(diag['cached_identity_rows'], 1)
+        self.assertEqual(diag['unresolved_rows'], 20)
+        self.assertEqual(diag['rejected_rank_rows'], 1)
+
+    def test_strategy_upgrade_never_adds_same_day_pdp_calls(self):
+        fake = FakeQuota()
+        fake.stats.update(last_pdp_day=fake.day.isoformat(), pdp_strategy_version=2)
+        track_scrapedo('test', {'markets': [{'code': 'US', 'amazon': 'amazon.com'}]}, [], client=fake)
+        self.assertEqual(fake.pdp_calls, [])
+
     def test_wrong_category_and_page_rejected(self):
         p = payload(1)
         p['category'] = 'home'
@@ -122,8 +143,11 @@ class ScrapeTests(unittest.TestCase):
         self.assertEqual(n, 11)
         self.assertEqual(len(fake.calls), 22)
         self.assertEqual(len(fake.pdp_calls), 4)
+        self.assertEqual(sum(p not in {asin(2), asin(21), asin(65), asin(77)} for _,p in fake.pdp_calls), 2)
+        self.assertTrue(all('identity_diagnostics' in x for x in rows))
+        self.assertEqual(sum(x['identity_coverage_count'] for x in rows), 11 * 60 + 2)
         self.assertGreaterEqual(sum(p in {asin(2), asin(21), asin(65), asin(77)}
-                                    for _,p in fake.pdp_calls), 3,
+                                    for _,p in fake.pdp_calls), 2,
                                 'PDP calls should prioritize confirmed Medicube products')
         self.assertEqual({x['country'] for x in rows}, {cc for cc, _ in codes})
         self.assertTrue(all(x['coverage_count'] == 100 for x in rows))
@@ -132,7 +156,7 @@ class ScrapeTests(unittest.TestCase):
         self.assertTrue(Path(sd.PDP_STATE).exists())
         self.assertGreater(len(json.loads(Path(sd.PDP_STATE).read_text())), 0)
         self.assertEqual(len(json.loads(Path(sd.PDP_CHECKS).read_text())), 4)
-        self.assertEqual(fake.stats['pdp_strategy_version'], 2)
+        self.assertEqual(fake.stats['pdp_strategy_version'], 3)
         rows2, notes, n2, _ = track_scrapedo('test', cfg, rows, client=fake)
         self.assertEqual(n2, 0)
         self.assertEqual(len(fake.calls), 22)
