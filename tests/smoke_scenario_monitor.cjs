@@ -13,3 +13,16 @@ window.APR_RESEARCH.renderScenarioMonitor(ctx);assert(root.innerHTML.includes('P
 const once=root.innerHTML;window.APR_RESEARCH.renderScenarioMonitor(ctx);assert.equal(ctx.state.scenarioMonitor.history.length,1);assert(root.innerHTML.includes('중복 저장하지'));
 assert(fs.readFileSync('.github/workflows/update-and-publish.yml','utf8').includes('cp data/*.json _site/data/'));
 console.log('PASS scenario rendering, missing data, date history, duplicate-free view, escaping, nav, bootstrap and packaging');
+row.context=[{label:'최신 원문',signal_eligible:false,signal_exclusion_reason:''}];
+row.scenarios[0].conditions[0].partial_evidence=[{reason:'동일 부분 근거'},{reason:'동일 부분 근거'}];
+ctx.state.scenarioMonitor.history=[];
+window.APR_RESEARCH.renderScenarioMonitor(ctx);
+assert(!root.innerHTML.includes('최신성 부족'));assert(root.innerHTML.includes('부분지지 점수 대상 아님'));
+assert.equal(root.innerHTML.split('부분지지(전체 입증 아님): 동일 부분 근거').length-1,1);
+row.context[0].signal_exclusion_reason='자료 기준일 120일 초과';
+window.APR_RESEARCH.renderScenarioMonitor(ctx);assert(root.innerHTML.includes('자료 기준일 120일 초과'));
+const thesis={innerHTML:''};ctx.$=id=>id==='thesis-blocks'?thesis:null;ctx.chart=()=>{};ctx.fmt=String;ctx.C={};
+ctx.state.aprTheses=JSON.parse(fs.readFileSync('data/apr_theses.json'));
+ctx.state.top50={snapshots:[{country:'US',limit:50,response_complete:true,observed_at_utc:'2026-11-12T00:00:00Z',brands:{medicube:{verified_count:0,candidate_count:1}}},{country:'US',limit:50,response_complete:false,observed_at_utc:'2026-11-13T00:00:00Z',verified_count:45}]};
+window.APR_RESEARCH.renderTheses(ctx);assert(thesis.innerHTML.includes('브랜드 검증 0개 · 제목 후보 1개'));assert(!thesis.innerHTML.includes('Top100'));assert(!thesis.innerHTML.includes('45개'));
+console.log('PASS fresh background evidence labels, duplicate reasons and complete Top50 verified/candidate distinction');
