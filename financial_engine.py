@@ -10,6 +10,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 from valuation_audit import reconcile
+from verified_valuation import build as verified_valuation
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -87,49 +88,7 @@ def build(data, dart=None):
                     'method':'최근 12개월 연결 순이익 / 전년 동기와 현재 연결 자본총계의 평균; 총자본 ROE 참고치 (지배주주 ROE와 다름)'
                 })
 
-    # TTM attributable profit in 100m KRW (억원). Source is audited/quarterly
-    # IFRS year-to-date NI difference, published no earlier than anchor date.
-    # Auditable observations live with their source inputs. They are proxies,
-    # not attributable, weighted-average diluted EPS verified from filings.
-    eps_events=data.get('valuation_inputs', [])
-    eps=[]
-    for event in eps_events:
-        event=dict(event)
-        ttm=event['ttm_net_income_100m']
-        # Once four contiguous quarters exist, use the SAME reviewed financial
-        # table shown above the bands rather than a second frozen profit copy.
-        year=int(event['asof'][:4]); quarter=(int(event['asof'][5:7])-1)//3+1
-        periods=[]
-        for offset in range(4):
-            n=year*4+quarter-1-offset
-            periods.append(str(n//4)+'Q'+str(n%4+1))
-        components=[x for x in quarters if x['period'] in periods]
-        if len(components)==4 and all(x.get('ni') is not None for x in components):
-            ttm=sum(x['ni'] for x in components)
-            event['ttm_net_income_100m']=rounded(ttm)
-            event['available_from']=max([event['available_from']]+[x['available_from'] for x in components])
-            event['component_periods']=sorted(periods)
-            event['source']='화면 연결 순이익 4개 분기 합계: '+', '.join(sorted(periods))
-        shares=event['shares']
-        eps.append({
-            **event,
-            'eps_won':event.get('reported_eps_won') if event.get('reported_eps_won') is not None else rounded(ttm*1e8/shares),
-            'eps_quality':event['quality'],
-            'profit_basis':'consolidated_total_proxy',
-            'share_basis':'historical_input_not_verified_weighted_or_diluted',
-            'attributable_verified':False,
-        })
-    eps.sort(key=lambda x:x['available_from'])
-    book=[{
-        'available_from':x['available_from'],'asof':x['asof'],
-        'equity_100m':x['equity'],'shares':x['shares'],
-        'bps_won':rounded(x['equity']*1e8/x['shares']),
-        'source':x['source'], 'source_url':x.get('source_url'),
-        'equity_basis':'consolidated_total_not_parent_equity',
-        'share_basis':'historical_input_treasury_adjustment_unverified'
-    } for x in balances]
-    # Correct dates/order: balance is available only upon actual filings.
-    book.sort(key=lambda x:x['available_from'])
+    verified = verified_valuation()
     return {
         'schema_version':2,'generated_at_utc':dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'),
         'company':data['company'],'ticker':data['ticker'],'unit':data['unit'],
@@ -137,12 +96,12 @@ def build(data, dart=None):
         'annual':data.get('annual',[]),
         'valuation':{
             'period_start':'2025-06-01',
-            'eps_events':eps,'book_events':book,
+            **verified,
             'per_multiples':[15,25,35,45,55],
             'pbr_multiples':[5,10,15,20,25],
-            'method_note':data['evaluation']['valuation_method'],
+            'method_note':'공식 원문 지배주주 기본 TTM EPS 및 자기주식 제외 기말 BPS 기준. EPS 기간일수 불일치 구간은 산출하지 않음.',
             'forward_or_consensus_used':False,
-            'share_adjustments_note':'연결 순이익·총자본 기준 대리지표. 지배주주 순이익·지분, 자기주식 제외, 가중평균·희석 주식수, 주식분할 조정은 독립 검증되지 않았으므로 표준 PER/PBR과 다를 수 있음.',
+            'share_adjustments_note':'2024년 5:1 분할 소급반영 수치를 사용하며 중복 조정하지 않음. 기본 EPS는 기간 가중평균 유통주식수, BPS는 기말 발행주식수에서 자기주식을 제외. TTM 희석 EPS는 미산출.',
             'multiple_basis':'사용자가 비교하는 고정 배수 시나리오. 역사적 평균·분위수·목표주가 아님.',
             'forward':{'method':'user_scenario','consensus':False,'horizon':'입력한 향후 12개월 또는 회계연도','default_growth_pct':0}
         },

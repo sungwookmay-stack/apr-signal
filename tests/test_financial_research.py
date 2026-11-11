@@ -53,12 +53,12 @@ class APRFinancialResearchTests(unittest.TestCase):
         p=self.data['valuation']
         eps=p['eps_events'];book=p['book_events']
         self.assertEqual(p['period_start'],'2025-06-01')
-        self.assertEqual(eps[0]['available_from'],'2025-08-14')
-        self.assertEqual(eps[0]['eps_won'],2875)
-        self.assertEqual(eps[-1]['available_from'],'2026-10-30')
-        self.assertIn('preliminary',eps[-1]['eps_quality'])
-        self.assertAlmostEqual(eps[-1]['eps_won'],12493,delta=20)
-        self.assertEqual(book[-1]['available_from'],'2026-08-14')
+        self.assertEqual(eps[0]['available_from'],'2025-03-22')
+        self.assertEqual(eps[0]['eps_won'],2875.37)
+        self.assertEqual(eps[-1]['available_from'],'2026-08-15')
+        self.assertEqual(eps[-1]['eps_quality'],'primary_verified_basic_ttm')
+        self.assertAlmostEqual(eps[-1]['eps_won'],11545.69,delta=.01)
+        self.assertEqual(book[-1]['available_from'],'2026-08-15')
         self.assertFalse(any(x['asof']=='2026-09-30' for x in book))
         self.assertFalse(p['forward_or_consensus_used'])
         self.assertEqual(p['per_multiples'],[15,25,35,45,55])
