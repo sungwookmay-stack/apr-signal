@@ -17,6 +17,7 @@ import csv
 import datetime as dt
 import io
 import json
+import math
 import os
 from pathlib import Path
 from urllib import parse, request
@@ -238,17 +239,25 @@ def read_imports(path, keys):
     if not path.exists():
         return []
     rows=[]
+    today=dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date().isoformat()
     with path.open('r',encoding='utf-8-sig',newline='') as f:
         for raw in csv.DictReader(f):
             day=valid_date(raw.get('date'))
-            if not day or not raw.get('source_url','').startswith('https://'):
+            if (not day or day>today
+                    or not raw.get('source_url','').startswith('https://')
+                    or raw.get('ticker',TICKER).strip() not in ('',TICKER)):
                 continue
             row={'date':day,'source':raw['source_url'],
+                 'source_url':raw['source_url'],
                  'record_status':'manual_source_linked_unverified'}
             for name in keys:
                 val=raw.get(name,'')
                 try:
-                    row[name]=int(val.replace(',','')) if val!='' else None
+                    if name.endswith('_ratio_pct'):
+                        n=float(val.replace(',','')) if val.strip() else None
+                        row[name]=n if n is not None and math.isfinite(n) and 0<=n<=100 else None
+                    else:
+                        row[name]=int(val.replace(',','')) if val!='' else None
                 except ValueError:
                     row[name]=None
             if any(row.get(name) is not None for name in keys):
@@ -456,7 +465,8 @@ def collect():
       'daily': read_imports(IMPORTS/'apr_investor_daily.csv',INVESTOR_KEYS),
       'short': read_imports(IMPORTS/'apr_short_daily.csv',
           ('short_trade_qty','short_trade_value_krw','reported_net_short_balance_qty',
-           'reported_net_short_balance_krw')),
+           'reported_net_short_balance_krw',
+           'short_value_ratio_pct','short_volume_ratio_pct')),
       'lending': read_imports(IMPORTS/'apr_lending_daily.csv',
           ('new_qty','returned_qty','balance_qty'))
     }
