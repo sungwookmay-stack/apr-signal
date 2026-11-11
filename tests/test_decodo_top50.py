@@ -80,6 +80,18 @@ class Tests(unittest.TestCase):
         self.assertEqual(result['items'][0]['movement'],'entered_top50')
         self.assertEqual(result['exited'][0]['movement'],'not_in_current_top50')
         self.assertIsNone(result['exited'][0]['current_rank'])
+    def test_explicit_initial_run_once_and_expiry(self):
+        env={**ENV,'GITHUB_EVENT_NAME':'push','DECODO_INITIAL_RUN':'initial-20261112'}
+        when=dt.datetime(2026,11,11,16,0,tzinfo=dt.timezone.utc)
+        self.assertIsNone(eligibility(env,when,CRON))
+        self.assertEqual(eligibility(env,when+dt.timedelta(days=1),CRON),'initial_run_expired')
+        self.assertEqual(eligibility({**env,'GITHUB_RUN_ATTEMPT':'2'},when,CRON),'rerun_blocked')
+        state={}
+        result=collect(state,env,when,CRON,lambda s:None,lambda key,domain:page(domain))
+        self.assertEqual(result['attempts'],12)
+        def forbidden(*a): self.fail('initial run duplicated')
+        result=collect(state,env,when,CRON,lambda s:None,forbidden)
+        self.assertEqual(result['reason'],'initial_run_already_consumed')
     def test_other_brands_and_ambiguity(self):
         self.assertEqual(candidate_brands('APRIL SKIN cleansing balm'),['aprilskin'])
         self.assertEqual(candidate_brands('FORMENT perfume'),['forment'])

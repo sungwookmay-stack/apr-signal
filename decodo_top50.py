@@ -36,6 +36,11 @@ def eligibility(env, now, morning_cron):
         return 'public_use_not_authorized'
     if env.get('DECODO_FREE_PLAN_CONFIRMED') != 'true':
         return 'free_plan_unconfirmed'
+    if env.get('GITHUB_RUN_ATTEMPT') != '1':
+        return 'rerun_blocked'
+    if (env.get('GITHUB_EVENT_NAME') == 'push' and
+            env.get('DECODO_INITIAL_RUN') == 'initial-20261112'):
+        return None if now.astimezone(KST).date().isoformat() == '2026-11-12' else 'initial_run_expired'
     if (env.get('GITHUB_EVENT_NAME') != 'schedule' or
             env.get('GITHUB_EVENT_SCHEDULE') != morning_cron):
         return 'not_morning_schedule'
@@ -137,6 +142,9 @@ def collect(state, env, now, morning_cron, persist, request=request_page):
     reason = eligibility(env, now, morning_cron)
     if reason:
         return {'status':'skipped','reason':reason,'attempts':0}
+    initial=env.get('DECODO_INITIAL_RUN') if env.get('GITHUB_EVENT_NAME')=='push' else None
+    if initial and initial in state.get('consumed_initial_runs',[]):
+        return {'status':'skipped','reason':'initial_run_already_consumed','attempts':0}
     token = env.get('DECODO_API_KEY','').strip()
     if (not token or any(c.isspace() for c in token) or
             token.lower().startswith(('bearer','curl'))):
@@ -156,6 +164,7 @@ def collect(state, env, now, morning_cron, persist, request=request_page):
     # Reserve the entire batch before network I/O. If interrupted, unused
     # reservations remain consumed rather than risking duplicate billed calls.
     if planned:
+        if initial: state.setdefault('consumed_initial_runs',[]).append(initial)
         daily.extend(cc for cc,_ in planned)
         ledger[month]=ledger.get(month,0)+len(planned)
         for cc,_ in planned:
