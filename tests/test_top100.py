@@ -46,6 +46,18 @@ class TrackerTests(unittest.TestCase):
         self.assertEqual(a['coverage_count'],25)
         self.assertEqual(a['medicube_confirmed_count'],1)
         self.assertFalse(a['coverage_complete'])
+    def test_equal_partial_identity_counts_do_not_prove_entry_or_exit(self):
+        cfg={'markets':[{'code':'US','amazon':'amazon.com'}]}
+        client=FakeClient()
+        old,_,_=track_bestsellers(client,cfg,[])
+        old[0]['date']='2026-11-04'
+        old[0]['medicube_listings']=[]
+        rows,_,_=track_bestsellers(FakeClient(),cfg,old)
+        newest=rows[-1]
+        self.assertIsNone(newest['new_count'])
+        self.assertIsNone(newest['exit_count'])
+        self.assertEqual(newest['new_asins'],[])
+
     def test_country_rotation_bounded_and_idempotent(self):
         client=FakeClient()
         cfg={'markets':[{'code':'US','amazon':'amazon.com'},

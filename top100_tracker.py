@@ -140,17 +140,14 @@ def track_bestsellers(client,cfg,previous):
         snap=make_snapshot(cc,pages,today)
         snap['marketplace']=market['amazon']
         previous_country=next((x for x in reversed(history) if x.get('country')==cc),None)
-        if (previous_country and previous_country.get('pages_received')==2
-            and snap['pages_received']==2
-            and previous_country.get('rank_coverage')==snap.get('rank_coverage')):
+        if (previous_country and previous_country.get('coverage_complete')
+                and snap.get('coverage_complete')):
             old_asins={x.get('asin') for x in previous_country.get('medicube_listings',[])}
             new_asins={x['asin'] for x in snap['medicube_listings']}
             snap['new_asins']=sorted(new_asins-old_asins)
             snap['exit_asins']=sorted(old_asins-new_asins)
-            if (previous_country.get('identity_coverage_count',previous_country.get('coverage_count'))
-                ==snap.get('identity_coverage_count')):
-                snap['new_count']=len(snap['new_asins'])
-                snap['exit_count']=len(snap['exit_asins'])
+            snap['new_count']=len(snap['new_asins'])
+            snap['exit_count']=len(snap['exit_asins'])
         history.append(snap)
         snapshots+=1
         stats.append(f"{cc}: {snap['medicube_confirmed_count']}개 확인 / "

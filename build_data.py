@@ -257,6 +257,30 @@ def collect_news():
     return package
 
 
+def merge_saved_pdp(amazon,pdp_rows,markets):
+    """Pure saved-observation merge. No network, budget, or collection timestamp."""
+    amazon=list(amazon)
+    if isinstance(pdp_rows,list):
+        present={(x.get('date'),x.get('country'),x.get('asin'),x.get('category'),
+                  x.get('source_quality')) for x in amazon}
+        valid_countries={x['code'] for x in markets if x.get('amazon')}
+        for row in pdp_rows:
+            if not isinstance(row,dict):continue
+            cc=row.get('country');asin=str(row.get('asin','')).upper()
+            day=row.get('date');category=str(row.get('category',''))
+            rank=safe_num(row.get('bsr'),1,1e8)
+            k=(day,cc,asin,category,'verified_product_rank')
+            if (cc not in valid_countries or
+                not re.fullmatch(r'[A-Z0-9]{10}',asin) or
+                not re.fullmatch(r'20\d\d-\d\d-\d\d',str(day)) or
+                not category or rank is None or k in present):continue
+            record=dict(row)
+            record['bsr']=int(rank)
+            amazon.append(record);present.add(k)
+    amazon.sort(key=lambda x:(x.get('date',''),x.get('country',''),x.get('bsr',999999)))
+    return amazon
+
+
 def collect_demand():
     config=read_json(ROOT/'config/markets.json',{})
     prev=read_json(DATA/'demand.json',{})
@@ -416,24 +440,7 @@ def collect_demand():
     # Separately observed, category-specific PDP BSR: never assume this is
     # the Beauty Top100 position and never fabricate missing historical ranks.
     pdp_rows=read_json(DATA/'scrapedo_pdp.json',[])
-    if isinstance(pdp_rows,list):
-        present={(x.get('date'),x.get('country'),x.get('asin'),x.get('category'),
-                  x.get('source_quality')) for x in amazon}
-        valid_countries={x['code'] for x in config.get('markets',[]) if x.get('amazon')}
-        for row in pdp_rows:
-            if not isinstance(row,dict):continue
-            cc=row.get('country');asin=str(row.get('asin','')).upper()
-            day=row.get('date');category=str(row.get('category',''))
-            rank=safe_num(row.get('bsr'),1,1e8)
-            k=(day,cc,asin,category,'verified_product_rank')
-            if (cc not in valid_countries or
-                not re.fullmatch(r'[A-Z0-9]{10}',asin) or
-                not re.fullmatch(r'20\\d\\d-\\d\\d-\\d\\d',str(day)) or
-                not category or rank is None or k in present):continue
-            record=dict(row)
-            record['bsr']=int(rank)
-            amazon.append(record);present.add(k)
-    amazon.sort(key=lambda x:(x.get('date',''),x.get('country',''),x.get('bsr',999999)))
+    amazon=merge_saved_pdp(amazon,pdp_rows,config.get('markets',[]))
     for err in budget.errors[:5]:
         msg='무료 API: '+err
         if msg not in errors:errors.append(msg)
