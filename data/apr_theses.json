@@ -14,13 +14,13 @@
         {
           "id": "per",
           "label": "현재 TTM PER",
-          "source": "주가 × 과거 당시 공시 TTM EPS",
+          "source": "주가 ÷ 당시 사용 가능한 원문 검증 지배주주 기본 TTM EPS",
           "threshold": "동일 회사 과거 분포, 장기 지속가능 수익성 함께 확인"
         },
         {
           "id": "pbr",
           "label": "현재 PBR",
-          "source": "주가 × 최근 공시 지배지분 기준 BPS",
+          "source": "주가 ÷ 최근 공시 지배지분 BPS (기말 자기주식 제외)",
           "threshold": "동일 업종 동종기업과 ROE 대비 확인"
         },
         {

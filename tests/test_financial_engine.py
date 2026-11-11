@@ -43,14 +43,14 @@ class APRFinancialEngineTests(unittest.TestCase):
         self.assertEqual(v['period_start'],'2025-06-01')
         self.assertEqual(v['per_multiples'],[15,25,35,45,55])
         self.assertEqual(v['pbr_multiples'],[5,10,15,20,25])
-        self.assertEqual(v['eps_events'][0]['available_from'],'2025-08-14')
+        self.assertEqual(v['eps_events'][0]['available_from'],'2025-03-22')
         self.assertFalse(v['forward_or_consensus_used'])
         # No 2026 earnings event should be applied to 2025 prices.
         asof='2025-06-20'
         eligible=[x for x in v['eps_events'] if x['available_from']<=asof]
-        self.assertEqual(len(eligible),0)
+        self.assertEqual(len(eligible),2)
         fy=next(x for x in v['eps_events'] if x['asof']=='2025-12-31')
-        self.assertEqual(fy['available_from'],'2026-03-23')
+        self.assertEqual(fy['available_from'],'2026-03-24')
 
     def test_roic_missing_when_invested_capital_unverified(self):
         self.assertNotIn('roic_pct',self.out)

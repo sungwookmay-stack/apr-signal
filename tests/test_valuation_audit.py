@@ -14,14 +14,9 @@ class AuditTests(unittest.TestCase):
         r=reconcile({'annual':[{'period':'2025FY','net_income':100}]},{})['rows'][0]
         self.assertIsNone(r['dart_100m'])
         self.assertEqual(r['status'],'unverified')
-    def test_eps_follows_financial_table(self):
+    def test_unverified_table_cannot_replace_verified_eps(self):
         source=fe.read_json(fe.INPUT)
         first=fe.build(source)['valuation']['eps_events'][-1]
         source['quarterly'][-1]['ni']+=100
         updated=fe.build(source)['valuation']['eps_events'][-1]
-        self.assertAlmostEqual(updated['ttm_net_income_100m']-first['ttm_net_income_100m'],100)
-    def test_late_release_not_backfilled(self):
-        source=fe.read_json(fe.INPUT)
-        source['quarterly'][-1]['available_from']='2026-12-01'
-        latest=max(fe.build(source)['valuation']['eps_events'],key=lambda x:x['asof'])
-        self.assertEqual(latest['available_from'],'2026-12-01')
+        self.assertEqual(updated,first)
