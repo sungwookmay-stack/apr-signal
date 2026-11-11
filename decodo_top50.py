@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import time
 import urllib.error
 import urllib.request
 from urllib.parse import urlsplit
@@ -172,6 +173,7 @@ def collect(state, env, now, morning_cron, persist, request=request_page):
         persist(state)
     for country, domain in planned:
         made += 1
+        started=time.monotonic()
         try:
             result = request(token, domain)
             snapshot = inspect_top50(result,country,now)
@@ -183,8 +185,19 @@ def collect(state, env, now, morning_cron, persist, request=request_page):
                                'http_status':exc.code}
             persist(state)
             return {'status':'paused','reason':'provider_http_error','attempts':made}
-        except (OSError, ValueError, TypeError, TimeoutError):
-            checks[country] = {'checked_at_utc':now.isoformat(),'status':'invalid_or_unavailable'}
+        except (OSError, ValueError, TypeError, TimeoutError) as exc:
+            safe_codes={'response_shape','wrong_market_category_page','invalid_item',
+                        'invalid_rank','missing_identity','incomplete_top50','oversize_response'}
+            if isinstance(exc,TimeoutError): code='request_timeout'
+            elif isinstance(exc,OSError): code='network_error'
+            elif isinstance(exc,json.JSONDecodeError): code='invalid_json'
+            elif isinstance(exc,ValueError) and str(exc) in safe_codes: code=str(exc)
+            else: code='invalid_response'
+            checks[country] = {'checked_at_utc':now.isoformat(),'status':'invalid_or_unavailable',
+                               'diagnostic_code':code}
+        checks[country]['elapsed_seconds']=round(time.monotonic()-started,2)
+        if env.get('GITHUB_ACTIONS')=='true':
+            print(json.dumps({'country':country,**checks[country]}),flush=True)
         persist(state)
     if len(planned)<len(pending):
         return {'status':'paused','reason':'local_monthly_attempt_cap','attempts':made}
@@ -288,7 +301,10 @@ def main():
     for cc,current in state.get('latest_complete',{}).items():
         if current.get('observed_at_utc')==before.get(cc,{}).get('observed_at_utc'): continue
         public.setdefault('snapshots',[]).append(display_snapshot(current,before.get(cc)))
-    public.update(status=result.get('reason',result['status']),limit=50,
+    public_status=result.get('reason',result['status'])
+    if public_status=='finished':
+        public_status='complete' if all(state.get('latest_checks',{}).get(cc,{}).get('status')=='complete_50' for cc in MARKETS) else 'partial_data'
+    public.update(status=public_status,limit=50,
                   schedule='월·수·금·토·일 07:30 KST',latest_checks=state.get('latest_checks',{}))
     save(public_path,public)
     print(json.dumps(result))  # fixed status + request counts only, never secrets

@@ -253,7 +253,7 @@ function renderTop100(){
  set('top100-date',last?.date||'관측 없음');
  set('top100-count',last?'확정 '+last.verified_count+'개 · 후보 '+last.candidate_count+'개':'미수집');
  set('top100-coverage',last?'응답 50/50개 순위·ASIN·상품명 검증':'수집 준비 중');
- set('top100-quality',last?'Amazon 원문 실시간 대조와 브랜드 확인은 별도입니다. '+(check?.status==='complete_50'?'':('최근 상태: '+(check?.status||'미확인'))):market?.amazon?'첫 예약 수집 대기 · 월·수·금·토·일 07:30 KST':'독립 Amazon 마켓이 없어 수집하지 않습니다.');
+ set('top100-quality',last?'Amazon 원문 실시간 대조와 브랜드 확인은 별도입니다. '+(check?.status==='complete_50'?'':('최근 상태: '+(check?.status||'미확인'))):market?.amazon?(check?.status&&check.status!=='complete_50'?'최근 수집 미채택 · 응답 오류 또는 완전성 검증 실패 · 0개로 간주하지 않습니다.':'첫 예약 수집 대기 · 월·수·금·토·일 07:30 KST'):'독립 Amazon 마켓이 없어 수집하지 않습니다.');
  set('top100-entries',last?.previous_observed_at_utc?'비교 관측: '+last.previous_observed_at_utc+' · 목록에서 사라진 상품 '+last.exited.length+'개':'이전 완전 수집 없음 · 진입·이탈 판정 보류');
  $('top100-items').innerHTML=last?(last.items.map(x=>{
   const change=x.rank_change==null?(x.movement==='entered_top50'?'Top50 진입':'첫 관측'):(x.rank_change>0?'▲ '+x.rank_change:x.rank_change<0?'▼ '+Math.abs(x.rank_change):'변동 없음');

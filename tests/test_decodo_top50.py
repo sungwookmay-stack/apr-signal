@@ -59,6 +59,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(result['reason'],'local_monthly_attempt_cap')
         self.assertEqual(result['attempts'],1)
         self.assertEqual(state['latest_complete']['US'],{'old':True})
+        self.assertEqual(state['latest_checks']['US']['diagnostic_code'],'invalid_response')
     def test_http_failure_pauses_without_body(self):
         def bad(*a): raise urllib.error.HTTPError('redacted',429,'SECRET',{},None)
         result=collect({},ENV,NOW,CRON,lambda s:None,bad)

@@ -1285,7 +1285,7 @@
       "status": "complete_50"
     }
   },
-  "status": "finished",
+  "status": "partial_data",
   "schedule": "월·수·금·토·일 07:30 KST",
   "limit": 50
 }
