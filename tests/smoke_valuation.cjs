@@ -8,3 +8,6 @@ assert(forward({price:100,profit100m:10,shares:0,mode:'profit'}).error);
 assert(forward({price:100,eps:10,growthPct:-100,mode:'growth'}).error);
 assert(forward({price:-1,eps:10}).error);
 console.log('Forward PER scenario math passed');
+
+const fs=require('node:fs');
+assert(fs.readFileSync('.github/workflows/update-and-publish.yml','utf8').includes('assets/valuation_scenario.js'), 'Pages packaging must include forward calculator script');
