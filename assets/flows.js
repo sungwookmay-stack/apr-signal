@@ -145,7 +145,7 @@ function render(ctx){
  $('flow-loan-return').textContent=count(l.returned_qty,fmt);
  $('flow-loan-bal').textContent=count(l.balance_qty,fmt);
  $('flow-loan-date').textContent=lending.last_date?
-   '대차 관측 '+lending.last_date+' · 단위 주':
+   '대차 관측 '+lending.last_date+' · 단위 주 · 원천 '+(l.source||'미기록'):
    '대차 실측 미수집 · 금융위 API '+(
      !sourceInfo.fsc_stock_lending_key_configured?
        'GitHub FSC_STOCK_LENDING_API_KEY 미등록':
@@ -154,6 +154,10 @@ function render(ctx){
      fscInfo==='ok'?'최근 거래일 자료 없음':
        '조회 '+fscInfo+' · 공식 응답 검증 대기')+
    ' · 출처: 금융위원회';
+ const lendingLink=$('flow-lending-source');
+ if(lendingLink&&l.source_url&&/^https:\/\//.test(l.source_url)){
+   lendingLink.href=l.source_url;lendingLink.textContent='현재 대차 관측 원문 ↗';
+ }
  const risk=[];
  if(short.short_ratio_mean20_pct!=null&&short.short_ratio_mean20_pct>=10)
    risk.push('최근 20일 공매도 거래대금 근사 비중 높음(10% 이상)');

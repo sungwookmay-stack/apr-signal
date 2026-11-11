@@ -10,8 +10,8 @@ class RetailSignalParserTests(unittest.TestCase):
   self.assertEqual(parse_ulta("medicube 2 results Online Only 35 Products Available"),{'catalog_items':2})
  def test_target_context_specific(self):
   t="medicube 9 results 104k+ bought in last month $20.99 medicube Zero Pore Pad Korean Skincare"
-  self.assertEqual(parse_target(t),{'brand_catalog_items':9,'brand_zero_pore_bought_lower':104000})
-  self.assertEqual(parse_target(t,scope='category'),{'category_items':9,'zero_pore_pad_bought_lower':104000})
+  self.assertEqual(parse_target(t),{'brand_catalog_items':9})
+  self.assertEqual(parse_target(t,scope='category'),{'category_items':9})
  def test_target_rejects_non_matching_badges(self):
   t="medicube 9 results 104k+ bought in last month Other brand blah "+("foo "*80)+"medicube Zero Pore Pad"
   self.assertNotIn('zero_pore_pad_bought_lower',parse_target(t))
@@ -27,3 +27,22 @@ class RetailSignalParserTests(unittest.TestCase):
  def test_html_text_ignores_script(self):
   self.assertEqual(text_of("<html><script>fraud=5000</script><body>medicube <b>67 results</b></body></html>"),"medicube 67 results")
 if __name__=='__main__':unittest.main()
+
+class RetailCollectionStateTests(unittest.TestCase):
+ def test_partial_failure_is_not_ok_and_preserves_old_values(self):
+  import tempfile, json
+  from pathlib import Path
+  from unittest.mock import patch
+  import retail_reference_collector as c
+  with tempfile.TemporaryDirectory() as tmp:
+   f=Path(tmp)/'reference.json'
+   f.write_text(json.dumps({'retail':[{'retailer':'target','metric':'category_items','date':'2026-11-04','value':9}]}))
+   def fetch(url):
+    if url==c.URLS['ulta']:return 'medicube 69 results'
+    raise ValueError('blocked')
+   with patch.object(c,'RECORD',f),patch.object(c,'public_fetch',fetch):
+    result=c.collect()
+   self.assertEqual(result['status'],'partial')
+   self.assertEqual(len(result['failures']),2)
+   old=[r for r in json.loads(f.read_text())['retail'] if r['retailer']=='target'][0]
+   self.assertEqual(old['date'],'2026-11-04')

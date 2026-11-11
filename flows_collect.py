@@ -485,13 +485,13 @@ def collect():
            'krx_collection_diagnostics':diagnostics,
            'ksd_api_key_present':bool(ksd_key),
            'last_verified_flow_date':analysis.get('flow_last_date'),
-           'primary_source':'KRX detailed investor-by-security transactions',
-           'flow_source_url':KRX_FLOW_URL,
+           'primary_source':analysis.get('latest_daily',{}).get('source','미수집'),
+           'flow_source_url':analysis.get('latest_daily',{}).get('source_url'),
            'short_source_url':KRX_SHORT_URL,
-           'lending_source_url':'https://www.data.go.kr/data/15157426/openapi.do',
+           'lending_source_url':(analysis.get('lending',{}).get('latest') or {}).get('source_url'),
            'issues':issues,
            'warning':('KRX 범위와 NXT 포함 여부·거래시간 구분을 원천 자료와 대조. '
-                      '단위는 순매수 거래대금(원), 연기금은 기관 합계의 부분집합')
+                      '관측별 unit·amount_estimated로 실제 거래대금과 주수×종가 추정을 구분. 연기금은 기관 합계의 부분집합')
        },
        'daily':daily,'short_daily':shorts,'lending_daily':lending
     }

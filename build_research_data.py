@@ -24,6 +24,8 @@ def read(path,default):
 
 
 def build():
+    from source_provenance import normalize_saved_sources
+    normalize_saved_sources(DATA)
     financial=financial_engine.update()
     try:
         trends=trend_signals.update()
@@ -50,6 +52,7 @@ def build():
     snapshot['market']=read(DATA/'market.json', snapshot.get('market', {}))
     snapshot['technical']=read(DATA/'technical.json', snapshot.get('technical', {}))
     snapshot['flows']=read(DATA/'flows.json', snapshot.get('flows', {}))
+    snapshot['kbty']=read(DATA/'kbty.json', snapshot.get('kbty', {}))
     snapshot['flow_reference']=read(DATA/'flow_reference.json', snapshot.get('flow_reference', {}))
     snapshot['kita_rates']=read(DATA/'kita_rates.json', snapshot.get('kita_rates', {}))
     snapshot['financials']=financial
