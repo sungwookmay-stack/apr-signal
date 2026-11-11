@@ -1,10 +1,10 @@
-name: Decodo Top100 - single-request diagnostic
+name: Decodo Top100 - remaining five requests
 
 on:
   workflow_dispatch:
     inputs:
       free_plan_confirmed:
-        description: 'Active Free plan, no paid top-up, at least $0.02 free credit; one US page request only'
+        description: 'Active Free plan, no paid top-up, at least $0.02 free credit; US page 2, GB and AE pages 1-2; five requests only'
         required: true
         type: boolean
         default: false
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Validate parser and perform one official API diagnostic request
+      - name: Validate parser and perform the five remaining approved requests
         env:
           DECODO_API_KEY: ${{ secrets.DECODO_API_KEY }}
           FREE_PLAN_CONFIRMED: ${{ inputs.free_plan_confirmed }}
@@ -32,7 +32,7 @@ jobs:
           from urllib.parse import urlsplit
           
           ENDPOINT = "https://data.decodo.com/v1/scrape"
-          MARKETS = (("US", "com"),)
+          MARKETS = (("US", "com", (2,)), ("GB", "co.uk", (1, 2)), ("AE", "ae", (1, 2)))
           
           class InvalidResponse(Exception):
               pass
@@ -167,12 +167,12 @@ jobs:
               opener = urllib.request.build_opener(NoRedirect())
               calls = 0
               all_complete = True
-              print("Manual smoke test: at most 1 attempt, no retries or raw response logging.")
-              print("Expected successful-call debit: $0.001 equivalent; actual debit requires dashboard comparison.")
-              for country, domain in MARKETS:
+              print("Manual smoke test: at most 5 attempts, no retries or raw response logging.")
+              print("Expected successful-call debit: $0.005 equivalent; actual debit requires dashboard comparison.")
+              for country, domain, page_numbers in MARKETS:
                   combined = []
                   pages_ok = True
-                  for number in (1,):
+                  for number in page_numbers:
                       payload = {"target": "amazon_bestsellers", "query": "beauty",
                                  "domain": domain, "page_from": str(number),
                                  "parse": True}
@@ -181,7 +181,7 @@ jobs:
                           headers={"Authorization": "Bearer " + token,
                                    "Content-Type": "application/json", "Accept": "application/json"},
                           method="POST")
-                      if calls >= 1:
+                      if calls >= 5:
                           sys.exit("Attempt cap reached.")
                       calls += 1
                       try:
@@ -207,9 +207,11 @@ jobs:
                       combined.extend(rows)
                       pages_ok = pages_ok and stats["complete_50"]
                       print(json.dumps({"country": country, "page": number, **stats}))
-                  print(json.dumps({"attempts": calls, "single_page_diagnostic": True,
-                                    "actual_debit_verified": False}))
-                  return
+                  if country == "US":
+                      print(json.dumps({"country": country, "page_2_complete": pages_ok,
+                                        "cross_page_unique_100_verified": False}))
+                      all_complete = all_complete and pages_ok
+                      continue
                   complete = (pages_ok and len(combined) == 100
                               and len({r[1] for r in combined}) == 100
                               and {r[0] for r in combined} == set(range(1, 101)))
@@ -217,7 +219,7 @@ jobs:
                                     "title_count": sum(r[2] for r in combined),
                                     "complete_top100": complete}))
                   all_complete = all_complete and complete
-              print(json.dumps({"attempts": calls, "all_four_complete": all_complete,
+              print(json.dumps({"attempts": calls, "all_requested_pages_complete": all_complete,
                                 "raw_responses_saved": False, "actual_debit_verified": False}))
               if not all_complete:
                   sys.exit("Incomplete Top100; not approved for production.")
