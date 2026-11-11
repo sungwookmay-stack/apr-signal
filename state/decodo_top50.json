@@ -1,6 +1,6 @@
 {
   "attempts_by_month": {
-    "2026-11": 12
+    "2026-11": 13
   },
   "attempts_by_day": {
     "2026-11-12": [
@@ -16,6 +16,9 @@
       "SA",
       "EG",
       "BR"
+    ],
+    "2026-11-12:uae-recheck": [
+      "AE"
     ]
   },
   "latest_complete": {
@@ -2936,8 +2939,8 @@
       "status": "complete_50"
     },
     "AE": {
-      "checked_at_utc": "2026-11-11T16:23:40.779230+00:00",
-      "status": "invalid_or_unavailable"
+      "checked_at_utc": "2026-11-11T16:38:07.872309+00:00",
+      "status": "attempt_reserved"
     },
     "SA": {
       "checked_at_utc": "2026-11-11T16:23:40.779230+00:00",
@@ -2953,6 +2956,7 @@
     }
   },
   "consumed_initial_runs": [
-    "initial-20261112"
+    "initial-20261112",
+    "uae-recheck-20261112"
   ]
 }
