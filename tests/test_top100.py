@@ -74,3 +74,21 @@ class TrackerTests(unittest.TestCase):
         self.assertEqual(len(again),len(a))
 
 if __name__=='__main__':unittest.main()
+
+
+class FullProductInfoTests(unittest.TestCase):
+    def test_titles_alone_never_claim_full_product_information(self):
+        rows=[(i, 'B'+str(i).zfill(9), 'Named product', '', '') for i in range(1,101)]
+        snap=make_snapshot('US',[rows])
+        self.assertEqual(snap['title_coverage_count'],100)
+        self.assertEqual(snap['explicit_brand_coverage_count'],0)
+        self.assertFalse(snap['full_product_info_complete'])
+        self.assertEqual(len(snap['missing_brand_asins']),100)
+
+    def test_both_fields_and_unique_asins_required(self):
+        rows=[(i, 'B'+str(i).zfill(9), 'Named product', '', 'Observed brand') for i in range(1,101)]
+        self.assertTrue(make_snapshot('US',[rows])['full_product_info_complete'])
+        rows[-1]=(100,rows[0][1],'Named product','','Observed brand')
+        self.assertFalse(make_snapshot('US',[rows])['full_product_info_complete'])
+        rows[-1]=(100,'B000000100','  ','','Observed brand')
+        self.assertFalse(make_snapshot('US',[rows])['full_product_info_complete'])

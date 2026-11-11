@@ -80,7 +80,8 @@ class ScrapeTests(unittest.TestCase):
             patch.object(sd, 'STATE', root / 'usage.json'),
             patch.object(sd, 'IDENTITY', root / 'identities.json'),
             patch.object(sd, 'PDP_STATE', root / 'pdp.json'),
-            patch.object(sd, 'PDP_CHECKS', root / 'pdp_checks.json')
+            patch.object(sd, 'PDP_CHECKS', root / 'pdp_checks.json'),
+            patch.object(sd, 'DIAGNOSTICS', root / 'diagnostics.json')
         ]
         for p in patches:
             p.start()
@@ -124,6 +125,28 @@ class ScrapeTests(unittest.TestCase):
         fake.stats.update(last_pdp_day=fake.day.isoformat(), pdp_strategy_version=2)
         track_scrapedo('test', {'markets': [{'code': 'US', 'amazon': 'amazon.com'}]}, [], client=fake)
         self.assertEqual(fake.pdp_calls, [])
+
+    def test_diagnostics_retain_no_raw_strings_and_work_on_all_failed_pages(self):
+        fake = FakeQuota()
+        fake.get = lambda *args: {'category': 'wrong-secret-value', 'token': 'private-token', 'html': 'private-body'}
+        rows, notes, added, _ = track_scrapedo('test', {'markets': [{'code': 'US', 'amazon': 'amazon.com'}]}, [], client=fake)
+        self.assertEqual(added, 0)
+        saved = json.loads(Path(sd.DIAGNOSTICS).read_text())
+        self.assertEqual(len(saved['markets']['US']['pages']), 2)
+        self.assertEqual(saved['markets']['US']['pages'][0]['validation_reason'], 'category_mismatch')
+        self.assertNotIn('private', json.dumps(saved))
+        self.assertNotIn('wrong-secret-value', json.dumps(saved))
+
+    def test_diagnostics_write_failure_does_not_break_collection(self):
+        original = sd.save_json
+        def save(path, value):
+            if path == sd.DIAGNOSTICS:
+                raise OSError('fixture denied')
+            return original(path, value)
+        with patch.object(sd, 'save_json', side_effect=save):
+            rows, notes, added, _ = track_scrapedo('test', {'markets': [{'code': 'US', 'amazon': 'amazon.com'}]}, [], client=FakeQuota())
+        self.assertEqual(added, 1)
+        self.assertTrue(any('진단 메타데이터 저장 실패' in x for x in notes))
 
     def test_wrong_category_and_page_rejected(self):
         p = payload(1)

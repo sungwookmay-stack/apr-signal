@@ -343,7 +343,8 @@ function renderTop100(){
  const total=k=>valid.reduce((n,p)=>n+(Number(p[k])||0),0);
  const quality=$('top100-quality');
  if(quality){
-   quality.textContent+=' · 상품 식별 '+(last.identity_coverage_count??'?')+'/100';
+   quality.textContent+=' · 제목 또는 브랜드 식별 '+(last.identity_coverage_count??'?')+'/100';
+   quality.textContent+=last.full_product_info_status?' · 상품명 '+last.title_coverage_count+'/100 · 명시적 브랜드 '+last.explicit_brand_coverage_count+'/100 · 상품명·브랜드 100개 목표 '+(last.full_product_info_complete?'완료':'미완료'):' · 상품명·브랜드 별도 완전성은 다음 수집부터 검증';
    quality.textContent+=diag?' · 응답 카드 미포함 '+total('missing_card_rows')+'건 · 카드 이름·브랜드 공란 '+total('empty_card_identity_rows')+'건 · 캐시 보강 '+total('cached_identity_rows')+'건 · 제외된 순위 행 '+total('rejected_rank_rows')+'건 · 응답 검증 실패 '+pages.filter(p=>p.status!=='normalized').length+'페이지 (페이지 행 기준, 캐시는 이전 관측일 수 있음)':' · 누락 원인 세부 기록은 다음 수집부터 제공';
  }
 

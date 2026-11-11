@@ -21,6 +21,7 @@ STATE = ROOT / 'data/scrapedo_usage.json'
 IDENTITY = ROOT / 'data/amazon_asin_identities.json'
 PDP_STATE = ROOT / 'data/scrapedo_pdp.json'
 PDP_CHECKS = ROOT / 'data/scrapedo_pdp_checks.json'
+DIAGNOSTICS = ROOT / 'data/amazon_collection_diagnostics.json'
 API = 'https://api.scrape.do/plugin/amazon/'
 LOCAL_LIMIT = 900
 RESERVE_PER_CALL = 3
@@ -141,24 +142,30 @@ def _known_titles(history, verified_amazon):
 
 def normalize_page(payload, page, known=None, expected_category='beauty', diagnostics=None):
     """Join all 50 ranking rows to available product cards using exact ASIN."""
-    if not isinstance(payload, dict):
+    def reject(reason):
+        if diagnostics is not None:
+            diagnostics['validation_reason'] = reason
         return None
+    if not isinstance(payload, dict):
+        return reject('response_missing_or_not_object')
     if str(payload.get('category') or '').lower() not in (
             expected_category.lower(), 'beauty', 'beauty-personal-care',
             'beauty-and-personal-care'):
-        return None
+        return reject('category_mismatch')
     if str(payload.get('type') or 'bestsellers').lower() not in ('bestsellers', 'best_sellers'):
-        return None
+        return reject('list_type_mismatch')
     if str(payload.get('page', page)) != str(page):
-        return None
+        return reject('page_mismatch')
     ranks, details = payload.get('ranking'), payload.get('products')
     if not isinstance(ranks, list) or not isinstance(details, list):
-        return None
+        return reject('ranking_or_products_not_list')
     known = known or {}
     by_asin = {str(p.get('asin') or '').upper(): p for p in details if isinstance(p, dict)}
     result = []
     if diagnostics is not None:
-        diagnostics.update(page=page, ranking_rows=len(ranks), product_cards=len(details),
+        diagnostics.update(page=page, validation_reason='accepted', ranking_rows=len(ranks), product_cards=len(details),
+                           card_title_count=sum(bool(str(x.get('title') or '').strip()) for x in details if isinstance(x, dict)),
+                           card_explicit_brand_count=sum(bool(str(x.get('brand') or '').strip()) for x in details if isinstance(x, dict)),
                            rejected_rank_rows=0, card_identity_rows=0,
                            cached_identity_rows=0, missing_card_rows=0,
                            empty_card_identity_rows=0, unresolved_rows=0)
@@ -297,7 +304,8 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
                 notes.append('Scrape.do 안전 예산·비용 확인에 따른 수집 중단')
                 break
             response = quota.get(cc, page, slug)
-            diagnostic = {'page': page, 'status': 'invalid_or_unavailable_response'}
+            diagnostic = {'page': page, 'status': 'invalid_or_unavailable_response',
+                          'observed_at_utc': dt.datetime.now(dt.timezone.utc).isoformat()}
             normalized = normalize_page(response, page, known, slug, diagnostic)
             if normalized is not None:
                 diagnostic['status'] = 'normalized'
@@ -425,6 +433,24 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         save_json(STATE, quota.stats)
         notes.append(f'PDP {requests}회 조회, 상품 식별 {identified}개, 개별 BSR {bsr_records}개 수집')
 
+    # Only bounded, allowlisted counters and validation labels are retained.
+    # No response body, titles, URLs, headers, account identifiers or credentials.
+    # Failed pages are observable even when no new snapshot could be created.
+    if diagnostics_by_country:
+        try:
+            previous_diagnostics = load_json(DIAGNOSTICS, {})
+            previous_markets = previous_diagnostics.get('markets', {}) if isinstance(previous_diagnostics, dict) else {}
+            if not isinstance(previous_markets, dict):
+                previous_markets = {}
+            for cc, page_diagnostics in diagnostics_by_country.items():
+                previous_markets[cc] = {'date': today, 'pages': page_diagnostics}
+            save_json(DIAGNOSTICS, {
+                'schema_version': 1, 'provider': 'Scrape.do',
+                'markets': {cc: previous_markets[cc] for cc in codes if cc in previous_markets},
+                'note': 'Metadata from existing scheduled calls only; no extra diagnostic requests.'
+            })
+        except (OSError, TypeError, ValueError):
+            notes.append('Amazon 진단 메타데이터 저장 실패: 수집 결과는 유지')
     save_json(IDENTITY, identities)
     added = 0
     for market, pages, prior_today in pending:

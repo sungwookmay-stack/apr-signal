@@ -79,12 +79,27 @@ def make_snapshot(country,pages,asof=None):
     # 30 ranks per page. An unidentified ASIN might be Medicube.
     identifiable=sum(bool(x.get('title') or x.get('brand')) for x in sorted_items)
     full=rank_complete and identifiable==100
+    # Separate title-based detection from an explicit brand field. Never infer
+    # brand from the first title word or count placeholders as a complete feed.
+    titled=sum(bool(str(x.get('title') or '').strip()) for x in sorted_items)
+    branded=sum(bool(str(x.get('brand') or '').strip()) for x in sorted_items)
+    title_brand=sum(bool(str(x.get('title') or '').strip()) and
+                    bool(str(x.get('brand') or '').strip()) for x in sorted_items)
+    unique_asins=len({x['asin'] for x in sorted_items})
+    product_complete=rank_complete and title_brand==100 and unique_asins==100
     return {
         'date':stamp,'country':country,'category':'beauty',
         'category_scope':'Amazon Best Sellers > Beauty (country-specific)',
         'coverage_count':len(rank_set),'max_rank_observed':max(rank_set) if rank_set else None,
         'coverage_complete':full,'rank_coverage_complete':rank_complete,
         'identity_coverage_count':identifiable,
+        'title_coverage_count':titled, 'explicit_brand_coverage_count':branded,
+        'title_and_brand_coverage_count':title_brand,
+        'unique_asin_count':unique_asins,
+        'full_product_info_complete':product_complete,
+        'full_product_info_status':'complete' if product_complete else 'incomplete',
+        'missing_title_asins':[x['asin'] for x in sorted_items if not str(x.get('title') or '').strip()],
+        'missing_brand_asins':[x['asin'] for x in sorted_items if not str(x.get('brand') or '').strip()],
         'unidentified_count':max(0,len(rank_set)-identifiable),
         'pages_received':len(pages),
         'medicube_confirmed_count':len(listings),
