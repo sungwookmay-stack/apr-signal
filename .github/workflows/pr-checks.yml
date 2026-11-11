@@ -65,7 +65,7 @@ jobs:
         run: node tests/smoke_kbty_sec.cjs
       - name: Test official Customs freight parsing
         run: python -m unittest tests/test_freight_official.py -v
-      - name: Verify MFDS registry UI and Pages packaging
+      - name: Verify clinical registry UI and Pages packaging
         run: |
-          node --check assets/mfds_devices.js
-          node tests/smoke_mfds.cjs
+          node --check assets/clinical_trials.js
+          node tests/smoke_clinical.cjs

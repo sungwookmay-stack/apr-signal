@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ok",
+  "checked_at": "2026-11-11T17:13:51.707946+00:00",
+  "last_success_at": "2026-11-11T17:13:51.707946+00:00",
+  "observed_count": 1,
+  "records": [
+    {
+      "nct_id": "NCT07871708",
+      "sponsor": "APR Co., Ltd.",
+      "title": "Clinical Evaluation of a Multi-functional Beauty Device on Cosmetic Skin Outcomes",
+      "protocol_id": "APR-X2-001",
+      "status": "RECRUITING",
+      "first_posted": "2026-10-13",
+      "updated": "2026-10-13",
+      "start": {
+        "date": "2026-09-09",
+        "type": "ACTUAL"
+      },
+      "completion": {
+        "date": "2027-02-28",
+        "type": "ESTIMATED"
+      },
+      "enrollment": {
+        "count": 50,
+        "type": "ESTIMATED"
+      },
+      "summary": "This study is designed to evaluate changes in cosmetic skin appearance and safety following at-home use of a multi-functional beauty device over a 4-week treatment period among approximately 50 participants.",
+      "url": "https://clinicaltrials.gov/study/NCT07871708",
+      "first_seen": "2026-11-11T17:13:51.707946+00:00",
+      "last_seen": "2026-11-11T17:13:51.707946+00:00",
+      "present": true
+    }
+  ],
+  "events": [
+    {
+      "nct_id": "NCT07871708",
+      "at": "2026-11-11T17:13:51.707946+00:00",
+      "kind": "first_observed",
+      "fields": []
+    }
+  ]
+}

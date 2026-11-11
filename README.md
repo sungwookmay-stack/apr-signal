@@ -419,3 +419,9 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - Nonfinite/nonpositive closing prices are excluded. Inconsistent high/low ranges are unavailable, and ATR restarts its 14-observation warmup after invalid ranges rather than bridging them. Tests cover no future/today leakage, null/zero volume, invalid OHLC and chart period switching.
 
 - Forward PER assumption calculator removed at user request; verified historical PER/PBR bands and primary-source audit remain.
+
+### 공개 임상 연구 추적 (2026-11-12 전환)
+
+신사업 페이지는 식약처 허가표 대신 ClinicalTrials.gov 공개 연구를 표시합니다. `clinical_trials.py`는 무료 공식 API에서 APR Co., Ltd. 산업계 의뢰자 정확 일치를 필터링하고 모든 페이지를 확인합니다. 매일 07:30 KST 수집 시도, 원문 최초 공개·최종 갱신과 사이트 관측 시각을 구분합니다. API 실패 시 과거 자료를 보존하고 실패 표시, 전체 성공 조회에서 사라진 연구도 취소로 단정하지 않습니다. 등록은 의뢰자 제출 자료이며 식약처·FDA 신청 또는 승인 증거가 아닙니다. 다른 법인명/병원 명의 연구는 검색에서 누락될 수 있습니다.
+
+기존 MFDS 자동 호출 및 공개 Pages 파일은 제거했습니다. 기존 코드·저장 이력과 GitHub secret은 복구 가능성을 위해 보존하며 더 이상 workflow에서 사용하지 않습니다. 임상 API에는 키가 필요 없습니다.
