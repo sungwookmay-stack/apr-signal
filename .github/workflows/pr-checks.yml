@@ -42,6 +42,8 @@ jobs:
         run: node --check assets/flows.js
       - name: Build research snapshots without network or keys
         run: python build_research_data.py
+      - name: Verify daily scenario journal UI
+        run: node tests/smoke_scenario_monitor.cjs
       - name: Verify research JavaScript syntax
         run: node --check assets/research_dashboard.js
       - name: Test APR financial valuation offline Trend and retail panels

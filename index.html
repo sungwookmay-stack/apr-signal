@@ -7,14 +7,14 @@
 <meta name="description" content="에이피알(278470) 비공식 주식 추적기: 원화/달러 주가, 환율, 볼린저밴드, 일목균형표, KBTY ETF, 칠레 스킨부스터 뉴스" />
 <title>APR 주식 추적기 | 비공식 투자 리서치</title>
 <link rel="stylesheet" href="./assets/style.css" />
-<link rel="stylesheet" href="./assets/apr_theme.css?v=20261109-neutral" />
+<link rel="stylesheet" href="./assets/apr_theme.css?v=20261112-scenario" />
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
 <script defer src="./data/bootstrap.js"></script>
-<script defer src="./assets/research_dashboard.js?v=20261111-1"></script>
+<script defer src="./assets/research_dashboard.js?v=20261112-scenario"></script>
 <script defer src="./assets/sensitivity.js?v=20261109-4"></script>
 <script defer src="./assets/flows.js?v=20261109-flow1"></script>
 <script defer src="./assets/clinical_trials.js?v=20261112-1"></script>
-<script defer src="./assets/app.js?v=20261109-flow1"></script>
+<script defer src="./assets/app.js?v=20261112-scenario"></script>
 </head>
 <body>
 <div class="shell">
@@ -29,18 +29,18 @@
       <a href="#flows" class="navitem" data-nav="flows"><span class="bullet"></span>개인·외국인·기관 수급</a>
       <a href="#financials" class="navitem" data-nav="financials"><span class="bullet"></span>재무 · 밸류에이션</a>
       <a href="#demand" class="navitem" data-nav="demand"><span class="bullet"></span>글로벌 수요 · 유통</a>
-      <a href="#theses" class="navitem" data-nav="theses"><span class="bullet"></span>주의 깊게 볼 점</a>
       <a href="#kbty" class="navitem" data-nav="kbty"><span class="bullet"></span>KBTY ETF</a>
       <a href="#business" class="navitem" data-nav="business"><span class="bullet"></span>칠레 · 신사업</a>
       <a href="#logistics" class="navitem" data-nav="logistics"><span class="bullet"></span>물류 · 운임 추이</a>
       <a href="#sensitivity" class="navitem" data-nav="sensitivity"><span class="bullet"></span>실적 민감도 · 시나리오</a>
+      <a href="#theses" class="navitem" data-nav="theses"><span class="bullet"></span>주의 깊게 볼 점</a>
     </nav>
     <div class="rail-bottom"><span class="rail-dot"></span> 공개 데이터만 사용 <br /><small>유료 API 없이 / 휴대폰 상시 접속</small></div>
   </aside>
   <div class="workspace">
     <div class="mobile-head"><a href="#overview" class="mobile-brand">APR 주식 추적기</a><span class="mobile-head-right">278470 · KRX</span></div>
     <nav class="mobile-nav" aria-label="모바일 메뉴">
-      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#flows" data-mnav="flows">수급·공매도</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요·유통</a><a href="#theses" data-mnav="theses">주의 지표</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·운임</a><a href="#sensitivity" data-mnav="sensitivity">실적 민감도</a>
+      <a href="#overview" data-mnav="overview">시장</a><a href="#technical" data-mnav="technical">기술적 분석</a><a href="#flows" data-mnav="flows">수급·공매도</a><a href="#financials" data-mnav="financials">재무·밸류</a><a href="#demand" data-mnav="demand">글로벌 수요·유통</a><a href="#kbty" data-mnav="kbty">KBTY</a><a href="#business" data-mnav="business">칠레·신사업</a><a href="#logistics" data-mnav="logistics">물류·운임</a><a href="#sensitivity" data-mnav="sensitivity">실적 민감도</a><a href="#theses" data-mnav="theses">주의 지표</a>
     </nav>
     <header class="topline"><div><span class="top-caption">EQUITY / KOREA</span><span class="top-sep">/</span><span class="top-caption strong">APR · 278470</span></div><div class="updated"><span class="live-circle"></span><span id="last-synced">기록된 데이터 확인 중</span></div></header>
     <main>
@@ -193,6 +193,8 @@
       </section>
       <section class="page" id="theses" data-page="theses">
         <div class="intro compact"><p class="eyebrow">APR RISK WATCHLIST</p><h1>주의 깊게<br /><em>볼 점.</em></h1><p class="lead">밸류에이션·마진·미국 수요·주주 지분변동의 현재값뿐 아니라 공시 이후 누적 추이와 위험 신호를 함께 점검합니다.</p></div>
+        <div class="section-title"><div><p class="eyebrow">BEAR / BASE / BULL · DAILY JOURNAL</p><h2>누적 근거로 보는 시나리오</h2><span>사용자 제공 가설 12개 · 사실과 전망을 구분한 날짜별 기록</span></div></div>
+        <div id="scenario-monitor" aria-live="polite"><p class="subtle">시나리오 평가 자료를 불러오는 중입니다.</p></div>
         <div class="section-title"><div><p class="eyebrow">THESIS CHECKLIST</p><h2>중점 관찰 항목과 변화 추이</h2><span>각 항목의 시계열·변화폭·확인 근거를 함께 표시 · EPS 컨센서스 미확인 데이터는 제외</span></div></div>
         <div id="thesis-blocks" class="thesis-blocks"><div class="blankmini">재무·유통 데이터 기반 지표를 연결하는 중입니다.</div></div>
         <div class="section-title"><div><p class="eyebrow">OPENDART · OWNERSHIP</p><h2>대주주·임원 지분 변동</h2><span>OpenDART 공식 제출자료 · 보고자별 이력 · 지분 변경사유 원문 확인</span></div></div>

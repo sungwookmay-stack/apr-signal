@@ -156,3 +156,7 @@ tbody tr:hover td{background:#fdfbfc}
 .technical-reasons .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .technical-reasons .check{padding:10px 8px;border:1px solid #eef0f1;border-radius:9px}
 @media(max-width:720px){.technical-reasons .checks{grid-template-columns:1fr}}
+
+/* Point-in-time scenario journal */
+.scenario-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.scenario-card{padding:18px;min-width:0}.scenario-condition{border-top:1px solid var(--border);padding:14px 0}.scenario-condition summary{cursor:pointer;display:grid;gap:6px;line-height:1.6}.scenario-condition summary span{font-size:11px;color:#657d8f}.scenario-condition summary strong{font-size:14px}.scenario-condition summary em{font-size:11px;font-style:normal;color:#91723d}.scenario-condition p{font-size:12px;line-height:1.8;overflow-wrap:anywhere}.scenario-context{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:16px}.scenario-evidence{display:grid;gap:6px;border:1px solid var(--border);padding:14px;border-radius:8px;overflow-wrap:anywhere}.scenario-evidence small{font-size:11px;line-height:1.7;color:#657d8f}.scenario-history{margin:12px 0}#scenario-monitor details>summary{cursor:pointer;line-height:1.7}#scenario-monitor>.panel{margin:12px 0}@media(max-width:900px){.scenario-columns{grid-template-columns:1fr}}@media(max-width:600px){.scenario-context{grid-template-columns:1fr}}

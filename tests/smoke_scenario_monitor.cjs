@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const html=fs.readFileSync('index.html','utf8'),app=fs.readFileSync('assets/app.js','utf8');
+for(const attr of ['data-nav','data-mnav'])assert(html.indexOf(attr+'="theses"')>html.indexOf(attr+'="sensitivity"'));
+assert(app.includes("'scenario_monitor'"));
+assert(fs.readFileSync('build_research_data.py','utf8').includes("snapshot['scenario_monitor']=scenario_monitor"));
+const root={innerHTML:''},window={};vm.runInNewContext(fs.readFileSync('assets/research_dashboard.js','utf8'),{window,console});
+const escapeHtml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
+const ctx={state:{},$:id=>id==='scenario-monitor'?root:null,escapeHtml};
+window.APR_RESEARCH.renderScenarioMonitor(ctx);assert(root.innerHTML.includes('판정 보류'));
+const row={date:'2026-11-12',label:'판정 보류',reason:'직접 증거 부족',context:[{label:'<img src=x>',value:27,source_url:'javascript:alert(1)',note:'대리지표'}],scenarios:[{id:'bear',label:'Bear',conditions:[{title:'재주문',horizon:'2026년 말',status:'pending',missing:['POS 미공개']}]}],revisions:[]};
+ctx.state.scenarioMonitor={latest:row,history:[row],methodology:'직접 근거만'};
+window.APR_RESEARCH.renderScenarioMonitor(ctx);assert(root.innerHTML.includes('POS 미공개'));assert(root.innerHTML.includes('2026-11-12'));assert(root.innerHTML.includes('&lt;img'));assert(!root.innerHTML.includes('href="javascript:'));
+const once=root.innerHTML;window.APR_RESEARCH.renderScenarioMonitor(ctx);assert.equal(ctx.state.scenarioMonitor.history.length,1);assert(root.innerHTML.includes('중복 저장하지'));
+assert(fs.readFileSync('.github/workflows/update-and-publish.yml','utf8').includes('cp data/*.json _site/data/'));
+console.log('PASS scenario rendering, missing data, date history, duplicate-free view, escaping, nav, bootstrap and packaging');
