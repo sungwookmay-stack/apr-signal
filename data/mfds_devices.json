@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "MFDS medical-device product registry API 15057456",
   "source_url": "https://www.data.go.kr/data/15057456/openapi.do",
-  "checked_at": null,
+  "checked_at": "2026-11-11T16:58:22.990465+00:00",
   "events": [],
   "current_scan_complete": false,
   "observed_count": null,
@@ -22,6 +22,6 @@
   "records": [],
   "last_success_at": null,
   "event_history": [],
-  "status": "not_configured",
+  "status": "missing_record_identity",
   "configuration_note": "API 연결 전. 첫 성공 수집과 업체·국내/수출 범위 검증을 아직 수행하지 않았습니다."
 }
