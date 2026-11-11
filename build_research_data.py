@@ -53,6 +53,8 @@ def build():
         trends['error_type']=type(exc).__name__
         (DATA/'trend_signals.json').write_text(
             json.dumps(trends,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    from scenario_monitor import update as update_scenarios
+    scenario_monitor=update_scenarios(DATA)
     bootstrap=DATA/'bootstrap.js'
     try:
         js=bootstrap.read_text(encoding='utf-8')
@@ -74,6 +76,7 @@ def build():
     snapshot['kita_rates']=read(DATA/'kita_rates.json', snapshot.get('kita_rates', {}))
     snapshot['financials']=financial
     snapshot['trend_signals']=trends
+    snapshot['scenario_monitor']=scenario_monitor
     snapshot['apr_theses']=read(DATA/'apr_theses.json',{})
     snapshot['reference_signals']=read(DATA/'reference_signals.json',{})
     snapshot['dart_ownership']=read(DATA/'dart_ownership.json',{})

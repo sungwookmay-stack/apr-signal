@@ -262,7 +262,22 @@ function ownershipSeries(filings){
  return {latest,points:latest?ordered.filter(x=>x.reporter===latest.reporter&&x.type===latest.type)
    .reverse().map(x=>({date:x.date,value:x.ownership_pct})):[]};
 }
+function renderScenarioMonitor(ctx){
+ const {state,$,escapeHtml}=ctx,root=$('scenario-monitor');if(!root)return;
+ const d=state.scenarioMonitor,e=escapeHtml;
+ if(!d?.latest){root.innerHTML='<div class="panel padded"><p>시나리오 평가 기록 없음 · 판정 보류</p><p class="under-note">자료 누락은 Base나 위험 없음으로 해석하지 않습니다.</p></div>';return;}
+ const labels={pending:'판정 보류',supported:'지지 근거 확인',contradicted:'반대 근거 확인',conflicting:'근거 충돌'};
+ const type={reported:'공시 실측',derived:'공시 기반 계산',proxy:'대리 지표'};
+ const source=x=>{const u=x.source_url||'';return /^https:\/\/[^\s<>"']+$/i.test(u)?'<a href="'+e(u)+'" target="_blank" rel="noopener noreferrer">'+e(x.source||'원문')+'</a>':e(x.source||'원문 미확보');};
+ const context=rows=>safeArr(rows).map(x=>'<div class="scenario-evidence"><strong>'+e(x.label||x.id||'근거')+'</strong><span>'+e(x.value==null?'미확보':String(x.value))+' '+e(x.unit||'')+'</span><small>'+e(type[x.evidence_type]||x.evidence_type||'참고')+' · 대상 '+e(x.period||x.asof||'미확인')+' · 공개 '+e(x.available_from||'미확인')+'</small><small>'+source(x)+' · '+e(x.note||'')+'</small>'+(x.signal_eligible===false?'<small>참고 방향 집계 제외: '+e(x.signal_exclusion_reason||'최신성 부족')+'</small>':'')+'</div>').join('');
+ const conditions=row=>safeArr(row.scenarios).map(s=>'<article class="thesis-card scenario-card"><h3>'+e(s.label||s.id)+'</h3>'+safeArr(s.conditions).map(c=>'<details class="scenario-condition"><summary><span>'+e(c.horizon||'')+'</span><strong>'+e(c.title||'')+'</strong><em>'+e(labels[c.status]||c.status||'판정 보류')+'</em></summary><p>'+e(c.description||'')+'</p><p>'+e(c.reason||'')+'</p>'+safeArr(c.evidence).map(x=>'<p>'+e(x.summary||x.reason||x.note||'')+' '+source(x)+'</p>').join('')+safeArr(c.partial_evidence).map(x=>'<p class="under-note">부분지지(전체 입증 아님): '+e(x.reason||'')+'</p>').join('')+safeArr(c.missing).map(x=>'<p class="under-note">미확보: '+e(x)+'</p>').join('')+'<div class="scenario-related">'+context(safeArr(row.context).filter(x=>safeArr(x.condition_ids).includes(c.id)))+'</div></details>').join('')+'</article>').join('');
+ const provisional=row=>{const p=row.provisional;if(!p)return '';return '<div class="panel padded"><h3>'+e(p.label||'참고 방향 보류')+'</h3><p class="under-note">전체 미래 시나리오의 확정 판정과는 별개인 참고 모델입니다.</p><div class="scenario-context">'+safeArr(p.counts).map(c=>'<div class="scenario-evidence"><strong>'+e(c.label||c.id)+'</strong><span>부분지지 '+e(c.partial_support)+' / 4조건</span><small>전체 확인 '+e(c.confirmed)+' · 반증 '+e(c.contradicted)+' · 충돌 '+e(c.conflicting||0)+' · 미확인 '+e(c.unknown)+'</small></div>').join('')+'</div><p class="under-note">'+e(p.rule||'')+'</p><p class="under-note">'+e(p.limitation||'')+'</p></div>';};
+ const latest=d.latest;
+ root.innerHTML=provisional(latest)+'<div class="panel padded"><p class="eyebrow">누적 평가 · '+e(latest.date||'')+' KST</p><h3>'+e(latest.label||labels[latest.classification]||latest.classification)+'</h3><p>'+e(latest.reason||'')+'</p><p class="under-note">조회 시각 '+e(new Date().toLocaleString('ko-KR',{timeZone:'Asia/Seoul'}))+' KST · 평가 생성 '+e(latest.evaluated_at_utc||'')+'</p><p class="under-note">사이트 갱신 시 서버에 날짜별 기록을 저장합니다. 브라우저를 새로 열어도 같은 평가를 중복 저장하지 않습니다. 새 자료가 없으면 기존 근거를 유지하며, 평가일과 자료 기준일은 다릅니다.</p><details><summary>분류 방법과 한계</summary><p>'+e(typeof d.methodology==='string'?d.methodology:JSON.stringify(d.methodology||{}))+'</p><p>사진은 정성적 미래 가설입니다. 점수·확률·매수 신호가 아니며, 아직 오지 않은 시점의 결과는 확정하지 않습니다. 순위·리뷰·검색 관심도를 매출이나 재주문으로 바꾸어 계산하지 않습니다.</p></details></div><div class="scenario-columns">'+conditions(latest)+'</div><details class="panel padded"><summary>현재 확보한 근거와 데이터 기준일</summary><div class="scenario-context">'+(context(latest.context)||'<p>검증 가능한 자료 미확보</p>')+'</div></details><details class="panel padded"><summary>보완이 필요한 자료</summary>'+safeArr(latest.missing).map(x=>'<p>'+e(x)+'</p>').join('')+'</details><div class="section-title"><h3>날짜별 누적 평가 이력</h3></div>'+safeArr(d.history).slice().reverse().map(row=>'<details class="panel padded scenario-history"><summary>'+e(row.date||'')+' · '+e(row.label||labels[row.classification]||row.classification)+' · 변경 이력 '+safeArr(row.revisions).length+'회</summary><p>'+e(row.reason||'')+'</p><small>평가 생성 '+e(row.evaluated_at_utc||'')+' · 당시 확인 가능한 자료만 사용</small>'+provisional(row)+'<div class="scenario-columns">'+conditions(row)+'</div><details><summary>당시 근거 보기</summary><div class="scenario-context">'+context(row.context)+'</div></details>'+safeArr(row.revisions).map(r=>'<details><summary>같은 날 이전 평가 '+e(r.evaluated_at_utc||'')+'</summary><p>'+e(r.label||r.classification||'')+' · '+e(r.reason||'')+'</p>'+provisional(r)+'<div class="scenario-context">'+context(r.context)+'</div></details>').join('')+'</details>').join('');
+}
+
 function renderTheses(ctx){
+ renderScenarioMonitor(ctx);
  const {state,$,chart,escapeHtml,fmt,C}=ctx;
  const r=state.reference||{},f=state.financials||{},d=state.demand||{},t=state.trendSignals||{};
  const metrics=safeArr(r.retail),amazonWeeks=safeArr(r.amazon_weekly);
@@ -429,5 +444,5 @@ function renderTheses(ctx){
 
 }
 
-global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses,renderRetail,ownershipSeries};
+global.APR_RESEARCH={renderTrends,renderFinancials,renderTheses,renderRetail,ownershipSeries,renderScenarioMonitor};
 })(window);

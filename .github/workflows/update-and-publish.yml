@@ -35,6 +35,8 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Verify browser application JavaScript syntax
         run: node --check assets/app.js
+      - name: Verify daily scenario journal UI
+        run: node tests/smoke_scenario_monitor.cjs
       - name: Verify research dashboard JavaScript syntax
         run: node --check assets/research_dashboard.js
       - name: Verify standalone sensitivity JavaScript syntax
