@@ -338,6 +338,15 @@ function renderTop100(){
  if(groupStart!==null)observedGroups.push(groupStart===groupEnd?String(groupStart):groupStart+'~'+groupEnd);
  set('top100-coverage','확인 '+coverage+'/100개 순위'+(observedGroups.length?' · '+observedGroups.join(', '):''));
  set('top100-quality',last.coverage_complete?'1~100위 순위 및 100개 상품의 브랜드 확인':last.rank_coverage_complete?'1~100위 순위는 확보했지만 상품명 미확인이 '+(last.unidentified_count??'?')+'개 · 최소 확인 수':'순위 일부만 확인 · 전체 Top 100 품목 수 미확정');
+ const diag=last.identity_diagnostics, pages=diag?.pages||[];
+ const valid=pages.filter(p=>p.status==='normalized');
+ const total=k=>valid.reduce((n,p)=>n+(Number(p[k])||0),0);
+ const quality=$('top100-quality');
+ if(quality){
+   quality.textContent+=' · 상품 식별 '+(last.identity_coverage_count??'?')+'/100';
+   quality.textContent+=diag?' · 응답 카드 미포함 '+total('missing_card_rows')+'건 · 카드 이름·브랜드 공란 '+total('empty_card_identity_rows')+'건 · 캐시 보강 '+total('cached_identity_rows')+'건 · 제외된 순위 행 '+total('rejected_rank_rows')+'건 · 응답 검증 실패 '+pages.filter(p=>p.status!=='normalized').length+'페이지 (페이지 행 기준, 캐시는 이전 관측일 수 있음)':' · 누락 원인 세부 기록은 다음 수집부터 제공';
+ }
+
  set('top100-entries',last.new_count!=null&&last.exit_count!=null?
    '관측 범위 내 신규 진입 '+last.new_count+'개 · 이탈 '+last.exit_count+'개':
    '이전 관측과 비교할 동일 범위의 전체 목록이 없어 진입·이탈 집계 보류');

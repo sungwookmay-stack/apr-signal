@@ -139,7 +139,7 @@ def _known_titles(history, verified_amazon):
     return names
 
 
-def normalize_page(payload, page, known=None, expected_category='beauty'):
+def normalize_page(payload, page, known=None, expected_category='beauty', diagnostics=None):
     """Join all 50 ranking rows to available product cards using exact ASIN."""
     if not isinstance(payload, dict):
         return None
@@ -157,16 +157,24 @@ def normalize_page(payload, page, known=None, expected_category='beauty'):
     known = known or {}
     by_asin = {str(p.get('asin') or '').upper(): p for p in details if isinstance(p, dict)}
     result = []
+    if diagnostics is not None:
+        diagnostics.update(page=page, ranking_rows=len(ranks), product_cards=len(details),
+                           rejected_rank_rows=0, card_identity_rows=0,
+                           cached_identity_rows=0, missing_card_rows=0,
+                           empty_card_identity_rows=0, unresolved_rows=0)
     expected = range(1, 51) if page == 1 else range(51, 101)
     for item in ranks:
         if not isinstance(item, dict):
+            if diagnostics is not None: diagnostics["rejected_rank_rows"] += 1
             continue
         try:
             rank = int(item.get('rank'))
         except (ValueError, TypeError):
+            if diagnostics is not None: diagnostics["rejected_rank_rows"] += 1
             continue
         asin = str(item.get('asin') or '').upper()
         if rank not in expected or not ASIN.fullmatch(asin):
+            if diagnostics is not None: diagnostics["rejected_rank_rows"] += 1
             continue
         info = by_asin.get(asin, {})
         old = known.get(asin) or {}
@@ -174,6 +182,13 @@ def normalize_page(payload, page, known=None, expected_category='beauty'):
             old = {'title': old}
         title = str(info.get('title') or old.get('title') or '')[:180]
         brand = str(info.get('brand') or old.get('brand') or '')[:100]
+        if diagnostics is not None:
+            card_identity = bool(info.get('title') or info.get('brand'))
+            diagnostics['card_identity_rows'] += int(card_identity)
+            diagnostics['missing_card_rows'] += int(asin not in by_asin)
+            diagnostics['empty_card_identity_rows'] += int(asin in by_asin and not card_identity)
+            diagnostics['cached_identity_rows'] += int(not card_identity and bool(title or brand))
+            diagnostics['unresolved_rows'] += int(not title and not brand)
         # Only link to an official product page for this market.
         url = str(item.get('url') or info.get('url') or '')
         if not url.startswith('https://www.amazon.'):
@@ -263,6 +278,7 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
     for k, v in names.items():
         identities.setdefault(k, v)
     pending = []
+    diagnostics_by_country = {}
     notes = []
     for market in markets:
         cc = market['code']
@@ -274,13 +290,18 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         known = {key.split(':', 1)[1]: record for key, record in identities.items()
                  if key.startswith(cc + ':') and isinstance(record, (dict, str))}
         pages = []
+        diagnostics_by_country[cc] = []
         slug = market.get('amazon_beauty_slug') or 'beauty'
         for page in (1, 2):
             if not quota.can_call():
                 notes.append('Scrape.do 안전 예산·비용 확인에 따른 수집 중단')
                 break
             response = quota.get(cc, page, slug)
-            normalized = normalize_page(response, page, known, slug)
+            diagnostic = {'page': page, 'status': 'invalid_or_unavailable_response'}
+            normalized = normalize_page(response, page, known, slug, diagnostic)
+            if normalized is not None:
+                diagnostic['status'] = 'normalized'
+            diagnostics_by_country[cc].append(diagnostic)
             if normalized is None:
                 notes.append(f'{cc}: Beauty {page}페이지 검증 실패 (카테고리 slug={slug})')
                 continue
@@ -303,13 +324,9 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         if pages:
             pending.append((market, pages, prior_today))
 
-    # Spend limited PDP calls on verified Medicube first. Previously, ALL four
-    # calls could go to unidentified (mostly unrelated) chart products, leaving
-    # individual Medicube BSR empty despite successful API calls.
-    # On the first deployment of this priority correction, permit one same-day
-    # correction run. The version marker prevents repeat paid requests afterward.
-    needs_pdp = (quota.stats.get('last_pdp_day') != today or
-                 quota.stats.get('pdp_strategy_version', 0) < 2)
+    # Keep the existing daily ceiling; strategy changes never authorize extra
+    # same-day calls. Reserve two slots each for known BSR and unknown identity.
+    needs_pdp = quota.stats.get('last_pdp_day') != today
     if hasattr(quota, 'get_pdp') and needs_pdp:
         pdp_checks = load_json(PDP_CHECKS, [])
         if not isinstance(pdp_checks, list):
@@ -360,16 +377,20 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
                             (x[0], x[2]) not in seen_today]
         unknown_candidates = [x for x in unknown_candidates if
                               (x[0], x[2]) not in seen_today]
-        # Reserve up to three calls for real Medicube BSR and one for resolving
+        # Reserve two calls for real Medicube BSR and two for resolving
         # unfamiliar chart ASINs. Refill any unused slot with the other pool.
-        selected = known_candidates[:3] + unknown_candidates[:1]
+        selected = known_candidates[:2] + unknown_candidates[:2]
         chosen = {(cc, asin) for cc, _, asin in selected}
-        for candidate in known_candidates[3:] + unknown_candidates[1:]:
+        for candidate in known_candidates[2:] + unknown_candidates[2:]:
             if len(selected) >= MAX_PDP_DAILY:
                 break
             if (candidate[0], candidate[2]) not in chosen:
                 selected.append(candidate)
                 chosen.add((candidate[0], candidate[2]))
+
+        # Interrupted runs must not exceed the unchanged daily four-call ceiling.
+        used_today = sum(x.get('date') == today for x in pdp_checks)
+        selected = selected[:max(0, MAX_PDP_DAILY - used_today)]
 
         pdp_history = load_json(PDP_STATE, [])
         if not isinstance(pdp_history, list):
@@ -400,7 +421,7 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         save_json(PDP_STATE, pdp_history[-10000:])
         save_json(PDP_CHECKS, pdp_checks[-12000:])
         quota.stats['last_pdp_day'] = today
-        quota.stats['pdp_strategy_version'] = 2
+        quota.stats['pdp_strategy_version'] = 3
         save_json(STATE, quota.stats)
         notes.append(f'PDP {requests}회 조회, 상품 식별 {identified}개, 개별 BSR {bsr_records}개 수집')
 
@@ -422,6 +443,13 @@ def track_scrapedo(token, config, history, verified_amazon=None, client=None):
         snapshot = make_snapshot(cc, refreshed, today)
         for product in snapshot['medicube_listings']:
             product['url'] = 'https://www.' + market['amazon'] + '/dp/' + product['asin']
+        snapshot['identity_diagnostics'] = {
+            'version': 1, 'basis': 'observed_provider_response_and_local_cache',
+            'pages': diagnostics_by_country.get(cc, []),
+            'identity_coverage_percent': snapshot['identity_coverage_count'],
+            'unresolved_after_enrichment': snapshot['unidentified_count'],
+            'note': 'Card availability is observed, not proof of provider throttling; cached identities may be older.'
+        }
         snapshot['marketplace'] = market['amazon']
         snapshot['category_slug'] = market.get('amazon_beauty_slug') or 'beauty'
         snapshot['source'] = 'Scrape.do Amazon Best Sellers Beauty'
