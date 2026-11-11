@@ -1115,8 +1115,10 @@
       "status": "complete_50"
     },
     "AE": {
-      "checked_at_utc": "2026-11-11T16:23:40.779230+00:00",
-      "status": "invalid_or_unavailable"
+      "checked_at_utc": "2026-11-11T16:38:07.872309+00:00",
+      "status": "invalid_or_unavailable",
+      "diagnostic_code": "incomplete_top50",
+      "elapsed_seconds": 20.69
     },
     "SA": {
       "checked_at_utc": "2026-11-11T16:23:40.779230+00:00",
