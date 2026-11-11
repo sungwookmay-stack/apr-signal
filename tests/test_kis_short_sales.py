@@ -22,6 +22,28 @@ class KISDailyShortTests(unittest.TestCase):
         self.assertIsNone(rows[0]["short_value_ratio_pct"])
         self.assertNotIn("acml_ssts_cntg_qty",rows[0])
 
+    def test_daily_value_ratio_is_not_volume_or_cumulative_ratio(self):
+        row = {"stck_bsop_date":"20261109", "ssts_cntg_qty":"10",
+               "acml_vol":"100", "ssts_tr_pbmn":"250", "acml_tr_pbmn":"5000",
+               "ssts_tr_pbmn_rlim":"5.00", "acml_ssts_tr_pbmn":"999999"}
+        got = normalize({"rt_cd":"0", "output2":[row]})[0]
+        self.assertEqual(got["short_value_ratio_pct"], 5)
+        self.assertEqual(got["short_volume_ratio_pct"], 10)
+        self.assertIsNone(got["short_trade_value_krw"])
+        self.assertIsNone(got["reported_net_short_balance_qty"])
+        row["ssts_tr_pbmn_rlim"] = "8"
+        got = normalize({"rt_cd":"0", "output2":[row]})[0]
+        self.assertIsNone(got["short_value_ratio_pct"])
+        self.assertEqual(got["short_value_ratio_method"], "daily_value_ratio_conflict")
+
+    def test_reported_value_ratio_zero_missing_nan(self):
+        for value, expected in [("0", 0), (None, None), ("NaN", None),
+                                ("inf", None), ("101", None), ("-1", None)]:
+            row={"stck_bsop_date":"20261109", "ssts_cntg_qty":"0",
+                 "acml_vol":"100", "ssts_tr_pbmn_rlim":value}
+            got=normalize({"rt_cd":"0", "output2":[row]})[0]
+            self.assertEqual(got["short_value_ratio_pct"], expected)
+
     def test_bad_or_untrusted_rows_not_numeric_zero(self):
         self.assertEqual(normalize({"rt_cd":"1","output2":[]}),[])
         self.assertEqual(normalize({"rt_cd":"0","output2":{}}),[])

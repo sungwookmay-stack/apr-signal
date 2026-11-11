@@ -186,11 +186,9 @@ jobs:
       - name: Verify KBTY SEC EDGAR filings (free; fund-series match required)
         # Daily morning SEC refresh; [sec-now] checks SEC only without Amazon/Trends.
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
-        run: python kbty_sec.py --refresh
-      - name: Refresh KBTY SEC EDGAR series-verified filings (free)
-        # SEC only. [sec-now] never invokes Amazon/Trends or whole APR collection.
-        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[collect-now]') || contains(github.event.head_commit.message, '[sec-now]')))
-        run: python kbty_sec.py --refresh
+        run: |
+          python -m pip install --disable-pip-version-check --quiet "pypdf>=6,<7"
+          python kbty_sec.py --refresh
       - name: Backfill June 2025 APR prices and official FX (no paid data APIs)
         # [price-backfill] fetches only free public APR OHLCV and ECB FX history.
         # Do not execute the Amazon/Trends full collector on this mode.

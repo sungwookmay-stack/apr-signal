@@ -20,6 +20,7 @@ import urllib.error
 from pathlib import Path
 from urllib import parse, request
 import xml.etree.ElementTree as ET
+from kbty_official import parse_official
 from indicator_engine import calculate
 import update_data
 from optional_free_api import Budget, update_trends
@@ -102,21 +103,14 @@ def collect_kbty():
       'price_history':previous.get('price_history',[]),'aum_history':previous.get('aum_history',[]),
       'holdings':previous.get('holdings',[]),'errors':[]
     }
+    state['official_checked_at']=NOW
+    state['official_data_state']='fetch_failed'
+    state['holdings_publication_state']='unverified'
+    state['launch_expected_date']=None
     if doc:
-        text=re.sub(r'<[^>]+>',' ',doc)
-        text=re.sub(r'\s+',' ',text)
-        if 'expected to begin trading in the second week of November' in text:
-            state['status']='11월 둘째 주 상장 예정 문구 확인 (공식 사이트)'
-            state['launch_expected']='11월 둘째 주 (현재 공식 페이지 문구, 변경 가능)'
-        elif 'Launching November 2026' in text or 'Coming soon' in text:
-            state['status']='출시 준비 중 (공식 사이트)'
-        # Optional official net-assets extraction, ONLY inside Fund facts block.
-        facts=re.search(r'Fund facts(.{0,3500}?)Performance',text,re.I)
-        if facts:
-            m=re.search(r'Net assets\s*\$\s*([\d,.]+)\s*([MB])?',facts.group(1),re.I)
-            if m:
-                n=safe_num(m.group(1))
-                if n:state['aum_usd']=n*({'M':1e6,'B':1e9}.get((m.group(2) or '').upper(),1))
+        parsed=parse_official(doc)
+        state.update(parsed)
+        # Keep undated official values separate: they are not a dated NAV/AUM history point.
     else:
         state['status']='운용사 사이트 접근 실패 / 현재 거래 여부 미확인'
         for k in ('aum_usd','nav_usd','apr_weight_pct','apr_shares','apr_holding_as_of','latest_price_usd','price_date'):
@@ -163,15 +157,17 @@ def collect_kbty():
         state['holdings']=[x for x in holdings if x['as_of']==latest]
     current=state['holdings'];has_holdings=bool(current)
     if has_holdings:
-        candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS') or
-                                             x.get('name','').strip().upper() in ('APR','APR CORPORATION','에이피알'))]
+        candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS','278470 KS') or
+                                             x.get('name','').strip().upper() in ('APR','APR CORPORATION','APR CORP','APR CORP.','에이피알'))]
         if candidates:
             state['apr_weight_pct']=sum(x['weight_pct'] for x in candidates)
-            state['apr_shares']=sum(x['shares'] for x in candidates if x['shares'] is not None) or None
+            state['apr_shares']=(sum(x['shares'] for x in candidates)
+                                 if all(x.get('shares') is not None for x in candidates) else None)
             state['apr_holding_as_of']=current[0]['as_of']
         else:
             # Confirmed complete list? CSV might be partial; do not assert APR 0%.
             state['apr_weight_pct']=None
+            state['apr_shares']=None
             state['apr_holding_as_of']=None
     save('kbty.json',state)
     return state

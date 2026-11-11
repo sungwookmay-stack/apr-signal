@@ -35,13 +35,15 @@ MAX_HEADER_CHECKS = 10
 INTERESTING_FORMS = frozenset({
     '485APOS', '485BPOS', '485BXT', '497', '497K',
     '8-A12B', '8-A12B/A', 'EFFECT', 'N-PORT', 'NPORT-P',
-    'N-CSR', 'N-CEN', '24F-2NT'
+    'N-CSR', 'N-CEN', '24F-2NT', 'CERT'
 })
 ACCESSION_RE = re.compile(r'^\d{10}-\d{2}-\d{6}$')
 FILENAME_RE = re.compile(r'^[A-Za-z0-9._-]{1,200}$')
 SERIES_RE = re.compile(r'<SERIES-ID>\s*S000109351(?:\b|<)', re.I)
 
 FORM_CONTEXT = {
+    'CERT': ('NYSE Arca 상장·등록 승인 확인서',
+             '거래소가 KBTY 지분의 상장·등록 승인을 SEC에 확인한 문서입니다. 실제 첫 거래 체결, AUM 또는 APR 편입을 증명하지 않습니다.'),
     '485APOS': ('등록신고서 개정 제출',
                  'KBTY 시리즈의 등록신고 개정서가 제출됐습니다. 구체적인 변경사항과 효력 여부는 SEC 원문 확인이 필요합니다.'),
     '485BPOS': ('투자설명서 등 등록문서 개정',
@@ -90,6 +92,17 @@ def sec_fetch(url: str) -> bytes:
         'Accept-Encoding': 'identity'})
     with urllib.request.urlopen(req, timeout=14) as response:
         return response.read(1_500_000)
+
+
+def failure_detail(exc, endpoint):
+    """Safe operational diagnostics, never URLs, response bodies or credentials."""
+    status = getattr(exc, 'code', None)
+    reason = ('접근 거절 · 우회하지 않고 기존 확인자료 유지' if status == 403 else
+              '호출 제한 · 다음 예약 조회까지 대기' if status == 429 else
+              '원천 조회 실패 · 기존 확인자료 유지')
+    return {'endpoint': endpoint, 'error_type': type(exc).__name__,
+            'http_status': status if isinstance(status, int) else None,
+            'note': reason}
 
 
 def candidate_filings(payload, min_date='2026-07-01'):
@@ -186,6 +199,35 @@ def has_target_series(header_content):
     return bool(SERIES_RE.search(text))
 
 
+def certificate_identity(header, item, transport):
+    """CERT may lack SERIES-ID. Verify exact fund name in the official PDF.
+
+    Never accept CIK, filename, or search snippets alone as fund identity.
+    """
+    from html import unescape
+    import io
+    from pypdf import PdfReader
+    text = unescape(header.decode('utf-8', errors='replace'))
+    if not re.search(r'<CIK>\s*0000919160\b', text, re.I):
+        return False
+    filename = item['filename']
+    if not filename.lower().endswith('.pdf'):
+        match = re.search(r'<FILENAME>\s*([A-Za-z0-9._-]+\.pdf)\b', text, re.I)
+        if not match:
+            return False
+        filename = match.group(1)
+    payload = transport(filing_link(item['accession'], filename))
+    try:
+        document = PdfReader(io.BytesIO(payload))
+        content = ' '.join((page.extract_text() or '') for page in document.pages[:10])
+    except Exception as exc:
+        raise ValueError('CertificatePDFUnreadable') from None
+    content = re.sub(r'\s+', ' ', content)
+    return bool(re.search(r'Guinness Atkinson K[-–]Beauty ETF\b', content, re.I)
+                and re.search(r'NYSE Arca', content, re.I)
+                and re.search(r'certifies its approval for listing and registration', content, re.I))
+
+
 def make_detected_record(item):
     title, note = FORM_CONTEXT.get(item['form'], DEFAULT_CONTEXT)
     return {
@@ -212,7 +254,7 @@ def assemble_base(registry, previous=None, checked_at=None):
         # Keep a previously series-confirmed item, but curated registry takes
         # priority over generic automatically assigned notes.
         if (ACCESSION_RE.fullmatch(str(accession)) and
-            old.get('review_level') == 'KBTY 시리즈 확인 · 서식 기반 설명' and
+            old.get('review_level') in ('KBTY 시리즈 확인 · 서식 기반 설명', 'CERT 원문 펀드명·거래소 확인') and
             accession not in items and
             str(old.get('source_url', '')).startswith(SEC_ARCHIVE)):
             items[accession] = old
@@ -238,7 +280,7 @@ def assemble_base(registry, previous=None, checked_at=None):
         'watchlist': registry.get('watchlist', []),
         'filings': filings,
         'data_scope': 'SEC 공시 검증 여부와 운용사 실제 상장·AUM·APR 편입은 별도',
-        'summary_basis': '검토된 3건은 SEC 본문 기반. 이후 자동 추가는 KBTY 시리즈 확인 및 서식 정보 기반.'
+        'summary_basis': '검토자료는 SEC 본문 기반. 자동 추가는 KBTY 시리즈 또는 CERT 원문 펀드명·거래소 확인 기반.'
     }
 
 
@@ -252,6 +294,8 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
     previous = read_json(output, {})
     report = assemble_base(registry, previous,
                            now.astimezone(dt.timezone.utc).isoformat(timespec='seconds'))
+    report['retrieval_diagnostics'] = []
+    report['pending_review'] = []
     seen = {x['accession'] for x in report['filings']}
     try:
         source_name = 'SEC submissions'
@@ -260,6 +304,7 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
             listings = candidate_filings(json.loads(raw.decode('utf-8')))
         except (OSError, ValueError, KeyError, TimeoutError,
                 urllib.error.URLError) as initial_error:
+            report['retrieval_diagnostics'].append(failure_detail(initial_error, source_name))
             # The SEC data host may block some cloud IP ranges. Try its
             # separate official full-text index before reporting failure.
             source_name = 'SEC full-text'
@@ -276,11 +321,20 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
                                  item['accession'] + '-index-headers.html')
             try:
                 body = transport(header)
-                if not has_target_series(body):
+                certificate = item['form'] == 'CERT'
+                verified = certificate_identity(body, item, transport) if certificate else has_target_series(body)
+                if not verified:
+                    if certificate:
+                        report['pending_review'].append({'accession': item['accession'], 'form': 'CERT', 'filed_date': item['filed_date'], 'reason': 'CERT 원문 펀드 식별 미확인'})
                     continue
-                report['filings'].append(make_detected_record(item))
+                record = make_detected_record(item)
+                if certificate:
+                    record['review_level'] = 'CERT 원문 펀드명·거래소 확인'
+                    record['change_ko'] = '공식 PDF의 펀드명·거래소 상장등록 승인 문구 확인. 실제 거래 개시·보유자산은 별도입니다.'
+                report['filings'].append(record)
                 seen.add(item['accession'])
-            except (OSError, ValueError, TimeoutError, urllib.error.URLError):
+            except (OSError, ValueError, ImportError, TimeoutError, urllib.error.URLError) as header_error:
+                report['retrieval_diagnostics'].append(failure_detail(header_error, 'SEC filing header'))
                 # Fail closed: a header fetch failure is not a KBTY filing.
                 header_errors += 1
                 continue
@@ -291,7 +345,10 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
         report['new_detected'] = len(seen) - len(set(
             x['accession'] for x in assemble_base(registry, previous)['filings']))
         report['scan_count'] = checked
-        if checked and header_errors:
+        if report['pending_review']:
+            report['sec_monitor_status'] = source_name + ' 조회 완료 · CERT 원문 식별 검토 대기 (최신 확인 미완료)'
+            report['sec_monitor_error'] = 'CertificateIdentityUnverified'
+        elif checked and header_errors:
             report['sec_monitor_status'] = (
                 source_name + ' 검색 완료 · 개별 공시 확인 일부 실패; '
                 '신규공시 최신 여부는 미확정'
@@ -303,13 +360,14 @@ def refresh(transport=None, output=OUTPUT, registry_file=SOURCE, now=None):
             )
         else:
             report['sec_monitor_status'] = (
-                source_name + ' 조회 완료 · KBTY 시리즈 확인 공시만 표시'
+                source_name + ' 대상 서식 조회 완료 · KBTY 식별 확인 공시만 표시'
             )
             report['last_successful_check_utc'] = report['checked_at_utc']
     except (OSError, ValueError, KeyError, TimeoutError, urllib.error.URLError) as exc:
         report['sec_monitor_status'] = (
             'SEC 자동 접근 실패 · 기존 확인 공시 유지 (최신 여부 미확인)')
         report['sec_monitor_error'] = type(exc).__name__
+        report['retrieval_diagnostics'].append(failure_detail(exc, source_name))
     write_json(output, report)
     return report
 
