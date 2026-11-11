@@ -231,16 +231,13 @@ jobs:
         env:
           FSC_STOCK_LENDING_API_KEY: ${{ secrets.FSC_STOCK_LENDING_API_KEY }}
         run: python fsc_stock_lending.py
-      - name: Refresh MFDS device registry (free, optional service key)
-        # Existing morning schedule only; no key means explicit not_configured, no API call.
-        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[mfds-now]'))
-        env:
-          MFDS_DEVICE_API_KEY: ${{ secrets.MFDS_DEVICE_API_KEY }}
-        run: python mfds_device_registry.py
-      - name: Verify MFDS inactive, failure and observed-state UI
+      - name: Refresh public APR clinical studies (free, no key)
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[clinical-now]'))
+        run: python clinical_trials.py
+      - name: Verify clinical registry UI
         run: |
-          node --check assets/mfds_devices.js
-          node tests/smoke_mfds.cjs
+          node --check assets/clinical_trials.js
+          node tests/smoke_clinical.cjs
       - name: Generate APR financial and Google Trends research snapshots (free)
         # Reuse local verified filings and existing Trends observations; no new APIs.
         run: python build_research_data.py
@@ -265,10 +262,10 @@ jobs:
         run: |
           mkdir -p _site/assets _site/data
           cp index.html _site/index.html
-          cp assets/style.css assets/apr_theme.css assets/app.js assets/research_dashboard.js assets/mfds_devices.js assets/sensitivity.js assets/flows.js _site/assets/
+          cp assets/style.css assets/apr_theme.css assets/app.js assets/research_dashboard.js assets/clinical_trials.js assets/sensitivity.js assets/flows.js _site/assets/
           cp data/*.json _site/data/
           # Retired raw Top100 and out-of-list BSR must not remain publicly served.
-          rm -f _site/data/top100.json _site/data/scrapedo_pdp.json _site/data/discovered_asins.json
+          rm -f _site/data/mfds_devices.json _site/data/top100.json _site/data/scrapedo_pdp.json _site/data/discovered_asins.json
           cp data/bootstrap.js _site/data/ 2>/dev/null || true
           touch _site/.nojekyll
       - name: Configure Pages
