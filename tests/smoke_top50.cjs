@@ -43,8 +43,6 @@ async function check(){
     }
     const s=latest(cc);
     if(!s)continue;
-    assert.equal(a.el('amazon-quick-count').textContent,countText(s));
-    assert.equal(a.el('amazon-quick-date').textContent.includes(s.date),true);
     assert.match(a.el('amazon-coverage-detail').textContent,/제목 표기 후보/);
     if(s.items.length){
       assert.ok(a.el('top100-items').innerHTML.includes(s.items[0].asin));

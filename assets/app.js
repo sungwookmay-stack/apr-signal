@@ -200,8 +200,6 @@ function renderDemand(){if(window.APR_RESEARCH)window.APR_RESEARCH.renderTrends(
  renderLatinAmerica();
  const observed=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
  const mostRecent=observed.length?observed[observed.length-1]:null;
- set('amazon-quick-count',market&&!market.amazon?'독립 마켓 없음':mostRecent?'확정 '+mostRecent.verified_count+' · 후보 '+mostRecent.candidate_count:'미수집');
- set('amazon-quick-date',mostRecent?mostRecent.date+' · 50/50개 응답 검증':'관측된 날짜 없음');
  const chosen=observed.flatMap(s=>(s.items||[]).filter(x=>p==='all'||x.asin===p).map(x=>({...x,date:s.date})));
  const days=[...new Set(observed.map(x=>x.date))].sort();
  const asins=[...new Set(chosen.map(x=>x.asin))];

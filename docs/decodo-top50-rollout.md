@@ -12,7 +12,7 @@ Each accepted response must contain exactly positions 1–50, 50 unique valid AS
 
 Official APR brand source (checked 2026-11-11): https://www.apr-in.com/en/apr_about.html
 
-MEDICUBE, APRILSKIN, FORMENT, GLAM.D Bio, NDY and PHOTOGRAY are separated. Exact brand-title matches are **candidates**, not verified brand identity. Multi-brand titles are withheld from single-brand counts. Generic English “nerdy” and short “NDY” alone are intentionally not matched. No brand is inferred solely from a product name such as Booster or PDRN. Brand verified counts require reviewed country-specific ASIN evidence and currently have no automatic promotion.
+MEDICUBE, APRILSKIN, FORMENT and GLAM.D Bio are separated. Fashion NDY and entertainment PHOTOGRAY are excluded from this beauty panel. Exact brand-title matches are **candidates**, not verified brand identity. Multi-brand titles are withheld from single-brand counts. No brand is inferred solely from a product name such as Booster or PDRN. Brand verified counts require reviewed country-specific ASIN evidence and currently have no automatic promotion.
 
 Movements compare identical ASINs and complete same-country/category snapshots. An absent product is “not in this Top50,” never rank51 or a sales estimate. A first observation is not called a new entry. First live production results remain pending; US, GB and AE were validated in earlier page1 tests, other markets must pass the same checks.
 
