@@ -62,8 +62,9 @@ jobs:
       - name: Decodo Top50 gated morning collection
         # User authorized the public Top50 summary and free-plan collection.
         # Python additionally enforces KST Mon/Wed/Fri/Sat/Sun and no reruns.
-        if: github.event_name == 'schedule' && github.event.schedule == '30 22 * * *'
+        if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || (github.event_name == 'push' && contains(github.event.head_commit.message, '[top50-initial-20261112]'))
         env:
+          DECODO_INITIAL_RUN: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, '[top50-initial-20261112]') && 'initial-20261112' || '' }}
           DECODO_API_KEY: ${{ secrets.DECODO_API_KEY }}
           DECODO_TOP50_ENABLED: 'true'
           DECODO_PUBLIC_USE_AUTHORIZED: 'true'
