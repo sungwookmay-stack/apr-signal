@@ -17,7 +17,7 @@
   "apr_weight_pct": null,
   "apr_shares": null,
   "apr_holding_as_of": null,
-  "source_note": "가격은 NYSE 거래 종가, AUM·보유비중은 운용사 자료만 사용. 미공개 항목은 null.",
+  "source_note": "가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.",
   "price_history": [],
   "aum_history": [],
   "holdings": [],
