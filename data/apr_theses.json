@@ -121,9 +121,9 @@
         },
         {
           "id": "amazon",
-          "label": "미국 Amazon Top100 최소 확인 품목",
-          "source": "Beauty Top100 수집",
-          "threshold": "브랜드 미식별 상품은 0으로 확정하지 않음"
+          "label": "미국 Amazon Beauty Top50 · 메디큐브",
+          "source": "완전 수집된 Beauty Top50 · 브랜드 검증과 제목 후보 분리",
+          "threshold": "동일 국가·카테고리 관측 간 품목수·순위 변화. 실제 매출·재주문 아님"
         },
         {
           "id": "trends",
