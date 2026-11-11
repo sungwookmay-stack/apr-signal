@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T17:01:45+00:00",
+  "updated_at": "2026-11-11T17:03:42+00:00",
   "asof_date": "2026-11-12",
   "method": "trend-v1: weekly 4 vs 8 (daily 7 vs 28), absolute 8pt & relative +35%/-30% & >=1.15 baseline sigma, persistence and minimum level; same normalized series only",
   "source_note": "Google Trends 지수는 국가·키워드·기간별 0~100 상대관심도이며 국가 간 절대량을 비교하지 않습니다. 검색관심도 변화는 실제 매출·판매량·오프라인 POS가 아닙니다.",
