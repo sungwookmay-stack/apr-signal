@@ -26,8 +26,6 @@ assert(html.includes('id="theses"'));
 assert(html.includes('id="trend-alerts"'));
 assert(html.includes('./assets/apr_theme.css'));
 assert(html.includes('./assets/research_dashboard.js'));
-assert(html.includes('defer src="./assets/valuation_scenario.js'));
-assert(html.indexOf('valuation_scenario.js')<html.indexOf('research_dashboard.js'));
 
 const nodes=new Map(),events={};
 class MockEl{
@@ -69,7 +67,6 @@ const context=vm.createContext({
  setTimeout:()=>{},clearTimeout:()=>{},
  alert:()=>{throw Error('Unexpected alert')}
 });
-vm.runInContext(fs.readFileSync('assets/valuation_scenario.js','utf8'),context);
 vm.runInContext(moduleJs,context,{filename:'research_dashboard.js'});
 vm.runInContext(sensitivityJs,context,{filename:'sensitivity.js'});
 vm.runInContext(app,context,{filename:'app.js'});
@@ -109,14 +106,13 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match($('fin-primary-rows').innerHTML,/181/);
  assert.match($('fin-valuation-note').textContent,/지배주주/);
  assert.match($('fin-anchor-detail').textContent,/주식수/);
- $('forward-mode').value='eps';$('forward-eps').value='10000';$('forward-price').value='200000';
- $('forward-eps').oninput();assert.match($('forward-result').textContent,/20.00배/);
- $('forward-eps').value='-1';$('forward-eps').oninput();assert.match($('forward-result').textContent,/산출 불가/);
- $('forward-eps').value='';$('forward-eps').oninput();assert.match($('forward-result').textContent,/미입력/);
- $('forward-mode').value='profit';$('forward-profit').value='4000';$('forward-shares').value='40000000';
- $('forward-shares').oninput();assert.match($('forward-result').textContent,/20.00배/);
- $('forward-mode').value='growth';$('forward-growth').value='25';$('forward-growth').oninput();
- assert.match($('forward-result').textContent,/단순 가정/);
+ assert(!html.includes('forward-per-panel'));
+ assert(!html.includes('valuation_scenario.js'));
+ assert(!moduleJs.includes('APR_VALUATION'));
+ assert(!('forward' in fin.valuation));
+ assert(!fs.existsSync('assets/valuation_scenario.js'));
+ assert(!fs.readFileSync('.github/workflows/update-and-publish.yml','utf8').includes('valuation_scenario.js'));
+ assert(!fs.readFileSync('.github/workflows/pr-checks.yml','utf8').includes('smoke_valuation.cjs'));
 
  $('fin-table-kind').value='expenses';
  events['fin-table-kind:change']();
