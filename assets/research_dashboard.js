@@ -189,19 +189,7 @@ function renderFinancials(ctx){
  set('fin-audit-summary',(audit.note||'DART 독립 대조 전')+' · 수집 '+(audit.checked_at_utc||'미확인'));
  const auditBody=$('fin-audit-rows');
  if(auditBody)auditBody.innerHTML=safeArr(audit.rows).map(x=>'<tr><td>'+escapeHtml(x.period)+'</td><td>'+escapeHtml(x.account==='equity'?'연결 총자본':'연결 순이익')+'</td><td>'+asNum(x.input_100m,fmt,2)+'</td><td>'+asNum(x.dart_100m,fmt,2)+'</td><td>'+escapeHtml(x.status==='match_rounding'?'반올림 범위 일치':x.status==='mismatch'?'불일치: 확인 필요':'독립 미검증')+(/^https:\/\/dart\.fss\.or\.kr\/dsaf001\/main\.do\?rcpNo=\d{14}$/.test(x.source_url||'')?' <a href="'+x.source_url+'" target="_blank" rel="noopener noreferrer">공시</a>':'')+'</td></tr>').join('');
- const ids=['price','eps','profit','shares','growth','mode','horizon','source'];
- const field=k=>$('forward-'+k);
- const priceField=field('price');
- if(priceField && !priceField.dataset.initialized){priceField.value=current?.close_krw??'';priceField.dataset.initialized='1';}
- const read=k=>{const raw=String(field(k)?.value??'').trim();return raw===''?null:Number(raw);};
- const calculate=()=>{
-   if(!global.APR_VALUATION)return;
-   const mode=field('mode')?.value||'eps';
-   const r=global.APR_VALUATION.forward({price:read('price'),eps:mode==='growth'?anchor?.eps_won:read('eps'),profit100m:read('profit'),shares:read('shares'),growthPct:read('growth'),mode});
-   set('forward-result',r.error||((field('horizon')?.value||'선택 기간')+' · 예상 EPS '+fmt(r.eps,2)+'원 · Forward PER '+fmt(r.per,2)+'배 · '+(mode==='growth'?'TTM 성장률 단순 가정':(field('source')?.value||'추정 근거 미입력: 검증되지 않은 사용자 가정'))));
- };
- ids.forEach(k=>{if(field(k))field(k).oninput=calculate;});
- calculate();
+
 
 }
 
