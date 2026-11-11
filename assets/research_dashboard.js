@@ -228,13 +228,13 @@ function renderRetail(ctx){
  const reviewsDates=[...new Set(reviews.map(x=>x.date))].sort();
  const products=[...new Set(reviews.map(x=>x.product_id))].slice(0,4);
  chart('chart-off-reviews',reviewsDates,products.map((id,i)=>({
-   label:reviews.find(x=>x.product_id===id)?.label||id,
+   label:((reviews.find(x=>x.product_id===id)?.retailer||'')+' · '+(reviews.find(x=>x.product_id===id)?.label||id)),
    values:reviewsDates.map(day=>reviews.find(x=>x.product_id===id&&x.date===day)?.reviews_count??null),
    color:[C.teal,C.navy,C.orange,C.purple][i]
  })),{decimals:0,legend:true});
  const el=$('off-status');
  if(el)el.innerHTML=metrics.map(x=>{
-   const stale=x.retailer==='target'&&x.metric==='zero_pore_pad_bought_lower';
+   const stale=String(x.metric||'').endsWith('_bought_lower');
    const verified=x.eligible_for_trend!==false&&!stale;
    return '<div class="off-signal"><strong>'+escapeHtml(x.label||x.metric)+'</strong>'+
      '<span>'+escapeHtml(verified?(x.display||String(x.value)):'검증 제외')+'</span>'+
@@ -252,7 +252,7 @@ function renderRetail(ctx){
  const summary=$('off-review-status');
  if(summary)summary.textContent=reviewLatest?
    '최근 검증된 상품 리뷰: '+reviewLatest.label+' · '+reviewLatest.reviews_count+'건 · '+reviewLatest.date+
-   ' (온라인 소비자 반응, 점포별 판매량 아님)':
+   ' (온라인 소비자 반응, 점포별 판매량 아님) · 조회 상태 '+Object.entries(r.product_review_status?.source_results||{}).map(([k,v])=>k.split('_')[0]+': '+v).join(' / '):
    '상품별 리뷰·평점의 일관된 공식 관측자료를 확보하면 추이를 표시합니다. 조회 차단/누락 시 임의값을 채우지 않습니다.';
  const statements=$('retailer-statements');
  if(statements)statements.innerHTML=safeArr(r.retailer_statements).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date))).map(x=>

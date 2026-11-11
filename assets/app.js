@@ -266,9 +266,18 @@ function renderDemand(){if(window.APR_RESEARCH)window.APR_RESEARCH.renderTrends(
  $('trends-empty').textContent=trendDays.length?'각 CSV의 재정규화 기준이 같을 때만 비교할 수 있습니다.':missing+' 검색어별 관심도는 공식 트렌드 페이지에서 확인하세요.';
  $('trends-link').href=trendsURL(c);
  const ret=(d.retailers||[]).slice().sort((a,b)=>(b.country===c?1:0)-(a.country===c?1:0));
- $('retailer-grid').innerHTML=ret.map(x=>{const arr=(d.retail||[]).filter(z=>z.retailer===x.id||z.retailer===x.name);const last=arr.sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
- return `<div class="retailer"><small>${escapeHtml(x.country)} / RETAIL</small><b>${escapeHtml(x.name)}</b><p>${last?'마지막 관찰 '+escapeHtml(last.date):'실제 판매·리뷰 수 미수집'}</p><a href="${validLink(x.url)}" target="_blank" rel="noopener noreferrer">공식 판매처 보기 ↗</a></div>`}).join('');
- $('demand-sources').innerHTML=[['Amazon BSR',(d.amazon||[]).filter(x=>x.country===c).length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', rankSnapshots().filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Scrape.do',d.scrapedo_reserved_credits!=null?'월 '+d.scrapedo_reserved_credits+'/900 크레딧 보수적 예약 · 비용 헤더 검증 기준':'무료 토큰 미등록 또는 미수집'],['Google Trends',trend.length+'개 값 · '+(d.api_mode==='free_api_sh'?'무료 API.SH': 'CSV 직접 가져오기')],['리테일', (d.retail||[]).length+'개 출처 포함 수동 관찰'],['자동화 상태',d.api_mode==='free_api_sh'?'월 최대 750크레딧 사용 한도 · 초과 전 자동 중단':'무료 키 미설정: Amazon·Trends는 기존 값/CSV']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
+ const refs=state.reference||{},collection=refs.collection||{};
+ $('retailer-grid').innerHTML=ret.map(x=>{
+   const metrics=[...(d.retail||[]),...(refs.retail||[])].filter(z=>(z.retailer===x.id||z.retailer===x.name)&&z.eligible_for_trend!==false&&!String(z.metric||'').endsWith('_bought_lower'));
+   const reviews=(refs.product_review_history||[]).filter(z=>z.retailer===x.id&&z.verified);
+   const last=[...metrics,...reviews].sort((a,b)=>String(a.date).localeCompare(String(b.date))).at(-1);
+   const failed=(collection.failures||[]).some(z=>String(z).startsWith(x.id+':'));
+   const status=last?'공개 지표 관찰 '+last.date:'공개 지표 미수집';
+   return `<div class="retailer"><small>${escapeHtml(x.country)} / RETAIL</small><b>${escapeHtml(x.name)}</b><p>${escapeHtml(status)}${failed?' · 최근 자동 수집 실패':''}</p><p>실제 점포 매출·판매량 미확보</p><a href="${validLink(x.url)}" target="_blank" rel="noopener noreferrer">판매처·검색 페이지 보기 ↗</a></div>`;
+ }).join('');
+ const trendLast=trend.map(x=>String(x.date||'')).sort().at(-1);
+ const failures=collection.failures||[];
+ $('demand-sources').innerHTML=[['Amazon BSR',(d.amazon||[]).filter(x=>x.country===c).length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', rankSnapshots().filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Scrape.do',d.scrapedo_reserved_credits!=null?'월 '+d.scrapedo_reserved_credits+'/900 크레딧 보수적 예약 · 비용 헤더 검증 기준':'무료 토큰 미등록 또는 미수집'],['Google Trends',trend.length+'개 값 · 마지막 관측 '+(trendLast||'없음')+' · 국가별 상대관심도'],['리테일 자동 관찰',(refs.retail||[]).filter(x=>x.eligible_for_trend!==false&&!String(x.metric||'').endsWith('_bought_lower')).length+'개 참고지표 · 상품 리뷰 '+(refs.product_review_history||[]).filter(x=>x.verified).length+'개 기록'],['리테일 수집 상태',failures.length?'일부 실패 · '+failures.join(' / '):collection.last_attempt_utc?'최근 조회 '+collection.last_attempt_utc:'자동 수집 상태 미확인'],['자동화 상태',d.api_mode==='free_api_sh'?'API.SH 월 최대 750크레딧 한도 · 데이터별 마지막 관측일 확인':'API 모드 미확인: 기존 값/CSV와 수집 상태 확인']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
  renderTop100();
  renderRetailReferences();
 }
@@ -333,7 +342,8 @@ function renderRetailReferences(){
  const grouped=[...latest.values()].sort((a,b)=>String(a.country||'').localeCompare(String(b.country||''))||String(a.retailer||'').localeCompare(String(b.retailer||''))||String(a.metric||'').localeCompare(String(b.metric||'')));
  const labelName={ulta:'Ulta Beauty',target:'Target',boots:'Boots UK','watsons-sa':'Watsons Saudi','niceone-sa':'Nice One Saudi',kinegun:'KINEGUN'};
  element.innerHTML=grouped.map(x=>{
-   const metric=x.display||((x.value??'')+'');
+   const excluded=x.eligible_for_trend===false||String(x.metric||'').endsWith('_bought_lower');
+   const metric=excluded?'검증 제외':x.display||((x.value??'')+'');
    return '<article class="retail-signal"><div class="signal-main"><div class="signal-head">'+
      '<small>'+escapeHtml((x.country||'')+' / '+(labelName[x.retailer]||x.retailer||'판매처'))+'</small>'+
      '<span>'+escapeHtml(x.date||'날짜 미확인')+'</span></div>'+
@@ -512,11 +522,14 @@ function renderKitaRates(){
 }
 function renderLogistics(){
  renderKitaRates();
- const data=[{name:'북미',q2:3763,q3:3556,of2:22,of3:30},{name:'유럽',q2:1451,q3:1778,of2:50,of3:40},{name:'아시아',q2:1211,q3:1160},{name:'기타 해외',q2:617,q3:735},{name:'한국',q2:633,q3:502}];
- chart('chart-region',data.map(x=>x.name),[{label:'2026 2Q',values:data.map(x=>x.q2),color:C.navy,background:'#193a5a'},
- {label:'2026 3Q',values:data.map(x=>x.q3),color:C.teal,background:'#0b917f'}],{type:'bar',legend:true});
- $('offline-table').innerHTML='<table><thead><tr><th>지역</th><th>2Q</th><th>3Q</th><th>매출 QoQ</th></tr></thead><tbody>'+
-   data.slice(0,2).map(x=>'<tr><td>'+escapeHtml(x.name)+'</td><td>'+(x.of2===22?'약 20~23':x.of2)+'%</td><td>'+x.of3+'%</td><td>'+signed(pct(x.q3,x.q2))+'</td></tr>').join('')+'</tbody></table>';
+ const region=state.reference?.regional_channels||{};
+ const data=region.regions||[];
+ chart('chart-region',data.map(x=>x.name),[{label:'2026 2Q · IR 공시',values:data.map(x=>x.q2),color:C.navy,background:'#193a5a'},
+ {label:'2026 3Q · 국내 실적 / 해외 비중환산 추정',values:data.map(x=>x.q3),color:C.teal,background:'#0b917f'}],{type:'bar',legend:true});
+ $('offline-table').innerHTML='<table><thead><tr><th>지역</th><th>2Q 오프라인</th><th>3Q 오프라인</th><th>지역 매출 QoQ (추정)</th></tr></thead><tbody>'+
+   data.filter(x=>x.offline_q2!=null).map(x=>'<tr><td>'+escapeHtml(x.name)+'</td><td>약 '+fmt(x.offline_q2)+'%</td><td>약 '+fmt(x.offline_q3)+'%</td><td>'+signed(pct(x.q3,x.q2))+'</td></tr>').join('')+'</tbody></table>'+
+   '<p class="under-note">'+escapeHtml(region.note||'지역별 원문 대조 자료 미확보')+'</p>'+
+   (region.sources||[]).map(x=>'<a href="'+validLink(x.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(x.label)+' ↗</a>').join(' · ');
  const log=state.market?.logistics||{};
  const sea=(log.sea||[]).filter(x=>x?.month).slice().sort((a,b)=>String(a.month).localeCompare(String(b.month)));
  const seaByMonth=new Map(sea.map(x=>[x.month,x]));

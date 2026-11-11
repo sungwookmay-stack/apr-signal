@@ -440,5 +440,70 @@
       "ulta_zero_pore_2645351": "정상 관측"
     },
     "scope_note": "상품 상세페이지에 공개된 온라인 고객 리뷰·평점. 오프라인 POS 매출·출고량이나 재주문 증거 아님"
+  },
+  "regional_channels": {
+    "checked_date": "2026-11-11",
+    "unit": "억원",
+    "q3_total_revenue": 7731.15,
+    "regions": [
+      {
+        "name": "북미",
+        "q2": 3762.51,
+        "q3": 3556.33,
+        "q3_method": "rounded_IR_share_estimate",
+        "q3_share_pct": 46,
+        "offline_q2": 20,
+        "offline_q3": 30
+      },
+      {
+        "name": "유럽",
+        "q2": 1450.84,
+        "q3": 1778.16,
+        "q3_method": "rounded_IR_share_estimate",
+        "q3_share_pct": 23,
+        "offline_q2": 50,
+        "offline_q3": 40
+      },
+      {
+        "name": "아시아",
+        "q2": 1211.42,
+        "q3": 1159.67,
+        "q3_method": "rounded_IR_share_estimate",
+        "q3_share_pct": 15
+      },
+      {
+        "name": "기타 해외",
+        "q2": 617.41,
+        "q3": 773.12,
+        "q3_method": "rounded_IR_share_estimate",
+        "q3_share_pct": 10
+      },
+      {
+        "name": "한국",
+        "q2": 633.15,
+        "q3": 502.44,
+        "q3_method": "IR_reported",
+        "q3_share_pct": null
+      }
+    ],
+    "note": "2Q 지역 매출은 공식 IR p.7 공시값. 3Q 국내는 IR 공시값이며 해외 각 지역은 총매출 7,731.15억원 × 반올림된 지역 비중(IR p.6)으로 계산한 추정치입니다. 합계가 총매출과 일치하지 않을 수 있으며 QoQ도 추정입니다. 온·오프라인 비중은 컨퍼런스콜을 전한 언론 보도 기준(2Q 8/5, 3Q 10/30)으로 감사된 POS 실적이 아닙니다. 2Q 북미 약20%와 미국 약23% 발언은 분모가 달라 범위로 합치지 않습니다. 자동 갱신 자료가 아니라 원문 대조한 분기 스냅샷입니다.",
+    "sources": [
+      {
+        "label": "2Q 공식 IR · p.7",
+        "url": "https://apr-in.aprd.io/ir/APR_%EA%B2%BD%EC%98%81%EC%8B%A4%EC%A0%81_2Q26_KOR_vF.pdf#page=7"
+      },
+      {
+        "label": "3Q 공식 IR · p.6",
+        "url": "https://apr-in.aprd.io/ir/APR_%EA%B2%BD%EC%98%81%EC%8B%A4%EC%A0%81_3Q26_KOR_vFF.pdf#page=6"
+      },
+      {
+        "label": "2Q 채널 비중 · 컨콜 보도",
+        "url": "https://m.dnews.co.kr/m_home/view.jsp?idxno=202608051331446520886"
+      },
+      {
+        "label": "3Q 채널 비중 · 컨콜 보도",
+        "url": "https://m.dnews.co.kr/uhtml/view.jsp?idxno=202610301413110070925"
+      }
+    ]
   }
 }
