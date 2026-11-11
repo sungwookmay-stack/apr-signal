@@ -156,3 +156,8 @@ tbody tr:hover td{background:#fdfbfc}
 .technical-reasons .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .technical-reasons .check{padding:10px 8px;border:1px solid #eef0f1;border-radius:9px}
 @media(max-width:720px){.technical-reasons .checks{grid-template-columns:1fr}}
+/* Valuation assumptions remain usable in narrow mobile panels. */
+#forward-per-panel{display:grid;gap:12px}
+#forward-per-panel label{display:grid;gap:6px;font-size:13px}
+#forward-per-panel input,#forward-per-panel select{width:100%;max-width:100%;box-sizing:border-box;padding:10px;border:1px solid #ccd6df;border-radius:8px;background:#fff;color:#182e43}
+#forward-result{font-weight:700;line-height:1.7}

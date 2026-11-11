@@ -45,7 +45,10 @@ jobs:
       - name: Verify research JavaScript syntax
         run: node --check assets/research_dashboard.js
       - name: Test APR financial valuation offline Trend and retail panels
-        run: node tests/smoke_research.cjs
+        run: |
+          node tests/smoke_research.cjs
+          node tests/smoke_valuation.cjs
+          node --check assets/valuation_scenario.js
       - name: Scenario lab and KITA data provenance smoke
         run: node tests/smoke_sensitivity.cjs
       - name: Institutional APR flow and lending source QA

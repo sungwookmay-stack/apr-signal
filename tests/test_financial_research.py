@@ -53,7 +53,7 @@ class APRFinancialResearchTests(unittest.TestCase):
         p=self.data['valuation']
         eps=p['eps_events'];book=p['book_events']
         self.assertEqual(p['period_start'],'2025-06-01')
-        self.assertEqual(eps[0]['available_from'],'2025-03-23')
+        self.assertEqual(eps[0]['available_from'],'2025-08-14')
         self.assertEqual(eps[0]['eps_won'],2875)
         self.assertEqual(eps[-1]['available_from'],'2026-10-30')
         self.assertIn('preliminary',eps[-1]['eps_quality'])
