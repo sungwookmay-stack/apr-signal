@@ -144,7 +144,7 @@ def actor_quality(price_rows, flow_rows, actor, price_technical=None):
 
 
 def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
-             technical_rows=None, now=None):
+             technical_rows=None, now=None, _include_asof=True):
     now = now or datetime.now(timezone.utc).isoformat(timespec='seconds')
     prices = sorted([x for x in price_rows if x.get('date')], key=lambda x:x['date'])
     latest_price = prices[-1]['date'] if prices else None
@@ -232,7 +232,22 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
     prior_lent = lending[-2] if len(lending) >= 2 else {}
     # Borrowed shares are NOT the same as a reportable net short balance;
     # repayment could arise for reasons other than covering short sales.
+    asof = None
+    if _include_asof and not synced:
+        common = [p['date'] for p in prices if p['date'] in by_date
+                  and any(num(by_date[p['date']].get(a)) is not None for a in ACTORS)]
+        if common:
+            cutoff = max(common)
+            snapshot = evaluate(
+                [p for p in prices if p['date'] <= cutoff],
+                [r for r in valid_flows if r['date'] <= cutoff],
+                technical_rows=technical_rows, now=now, _include_asof=False)
+            asof = {'date': cutoff,
+                    'lag_price_sessions': sum(p['date'] > cutoff for p in prices),
+                    'actors': snapshot['actors'], 'combined': snapshot['combined'],
+                    'note': '마지막 공통 거래일까지의 참고 분석. 최신 주가일 판단이 아님'}
     return {
+        'asof_analysis': asof,
         'generated_at_utc': now,
         'ticker': '278470',
         'source_scope': '투자자 수급·공매도·대차는 별도 자료이며 각 관측의 source/source_url 및 기준일을 따름',
@@ -266,3 +281,20 @@ def evaluate(price_rows, flow_rows, short_rows=None, lending_rows=None,
         },
         'not_trade_advice': True
     }
+
+
+def refresh_saved_analysis(data_dir):
+    """Re-evaluate saved observations offline; never claim a new source check."""
+    import json
+    path = data_dir / 'flows.json'
+    if not path.exists():
+        return
+    current = json.loads(path.read_text(encoding='utf-8'))
+    market = json.loads((data_dir / 'market.json').read_text(encoding='utf-8'))
+    tech_path = data_dir / 'technical.json'
+    technical = json.loads(tech_path.read_text(encoding='utf-8')) if tech_path.exists() else {}
+    analysis = evaluate(market.get('series') or [], current.get('daily') or [],
+                        current.get('short_daily') or [], current.get('lending_daily') or [],
+                        technical.get('series') or [])
+    current.update(analysis)
+    path.write_text(json.dumps(current, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')

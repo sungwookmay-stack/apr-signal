@@ -374,6 +374,7 @@
           <h2 id="flow-total-label">일간 수급 확인 중</h2>
           <p id="flow-total-detail" class="under-note">순매수 지속성과 주가를 대조하고 있습니다.</p>
           <p id="flow-collection-status" class="flow-source-line">최근 수집 상태 확인 중</p>
+          <p id="flow-asof-detail" class="under-note"></p>
           <p id="flow-price-bottom" class="under-note">기술적 바닥 분석과 연결 중</p>
         </div>
         <div class="section-title"><div><p class="eyebrow">INVESTOR TYPES</p><h2>누적 순매수와 매집·매도 강도</h2><span>KRX 공개 주수 기준 · 현금 순매수 미확인 때는 종가×주수 추정금액(≈) 표시. 미확인 시 공란.</span></div></div>
@@ -422,6 +423,13 @@
           <p id="flow-risk-note" class="under-note">대차 거래와 공매도를 혼동하지 않습니다.</p>
           <p class="fineprint">대차잔고는 빌린 주식의 잔량이며 공매도 순보유잔고와 다릅니다. 대차 상환이 증가해도 숏커버가 일어났다고 단정할 수 없습니다. 대차 수치는 관측에 기록된 실제 원천을 따릅니다. 현재 금융위원회 공공 API를 사용하며, 금융위·KSD·키움 자료를 같은 출처로 표시하지 않습니다.</p>
         </div>
+        <div class="grid two">
+          <div class="panel"><div class="panel-top"><strong>일별 대차 상환·신규 추이</strong><small>단위: 주 · 거래량</small></div><div class="graph small"><canvas id="flow-lending-trades-chart"></canvas></div></div>
+          <div class="panel"><div class="panel-top"><strong>대차잔고 추이</strong><small>단위: 주 · 누적 잔량</small></div><div class="graph small"><canvas id="flow-lending-balance-chart"></canvas></div></div>
+        </div>
+        <p id="flow-lending-coverage" class="under-note"></p>
+        <p class="fineprint">상환은 일별 반환 주수이고 잔고 감소와 동일하지 않습니다. 신규·상환·잔고는 각각 원천 관측값이며 누락분을 역산하지 않습니다. 상환 증가만으로 숏커버를 단정할 수 없습니다. 금융위 자료는 다음 영업일 13시 이후 제공될 수 있습니다.</p>
+        <details class="panel padded"><summary>대차 일별 관측값 보기</summary><div class="tablebox"><table><thead><tr><th>일자</th><th>상환</th><th>신규</th><th>잔고</th></tr></thead><tbody id="flow-lending-body"></tbody></table></div></details>
         <div class="section-title"><div><p class="eyebrow">DAILY EVIDENCE</p><h2>최근 20거래일 투자주체 순매수</h2></div></div>
         <div class="panel tablebox"><table><thead><tr><th>일자</th><th>외국인</th><th>기관</th><th>연기금</th><th>개인</th></tr></thead>
           <tbody id="flow-daily-body"><tr><td colspan="5">일별 수급 미수집</td></tr></tbody>
