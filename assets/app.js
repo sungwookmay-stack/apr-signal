@@ -403,16 +403,16 @@ function renderKbtySec(){
 }
 function renderEtf(){const e=state.kbty;if(!e)return;
  renderKbtySec();
- set('kbty-status',e.status||'상태 미확인');set('e-price',e.latest_price_usd!=null?'$'+fmt(e.latest_price_usd,2):'—');set('e-price-date',e.price_date||'거래 전 또는 시세 미확인');
+ set('kbty-status',e.status||'상태 미확인');set('e-price',e.latest_price_usd!=null?'$'+fmt(e.latest_price_usd,2):'—');set('e-price-date',(e.price_date||'거래 전 또는 시세 미확인')+' · Yahoo 비공식 시세');
  set('e-aum',e.aum_usd!=null?'$'+fmt(e.aum_usd,0):'—');set('e-apr',e.apr_weight_pct!=null?fmt(e.apr_weight_pct,2)+'%':'—');
- set('e-apr-date',e.apr_holding_as_of||'공식 APR 편입비중 미발표');set('e-shares',e.apr_shares!=null?fmt(e.apr_shares):'—');
+ set('e-apr-date',e.apr_holding_as_of||'APR 편입비중 자료 미확인');set('e-shares',e.apr_shares!=null?fmt(e.apr_shares):'—');
  const price=(e.price_history||[]).filter(x=>x.close_usd!=null);chart('chart-etf',price.map(x=>x.date),[{label:'KBTY USD',values:price.map(x=>x.close_usd),color:C.navy}],{decimals:2});
  $('etf-price-empty').textContent=price.length?'':missing+' 공식 상장 후 확인합니다.';
  const au=(e.aum_history||[]).filter(x=>x.aum_usd!=null);chart('chart-aum',au.map(x=>x.date),[{label:'AUM ($)',values:au.map(x=>x.aum_usd),color:C.teal}],{decimals:0});
- $('etf-aum-empty').textContent=au.length?'':missing+' 실제 운용사 AUM 발표가 필요합니다.';
+ $('etf-aum-empty').textContent=au.length?'':missing+' 운용사 AUM 자료 미확보. 발표 여부와 별개입니다.';
  const holdings=(e.holdings||[]).sort((a,b)=>b.weight_pct-a.weight_pct);
  $('etf-holdings').innerHTML=holdings.length?holdings.slice(0,12).map(x=>`<div class="holding"><span>${escapeHtml(x.name||x.ticker)}</span><b>${fmt(x.weight_pct,2)}%</b></div>`).join(''):
-  '<div class="blankmini">상장 후 운용사의 실제 보유종목·비중이 공개되면 표시합니다. 공개 전 0%로 표시하지 않습니다.</div>';
+  '<div class="blankmini">검증한 운용사 보유종목 CSV가 입력되지 않았습니다. 자료 미확보를 미편입(0%)이나 미공개로 단정하지 않습니다.</div>';
 }
 function renderNews(){
  const d=state.news;if(!d)return;

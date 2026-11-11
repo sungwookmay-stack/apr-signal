@@ -97,10 +97,10 @@ def collect_kbty():
       'sec_url':'https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm',
       'fund':'Guinness Atkinson K-Beauty ETF','ticker':'KBTY','exchange':'NYSE Arca',
       'expense_ratio_pct':0.55,'index':'Indxx K-Beauty Index','holdings_count_intended':25,
-      'status':'운용사에 출시 예정으로 표시', 'launch_expected':'2026년 11월 둘째 주 (운용사 예정, 변경 가능)',
+      'status':'현재 거래·상장 상태 미확인', 'launch_expected':None,
       'latest_price_usd':None,'price_date':None,'aum_usd':None,'nav_usd':None,
       'apr_weight_pct':None,'apr_shares':None,'apr_holding_as_of':None,
-      'source_note':'가격은 NYSE 거래 종가, AUM·보유비중은 운용사 자료만 사용. 미공개 항목은 null.',
+      'source_note':'가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.',
       'price_history':previous.get('price_history',[]),'aum_history':previous.get('aum_history',[]),
       'holdings':previous.get('holdings',[]),'errors':[]
     }
@@ -108,7 +108,8 @@ def collect_kbty():
         text=re.sub(r'<[^>]+>',' ',doc)
         text=re.sub(r'\s+',' ',text)
         if 'expected to begin trading in the second week of November' in text:
-            state['status']='2026년 11월 둘째 주 상장 예정 (공식 사이트)'
+            state['status']='11월 둘째 주 상장 예정 문구 확인 (공식 사이트)'
+            state['launch_expected']='11월 둘째 주 (현재 공식 페이지 문구, 변경 가능)'
         elif 'Launching November 2026' in text or 'Coming soon' in text:
             state['status']='출시 준비 중 (공식 사이트)'
         # Optional official net-assets extraction, ONLY inside Fund facts block.
@@ -119,7 +120,7 @@ def collect_kbty():
                 n=safe_num(m.group(1))
                 if n:state['aum_usd']=n*({'M':1e6,'B':1e9}.get((m.group(2) or '').upper(),1))
     else:
-        state['status']=previous.get('status','운용사 사이트 접근 실패 / 거래 여부 미확인')
+        state['status']='운용사 사이트 접근 실패 / 현재 거래 여부 미확인'
         for k in ('aum_usd','nav_usd','apr_weight_pct','apr_shares','apr_holding_as_of','latest_price_usd','price_date'):
             state[k]=previous.get(k)
     # Public Yahoo price chart: it is a *fallback price source*, not an official ETF fact.
