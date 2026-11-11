@@ -1,8 +1,8 @@
 """MFDS device registry adapter; absence is not denial, discovery is not approval.
 
 Schema checked against data.go.kr dataset 15057456 on 2026-11-11.
-This module is deliberately not wired into the public site until the service key
-is approved and the first real response/schema and company identities verified.
+The optional morning job stays inactive without a service key. Live response
+semantics and company identities must be verified after service activation.
 No secret or full request URL is serialized in public output.
 """
 from __future__ import annotations

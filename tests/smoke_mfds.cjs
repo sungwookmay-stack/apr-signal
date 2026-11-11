@@ -54,12 +54,13 @@ assert.match(workflow,/MFDS_DEVICE_API_KEY: \$\{\{ secrets.MFDS_DEVICE_API_KEY \
 assert.match(workflow,/run: python mfds_device_registry.py/);
 assert(!code.includes('serviceKey='));
 const initial=JSON.parse(fs.readFileSync('data/mfds_devices.json','utf8'));
-assert.equal(initial.status,'not_configured');
-assert.equal(initial.records.length,0);
-assert.equal(initial.last_success_at,null);
+assert.equal(initial.schema_version,1);
+assert(Array.isArray(initial.records));
+assert(!JSON.stringify(initial).includes('FIXTURE-NOT-A-PERMIT'));
+assert(!Object.hasOwn(initial,'serviceKey')); // Live snapshots can validly change after activation.
 (async()=>{
   await ready();assert.match(el('mfds-status').textContent,/API 연결 전/);
-  fetchFailed=true;await ready();assert.match(el('mfds-status').textContent,/ロ딩|로딩 실패/);
+  fetchFailed=true;await ready();assert.match(el('mfds-status').textContent,/로딩 실패/);
   assert.match(el('mfds-count').textContent,/미확인/);
   fetchFailed=false;response=fixture;await ready();
   assert.match(el('mfds-status').textContent,/전체조회 완료/);
