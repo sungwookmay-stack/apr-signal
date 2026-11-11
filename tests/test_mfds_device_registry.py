@@ -54,6 +54,16 @@ class MFDSRegistryTests(unittest.TestCase):
         self.assertEqual(len(parse_page(p)[0]), 1)
         self.assertEqual(parse_page(payload([])), ([], 0))
 
+    def test_live_per_record_item_envelope(self):
+        p = payload()
+        p["response"]["body"]["items"] = [{"item": row()}]
+        rows, total = parse_page(p)
+        self.assertEqual(total, 1)
+        self.assertEqual(rows[0]["registry_id"], "fixture-1")
+        p["response"]["body"]["items"] = [{"item": {}}]
+        with self.assertRaisesRegex(RegistryError, "missing_record_identity"):
+            parse_page(p)
+
     def test_business_error_and_invalid_schema(self):
         p = payload(); p["response"]["header"]["resultCode"] = "30"
         with self.assertRaisesRegex(RegistryError, "authorization_denied"): parse_page(p)

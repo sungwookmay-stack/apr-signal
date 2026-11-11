@@ -105,7 +105,14 @@ def parse_page(payload):
         items = []
     if not isinstance(items, list):
         raise RegistryError("invalid_items")
-    return [normalize(x) for x in items], total
+    # Live MFDS JSON wraps each list element as {"item": {...}}.
+    # Keep documented direct records and singleton envelopes supported too.
+    records = []
+    for item in items:
+        if isinstance(item, dict) and set(item) == {"item"}:
+            item = item["item"]
+        records.append(normalize(item))
+    return records, total
 
 
 def _http(url):
@@ -169,6 +176,7 @@ def update_snapshot(previous=None, *, key=None, http=_http, checked_at=None):
     out.setdefault("event_history", [])
     key = key if key is not None else os.getenv("MFDS_DEVICE_API_KEY", "")
     if not key:
+        out["configuration_note"] = "API 연결 전. 최초 실측 미확인."
         out["status"] = "not_configured"
         return out
     fresh = {}
@@ -180,8 +188,10 @@ def update_snapshot(previous=None, *, key=None, http=_http, checked_at=None):
                     raise RegistryError("conflicting_records")
                 fresh[row["record_key"]] = row
     except RegistryError as exc:
+        out["configuration_note"] = "API 조회를 시도했으나 전체 검증 미완료. 현재 허가 건수 미확인."
         out["status"] = str(exc)
         return out
+    out["configuration_note"] = "API 전체조회 성공. 업체 식별과 국내·수출 허가 범위는 별도 검증."
     baseline = not previous.get("last_success_at")
     prior = {r["record_key"]: r for r in previous.get("records", [])}
     records = []
