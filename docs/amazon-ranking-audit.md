@@ -26,3 +26,5 @@ API.SH's fallback previously computed entry/exit when two snapshots had the same
 ## Validation
 
 188 Python tests and all existing Node smoke tests pass. Added integration test proves saved valid PDP rows reach demand.json, invalid dates are excluded, repeated builds do not duplicate records, and no network is used. Added test prevents false entry/exit from equally sized partial snapshots. Actual browser rendering was not tested here. No deployment has occurred as part of this audit.
+
+Code-only deployment also merges saved PDP observations through a pure offline helper, preserving original collection timestamps and synchronizing demand/bootstrap. It does not call collect_demand, API.SH, Scrape.do or Amazon.

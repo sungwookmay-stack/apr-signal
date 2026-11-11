@@ -21,3 +21,17 @@ class PDPIntegration(unittest.TestCase):
                 self.assertEqual(first['amazon'],[row])
                 b.collect_demand()
                 self.assertEqual(json.loads((data/'demand.json').read_text())['amazon'],[row])
+
+    def test_offline_build_reuses_observations_without_refreshing_timestamp(self):
+        from build_research_data import sync_saved_pdp
+        row={'date':'2026-11-11','country':'US','asin':'B09V7Z4TJG','category':'Beauty','bsr':6,'source_quality':'verified_product_rank'}
+        with tempfile.TemporaryDirectory() as temp:
+            data=Path(temp)
+            (data/'demand.json').write_text(json.dumps({'updated_at':'original-source-time','amazon':[],'other':'preserved'}))
+            (data/'scrapedo_pdp.json').write_text(json.dumps([row]))
+            with patch.object(b,'fetch',side_effect=AssertionError('No network')), patch.object(b,'collect_demand',side_effect=AssertionError('No collector')):
+                first=sync_saved_pdp(data,[{'code':'US','amazon':'amazon.com'}])
+                self.assertEqual(first['amazon'],[row])
+                self.assertEqual(first['updated_at'],'original-source-time')
+                self.assertEqual(first['other'],'preserved')
+                self.assertEqual(sync_saved_pdp(data,[{'code':'US','amazon':'amazon.com'}]),first)

@@ -19,10 +19,13 @@ const count=(v,fmt)=>v==null?'—':fmt(v)+'주';
 function render(ctx){
  const {$,state,fmt,escapeHtml,chart,C,validLink}=ctx;
  const data=state.flows||{},ref=state.flowReference||{};
- const actors=data.actors||{};
+ const currentActors=data.actors||{};
  const priceDay=state.market?.meta?.stock_last||state.market?.series?.at(-1)?.date;
  const flowDay=data.flow_last_date;
  const matched=!!flowDay&&flowDay===priceDay;
+ const asof=!matched?data.asof_analysis:null;
+ const actors=asof?.actors||currentActors;
+ const analysisDay=asof?.date||flowDay;
  const summary=data.combined||{};
  const hasFull20=!!(actors.foreign?.windows?.['20']&&actors.institution?.windows?.['20']);
  const totalReady=matched&&hasFull20;
@@ -54,10 +57,16 @@ function render(ctx){
     (statusNote?' · '+statusNote:'');
  const title=$('flow-total-label');
  if(title)title.textContent=totalReady?(summary.label||'수급 분석 대기'):
-    '종목별 연속 수급 미확인 · 판정 보류';
+    (asof?'최신 주가일 수급 대기 · 현재일 판정 보류':'종목별 연속 수급 미확인 · 판정 보류');
  const desc=$('flow-total-detail');
  if(desc)desc.textContent=totalReady?(summary.detail||''):
     '기준일이 다른 정보·5/20일 미충족 자료를 합산해 매집 확정으로 표시하지 않습니다.';
+ const asofNode=$('flow-asof-detail');
+ if(asofNode)asofNode.textContent=asof?
+   '참고 분석 '+asof.date+' 기준 (주가 최신일과 '+asof.lag_price_sessions+
+   '거래일 차이): '+(asof.combined?.label||'판정 보류')+' · '+
+   (asof.combined?.detail||'')+' · 아래 표와 누적 그래프도 이 기준일까지입니다.':
+   '표·누적 그래프 기준 '+(analysisDay||'미확인');
  const indicator=state.technical?.bottom;
  $('flow-price-bottom').textContent=indicator?.stage?
     '가격·바닥 판단: '+indicator.stage+' (기준 '+(indicator.date||'미확인')+')':
@@ -80,7 +89,7 @@ function render(ctx){
  const period=$('flow-period');
  if(period)windowDays=period.value||'20';
  const n=Number(windowDays)||20;
- const prices=(state.market?.series||[]).filter(x=>x?.date).slice(-n);
+ const prices=(state.market?.series||[]).filter(x=>x?.date&&(!analysisDay||x.date<=analysisDay)).slice(-n);
  const days=prices.map(x=>x.date);
  const byDay=new Map((data.daily||[]).map(x=>[x.date,x]));
  // Net investor trades and net shares/short volume are distinct concepts.
@@ -154,6 +163,33 @@ function render(ctx){
      fscInfo==='ok'?'최근 거래일 자료 없음':
        '조회 '+fscInfo+' · 공식 응답 검증 대기')+
    ' · 출처: 금융위원회';
+ // Use known market sessions plus observed dates. Gaps stay null; do not
+ // extend beyond the last lending observation (the official feed is delayed).
+ const lendingByDate=new Map((data.lending_daily||[]).filter(x=>x.date).map(x=>[x.date,x]));
+ const lendingDays=[...new Set([
+   ...(state.market?.series||[]).map(x=>x.date),...lendingByDate.keys()
+ ])].filter(d=>d&&lending.last_date&&d<=lending.last_date).sort().slice(-n);
+ const lendingRows=lendingDays.map(d=>lendingByDate.get(d)||{date:d});
+ const hasLoanValue=r=>['returned_qty','new_qty','balance_qty'].some(k=>asNum(r[k])!==null);
+ const observed=lendingRows.filter(hasLoanValue).length;
+ chart('flow-lending-trades-chart',lendingDays,[
+   {label:'일별 상환',values:lendingRows.map(r=>asNum(r.returned_qty)),color:C.teal},
+   {label:'일별 신규',values:lendingRows.map(r=>asNum(r.new_qty)),color:C.orange}
+ ],{legend:true,decimals:0,xticks:6,suffix:'주',smooth:0});
+ chart('flow-lending-balance-chart',lendingDays,[
+   {label:'대차잔고',values:lendingRows.map(r=>asNum(r.balance_qty)),color:C.navy}
+ ],{legend:true,decimals:0,xticks:6,suffix:'주',smooth:0});
+ const loanCoverage=$('flow-lending-coverage');
+ if(loanCoverage)loanCoverage.textContent=lendingDays.length?
+   lendingDays[0]+' ~ '+lendingDays.at(-1)+' · '+lendingDays.length+
+   '거래일 중 관측 '+observed+'일 / 미관측 '+(lendingDays.length-observed)+
+   '일. 미확인 값은 0으로 채우지 않습니다. 기간은 위 5·20·60거래일 선택과 연동됩니다.':
+   '대차 추이 미수집. 관측 자료가 들어오면 표시합니다.';
+ const loanTable=$('flow-lending-body');
+ if(loanTable)loanTable.innerHTML=lendingRows.length?lendingRows.slice().reverse().map(r=>
+   '<tr><td>'+escapeHtml(r.date)+'</td><td>'+count(asNum(r.returned_qty),fmt)+
+   '</td><td>'+count(asNum(r.new_qty),fmt)+'</td><td>'+count(asNum(r.balance_qty),fmt)+
+   '</td></tr>').join(''):'<tr><td colspan="4">대차 관측 없음</td></tr>';
  const lendingLink=$('flow-lending-source');
  if(lendingLink&&l.source_url&&/^https:\/\//.test(l.source_url)){
    lendingLink.href=l.source_url;lendingLink.textContent='현재 대차 관측 원문 ↗';

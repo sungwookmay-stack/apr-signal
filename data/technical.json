@@ -136,6 +136,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 749381.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -158,6 +164,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 337544.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -180,6 +192,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 437164.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -202,6 +220,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 504906.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -224,6 +248,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 597092.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -246,6 +276,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 611006.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -268,6 +304,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 458800.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -290,6 +332,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 536455.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -312,6 +360,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 403522.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -334,6 +388,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 273441.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -356,6 +416,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 408295.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -378,6 +444,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 458247.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -400,6 +472,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 410881.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": null,
       "atr14": null
     },
     {
@@ -422,6 +500,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 281094.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 4.89,
       "atr14": 6900.0
     },
     {
@@ -444,6 +528,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 363828.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 4.85,
       "atr14": 6850.0
     },
     {
@@ -466,6 +556,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 600305.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 4.81,
       "atr14": 7289.29
     },
     {
@@ -488,6 +584,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 362207.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 4.83,
       "atr14": 7218.62
     },
     {
@@ -510,6 +612,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 513501.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 5.12,
       "atr14": 7617.29
     },
     {
@@ -532,6 +640,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": null,
+      "volume": 472720.0,
+      "volume_ma20": null,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 5.06,
       "atr14": 7808.91
     },
     {
@@ -554,6 +668,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.64,
+      "volume": 291656.0,
+      "volume_ma20": 453602.25,
+      "volume_ratio_prior20": null,
+      "prior20_high": null,
+      "prior20_low": null,
+      "atr_pct": 4.98,
       "atr14": 7672.56
     },
     {
@@ -576,6 +696,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.62,
+      "volume": 732179.0,
+      "volume_ma20": 452742.15,
+      "volume_ratio_prior20": 1.61,
+      "prior20_high": 159000.0,
+      "prior20_low": 118100.0,
+      "atr_pct": 5.67,
       "atr14": 8317.38
     },
     {
@@ -598,6 +724,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.69,
+      "volume": 311455.0,
+      "volume_ma20": 451437.7,
+      "volume_ratio_prior20": 0.69,
+      "prior20_high": 159000.0,
+      "prior20_low": 118700.0,
+      "atr_pct": 5.55,
       "atr14": 8144.71
     },
     {
@@ -620,6 +752,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.27,
+      "volume": 584712.0,
+      "volume_ma20": 458815.1,
+      "volume_ratio_prior20": 1.3,
+      "prior20_high": 159000.0,
+      "prior20_low": 118700.0,
+      "atr_pct": 6.1,
       "atr14": 8405.8
     },
     {
@@ -642,6 +780,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.32,
+      "volume": 612877.0,
+      "volume_ma20": 464213.65,
+      "volume_ratio_prior20": 1.34,
+      "prior20_high": 159000.0,
+      "prior20_low": 118700.0,
+      "atr_pct": 6.09,
       "atr14": 9098.24
     },
     {
@@ -664,6 +808,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.39,
+      "volume": 648875.0,
+      "volume_ma20": 466802.8,
+      "volume_ratio_prior20": 1.4,
+      "prior20_high": 159000.0,
+      "prior20_low": 126900.0,
+      "atr_pct": 5.77,
       "atr14": 9305.51
     },
     {
@@ -686,6 +836,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.76,
+      "volume": 343973.0,
+      "volume_ma20": 453451.15,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 161500.0,
+      "prior20_low": 127500.0,
+      "atr_pct": 5.52,
       "atr14": 9012.26
     },
     {
@@ -708,6 +864,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.86,
+      "volume": 388146.0,
+      "volume_ma20": 449918.45,
+      "volume_ratio_prior20": 0.86,
+      "prior20_high": 164500.0,
+      "prior20_low": 127500.0,
+      "atr_pct": 5.41,
       "atr14": 8697.1
     },
     {
@@ -730,6 +892,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.54,
+      "volume": 704785.0,
+      "volume_ma20": 458334.95,
+      "volume_ratio_prior20": 1.57,
+      "prior20_high": 164600.0,
+      "prior20_low": 127500.0,
+      "atr_pct": 5.33,
       "atr14": 8868.74
     },
     {
@@ -752,6 +920,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.13,
+      "volume": 525328.0,
+      "volume_ma20": 464425.25,
+      "volume_ratio_prior20": 1.15,
+      "prior20_high": 171900.0,
+      "prior20_low": 128200.0,
+      "atr_pct": 5.21,
       "atr14": 9070.97
     },
     {
@@ -774,6 +948,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.85,
+      "volume": 400810.0,
+      "volume_ma20": 470793.7,
+      "volume_ratio_prior20": 0.86,
+      "prior20_high": 178000.0,
+      "prior20_low": 129200.0,
+      "atr_pct": 5.05,
       "atr14": 8887.33
     },
     {
@@ -796,6 +976,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.21,
+      "volume": 579368.0,
+      "volume_ma20": 479347.35,
+      "volume_ratio_prior20": 1.23,
+      "prior20_high": 180700.0,
+      "prior20_low": 130100.0,
+      "atr_pct": 5.33,
       "atr14": 9173.95
     },
     {
@@ -818,6 +1004,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.62,
+      "volume": 289812.0,
+      "volume_ma20": 470925.6,
+      "volume_ratio_prior20": 0.6,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.1,
       "atr14": 9068.67
     },
     {
@@ -840,6 +1032,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.19,
+      "volume": 569044.0,
+      "volume_ma20": 478833.75,
+      "volume_ratio_prior20": 1.21,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.35,
       "atr14": 9092.33
     },
     {
@@ -862,6 +1060,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.56,
+      "volume": 266777.0,
+      "volume_ma20": 478117.9,
+      "volume_ratio_prior20": 0.56,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.15,
       "atr14": 8864.31
     },
     {
@@ -884,6 +1088,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.2,
+      "volume": 588289.0,
+      "volume_ma20": 489340.95,
+      "volume_ratio_prior20": 1.23,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.03,
       "atr14": 8938.29
     },
     {
@@ -906,6 +1116,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.91,
+      "volume": 436701.0,
+      "volume_ma20": 481160.75,
+      "volume_ratio_prior20": 0.89,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 4.87,
       "atr14": 8735.55
     },
     {
@@ -928,6 +1144,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.11,
+      "volume": 545439.0,
+      "volume_ma20": 490322.35,
+      "volume_ratio_prior20": 1.13,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.1,
       "atr14": 8868.73
     },
     {
@@ -950,6 +1172,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.57,
+      "volume": 272377.0,
+      "volume_ma20": 478266.15,
+      "volume_ratio_prior20": 0.56,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.11,
       "atr14": 8770.96
     },
     {
@@ -972,6 +1200,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.78,
+      "volume": 367970.0,
+      "volume_ma20": 473028.65,
+      "volume_ratio_prior20": 0.77,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.17,
       "atr14": 8651.61
     },
     {
@@ -994,6 +1228,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.11,
+      "volume": 538391.0,
+      "volume_ma20": 485365.4,
+      "volume_ratio_prior20": 1.14,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.09,
       "atr14": 9226.49
     },
     {
@@ -1016,6 +1256,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.69,
+      "volume": 320767.0,
+      "volume_ma20": 464794.8,
+      "volume_ratio_prior20": 0.66,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.21,
       "atr14": 9096.03
     },
     {
@@ -1038,6 +1284,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.31,
+      "volume": 630657.0,
+      "volume_ma20": 480754.9,
+      "volume_ratio_prior20": 1.36,
+      "prior20_high": 183300.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.14,
       "atr14": 9439.17
     },
     {
@@ -1060,6 +1312,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.27,
+      "volume": 612884.0,
+      "volume_ma20": 482163.5,
+      "volume_ratio_prior20": 1.27,
+      "prior20_high": 188500.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.76,
       "atr14": 9900.66
     },
     {
@@ -1082,6 +1340,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.71,
+      "volume": 334690.0,
+      "volume_ma20": 468254.15,
+      "volume_ratio_prior20": 0.69,
+      "prior20_high": 188500.0,
+      "prior20_low": 133900.0,
+      "atr_pct": 5.45,
       "atr14": 9729.18
     },
     {
@@ -1104,6 +1368,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.28,
+      "volume": 595552.0,
+      "volume_ma20": 465588.0,
+      "volume_ratio_prior20": 1.27,
+      "prior20_high": 188500.0,
+      "prior20_low": 149700.0,
+      "atr_pct": 5.25,
       "atr14": 9827.1
     },
     {
@@ -1126,6 +1396,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 4.8,
+      "volume": 2829191.0,
+      "volume_ma20": 589848.9,
+      "volume_ratio_prior20": 6.08,
+      "prior20_high": 189700.0,
+      "prior20_low": 159300.0,
+      "atr_pct": 5.71,
       "atr14": 11896.59
     },
     {
@@ -1148,6 +1424,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.89,
+      "volume": 1187549.0,
+      "volume_ma20": 629819.05,
+      "volume_ratio_prior20": 2.01,
+      "prior20_high": 224000.0,
+      "prior20_low": 160000.0,
+      "atr_pct": 5.44,
       "atr14": 11939.69
     },
     {
@@ -1170,6 +1452,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.3,
+      "volume": 830029.0,
+      "volume_ma20": 636081.25,
+      "volume_ratio_prior20": 1.32,
+      "prior20_high": 224000.0,
+      "prior20_low": 161200.0,
+      "atr_pct": 5.38,
       "atr14": 12372.57
     },
     {
@@ -1192,6 +1480,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 1.26,
+      "volume": 820909.0,
+      "volume_ma20": 650860.3,
+      "volume_ratio_prior20": 1.29,
+      "prior20_high": 233000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.68,
       "atr14": 12845.96
     },
     {
@@ -1214,6 +1508,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 0.86,
+      "volume": 567327.0,
+      "volume_ma20": 659186.15,
+      "volume_ratio_prior20": 0.87,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.76,
       "atr14": 12642.68
     },
     {
@@ -1236,6 +1536,12 @@
       "cloud_a": null,
       "cloud_b": null,
       "volume_ratio20": 2.09,
+      "volume": 1474533.0,
+      "volume_ma20": 703944.4,
+      "volume_ratio_prior20": 2.24,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 6.41,
       "atr14": 13357.48
     },
     {
@@ -1258,6 +1564,12 @@
       "cloud_a": 145250.0,
       "cloud_b": null,
       "volume_ratio20": 0.82,
+      "volume": 585872.0,
+      "volume_ma20": 718747.4,
+      "volume_ratio_prior20": 0.83,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 6.09,
       "atr14": 13010.52
     },
     {
@@ -1280,6 +1592,12 @@
       "cloud_a": 145450.0,
       "cloud_b": null,
       "volume_ratio20": 0.39,
+      "volume": 277674.0,
+      "volume_ma20": 704178.9,
+      "volume_ratio_prior20": 0.39,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 6.0,
       "atr14": 12866.91
     },
     {
@@ -1302,6 +1620,12 @@
       "cloud_a": 149100.0,
       "cloud_b": null,
       "volume_ratio20": 0.69,
+      "volume": 496649.0,
+      "volume_ma20": 715672.5,
+      "volume_ratio_prior20": 0.71,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.88,
       "atr14": 12769.28
     },
     {
@@ -1324,6 +1648,12 @@
       "cloud_a": 152150.0,
       "cloud_b": null,
       "volume_ratio20": 0.67,
+      "volume": 479024.0,
+      "volume_ma20": 710209.25,
+      "volume_ratio_prior20": 0.67,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 6.07,
       "atr14": 12928.61
     },
     {
@@ -1346,6 +1676,12 @@
       "cloud_a": 155550.0,
       "cloud_b": null,
       "volume_ratio20": 0.44,
+      "volume": 309979.0,
+      "volume_ma20": 703873.15,
+      "volume_ratio_prior20": 0.44,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.76,
       "atr14": 12576.57
     },
     {
@@ -1368,6 +1704,12 @@
       "cloud_a": 157000.0,
       "cloud_b": null,
       "volume_ratio20": 0.63,
+      "volume": 438097.0,
+      "volume_ma20": 698506.05,
+      "volume_ratio_prior20": 0.62,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.58,
       "atr14": 12713.96
     },
     {
@@ -1390,6 +1732,12 @@
       "cloud_a": 157000.0,
       "cloud_b": null,
       "volume_ratio20": 0.48,
+      "volume": 334046.0,
+      "volume_ma20": 701589.5,
+      "volume_ratio_prior20": 0.48,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.51,
       "atr14": 12448.67
     },
     {
@@ -1412,6 +1760,12 @@
       "cloud_a": 160950.0,
       "cloud_b": null,
       "volume_ratio20": 1.01,
+      "volume": 725452.0,
+      "volume_ma20": 719463.6,
+      "volume_ratio_prior20": 1.03,
+      "prior20_high": 239000.0,
+      "prior20_low": 165400.0,
+      "atr_pct": 5.47,
       "atr14": 12345.2
     },
     {
@@ -1434,6 +1788,12 @@
       "cloud_a": 163525.0,
       "cloud_b": null,
       "volume_ratio20": 0.74,
+      "volume": 531306.0,
+      "volume_ma20": 719109.35,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 239000.0,
+      "prior20_low": 165800.0,
+      "atr_pct": 5.63,
       "atr14": 12320.54
     },
     {
@@ -1456,6 +1816,12 @@
       "cloud_a": 163950.0,
       "cloud_b": null,
       "volume_ratio20": 0.33,
+      "volume": 234972.0,
+      "volume_ma20": 714819.6,
+      "volume_ratio_prior20": 0.33,
+      "prior20_high": 239000.0,
+      "prior20_low": 167800.0,
+      "atr_pct": 5.37,
       "atr14": 12011.93
     },
     {
@@ -1478,6 +1844,12 @@
       "cloud_a": 164475.0,
       "cloud_b": null,
       "volume_ratio20": 0.44,
+      "volume": 304681.0,
+      "volume_ma20": 698520.8,
+      "volume_ratio_prior20": 0.43,
+      "prior20_high": 239000.0,
+      "prior20_low": 167800.0,
+      "atr_pct": 5.18,
       "atr14": 11761.08
     },
     {
@@ -1500,6 +1872,12 @@
       "cloud_a": 167225.0,
       "cloud_b": null,
       "volume_ratio20": 0.64,
+      "volume": 438676.0,
+      "volume_ma20": 689810.4,
+      "volume_ratio_prior20": 0.63,
+      "prior20_high": 239000.0,
+      "prior20_low": 167800.0,
+      "atr_pct": 5.16,
       "atr14": 11635.29
     },
     {
@@ -1522,6 +1900,12 @@
       "cloud_a": 167225.0,
       "cloud_b": null,
       "volume_ratio20": 0.56,
+      "volume": 384745.0,
+      "volume_ma20": 692313.15,
+      "volume_ratio_prior20": 0.56,
+      "prior20_high": 239000.0,
+      "prior20_low": 173100.0,
+      "atr_pct": 5.24,
       "atr14": 11518.48
     },
     {
@@ -1544,6 +1928,12 @@
       "cloud_a": 166475.0,
       "cloud_b": null,
       "volume_ratio20": 1.1,
+      "volume": 772679.0,
+      "volume_ma20": 701169.5,
+      "volume_ratio_prior20": 1.12,
+      "prior20_high": 239000.0,
+      "prior20_low": 181400.0,
+      "atr_pct": 5.62,
       "atr14": 11910.02
     },
     {
@@ -1566,6 +1956,12 @@
       "cloud_a": 166325.0,
       "cloud_b": null,
       "volume_ratio20": 0.68,
+      "volume": 391877.0,
+      "volume_ma20": 579303.8,
+      "volume_ratio_prior20": 0.56,
+      "prior20_high": 239000.0,
+      "prior20_low": 185200.0,
+      "atr_pct": 5.31,
       "atr14": 11559.3
     },
     {
@@ -1588,6 +1984,12 @@
       "cloud_a": 166325.0,
       "cloud_b": null,
       "volume_ratio20": 0.48,
+      "volume": 253444.0,
+      "volume_ma20": 532598.55,
+      "volume_ratio_prior20": 0.44,
+      "prior20_high": 239000.0,
+      "prior20_low": 199850.0,
+      "atr_pct": 5.13,
       "atr14": 11055.07
     },
     {
@@ -1610,6 +2012,12 @@
       "cloud_a": 169075.0,
       "cloud_b": null,
       "volume_ratio20": 0.54,
+      "volume": 270657.0,
+      "volume_ma20": 504629.95,
+      "volume_ratio_prior20": 0.51,
+      "prior20_high": 239000.0,
+      "prior20_low": 199850.0,
+      "atr_pct": 4.86,
       "atr14": 10836.85
     },
     {
@@ -1632,6 +2040,12 @@
       "cloud_a": 169075.0,
       "cloud_b": null,
       "volume_ratio20": 0.75,
+      "volume": 358740.0,
+      "volume_ma20": 481521.5,
+      "volume_ratio_prior20": 0.71,
+      "prior20_high": 239000.0,
+      "prior20_low": 199850.0,
+      "atr_pct": 4.78,
       "atr14": 10991.36
     },
     {
@@ -1654,6 +2068,12 @@
       "cloud_a": 169075.0,
       "cloud_b": null,
       "volume_ratio20": 0.75,
+      "volume": 352215.0,
+      "volume_ma20": 470765.9,
+      "volume_ratio_prior20": 0.73,
+      "prior20_high": 233000.0,
+      "prior20_low": 199850.0,
+      "atr_pct": 4.8,
       "atr14": 10920.55
     },
     {
@@ -1676,6 +2096,12 @@
       "cloud_a": 169675.0,
       "cloud_b": null,
       "volume_ratio20": 1.8,
+      "volume": 784241.0,
+      "volume_ma20": 436251.3,
+      "volume_ratio_prior20": 1.67,
+      "prior20_high": 233000.0,
+      "prior20_low": 199850.0,
+      "atr_pct": 4.89,
       "atr14": 11211.94
     },
     {
@@ -1698,6 +2124,12 @@
       "cloud_a": 186825.0,
       "cloud_b": null,
       "volume_ratio20": 1.74,
+      "volume": 775152.0,
+      "volume_ma20": 445715.3,
+      "volume_ratio_prior20": 1.78,
+      "prior20_high": 241500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.25,
       "atr14": 11446.8
     },
     {
@@ -1720,6 +2152,12 @@
       "cloud_a": 186825.0,
       "cloud_b": null,
       "volume_ratio20": 1.09,
+      "volume": 496225.0,
+      "volume_ma20": 456642.85,
+      "volume_ratio_prior20": 1.11,
+      "prior20_high": 241500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.18,
       "atr14": 11164.88
     },
     {
@@ -1742,6 +2180,12 @@
       "cloud_a": 191425.0,
       "cloud_b": null,
       "volume_ratio20": 1.03,
+      "volume": 467174.0,
+      "volume_ma20": 455169.1,
+      "volume_ratio_prior20": 1.02,
+      "prior20_high": 241500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.1,
       "atr14": 10867.39
     },
     {
@@ -1764,6 +2208,12 @@
       "cloud_a": 194925.0,
       "cloud_b": null,
       "volume_ratio20": 0.78,
+      "volume": 350065.0,
+      "volume_ma20": 448721.15,
+      "volume_ratio_prior20": 0.77,
+      "prior20_high": 241500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 4.86,
       "atr14": 10555.44
     },
     {
@@ -1786,6 +2236,12 @@
       "cloud_a": 198875.0,
       "cloud_b": null,
       "volume_ratio20": 0.84,
+      "volume": 381967.0,
+      "volume_ma20": 452320.55,
+      "volume_ratio_prior20": 0.85,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.76,
       "atr14": 10337.19
     },
     {
@@ -1808,6 +2264,12 @@
       "cloud_a": 201275.0,
       "cloud_b": null,
       "volume_ratio20": 1.17,
+      "volume": 537167.0,
+      "volume_ma20": 457274.05,
+      "volume_ratio_prior20": 1.19,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.6,
       "atr14": 10277.39
     },
     {
@@ -1830,6 +2292,12 @@
       "cloud_a": 202775.0,
       "cloud_b": 178550.0,
       "volume_ratio20": 1.08,
+      "volume": 504654.0,
+      "volume_ma20": 465804.45,
+      "volume_ratio_prior20": 1.1,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.59,
       "atr14": 10329.01
     },
     {
@@ -1852,6 +2320,12 @@
       "cloud_a": 205150.0,
       "cloud_b": 178850.0,
       "volume_ratio20": 0.88,
+      "volume": 394649.0,
+      "volume_ma20": 449264.3,
+      "volume_ratio_prior20": 0.85,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.69,
       "atr14": 10234.08
     },
     {
@@ -1874,6 +2348,12 @@
       "cloud_a": 207150.0,
       "cloud_b": 178850.0,
       "volume_ratio20": 0.82,
+      "volume": 361070.0,
+      "volume_ma20": 440752.5,
+      "volume_ratio_prior20": 0.8,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.62,
       "atr14": 10038.79
     },
     {
@@ -1896,6 +2376,12 @@
       "cloud_a": 210812.5,
       "cloud_b": 178850.0,
       "volume_ratio20": 1.41,
+      "volume": 649983.0,
+      "volume_ma20": 461503.05,
+      "volume_ratio_prior20": 1.47,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.54,
       "atr14": 10143.16
     },
     {
@@ -1918,6 +2404,12 @@
       "cloud_a": 210812.5,
       "cloud_b": 182950.0,
       "volume_ratio20": 0.94,
+      "volume": 438850.0,
+      "volume_ma20": 468211.5,
+      "volume_ratio_prior20": 0.95,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.5,
       "atr14": 10132.93
     },
     {
@@ -1940,6 +2432,12 @@
       "cloud_a": 210812.5,
       "cloud_b": 183250.0,
       "volume_ratio20": 1.98,
+      "volume": 981236.0,
+      "volume_ma20": 495339.5,
+      "volume_ratio_prior20": 2.1,
+      "prior20_high": 241500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.66,
       "atr14": 11480.58
     },
     {
@@ -1962,6 +2460,12 @@
       "cloud_a": 209312.5,
       "cloud_b": 183250.0,
       "volume_ratio20": 1.26,
+      "volume": 639665.0,
+      "volume_ma20": 508085.5,
+      "volume_ratio_prior20": 1.29,
+      "prior20_high": 247500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.68,
       "atr14": 11696.25
     },
     {
@@ -1984,6 +2488,12 @@
       "cloud_a": 209312.5,
       "cloud_b": 183250.0,
       "volume_ratio20": 1.19,
+      "volume": 592613.0,
+      "volume_ma20": 499082.2,
+      "volume_ratio_prior20": 1.17,
+      "prior20_high": 257500.0,
+      "prior20_low": 208000.0,
+      "atr_pct": 4.54,
       "atr14": 11860.81
     },
     {
@@ -2006,6 +2516,12 @@
       "cloud_a": 210350.0,
       "cloud_b": 183600.0,
       "volume_ratio20": 1.16,
+      "volume": 589281.0,
+      "volume_ma20": 508952.4,
+      "volume_ratio_prior20": 1.18,
+      "prior20_high": 264000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.6,
       "atr14": 11727.89
     },
     {
@@ -2028,6 +2544,12 @@
       "cloud_a": 210350.0,
       "cloud_b": 184100.0,
       "volume_ratio20": 1.07,
+      "volume": 563105.0,
+      "volume_ma20": 524435.45,
+      "volume_ratio_prior20": 1.11,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.53,
       "atr14": 11640.19
     },
     {
@@ -2050,6 +2572,12 @@
       "cloud_a": 210350.0,
       "cloud_b": 184550.0,
       "volume_ratio20": 0.52,
+      "volume": 275420.0,
+      "volume_ma20": 524673.6,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.53,
       "atr14": 11737.31
     },
     {
@@ -2072,6 +2600,12 @@
       "cloud_a": 210350.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.96,
+      "volume": 511417.0,
+      "volume_ma20": 532307.45,
+      "volume_ratio_prior20": 0.97,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.79,
       "atr14": 11827.51
     },
     {
@@ -2094,6 +2628,12 @@
       "cloud_a": 212725.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.48,
+      "volume": 251688.0,
+      "volume_ma20": 527281.1,
+      "volume_ratio_prior20": 0.47,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.62,
       "atr14": 11446.97
     },
     {
@@ -2116,6 +2656,12 @@
       "cloud_a": 211450.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.95,
+      "volume": 488318.0,
+      "volume_ma20": 512484.95,
+      "volume_ratio_prior20": 0.93,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.88,
       "atr14": 11843.62
     },
     {
@@ -2138,6 +2684,12 @@
       "cloud_a": 211950.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.68,
+      "volume": 333799.0,
+      "volume_ma20": 490417.3,
+      "volume_ratio_prior20": 0.65,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.91,
       "atr14": 11747.64
     },
     {
@@ -2160,6 +2712,12 @@
       "cloud_a": 211075.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 1.16,
+      "volume": 571293.0,
+      "volume_ma20": 494170.7,
+      "volume_ratio_prior20": 1.16,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 5.0,
       "atr14": 11729.95
     },
     {
@@ -2182,6 +2740,12 @@
       "cloud_a": 211075.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.9,
+      "volume": 445815.0,
+      "volume_ma20": 493102.75,
+      "volume_ratio_prior20": 0.9,
+      "prior20_high": 265000.0,
+      "prior20_low": 211000.0,
+      "atr_pct": 4.91,
       "atr14": 11356.39
     },
     {
@@ -2204,6 +2768,12 @@
       "cloud_a": 212900.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.76,
+      "volume": 375465.0,
+      "volume_ma20": 494372.75,
+      "volume_ratio_prior20": 0.76,
+      "prior20_high": 265000.0,
+      "prior20_low": 214000.0,
+      "atr_pct": 4.76,
       "atr14": 11259.5
     },
     {
@@ -2226,6 +2796,12 @@
       "cloud_a": 215100.0,
       "cloud_b": 186450.0,
       "volume_ratio20": 0.95,
+      "volume": 472563.0,
+      "volume_ma20": 498902.55,
+      "volume_ratio_prior20": 0.96,
+      "prior20_high": 265000.0,
+      "prior20_low": 214500.0,
+      "atr_pct": 4.59,
       "atr14": 11133.82
     },
     {
@@ -2248,6 +2824,12 @@
       "cloud_a": 219050.0,
       "cloud_b": 187700.0,
       "volume_ratio20": 1.05,
+      "volume": 521308.0,
+      "volume_ma20": 498109.6,
+      "volume_ratio_prior20": 1.04,
+      "prior20_high": 265000.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 4.8,
       "atr14": 11445.69
     },
     {
@@ -2270,6 +2852,12 @@
       "cloud_a": 222712.5,
       "cloud_b": 187700.0,
       "volume_ratio20": 0.69,
+      "volume": 337465.0,
+      "volume_ma20": 489750.15,
+      "volume_ratio_prior20": 0.68,
+      "prior20_high": 265000.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 4.81,
       "atr14": 11663.86
     },
     {
@@ -2292,6 +2880,12 @@
       "cloud_a": 222712.5,
       "cloud_b": 187700.0,
       "volume_ratio20": 1.14,
+      "volume": 566514.0,
+      "volume_ma20": 498343.4,
+      "volume_ratio_prior20": 1.16,
+      "prior20_high": 265000.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 4.87,
       "atr14": 12009.3
     },
     {
@@ -2314,6 +2908,12 @@
       "cloud_a": 223462.5,
       "cloud_b": 187700.0,
       "volume_ratio20": 0.78,
+      "volume": 391823.0,
+      "volume_ma20": 499881.05,
+      "volume_ratio_prior20": 0.79,
+      "prior20_high": 265000.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 4.95,
       "atr14": 11830.06
     },
     {
@@ -2336,6 +2936,12 @@
       "cloud_a": 223462.5,
       "cloud_b": 187700.0,
       "volume_ratio20": 1.29,
+      "volume": 645518.0,
+      "volume_ma20": 499657.8,
+      "volume_ratio_prior20": 1.29,
+      "prior20_high": 265000.0,
+      "prior20_low": 217500.0,
+      "atr_pct": 4.83,
       "atr14": 12235.06
     },
     {
@@ -2358,6 +2964,12 @@
       "cloud_a": 223462.5,
       "cloud_b": 195600.0,
       "volume_ratio20": 0.87,
+      "volume": 433195.0,
+      "volume_ma20": 499375.05,
+      "volume_ratio_prior20": 0.87,
+      "prior20_high": 265000.0,
+      "prior20_low": 218500.0,
+      "atr_pct": 4.78,
       "atr14": 12182.55
     },
     {
@@ -2380,6 +2992,12 @@
       "cloud_a": 224500.0,
       "cloud_b": 200400.0,
       "volume_ratio20": 1.06,
+      "volume": 504439.0,
+      "volume_ma20": 475535.2,
+      "volume_ratio_prior20": 1.01,
+      "prior20_high": 265000.0,
+      "prior20_low": 218500.0,
+      "atr_pct": 4.66,
       "atr14": 12705.23
     },
     {
@@ -2402,6 +3020,12 @@
       "cloud_a": 224500.0,
       "cloud_b": 200750.0,
       "volume_ratio20": 1.07,
+      "volume": 500326.0,
+      "volume_ma20": 468568.25,
+      "volume_ratio_prior20": 1.05,
+      "prior20_high": 274500.0,
+      "prior20_low": 228000.0,
+      "atr_pct": 4.6,
       "atr14": 12690.57
     },
     {
@@ -2424,6 +3048,12 @@
       "cloud_a": 224500.0,
       "cloud_b": 201350.0,
       "volume_ratio20": 1.22,
+      "volume": 571733.0,
+      "volume_ma20": 467524.25,
+      "volume_ratio_prior20": 1.22,
+      "prior20_high": 279500.0,
+      "prior20_low": 228000.0,
+      "atr_pct": 5.09,
       "atr14": 13319.81
     },
     {
@@ -2446,6 +3076,12 @@
       "cloud_a": 221875.0,
       "cloud_b": 203450.0,
       "volume_ratio20": 4.07,
+      "volume": 2241648.0,
+      "volume_ma20": 550142.6,
+      "volume_ratio_prior20": 4.79,
+      "prior20_high": 279500.0,
+      "prior20_low": 228000.0,
+      "atr_pct": 6.51,
       "atr14": 15225.54
     },
     {
@@ -2468,6 +3104,12 @@
       "cloud_a": 222625.0,
       "cloud_b": 203450.0,
       "volume_ratio20": 1.8,
+      "volume": 1031039.0,
+      "volume_ma20": 573539.3,
+      "volume_ratio_prior20": 1.87,
+      "prior20_high": 279500.0,
+      "prior20_low": 228000.0,
+      "atr_pct": 6.53,
       "atr14": 15280.86
     },
     {
@@ -2490,6 +3132,12 @@
       "cloud_a": 222625.0,
       "cloud_b": 203450.0,
       "volume_ratio20": 1.52,
+      "volume": 919703.0,
+      "volume_ma20": 605753.45,
+      "volume_ratio_prior20": 1.6,
+      "prior20_high": 279500.0,
+      "prior20_low": 228000.0,
+      "atr_pct": 7.16,
       "atr14": 15796.51
     },
     {
@@ -2512,6 +3160,12 @@
       "cloud_a": 229250.0,
       "cloud_b": 206450.0,
       "volume_ratio20": 1.97,
+      "volume": 1269534.0,
+      "volume_ma20": 643659.3,
+      "volume_ratio_prior20": 2.1,
+      "prior20_high": 279500.0,
+      "prior20_low": 217000.0,
+      "atr_pct": 7.39,
       "atr14": 15703.9
     },
     {
@@ -2534,6 +3188,12 @@
       "cloud_a": 234375.0,
       "cloud_b": 211450.0,
       "volume_ratio20": 0.88,
+      "volume": 580602.0,
+      "volume_ma20": 660105.0,
+      "volume_ratio_prior20": 0.9,
+      "prior20_high": 279500.0,
+      "prior20_low": 206500.0,
+      "atr_pct": 7.25,
       "atr14": 15296.48
     },
     {
@@ -2556,6 +3216,12 @@
       "cloud_a": 237875.0,
       "cloud_b": 214700.0,
       "volume_ratio20": 0.72,
+      "volume": 473309.0,
+      "volume_ma20": 659354.55,
+      "volume_ratio_prior20": 0.72,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.9,
       "atr14": 14739.59
     },
     {
@@ -2578,6 +3244,12 @@
       "cloud_a": 238375.0,
       "cloud_b": 215200.0,
       "volume_ratio20": 1.04,
+      "volume": 703586.0,
+      "volume_ma20": 677843.9,
+      "volume_ratio_prior20": 1.07,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.72,
       "atr14": 14758.19
     },
     {
@@ -2600,6 +3272,12 @@
       "cloud_a": 238375.0,
       "cloud_b": 215200.0,
       "volume_ratio20": 0.54,
+      "volume": 359136.0,
+      "volume_ma20": 667236.05,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.55,
       "atr14": 14311.18
     },
     {
@@ -2622,6 +3300,12 @@
       "cloud_a": 238375.0,
       "cloud_b": 215200.0,
       "volume_ratio20": 0.44,
+      "volume": 289277.0,
+      "volume_ma20": 659409.15,
+      "volume_ratio_prior20": 0.43,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.53,
       "atr14": 14038.95
     },
     {
@@ -2644,6 +3328,12 @@
       "cloud_a": 238875.0,
       "cloud_b": 215200.0,
       "volume_ratio20": 0.76,
+      "volume": 503086.0,
+      "volume_ma20": 665790.2,
+      "volume_ratio_prior20": 0.76,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.2,
       "atr14": 13929.03
     },
     {
@@ -2666,6 +3356,12 @@
       "cloud_a": 239125.0,
       "cloud_b": 215200.0,
       "volume_ratio20": 1.16,
+      "volume": 788441.0,
+      "volume_ma20": 681584.1,
+      "volume_ratio_prior20": 1.18,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.3,
       "atr14": 14934.1
     },
     {
@@ -2688,6 +3384,12 @@
       "cloud_a": 239875.0,
       "cloud_b": 215400.0,
       "volume_ratio20": 0.64,
+      "volume": 430563.0,
+      "volume_ma20": 677046.85,
+      "volume_ratio_prior20": 0.63,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 6.11,
       "atr14": 14545.95
     },
     {
@@ -2710,6 +3412,12 @@
       "cloud_a": 243875.0,
       "cloud_b": 216400.0,
       "volume_ratio20": 3.94,
+      "volume": 3242276.0,
+      "volume_ma20": 822287.4,
+      "volume_ratio_prior20": 4.79,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.96,
       "atr14": 14756.95
     },
     {
@@ -2732,6 +3440,12 @@
       "cloud_a": 242250.0,
       "cloud_b": 216400.0,
       "volume_ratio20": 0.58,
+      "volume": 474423.0,
+      "volume_ma20": 817682.85,
+      "volume_ratio_prior20": 0.58,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.8,
       "atr14": 14524.31
     },
     {
@@ -2754,6 +3468,12 @@
       "cloud_a": 242250.0,
       "cloud_b": 216400.0,
       "volume_ratio20": 0.51,
+      "volume": 421780.0,
+      "volume_ma20": 819180.7,
+      "volume_ratio_prior20": 0.52,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.75,
       "atr14": 14379.72
     },
     {
@@ -2776,6 +3496,12 @@
       "cloud_a": 241875.0,
       "cloud_b": 219050.0,
       "volume_ratio20": 0.69,
+      "volume": 560962.0,
+      "volume_ma20": 814952.9,
+      "volume_ratio_prior20": 0.68,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.52,
       "atr14": 14674.02
     },
     {
@@ -2798,6 +3524,12 @@
       "cloud_a": 241875.0,
       "cloud_b": 223200.0,
       "volume_ratio20": 0.47,
+      "volume": 384689.0,
+      "volume_ma20": 812527.6,
+      "volume_ratio_prior20": 0.47,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.75,
       "atr14": 14697.31
     },
     {
@@ -2820,6 +3552,12 @@
       "cloud_a": 240500.0,
       "cloud_b": 225100.0,
       "volume_ratio20": 0.44,
+      "volume": 357740.0,
+      "volume_ma20": 805192.65,
+      "volume_ratio_prior20": 0.44,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.76,
       "atr14": 14540.36
     },
     {
@@ -2842,6 +3580,12 @@
       "cloud_a": 240500.0,
       "cloud_b": 232425.0,
       "volume_ratio20": 0.46,
+      "volume": 363437.0,
+      "volume_ma20": 798348.2,
+      "volume_ratio_prior20": 0.45,
+      "prior20_high": 279500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.76,
       "atr14": 14251.76
     },
     {
@@ -2864,6 +3608,12 @@
       "cloud_a": 240500.0,
       "cloud_b": 232425.0,
       "volume_ratio20": 0.51,
+      "volume": 400200.0,
+      "volume_ma20": 789771.55,
+      "volume_ratio_prior20": 0.5,
+      "prior20_high": 275500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.77,
       "atr14": 14126.63
     },
     {
@@ -2886,6 +3636,12 @@
       "cloud_a": 241250.0,
       "cloud_b": 232425.0,
       "volume_ratio20": 0.35,
+      "volume": 242988.0,
+      "volume_ma20": 689838.55,
+      "volume_ratio_prior20": 0.31,
+      "prior20_high": 271500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.57,
       "atr14": 13796.16
     },
     {
@@ -2908,6 +3664,12 @@
       "cloud_a": 241375.0,
       "cloud_b": 232425.0,
       "volume_ratio20": 0.62,
+      "volume": 408476.0,
+      "volume_ma20": 658710.4,
+      "volume_ratio_prior20": 0.59,
+      "prior20_high": 267500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.37,
       "atr14": 13667.86
     },
     {
@@ -2930,6 +3692,12 @@
       "cloud_a": 243125.0,
       "cloud_b": 232425.0,
       "volume_ratio20": 1.08,
+      "volume": 702087.0,
+      "volume_ma20": 647829.6,
+      "volume_ratio_prior20": 1.07,
+      "prior20_high": 267500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.27,
       "atr14": 14191.59
     },
     {
@@ -2952,6 +3720,12 @@
       "cloud_a": 249250.0,
       "cloud_b": 239250.0,
       "volume_ratio20": 0.48,
+      "volume": 285095.0,
+      "volume_ma20": 598607.65,
+      "volume_ratio_prior20": 0.44,
+      "prior20_high": 275500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.4,
       "atr14": 14035.04
     },
     {
@@ -2974,6 +3748,12 @@
       "cloud_a": 251750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.54,
+      "volume": 315719.0,
+      "volume_ma20": 585363.5,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 275500.0,
+      "prior20_low": 204000.0,
+      "atr_pct": 5.64,
       "atr14": 14211.11
     },
     {
@@ -2996,6 +3776,12 @@
       "cloud_a": 251750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.48,
+      "volume": 276034.0,
+      "volume_ma20": 575499.75,
+      "volume_ratio_prior20": 0.47,
+      "prior20_high": 275500.0,
+      "prior20_low": 208500.0,
+      "atr_pct": 5.47,
       "atr14": 13874.61
     },
     {
@@ -3018,6 +3804,12 @@
       "cloud_a": 252000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.45,
+      "volume": 251507.0,
+      "volume_ma20": 552895.8,
+      "volume_ratio_prior20": 0.44,
+      "prior20_high": 275500.0,
+      "prior20_low": 208500.0,
+      "atr_pct": 5.58,
       "atr14": 13812.13
     },
     {
@@ -3040,6 +3832,12 @@
       "cloud_a": 252125.0,
       "cloud_b": 243750.0,
       "volume_ratio20": 0.45,
+      "volume": 247713.0,
+      "volume_ma20": 547324.65,
+      "volume_ratio_prior20": 0.45,
+      "prior20_high": 275500.0,
+      "prior20_low": 212000.0,
+      "atr_pct": 5.47,
       "atr14": 13718.41
     },
     {
@@ -3062,6 +3860,12 @@
       "cloud_a": 248250.0,
       "cloud_b": 243750.0,
       "volume_ratio20": 1.31,
+      "volume": 745658.0,
+      "volume_ma20": 570143.7,
+      "volume_ratio_prior20": 1.36,
+      "prior20_high": 275500.0,
+      "prior20_low": 212000.0,
+      "atr_pct": 5.41,
       "atr14": 14274.24
     },
     {
@@ -3084,6 +3888,12 @@
       "cloud_a": 243000.0,
       "cloud_b": 243000.0,
       "volume_ratio20": 0.65,
+      "volume": 365063.0,
+      "volume_ma20": 563242.55,
+      "volume_ratio_prior20": 0.64,
+      "prior20_high": 275500.0,
+      "prior20_low": 213000.0,
+      "atr_pct": 5.57,
       "atr14": 14290.36
     },
     {
@@ -3106,6 +3916,12 @@
       "cloud_a": 241750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.55,
+      "volume": 296183.0,
+      "volume_ma20": 538629.65,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 275500.0,
+      "prior20_low": 221000.0,
+      "atr_pct": 5.83,
       "atr14": 14198.19
     },
     {
@@ -3128,6 +3944,12 @@
       "cloud_a": 241750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.55,
+      "volume": 293083.0,
+      "volume_ma20": 531755.65,
+      "volume_ratio_prior20": 0.54,
+      "prior20_high": 275500.0,
+      "prior20_low": 232500.0,
+      "atr_pct": 5.62,
       "atr14": 13648.32
     },
     {
@@ -3150,6 +3972,12 @@
       "cloud_a": 241750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.64,
+      "volume": 242519.0,
+      "volume_ma20": 381767.8,
+      "volume_ratio_prior20": 0.46,
+      "prior20_high": 275500.0,
+      "prior20_low": 235000.0,
+      "atr_pct": 5.4,
       "atr14": 13173.44
     },
     {
@@ -3172,6 +4000,12 @@
       "cloud_a": 240750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.0,
+      "volume": 375197.0,
+      "volume_ma20": 376806.5,
+      "volume_ratio_prior20": 0.98,
+      "prior20_high": 275500.0,
+      "prior20_low": 238500.0,
+      "atr_pct": 5.47,
       "atr14": 12911.05
     },
     {
@@ -3194,6 +4028,12 @@
       "cloud_a": 239750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.77,
+      "volume": 284322.0,
+      "volume_ma20": 369933.6,
+      "volume_ratio_prior20": 0.75,
+      "prior20_high": 275500.0,
+      "prior20_low": 235000.0,
+      "atr_pct": 5.38,
       "atr14": 12524.55
     },
     {
@@ -3216,6 +4056,12 @@
       "cloud_a": 233625.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.79,
+      "volume": 280736.0,
+      "volume_ma20": 355922.3,
+      "volume_ratio_prior20": 0.76,
+      "prior20_high": 275500.0,
+      "prior20_low": 229500.0,
+      "atr_pct": 5.27,
       "atr14": 12129.94
     },
     {
@@ -3238,6 +4084,12 @@
       "cloud_a": 234125.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.74,
+      "volume": 257952.0,
+      "volume_ma20": 349585.45,
+      "volume_ratio_prior20": 0.72,
+      "prior20_high": 275500.0,
+      "prior20_low": 226000.0,
+      "atr_pct": 5.14,
       "atr14": 12049.23
     },
     {
@@ -3260,6 +4112,12 @@
       "cloud_a": 234125.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.54,
+      "volume": 184076.0,
+      "volume_ma20": 340902.25,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 275500.0,
+      "prior20_low": 226000.0,
+      "atr_pct": 5.08,
       "atr14": 11724.28
     },
     {
@@ -3282,6 +4140,12 @@
       "cloud_a": 235000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.73,
+      "volume": 245044.0,
+      "volume_ma20": 334982.6,
+      "volume_ratio_prior20": 0.72,
+      "prior20_high": 275500.0,
+      "prior20_low": 226000.0,
+      "atr_pct": 4.98,
       "atr14": 11601.12
     },
     {
@@ -3304,6 +4168,12 @@
       "cloud_a": 236750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.73,
+      "volume": 240059.0,
+      "volume_ma20": 326975.55,
+      "volume_ratio_prior20": 0.72,
+      "prior20_high": 275500.0,
+      "prior20_low": 226000.0,
+      "atr_pct": 4.8,
       "atr14": 11272.47
     },
     {
@@ -3326,6 +4196,12 @@
       "cloud_a": 236750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 2.15,
+      "volume": 758254.0,
+      "volume_ma20": 352738.85,
+      "volume_ratio_prior20": 2.32,
+      "prior20_high": 275500.0,
+      "prior20_low": 226000.0,
+      "atr_pct": 5.68,
       "atr14": 12288.72
     },
     {
@@ -3348,6 +4224,12 @@
       "cloud_a": 240375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 2.56,
+      "volume": 976867.0,
+      "volume_ma20": 381158.4,
+      "volume_ratio_prior20": 2.77,
+      "prior20_high": 275500.0,
+      "prior20_low": 215000.0,
+      "atr_pct": 5.56,
       "atr14": 12196.67
     },
     {
@@ -3370,6 +4252,12 @@
       "cloud_a": 240750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.55,
+      "volume": 582816.0,
+      "volume_ma20": 375194.85,
+      "volume_ratio_prior20": 1.53,
+      "prior20_high": 275500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.55,
       "atr14": 12039.77
     },
     {
@@ -3392,6 +4280,12 @@
       "cloud_a": 241000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.6,
+      "volume": 628551.0,
+      "volume_ma20": 392367.65,
+      "volume_ratio_prior20": 1.68,
+      "prior20_high": 271500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.39,
       "atr14": 12322.64
     },
     {
@@ -3414,6 +4308,12 @@
       "cloud_a": 243000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.0,
+      "volume": 395048.0,
+      "volume_ma20": 396334.1,
+      "volume_ratio_prior20": 1.01,
+      "prior20_high": 271500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.39,
       "atr14": 12013.88
     },
     {
@@ -3436,6 +4336,12 @@
       "cloud_a": 245875.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.0,
+      "volume": 401571.0,
+      "volume_ma20": 402610.95,
+      "volume_ratio_prior20": 1.01,
+      "prior20_high": 271500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.25,
       "atr14": 11727.17
     },
     {
@@ -3458,6 +4364,12 @@
       "cloud_a": 246500.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.9,
+      "volume": 368984.0,
+      "volume_ma20": 408484.8,
+      "volume_ratio_prior20": 0.92,
+      "prior20_high": 271500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.95,
       "atr14": 11389.52
     },
     {
@@ -3480,6 +4392,12 @@
       "cloud_a": 247375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.29,
+      "volume": 545023.0,
+      "volume_ma20": 423350.3,
+      "volume_ratio_prior20": 1.33,
+      "prior20_high": 271500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.75,
       "atr14": 11290.27
     },
     {
@@ -3502,6 +4420,12 @@
       "cloud_a": 249375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.1,
+      "volume": 448478.0,
+      "volume_ma20": 408491.3,
+      "volume_ratio_prior20": 1.06,
+      "prior20_high": 271500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.7,
       "atr14": 11305.25
     },
     {
@@ -3524,6 +4448,12 @@
       "cloud_a": 249375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.81,
+      "volume": 329247.0,
+      "volume_ma20": 406700.5,
+      "volume_ratio_prior20": 0.81,
+      "prior20_high": 267500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.7,
       "atr14": 11140.59
     },
     {
@@ -3546,6 +4476,12 @@
       "cloud_a": 248375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.25,
+      "volume": 523695.0,
+      "volume_ma20": 418076.1,
+      "volume_ratio_prior20": 1.29,
+      "prior20_high": 256000.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.58,
       "atr14": 11309.12
     },
     {
@@ -3568,6 +4504,12 @@
       "cloud_a": 248375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.56,
+      "volume": 684292.0,
+      "volume_ma20": 437636.55,
+      "volume_ratio_prior20": 1.64,
+      "prior20_high": 248500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.59,
       "atr14": 11769.18
     },
     {
@@ -3590,6 +4532,12 @@
       "cloud_a": 248375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 2.74,
+      "volume": 1351777.0,
+      "volume_ma20": 493099.45,
+      "volume_ratio_prior20": 3.09,
+      "prior20_high": 257750.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 4.83,
       "atr14": 13821.38
     },
     {
@@ -3612,6 +4560,12 @@
       "cloud_a": 248375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.2,
+      "volume": 607531.0,
+      "volume_ma20": 504716.15,
+      "volume_ratio_prior20": 1.23,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.25,
       "atr14": 14512.71
     },
     {
@@ -3634,6 +4588,12 @@
       "cloud_a": 249375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.82,
+      "volume": 421196.0,
+      "volume_ma20": 511559.85,
+      "volume_ratio_prior20": 0.83,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.14,
       "atr14": 14297.52
     },
     {
@@ -3656,6 +4616,12 @@
       "cloud_a": 249375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.84,
+      "volume": 435661.0,
+      "volume_ma20": 519306.1,
+      "volume_ratio_prior20": 0.85,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.03,
       "atr14": 13883.41
     },
     {
@@ -3678,6 +4644,12 @@
       "cloud_a": 250625.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.88,
+      "volume": 468014.0,
+      "volume_ma20": 529809.2,
+      "volume_ratio_prior20": 0.9,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.15,
       "atr14": 13963.17
     },
     {
@@ -3700,6 +4672,12 @@
       "cloud_a": 249125.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.84,
+      "volume": 456377.0,
+      "volume_ma20": 543424.25,
+      "volume_ratio_prior20": 0.86,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.03,
       "atr14": 13894.37
     },
     {
@@ -3722,6 +4700,12 @@
       "cloud_a": 249875.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.68,
+      "volume": 372048.0,
+      "volume_ma20": 549774.45,
+      "volume_ratio_prior20": 0.68,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.1,
       "atr14": 13759.06
     },
     {
@@ -3744,6 +4728,12 @@
       "cloud_a": 248500.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.23,
+      "volume": 706595.0,
+      "volume_ma20": 573101.25,
+      "volume_ratio_prior20": 1.29,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.03,
       "atr14": 13776.27
     },
     {
@@ -3766,6 +4756,12 @@
       "cloud_a": 247375.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.41,
+      "volume": 809545.0,
+      "volume_ma20": 575665.8,
+      "volume_ratio_prior20": 1.41,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 5.35,
       "atr14": 14542.25
     },
     {
@@ -3788,6 +4784,12 @@
       "cloud_a": 248500.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 3.64,
+      "volume": 2347362.0,
+      "volume_ma20": 644190.55,
+      "volume_ratio_prior20": 4.08,
+      "prior20_high": 293500.0,
+      "prior20_low": 210000.0,
+      "atr_pct": 6.36,
       "atr14": 16789.23
     },
     {
@@ -3810,6 +4812,12 @@
       "cloud_a": 249750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 2.64,
+      "volume": 1873862.0,
+      "volume_ma20": 708742.85,
+      "volume_ratio_prior20": 2.91,
+      "prior20_high": 306500.0,
+      "prior20_low": 214000.0,
+      "atr_pct": 6.48,
       "atr14": 18018.57
     },
     {
@@ -3832,6 +4840,12 @@
       "cloud_a": 248750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.0,
+      "volume": 711817.0,
+      "volume_ma20": 712906.15,
+      "volume_ratio_prior20": 1.0,
+      "prior20_high": 306500.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 7.32,
       "atr14": 18767.24
     },
     {
@@ -3854,6 +4868,12 @@
       "cloud_a": 245875.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.52,
+      "volume": 372674.0,
+      "volume_ma20": 711787.45,
+      "volume_ratio_prior20": 0.52,
+      "prior20_high": 306500.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 6.95,
       "atr14": 18498.16
     },
     {
@@ -3876,6 +4896,12 @@
       "cloud_a": 243750.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.25,
+      "volume": 921850.0,
+      "volume_ma20": 737801.4,
+      "volume_ratio_prior20": 1.3,
+      "prior20_high": 306500.0,
+      "prior20_low": 215500.0,
+      "atr_pct": 6.82,
       "atr14": 18784.0
     },
     {
@@ -3898,6 +4924,12 @@
       "cloud_a": 238250.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.95,
+      "volume": 719376.0,
+      "volume_ma20": 755321.0,
+      "volume_ratio_prior20": 0.98,
+      "prior20_high": 306500.0,
+      "prior20_low": 225000.0,
+      "atr_pct": 6.62,
       "atr14": 18656.57
     },
     {
@@ -3920,6 +4952,12 @@
       "cloud_a": 235000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.51,
+      "volume": 377441.0,
+      "volume_ma20": 746941.9,
+      "volume_ratio_prior20": 0.5,
+      "prior20_high": 306500.0,
+      "prior20_low": 229500.0,
+      "atr_pct": 6.4,
       "atr14": 18038.25
     },
     {
@@ -3942,6 +4980,12 @@
       "cloud_a": 234000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.57,
+      "volume": 426844.0,
+      "volume_ma20": 745860.2,
+      "volume_ratio_prior20": 0.57,
+      "prior20_high": 306500.0,
+      "prior20_low": 233000.0,
+      "atr_pct": 6.47,
       "atr14": 17606.94
     },
     {
@@ -3964,6 +5008,12 @@
       "cloud_a": 234000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.58,
+      "volume": 433863.0,
+      "volume_ma20": 751091.0,
+      "volume_ratio_prior20": 0.58,
+      "prior20_high": 306500.0,
+      "prior20_low": 233000.0,
+      "atr_pct": 6.13,
       "atr14": 17492.16
     },
     {
@@ -3986,6 +5036,12 @@
       "cloud_a": 234000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.55,
+      "volume": 409317.0,
+      "volume_ma20": 745372.1,
+      "volume_ratio_prior20": 0.54,
+      "prior20_high": 306500.0,
+      "prior20_low": 235000.0,
+      "atr_pct": 5.96,
       "atr14": 17207.01
     },
     {
@@ -4008,6 +5064,12 @@
       "cloud_a": 234000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.78,
+      "volume": 576669.0,
+      "volume_ma20": 739990.95,
+      "volume_ratio_prior20": 0.77,
+      "prior20_high": 306500.0,
+      "prior20_low": 240000.0,
+      "atr_pct": 5.66,
       "atr14": 16835.08
     },
     {
@@ -4030,6 +5092,12 @@
       "cloud_a": 234000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.5,
+      "volume": 341979.0,
+      "volume_ma20": 689501.05,
+      "volume_ratio_prior20": 0.46,
+      "prior20_high": 306500.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 5.54,
       "atr14": 16346.86
     },
     {
@@ -4052,6 +5120,12 @@
       "cloud_a": 234000.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.71,
+      "volume": 485607.0,
+      "volume_ma20": 683404.85,
+      "volume_ratio_prior20": 0.7,
+      "prior20_high": 306500.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 5.3,
       "atr14": 16000.65
     },
     {
@@ -4074,6 +5148,12 @@
       "cloud_a": 234625.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 1.13,
+      "volume": 796820.0,
+      "volume_ma20": 702186.05,
+      "volume_ratio_prior20": 1.17,
+      "prior20_high": 306500.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 5.41,
       "atr14": 17143.46
     },
     {
@@ -4096,6 +5176,12 @@
       "cloud_a": 234625.0,
       "cloud_b": 241750.0,
       "volume_ratio20": 0.59,
+      "volume": 411342.0,
+      "volume_ma20": 700970.1,
+      "volume_ratio_prior20": 0.59,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 5.46,
       "atr14": 17061.79
     },
     {
@@ -4118,6 +5204,12 @@
       "cloud_a": 236000.0,
       "cloud_b": 239750.0,
       "volume_ratio20": 0.62,
+      "volume": 434721.0,
+      "volume_ma20": 699305.45,
+      "volume_ratio_prior20": 0.62,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.27,
       "atr14": 17914.52
     },
     {
@@ -4140,6 +5232,12 @@
       "cloud_a": 238687.5,
       "cloud_b": 239750.0,
       "volume_ratio20": 0.66,
+      "volume": 463608.0,
+      "volume_ma20": 699667.0,
+      "volume_ratio_prior20": 0.66,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 7.06,
       "atr14": 18849.19
     },
     {
@@ -4162,6 +5260,12 @@
       "cloud_a": 253125.0,
       "cloud_b": 248750.0,
       "volume_ratio20": 0.51,
+      "volume": 358185.0,
+      "volume_ma20": 698973.85,
+      "volume_ratio_prior20": 0.51,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.88,
       "atr14": 19467.11
     },
     {
@@ -4184,6 +5288,12 @@
       "cloud_a": 253125.0,
       "cloud_b": 248750.0,
       "volume_ratio20": 0.56,
+      "volume": 385098.0,
+      "volume_ma20": 682899.0,
+      "volume_ratio_prior20": 0.55,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.49,
       "atr14": 19862.32
     },
     {
@@ -4206,6 +5316,12 @@
       "cloud_a": 255500.0,
       "cloud_b": 248750.0,
       "volume_ratio20": 0.43,
+      "volume": 279116.0,
+      "volume_ma20": 656377.55,
+      "volume_ratio_prior20": 0.41,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.81,
       "atr14": 20193.58
     },
     {
@@ -4228,6 +5344,12 @@
       "cloud_a": 256625.0,
       "cloud_b": 248750.0,
       "volume_ratio20": 0.42,
+      "volume": 231145.0,
+      "volume_ma20": 550566.7,
+      "volume_ratio_prior20": 0.35,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.61,
       "atr14": 19929.75
     },
     {
@@ -4250,6 +5372,12 @@
       "cloud_a": 257500.0,
       "cloud_b": 251000.0,
       "volume_ratio20": 0.94,
+      "volume": 453117.0,
+      "volume_ma20": 479529.45,
+      "volume_ratio_prior20": 0.82,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.47,
       "atr14": 20649.06
     },
     {
@@ -4272,6 +5400,12 @@
       "cloud_a": 257500.0,
       "cloud_b": 251000.0,
       "volume_ratio20": 0.4,
+      "volume": 180966.0,
+      "volume_ma20": 452986.9,
+      "volume_ratio_prior20": 0.38,
+      "prior20_high": 332000.0,
+      "prior20_low": 250500.0,
+      "atr_pct": 6.18,
       "atr14": 19924.12
     },
     {
@@ -4294,6 +5428,12 @@
       "cloud_a": 258000.0,
       "cloud_b": 251750.0,
       "volume_ratio20": 0.93,
+      "volume": 422239.0,
+      "volume_ma20": 455465.15,
+      "volume_ratio_prior20": 0.93,
+      "prior20_high": 332000.0,
+      "prior20_low": 260000.0,
+      "atr_pct": 6.09,
       "atr14": 20858.11
     },
     {
@@ -4316,6 +5456,12 @@
       "cloud_a": 259250.0,
       "cloud_b": 251750.0,
       "volume_ratio20": 0.68,
+      "volume": 289713.0,
+      "volume_ma20": 423858.3,
+      "volume_ratio_prior20": 0.64,
+      "prior20_high": 347000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.54,
       "atr14": 21475.39
     },
     {
@@ -4338,6 +5484,12 @@
       "cloud_a": 262500.0,
       "cloud_b": 251750.0,
       "volume_ratio20": 0.86,
+      "volume": 348466.0,
+      "volume_ma20": 405312.8,
+      "volume_ratio_prior20": 0.82,
+      "prior20_high": 348000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.26,
       "atr14": 21834.29
     },
     {
@@ -4360,6 +5512,12 @@
       "cloud_a": 269500.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.65,
+      "volume": 259243.0,
+      "volume_ma20": 399402.9,
+      "volume_ratio_prior20": 0.64,
+      "prior20_high": 355000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 5.96,
       "atr14": 21560.41
     },
     {
@@ -4382,6 +5540,12 @@
       "cloud_a": 269500.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.75,
+      "volume": 294185.0,
+      "volume_ma20": 392769.95,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 367000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 5.81,
       "atr14": 21448.96
     },
     {
@@ -4404,6 +5568,12 @@
       "cloud_a": 268375.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 1.53,
+      "volume": 613380.0,
+      "volume_ma20": 401745.8,
+      "volume_ratio_prior20": 1.56,
+      "prior20_high": 375000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 5.92,
       "atr14": 21274.03
     },
     {
@@ -4426,6 +5596,12 @@
       "cloud_a": 268375.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 1.22,
+      "volume": 496457.0,
+      "volume_ma20": 406102.8,
+      "volume_ratio_prior20": 1.24,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.94,
       "atr14": 22504.46
     },
     {
@@ -4448,6 +5624,12 @@
       "cloud_a": 268375.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.47,
+      "volume": 182205.0,
+      "volume_ma20": 386379.6,
+      "volume_ratio_prior20": 0.45,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.66,
       "atr14": 22147.0
     },
     {
@@ -4470,6 +5652,12 @@
       "cloud_a": 268375.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.96,
+      "volume": 373318.0,
+      "volume_ma20": 387946.55,
+      "volume_ratio_prior20": 0.97,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.74,
       "atr14": 22136.5
     },
     {
@@ -4492,6 +5680,12 @@
       "cloud_a": 269375.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 1.06,
+      "volume": 406923.0,
+      "volume_ma20": 384012.35,
+      "volume_ratio_prior20": 1.05,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 7.22,
       "atr14": 22376.75
     },
     {
@@ -4514,6 +5708,12 @@
       "cloud_a": 269750.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.63,
+      "volume": 225222.0,
+      "volume_ma20": 355432.45,
+      "volume_ratio_prior20": 0.59,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.83,
       "atr14": 22349.84
     },
     {
@@ -4536,6 +5736,12 @@
       "cloud_a": 269750.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.9,
+      "volume": 315417.0,
+      "volume_ma20": 350636.2,
+      "volume_ratio_prior20": 0.89,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.79,
       "atr14": 22146.28
     },
     {
@@ -4558,6 +5764,12 @@
       "cloud_a": 267625.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 1.3,
+      "volume": 455881.0,
+      "volume_ma20": 351694.2,
+      "volume_ratio_prior20": 1.3,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.76,
       "atr14": 22778.69
     },
     {
@@ -4580,6 +5792,12 @@
       "cloud_a": 270375.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.87,
+      "volume": 298013.0,
+      "volume_ma20": 343414.45,
+      "volume_ratio_prior20": 0.85,
+      "prior20_high": 377000.0,
+      "prior20_low": 263000.0,
+      "atr_pct": 6.54,
       "atr14": 22544.49
     },
     {
@@ -4602,6 +5820,12 @@
       "cloud_a": 274625.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.96,
+      "volume": 329312.0,
+      "volume_ma20": 341970.8,
+      "volume_ratio_prior20": 0.96,
+      "prior20_high": 377000.0,
+      "prior20_low": 281000.0,
+      "atr_pct": 6.71,
       "atr14": 22791.32
     },
     {
@@ -4624,6 +5848,12 @@
       "cloud_a": 277250.0,
       "cloud_b": 258250.0,
       "volume_ratio20": 0.46,
+      "volume": 152760.0,
+      "volume_ma20": 330353.9,
+      "volume_ratio_prior20": 0.45,
+      "prior20_high": 377000.0,
+      "prior20_low": 284000.0,
+      "atr_pct": 6.89,
       "atr14": 22520.51
     },
     {
@@ -4646,6 +5876,12 @@
       "cloud_a": 291750.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 0.45,
+      "volume": 147052.0,
+      "volume_ma20": 323750.7,
+      "volume_ratio_prior20": 0.45,
+      "prior20_high": 377000.0,
+      "prior20_low": 284000.0,
+      "atr_pct": 6.5,
       "atr14": 21840.47
     },
     {
@@ -4668,6 +5904,12 @@
       "cloud_a": 292250.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 0.97,
+      "volume": 318902.0,
+      "volume_ma20": 328138.55,
+      "volume_ratio_prior20": 0.99,
+      "prior20_high": 377000.0,
+      "prior20_low": 299500.0,
+      "atr_pct": 7.24,
       "atr14": 23030.44
     },
     {
@@ -4690,6 +5932,12 @@
       "cloud_a": 293500.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 1.21,
+      "volume": 393643.0,
+      "volume_ma20": 325164.85,
+      "volume_ratio_prior20": 1.2,
+      "prior20_high": 377000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 6.84,
       "atr14": 22956.83
     },
     {
@@ -4712,6 +5960,12 @@
       "cloud_a": 294375.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 2.41,
+      "volume": 868166.0,
+      "volume_ma20": 359524.85,
+      "volume_ratio_prior20": 2.67,
+      "prior20_high": 377000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 6.8,
       "atr14": 24852.77
     },
     {
@@ -4734,6 +5988,12 @@
       "cloud_a": 294375.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 1.37,
+      "volume": 496536.0,
+      "volume_ma20": 363239.7,
+      "volume_ratio_prior20": 1.38,
+      "prior20_high": 385000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 6.43,
       "atr14": 25256.15
     },
     {
@@ -4756,6 +6016,12 @@
       "cloud_a": 294375.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 0.79,
+      "volume": 286905.0,
+      "volume_ma20": 363099.3,
+      "volume_ratio_prior20": 0.79,
+      "prior20_high": 396000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 6.25,
       "atr14": 24987.85
     },
     {
@@ -4778,6 +6044,12 @@
       "cloud_a": 294375.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 1.4,
+      "volume": 519651.0,
+      "volume_ma20": 371658.55,
+      "volume_ratio_prior20": 1.43,
+      "prior20_high": 408500.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 6.39,
       "atr14": 24667.29
     },
     {
@@ -4800,6 +6072,12 @@
       "cloud_a": 294375.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 1.09,
+      "volume": 414029.0,
+      "volume_ma20": 379397.85,
+      "volume_ratio_prior20": 1.11,
+      "prior20_high": 408500.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 6.02,
       "atr14": 24869.63
     },
     {
@@ -4822,6 +6100,12 @@
       "cloud_a": 294375.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 0.43,
+      "volume": 161094.0,
+      "volume_ma20": 372743.3,
+      "volume_ratio_prior20": 0.42,
+      "prior20_high": 413500.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.84,
       "atr14": 24200.37
     },
     {
@@ -4844,6 +6128,12 @@
       "cloud_a": 294250.0,
       "cloud_b": 271000.0,
       "volume_ratio20": 0.41,
+      "volume": 144741.0,
+      "volume_ma20": 349311.35,
+      "volume_ratio_prior20": 0.39,
+      "prior20_high": 417000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.6,
       "atr14": 23471.77
     },
     {
@@ -4866,6 +6156,12 @@
       "cloud_a": 301875.0,
       "cloud_b": 278500.0,
       "volume_ratio20": 0.5,
+      "volume": 165482.0,
+      "volume_ma20": 332762.6,
+      "volume_ratio_prior20": 0.47,
+      "prior20_high": 425000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.46,
       "atr14": 22652.36
     },
     {
@@ -4888,6 +6184,12 @@
       "cloud_a": 302375.0,
       "cloud_b": 279000.0,
       "volume_ratio20": 0.61,
+      "volume": 202109.0,
+      "volume_ma20": 333757.8,
+      "volume_ratio_prior20": 0.61,
+      "prior20_high": 425000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.44,
       "atr14": 22320.05
     },
     {
@@ -4910,6 +6212,12 @@
       "cloud_a": 310375.0,
       "cloud_b": 282500.0,
       "volume_ratio20": 0.92,
+      "volume": 303221.0,
+      "volume_ma20": 330252.95,
+      "volume_ratio_prior20": 0.91,
+      "prior20_high": 426000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.29,
       "atr14": 22940.04
     },
     {
@@ -4932,6 +6240,12 @@
       "cloud_a": 317125.0,
       "cloud_b": 288500.0,
       "volume_ratio20": 0.9,
+      "volume": 291711.0,
+      "volume_ma20": 324492.35,
+      "volume_ratio_prior20": 0.88,
+      "prior20_high": 441000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.39,
       "atr14": 23480.04
     },
     {
@@ -4954,6 +6268,12 @@
       "cloud_a": 321125.0,
       "cloud_b": 292500.0,
       "volume_ratio20": 0.66,
+      "volume": 212848.0,
+      "volume_ma20": 323873.65,
+      "volume_ratio_prior20": 0.66,
+      "prior20_high": 457000.0,
+      "prior20_low": 307000.0,
+      "atr_pct": 5.08,
       "atr14": 22838.61
     },
     {
@@ -4976,6 +6296,12 @@
       "cloud_a": 328375.0,
       "cloud_b": 293500.0,
       "volume_ratio20": 0.45,
+      "volume": 142056.0,
+      "volume_ma20": 315205.6,
+      "volume_ratio_prior20": 0.44,
+      "prior20_high": 457000.0,
+      "prior20_low": 314000.0,
+      "atr_pct": 4.87,
       "atr14": 21850.14
     },
     {
@@ -4998,6 +6324,12 @@
       "cloud_a": 331250.0,
       "cloud_b": 293500.0,
       "volume_ratio20": 0.62,
+      "volume": 186917.0,
+      "volume_ma20": 301757.4,
+      "volume_ratio_prior20": 0.59,
+      "prior20_high": 457000.0,
+      "prior20_low": 316000.0,
+      "atr_pct": 4.79,
       "atr14": 21967.98
     },
     {
@@ -5020,6 +6352,12 @@
       "cloud_a": 332750.0,
       "cloud_b": 293500.0,
       "volume_ratio20": 0.68,
+      "volume": 200648.0,
+      "volume_ma20": 296889.15,
+      "volume_ratio_prior20": 0.66,
+      "prior20_high": 468000.0,
+      "prior20_low": 316000.0,
+      "atr_pct": 4.89,
       "atr14": 22041.7
     },
     {
@@ -5042,6 +6380,12 @@
       "cloud_a": 332750.0,
       "cloud_b": 293500.0,
       "volume_ratio20": 1.22,
+      "volume": 365671.0,
+      "volume_ma20": 298707.1,
+      "volume_ratio_prior20": 1.23,
+      "prior20_high": 469500.0,
+      "prior20_low": 316000.0,
+      "atr_pct": 5.33,
       "atr14": 22645.86
     },
     {
@@ -5064,6 +6408,12 @@
       "cloud_a": 331000.0,
       "cloud_b": 295500.0,
       "volume_ratio20": 1.11,
+      "volume": 341305.0,
+      "volume_ma20": 308134.35,
+      "volume_ratio_prior20": 1.14,
+      "prior20_high": 469500.0,
+      "prior20_low": 316000.0,
+      "atr_pct": 5.35,
       "atr14": 22921.16
     },
     {
@@ -5086,6 +6436,12 @@
       "cloud_a": 331000.0,
       "cloud_b": 296250.0,
       "volume_ratio20": 1.56,
+      "volume": 507545.0,
+      "volume_ma20": 326159.0,
+      "volume_ratio_prior20": 1.65,
+      "prior20_high": 469500.0,
+      "prior20_low": 316000.0,
+      "atr_pct": 5.35,
       "atr14": 22569.65
     },
     {
@@ -5108,6 +6464,12 @@
       "cloud_a": 331000.0,
       "cloud_b": 296250.0,
       "volume_ratio20": 2.02,
+      "volume": 696888.0,
+      "volume_ma20": 345058.3,
+      "volume_ratio_prior20": 2.14,
+      "prior20_high": 469500.0,
+      "prior20_low": 316000.0,
+      "atr_pct": 5.98,
       "atr14": 23993.24
     },
     {
@@ -5130,6 +6492,12 @@
       "cloud_a": 331000.0,
       "cloud_b": 296250.0,
       "volume_ratio20": 1.68,
+      "volume": 597082.0,
+      "volume_ma20": 355230.25,
+      "volume_ratio_prior20": 1.73,
+      "prior20_high": 469500.0,
+      "prior20_low": 318000.0,
+      "atr_pct": 5.91,
       "atr14": 25636.58
     },
     {
@@ -5152,6 +6520,12 @@
       "cloud_a": 331000.0,
       "cloud_b": 301000.0,
       "volume_ratio20": 1.47,
+      "volume": 494206.0,
+      "volume_ma20": 336532.25,
+      "volume_ratio_prior20": 1.39,
+      "prior20_high": 469500.0,
+      "prior20_low": 353500.0,
+      "atr_pct": 6.1,
       "atr14": 26733.97
     },
     {
@@ -5174,6 +6548,12 @@
       "cloud_a": 326375.0,
       "cloud_b": 303250.0,
       "volume_ratio20": 0.99,
+      "volume": 324600.0,
+      "volume_ma20": 327935.45,
+      "volume_ratio_prior20": 0.96,
+      "prior20_high": 473000.0,
+      "prior20_low": 372000.0,
+      "atr_pct": 6.74,
       "atr14": 28002.97
     },
     {
@@ -5196,6 +6576,12 @@
       "cloud_a": 326375.0,
       "cloud_b": 305000.0,
       "volume_ratio20": 0.97,
+      "volume": 321267.0,
+      "volume_ma20": 329653.55,
+      "volume_ratio_prior20": 0.98,
+      "prior20_high": 473000.0,
+      "prior20_low": 381500.0,
+      "atr_pct": 7.05,
       "atr14": 28324.19
     },
     {
@@ -5218,6 +6604,12 @@
       "cloud_a": 326375.0,
       "cloud_b": 305000.0,
       "volume_ratio20": 0.95,
+      "volume": 302102.0,
+      "volume_ma20": 318776.1,
+      "volume_ratio_prior20": 0.92,
+      "prior20_high": 473000.0,
+      "prior20_low": 381500.0,
+      "atr_pct": 6.69,
       "atr14": 28443.89
     },
     {
@@ -5240,6 +6632,12 @@
       "cloud_a": 326375.0,
       "cloud_b": 306000.0,
       "volume_ratio20": 0.76,
+      "volume": 235935.0,
+      "volume_ma20": 309871.4,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 473000.0,
+      "prior20_low": 386500.0,
+      "atr_pct": 7.24,
       "atr14": 29233.61
     },
     {
@@ -5262,6 +6660,12 @@
       "cloud_a": 326375.0,
       "cloud_b": 308500.0,
       "volume_ratio20": 0.63,
+      "volume": 195060.0,
+      "volume_ma20": 311569.7,
+      "volume_ratio_prior20": 0.63,
+      "prior20_high": 473000.0,
+      "prior20_low": 392500.0,
+      "atr_pct": 7.13,
       "atr14": 28645.5
     },
     {
@@ -5284,6 +6688,12 @@
       "cloud_a": 341250.0,
       "cloud_b": 317750.0,
       "volume_ratio20": 0.56,
+      "volume": 176938.0,
+      "volume_ma20": 313179.55,
+      "volume_ratio_prior20": 0.57,
+      "prior20_high": 473000.0,
+      "prior20_low": 388000.0,
+      "atr_pct": 7.03,
       "atr14": 27956.53
     },
     {
@@ -5306,6 +6716,12 @@
       "cloud_a": 348000.0,
       "cloud_b": 323250.0,
       "volume_ratio20": 0.64,
+      "volume": 202769.0,
+      "volume_ma20": 315043.9,
+      "volume_ratio_prior20": 0.65,
+      "prior20_high": 473000.0,
+      "prior20_low": 388000.0,
+      "atr_pct": 7.2,
       "atr14": 28066.78
     },
     {
@@ -5328,6 +6744,12 @@
       "cloud_a": 354250.0,
       "cloud_b": 329500.0,
       "volume_ratio20": 0.7,
+      "volume": 222357.0,
+      "volume_ma20": 316056.3,
+      "volume_ratio_prior20": 0.71,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.79,
       "atr14": 27133.44
     },
     {
@@ -5350,6 +6772,12 @@
       "cloud_a": 358125.0,
       "cloud_b": 329500.0,
       "volume_ratio20": 0.87,
+      "volume": 272303.0,
+      "volume_ma20": 314510.4,
+      "volume_ratio_prior20": 0.86,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 7.17,
       "atr14": 28016.76
     },
     {
@@ -5372,6 +6800,12 @@
       "cloud_a": 362500.0,
       "cloud_b": 332000.0,
       "volume_ratio20": 0.96,
+      "volume": 301095.0,
+      "volume_ma20": 314979.6,
+      "volume_ratio_prior20": 0.96,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 7.0,
       "atr14": 27265.57
     },
     {
@@ -5394,6 +6828,12 @@
       "cloud_a": 364250.0,
       "cloud_b": 333750.0,
       "volume_ratio20": 0.87,
+      "volume": 277932.0,
+      "volume_ma20": 318233.8,
+      "volume_ratio_prior20": 0.88,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.89,
       "atr14": 26532.31
     },
     {
@@ -5416,6 +6856,12 @@
       "cloud_a": 368250.0,
       "cloud_b": 337750.0,
       "volume_ratio20": 1.21,
+      "volume": 399507.0,
+      "volume_ma20": 331106.35,
+      "volume_ratio_prior20": 1.26,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.54,
       "atr14": 26172.86
     },
     {
@@ -5438,6 +6884,12 @@
       "cloud_a": 368750.0,
       "cloud_b": 337750.0,
       "volume_ratio20": 1.58,
+      "volume": 552743.0,
+      "volume_ma20": 349397.65,
+      "volume_ratio_prior20": 1.67,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.53,
       "atr14": 25839.09
     },
     {
@@ -5460,6 +6912,12 @@
       "cloud_a": 378125.0,
       "cloud_b": 338250.0,
       "volume_ratio20": 1.87,
+      "volume": 700120.0,
+      "volume_ma20": 374371.25,
+      "volume_ratio_prior20": 2.0,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.21,
       "atr14": 26493.44
     },
     {
@@ -5482,6 +6940,12 @@
       "cloud_a": 390250.0,
       "cloud_b": 345750.0,
       "volume_ratio20": 0.69,
+      "volume": 255259.0,
+      "volume_ma20": 368850.65,
+      "volume_ratio_prior20": 0.68,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.7,
       "atr14": 26851.05
     },
     {
@@ -5504,6 +6968,12 @@
       "cloud_a": 400625.0,
       "cloud_b": 353750.0,
       "volume_ratio20": 0.7,
+      "volume": 254543.0,
+      "volume_ma20": 364512.55,
+      "volume_ratio_prior20": 0.69,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 6.59,
       "atr14": 26683.12
     },
     {
@@ -5526,6 +6996,12 @@
       "cloud_a": 400625.0,
       "cloud_b": 353750.0,
       "volume_ratio20": 0.77,
+      "volume": 270942.0,
+      "volume_ma20": 352682.4,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 7.12,
       "atr14": 27705.75
     },
     {
@@ -5548,6 +7024,12 @@
       "cloud_a": 401875.0,
       "cloud_b": 358500.0,
       "volume_ratio20": 0.51,
+      "volume": 164759.0,
+      "volume_ma20": 326075.95,
+      "volume_ratio_prior20": 0.47,
+      "prior20_high": 473000.0,
+      "prior20_low": 374000.0,
+      "atr_pct": 7.61,
       "atr14": 27869.63
     },
     {
@@ -5570,6 +7052,12 @@
       "cloud_a": 411125.0,
       "cloud_b": 365500.0,
       "volume_ratio20": 0.92,
+      "volume": 286296.0,
+      "volume_ma20": 310536.65,
+      "volume_ratio_prior20": 0.88,
+      "prior20_high": 473000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.15,
       "atr14": 28950.37
     },
     {
@@ -5592,6 +7080,12 @@
       "cloud_a": 413500.0,
       "cloud_b": 366250.0,
       "volume_ratio20": 0.82,
+      "volume": 244311.0,
+      "volume_ma20": 298041.9,
+      "volume_ratio_prior20": 0.79,
+      "prior20_high": 473000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 6.96,
       "atr14": 28561.06
     },
     {
@@ -5614,6 +7108,12 @@
       "cloud_a": 413500.0,
       "cloud_b": 366250.0,
       "volume_ratio20": 1.25,
+      "volume": 374470.0,
+      "volume_ma20": 300535.4,
+      "volume_ratio_prior20": 1.26,
+      "prior20_high": 441500.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 6.69,
       "atr14": 27449.55
     },
     {
@@ -5636,6 +7136,12 @@
       "cloud_a": 413500.0,
       "cloud_b": 366250.0,
       "volume_ratio20": 0.75,
+      "volume": 221041.0,
+      "volume_ma20": 295524.1,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 437000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.04,
       "atr14": 27738.87
     },
     {
@@ -5658,6 +7164,12 @@
       "cloud_a": 416000.0,
       "cloud_b": 366250.0,
       "volume_ratio20": 0.66,
+      "volume": 191462.0,
+      "volume_ma20": 289992.1,
+      "volume_ratio_prior20": 0.65,
+      "prior20_high": 437000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 6.75,
       "atr14": 28078.95
     },
     {
@@ -5680,6 +7192,12 @@
       "cloud_a": 411875.0,
       "cloud_b": 366250.0,
       "volume_ratio20": 1.11,
+      "volume": 328075.0,
+      "volume_ma20": 294599.1,
+      "volume_ratio_prior20": 1.13,
+      "prior20_high": 437000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.32,
       "atr14": 29251.88
     },
     {
@@ -5702,6 +7220,12 @@
       "cloud_a": 411875.0,
       "cloud_b": 366250.0,
       "volume_ratio20": 0.71,
+      "volume": 210807.0,
+      "volume_ma20": 295386.45,
+      "volume_ratio_prior20": 0.72,
+      "prior20_high": 443000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.05,
       "atr14": 28805.32
     },
     {
@@ -5724,6 +7248,12 @@
       "cloud_a": 413625.0,
       "cloud_b": 368000.0,
       "volume_ratio20": 1.32,
+      "volume": 403575.0,
+      "volume_ma20": 306718.3,
+      "volume_ratio_prior20": 1.37,
+      "prior20_high": 443000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.74,
       "atr14": 29247.8
     },
     {
@@ -5746,6 +7276,12 @@
       "cloud_a": 413625.0,
       "cloud_b": 368000.0,
       "volume_ratio20": 0.76,
+      "volume": 235271.0,
+      "volume_ma20": 308343.4,
+      "volume_ratio_prior20": 0.77,
+      "prior20_high": 443000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.44,
       "atr14": 28694.38
     },
     {
@@ -5768,6 +7304,12 @@
       "cloud_a": 413625.0,
       "cloud_b": 368000.0,
       "volume_ratio20": 0.52,
+      "volume": 159830.0,
+      "volume_ma20": 305217.05,
+      "volume_ratio_prior20": 0.52,
+      "prior20_high": 443000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 7.61,
       "atr14": 28394.78
     },
     {
@@ -5790,6 +7332,12 @@
       "cloud_a": 413625.0,
       "cloud_b": 368000.0,
       "volume_ratio20": 1.46,
+      "volume": 458666.0,
+      "volume_ma20": 314535.2,
+      "volume_ratio_prior20": 1.5,
+      "prior20_high": 443000.0,
+      "prior20_low": 359000.0,
+      "atr_pct": 8.17,
       "atr14": 29045.16
     },
     {
@@ -5812,6 +7360,12 @@
       "cloud_a": 414125.0,
       "cloud_b": 368000.0,
       "volume_ratio20": 0.98,
+      "volume": 309468.0,
+      "volume_ma20": 314953.85,
+      "volume_ratio_prior20": 0.98,
+      "prior20_high": 443000.0,
+      "prior20_low": 352500.0,
+      "atr_pct": 7.92,
       "atr14": 29381.22
     },
     {
@@ -5834,6 +7388,12 @@
       "cloud_a": 421875.0,
       "cloud_b": 368000.0,
       "volume_ratio20": 0.61,
+      "volume": 189664.0,
+      "volume_ma20": 310540.45,
+      "volume_ratio_prior20": 0.6,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.47,
       "atr14": 28461.13
     },
     {
@@ -5856,6 +7416,12 @@
       "cloud_a": 426500.0,
       "cloud_b": 377000.0,
       "volume_ratio20": 0.84,
+      "volume": 255403.0,
+      "volume_ma20": 303335.25,
+      "volume_ratio_prior20": 0.82,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.86,
       "atr14": 28535.33
     },
     {
@@ -5878,6 +7444,12 @@
       "cloud_a": 423500.0,
       "cloud_b": 378500.0,
       "volume_ratio20": 0.79,
+      "volume": 226870.0,
+      "volume_ma20": 287041.6,
+      "volume_ratio_prior20": 0.75,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.33,
       "atr14": 28282.81
     },
     {
@@ -5900,6 +7472,12 @@
       "cloud_a": 423500.0,
       "cloud_b": 378500.0,
       "volume_ratio20": 0.89,
+      "volume": 235023.0,
+      "volume_ma20": 263786.75,
+      "volume_ratio_prior20": 0.82,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.12,
       "atr14": 27441.18
     },
     {
@@ -5922,6 +7500,12 @@
       "cloud_a": 415625.0,
       "cloud_b": 386250.0,
       "volume_ratio20": 1.0,
+      "volume": 263613.0,
+      "volume_ma20": 264204.45,
+      "volume_ratio_prior20": 1.0,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 6.71,
       "atr14": 27373.95
     },
     {
@@ -5944,6 +7528,12 @@
       "cloud_a": 414500.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 1.79,
+      "volume": 492931.0,
+      "volume_ma20": 276123.85,
+      "volume_ratio_prior20": 1.87,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 6.96,
       "atr14": 27990.1
     },
     {
@@ -5966,6 +7556,12 @@
       "cloud_a": 414500.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 1.21,
+      "volume": 338841.0,
+      "volume_ma20": 279518.8,
+      "volume_ratio_prior20": 1.23,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.51,
       "atr14": 28740.81
     },
     {
@@ -5988,6 +7584,12 @@
       "cloud_a": 414500.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.69,
+      "volume": 192952.0,
+      "volume_ma20": 280928.45,
+      "volume_ratio_prior20": 0.69,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.73,
       "atr14": 29259.32
     },
     {
@@ -6010,6 +7612,12 @@
       "cloud_a": 412000.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 1.44,
+      "volume": 413144.0,
+      "volume_ma20": 287270.85,
+      "volume_ratio_prior20": 1.47,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.31,
       "atr14": 29955.08
     },
     {
@@ -6032,6 +7640,12 @@
       "cloud_a": 412625.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 1.42,
+      "volume": 421108.0,
+      "volume_ma20": 296110.7,
+      "volume_ratio_prior20": 1.47,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 8.1,
       "atr14": 31244.01
     },
     {
@@ -6054,6 +7668,12 @@
       "cloud_a": 412625.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 1.21,
+      "volume": 358788.0,
+      "volume_ma20": 295326.6,
+      "volume_ratio_prior20": 1.21,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 8.72,
       "atr14": 31869.43
     },
     {
@@ -6076,6 +7696,12 @@
       "cloud_a": 413500.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.61,
+      "volume": 177392.0,
+      "volume_ma20": 293144.15,
+      "volume_ratio_prior20": 0.6,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 8.24,
       "atr14": 30914.47
     },
     {
@@ -6098,6 +7724,12 @@
       "cloud_a": 413000.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.8,
+      "volume": 236838.0,
+      "volume_ma20": 295412.95,
+      "volume_ratio_prior20": 0.81,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 8.07,
       "atr14": 30670.58
     },
     {
@@ -6120,6 +7752,12 @@
       "cloud_a": 405125.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.81,
+      "volume": 235339.0,
+      "volume_ma20": 290776.15,
+      "volume_ratio_prior20": 0.8,
+      "prior20_high": 443000.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 8.03,
       "atr14": 30122.68
     },
     {
@@ -6142,6 +7780,12 @@
       "cloud_a": 405125.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.68,
+      "volume": 197366.0,
+      "volume_ma20": 290104.1,
+      "volume_ratio_prior20": 0.68,
+      "prior20_high": 433500.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.52,
       "atr14": 28971.06
     },
     {
@@ -6164,6 +7808,12 @@
       "cloud_a": 405125.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.66,
+      "volume": 184615.0,
+      "volume_ma20": 279156.1,
+      "volume_ratio_prior20": 0.64,
+      "prior20_high": 433500.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.25,
       "atr14": 28508.85
     },
     {
@@ -6186,6 +7836,12 @@
       "cloud_a": 405125.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.53,
+      "volume": 146828.0,
+      "volume_ma20": 274733.95,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 433500.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.76,
       "atr14": 28543.93
     },
     {
@@ -6208,6 +7864,12 @@
       "cloud_a": 405125.0,
       "cloud_b": 390000.0,
       "volume_ratio20": 0.48,
+      "volume": 131440.0,
+      "volume_ma20": 273314.45,
+      "volume_ratio_prior20": 0.48,
+      "prior20_high": 433500.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.56,
       "atr14": 27576.5
     },
     {
@@ -6230,6 +7892,12 @@
       "cloud_a": 404375.0,
       "cloud_b": 393500.0,
       "volume_ratio20": 0.81,
+      "volume": 212384.0,
+      "volume_ma20": 261000.35,
+      "volume_ratio_prior20": 0.78,
+      "prior20_high": 433500.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.56,
       "atr14": 27035.33
     },
     {
@@ -6252,6 +7920,12 @@
       "cloud_a": 408500.0,
       "cloud_b": 394500.0,
       "volume_ratio20": 0.89,
+      "volume": 228262.0,
+      "volume_ma20": 256940.05,
+      "volume_ratio_prior20": 0.87,
+      "prior20_high": 433500.0,
+      "prior20_low": 342500.0,
+      "atr_pct": 7.18,
       "atr14": 26568.52
     },
     {
@@ -6274,6 +7948,12 @@
       "cloud_a": 408500.0,
       "cloud_b": 394500.0,
       "volume_ratio20": 0.79,
+      "volume": 203565.0,
+      "volume_ma20": 257635.1,
+      "volume_ratio_prior20": 0.79,
+      "prior20_high": 433500.0,
+      "prior20_low": 351500.0,
+      "atr_pct": 7.44,
       "atr14": 26349.34
     },
     {
@@ -6296,6 +7976,12 @@
       "cloud_a": 401000.0,
       "cloud_b": 394500.0,
       "volume_ratio20": 0.59,
+      "volume": 149869.0,
+      "volume_ma20": 252358.4,
+      "volume_ratio_prior20": 0.58,
+      "prior20_high": 433500.0,
+      "prior20_low": 350500.0,
+      "atr_pct": 7.22,
       "atr14": 25610.1
     },
     {
@@ -6318,6 +8004,12 @@
       "cloud_a": 404250.0,
       "cloud_b": 394500.0,
       "volume_ratio20": 0.76,
+      "volume": 189500.0,
+      "volume_ma20": 250489.9,
+      "volume_ratio_prior20": 0.75,
+      "prior20_high": 433500.0,
+      "prior20_low": 350500.0,
+      "atr_pct": 7.67,
       "atr14": 25566.52
     },
     {
@@ -6340,6 +8032,12 @@
       "cloud_a": 402500.0,
       "cloud_b": 394500.0,
       "volume_ratio20": 1.57,
+      "volume": 407887.0,
+      "volume_ma20": 259133.1,
+      "volume_ratio_prior20": 1.63,
+      "prior20_high": 433500.0,
+      "prior20_low": 329500.0,
+      "atr_pct": 7.9,
       "atr14": 25668.91
     },
     {
@@ -6362,6 +8060,12 @@
       "cloud_a": 397750.0,
       "cloud_b": 394500.0,
       "volume_ratio20": 1.03,
+      "volume": 267118.0,
+      "volume_ma20": 259308.35,
+      "volume_ratio_prior20": 1.03,
+      "prior20_high": 433500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 8.21,
       "atr14": 25871.13
     },
     {
@@ -6384,6 +8088,12 @@
       "cloud_a": 392750.0,
       "cloud_b": 395500.0,
       "volume_ratio20": 0.85,
+      "volume": 207195.0,
+      "volume_ma20": 245021.55,
+      "volume_ratio_prior20": 0.8,
+      "prior20_high": 433500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 7.9,
       "atr14": 25273.19
     },
     {
@@ -6406,6 +8116,12 @@
       "cloud_a": 392750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.38,
+      "volume": 338024.0,
+      "volume_ma20": 244980.7,
+      "volume_ratio_prior20": 1.38,
+      "prior20_high": 414500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 7.45,
       "atr14": 25182.25
     },
     {
@@ -6428,6 +8144,12 @@
       "cloud_a": 392750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.35,
+      "volume": 340969.0,
+      "volume_ma20": 252381.55,
+      "volume_ratio_prior20": 1.39,
+      "prior20_high": 414500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 7.16,
       "atr14": 25740.66
     },
     {
@@ -6450,6 +8172,12 @@
       "cloud_a": 387625.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 2.7,
+      "volume": 723829.0,
+      "volume_ma20": 267915.8,
+      "volume_ratio_prior20": 2.87,
+      "prior20_high": 414500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 7.49,
       "atr14": 26759.19
     },
     {
@@ -6472,6 +8200,12 @@
       "cloud_a": 384375.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 2.23,
+      "volume": 620227.0,
+      "volume_ma20": 277871.75,
+      "volume_ratio_prior20": 2.32,
+      "prior20_high": 414500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 7.2,
       "atr14": 27204.96
     },
     {
@@ -6494,6 +8228,12 @@
       "cloud_a": 385000.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.03,
+      "volume": 283369.0,
+      "volume_ma20": 274100.8,
+      "volume_ratio_prior20": 1.02,
+      "prior20_high": 402500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 7.01,
       "atr14": 26940.32
     },
     {
@@ -6516,6 +8256,12 @@
       "cloud_a": 390375.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.8,
+      "volume": 221912.0,
+      "volume_ma20": 276326.8,
+      "volume_ratio_prior20": 0.81,
+      "prior20_high": 402500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.89,
       "atr14": 26658.87
     },
     {
@@ -6538,6 +8284,12 @@
       "cloud_a": 390375.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.96,
+      "volume": 267832.0,
+      "volume_ma20": 277876.5,
+      "volume_ratio_prior20": 0.97,
+      "prior20_high": 402500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.86,
       "atr14": 26433.23
     },
     {
@@ -6560,6 +8312,12 @@
       "cloud_a": 390375.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.37,
+      "volume": 392355.0,
+      "volume_ma20": 285727.3,
+      "volume_ratio_prior20": 1.41,
+      "prior20_high": 399000.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.92,
       "atr14": 27473.72
     },
     {
@@ -6582,6 +8340,12 @@
       "cloud_a": 392625.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.04,
+      "volume": 302083.0,
+      "volume_ma20": 290963.15,
+      "volume_ratio_prior20": 1.06,
+      "prior20_high": 415000.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.97,
       "atr14": 27850.59
     },
     {
@@ -6604,6 +8368,12 @@
       "cloud_a": 392625.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.74,
+      "volume": 215060.0,
+      "volume_ma20": 292485.4,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.95,
       "atr14": 27146.98
     },
     {
@@ -6626,6 +8396,12 @@
       "cloud_a": 394750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.69,
+      "volume": 204722.0,
+      "volume_ma20": 295380.1,
+      "volume_ratio_prior20": 0.7,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.74,
       "atr14": 26707.91
     },
     {
@@ -6648,6 +8424,12 @@
       "cloud_a": 394750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.5,
+      "volume": 149268.0,
+      "volume_ma20": 296271.5,
+      "volume_ratio_prior20": 0.51,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.76,
       "atr14": 25943.06
     },
     {
@@ -6670,6 +8452,12 @@
       "cloud_a": 394750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.19,
+      "volume": 361763.0,
+      "volume_ma20": 303740.45,
+      "volume_ratio_prior20": 1.22,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.62,
       "atr14": 25554.27
     },
     {
@@ -6692,6 +8480,12 @@
       "cloud_a": 394750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.67,
+      "volume": 202610.0,
+      "volume_ma20": 302457.85,
+      "volume_ratio_prior20": 0.67,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.53,
       "atr14": 25157.54
     },
     {
@@ -6714,6 +8508,12 @@
       "cloud_a": 390000.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.15,
+      "volume": 358114.0,
+      "volume_ma20": 310185.3,
+      "volume_ratio_prior20": 1.18,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 6.23,
       "atr14": 25503.43
     },
     {
@@ -6736,6 +8536,12 @@
       "cloud_a": 390000.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.56,
+      "volume": 511585.0,
+      "volume_ma20": 328271.1,
+      "volume_ratio_prior20": 1.65,
+      "prior20_high": 424250.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 5.97,
       "atr14": 26288.9
     },
     {
@@ -6758,6 +8564,12 @@
       "cloud_a": 390000.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.69,
+      "volume": 228002.0,
+      "volume_ma20": 330196.2,
+      "volume_ratio_prior20": 0.69,
+      "prior20_high": 440500.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 5.8,
       "atr14": 25625.4
     },
     {
@@ -6780,6 +8592,12 @@
       "cloud_a": 390000.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.64,
+      "volume": 205072.0,
+      "volume_ma20": 320055.45,
+      "volume_ratio_prior20": 0.62,
+      "prior20_high": 453000.0,
+      "prior20_low": 306500.0,
+      "atr_pct": 5.81,
       "atr14": 25259.3
     },
     {
@@ -6802,6 +8620,12 @@
       "cloud_a": 386000.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 1.08,
+      "volume": 351547.0,
+      "volume_ma20": 324276.9,
+      "volume_ratio_prior20": 1.1,
+      "prior20_high": 453000.0,
+      "prior20_low": 308000.0,
+      "atr_pct": 5.55,
       "atr14": 25597.92
     },
     {
@@ -6824,6 +8648,12 @@
       "cloud_a": 382750.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.8,
+      "volume": 260372.0,
+      "volume_ma20": 326935.75,
+      "volume_ratio_prior20": 0.8,
+      "prior20_high": 464500.0,
+      "prior20_low": 310000.0,
+      "atr_pct": 5.42,
       "atr14": 25198.07
     },
     {
@@ -6846,6 +8676,12 @@
       "cloud_a": 382250.0,
       "cloud_b": 407750.0,
       "volume_ratio20": 0.78,
+      "volume": 252080.0,
+      "volume_ma20": 322638.55,
+      "volume_ratio_prior20": 0.77,
+      "prior20_high": 466500.0,
+      "prior20_low": 325500.0,
+      "atr_pct": 6.14,
       "atr14": 26576.78
     },
     {
@@ -6868,6 +8704,12 @@
       "cloud_a": 379875.0,
       "cloud_b": 392750.0,
       "volume_ratio20": 0.53,
+      "volume": 167675.0,
+      "volume_ma20": 313973.85,
+      "volume_ratio_prior20": 0.52,
+      "prior20_high": 475000.0,
+      "prior20_low": 333000.0,
+      "atr_pct": 6.3,
       "atr14": 26392.73
     },
     {
@@ -6890,6 +8732,12 @@
       "cloud_a": 371375.0,
       "cloud_b": 386250.0,
       "volume_ratio20": 1.28,
+      "volume": 381281.0,
+      "volume_ma20": 296846.45,
+      "volume_ratio_prior20": 1.21,
+      "prior20_high": 475000.0,
+      "prior20_low": 336000.0,
+      "atr_pct": 6.92,
       "atr14": 28078.96
     },
     {
@@ -6912,6 +8760,12 @@
       "cloud_a": 359875.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.81,
+      "volume": 223630.0,
+      "volume_ma20": 277016.6,
+      "volume_ratio_prior20": 0.75,
+      "prior20_high": 475000.0,
+      "prior20_low": 355500.0,
+      "atr_pct": 6.97,
       "atr14": 27466.18
     },
     {
@@ -6934,6 +8788,12 @@
       "cloud_a": 358750.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 1.06,
+      "volume": 292843.0,
+      "volume_ma20": 277490.3,
+      "volume_ratio_prior20": 1.06,
+      "prior20_high": 475000.0,
+      "prior20_low": 367500.0,
+      "atr_pct": 6.94,
       "atr14": 26647.16
     },
     {
@@ -6956,6 +8816,12 @@
       "cloud_a": 355625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.69,
+      "volume": 190660.0,
+      "volume_ma20": 275927.7,
+      "volume_ratio_prior20": 0.69,
+      "prior20_high": 475000.0,
+      "prior20_low": 367500.0,
+      "atr_pct": 6.81,
       "atr14": 25672.37
     },
     {
@@ -6978,6 +8844,12 @@
       "cloud_a": 355625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.99,
+      "volume": 274177.0,
+      "volume_ma20": 276244.95,
+      "volume_ratio_prior20": 0.99,
+      "prior20_high": 475000.0,
+      "prior20_low": 367500.0,
+      "atr_pct": 6.84,
       "atr14": 25195.77
     },
     {
@@ -7000,6 +8872,12 @@
       "cloud_a": 355125.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 1.12,
+      "volume": 305675.0,
+      "volume_ma20": 271910.95,
+      "volume_ratio_prior20": 1.11,
+      "prior20_high": 475000.0,
+      "prior20_low": 364500.0,
+      "atr_pct": 7.02,
       "atr14": 25324.64
     },
     {
@@ -7022,6 +8900,12 @@
       "cloud_a": 355625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 1.5,
+      "volume": 415191.0,
+      "volume_ma20": 277566.35,
+      "volume_ratio_prior20": 1.53,
+      "prior20_high": 475000.0,
+      "prior20_low": 351000.0,
+      "atr_pct": 6.84,
       "atr14": 25444.31
     },
     {
@@ -7044,6 +8928,12 @@
       "cloud_a": 358750.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.93,
+      "volume": 261332.0,
+      "volume_ma20": 279879.95,
+      "volume_ratio_prior20": 0.94,
+      "prior20_high": 475000.0,
+      "prior20_low": 347000.0,
+      "atr_pct": 6.86,
       "atr14": 24948.29
     },
     {
@@ -7066,6 +8956,12 @@
       "cloud_a": 359375.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.62,
+      "volume": 172703.0,
+      "volume_ma20": 278279.0,
+      "volume_ratio_prior20": 0.62,
+      "prior20_high": 475000.0,
+      "prior20_low": 347000.0,
+      "atr_pct": 6.63,
       "atr14": 23916.27
     },
     {
@@ -7088,6 +8984,12 @@
       "cloud_a": 355875.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.94,
+      "volume": 267003.0,
+      "volume_ma20": 284165.75,
+      "volume_ratio_prior20": 0.96,
+      "prior20_high": 475000.0,
+      "prior20_low": 347000.0,
+      "atr_pct": 6.66,
       "atr14": 23350.82
     },
     {
@@ -7110,6 +9012,12 @@
       "cloud_a": 357000.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.86,
+      "volume": 240494.0,
+      "volume_ma20": 278102.3,
+      "volume_ratio_prior20": 0.85,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 6.43,
       "atr14": 22825.76
     },
     {
@@ -7132,6 +9040,12 @@
       "cloud_a": 361625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 1.07,
+      "volume": 302010.0,
+      "volume_ma20": 283072.3,
+      "volume_ratio_prior20": 1.09,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 6.21,
       "atr14": 22838.21
     },
     {
@@ -7154,6 +9068,12 @@
       "cloud_a": 370125.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.49,
+      "volume": 134043.0,
+      "volume_ma20": 271868.75,
+      "volume_ratio_prior20": 0.47,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 6.04,
       "atr14": 22135.48
     },
     {
@@ -7176,6 +9096,12 @@
       "cloud_a": 372000.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.79,
+      "volume": 202998.0,
+      "volume_ma20": 256439.4,
+      "volume_ratio_prior20": 0.75,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.87,
       "atr14": 21232.94
     },
     {
@@ -7198,6 +9124,12 @@
       "cloud_a": 372750.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.73,
+      "volume": 186907.0,
+      "volume_ma20": 254384.65,
+      "volume_ratio_prior20": 0.73,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.64,
       "atr14": 20823.45
     },
     {
@@ -7220,6 +9152,12 @@
       "cloud_a": 377625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.59,
+      "volume": 149143.0,
+      "volume_ma20": 251588.2,
+      "volume_ratio_prior20": 0.59,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.52,
       "atr14": 20264.63
     },
     {
@@ -7242,6 +9180,12 @@
       "cloud_a": 380625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.56,
+      "volume": 134025.0,
+      "volume_ma20": 240712.1,
+      "volume_ratio_prior20": 0.53,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.46,
       "atr14": 19781.44
     },
     {
@@ -7264,6 +9208,12 @@
       "cloud_a": 380625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.78,
+      "volume": 184836.0,
+      "volume_ma20": 236935.3,
+      "volume_ratio_prior20": 0.77,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.31,
       "atr14": 19368.48
     },
     {
@@ -7286,6 +9236,12 @@
       "cloud_a": 380625.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.67,
+      "volume": 155507.0,
+      "volume_ma20": 232106.65,
+      "volume_ratio_prior20": 0.66,
+      "prior20_high": 475000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.16,
       "atr14": 18877.88
     },
     {
@@ -7308,6 +9264,12 @@
       "cloud_a": 388750.0,
       "cloud_b": 374750.0,
       "volume_ratio20": 0.78,
+      "volume": 181376.0,
+      "volume_ma20": 232791.7,
+      "volume_ratio_prior20": 0.78,
+      "prior20_high": 441500.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.02,
       "atr14": 18422.31
     },
     {
@@ -7330,6 +9292,12 @@
       "cloud_a": 395000.0,
       "cloud_b": 379750.0,
       "volume_ratio20": 1.45,
+      "volume": 334318.0,
+      "volume_ma20": 230443.55,
+      "volume_ratio_prior20": 1.44,
+      "prior20_high": 432000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.08,
       "atr14": 18356.43
     },
     {
@@ -7352,6 +9320,12 @@
       "cloud_a": 395000.0,
       "cloud_b": 379750.0,
       "volume_ratio20": 1.58,
+      "volume": 375758.0,
+      "volume_ma20": 238049.95,
+      "volume_ratio_prior20": 1.63,
+      "prior20_high": 412000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 4.91,
       "atr14": 18688.12
     },
     {
@@ -7374,6 +9348,12 @@
       "cloud_a": 400750.0,
       "cloud_b": 385500.0,
       "volume_ratio20": 1.13,
+      "volume": 267711.0,
+      "volume_ma20": 236793.35,
+      "volume_ratio_prior20": 1.12,
+      "prior20_high": 397000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.07,
       "atr14": 18710.39
     },
     {
@@ -7396,6 +9376,12 @@
       "cloud_a": 401750.0,
       "cloud_b": 386500.0,
       "volume_ratio20": 1.8,
+      "volume": 449175.0,
+      "volume_ma20": 249719.1,
+      "volume_ratio_prior20": 1.9,
+      "prior20_high": 390000.0,
+      "prior20_low": 345000.0,
+      "atr_pct": 5.98,
       "atr14": 20659.65
     },
     {
@@ -7418,6 +9404,12 @@
       "cloud_a": 406000.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 4.2,
+      "volume": 1254137.0,
+      "volume_ma20": 298717.1,
+      "volume_ratio_prior20": 5.02,
+      "prior20_high": 384500.0,
+      "prior20_low": 337500.0,
+      "atr_pct": 8.38,
       "atr14": 23933.96
     },
     {
@@ -7440,6 +9432,12 @@
       "cloud_a": 406375.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 2.17,
+      "volume": 688650.0,
+      "volume_ma20": 317865.85,
+      "volume_ratio_prior20": 2.31,
+      "prior20_high": 384500.0,
+      "prior20_low": 279000.0,
+      "atr_pct": 8.37,
       "atr14": 24652.97
     },
     {
@@ -7462,6 +9460,12 @@
       "cloud_a": 409625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 1.3,
+      "volume": 413333.0,
+      "volume_ma20": 317772.95,
+      "volume_ratio_prior20": 1.3,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 8.33,
       "atr14": 24499.18
     },
     {
@@ -7484,6 +9488,12 @@
       "cloud_a": 410000.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 1.35,
+      "volume": 441311.0,
+      "volume_ma20": 326771.9,
+      "volume_ratio_prior20": 1.39,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 7.91,
       "atr14": 25820.67
     },
     {
@@ -7506,6 +9516,12 @@
       "cloud_a": 410250.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.72,
+      "volume": 238370.0,
+      "volume_ma20": 330055.25,
+      "volume_ratio_prior20": 0.73,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 7.63,
       "atr14": 25154.91
     },
     {
@@ -7528,6 +9544,12 @@
       "cloud_a": 413125.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.63,
+      "volume": 206776.0,
+      "volume_ma20": 327043.9,
+      "volume_ratio_prior20": 0.63,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 8.28,
       "atr14": 25250.99
     },
     {
@@ -7550,6 +9572,12 @@
       "cloud_a": 411875.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.59,
+      "volume": 191824.0,
+      "volume_ma20": 324610.4,
+      "volume_ratio_prior20": 0.59,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 7.88,
       "atr14": 24911.63
     },
     {
@@ -7572,6 +9600,12 @@
       "cloud_a": 409250.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.86,
+      "volume": 277534.0,
+      "volume_ma20": 323386.6,
+      "volume_ratio_prior20": 0.85,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 8.59,
       "atr14": 25132.23
     },
     {
@@ -7594,6 +9628,12 @@
       "cloud_a": 411000.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.81,
+      "volume": 266600.0,
+      "volume_ma20": 330014.45,
+      "volume_ratio_prior20": 0.82,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 8.65,
       "atr14": 24444.21
     },
     {
@@ -7616,6 +9656,12 @@
       "cloud_a": 402625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.5,
+      "volume": 164027.0,
+      "volume_ma20": 328065.9,
+      "volume_ratio_prior20": 0.5,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 8.4,
       "atr14": 23483.91
     },
     {
@@ -7638,6 +9684,12 @@
       "cloud_a": 400250.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.61,
+      "volume": 200234.0,
+      "volume_ma20": 328732.25,
+      "volume_ratio_prior20": 0.61,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 8.23,
       "atr14": 22842.2
     },
     {
@@ -7660,6 +9712,12 @@
       "cloud_a": 394250.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.57,
+      "volume": 188540.0,
+      "volume_ma20": 330702.1,
+      "volume_ratio_prior20": 0.57,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 7.83,
       "atr14": 22460.62
     },
     {
@@ -7682,6 +9740,12 @@
       "cloud_a": 390500.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.55,
+      "volume": 183825.0,
+      "volume_ma20": 333192.1,
+      "volume_ratio_prior20": 0.56,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 7.79,
       "atr14": 21999.14
     },
     {
@@ -7704,6 +9768,12 @@
       "cloud_a": 388750.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 3.2,
+      "volume": 1233160.0,
+      "volume_ma20": 385608.3,
+      "volume_ratio_prior20": 3.7,
+      "prior20_high": 384500.0,
+      "prior20_low": 266500.0,
+      "atr_pct": 9.69,
       "atr14": 24749.2
     },
     {
@@ -7726,6 +9796,12 @@
       "cloud_a": 387125.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 1.12,
+      "volume": 447326.0,
+      "volume_ma20": 400199.25,
+      "volume_ratio_prior20": 1.16,
+      "prior20_high": 384500.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 9.45,
       "atr14": 24909.98
     },
     {
@@ -7748,6 +9824,12 @@
       "cloud_a": 386625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.86,
+      "volume": 351009.0,
+      "volume_ma20": 408680.9,
+      "volume_ratio_prior20": 0.88,
+      "prior20_high": 384500.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 10.02,
       "atr14": 24702.12
     },
     {
@@ -7770,6 +9852,12 @@
       "cloud_a": 386625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.98,
+      "volume": 403658.0,
+      "volume_ma20": 412147.9,
+      "volume_ratio_prior20": 0.99,
+      "prior20_high": 384500.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 9.52,
       "atr14": 24187.68
     },
     {
@@ -7792,6 +9880,12 @@
       "cloud_a": 386625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 1.09,
+      "volume": 454824.0,
+      "volume_ma20": 416101.2,
+      "volume_ratio_prior20": 1.1,
+      "prior20_high": 384500.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 9.23,
       "atr14": 24745.71
     },
     {
@@ -7814,6 +9908,12 @@
       "cloud_a": 385625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.66,
+      "volume": 275163.0,
+      "volume_ma20": 416473.8,
+      "volume_ratio_prior20": 0.66,
+      "prior20_high": 383500.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 9.5,
       "atr14": 24228.16
     },
     {
@@ -7836,6 +9936,12 @@
       "cloud_a": 385625.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.76,
+      "volume": 310072.0,
+      "volume_ma20": 409518.65,
+      "volume_ratio_prior20": 0.74,
+      "prior20_high": 383500.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 9.77,
       "atr14": 23783.29
     },
     {
@@ -7858,6 +9964,12 @@
       "cloud_a": 387000.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 0.64,
+      "volume": 230051.0,
+      "volume_ma20": 358314.35,
+      "volume_ratio_prior20": 0.56,
+      "prior20_high": 339000.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 9.21,
       "atr14": 23155.91
     },
     {
@@ -7880,6 +9992,12 @@
       "cloud_a": 387000.0,
       "cloud_b": 390750.0,
       "volume_ratio20": 1.04,
+      "volume": 355618.0,
+      "volume_ma20": 341662.75,
+      "volume_ratio_prior20": 0.99,
+      "prior20_high": 339000.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 8.92,
       "atr14": 22430.49
     }
   ],
@@ -7942,6 +10060,7 @@
     "source": "네이버 금융 (일별 종가)"
   },
   "valid_high_low": 353,
+  "invalid_high_low_days": 0,
   "data_days": 353,
   "has_real_data": true
 }

@@ -103,7 +103,6 @@ def build(data, dart=None):
             'forward_or_consensus_used':False,
             'share_adjustments_note':'2024년 5:1 분할 소급반영 수치를 사용하며 중복 조정하지 않음. 기본 EPS는 기간 가중평균 유통주식수, BPS는 기말 발행주식수에서 자기주식을 제외. TTM 희석 EPS는 미산출.',
             'multiple_basis':'사용자가 비교하는 고정 배수 시나리오. 역사적 평균·분위수·목표주가 아님.',
-            'forward':{'method':'user_scenario','consensus':False,'horizon':'입력한 향후 12개월 또는 회계연도','default_growth_pct':0}
         },
         'definitions':data['evaluation'],
         'source_files':data['source_files'],

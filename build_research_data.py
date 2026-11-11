@@ -23,9 +23,24 @@ def read(path,default):
     except (OSError,ValueError):return default
 
 
+def sync_saved_pdp(data, markets):
+    from build_data import merge_saved_pdp
+    demand=read(data/'demand.json',{})
+    if not demand:
+        return demand
+    merged=merge_saved_pdp(demand.get('amazon',[]),read(data/'scrapedo_pdp.json',[]),markets)
+    if merged != demand.get('amazon',[]):
+        demand['amazon']=merged
+        (data/'demand.json').write_text(json.dumps(demand,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    return demand
+
+
 def build():
     from source_provenance import normalize_saved_sources
     normalize_saved_sources(DATA)
+    from flows_engine import refresh_saved_analysis
+    refresh_saved_analysis(DATA)
+    demand=sync_saved_pdp(DATA,read(ROOT/'config/markets.json',{}).get('markets',[]))
     financial=financial_engine.update()
     try:
         trends=trend_signals.update()
@@ -49,6 +64,7 @@ def build():
         snapshot={}
     # Keep the static bootstrap fallback synchronized with explicitly
     # refreshed market/technical files after the free historical backfill.
+    snapshot['demand']=demand
     snapshot['market']=read(DATA/'market.json', snapshot.get('market', {}))
     snapshot['technical']=read(DATA/'technical.json', snapshot.get('technical', {}))
     snapshot['flows']=read(DATA/'flows.json', snapshot.get('flows', {}))

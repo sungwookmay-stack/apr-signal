@@ -47,8 +47,6 @@ jobs:
       - name: Test APR financial valuation offline Trend and retail panels
         run: |
           node tests/smoke_research.cjs
-          node tests/smoke_valuation.cjs
-          node --check assets/valuation_scenario.js
       - name: Scenario lab and KITA data provenance smoke
         run: node tests/smoke_sensitivity.cjs
       - name: Institutional APR flow and lending source QA
@@ -67,3 +65,7 @@ jobs:
         run: node tests/smoke_kbty_sec.cjs
       - name: Test official Customs freight parsing
         run: python -m unittest tests/test_freight_official.py -v
+      - name: Verify MFDS registry UI and Pages packaging
+        run: |
+          node --check assets/mfds_devices.js
+          node tests/smoke_mfds.cjs

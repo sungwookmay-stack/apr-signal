@@ -48,7 +48,16 @@ ready().then(()=>{
  assert.equal(macd.data.datasets.map(x=>x.label).join(','),'MACD선,시그널선,히스토그램');
  assert.equal(macd.data.datasets[2].type,'bar');
  assert.equal(macd.data.datasets[0].type,undefined);
- assert.equal(rsi.data.datasets.length,1);
+ assert.equal(rsi.data.datasets.length,3);
+ assert(plots['chart-volume']);
+ assert.doesNotMatch(html,/id="t-risk-price"|분할매수 \/ 물타기 가이드/);
+ assert.match($('technical-coverage').textContent,/120거래일/);
+ const period=listeners.get('technical-period:change');
+ $('technical-period').value='60';period();
+ assert.equal(plots['chart-volume'].data.labels.length,60);
+ assert.match($('technical-coverage').textContent,/60거래일/);
+ $('technical-period').value='all';period();
+ assert.equal(plots['chart-volume'].data.labels.length,technical.series.length);
  const change=listeners.get('technical-view:change');
  assert.equal(typeof change,'function');
  $('technical-view').value='cloud';change();
