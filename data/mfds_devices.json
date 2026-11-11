@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "MFDS medical-device product registry API 15057456",
   "source_url": "https://www.data.go.kr/data/15057456/openapi.do",
-  "checked_at": "2026-11-11T16:58:22.990465+00:00",
+  "checked_at": "2026-11-11T17:01:30.448693+00:00",
   "events": [],
   "current_scan_complete": false,
   "observed_count": null,
