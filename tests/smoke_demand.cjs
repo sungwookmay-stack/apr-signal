@@ -1,4 +1,5 @@
 /* Smoke: real saved Top100 observation renders even when per-item API data is absent. */
+require('./smoke_retail_integrity.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm'),{URL}=require('node:url');
 const app=fs.readFileSync('assets/app.js','utf8');

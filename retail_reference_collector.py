@@ -71,18 +71,8 @@ def parse_target(text,scope='brand'):
  count=re.search(r'\b(\d{1,3})\s+results\b',text,re.I)
  if count and 1<=int(count.group(1))<=300:
   out['brand_catalog_items' if scope=='brand' else 'category_items']=int(count.group(1))
- # Search a short window before the exact product headline to avoid attaching
- # a neighboring product's bought badge. Never sum badges across listings.
- match=re.search(r'medicube\s+Zero Pore Pad\s+Korean Skincare',text,re.I)
- if match:
-  earlier=text[max(0,match.start()-160):match.start()]
-  badges=list(re.finditer(r'\b(\d{1,4}(?:\.\d+)?)\s*([kKmM]?)\+\s*bought in last month\b',earlier,re.I))
-  if badges:
-   item=badges[-1]
-   if item.end()>len(earlier)-130:
-    n=int(float(item.group(1))*{'k':1000,'m':1000000}.get(item.group(2).lower(),1))
-    if 100<=n<=100000000:
-     out['brand_zero_pore_bought_lower' if scope=='brand' else 'zero_pore_pad_bought_lower']=n
+ # Plain-text proximity cannot prove which product owns a bought badge.
+ # Do not collect purchase counts until product-scoped markup is validated.
  return out
 
 def parse_weekly(text):
@@ -184,7 +174,7 @@ def collect():
  ]
  existing['updated_at_utc']=dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
  RECORD.write_text(json.dumps(existing,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- return {'status':'ok','successes':success,'failures':failure,
+ return {'status':('partial' if success else 'unavailable') if failure else 'ok','successes':success,'failures':failure,
          'retail_metrics':len(existing['retail']),'external_weeks':len(existing.get('amazon_weekly',[]))}
 
 if __name__=='__main__':
