@@ -24,14 +24,13 @@ def read(path,default):
 
 
 def sync_saved_pdp(data, markets):
-    from build_data import merge_saved_pdp
+    # Retired Amazon Top100 / individual PDP tracking must not reappear on
+    # code-only pushes, afternoon refreshes, or bootstrap fallback.
     demand=read(data/'demand.json',{})
-    if not demand:
-        return demand
-    merged=merge_saved_pdp(demand.get('amazon',[]),read(data/'scrapedo_pdp.json',[]),markets)
-    if merged != demand.get('amazon',[]):
-        demand['amazon']=merged
-        (data/'demand.json').write_text(json.dumps(demand,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    for key in ('top100','top100_status','scrapedo_reserved_credits'):
+        demand.pop(key,None)
+    demand.update(amazon=[],watchlist=[],amazon_status=['개별 BSR 종료 · Beauty Top50만 관측'])
+    (data/'demand.json').write_text(json.dumps(demand,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     return demand
 
 
@@ -65,6 +64,8 @@ def build():
     # Keep the static bootstrap fallback synchronized with explicitly
     # refreshed market/technical files after the free historical backfill.
     snapshot['demand']=demand
+    snapshot.pop('top100',None)
+    snapshot['top50']=read(DATA/'top50.json',{'snapshots':[],'status':'not_collected'})
     snapshot['market']=read(DATA/'market.json', snapshot.get('market', {}))
     snapshot['technical']=read(DATA/'technical.json', snapshot.get('technical', {}))
     snapshot['flows']=read(DATA/'flows.json', snapshot.get('flows', {}))

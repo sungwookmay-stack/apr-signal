@@ -4,7 +4,7 @@ const $=id=>document.getElementById(id);
 const fmt=(n,d=0)=>n==null||!Number.isFinite(Number(n))?'—':Number(n).toLocaleString('ko-KR',{minimumFractionDigits:d,maximumFractionDigits:d});
 const pct=(a,b)=>a!=null&&b!=null&&Number(b)!==0?(a/b-1)*100:null;
 const signed=(n,d=1)=>n==null?'—':(n>0?'+':'')+fmt(n,d)+'%';
-const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',product:'all',nav:'overview',charts:{},top100:null,reference:null,kitaRates:null,flows:null,flowReference:null,dartOwnership:null,dartFinancials:null,dartCapital:null,techView:'ma',techPeriod:'120'};
+const state={market:null,tech:null,kbty:null,news:null,demand:null,status:null,financials:null,trendSignals:null,aprTheses:null,period:'all',country:'US',brand:'medicube',product:'all',nav:'overview',charts:{},top50:null,reference:null,kitaRates:null,flows:null,flowReference:null,dartOwnership:null,dartFinancials:null,dartCapital:null,techView:'ma',techPeriod:'120'};
 const C={navy:'#293841',teal:'#26756b',orange:'#c19561',purple:'#786a9d',grey:'#a1a9b0',red:'#bb5b63'};
 const missing='실측 데이터 없음 · 확인된 값만 표시합니다.';
 const minimalMarkets=[{code:'US',name:'미국',region:'북미',amazon:'amazon.com'},{code:'GB',name:'영국',region:'유럽',amazon:'amazon.co.uk'},{code:'DE',name:'독일',region:'유럽',amazon:'amazon.de'},{code:'FR',name:'프랑스',region:'유럽',amazon:'amazon.fr'},{code:'IT',name:'이탈리아',region:'유럽',amazon:'amazon.it'},{code:'ES',name:'스페인',region:'유럽',amazon:'amazon.es'},{code:'CA',name:'캐나다',region:'북미',amazon:'amazon.ca'},{code:'JP',name:'일본',region:'아시아',amazon:'amazon.co.jp'},{code:'AE',name:'아랍에미리트',region:'중동',amazon:'amazon.ae'},{code:'SA',name:'사우디아라비아',region:'중동',amazon:'amazon.sa'},{code:'EG',name:'이집트',region:'중동',amazon:'amazon.eg'},{code:'QA',name:'카타르',region:'중동',amazon:null},{code:'KW',name:'쿠웨이트',region:'중동',amazon:null},{code:'BR',name:'브라질',region:'남미',amazon:'amazon.com.br',amazon_beauty_slug:'beauty'},{code:'AR',name:'아르헨티나',region:'남미',amazon:null},{code:'CL',name:'칠레',region:'남미',amazon:null}];
@@ -13,7 +13,7 @@ function countryMarkets(){
  const missingMarkets=minimalMarkets.filter(x=>!actual.some(y=>y.code===x.code));
  return actual.concat(missingMarkets).map(x=>['BR','AR','CL'].includes(x.code)?{...x,region:'남미'}:x);
 }
-function rankSnapshots(){return state.top100?.snapshots?.length?state.top100.snapshots:(state.demand?.top100||[]);}
+function rankSnapshots(){return (state.top50?.snapshots||[]).map(s=>{const b=s.brands?.[state.brand]||(state.brand==='medicube'?s:{items:[],exited:[],verified_count:0,candidate_count:0});return {...s,...b,date:s.observed_at_utc,medicube_listings:b.items||[]};});}
 function set(id,val){const e=$(id);if(e)e.textContent=val;}
 function safeText(s){return String(s??'');}
 function escapeHtml(s){return safeText(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
@@ -186,7 +186,7 @@ function renderLatinAmerica(){
    const last=rows.at(-1);
    const snaps=rankSnapshots().filter(x=>x.country===cc).slice().sort((a,b)=>a.date.localeCompare(b.date));
    const snap=snaps.at(-1);
-   const amazon=market.amazon?(snap?'Beauty Top 100 관측 '+snap.date+' · '+(Number(snap.medicube_confirmed_count)>0?'메디큐브 최소 '+snap.medicube_confirmed_count+'종':'메디큐브 진입 여부 미확인')+' · 브랜드 식별 '+(snap.identity_coverage_count??'?')+'/100':'Amazon Top 100 첫 수집 전'):'독립 Amazon 마켓 없음';
+   const amazon=market.amazon?(snap?'Beauty Top50 · '+snap.date+' · 확정 '+snap.verified_count+' / 제목 후보 '+snap.candidate_count:'Amazon Top50 첫 수집 전'):'독립 Amazon 마켓 없음';
    const trend=last?'검색 관심도 '+fmt(last.index)+'/100 · '+last.date:'Google Trends 첫 수집 전';
    return '<button type="button" class="latam-country" data-latam-country="'+cc+
      '" aria-pressed="'+(state.country===cc)+'">'+
@@ -200,77 +200,22 @@ function renderDemand(){if(window.APR_RESEARCH)window.APR_RESEARCH.renderTrends(
  renderLatinAmerica();
  const observed=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
  const mostRecent=observed.length?observed[observed.length-1]:null;
- set('amazon-quick-count',market&&!market.amazon?'독립 마켓 없음':mostRecent?(mostRecent.coverage_complete?String(mostRecent.medicube_confirmed_count)+'개':Number(mostRecent.medicube_confirmed_count)>0?'최소 '+String(mostRecent.medicube_confirmed_count)+'개':'진입 여부 미확인'):'미수집');
- set('amazon-quick-date',mostRecent?mostRecent.date+' · '+mostRecent.coverage_count+'/100개 순위 확인':'관측된 날짜 없음');
- const confirmed=observed.flatMap(s=>(s.medicube_listings||[]).map(x=>({
-    date:s.date,country:c,asin:x.asin,bsr:x.rank,title:x.title,url:x.url,
-    source:'Amazon Beauty Best Sellers 목록',coverage_count:s.coverage_count
- })));
- const individual=(d.amazon||[]).filter(x=>x.country===c);
- const chosen=p==='all'?confirmed:confirmed.filter(x=>x.asin===p);
- const individualChosen=p==='all'?individual:individual.filter(x=>x.asin===p);
- const uniqueASINs=[...new Set(chosen.map(x=>x.asin))];
- const days=[...new Set(chosen.map(x=>x.date))].sort();
- const latestPerASIN=new Map();
- for(const item of chosen){const old=latestPerASIN.get(item.asin);if(!old||old.date<=item.date)latestPerASIN.set(item.asin,item);}
- const lastItems=[...latestPerASIN.values()].sort((a,b)=>a.bsr-b.bsr);
- // Beauty chart ranks and product-detail BSR are different sources; never merge their categories.
- if(days.length){
-   chart('chart-amazon',days,uniqueASINs.slice(0,8).map((asin,i)=>({
-      label:(latestPerASIN.get(asin)?.title||asin).replace(/^medicube\s+/i,'').slice(0,32),
-      values:days.map(day=>chosen.find(x=>x.date===day&&x.asin===asin)?.bsr??null),
-      color:[C.teal,C.navy,C.orange,C.purple,C.grey,C.red][i%6]
-   })),{yOptions:{reverse:true,min:1},legend:uniqueASINs.length>1,decimals:0});
- }else if(individualChosen.length){
-   const srt=individualChosen.slice().sort((a,b)=>a.date.localeCompare(b.date));
-   const dates=[...new Set(srt.map(x=>x.date))];
-   const asins=[...new Set(srt.map(x=>x.asin))];
-   chart('chart-amazon',dates,asins.slice(0,8).map((asin,i)=>({
-      label:asin,values:dates.map(day=>srt.find(x=>x.date===day&&x.asin===asin)?.bsr??null),
-      color:[C.teal,C.navy,C.orange,C.purple,C.grey,C.red][i%6]
-   })),{yOptions:{reverse:true},legend:asins.length>1});
- }else chart('chart-amazon',[],[]);
- // PDP BSR must be drawn separately from Beauty Top 100 list positions.
- // Keep one category per ASIN; do not splice distinct subcategory ranks together.
- const pdp=individualChosen.filter(x=>x.source_quality==='verified_product_rank'&&
-   Number(x.bsr)>0&&x.category);
- const byPair=new Map();
- for(const x of pdp){
-   const key=x.asin+'|'+x.category;
-   if(!byPair.has(key))byPair.set(key,[]);
-   byPair.get(key).push(x);
- }
- const byASIN=new Map();
- const looksBeauty=s=>/beauty|beauté|bellezza|belleza|schönheit|美容|ビューティ|الجمال/i.test(String(s));
- for(const [key,rows] of byPair){
-   const asin=rows[0].asin, category=rows[0].category;
-   const priority=(looksBeauty(category)?1000:0)+rows.length;
-   if(!byASIN.has(asin)||byASIN.get(asin).priority<priority)
-     byASIN.set(asin,{asin,category,rows,priority});
- }
- const pdpSeries=[...byASIN.values()].sort((a,b)=>b.rows.length-a.rows.length).slice(0,6);
- const pdpDays=[...new Set(pdpSeries.flatMap(x=>x.rows.map(r=>r.date)))].sort();
- chart('chart-amazon-pdp',pdpDays,pdpSeries.map((z,i)=>({
-   label:z.asin+' · '+z.category.slice(0,24),
-   values:pdpDays.map(day=>z.rows.find(x=>x.date===day)?.bsr??null),
+ set('amazon-quick-count',market&&!market.amazon?'독립 마켓 없음':mostRecent?'확정 '+mostRecent.verified_count+' · 후보 '+mostRecent.candidate_count:'미수집');
+ set('amazon-quick-date',mostRecent?mostRecent.date+' · 50/50개 응답 검증':'관측된 날짜 없음');
+ const chosen=observed.flatMap(s=>(s.items||[]).filter(x=>p==='all'||x.asin===p).map(x=>({...x,date:s.date})));
+ const days=[...new Set(observed.map(x=>x.date))].sort();
+ const asins=[...new Set(chosen.map(x=>x.asin))];
+ chart('chart-amazon',days,asins.slice(0,8).map((asin,i)=>({
+   label:(chosen.find(x=>x.asin===asin)?.title||asin).slice(0,32),
+   values:days.map(day=>chosen.find(x=>x.date===day&&x.asin===asin)?.rank??null),
    color:[C.teal,C.navy,C.orange,C.purple,C.grey,C.red][i%6]
- })),{yOptions:{reverse:true,min:1},legend:true,decimals:0});
- set('amazon-pdp-note',pdpDays.length?
-   '실제 상품 상세페이지에서 확인된 BSR '+pdp.length+'건 · 같은 ASIN의 한 카테고리 안에서만 시계열 연결 · 값이 없는 날은 공백':
-   '개별 상품 상세 BSR 아직 미수집 · 무료 PDP 조회 성공 후부터 날짜별 누적');
- set('amazon-meta','Beauty 순위 관측 '+confirmed.length+'건 · 개별 상품 BSR '+pdp.length+'건');
- set('amazon-coverage-detail',observed.length?
-    ('최신 '+observed[observed.length-1].date+' · Beauty 순위 '+observed[observed.length-1].coverage_count+'/100개 확인 · '+(observed[observed.length-1].coverage_complete?'메디큐브 품목 수 확정':'상품 식별 미완료, 메디큐브 최소 확인 품목 수')):
-    'Beauty 순위 수집 전 · 상품별 BSR과 집계 범위는 별도 확인');
- $('amazon-latest').innerHTML=lastItems.length?
-    lastItems.slice(0,12).map(x=>'<a href="'+validLink(x.url)+'" target="_blank" rel="noopener noreferrer"><b>#'+fmt(x.bsr)+'</b><span>'+escapeHtml(x.title)+'<small> · '+escapeHtml(x.date)+' · '+escapeHtml(x.asin)+'</small></span></a>').join(''):
-    '<div class="blankmini">선택한 국가·상품의 확인된 Beauty 판매순위가 아직 없습니다.</div>';
- $('amazon-empty').textContent=days.length?
-    'Beauty 베스트셀러 목록에서 확인한 순위입니다. 상품 상세페이지의 BSR과 구분하며, 첫날은 점으로 표시합니다.':
-    individualChosen.length?'개별 상품 BSR 관측값입니다. 카테고리가 동일한 경우에만 비교하세요.':
-    '공개 목록에서 검증된 순위가 없습니다. 미확인은 0위 또는 Top 100 미진입이 아닙니다.';
- if(market&&market.amazon)$('amazon-link').href='https://www.'+market.amazon+'/s?k='+encodeURIComponent(p==='all'?'medicube':p);else $('amazon-link').href='https://trends.google.com/trends/explore';
- $('amazon-link').textContent=market?.amazon?'현지 아마존에서 제품 검색 ↗':'아마존 독립 마켓플레이스 없음';
+ })),{yOptions:{reverse:true,min:1,max:50},legend:true,decimals:0});
+ set('amazon-meta','Beauty Top50 안에서만 비교');
+ set('amazon-coverage-detail','국가·카테고리·ASIN이 같은 이전 완전 수집과 비교합니다. 제목 표기 후보와 확인 브랜드를 구분합니다.');
+ $('amazon-latest').innerHTML='';
+ set('amazon-empty','미수집·실패·Top50 밖 순위는 빈칸입니다. 판매량이나 51위로 환산하지 않습니다.');
+ $('amazon-link').href=market?.amazon?'https://www.'+market.amazon+'/s?k=medicube':trendsURL(c);
+ $('amazon-link').textContent=market?.amazon?'현지 아마존 상품 검색 ↗':'독립 마켓 없음';
  const trend=(d.trends||[]).filter(x=>x.country===c);const terms=[...new Set(trend.map(x=>x.term))].slice(0,6);
  const trendDays=[...new Set(trend.map(x=>x.date))].sort();
  set('trends-meta',trend.length+'개 확인 · '+(d.api_mode==='free_api_sh'?'무료 API/CSV':'공식 CSV')+(terms.length?' · '+terms.length+'개 검색어':''));
@@ -290,61 +235,33 @@ function renderDemand(){if(window.APR_RESEARCH)window.APR_RESEARCH.renderTrends(
  }).join('');
  const trendLast=trend.map(x=>String(x.date||'')).sort().at(-1);
  const failures=collection.failures||[];
- $('demand-sources').innerHTML=[['Amazon BSR',(d.amazon||[]).filter(x=>x.country===c).length+'개 확인값 / '+(d.watchlist||[]).length+'개 ASIN 등록'],['Beauty 상위 목록', rankSnapshots().filter(x=>x.country===c).length+'일 관측 · 부분 목록은 최소 확인 수만 집계'],['Scrape.do',d.scrapedo_reserved_credits!=null?'월 '+d.scrapedo_reserved_credits+'/900 크레딧 보수적 예약 · 비용 헤더 검증 기준':'무료 토큰 미등록 또는 미수집'],['Google Trends',trend.length+'개 값 · 마지막 관측 '+(trendLast||'없음')+' · 국가별 상대관심도'],['리테일 자동 관찰',(refs.retail||[]).filter(x=>x.eligible_for_trend!==false&&!String(x.metric||'').endsWith('_bought_lower')).length+'개 참고지표 · 상품 리뷰 '+(refs.product_review_history||[]).filter(x=>x.verified).length+'개 기록'],['리테일 수집 상태',failures.length?'일부 실패 · '+failures.join(' / '):collection.last_attempt_utc?'최근 조회 '+collection.last_attempt_utc:'자동 수집 상태 미확인'],['자동화 상태',d.api_mode==='free_api_sh'?'API.SH 월 최대 750크레딧 한도 · 데이터별 마지막 관측일 확인':'API 모드 미확인: 기존 값/CSV와 수집 상태 확인']] .map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
+ $('demand-sources').innerHTML=[['Amazon Beauty Top50','Decodo · 월·수·금·토·일 07:30 KST 예약 실행에만 수집 · '+(state.top50?.status||'수집 준비 중')],['브랜드 판정','상품명 표기만 확인된 항목은 후보이며 확정 브랜드 수와 분리합니다.'],['Google Trends',trend.length+'개 값 · 마지막 관측 '+(trendLast||'없음')],['리테일 수집 상태',failures.length?'일부 실패':collection.last_attempt_utc||'미확인']].map(([a,b])=>`<div class="source-state"><span>${escapeHtml(a)}</span><b>${escapeHtml(b)}</b></div>`).join('');
  renderTop100();
  renderRetailReferences();
 }
 function renderTop100(){
- const d=state.demand||{}, c=state.country;
- const market=countryMarkets().find(x=>x.code===c);
- const obs=rankSnapshots().filter(x=>x.country===c).slice().sort((a,b)=>a.date.localeCompare(b.date));
- const url=market?.amazon?'https://www.'+market.amazon+'/gp/bestsellers/'+encodeURIComponent(market.amazon_beauty_slug||'beauty')+'/':trendsURL(c);
- $('top100-url').href=url;
- $('top100-url').textContent=market?.amazon?'해당 국가 Amazon Beauty Best Sellers ↗':'독립 아마존 마켓 없음 · Google Trends 보기 ↗';
- const weekly=(state.reference?.amazon_weekly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.date).localeCompare(String(b.date))).at(-1);
- const monthly=(state.reference?.amazon_monthly||[]).filter(x=>x.country===c).sort((a,b)=>String(a.month).localeCompare(String(b.month))).at(-1);
- const extEl=$('top100-external-summary');
- if(extEl){
-  const notes=[];
-  if(monthly)notes.push('<div><small>독립 월간 순위 조사 · '+escapeHtml(monthly.month)+'</small><strong>해당 월 진입 메디큐브 '+fmt(monthly.medicube_unique_products_seen)+'종</strong><p>'+escapeHtml(monthly.caveat||'월간 관측으로, 특정 하루의 순위와 비교 불가')+'</p><a href="'+validLink(monthly.source_url)+'" target="_blank" rel="noopener noreferrer">영국 공개 조사 원문 ↗</a></div>');
-  if(weekly)notes.push('<div><small>제3자 미국 주간 Top100 조사 · '+escapeHtml(weekly.week||'')+'</small><strong>메디큐브 '+escapeHtml(weekly.count)+'개 / 100개</strong><p>다른 관측일·집계방식의 참고자료이며 API 순위와 합산하지 않습니다.</p><a href="'+validLink(weekly.source_url)+'" target="_blank" rel="noopener noreferrer">주간 자료 원문 ↗</a></div>');
-  extEl.innerHTML=notes.join('');
- }
-
- if(!obs.length){
-   chart('chart-top100',[],[]);
-   set('top100-date','미집계');set('top100-count','—');
-   set('top100-coverage',market?.amazon?'최초 API 조회 전':'해당 국가 마켓 없음');
-   set('top100-quality',market?.amazon?'아마존 베스트셀러 순위 미수집':'아마존 집계 대상 아님');
-   set('top100-entries','데이터가 생기면 동일한 관측 범위의 신규 진입·이탈을 기록합니다.');
-   $('top100-items').innerHTML='<div class="blankmini">확인되지 않은 품목 수는 0으로 표시하지 않습니다.</div>';
-   return;
- }
- const last=obs[obs.length-1], coverage=Number(last.coverage_count)||0;
- const confirmed=Number(last.medicube_confirmed_count)||0;
- chart('chart-top100',obs.map(x=>x.date.slice(5)),[
-   {label:'메디큐브 확인 ASIN 수',values:obs.map(x=>x.medicube_confirmed_count??null),color:C.teal,width:2.6},
-   {label:'확보된 Beauty 순위 항목 수',values:obs.map(x=>x.coverage_count??null),color:C.grey,width:1.4,axis:'y1',dash:[4,3]}
- ],{y1:true,legend:true,decimals:0,yOptions:{min:0},xticks:6});
- set('top100-date',last.date);
- set('top100-count',last.coverage_complete?confirmed+'개 (Top 100 확정)':confirmed>0?'최소 '+confirmed+'개':'진입 여부 미확인');
- const observedRanks=(last.rank_coverage||[]).map(Number).filter(Number.isFinite).sort((a,b)=>a-b);
- const observedGroups=[];let groupStart=null,groupEnd=null;
- for(const rank of observedRanks){
-   if(groupStart===null){groupStart=rank;groupEnd=rank;}
-   else if(rank===groupEnd+1){groupEnd=rank;}
-   else{observedGroups.push(groupStart===groupEnd?String(groupStart):groupStart+'~'+groupEnd);groupStart=rank;groupEnd=rank;}
- }
- if(groupStart!==null)observedGroups.push(groupStart===groupEnd?String(groupStart):groupStart+'~'+groupEnd);
- set('top100-coverage','확인 '+coverage+'/100개 순위'+(observedGroups.length?' · '+observedGroups.join(', '):''));
- set('top100-quality',last.coverage_complete?'1~100위 순위 및 100개 상품의 브랜드 확인':last.rank_coverage_complete?'1~100위 순위는 확보했지만 상품명 미확인이 '+(last.unidentified_count??'?')+'개 · 최소 확인 수':'순위 일부만 확인 · 전체 Top 100 품목 수 미확정');
- set('top100-entries',last.new_count!=null&&last.exit_count!=null?
-   '관측 범위 내 신규 진입 '+last.new_count+'개 · 이탈 '+last.exit_count+'개':
-   '이전 관측과 비교할 동일 범위의 전체 목록이 없어 진입·이탈 집계 보류');
- $('top100-items').innerHTML=(last.medicube_listings||[]).length?
-   last.medicube_listings.slice(0,22).map(x=>'<a href="'+validLink(x.url)+'" target="_blank" rel="noopener noreferrer"><b class="rank-num">#'+fmt(x.rank)+'</b><span class="item-title">'+escapeHtml(x.title||x.asin)+'<small> · '+escapeHtml(x.asin)+'</small></span></a>').join(''):
-   '<div class="blankmini">'+(last.coverage_complete?'해당 날짜 Beauty Top 100에는 메디큐브 상품이 확인되지 않았습니다.':'현재 확인된 순위 범위에서는 메디큐브 상품이 나타나지 않았습니다. 전체 Top 100에는 있을 수 있습니다.')+'</div>';
+ const c=state.country,market=countryMarkets().find(x=>x.code===c);
+ const obs=rankSnapshots().filter(x=>x.country===c).sort((a,b)=>a.date.localeCompare(b.date));
+ const last=obs.at(-1), check=state.top50?.latest_checks?.[c];
+ $('top100-url').href=market?.amazon?'https://www.'+market.amazon+'/gp/bestsellers/beauty/':trendsURL(c);
+ $('top100-url').textContent=market?.amazon?'Amazon Beauty 원문 ↗':'독립 마켓 없음';
+ $('top100-external-summary').innerHTML=last?.brands?Object.entries(last.brands).map(([key,b])=>'<div><b>'+escapeHtml(b.label)+'</b><p>브랜드 확인 '+b.verified_count+' · 상품명 후보 '+b.candidate_count+'</p></div>').join(''):'';
+ chart('chart-top100',obs.map(x=>x.date),[
+  {label:'브랜드 확인',values:obs.map(x=>x.verified_count),color:C.teal},
+  {label:'상품명 표기 후보',values:obs.map(x=>x.candidate_count),color:C.orange}
+ ],{legend:true,decimals:0,yOptions:{min:0,max:50}});
+ set('top100-date',last?.date||'관측 없음');
+ set('top100-count',last?'확정 '+last.verified_count+'개 · 후보 '+last.candidate_count+'개':'미수집');
+ set('top100-coverage',last?'응답 50/50개 순위·ASIN·상품명 검증':'수집 준비 중');
+ set('top100-quality',last?'Amazon 원문 실시간 대조와 브랜드 확인은 별도입니다. '+(check?.status==='complete_50'?'':('최근 상태: '+(check?.status||'미확인'))):market?.amazon?'첫 예약 수집 대기 · 월·수·금·토·일 07:30 KST':'독립 Amazon 마켓이 없어 수집하지 않습니다.');
+ set('top100-entries',last?.previous_observed_at_utc?'비교 관측: '+last.previous_observed_at_utc+' · 목록에서 사라진 상품 '+last.exited.length+'개':'이전 완전 수집 없음 · 진입·이탈 판정 보류');
+ $('top100-items').innerHTML=last?(last.items.map(x=>{
+  const change=x.rank_change==null?(x.movement==='entered_top50'?'Top50 진입':'첫 관측'):(x.rank_change>0?'▲ '+x.rank_change:x.rank_change<0?'▼ '+Math.abs(x.rank_change):'변동 없음');
+  return '<a href="'+validLink('https://www.'+market.amazon+'/dp/'+x.asin)+'" target="_blank" rel="noopener noreferrer"><b class="rank-num">#'+fmt(x.rank)+'</b><span class="item-title">'+escapeHtml(x.title)+'<small>'+escapeHtml(x.asin)+' · '+escapeHtml(change)+' · '+(x.brand_status==='verified'?'브랜드 확인':'상품명 표기 후보')+'</small></span></a>';
+ }).join('')||'<div class="blankmini">이 완전 수집 목록에 확인 브랜드·상품명 후보가 없습니다.</div>'):'<div class="blankmini">미수집은 해당 브랜드 0개라는 뜻이 아닙니다.</div>';
+ if(last?.exited?.length)$('top100-items').innerHTML+=last.exited.map(x=>'<div class="blankmini">'+escapeHtml(x.title)+' · '+escapeHtml(x.asin)+' · 이전 #'+fmt(x.rank)+' → 이번 Top50 밖 (현재 순위 미확인)</div>').join('');
 }
+
 function renderRetailReferences(){
  const element=$('retail-signal-list');if(!element)return;
  const refs=state.reference?.retail||[];
@@ -594,10 +511,11 @@ function fillProductChoices(){
  const names=new Map();for(const x of observed)names.set(x.asin,x.title||x.asin);
  for(const x of (state.demand?.amazon||[]).filter(z=>z.country===state.country))if(x.asin&&!names.has(x.asin))names.set(x.asin,x.product||x.asin);
  const sel=$('product');if(!sel)return;
- sel.innerHTML='<option value="all">전체 메디큐브 상품</option>'+[...names].map(([asin,name])=>'<option value="'+escapeHtml(asin)+'">'+escapeHtml(name.slice(0,55))+'</option>').join('');
+ sel.innerHTML='<option value="all">선택 브랜드 전체 상품</option>'+[...names].map(([asin,name])=>'<option value="'+escapeHtml(asin)+'">'+escapeHtml(name.slice(0,55))+'</option>').join('');
  if(state.product!=='all'&&!names.has(state.product))state.product='all';sel.value=state.product;
 }
 function initControls(){
+ const brand=$('apr-brand');if(brand)brand.addEventListener('change',()=>{state.brand=brand.value;state.product='all';fillProductChoices();renderDemand();});
  const d=state.demand||{};const country=$('country');country.innerHTML=countryMarkets().map(x=>`<option value="${escapeHtml(x.code)}">${escapeHtml(x.region)} · ${escapeHtml(x.name)}</option>`).join('');
  country.value=state.country;country.addEventListener('change',()=>{state.country=country.value;fillProductChoices();renderDemand()});
  const latam=$('latam-overview');if(latam)latam.addEventListener('click',e=>{
@@ -627,7 +545,7 @@ function initControls(){
  });
 }
 async function init(){
- const names=['market','technical','kbty','news','demand','status','top100','reference_signals','kbty_sec','financials','trend_signals','apr_theses','dart_ownership','dart_financials','dart_capital','kita_rates','flows','flow_reference'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n==='trend_signals'?'trendSignals':n==='apr_theses'?'aprTheses':n==='dart_ownership'?'dartOwnership':n==='dart_financials'?'dartFinancials':n==='dart_capital'?'dartCapital':n==='kita_rates'?'kitaRates':n==='flow_reference'?'flowReference':n]=data[i]);
+ const names=['market','technical','kbty','news','demand','status','top50','reference_signals','kbty_sec','financials','trend_signals','apr_theses','dart_ownership','dart_financials','dart_capital','kita_rates','flows','flow_reference'];const data=await Promise.all(names.map(getJSON));names.forEach((n,i)=>state[n==='reference_signals'?'reference':n==='kbty_sec'?'kbtySec':n==='trend_signals'?'trendSignals':n==='apr_theses'?'aprTheses':n==='dart_ownership'?'dartOwnership':n==='dart_financials'?'dartFinancials':n==='dart_capital'?'dartCapital':n==='kita_rates'?'kitaRates':n==='flow_reference'?'flowReference':n]=data[i]);
  const sync=state.status?.generated_at_utc;
  set('last-synced',sync?'최종 수집 '+sync.slice(0,10)+' (UTC)':'최초 클라우드 갱신 전');
  initControls();if(window.APR_SENSITIVITY)window.APR_SENSITIVITY.init(researchContext());if(window.APR_FLOWS)window.APR_FLOWS.init(researchContext());showPage(location.hash);window.addEventListener('hashchange',()=>showPage(location.hash));

@@ -58,8 +58,22 @@ jobs:
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
         env:
           APISH_KEY: ${{ secrets.APISH_KEY }}
-          SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python build_data.py
+      - name: Decodo Top50 gated morning collection
+        # User authorized the public Top50 summary and free-plan collection.
+        # Python additionally enforces KST Mon/Wed/Fri/Sat/Sun and no reruns.
+        if: github.event_name == 'schedule' && github.event.schedule == '30 22 * * *'
+        env:
+          DECODO_API_KEY: ${{ secrets.DECODO_API_KEY }}
+          DECODO_TOP50_ENABLED: 'true'
+          DECODO_PUBLIC_USE_AUTHORIZED: 'true'
+          DECODO_FREE_PLAN_CONFIRMED: 'true'
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: python decodo_top50.py
+      - name: Verify Top50 gating, completeness, movement and UI without API calls
+        run: |
+          python -m unittest discover -s tests -p test_decodo_top50.py -v
+          node tests/smoke_top50.cjs
       - name: Refresh bottom-formation analysis from saved OHLCV (free)
         # [bottom-now] triggers no stock, freight, Amazon or Trends API calls.
         # Morning and 16:00 collections already recalculate indicator_engine.
@@ -243,7 +257,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ || true
+          git add data/ state/ || true
           if ! git diff --cached --quiet; then
             git commit -m "data: refresh APR public observations [skip ci]"
             git push
@@ -254,6 +268,8 @@ jobs:
           cp index.html _site/index.html
           cp assets/style.css assets/apr_theme.css assets/app.js assets/research_dashboard.js assets/mfds_devices.js assets/sensitivity.js assets/flows.js _site/assets/
           cp data/*.json _site/data/
+          # Retired raw Top100 and out-of-list BSR must not remain publicly served.
+          rm -f _site/data/top100.json _site/data/scrapedo_pdp.json _site/data/discovered_asins.json
           cp data/bootstrap.js _site/data/ 2>/dev/null || true
           touch _site/.nojekyll
       - name: Configure Pages

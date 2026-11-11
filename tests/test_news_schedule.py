@@ -26,7 +26,11 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         self.assertNotIn("github.event.schedule == '0 7 * * *'", morning)
         self.assertIn('run: python build_data.py', morning)
         self.assertIn('APISH_KEY:', morning)
-        self.assertIn('SCRAPEDO_TOKEN:', morning)
+        self.assertNotIn('SCRAPEDO_TOKEN:', self.workflow)
+        decodo=self.section('Decodo Top50 gated morning collection')
+        self.assertIn("github.event_name == 'schedule' && github.event.schedule == '30 22 * * *'",decodo)
+        self.assertNotIn('workflow_dispatch',decodo)
+        self.assertIn('DECODO_API_KEY:',decodo)
 
     def test_afternoon_includes_stock_technicals_and_news_without_api_keys(self):
         afternoon = self.section(

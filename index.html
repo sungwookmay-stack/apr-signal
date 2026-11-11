@@ -89,7 +89,7 @@
           <div id="trend-alerts" class="trend-alerts"><p class="subtle">Google Trends 변화 분석을 불러오는 중입니다.</p></div>
           <p class="under-note" id="trend-note">같은 국가·키워드의 정규화된 시계열에서만 비교합니다. 국가 간 상대지수 크기는 직접 비교할 수 없으며, 관심도 증감은 매출 증감을 의미하지 않습니다.</p>
         </div>
-        <div class="controls"><label for="country">국가 선택</label><select class="input" id="country"></select><label for="product">상품별 순위</label><select class="input" id="product"></select></div>
+        <div class="controls"><label for="country">국가 선택</label><select class="input" id="country"></select><label for="apr-brand">APR 브랜드</label><select class="input" id="apr-brand"><option value="medicube">메디큐브</option><option value="aprilskin">에이프릴스킨</option><option value="forment">포맨트</option><option value="glamd">글램디 바이오</option><option value="ndy">NDY</option><option value="photogray">포토그레이</option></select><label for="product">상품별 순위</label><select class="input" id="product"></select></div>
         <div id="latam-region" hidden>
           <div class="section-split latam-title"><div><h3>남미 3개국 모니터링</h3><p class="subtle">국가를 선택하면 아래 검색 관심도와 판매순위가 전환됩니다. 검색지수는 각 국가 내 상대값으로 국가 간 직접 비교할 수 없습니다.</p></div></div>
           <div class="latam-overview" id="latam-overview"><div class="blankmini">브라질·아르헨티나·칠레 데이터 준비 중</div></div>
@@ -97,14 +97,14 @@
         <div class="rank-status-bar">
           <div><small>선택 국가 · 확인된 Beauty 상품</small><strong id="amazon-quick-count">—</strong></div>
           <div><small>최신 관측 범위</small><strong id="amazon-quick-date">원본 확인 중</strong></div>
-          <a href="./data/top100.json" target="_blank" rel="noopener noreferrer">수집 원본 ↗</a>
+          <a href="./data/top50.json" target="_blank" rel="noopener noreferrer">수집 원본 ↗</a>
         </div>
-        <div class="section-title"><div><p class="eyebrow">BEST SELLERS / BEAUTY</p><h2>Beauty Top 100 진입 품목 수</h2><span>메디큐브 판매순위 · 국가별 고유 ASIN 수 · 관측 시작일부터 누적</span></div></div>
+        <div class="section-title"><div><p class="eyebrow">BEST SELLERS / BEAUTY</p><h2>Beauty Top 50 진입 품목 수</h2><span>APR 브랜드별 판매순위 · 국가별 고유 ASIN 수 · 관측 시작일부터 누적</span></div></div>
         <div class="grid two leaderboard-block">
           <div class="panel">
-            <div class="panel-top"><strong>확인된 메디큐브 진입 항목 수 추이</strong><span class="data-label" id="top100-coverage">국가별 목록 확인 중</span></div>
+            <div class="panel-top"><strong>선택 브랜드의 확인·후보 품목 수 추이</strong><span class="data-label" id="top100-coverage">국가별 목록 확인 중</span></div>
             <div class="graph small"><canvas id="chart-top100"></canvas></div>
-            <p class="top100-footnote">왼쪽 축은 <b>확인된 메디큐브 ASIN 수</b>, 오른쪽 축은 <b>실제 확보한 순위 항목 수(최대 100)</b>입니다. 일부 목록만 제공되면 Top 100 전체 수가 아닌 최소 확인 수치입니다.</p>
+            <p class="top100-footnote">1~50위가 모두 확보된 수집만 반영합니다. 브랜드 확인 수와 상품명 표기 후보 수를 분리합니다. 실패 시 마지막 관측을 유지하며 갱신 시각과 관측 시각은 다를 수 있습니다.</p>
           </div>
           <div class="panel padded">
             <div class="top100-current"><small>최신 관측일</small><strong id="top100-date">—</strong></div>
@@ -114,14 +114,11 @@
             <div class="panel-links top100-link"><a id="top100-url" href="https://www.amazon.com/gp/bestsellers/beauty/" target="_blank" rel="noopener noreferrer">국가별 Amazon Beauty Best Sellers 원문 ↗</a></div>
           </div>
         </div>
-        <div class="notice-line">API 제공 범위가 상위 약 50개라면 진입 수를 <strong>‘최소 확인 품목 수’</strong>로만 표시합니다. Top 100 전체 목록을 확보한 경우에만 정확한 전체 수로 전환합니다. 최초 수집 이전 날짜의 순위는 복원하지 않습니다.</div>
-        <div class="grid two"><div class="panel"><div class="panel-top"><strong>Amazon Beauty 상품 순위 · BSR</strong><span class="data-label" id="amazon-meta">순위 기록 확인 중</span></div><div class="graph small"><canvas id="chart-amazon"></canvas></div>
+        <div class="notice-line"><strong>50개 순위·고유 ASIN·상품명이 모두 확인된 응답</strong>만 반영합니다. 상품명에 선택한 APR 브랜드가 표시된 후보와 별도 브랜드 확인 항목을 구분합니다. 최초 수집 이전 순위나 Top50 밖 순위는 복원하지 않습니다.</div>
+        <div class="grid two"><div class="panel"><div class="panel-top"><strong>Top50 선택 브랜드 상품 순위 추이</strong><span class="data-label" id="amazon-meta">순위 기록 확인 중</span></div><div class="graph small"><canvas id="chart-amazon"></canvas></div>
           <p class="amazon-coverage" id="amazon-coverage-detail">국가별 판매순위 데이터 확인 중</p>
           <div class="amazon-observed" id="amazon-latest"><div class="blankmini">관측된 상품 순위를 불러오는 중입니다.</div></div>
           <div class="blankmini" id="amazon-empty"></div>
-          <div class="panel-top" style="margin-top:16px"><strong>상품별 상세 BSR · 과거 추이</strong><span class="data-label">카테고리별 실측</span></div>
-          <div class="graph small"><canvas id="chart-amazon-pdp"></canvas></div>
-          <p class="amazon-coverage" id="amazon-pdp-note">실측된 PDP 카테고리 BSR만 표시합니다.</p>
           <div class="panel-links"><a id="amazon-link" href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">현지 아마존 상품 검색 ↗</a></div></div><div class="panel"><div class="panel-top"><strong>Google Trends 검색 관심도</strong><span class="data-label" id="trends-meta">공식 CSV 시계열</span></div><div class="graph small"><canvas id="chart-trends"></canvas></div><div class="blankmini" id="trends-empty"></div><div class="panel-links"><a id="trends-link" href="https://trends.google.com/trends/explore" target="_blank" rel="noopener">해당 국가 구글 트렌드 ↗</a></div></div></div>
         <div class="notice-line">BSR은 카테고리별 순위(작을수록 상위)이며 국가·카테고리마다 직접 비교할 수 없습니다. 구글 트렌드는 0~100 상대지수이고, 개별 CSV 수집 범위에 따라 정규화 기준이 달라집니다.</div>
         
@@ -142,7 +139,7 @@
           <div class="section-split"><div><h3>판매처 SKU·상품 리뷰·공식 발표 기록</h3><p class="subtle">같은 지표만 시계열 비교. 수집 실패 시 마지막 확인값은 유지하며 당일 갱신으로 표시하지 않습니다.</p></div></div>
           <div class="graph small"><canvas id="chart-off-retail"></canvas></div>
           <div class="graph small"><canvas id="chart-off-reviews"></canvas></div><p class="under-note" id="off-review-status">공식 상품별 리뷰 수치 첫 수집을 확인 중</p><div class="section-split off-company-title"><h3>유통사·회사 공식 발표 및 현지 보도</h3><span class="data-label">공식 발표·독립 언론 보도 구분</span></div>
-          <div id="retailer-statements" class="retailer-statement-list"><p class="subtle">검증된 리테일러 자료를 불러오는 중입니다.</p></div><p class="under-note">온라인 상품 리뷰·평점 변화는 소비자 반응 참고치이며 오프라인 POS가 아닙니다. Amazon Top100은 위 대표 차트에서만 표시합니다.</p>
+          <div id="retailer-statements" class="retailer-statement-list"><p class="subtle">검증된 리테일러 자료를 불러오는 중입니다.</p></div><p class="under-note">온라인 상품 리뷰·평점 변화는 소비자 반응 참고치이며 오프라인 POS가 아닙니다. Amazon Top50은 위 대표 차트에서만 표시합니다.</p>
           <div id="off-status" class="retail-signal-list"></div>
           <p class="under-note" id="off-target-warning">Target 기존 카테고리 등록수와 브랜드 전체 SKU는 서로 다른 지표입니다. 품목 연계가 불확실한 구매 배지는 확정 매출로 사용하지 않습니다.</p>
           <p class="under-note">Costco 입점 약 400개 매장은 관련 보도 기준이며, 현재 실판매량·재주문 데이터는 확인되지 않았습니다. 별도 확인 전까지 매출액을 추정하지 않습니다.</p>
