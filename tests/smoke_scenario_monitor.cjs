@@ -11,7 +11,7 @@ const row={date:'2026-11-12',label:'판정 보류',reason:'직접 증거 부족'
 ctx.state.scenarioMonitor={latest:row,history:[row],methodology:'직접 근거만'};
 window.APR_RESEARCH.renderScenarioMonitor(ctx);assert(root.innerHTML.includes('POS 미공개'));assert(root.innerHTML.includes('2026-11-12'));assert(root.innerHTML.includes('&lt;img'));assert(!root.innerHTML.includes('href="javascript:'));
 const once=root.innerHTML;window.APR_RESEARCH.renderScenarioMonitor(ctx);assert.equal(ctx.state.scenarioMonitor.history.length,1);assert(root.innerHTML.includes('중복 저장하지'));
-assert(fs.readFileSync('.github/workflows/update-and-publish.yml','utf8').includes('cp data/*.json _site/data/'));
+assert(fs.readFileSync('.github/workflows/update-and-publish.yml','utf8').includes('git add data/ state/'));
 console.log('PASS scenario rendering, missing data, date history, duplicate-free view, escaping, nav, bootstrap and packaging');
 row.context=[{label:'최신 원문',signal_eligible:false,signal_exclusion_reason:''}];
 row.scenarios[0].conditions[0].partial_evidence=[{reason:'동일 부분 근거'},{reason:'동일 부분 근거'}];

@@ -8,5 +8,5 @@ render({status:'ok',observed_count:1,records:[{nct_id:'NCT07871708',title:'<scri
 assert.match(el('clinical-records').innerHTML,/&lt;script&gt;/);assert.match(el('clinical-records').innerHTML,/모집 중/);
 render({status:'ok',observed_count:0,records:[]});assert.match(el('clinical-records').innerHTML,/반려를 의미하지/);
 const html=fs.readFileSync('index.html','utf8');assert(!html.includes('id="mfds-panel"'));assert(html.includes('id="clinical-panel"'));
-const workflow=fs.readFileSync('.github/workflows/update-and-publish.yml','utf8');assert(!workflow.includes('run: python mfds_device_registry.py'));assert(!workflow.includes('secrets.MFDS_DEVICE_API_KEY'));assert(workflow.includes('assets/clinical_trials.js'));assert(workflow.includes('_site/data/mfds_devices.json'));
+const workflow=fs.readFileSync('.github/workflows/update-and-publish.yml','utf8');assert(!workflow.includes('run: python mfds_device_registry.py'));assert(!workflow.includes('secrets.MFDS_DEVICE_API_KEY'));assert(workflow.includes('assets/clinical_trials.js'));assert(!workflow.includes('actions/upload-pages-artifact@'));
 console.log('Clinical UI smoke passed');
