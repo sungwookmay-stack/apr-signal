@@ -4,10 +4,10 @@
   "air_source_url": "https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do",
   "method": "협력 포워더 조사 시장 참고운임 · USD/TEU·FEU (APR 계약운임 아님)",
   "source_scope": "미 서안 부산→롱비치 / 미 동안 부산→뉴욕 대표. 항만별 실제 계약운임·해상물량 배분 아님.",
-  "latest_month": "2026-10",
-  "latest_access_checked_at_utc": "2026-11-10T23:12:21+00:00",
+  "latest_month": "2026-11",
+  "latest_access_checked_at_utc": "2026-11-12T23:20:49+00:00",
   "latest_access_ok": true,
-  "west_latest_month": "2026-10",
+  "west_latest_month": "2026-11",
   "east_latest_month": "2026-10",
   "east_latest_source": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
   "east_latest_primary_verified": false,
@@ -170,7 +170,7 @@
       "feu_usd": 11900,
       "source_url": "https://logisight.net/dashboard",
       "source_type": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
-      "verified_on": "2026-11-10"
+      "verified_on": "2026-11-12"
     },
     {
       "month": "2026-10",
@@ -178,6 +178,17 @@
       "destination": "Long Beach",
       "region": "미국 서안",
       "teu_usd": 6700,
+      "feu_usd": 8500,
+      "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
+      "source_type": "KITA_RADIS_PUBLIC_HTML",
+      "verified_on": null
+    },
+    {
+      "month": "2026-11",
+      "origin": "Busan",
+      "destination": "Long Beach",
+      "region": "미국 서안",
+      "teu_usd": 6900,
       "feu_usd": 8500,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",

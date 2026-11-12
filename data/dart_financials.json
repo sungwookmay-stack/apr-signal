@@ -2,8 +2,8 @@
   "company": "에이피알",
   "stock_code": "278470",
   "corp_code": "01190568",
-  "checked_at_utc": "2026-11-10T23:13:36+00:00",
-  "last_successful_check_utc": "2026-11-10T23:13:36+00:00",
+  "checked_at_utc": "2026-11-12T23:22:11+00:00",
+  "last_successful_check_utc": "2026-11-12T23:22:11+00:00",
   "status": "OpenDART 연결재무제표 확인",
   "report_count": 6,
   "verified_during_run": 6,
@@ -14,7 +14,7 @@
       "bsns_year": 2025,
       "reprt_code": "11011",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-10T23:13:36+00:00",
+      "checked_at_utc": "2026-11-12T23:22:11+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -40,6 +40,22 @@
           "ytd_won": null,
           "account_id": "ifrs-full_ProfitLoss",
           "account_name": "당기순이익",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "attributable_net_income": {
+          "value_won": 289654813287,
+          "ytd_won": null,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 445799810314,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
           "unit": "KRW",
           "amount_basis": "year_to_date_or_balance"
         },
@@ -125,7 +141,7 @@
       "bsns_year": 2025,
       "reprt_code": "11013",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-10T23:13:36+00:00",
+      "checked_at_utc": "2026-11-12T23:22:11+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -153,6 +169,22 @@
           "account_name": "분기순이익",
           "unit": "KRW",
           "amount_basis": "current_3months"
+        },
+        "attributable_net_income": {
+          "value_won": 49941244107,
+          "ytd_won": 49941244107,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 345522848617,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
         },
         "cost_of_sales": {
           "value_won": 65168150430,
@@ -228,7 +260,7 @@
       "bsns_year": 2025,
       "reprt_code": "11012",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-10T23:13:36+00:00",
+      "checked_at_utc": "2026-11-12T23:22:11+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -256,6 +288,22 @@
           "account_name": "반기순이익",
           "unit": "KRW",
           "amount_basis": "current_3months"
+        },
+        "attributable_net_income": {
+          "value_won": 66309082291,
+          "ytd_won": 116250326398,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 408131939548,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
         },
         "cost_of_sales": {
           "value_won": 77950530330,
@@ -331,7 +379,7 @@
       "bsns_year": 2025,
       "reprt_code": "11014",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-10T23:13:36+00:00",
+      "checked_at_utc": "2026-11-12T23:22:11+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -359,6 +407,22 @@
           "account_name": "분기순이익",
           "unit": "KRW",
           "amount_basis": "current_3months"
+        },
+        "attributable_net_income": {
+          "value_won": 74634440014,
+          "ytd_won": 190884766412,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 348710270320,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
         },
         "cost_of_sales": {
           "value_won": 89895558470,
@@ -434,7 +498,7 @@
       "bsns_year": 2026,
       "reprt_code": "11013",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-10T23:13:36+00:00",
+      "checked_at_utc": "2026-11-12T23:22:11+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -462,6 +526,22 @@
           "account_name": "분기순이익",
           "unit": "KRW",
           "amount_basis": "current_3months"
+        },
+        "attributable_net_income": {
+          "value_won": 117263942770,
+          "ytd_won": 117263942770,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 506580289684,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
         },
         "cost_of_sales": {
           "value_won": 136442612220,
@@ -545,7 +625,7 @@
       "bsns_year": 2026,
       "reprt_code": "11012",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-10T23:13:36+00:00",
+      "checked_at_utc": "2026-11-12T23:22:11+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -573,6 +653,22 @@
           "account_name": "반기순이익",
           "unit": "KRW",
           "amount_basis": "current_3months"
+        },
+        "attributable_net_income": {
+          "value_won": 141529504826,
+          "ytd_won": 258793447596,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 648033794500,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
         },
         "cost_of_sales": {
           "value_won": 159747320867,

@@ -6,11 +6,11 @@
   "reviewed_date": "2026-11-12",
   "sec_filer_page": "https://www.sec.gov/edgar/browse/?CIK=919160",
   "official_fund_page": "https://www.gafunds.com/kbty/",
-  "checked_at_utc": "2026-11-11T16:49:31+00:00",
+  "checked_at_utc": "2026-11-12T23:22:08+00:00",
   "last_successful_check_utc": "2026-11-11T16:49:31+00:00",
   "latest_verified_filing_date": "2026-11-10",
-  "sec_monitor_status": "SEC submissions 조회 완료 · KBTY 시리즈 확인 공시만 표시",
-  "sec_monitor_error": null,
+  "sec_monitor_status": "SEC 자동 접근 실패 · 기존 확인 공시 유지 (최신 여부 미확인)",
+  "sec_monitor_error": "HTTPError",
   "scan_count": 0,
   "new_detected": 0,
   "briefing": [
@@ -116,6 +116,19 @@
   ],
   "data_scope": "SEC 공시 검증 여부와 운용사 실제 상장·AUM·APR 편입은 별도",
   "summary_basis": "검토자료는 SEC 본문 기반. 자동 추가는 KBTY 시리즈 또는 CERT 원문 펀드명·거래소 확인 기반.",
-  "retrieval_diagnostics": [],
+  "retrieval_diagnostics": [
+    {
+      "endpoint": "SEC submissions",
+      "error_type": "HTTPError",
+      "http_status": 403,
+      "note": "접근 거절 · 우회하지 않고 기존 확인자료 유지"
+    },
+    {
+      "endpoint": "SEC full-text",
+      "error_type": "HTTPError",
+      "http_status": 403,
+      "note": "접근 거절 · 우회하지 않고 기존 확인자료 유지"
+    }
+  ],
   "pending_review": []
 }

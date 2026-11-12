@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "status": "ok",
-  "checked_at": "2026-11-11T17:13:51.707946+00:00",
-  "last_success_at": "2026-11-11T17:13:51.707946+00:00",
+  "checked_at": "2026-11-12T23:23:12.791847+00:00",
+  "last_success_at": "2026-11-12T23:23:12.791847+00:00",
   "observed_count": 1,
   "records": [
     {
@@ -28,7 +28,7 @@
       "summary": "This study is designed to evaluate changes in cosmetic skin appearance and safety following at-home use of a multi-functional beauty device over a 4-week treatment period among approximately 50 participants.",
       "url": "https://clinicaltrials.gov/study/NCT07871708",
       "first_seen": "2026-11-11T17:13:51.707946+00:00",
-      "last_seen": "2026-11-11T17:13:51.707946+00:00",
+      "last_seen": "2026-11-12T23:23:12.791847+00:00",
       "present": true
     }
   ],

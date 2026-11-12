@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T10:46:09+00:00",
+  "updated_at": "2026-11-12T23:14:04+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -8,25 +8,29 @@
   "expense_ratio_pct": 0.55,
   "index": "Indxx K-Beauty Index",
   "holdings_count_intended": 25,
-  "status": "2026-11-12 거래 개시 예정 (공식 사이트)",
-  "launch_expected": "2026-11-12 (공식 예정일, 실제 거래 개시 확인 아님)",
-  "latest_price_usd": null,
-  "price_date": null,
+  "status": "거래가격 관측 (운용사에서 상장 여부 확인 필요)",
+  "launch_expected": null,
+  "latest_price_usd": 25.3957,
+  "price_date": "2026-11-12",
   "aum_usd": null,
   "nav_usd": null,
   "apr_weight_pct": null,
   "apr_shares": null,
   "apr_holding_as_of": null,
   "source_note": "가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.",
-  "price_history": [],
+  "price_history": [
+    {
+      "date": "2026-11-12",
+      "close_usd": 25.3957,
+      "source": "Yahoo Finance 비공식 일별시세"
+    }
+  ],
   "aum_history": [],
   "holdings": [],
-  "errors": [
-    "KBTY 비공식 주가 미확인: HTTP Error 404: Not Found"
-  ],
-  "official_checked_at": "2026-11-12T10:46:09+00:00",
+  "errors": [],
+  "official_checked_at": "2026-11-12T23:14:04+00:00",
   "official_data_state": "not_published",
-  "holdings_publication_state": "not_published",
-  "launch_expected_date": "2026-11-12",
+  "holdings_publication_state": "unverified",
+  "launch_expected_date": null,
   "official_metrics": {}
 }
