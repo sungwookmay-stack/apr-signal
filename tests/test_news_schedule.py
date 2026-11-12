@@ -50,7 +50,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         self.assertNotIn('APISH_KEY:', flow)
         self.assertNotIn('SCRAPEDO_TOKEN:', flow)
 
-    def test_manual_modes_and_deployment_unchanged(self):
+    def test_manual_modes_preserved_and_public_deployment_stopped(self):
         news = self.section('News-only manual refresh')
         self.assertIn("'[news-now]'", news)
         self.assertIn('from build_data import collect_news; collect_news()', news)
@@ -59,7 +59,9 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         self.assertIn("'[translate-now]'", self.workflow)
         self.assertIn("'[collect-now]'", self.workflow)
         self.assertIn("github.event_name == 'workflow_dispatch'", self.workflow)
-        self.assertIn('actions/deploy-pages@v4', self.workflow)
+        self.assertNotIn('actions/deploy-pages@', self.workflow)
+        self.assertNotIn('actions/upload-pages-artifact@', self.workflow)
+        self.assertIn('Store historical snapshots in repo', self.workflow)
 
 
 if __name__ == '__main__':
