@@ -35,7 +35,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
 
     def test_afternoon_includes_stock_technicals_and_news_without_api_keys(self):
         afternoon = self.section(
-            'Afternoon 16:00 KST - free close-price technical indicators and local news'
+            'Afternoon and evening - recheck free daily prices, indicators and news'
         )
         self.assertIn("github.event.schedule == '0 7 * * *'", afternoon)
         self.assertIn('run: python afternoon_refresh.py', afternoon)

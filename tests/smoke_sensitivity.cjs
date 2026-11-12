@@ -42,7 +42,18 @@ assert.match($('sens-op').textContent,/1,905\.5억원/);
 assert.match($('sens-opm').textContent,/24\.83%/);
 assert.match($('sens-op-delta').textContent,/\+0\.0억원/);
 assert.equal(charts['sens-chart'].series[0].values.length,9);
-assert.match($('sens-kita-note').textContent,/2026-10/);
+const observedKita = (kita.sea_routes || []).at(-1);
+if (observedKita?.feu_usd != null) {
+ assert($('sens-kita-note').textContent.includes(observedKita.month), 'Show the observed data month, not a hard-coded old month');
+} else {
+ assert.match($('sens-kita-note').textContent,/미확인|미수집|확인/);
+}
+// A new source month must not break the daily collector after it fetched data.
+state.kitaRates = {sea_routes:[{month:'2030-01',feu_usd:8500}]};
+api.render(ctx);
+assert.match($('sens-kita-note').textContent,/2030-01/);
+state.kitaRates = kita;
+api.render(ctx);
 // A positive USD move helps illustrative foreign currency net exposures,
 // but this is an assumption, not the issuer's proven currency split.
 $('sens-usd').value='10';
