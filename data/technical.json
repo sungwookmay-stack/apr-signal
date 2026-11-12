@@ -61,7 +61,7 @@
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "이전 10일 최고종가 282,500원 / 거래량배수 1.31"
+        "detail": "이전 10일 최고종가 282,500원 / 거래량배수 1.32"
       }
     ],
     "data_ready": true,
@@ -10019,10 +10019,10 @@
       "kijun": 307750.0,
       "cloud_a": 388500.0,
       "cloud_b": 390750.0,
-      "volume_ratio20": 1.31,
-      "volume": 453529.0,
-      "volume_ma20": 345168.3,
-      "volume_ratio_prior20": 1.32,
+      "volume_ratio20": 1.32,
+      "volume": 457154.0,
+      "volume_ma20": 345349.55,
+      "volume_ratio_prior20": 1.33,
       "prior20_high": 339000.0,
       "prior20_low": 231000.0,
       "atr_pct": 9.39,
