@@ -10,9 +10,9 @@
       "EUR": "ECB official historical CSV ZIP"
     },
     "stock_last": "2026-11-12",
-    "usd_fx_last": "2026-11-10",
-    "eur_fx_last": "2026-11-10",
-    "generated_at_utc": "2026-11-12T10:41:54+00:00",
+    "usd_fx_last": "2026-11-11",
+    "eur_fx_last": "2026-11-11",
+    "generated_at_utc": "2026-11-12T10:46:21+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4603,24 +4603,24 @@
       "open_krw": 252500,
       "high_krw": 259500,
       "low_krw": 246500,
-      "usdkrw": 1339.004815,
-      "eurkrw": 1501.56,
-      "fx_usd_date": "2026-11-10",
-      "fx_eur_date": "2026-11-10",
-      "close_usd": 188.9463
+      "usdkrw": 1336.901231,
+      "eurkrw": 1487.57,
+      "fx_usd_date": "2026-11-11",
+      "fx_eur_date": "2026-11-11",
+      "close_usd": 189.2436
     },
     {
       "date": "2026-11-12",
       "close_krw": 239000,
-      "volume": 457154,
+      "volume": 457542,
       "open_krw": 253000,
       "high_krw": 257500,
       "low_krw": 235000,
-      "usdkrw": 1339.004815,
-      "eurkrw": 1501.56,
-      "fx_usd_date": "2026-11-10",
-      "fx_eur_date": "2026-11-10",
-      "close_usd": 178.4908
+      "usdkrw": 1336.901231,
+      "eurkrw": 1487.57,
+      "fx_usd_date": "2026-11-11",
+      "fx_eur_date": "2026-11-11",
+      "close_usd": 178.7716
     }
   ],
   "fx": [
@@ -6478,6 +6478,11 @@
       "date": "2026-11-10",
       "usdkrw": 1339.004815,
       "eurkrw": 1501.56
+    },
+    {
+      "date": "2026-11-11",
+      "usdkrw": 1336.901231,
+      "eurkrw": 1487.57
     }
   ],
   "logistics": {
@@ -6891,12 +6896,12 @@
     "last_fetch_failed": false,
     "history_verified_this_run": 0,
     "history_backfill_errors": [],
-    "last_checked_at_utc": "2026-11-10T23:10:26+00:00",
+    "last_checked_at_utc": "2026-11-12T10:46:12+00:00",
     "last_fetch_errors": [],
     "unverified_months": [
       "2025-08",
       "2026-02"
     ],
-    "last_successful_check_utc": "2026-11-10T23:10:26+00:00"
+    "last_successful_check_utc": "2026-11-12T10:46:12+00:00"
   }
 }

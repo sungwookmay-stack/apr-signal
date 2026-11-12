@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-12T10:41:57.741244+00:00",
+  "updated_at_utc": "2026-11-12T10:46:30.043520+00:00",
   "methodology": "사진의 12개 정성 가설을 유지합니다. 수치 문턱이나 확률을 만들지 않습니다. 한 시나리오의 4개 조건 모두 직접 입증되고 다른 시나리오가 동시에 충족되지 않을 때만 분류합니다. 일부 수치·입점·검색·순위는 참고 근거이며 전체 가설 입증이 아닙니다. 사진의 미래 기간은 목표 시점이지 이미 발생한 사실이 아닙니다. 갱신일(KST)별 당시 자료를 저장하며 같은 날 변경은 수정 이력으로 보존합니다. 과거 날짜를 역산 생성하지 않습니다.",
   "latest": {
     "date": "2026-11-12",
-    "evaluated_at_utc": "2026-11-12T10:41:57.741244+00:00",
+    "evaluated_at_utc": "2026-11-12T10:46:30.043520+00:00",
     "classification": "pending",
     "label": "판정 보류",
     "reason": "가설 전체의 필수 근거 미확보 또는 충돌. 자료 부족은 Bear 또는 Base 판정이 아닙니다.",
@@ -767,36 +767,6 @@
         "partial_support": [],
         "signal_eligible": false,
         "signal_exclusion_reason": ""
-      },
-      {
-        "id": "ulta_catalog_items",
-        "label": "메디큐브 등록상품 수",
-        "value": 69,
-        "unit": "개",
-        "period": "2026-11-11",
-        "asof": "2026-11-11",
-        "available_from": "2026-11-11",
-        "source": "Ulta 공식 상품 목록",
-        "source_url": "https://www.ulta.com/brand/medicube",
-        "evidence_type": "proxy",
-        "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
-        "signal_eligible": false,
-        "signal_exclusion_reason": ""
-      },
-      {
-        "id": "ulta_online_only_items",
-        "label": "온라인 전용 표시 상품",
-        "value": 37,
-        "unit": "개",
-        "period": "2026-11-11",
-        "asof": "2026-11-11",
-        "available_from": "2026-11-11",
-        "source": "Ulta 공식 상품 목록",
-        "source_url": "https://www.ulta.com/brand/medicube",
-        "evidence_type": "proxy",
-        "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
-        "signal_eligible": false,
-        "signal_exclusion_reason": ""
       }
     ],
     "missing": [
@@ -813,7 +783,7 @@
       "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화",
       "초도입고와 분리한 동일 채널 재주문·POS 시계열"
     ],
-    "fingerprint": "c5885305c966c2c5d03ff59e666f28f164ab0eb92ee09a096a9658165bfd0194",
+    "fingerprint": "e9a016d4854bdd99cc8393aa5a1b4079df343e11ed6660c8532ce816b0538ac7",
     "revisions": [
       {
         "date": "2026-11-12",
@@ -1582,13 +1552,826 @@
           "초도입고와 분리한 동일 채널 재주문·POS 시계열"
         ],
         "fingerprint": "013d3e61eb1660c4cf4b0de5a0db525459c7734d5876287122d16a62040bf263"
+      },
+      {
+        "date": "2026-11-12",
+        "evaluated_at_utc": "2026-11-12T10:41:57.741244+00:00",
+        "classification": "pending",
+        "label": "판정 보류",
+        "reason": "가설 전체의 필수 근거 미확보 또는 충돌. 자료 부족은 Bear 또는 Base 판정이 아닙니다.",
+        "provisional": {
+          "status": "reference_signal",
+          "label": "Bull 쪽 참고 신호",
+          "counts": [
+            {
+              "id": "bear",
+              "label": "Bear",
+              "partial_support": 1,
+              "confirmed": 0,
+              "contradicted": 0,
+              "conflicting": 0,
+              "unknown": 4
+            },
+            {
+              "id": "base",
+              "label": "Base",
+              "partial_support": 1,
+              "confirmed": 0,
+              "contradicted": 0,
+              "conflicting": 0,
+              "unknown": 4
+            },
+            {
+              "id": "bull",
+              "label": "Bull",
+              "partial_support": 2,
+              "confirmed": 0,
+              "contradicted": 0,
+              "conflicting": 0,
+              "unknown": 4
+            }
+          ],
+          "rule": "모델 가정: 현재 공식 관측의 부분지지 조건을 시나리오별로 중복 없이 셉니다. 최소 2개이며 유일 우세이고 직접 반증이 없을 때 참고 방향을 표시합니다. 미확인은 0점, 직접근거 충돌 시 보류. 기준일 120일 초과 또는 더 최신 분기가 공개된 구분기 근거는 집계 제외합니다. 120일은 명시적 모델 가정이며 확률·추천·미래 전체 판정이 아닙니다.",
+          "limitation": "관측 가능한 부문에 편향될 수 있습니다. 2개 문턱은 사진 원문 기준이 아니며 문턱·집계 방법 변경에 민감합니다. 부분지지는 조건 전체 확인 수와 별개이며 미확인과 겹칩니다."
+        },
+        "scenarios": [
+          {
+            "id": "bear",
+            "label": "Bear",
+            "conditions": [
+              {
+                "id": "bear_reorders",
+                "horizon": "2026년 말",
+                "title": "채널 선입고에 가려진 반복 수요 둔화",
+                "description": "초기 입고는 견조하지만 출시 이후 재주문 속도가 둔화되는 흐름입니다.",
+                "required": "초도입고와 분리한 동일 채널 재주문·POS 시계열",
+                "not_before": "2026-12-31",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "초도입고와 분리한 동일 채널 재주문·POS 시계열"
+                ],
+                "partial_evidence": []
+              },
+              {
+                "id": "bear_cost",
+                "horizon": "FY2026 실적 시즌 전후",
+                "title": "비용 부담에 따른 투자 논리 약화",
+                "description": "매출 성장은 이어져도 마케팅·운임·환율 부담이 이익의 질을 낮추는 흐름입니다.",
+                "required": "FY2026 비용별 실적 및 환율 영향, 반복성 확인",
+                "not_before": "2026-12-31",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "FY2026 비용별 실적 및 환율 영향, 반복성 확인"
+                ],
+                "partial_evidence": [
+                  {
+                    "fact_id": "ir26q3_opm",
+                    "reason": "재작성 비교기준 OPM 24.6%→20.8% 하락 방향만 부분 부합. 비용별 인과·FY26 전체는 미확인."
+                  }
+                ]
+              },
+              {
+                "id": "bear_singapore",
+                "horizon": "2027년 초",
+                "title": "Singapore 오버행과 실행 우려 지속",
+                "description": "컴플라이언스와 평판 관련 잡음이 프리미엄 밸류에이션을 제약하는 흐름입니다.",
+                "required": "Singapore 사건의 식별 가능한 공식 원문·진행상태·재무 영향",
+                "not_before": "2027-01-01",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "Singapore 사건의 식별 가능한 공식 원문·진행상태·재무 영향"
+                ],
+                "partial_evidence": []
+              },
+              {
+                "id": "bear_multiple",
+                "horizon": "2027년 상반기",
+                "title": "성장 둔화에 따른 리레이팅 반전",
+                "description": "성장 지속성에 대한 신뢰가 약해지며 시장이 업종 평균에 가까운 멀티플을 부여하는 흐름입니다.",
+                "required": "같은 기준일·회계기준 동종기업 멀티플과 성장률 시계열",
+                "not_before": "2027-01-01",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "같은 기준일·회계기준 동종기업 멀티플과 성장률 시계열"
+                ],
+                "partial_evidence": []
+              }
+            ]
+          },
+          {
+            "id": "base",
+            "label": "Base",
+            "conditions": [
+              {
+                "id": "base_growth",
+                "horizon": "2026년 말",
+                "title": "미국 고성장 지속과 성장률 완만화",
+                "description": "리테일 확장은 이어지지만 기저 부담이 커지며 채널 성장률은 일부 정상화되는 흐름입니다.",
+                "required": "미국 및 채널별 전년동기 매출·동일점/재주문 실적",
+                "not_before": "2026-12-31",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "미국 및 채널별 전년동기 매출·동일점/재주문 실적"
+                ],
+                "partial_evidence": []
+              },
+              {
+                "id": "base_margin",
+                "horizon": "FY2026 실적 시즌 전후",
+                "title": "마진의 완만한 둔화",
+                "description": "마케팅과 항공 운임 부담은 높지만 수요가 견조해 수익성 훼손은 제한되는 흐름입니다.",
+                "required": "FY2026 영업마진·비용별 기여, 견조한 실수요 확인; 완만/제한의 수치기준은 사진에 없음",
+                "not_before": "2026-12-31",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "FY2026 영업마진·비용별 기여, 견조한 실수요 확인; 완만/제한의 수치기준은 사진에 없음"
+                ],
+                "partial_evidence": [
+                  {
+                    "fact_id": "ir26q3_opm",
+                    "reason": "마진 둔화 방향만 부분 부합. 완만/수요견조/제한적 훼손 여부 미확인."
+                  }
+                ]
+              },
+              {
+                "id": "base_offline",
+                "horizon": "2027년 초",
+                "title": "포화 신호 제한 속 오프라인 믹스 확대",
+                "description": "APR이 멀티채널 수요를 입증하지만 대형 서프라이즈 직후의 초고속 성장세까지는 이어지지 않는 흐름입니다.",
+                "required": "온·오프라인 매출 믹스·채널별 실수요·비교 성장률",
+                "not_before": "2027-01-01",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "온·오프라인 매출 믹스·채널별 실수요·비교 성장률"
+                ],
+                "partial_evidence": []
+              },
+              {
+                "id": "base_valuation",
+                "horizon": "2027년 상반기",
+                "title": "이익 성장 중심의 밸류에이션 지지",
+                "description": "주가의 지지 요인이 추가적인 급격한 멀티플 확대보다 추정치 뒷받침에 가까운 흐름입니다.",
+                "required": "동일 시점 이익 추정치 수정 이력과 주가·멀티플 변화",
+                "not_before": "2027-01-01",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "동일 시점 이익 추정치 수정 이력과 주가·멀티플 변화"
+                ],
+                "partial_evidence": []
+              }
+            ]
+          },
+          {
+            "id": "bull",
+            "label": "Bull",
+            "conditions": [
+              {
+                "id": "bull_channels",
+                "horizon": "2026년 말",
+                "title": "Costco와 Walmart 확장에 따른 미국 수요 지속",
+                "description": "대형 유통 채널 확장이 Amazon·Ulta 잠식을 크게 만들지 않고 도달 범위를 넓히는 흐름입니다.",
+                "required": "Costco·Walmart 확장 공식 발표 및 Amazon·Ulta 채널별 실수요 비교",
+                "not_before": "2026-12-31",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "Costco·Walmart 확장 공식 발표 및 Amazon·Ulta 채널별 실수요 비교"
+                ],
+                "partial_evidence": [
+                  {
+                    "fact_id": "costco",
+                    "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+                  },
+                  {
+                    "fact_id": "walmart",
+                    "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+                  }
+                ]
+              },
+              {
+                "id": "bull_leverage",
+                "horizon": "FY2026 실적 시즌 전후",
+                "title": "규모의 경제에 따른 운임·마케팅 부담 상쇄",
+                "description": "판매 회전이 빨라지며 물류비와 출시 비용 부담을 희석해 영업 레버리지가 유지되는 흐름입니다.",
+                "required": "FY2026 판매회전·마케팅·물류비율·영업 레버리지 실적",
+                "not_before": "2026-12-31",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "FY2026 판매회전·마케팅·물류비율·영업 레버리지 실적"
+                ],
+                "partial_evidence": []
+              },
+              {
+                "id": "bull_expansion",
+                "horizon": "2027년 초",
+                "title": "유럽과 인접 카테고리 확장에 따른 성장 활주로 확대",
+                "description": "오프라인과 크로스보더 모멘텀이 Medicube의 단일 채널 의존도를 낮추는 흐름입니다.",
+                "required": "유럽·카테고리별 매출과 채널 믹스; 입점 발표만으로 실수요 확정 불가",
+                "not_before": "2027-01-01",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "유럽·카테고리별 매출과 채널 믹스; 입점 발표만으로 실수요 확정 불가"
+                ],
+                "partial_evidence": [
+                  {
+                    "fact_id": "ir26q3_europe_mix",
+                    "reason": "유럽 매출 비중 5%→23% 확대 구성요소만 확인. 인접 카테고리·2027 지속 성장·채널 의존도 감소는 미확인."
+                  }
+                ]
+              },
+              {
+                "id": "bull_discount",
+                "horizon": "2027년 상반기",
+                "title": "글로벌 복리 성장주 할인 축소",
+                "description": "성장 지속성과 카테고리 확장성이 입증되며 투자자 할인율이 낮아지는 흐름입니다.",
+                "required": "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화",
+                "not_before": "2027-01-01",
+                "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                "status": "pending",
+                "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                "evidence": [],
+                "missing": [
+                  "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화"
+                ],
+                "partial_evidence": []
+              }
+            ]
+          }
+        ],
+        "context": [
+          {
+            "id": "2026Q1_sales",
+            "label": "연결 매출",
+            "value": 5933.56,
+            "unit": "억원",
+            "period": "2026Q1",
+            "asof": "2026-03-31",
+            "available_from": "2026-05-15",
+            "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+            "evidence_type": "reported",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q1_op",
+            "label": "연결 영업이익",
+            "value": 1522.72,
+            "unit": "억원",
+            "period": "2026Q1",
+            "asof": "2026-03-31",
+            "available_from": "2026-05-15",
+            "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+            "evidence_type": "reported",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q1_ads_ratio_pct",
+            "label": "광고선전비율",
+            "value": 19.67,
+            "unit": "%",
+            "period": "2026Q1",
+            "asof": "2026-03-31",
+            "available_from": "2026-05-15",
+            "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+            "evidence_type": "derived",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q1_shipping_ratio_pct",
+            "label": "운반비율",
+            "value": 6.63,
+            "unit": "%",
+            "period": "2026Q1",
+            "asof": "2026-03-31",
+            "available_from": "2026-05-15",
+            "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+            "evidence_type": "derived",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q1_margin",
+            "label": "연결 영업이익률",
+            "value": 25.66,
+            "unit": "%",
+            "period": "2026Q1",
+            "asof": "2026-03-31",
+            "available_from": "2026-05-15",
+            "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+            "evidence_type": "derived",
+            "note": "영업이익÷매출. FY2026 전체 마진이나 비용 원인 확정 아님.",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q2_sales",
+            "label": "연결 매출",
+            "value": 7675.33,
+            "unit": "억원",
+            "period": "2026Q2",
+            "asof": "2026-06-30",
+            "available_from": "2026-08-14",
+            "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+            "evidence_type": "reported",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q2_op",
+            "label": "연결 영업이익",
+            "value": 1905.53,
+            "unit": "억원",
+            "period": "2026Q2",
+            "asof": "2026-06-30",
+            "available_from": "2026-08-14",
+            "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+            "evidence_type": "reported",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q2_ads_ratio_pct",
+            "label": "광고선전비율",
+            "value": 22.2,
+            "unit": "%",
+            "period": "2026Q2",
+            "asof": "2026-06-30",
+            "available_from": "2026-08-14",
+            "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+            "evidence_type": "derived",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q2_shipping_ratio_pct",
+            "label": "운반비율",
+            "value": 7.37,
+            "unit": "%",
+            "period": "2026Q2",
+            "asof": "2026-06-30",
+            "available_from": "2026-08-14",
+            "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+            "evidence_type": "derived",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q2_margin",
+            "label": "연결 영업이익률",
+            "value": 24.83,
+            "unit": "%",
+            "period": "2026Q2",
+            "asof": "2026-06-30",
+            "available_from": "2026-08-14",
+            "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+            "evidence_type": "derived",
+            "note": "영업이익÷매출. FY2026 전체 마진이나 비용 원인 확정 아님.",
+            "signal_eligible": false,
+            "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+          },
+          {
+            "id": "2026Q3_sales",
+            "label": "연결 매출",
+            "value": 7731.15,
+            "unit": "억원",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 잠정실적 (정식 3Q 보고서 전)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "2026Q3_op",
+            "label": "연결 영업이익",
+            "value": 1606.4,
+            "unit": "억원",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 잠정실적 (정식 3Q 보고서 전)",
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "2026Q3_margin",
+            "label": "연결 영업이익률",
+            "value": 20.78,
+            "unit": "%",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "derived",
+            "note": "영업이익÷매출. FY2026 전체 마진이나 비용 원인 확정 아님.",
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_sales",
+            "label": "3Q26 연결 매출",
+            "value": 7731.15,
+            "unit": "억원",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_op",
+            "label": "3Q26 연결 영업이익",
+            "value": 1606.4,
+            "unit": "억원",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_opm",
+            "label": "3Q26 영업이익률",
+            "value": 20.8,
+            "unit": "%",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [
+              {
+                "condition_id": "bear_cost",
+                "reason": "재작성 비교기준 OPM 24.6%→20.8% 하락 방향만 부분 부합. 비용별 인과·FY26 전체는 미확인."
+              },
+              {
+                "condition_id": "base_margin",
+                "reason": "마진 둔화 방향만 부분 부합. 완만/수요견조/제한적 훼손 여부 미확인."
+              }
+            ],
+            "signal_eligible": true,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_previous_opm",
+            "label": "IFRS18 재작성 3Q25 영업이익률",
+            "value": 24.6,
+            "unit": "%",
+            "period": "2025Q3 비교",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_overseas",
+            "label": "3Q26 해외 매출",
+            "value": 7228.71,
+            "unit": "억원",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_northamerica_mix",
+            "label": "3Q26 북미 매출 비중",
+            "value": 46,
+            "unit": "%",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_europe_mix",
+            "label": "3Q26 유럽 매출 비중",
+            "value": 23,
+            "unit": "%",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "reported",
+            "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [
+              {
+                "condition_id": "bull_expansion",
+                "reason": "유럽 매출 비중 5%→23% 확대 구성요소만 확인. 인접 카테고리·2027 지속 성장·채널 의존도 감소는 미확인."
+              }
+            ],
+            "signal_eligible": true,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ir26q3_fx",
+            "label": "회사 설명: 환율의 영업이익률 영향",
+            "value": -3.6,
+            "unit": "%p",
+            "period": "2026Q3",
+            "asof": "2026-09-30",
+            "available_from": "2026-10-30",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 3Q26 Earnings Release",
+            "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+            "evidence_type": "management_explanation",
+            "note": "회사 원인분석. 인과관계 독립검증 또는 미래 영향 예측 아님.",
+            "condition_ids": [
+              "bear_cost",
+              "base_margin",
+              "bull_leverage",
+              "base_growth"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "costco",
+            "label": "미국 Costco 입점 완료",
+            "value": 400,
+            "unit": "점",
+            "period": "2026-10 회사 발표",
+            "asof": "2026-10-19",
+            "available_from": "2026-10-19",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 공식 회사 블로그",
+            "source_url": "https://apr.teamblog.io/medicube-costco-us",
+            "evidence_type": "reported",
+            "note": "회사 공식 발표 재확인. 입점 수이며 POS·재주문·채널 잠식 없음의 증거 아님. Costco 전점·캐나다·유럽 확대는 계획과 구분.",
+            "condition_ids": [
+              "bull_channels",
+              "base_offline",
+              "bear_reorders"
+            ],
+            "partial_support": [
+              {
+                "condition_id": "bull_channels",
+                "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+              }
+            ],
+            "signal_eligible": true,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "walmart",
+            "label": "미국 Walmart 입점(2026년 6월)",
+            "value": 3000,
+            "unit": "점",
+            "period": "2026-10 회사 발표",
+            "asof": "2026-10-19",
+            "available_from": "2026-10-19",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 공식 회사 블로그",
+            "source_url": "https://apr.teamblog.io/medicube-costco-us",
+            "evidence_type": "reported",
+            "note": "회사 공식 발표 재확인. 입점 수이며 POS·재주문·채널 잠식 없음의 증거 아님. Costco 전점·캐나다·유럽 확대는 계획과 구분.",
+            "condition_ids": [
+              "bull_channels",
+              "base_offline",
+              "bear_reorders"
+            ],
+            "partial_support": [
+              {
+                "condition_id": "bull_channels",
+                "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+              }
+            ],
+            "signal_eligible": true,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "shoppers",
+            "label": "캐나다 Shoppers 입점 완료",
+            "value": 1300,
+            "unit": "점",
+            "period": "2026-10",
+            "asof": "2026-10-31",
+            "available_from": "2026-11-04",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "APR 공식 회사 블로그",
+            "source_url": "https://apr.teamblog.io/canada-shoppers-entry",
+            "evidence_type": "reported",
+            "note": "13개 제품 입점 발표. 판매량·유럽 매출 증거 아님. 캐나다 Costco는 11월 예정으로 별도 구분.",
+            "condition_ids": [
+              "bull_expansion",
+              "base_offline"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "hsa",
+            "label": "Singapore HSA 조치",
+            "value": "일부 배치 회수·비영향 배치 판매재개 허용",
+            "unit": "",
+            "period": "2026-08 조치",
+            "asof": "2026-08-28",
+            "available_from": "2026-08-28",
+            "known_at": "2026-11-11T17:30:31+00:00",
+            "source": "Singapore HSA 공식 발표",
+            "source_url": "https://www.hsa.gov.sg/announcements/hsa-tests-product-samples-of-medicube-pdrn-pink-collagen-capsule-cream-for-presence-of-sudan-red-dyes/",
+            "evidence_type": "reported",
+            "note": "7/31 판매중단, 8/26 Venus Beauty 두 배치 회수. APR SG/Rirora 샘플 Sudan IV 불검출. 현지 공급 모든 배치 공인시험·HSA 보고 조건. APR 전체 판매금지 지속이나 2027 규제악화 확정 아님. 향후 평판·실적 영향 미확인.",
+            "condition_ids": [
+              "bear_singapore"
+            ],
+            "partial_support": [],
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ulta_catalog_items",
+            "label": "메디큐브 등록상품 수",
+            "value": 69,
+            "unit": "개",
+            "period": "2026-11-11",
+            "asof": "2026-11-11",
+            "available_from": "2026-11-11",
+            "source": "Ulta 공식 상품 목록",
+            "source_url": "https://www.ulta.com/brand/medicube",
+            "evidence_type": "proxy",
+            "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          },
+          {
+            "id": "ulta_online_only_items",
+            "label": "온라인 전용 표시 상품",
+            "value": 37,
+            "unit": "개",
+            "period": "2026-11-11",
+            "asof": "2026-11-11",
+            "available_from": "2026-11-11",
+            "source": "Ulta 공식 상품 목록",
+            "source_url": "https://www.ulta.com/brand/medicube",
+            "evidence_type": "proxy",
+            "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
+            "signal_eligible": false,
+            "signal_exclusion_reason": ""
+          }
+        ],
+        "missing": [
+          "Costco·Walmart 확장 공식 발표 및 Amazon·Ulta 채널별 실수요 비교",
+          "FY2026 비용별 실적 및 환율 영향, 반복성 확인",
+          "FY2026 영업마진·비용별 기여, 견조한 실수요 확인; 완만/제한의 수치기준은 사진에 없음",
+          "FY2026 판매회전·마케팅·물류비율·영업 레버리지 실적",
+          "Singapore 사건의 식별 가능한 공식 원문·진행상태·재무 영향",
+          "같은 기준일·회계기준 동종기업 멀티플과 성장률 시계열",
+          "동일 시점 이익 추정치 수정 이력과 주가·멀티플 변화",
+          "미국 및 채널별 전년동기 매출·동일점/재주문 실적",
+          "온·오프라인 매출 믹스·채널별 실수요·비교 성장률",
+          "유럽·카테고리별 매출과 채널 믹스; 입점 발표만으로 실수요 확정 불가",
+          "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화",
+          "초도입고와 분리한 동일 채널 재주문·POS 시계열"
+        ],
+        "fingerprint": "c5885305c966c2c5d03ff59e666f28f164ab0eb92ee09a096a9658165bfd0194"
       }
     ]
   },
   "history": [
     {
       "date": "2026-11-12",
-      "evaluated_at_utc": "2026-11-12T10:41:57.741244+00:00",
+      "evaluated_at_utc": "2026-11-12T10:46:30.043520+00:00",
       "classification": "pending",
       "label": "판정 보류",
       "reason": "가설 전체의 필수 근거 미확보 또는 충돌. 자료 부족은 Bear 또는 Base 판정이 아닙니다.",
@@ -2351,36 +3134,6 @@
           "partial_support": [],
           "signal_eligible": false,
           "signal_exclusion_reason": ""
-        },
-        {
-          "id": "ulta_catalog_items",
-          "label": "메디큐브 등록상품 수",
-          "value": 69,
-          "unit": "개",
-          "period": "2026-11-11",
-          "asof": "2026-11-11",
-          "available_from": "2026-11-11",
-          "source": "Ulta 공식 상품 목록",
-          "source_url": "https://www.ulta.com/brand/medicube",
-          "evidence_type": "proxy",
-          "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
-          "signal_eligible": false,
-          "signal_exclusion_reason": ""
-        },
-        {
-          "id": "ulta_online_only_items",
-          "label": "온라인 전용 표시 상품",
-          "value": 37,
-          "unit": "개",
-          "period": "2026-11-11",
-          "asof": "2026-11-11",
-          "available_from": "2026-11-11",
-          "source": "Ulta 공식 상품 목록",
-          "source_url": "https://www.ulta.com/brand/medicube",
-          "evidence_type": "proxy",
-          "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
-          "signal_eligible": false,
-          "signal_exclusion_reason": ""
         }
       ],
       "missing": [
@@ -2397,7 +3150,7 @@
         "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화",
         "초도입고와 분리한 동일 채널 재주문·POS 시계열"
       ],
-      "fingerprint": "c5885305c966c2c5d03ff59e666f28f164ab0eb92ee09a096a9658165bfd0194",
+      "fingerprint": "e9a016d4854bdd99cc8393aa5a1b4079df343e11ed6660c8532ce816b0538ac7",
       "revisions": [
         {
           "date": "2026-11-12",
@@ -3166,6 +3919,819 @@
             "초도입고와 분리한 동일 채널 재주문·POS 시계열"
           ],
           "fingerprint": "013d3e61eb1660c4cf4b0de5a0db525459c7734d5876287122d16a62040bf263"
+        },
+        {
+          "date": "2026-11-12",
+          "evaluated_at_utc": "2026-11-12T10:41:57.741244+00:00",
+          "classification": "pending",
+          "label": "판정 보류",
+          "reason": "가설 전체의 필수 근거 미확보 또는 충돌. 자료 부족은 Bear 또는 Base 판정이 아닙니다.",
+          "provisional": {
+            "status": "reference_signal",
+            "label": "Bull 쪽 참고 신호",
+            "counts": [
+              {
+                "id": "bear",
+                "label": "Bear",
+                "partial_support": 1,
+                "confirmed": 0,
+                "contradicted": 0,
+                "conflicting": 0,
+                "unknown": 4
+              },
+              {
+                "id": "base",
+                "label": "Base",
+                "partial_support": 1,
+                "confirmed": 0,
+                "contradicted": 0,
+                "conflicting": 0,
+                "unknown": 4
+              },
+              {
+                "id": "bull",
+                "label": "Bull",
+                "partial_support": 2,
+                "confirmed": 0,
+                "contradicted": 0,
+                "conflicting": 0,
+                "unknown": 4
+              }
+            ],
+            "rule": "모델 가정: 현재 공식 관측의 부분지지 조건을 시나리오별로 중복 없이 셉니다. 최소 2개이며 유일 우세이고 직접 반증이 없을 때 참고 방향을 표시합니다. 미확인은 0점, 직접근거 충돌 시 보류. 기준일 120일 초과 또는 더 최신 분기가 공개된 구분기 근거는 집계 제외합니다. 120일은 명시적 모델 가정이며 확률·추천·미래 전체 판정이 아닙니다.",
+            "limitation": "관측 가능한 부문에 편향될 수 있습니다. 2개 문턱은 사진 원문 기준이 아니며 문턱·집계 방법 변경에 민감합니다. 부분지지는 조건 전체 확인 수와 별개이며 미확인과 겹칩니다."
+          },
+          "scenarios": [
+            {
+              "id": "bear",
+              "label": "Bear",
+              "conditions": [
+                {
+                  "id": "bear_reorders",
+                  "horizon": "2026년 말",
+                  "title": "채널 선입고에 가려진 반복 수요 둔화",
+                  "description": "초기 입고는 견조하지만 출시 이후 재주문 속도가 둔화되는 흐름입니다.",
+                  "required": "초도입고와 분리한 동일 채널 재주문·POS 시계열",
+                  "not_before": "2026-12-31",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "초도입고와 분리한 동일 채널 재주문·POS 시계열"
+                  ],
+                  "partial_evidence": []
+                },
+                {
+                  "id": "bear_cost",
+                  "horizon": "FY2026 실적 시즌 전후",
+                  "title": "비용 부담에 따른 투자 논리 약화",
+                  "description": "매출 성장은 이어져도 마케팅·운임·환율 부담이 이익의 질을 낮추는 흐름입니다.",
+                  "required": "FY2026 비용별 실적 및 환율 영향, 반복성 확인",
+                  "not_before": "2026-12-31",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "FY2026 비용별 실적 및 환율 영향, 반복성 확인"
+                  ],
+                  "partial_evidence": [
+                    {
+                      "fact_id": "ir26q3_opm",
+                      "reason": "재작성 비교기준 OPM 24.6%→20.8% 하락 방향만 부분 부합. 비용별 인과·FY26 전체는 미확인."
+                    }
+                  ]
+                },
+                {
+                  "id": "bear_singapore",
+                  "horizon": "2027년 초",
+                  "title": "Singapore 오버행과 실행 우려 지속",
+                  "description": "컴플라이언스와 평판 관련 잡음이 프리미엄 밸류에이션을 제약하는 흐름입니다.",
+                  "required": "Singapore 사건의 식별 가능한 공식 원문·진행상태·재무 영향",
+                  "not_before": "2027-01-01",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "Singapore 사건의 식별 가능한 공식 원문·진행상태·재무 영향"
+                  ],
+                  "partial_evidence": []
+                },
+                {
+                  "id": "bear_multiple",
+                  "horizon": "2027년 상반기",
+                  "title": "성장 둔화에 따른 리레이팅 반전",
+                  "description": "성장 지속성에 대한 신뢰가 약해지며 시장이 업종 평균에 가까운 멀티플을 부여하는 흐름입니다.",
+                  "required": "같은 기준일·회계기준 동종기업 멀티플과 성장률 시계열",
+                  "not_before": "2027-01-01",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "같은 기준일·회계기준 동종기업 멀티플과 성장률 시계열"
+                  ],
+                  "partial_evidence": []
+                }
+              ]
+            },
+            {
+              "id": "base",
+              "label": "Base",
+              "conditions": [
+                {
+                  "id": "base_growth",
+                  "horizon": "2026년 말",
+                  "title": "미국 고성장 지속과 성장률 완만화",
+                  "description": "리테일 확장은 이어지지만 기저 부담이 커지며 채널 성장률은 일부 정상화되는 흐름입니다.",
+                  "required": "미국 및 채널별 전년동기 매출·동일점/재주문 실적",
+                  "not_before": "2026-12-31",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "미국 및 채널별 전년동기 매출·동일점/재주문 실적"
+                  ],
+                  "partial_evidence": []
+                },
+                {
+                  "id": "base_margin",
+                  "horizon": "FY2026 실적 시즌 전후",
+                  "title": "마진의 완만한 둔화",
+                  "description": "마케팅과 항공 운임 부담은 높지만 수요가 견조해 수익성 훼손은 제한되는 흐름입니다.",
+                  "required": "FY2026 영업마진·비용별 기여, 견조한 실수요 확인; 완만/제한의 수치기준은 사진에 없음",
+                  "not_before": "2026-12-31",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "FY2026 영업마진·비용별 기여, 견조한 실수요 확인; 완만/제한의 수치기준은 사진에 없음"
+                  ],
+                  "partial_evidence": [
+                    {
+                      "fact_id": "ir26q3_opm",
+                      "reason": "마진 둔화 방향만 부분 부합. 완만/수요견조/제한적 훼손 여부 미확인."
+                    }
+                  ]
+                },
+                {
+                  "id": "base_offline",
+                  "horizon": "2027년 초",
+                  "title": "포화 신호 제한 속 오프라인 믹스 확대",
+                  "description": "APR이 멀티채널 수요를 입증하지만 대형 서프라이즈 직후의 초고속 성장세까지는 이어지지 않는 흐름입니다.",
+                  "required": "온·오프라인 매출 믹스·채널별 실수요·비교 성장률",
+                  "not_before": "2027-01-01",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "온·오프라인 매출 믹스·채널별 실수요·비교 성장률"
+                  ],
+                  "partial_evidence": []
+                },
+                {
+                  "id": "base_valuation",
+                  "horizon": "2027년 상반기",
+                  "title": "이익 성장 중심의 밸류에이션 지지",
+                  "description": "주가의 지지 요인이 추가적인 급격한 멀티플 확대보다 추정치 뒷받침에 가까운 흐름입니다.",
+                  "required": "동일 시점 이익 추정치 수정 이력과 주가·멀티플 변화",
+                  "not_before": "2027-01-01",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "동일 시점 이익 추정치 수정 이력과 주가·멀티플 변화"
+                  ],
+                  "partial_evidence": []
+                }
+              ]
+            },
+            {
+              "id": "bull",
+              "label": "Bull",
+              "conditions": [
+                {
+                  "id": "bull_channels",
+                  "horizon": "2026년 말",
+                  "title": "Costco와 Walmart 확장에 따른 미국 수요 지속",
+                  "description": "대형 유통 채널 확장이 Amazon·Ulta 잠식을 크게 만들지 않고 도달 범위를 넓히는 흐름입니다.",
+                  "required": "Costco·Walmart 확장 공식 발표 및 Amazon·Ulta 채널별 실수요 비교",
+                  "not_before": "2026-12-31",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "Costco·Walmart 확장 공식 발표 및 Amazon·Ulta 채널별 실수요 비교"
+                  ],
+                  "partial_evidence": [
+                    {
+                      "fact_id": "costco",
+                      "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+                    },
+                    {
+                      "fact_id": "walmart",
+                      "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+                    }
+                  ]
+                },
+                {
+                  "id": "bull_leverage",
+                  "horizon": "FY2026 실적 시즌 전후",
+                  "title": "규모의 경제에 따른 운임·마케팅 부담 상쇄",
+                  "description": "판매 회전이 빨라지며 물류비와 출시 비용 부담을 희석해 영업 레버리지가 유지되는 흐름입니다.",
+                  "required": "FY2026 판매회전·마케팅·물류비율·영업 레버리지 실적",
+                  "not_before": "2026-12-31",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "FY2026 판매회전·마케팅·물류비율·영업 레버리지 실적"
+                  ],
+                  "partial_evidence": []
+                },
+                {
+                  "id": "bull_expansion",
+                  "horizon": "2027년 초",
+                  "title": "유럽과 인접 카테고리 확장에 따른 성장 활주로 확대",
+                  "description": "오프라인과 크로스보더 모멘텀이 Medicube의 단일 채널 의존도를 낮추는 흐름입니다.",
+                  "required": "유럽·카테고리별 매출과 채널 믹스; 입점 발표만으로 실수요 확정 불가",
+                  "not_before": "2027-01-01",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "유럽·카테고리별 매출과 채널 믹스; 입점 발표만으로 실수요 확정 불가"
+                  ],
+                  "partial_evidence": [
+                    {
+                      "fact_id": "ir26q3_europe_mix",
+                      "reason": "유럽 매출 비중 5%→23% 확대 구성요소만 확인. 인접 카테고리·2027 지속 성장·채널 의존도 감소는 미확인."
+                    }
+                  ]
+                },
+                {
+                  "id": "bull_discount",
+                  "horizon": "2027년 상반기",
+                  "title": "글로벌 복리 성장주 할인 축소",
+                  "description": "성장 지속성과 카테고리 확장성이 입증되며 투자자 할인율이 낮아지는 흐름입니다.",
+                  "required": "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화",
+                  "not_before": "2027-01-01",
+                  "timing_note": "미래 가설의 최소 관측 가능 시점. 연말/FY26는 연도 종료 전, 2027은 연도 시작 전 판정하지 않음. 이 날짜 도달만으로 기간 전체가 입증되지는 않음.",
+                  "status": "pending",
+                  "reason": "가설 대상 기간 도래 전. 현재 공개자료는 참고 증거이며 미래 결과 확정 아님.",
+                  "evidence": [],
+                  "missing": [
+                    "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화"
+                  ],
+                  "partial_evidence": []
+                }
+              ]
+            }
+          ],
+          "context": [
+            {
+              "id": "2026Q1_sales",
+              "label": "연결 매출",
+              "value": 5933.56,
+              "unit": "억원",
+              "period": "2026Q1",
+              "asof": "2026-03-31",
+              "available_from": "2026-05-15",
+              "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+              "evidence_type": "reported",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q1_op",
+              "label": "연결 영업이익",
+              "value": 1522.72,
+              "unit": "억원",
+              "period": "2026Q1",
+              "asof": "2026-03-31",
+              "available_from": "2026-05-15",
+              "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+              "evidence_type": "reported",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q1_ads_ratio_pct",
+              "label": "광고선전비율",
+              "value": 19.67,
+              "unit": "%",
+              "period": "2026Q1",
+              "asof": "2026-03-31",
+              "available_from": "2026-05-15",
+              "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+              "evidence_type": "derived",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q1_shipping_ratio_pct",
+              "label": "운반비율",
+              "value": 6.63,
+              "unit": "%",
+              "period": "2026Q1",
+              "asof": "2026-03-31",
+              "available_from": "2026-05-15",
+              "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+              "evidence_type": "derived",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q1_margin",
+              "label": "연결 영업이익률",
+              "value": 25.66,
+              "unit": "%",
+              "period": "2026Q1",
+              "asof": "2026-03-31",
+              "available_from": "2026-05-15",
+              "source": "[에이피알]분기보고서(2026.05.15) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
+              "evidence_type": "derived",
+              "note": "영업이익÷매출. FY2026 전체 마진이나 비용 원인 확정 아님.",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q2_sales",
+              "label": "연결 매출",
+              "value": 7675.33,
+              "unit": "억원",
+              "period": "2026Q2",
+              "asof": "2026-06-30",
+              "available_from": "2026-08-14",
+              "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+              "evidence_type": "reported",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q2_op",
+              "label": "연결 영업이익",
+              "value": 1905.53,
+              "unit": "억원",
+              "period": "2026Q2",
+              "asof": "2026-06-30",
+              "available_from": "2026-08-14",
+              "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+              "evidence_type": "reported",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q2_ads_ratio_pct",
+              "label": "광고선전비율",
+              "value": 22.2,
+              "unit": "%",
+              "period": "2026Q2",
+              "asof": "2026-06-30",
+              "available_from": "2026-08-14",
+              "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+              "evidence_type": "derived",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q2_shipping_ratio_pct",
+              "label": "운반비율",
+              "value": 7.37,
+              "unit": "%",
+              "period": "2026Q2",
+              "asof": "2026-06-30",
+              "available_from": "2026-08-14",
+              "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+              "evidence_type": "derived",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 확정 보고서 (K-IFRS1118)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q2_margin",
+              "label": "연결 영업이익률",
+              "value": 24.83,
+              "unit": "%",
+              "period": "2026Q2",
+              "asof": "2026-06-30",
+              "available_from": "2026-08-14",
+              "source": "[에이피알]반기보고서(2026.08.14) 연결손익/판관비",
+              "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+              "evidence_type": "derived",
+              "note": "영업이익÷매출. FY2026 전체 마진이나 비용 원인 확정 아님.",
+              "signal_eligible": false,
+              "signal_exclusion_reason": "자료 기준일 120일 초과 또는 기준일 없음: 신호 집계 제외"
+            },
+            {
+              "id": "2026Q3_sales",
+              "label": "연결 매출",
+              "value": 7731.15,
+              "unit": "억원",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 잠정실적 (정식 3Q 보고서 전)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "2026Q3_op",
+              "label": "연결 영업이익",
+              "value": 1606.4,
+              "unit": "억원",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "연결 기준. 비용의 인과관계·채널 실수요 입증 아님. 잠정실적 (정식 3Q 보고서 전)",
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "2026Q3_margin",
+              "label": "연결 영업이익률",
+              "value": 20.78,
+              "unit": "%",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "derived",
+              "note": "영업이익÷매출. FY2026 전체 마진이나 비용 원인 확정 아님.",
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_sales",
+              "label": "3Q26 연결 매출",
+              "value": 7731.15,
+              "unit": "억원",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_op",
+              "label": "3Q26 연결 영업이익",
+              "value": 1606.4,
+              "unit": "억원",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_opm",
+              "label": "3Q26 영업이익률",
+              "value": 20.8,
+              "unit": "%",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [
+                {
+                  "condition_id": "bear_cost",
+                  "reason": "재작성 비교기준 OPM 24.6%→20.8% 하락 방향만 부분 부합. 비용별 인과·FY26 전체는 미확인."
+                },
+                {
+                  "condition_id": "base_margin",
+                  "reason": "마진 둔화 방향만 부분 부합. 완만/수요견조/제한적 훼손 여부 미확인."
+                }
+              ],
+              "signal_eligible": true,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_previous_opm",
+              "label": "IFRS18 재작성 3Q25 영업이익률",
+              "value": 24.6,
+              "unit": "%",
+              "period": "2025Q3 비교",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_overseas",
+              "label": "3Q26 해외 매출",
+              "value": 7228.71,
+              "unit": "억원",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_northamerica_mix",
+              "label": "3Q26 북미 매출 비중",
+              "value": 46,
+              "unit": "%",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_europe_mix",
+              "label": "3Q26 유럽 매출 비중",
+              "value": 23,
+              "unit": "%",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "reported",
+              "note": "회사 공식 IR. 2026 IFRS18 조기적용·2025 재작성 기준. 비중은 반올림이며 정확한 지역매출로 역산하지 않음. FY2026 전체나 2027 전망 확정 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [
+                {
+                  "condition_id": "bull_expansion",
+                  "reason": "유럽 매출 비중 5%→23% 확대 구성요소만 확인. 인접 카테고리·2027 지속 성장·채널 의존도 감소는 미확인."
+                }
+              ],
+              "signal_eligible": true,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ir26q3_fx",
+              "label": "회사 설명: 환율의 영업이익률 영향",
+              "value": -3.6,
+              "unit": "%p",
+              "period": "2026Q3",
+              "asof": "2026-09-30",
+              "available_from": "2026-10-30",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 3Q26 Earnings Release",
+              "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+              "evidence_type": "management_explanation",
+              "note": "회사 원인분석. 인과관계 독립검증 또는 미래 영향 예측 아님.",
+              "condition_ids": [
+                "bear_cost",
+                "base_margin",
+                "bull_leverage",
+                "base_growth"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "costco",
+              "label": "미국 Costco 입점 완료",
+              "value": 400,
+              "unit": "점",
+              "period": "2026-10 회사 발표",
+              "asof": "2026-10-19",
+              "available_from": "2026-10-19",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 공식 회사 블로그",
+              "source_url": "https://apr.teamblog.io/medicube-costco-us",
+              "evidence_type": "reported",
+              "note": "회사 공식 발표 재확인. 입점 수이며 POS·재주문·채널 잠식 없음의 증거 아님. Costco 전점·캐나다·유럽 확대는 계획과 구분.",
+              "condition_ids": [
+                "bull_channels",
+                "base_offline",
+                "bear_reorders"
+              ],
+              "partial_support": [
+                {
+                  "condition_id": "bull_channels",
+                  "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+                }
+              ],
+              "signal_eligible": true,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "walmart",
+              "label": "미국 Walmart 입점(2026년 6월)",
+              "value": 3000,
+              "unit": "점",
+              "period": "2026-10 회사 발표",
+              "asof": "2026-10-19",
+              "available_from": "2026-10-19",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 공식 회사 블로그",
+              "source_url": "https://apr.teamblog.io/medicube-costco-us",
+              "evidence_type": "reported",
+              "note": "회사 공식 발표 재확인. 입점 수이며 POS·재주문·채널 잠식 없음의 증거 아님. Costco 전점·캐나다·유럽 확대는 계획과 구분.",
+              "condition_ids": [
+                "bull_channels",
+                "base_offline",
+                "bear_reorders"
+              ],
+              "partial_support": [
+                {
+                  "condition_id": "bull_channels",
+                  "reason": "미국 채널 확장 구성요소만 확인. Amazon·Ulta 잠식 제한과 지속적 실수요는 미확인."
+                }
+              ],
+              "signal_eligible": true,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "shoppers",
+              "label": "캐나다 Shoppers 입점 완료",
+              "value": 1300,
+              "unit": "점",
+              "period": "2026-10",
+              "asof": "2026-10-31",
+              "available_from": "2026-11-04",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "APR 공식 회사 블로그",
+              "source_url": "https://apr.teamblog.io/canada-shoppers-entry",
+              "evidence_type": "reported",
+              "note": "13개 제품 입점 발표. 판매량·유럽 매출 증거 아님. 캐나다 Costco는 11월 예정으로 별도 구분.",
+              "condition_ids": [
+                "bull_expansion",
+                "base_offline"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "hsa",
+              "label": "Singapore HSA 조치",
+              "value": "일부 배치 회수·비영향 배치 판매재개 허용",
+              "unit": "",
+              "period": "2026-08 조치",
+              "asof": "2026-08-28",
+              "available_from": "2026-08-28",
+              "known_at": "2026-11-11T17:30:31+00:00",
+              "source": "Singapore HSA 공식 발표",
+              "source_url": "https://www.hsa.gov.sg/announcements/hsa-tests-product-samples-of-medicube-pdrn-pink-collagen-capsule-cream-for-presence-of-sudan-red-dyes/",
+              "evidence_type": "reported",
+              "note": "7/31 판매중단, 8/26 Venus Beauty 두 배치 회수. APR SG/Rirora 샘플 Sudan IV 불검출. 현지 공급 모든 배치 공인시험·HSA 보고 조건. APR 전체 판매금지 지속이나 2027 규제악화 확정 아님. 향후 평판·실적 영향 미확인.",
+              "condition_ids": [
+                "bear_singapore"
+              ],
+              "partial_support": [],
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ulta_catalog_items",
+              "label": "메디큐브 등록상품 수",
+              "value": 69,
+              "unit": "개",
+              "period": "2026-11-11",
+              "asof": "2026-11-11",
+              "available_from": "2026-11-11",
+              "source": "Ulta 공식 상품 목록",
+              "source_url": "https://www.ulta.com/brand/medicube",
+              "evidence_type": "proxy",
+              "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            },
+            {
+              "id": "ulta_online_only_items",
+              "label": "온라인 전용 표시 상품",
+              "value": 37,
+              "unit": "개",
+              "period": "2026-11-11",
+              "asof": "2026-11-11",
+              "available_from": "2026-11-11",
+              "source": "Ulta 공식 상품 목록",
+              "source_url": "https://www.ulta.com/brand/medicube",
+              "evidence_type": "proxy",
+              "note": "온라인 목록 관측. 판매량·매장수·재주문·채널 잠식 아님.",
+              "signal_eligible": false,
+              "signal_exclusion_reason": ""
+            }
+          ],
+          "missing": [
+            "Costco·Walmart 확장 공식 발표 및 Amazon·Ulta 채널별 실수요 비교",
+            "FY2026 비용별 실적 및 환율 영향, 반복성 확인",
+            "FY2026 영업마진·비용별 기여, 견조한 실수요 확인; 완만/제한의 수치기준은 사진에 없음",
+            "FY2026 판매회전·마케팅·물류비율·영업 레버리지 실적",
+            "Singapore 사건의 식별 가능한 공식 원문·진행상태·재무 영향",
+            "같은 기준일·회계기준 동종기업 멀티플과 성장률 시계열",
+            "동일 시점 이익 추정치 수정 이력과 주가·멀티플 변화",
+            "미국 및 채널별 전년동기 매출·동일점/재주문 실적",
+            "온·오프라인 매출 믹스·채널별 실수요·비교 성장률",
+            "유럽·카테고리별 매출과 채널 믹스; 입점 발표만으로 실수요 확정 불가",
+            "지속 성장·카테고리 실적 및 비교기업 대비 할인 변화",
+            "초도입고와 분리한 동일 채널 재주문·POS 시계열"
+          ],
+          "fingerprint": "c5885305c966c2c5d03ff59e666f28f164ab0eb92ee09a096a9658165bfd0194"
         }
       ]
     }

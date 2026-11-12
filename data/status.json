@@ -1,18 +1,18 @@
 {
-  "generated_at_utc": "2026-11-12T10:41:57+00:00",
+  "generated_at_utc": "2026-11-12T10:46:09+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-12",
   "price_coverage_start": "2025-06-02",
-  "fx_last": "2026-11-10",
+  "fx_last": "2026-11-11",
   "technical_last": "2026-11-12",
   "technical_ohlc_days": 354,
-  "kbty_status": "출시 준비 중 (공식 사이트)",
+  "kbty_status": "2026-11-12 거래 개시 예정 (공식 사이트)",
   "news_count": 68,
   "trends_points": 12931,
-  "amazon_points": 418,
-  "beauty_leaderboard_snapshots": 95,
+  "amazon_points": 0,
+  "beauty_leaderboard_snapshots": 0,
   "retail_reference": {
-    "status": "ok",
+    "status": "partial",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
       "independent US Beauty 2026-W46"
@@ -24,9 +24,5 @@
     "external_weeks": 3
   },
   "errors": [],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
-  "afternoon_updated_at_utc": "2026-11-12T10:41:57+00:00",
-  "afternoon_price_date": "2026-11-12",
-  "afternoon_verified_same_day": true,
-  "afternoon_note": "공개 일봉 기준 당일 장마감 자료 확인"
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T23:10:24+00:00",
+  "updated_at": "2026-11-12T10:46:09+00:00",
   "countries": [
     {
       "code": "US",
@@ -116579,7 +116579,7 @@
     }
   ],
   "trends_status": [
-    "공식 CSV 데이터 없음 — Google Trends 원본 링크 이용"
+    "APISH_KEY 미설정 — API 자동 수집 비활성 (CSV 이용 가능)"
   ],
   "amazon": [],
   "amazon_status": [
@@ -116587,7 +116587,7 @@
   ],
   "watchlist": [],
   "retail": [],
-  "api_mode": "free_api_sh",
-  "api_credits_used_this_month": 135,
+  "api_mode": "csv_or_public",
+  "api_credits_used_this_month": null,
   "note": "BSR=카테고리 내 판매 순위이지 판매량이 아님. Google Trends=국가·기간·검색 그룹 내 상대지수(0~100)."
 }

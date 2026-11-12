@@ -1,9 +1,9 @@
 {
-  "updated_at_utc": "2026-11-10T23:12:21+00:00",
+  "updated_at_utc": "2026-11-12T10:46:29+00:00",
   "method": "검증 가능한 공식 판매처 지표 및 제3자 공개 아마존 전체 Top 100 주간 표본. 실제 매출·판매수량·오프라인 POS 자료 아님. · 2026-11-08 Target 의심 구매 배지는 정량 추이 제외.",
   "retail": [
     {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "retailer": "ulta",
       "country": "US",
       "metric": "catalog_items",
@@ -16,7 +16,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "retailer": "ulta",
       "country": "US",
       "metric": "online_only_items",
@@ -29,7 +29,7 @@
       "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-12",
       "retailer": "ulta",
       "country": "US",
       "metric": "exclusive_items",
@@ -125,7 +125,7 @@
     }
   ],
   "collection": {
-    "last_attempt_utc": "2026-11-10T23:12:21+00:00",
+    "last_attempt_utc": "2026-11-12T10:46:29+00:00",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
       "independent US Beauty 2026-W46"
@@ -343,6 +343,45 @@
     },
     {
       "date": "2026-11-11",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "online_only_items",
+      "value": 37,
+      "display": "37개",
+      "label": "온라인 전용 표시 상품",
+      "scope": "Ulta 브랜드 페이지 Online Only 필터",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-12",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "catalog_items",
+      "value": 69,
+      "display": "69개",
+      "label": "메디큐브 등록상품 수",
+      "scope": "Ulta 공식 브랜드 페이지 전체 결과 수",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-12",
+      "retailer": "ulta",
+      "country": "US",
+      "metric": "exclusive_items",
+      "value": 3,
+      "display": "3개",
+      "label": "Only at Ulta 상품",
+      "scope": "Ulta 브랜드 페이지 독점 상품",
+      "source_url": "https://www.ulta.com/brand/medicube",
+      "method": "official_catalog_page",
+      "note": "판매 목록 / 필터에 표시된 상품 수. 전국 오프라인 입점 매장 수가 아님"
+    },
+    {
+      "date": "2026-11-12",
       "retailer": "ulta",
       "country": "US",
       "metric": "online_only_items",
