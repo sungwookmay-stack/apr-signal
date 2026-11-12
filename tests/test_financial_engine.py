@@ -62,3 +62,28 @@ class APRFinancialEngineTests(unittest.TestCase):
 
 if __name__=='__main__':
     unittest.main()
+
+class ComparativeBasisTests(unittest.TestCase):
+    def test_2026_growth_uses_reviewed_restatement_without_mutating_history(self):
+        import copy
+        source=fe.read_json(fe.INPUT); before=copy.deepcopy(source)
+        out=fe.build(source); rows={r['period']:r for r in out['quarterly']}
+        self.assertEqual(source,before)
+        for period,original,restated in [('Q1',545.68,556.27),('Q2',845.52,812.58),('Q3',961.28,950.91)]:
+            prior=rows['2025'+period]; current=rows['2026'+period]
+            self.assertEqual(prior['op'],original)
+            self.assertEqual(current['yoy_comparative']['op'],restated)
+            self.assertEqual(current['op_yoy_pct'],round((current['op']/restated-1)*100,2))
+            self.assertIn('재작성',current['growth_comparison']['yoy']['status'])
+        self.assertAlmostEqual(rows['2026Q3']['op_yoy_pct'],68.93)
+        self.assertIsNone(rows['2026Q1']['op_qoq_pct'])
+        self.assertIsNotNone(rows['2026Q2']['op_qoq_pct'])
+        self.assertIn('apr-in.aprd.io',rows['2026Q3']['source_url'])
+
+    def test_mismatched_or_missing_basis_never_falls_back(self):
+        current={'period':'2026Q1','income_accounting_basis':'K-IFRS1118'}
+        original={'period':'2025Q1','income_accounting_basis':'old','op':100}
+        self.assertIsNone(fe.growth_comparison(current,original)[0])
+        self.assertIsNone(fe.growth_comparison(current,original,{**original,'income_accounting_basis':'K-IFRS1118'})[0])
+        explicit={**original,'period':'2025Q2','income_accounting_basis':'K-IFRS1118','source_url':'https://official.example'}
+        self.assertIsNone(fe.growth_comparison(current,original,explicit)[0])

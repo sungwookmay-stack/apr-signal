@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-11-12T00:17:41+00:00",
+  "generated_at_utc": "2026-11-12T02:45:27+00:00",
   "company": "에이피알",
   "ticker": "278470",
   "unit": "억원",
@@ -35,6 +35,7 @@
         "restated_comparative_source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
         "restated_used_in_original_series": false
       },
+      "income_accounting_basis": "pre-K-IFRS1118",
       "gross_margin_pct": 75.5,
       "op_margin_pct": 20.51,
       "net_margin_pct": 18.77,
@@ -43,6 +44,17 @@
       "selling_fee_ratio_pct": 13.43,
       "shipping_ratio_pct": 8.87,
       "cash_conversion_pct": 107.15,
+      "growth_comparison": {
+        "yoy": {
+          "status": "비교기간 없음",
+          "period": null,
+          "source_url": null
+        },
+        "qoq": {
+          "status": "비교기간 없음",
+          "period": null
+        }
+      },
       "sales_qoq_pct": null,
       "sales_yoy_pct": null,
       "op_qoq_pct": null,
@@ -80,6 +92,7 @@
         "restated_comparative_source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
         "restated_used_in_original_series": false
       },
+      "income_accounting_basis": "pre-K-IFRS1118",
       "gross_margin_pct": 76.22,
       "op_margin_pct": 25.8,
       "net_margin_pct": 20.23,
@@ -88,6 +101,17 @@
       "selling_fee_ratio_pct": 14.44,
       "shipping_ratio_pct": 7.79,
       "cash_conversion_pct": 98.94,
+      "growth_comparison": {
+        "yoy": {
+          "status": "비교기간 없음",
+          "period": null,
+          "source_url": null
+        },
+        "qoq": {
+          "status": "동일기준 원공시 비교",
+          "period": "2025Q1"
+        }
+      },
       "sales_qoq_pct": 23.19,
       "sales_yoy_pct": null,
       "op_qoq_pct": 54.95,
@@ -122,6 +146,7 @@
         "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20251114002319",
         "accounting_basis": "2025 original presentation"
       },
+      "income_accounting_basis": "pre-K-IFRS1118",
       "gross_margin_pct": 76.71,
       "op_margin_pct": 24.91,
       "net_margin_pct": 19.34,
@@ -130,6 +155,17 @@
       "selling_fee_ratio_pct": 15.44,
       "shipping_ratio_pct": 7.45,
       "cash_conversion_pct": 88.25,
+      "growth_comparison": {
+        "yoy": {
+          "status": "비교기간 없음",
+          "period": null,
+          "source_url": null
+        },
+        "qoq": {
+          "status": "동일기준 원공시 비교",
+          "period": "2025Q2"
+        }
+      },
       "sales_qoq_pct": 17.76,
       "sales_yoy_pct": null,
       "op_qoq_pct": 13.69,
@@ -168,6 +204,7 @@
         "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260323001257",
         "accounting_basis": "2025 original presentation"
       },
+      "income_accounting_basis": "pre-K-IFRS1118",
       "gross_margin_pct": 77.41,
       "op_margin_pct": 23.79,
       "net_margin_pct": 18.04,
@@ -176,6 +213,17 @@
       "selling_fee_ratio_pct": 19.86,
       "shipping_ratio_pct": 6.53,
       "cash_conversion_pct": 158.01,
+      "growth_comparison": {
+        "yoy": {
+          "status": "비교기간 없음",
+          "period": null,
+          "source_url": null
+        },
+        "qoq": {
+          "status": "동일기준 원공시 비교",
+          "period": "2025Q3"
+        }
+      },
       "sales_qoq_pct": 41.9,
       "sales_yoy_pct": null,
       "op_qoq_pct": 35.52,
@@ -210,6 +258,19 @@
         "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001577",
         "accounting_basis": "2026 K-IFRS 1118 presentation"
       },
+      "income_accounting_basis": "K-IFRS1118",
+      "yoy_comparative": {
+        "period": "2025Q1",
+        "sales": 2660.33,
+        "op": 556.27,
+        "ni": 499.41,
+        "income_accounting_basis": "K-IFRS1118",
+        "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_1Q26_ENG_vF.pdf",
+        "source_page": 4,
+        "status": "공식 IR 동일 기준 재작성 전년 비교값",
+        "unit": "억원",
+        "verified_on": "2026-11-12"
+      },
       "gross_margin_pct": 77.0,
       "op_margin_pct": 25.66,
       "net_margin_pct": 19.76,
@@ -218,11 +279,22 @@
       "selling_fee_ratio_pct": 17.54,
       "shipping_ratio_pct": 6.63,
       "cash_conversion_pct": 3.64,
-      "sales_qoq_pct": 8.35,
+      "growth_comparison": {
+        "yoy": {
+          "status": "공식 IR 동일기준 재작성 비교",
+          "period": "2025Q1",
+          "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_1Q26_ENG_vF.pdf"
+        },
+        "qoq": {
+          "status": "회계기준 불일치 또는 미확인",
+          "period": null
+        }
+      },
+      "sales_qoq_pct": null,
       "sales_yoy_pct": 123.04,
-      "op_qoq_pct": 16.89,
-      "op_yoy_pct": 179.05,
-      "ni_qoq_pct": 18.72,
+      "op_qoq_pct": null,
+      "op_yoy_pct": 173.74,
+      "ni_qoq_pct": null,
       "ni_yoy_pct": 134.81
     },
     {
@@ -252,6 +324,19 @@
         "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
         "accounting_basis": "2026 K-IFRS 1118 presentation"
       },
+      "income_accounting_basis": "K-IFRS1118",
+      "yoy_comparative": {
+        "period": "2025Q2",
+        "sales": 3277.35,
+        "op": 812.58,
+        "ni": 663.09,
+        "income_accounting_basis": "K-IFRS1118",
+        "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_2Q26_ENG_vF.pdf",
+        "source_page": 4,
+        "status": "공식 IR 동일 기준 재작성 전년 비교값",
+        "unit": "억원",
+        "verified_on": "2026-11-12"
+      },
       "gross_margin_pct": 79.19,
       "op_margin_pct": 24.83,
       "net_margin_pct": 18.44,
@@ -260,10 +345,21 @@
       "selling_fee_ratio_pct": 18.56,
       "shipping_ratio_pct": 7.37,
       "cash_conversion_pct": 58.03,
+      "growth_comparison": {
+        "yoy": {
+          "status": "공식 IR 동일기준 재작성 비교",
+          "period": "2025Q2",
+          "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_2Q26_ENG_vF.pdf"
+        },
+        "qoq": {
+          "status": "동일기준 원공시 비교",
+          "period": "2026Q1"
+        }
+      },
       "sales_qoq_pct": 29.35,
       "sales_yoy_pct": 134.19,
       "op_qoq_pct": 25.14,
-      "op_yoy_pct": 125.37,
+      "op_yoy_pct": 134.5,
       "ni_qoq_pct": 20.69,
       "ni_yoy_pct": 113.44
     },
@@ -281,11 +377,24 @@
       "ads": null,
       "logistics": null,
       "fees": null,
-      "source": "2026-10-30 DART 연결재무제표기준영업(잠정)실적(공정공시)",
-      "source_url": "https://dartbrief.com/disclosures/20261030800202",
+      "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
+      "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
       "cfo": null,
       "capex": null,
       "fcf_proxy": null,
+      "income_accounting_basis": "K-IFRS1118",
+      "yoy_comparative": {
+        "period": "2025Q3",
+        "sales": 3859.43,
+        "op": 950.91,
+        "ni": 746.34,
+        "income_accounting_basis": "K-IFRS1118",
+        "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+        "source_page": 4,
+        "status": "공식 IR 동일 기준 재작성 전년 비교값",
+        "unit": "억원",
+        "verified_on": "2026-11-12"
+      },
       "gross_margin_pct": null,
       "op_margin_pct": 20.78,
       "net_margin_pct": 14.25,
@@ -294,10 +403,21 @@
       "selling_fee_ratio_pct": null,
       "shipping_ratio_pct": null,
       "cash_conversion_pct": null,
+      "growth_comparison": {
+        "yoy": {
+          "status": "공식 IR 동일기준 재작성 비교",
+          "period": "2025Q3",
+          "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf"
+        },
+        "qoq": {
+          "status": "동일기준 원공시 비교",
+          "period": "2026Q2"
+        }
+      },
       "sales_qoq_pct": 0.73,
       "sales_yoy_pct": 100.32,
       "op_qoq_pct": -15.7,
-      "op_yoy_pct": 67.11,
+      "op_yoy_pct": 68.93,
       "ni_qoq_pct": -22.15,
       "ni_yoy_pct": 47.64
     }
@@ -1046,7 +1166,7 @@
     "[에이피알]반기보고서(2026.08.14) (1).pdf",
     "에이피알 2025년 사업보고서(2026-03-23, 공식 APR 사이트)"
   ],
-  "accounting_note": "2025년 사업보고서 연결 영업이익은 3655.21억원. 2026년 이후 K-IFRS 제1118호 적용·비교 재표시 등으로 일부 투자정보 표와 영업이익 정의가 달라질 수 있어 2025 연간/4Q는 동일 보고서 숫자로 계산. 2026Q3은 정식 보고서 이전 잠정실적. 현금흐름은 2025 원공시와 2026 K-IFRS1118 분류 기준이 달라 연도 간 직접 비교에 주의. 2025 CFO는 원공시로 통일; 재표시 전년비교는 감사 메타데이터에 별도 보존.",
+  "accounting_note": "2025년 사업보고서 연결 영업이익은 3655.21억원. 2026년 이후 K-IFRS 제1118호 적용·비교 재표시 등으로 일부 투자정보 표와 영업이익 정의가 달라질 수 있어 2025 연간/4Q는 동일 보고서 숫자로 계산. 2026Q3은 정식 보고서 이전 잠정실적. 현금흐름은 2025 원공시와 2026 K-IFRS1118 분류 기준이 달라 연도 간 직접 비교에 주의. 2025 CFO는 원공시로 통일; 재표시 전년비교는 감사 메타데이터에 별도 보존. 손익 추이의 2025 값은 원공시를 보존한다. 2026 YoY는 공식 IR의 동일 K-IFRS1118 재작성 비교값을 별도 사용한다. 비교기준이 다른 QoQ는 동일기준 비교값 확인 전 미산출.",
   "dart_reconciliation": {
     "checked_at_utc": "2026-11-10T23:13:36+00:00",
     "rows": [
