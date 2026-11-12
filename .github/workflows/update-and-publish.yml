@@ -1,4 +1,4 @@
-name: APR SIGNAL - free data refresh and Pages
+name: APR SIGNAL - data refresh for private site
 
 on:
   push:
@@ -16,8 +16,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: apr-signal-pages
@@ -268,33 +266,5 @@ jobs:
             git commit -m "data: refresh APR public observations [skip ci]"
             git push
           fi
-      - name: Generate static site
-        run: |
-          mkdir -p _site/assets _site/data
-          cp index.html _site/index.html
-          cp assets/style.css assets/apr_theme.css assets/app.js assets/research_dashboard.js assets/clinical_trials.js assets/sensitivity.js assets/flows.js _site/assets/
-          cp data/*.json _site/data/
-          # Retired raw Top100 and out-of-list BSR must not remain publicly served.
-          rm -f _site/data/mfds_devices.json _site/data/top100.json _site/data/scrapedo_pdp.json _site/data/discovered_asins.json
-          cp data/bootstrap.js _site/data/ 2>/dev/null || true
-          touch _site/.nojekyll
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload deployable site
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: _site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Publish to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # Public GitHub Pages publishing is stopped at the owner's request.
+      # Keep source collection and data commits for the private APR site.
