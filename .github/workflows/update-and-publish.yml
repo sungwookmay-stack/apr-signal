@@ -63,6 +63,10 @@ jobs:
         env:
           APISH_KEY: ${{ secrets.APISH_KEY }}
         run: python build_data.py
+      - name: Recover free morning sources without paid APIs
+        # Explicit recovery only; never consumes APISH or Decodo credentials.
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[free-recovery]')
+        run: env -u APISH_KEY -u DECODO_API_KEY python build_data.py
       - name: Decodo Top50 gated morning collection
         # User authorized the public Top50 summary and free-plan collection.
         # Python additionally enforces KST Mon/Wed/Fri/Sat/Sun and no reruns.
