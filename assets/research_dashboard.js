@@ -94,8 +94,8 @@ function renderFinancials(ctx){
  ],{decimals:1});
 
  const schemas={
-  income:{cols:['분기','확정 상태','매출','영업이익','순이익','영업이익률'],
-    items:q,keys:['period','status','sales','op','ni','op_margin_pct'],percent:['op_margin_pct']},
+  income:{cols:['분기','확정 상태','매출','영업이익','순이익','영업이익률','영업이익 YoY'],
+    items:q,keys:['period','status','sales','op','ni','op_margin_pct','op_yoy_pct'],percent:['op_margin_pct','op_yoy_pct']},
   expenses:{cols:['분기','판관비','광고선전비','판매수수료','운반비','광고비율','수수료율','운반비율'],
     items:q,keys:['period','sga','ads','fees','logistics','ads_ratio_pct','selling_fee_ratio_pct','shipping_ratio_pct'],
     percent:['ads_ratio_pct','selling_fee_ratio_pct','shipping_ratio_pct']},
@@ -120,11 +120,12 @@ function renderFinancials(ctx){
  }).join('')+'</tr>').join('')||'<tr><td colspan="8">동일 기준 검증 자료가 없습니다.</td></tr>';
  set('fin-table-footnote',selector==='returns'?
      'ROE는 시점이 일치하는 기초·기말 자본 및 TTM 순이익이 있을 때만 산출. ROIC는 검증된 영업투하자본 계산 전 미산출.':
-     '2025년 4분기는 사업보고서 연간−3분기 누계. 2026년 3분기 비용 상세는 정식 분기보고서 확인 전까지 공란. 단위 억원.');
+     '2025년 손익은 원공시, 2026년은 K-IFRS1118 기준. 2026 YoY만 공식 IR의 재작성 전년값으로 비교하며 원공시를 덮어쓰지 않습니다. 기준이 다른 QoQ는 미산출. 2025년 4Q는 연간−3Q 누계, 2026년 3Q 비용 상세는 공란. 단위 억원.');
  const src=$('fin-sources');
  if(src)src.innerHTML='출처: 2025년 사업보고서(연간)와 2025년 3분기 누계, 2026년 1분기·반기보고서. '+
    '<a target="_blank" rel="noopener noreferrer" href="https://apr-in.aprd.io/annual_report/%5B%EC%97%90%EC%9D%B4%ED%94%BC%EC%95%8C%5D%EC%82%AC%EC%97%85%EB%B3%B4%EA%B3%A0%EC%84%9C_2025%EB%85%84.pdf">2025년 사업보고서 ↗</a> · '+
-   '<a target="_blank" rel="noopener noreferrer" href="https://apr-in.com/ir.php?year=2025">2025년 4Q IR ↗</a>';
+   '<a target="_blank" rel="noopener noreferrer" href="https://apr-in.com/ir.php?year=2025">2025년 4Q IR ↗</a> · '+
+   '<a target="_blank" rel="noopener noreferrer" href="https://apr-in.com/en/ir.php">2026년 IR·재작성 비교값 ↗</a>';
 
  const history=safeArr(state.market?.series).filter(x=>x.date>='2025-06-01' && num(x.close_krw)>0);
  const prices=history.map(x=>x.close_krw), labels=history.map(x=>x.date);

@@ -31,6 +31,24 @@ def rounded(n,d=2):
     return None if n is None else round(n,d)
 
 
+def growth_comparison(current, original, explicit=None):
+    """Never divide IFRS18 earnings by a pre-IFRS18 comparative.
+
+    A reviewed comparative is separate from the historical original row.
+    Missing or mismatched bases are not silently assumed comparable.
+    """
+    candidate = explicit if explicit is not None else original
+    if not candidate:
+        return None, '비교기간 없음'
+    if explicit is not None and (not original or candidate.get('period') != original.get('period')
+                                 or not candidate.get('source_url')):
+        return None, '검증된 비교기간·원문 없음'
+    basis = current.get('income_accounting_basis')
+    if not basis or candidate.get('income_accounting_basis') != basis:
+        return None, '회계기준 불일치 또는 미확인'
+    return candidate, ('공식 IR 동일기준 재작성 비교' if explicit is not None else '동일기준 원공시 비교')
+
+
 def build(data, dart=None):
     quarters=[]
     prior={}
@@ -45,9 +63,16 @@ def build(data, dart=None):
         x['fcf_proxy']=rounded(q['cfo']-q['capex']) if q.get('cfo') is not None and q.get('capex') is not None else None
         prev=prior.get('previous')
         lastyear=next((v for v in quarters if v['period']==str(int(q['period'][:4])-1)+q['period'][4:]),None)
+        yoy, yoy_note = growth_comparison(q, lastyear, q.get('yoy_comparative'))
+        qoq, qoq_note = growth_comparison(q, prev, q.get('qoq_comparative'))
+        x['growth_comparison'] = {
+            'yoy': {'status': yoy_note, 'period': yoy.get('period') if yoy else None,
+                    'source_url': yoy.get('source_url') if yoy else None},
+            'qoq': {'status': qoq_note, 'period': qoq.get('period') if qoq else None},
+        }
         for key in ('sales','op','ni'):
-            x[key+'_qoq_pct']=rounded((q[key]/prev[key]-1)*100) if prev and q.get(key) is not None and prev.get(key) else None
-            x[key+'_yoy_pct']=rounded((q[key]/lastyear[key]-1)*100) if lastyear and q.get(key) is not None and lastyear.get(key) else None
+            x[key+'_qoq_pct']=rounded((q[key]/qoq[key]-1)*100) if qoq and q.get(key) is not None and qoq.get(key) else None
+            x[key+'_yoy_pct']=rounded((q[key]/yoy[key]-1)*100) if yoy and q.get(key) is not None and yoy.get(key) else None
         prior['previous']=q
         quarters.append(x)
 
