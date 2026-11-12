@@ -50,9 +50,9 @@ function render(ctx){
    '키움 REST 미연결 (선택 사항)';
  const status=$('flow-collection-status');
  if(status)status.textContent='시세 기준 '+(priceDay||'미확인')+
-    ' / 투자자별 실측 '+(flowDay||'미수집')+
+    ' / 투자자 수급 관측 '+(flowDay||'미수집')+
     ' · '+(matched?'날짜 정합성 충족':'날짜 불일치·자료 부족')+
-    ' · 네이버 KRX 공개 데이터 '+(naverInfo.status||'미수집')+
+    ' · 투자자 수급: 네이버 보조자료(KRX 시장) '+(naverInfo.status||'미수집')+
     ' '+(naverInfo.rows||0)+'거래일 · '+kisText+' · '+kiwoomStatus+
     (statusNote?' · '+statusNote:'');
  const title=$('flow-total-label');
@@ -135,6 +135,16 @@ function render(ctx){
  }
  const short=data.short||{}, sh=short.latest||{};
  const qty=sh.reported_net_short_balance_qty;
+ const noShortRows=!(data.short_daily||[]).length;
+ const shortState=$('flow-short-status');
+ if(shortState)shortState.textContent=noShortRows?
+   '공매도 수집 실패 · 검증된 관측 0건. —는 공매도 0이 아니라 미확인입니다. 투자자 수급 수집 성공과는 별개입니다.':
+   '공매도 관측 '+(data.short_daily||[]).length+'건 · 마지막 기준일 '+(short.last_date||'미확인')+' · 누락 항목은 —로 표시합니다.';
+ const shortReason=$('flow-short-source-status');
+ if(shortReason)shortReason.textContent=noShortRows?
+   'KRX 원본 미확보 · '+kisText+' · '+kiwoomStatus+
+   '. 연결·원문 검증이 완료될 때까지 비중과 잔고를 계산하지 않습니다.':
+   '출처: '+(sh.source||'관측별 원천 참조');
  const sourceShortVolume=sh.short_volume_ratio_pct!=null;
  const latestShortRatio=sourceShortVolume?sh.short_volume_ratio_pct:sh.short_value_ratio_pct;
  $('flow-short-ratio').textContent=latestShortRatio!=null?
@@ -210,7 +220,11 @@ function render(ctx){
      ACTORS.map(([key])=>'<td>'+won(x[key],fmt)+'</td>').join('')+'</tr>').join(''):
    '<tr><td colspan="5">검증된 일간 수급 실측 없음. 조회 일자가 확인된 기록만 누적합니다.</td></tr>';
  const histShort=(data.short_daily||[]).slice(-n);
- chart('flow-short-chart',histShort.map(x=>x.date?.slice(5)||''),[
+ const hasShortRatio=histShort.some(x=>asNum(x.short_volume_ratio_pct??x.short_value_ratio_pct)!==null);
+ const graph=$('flow-short-graph'),empty=$('flow-short-empty');
+ if(graph)graph.hidden=!hasShortRatio;
+ if(empty){empty.hidden=hasShortRatio;empty.textContent='검증된 공매도 비중 자료가 없어 그래프를 표시하지 않습니다. 0% 또는 공매도 없음이라는 뜻이 아닙니다.';}
+ if(hasShortRatio)chart('flow-short-chart',histShort.map(x=>x.date?.slice(5)||''),[
    {label:'공매도 거래비중 (수량 기준 우선)',
     values:histShort.map(x=>x.short_volume_ratio_pct??x.short_value_ratio_pct??null),color:C.red}
  ],{legend:true,decimals:1,suffix:'%'});

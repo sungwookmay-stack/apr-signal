@@ -92,7 +92,7 @@ mod.render(ctx);
 assert.match($('flow-policy').textContent,/종가/);
 assert.match($('flow-summary-body').innerHTML,/≈/);
 assert.match($('flow-latest-daily').textContent,/추정금액/);
-assert.match($('flow-collection-status').textContent,/네이버 KRX 공개 데이터 ok 80거래일/);
+assert.match($('flow-collection-status').textContent,/투자자 수급: 네이버 보조자료\(KRX 시장\) ok 80거래일/);
 console.log('PASS: APR four investor flow groups, 5/20/60, unknown pension, source-labeled reference, short and KSD null handling');
 
 // Date-lag reference is explicit; today remains withheld.
@@ -118,3 +118,19 @@ assert.match($('flow-lending-body').innerHTML,/상환|500주/);
 state.flows.lending={};state.flows.lending_daily=[];mod.render(ctx);
 assert.equal(charts['flow-lending-trades-chart'].labels.length,0);
 assert.match($('flow-lending-coverage').textContent,/미수집/);
+
+// Missing short data has explicit state, no empty percentage axis, and is not zero.
+state.flows.short={};state.flows.short_daily=[];mod.render(ctx);
+assert.match($('flow-short-status').textContent,/수집 실패.*0이 아니라 미확인/);
+assert.equal($('flow-short-graph').hidden,true);
+assert.equal($('flow-short-empty').hidden,false);
+assert.match($('flow-short-source-status').textContent,/KRX 원본 미확보/);
+// True observed zero is valid; returning from missing state shows graph again.
+state.flows.short={last_date:last,latest:{short_volume_ratio_pct:0}};
+state.flows.short_daily=[{date:last,short_volume_ratio_pct:0}];mod.render(ctx);
+assert.equal($('flow-short-ratio').textContent,'0.00%');
+assert.equal($('flow-short-graph').hidden,false);
+assert.equal($('flow-short-empty').hidden,true);
+assert.equal(charts['flow-short-chart'].series[0].values[0],0);
+state.flows.short_daily=[];mod.render(ctx);
+assert.equal($('flow-short-graph').hidden,true);
