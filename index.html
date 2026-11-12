@@ -365,7 +365,7 @@
           <p class="lead">개인·외국인·기관·연기금 순매수의 방향과 지속성을 보고, 공매도 및 대차 신규·상환·잔고를 별도 검증합니다. 기관에는 연기금이 포함되므로 이중 합산하지 않습니다.</p>
         </div>
         <div class="panel padded flow-status">
-          <div class="section-split"><h3>APR 수급 종합 판정</h3><small>KRX 공개 수급·증권사 데이터 기준 / 추정금액 별도 표시</small></div>
+          <div class="section-split"><h3>APR 수급 종합 판정</h3><small>관측별 원천 구분 / 네이버 보조자료·추정금액 별도 표시</small></div>
           <h2 id="flow-total-label">일간 수급 확인 중</h2>
           <p id="flow-total-detail" class="under-note">순매수 지속성과 주가를 대조하고 있습니다.</p>
           <p id="flow-collection-status" class="flow-source-line">최근 수집 상태 확인 중</p>
@@ -395,16 +395,19 @@
         <div class="grid two">
           <div class="panel padded">
             <h3>공매도 부담 모니터</h3>
+            <p id="flow-short-status" class="under-note">공매도 수집 상태 확인 중</p>
             <div class="flow-stat-grid">
               <div><small>최근 확인 공매도 거래비중</small><strong id="flow-short-ratio">—</strong></div>
               <div><small>20거래일 공매도 수량 비중 (기간 합계 기준)</small><strong id="flow-short-mean20">—</strong></div>
               <div><small>보고된 순공매도 잔고주수</small><strong id="flow-short-position">—</strong></div>
             </div>
             <p id="flow-short-day" class="under-note">공매도 데이터 확인 중</p>
+            <p id="flow-short-source-status" class="under-note"></p>
             <p id="flow-short-position-note" class="under-note">공매도 순보유잔고는 신고 시차가 있습니다.</p>
           </div>
           <div class="panel"><div class="panel-top"><strong>공매도 거래 비중 추이</strong><small>공매도 수량/전체 거래량 우선 · 금액 기준과 구분</small></div>
-            <div class="graph small"><canvas id="flow-short-chart"></canvas></div>
+            <p id="flow-short-empty" class="under-note" style="padding:0 24px 24px" hidden></p>
+            <div class="graph small" id="flow-short-graph"><canvas id="flow-short-chart"></canvas></div>
           </div>
         </div>
         <div class="section-title"><div><p class="eyebrow">SECURITIES LENDING / VERIFIED SOURCE</p><h2>대차 신규·상환·잔고</h2></div></div>
