@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-12T10:46:09+00:00",
+  "generated_at_utc": "2026-11-12T12:22:53+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-12",
   "price_coverage_start": "2025-06-02",
@@ -24,5 +24,9 @@
     "external_weeks": 3
   },
   "errors": [],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
+  "afternoon_updated_at_utc": "2026-11-12T12:22:53+00:00",
+  "afternoon_price_date": "2026-11-12",
+  "afternoon_verified_same_day": true,
+  "afternoon_note": "공개 일봉 기준 당일 장마감 자료 확인"
 }
