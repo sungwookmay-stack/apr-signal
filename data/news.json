@@ -1,7 +1,37 @@
 {
-  "updated_at": "2026-11-12T23:14:04+00:00",
-  "status": "이번 수집 신규 50건",
+  "updated_at": "2026-11-13T08:08:44+00:00",
+  "status": "이번 수집 신규 54건",
   "items": [
+    {
+      "title": "Guinness Atkinson debuts K-Beauty ETF to ride $11B export boom - Dealroom",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcFJSajJ2S3Byay1qd1FPTEp0SHR0X3RnOXRkc0FTeExKNDhoc2JTWlVFUDZ5UVdyUU81ek9MTHlweXdPbDhOZXRwSGl6LTlQak5xR1VBRlVnZUtrSk1hZmpQNFgxYVVtQW9KNFp6LVBfcXZBZmJGRHdEQUZJX24wakZjQUpxN1VZYm4taVA5V2o1eGVFcWN6N3JuOA?oc=5",
+      "published": "2026-11-13",
+      "category": "KBTY ETF",
+      "country": "US",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
+      "publisher": "Dealroom",
+      "title_ko": "기네스 앳킨슨, 110억 달러 규모의 수출 호황에 편승하기 위해 K-뷰티 ETF 출시",
+      "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
+      "summary_basis": "headline_only",
+      "translation_status": "machine_headline",
+      "localized_at": "2026-11-13"
+    },
+    {
+      "title": "Guinness Atkinson Launches K-Beauty Investment Fund - Global Cosmetics News",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOZFBCcEJ6d2JOWG4ySGIycWVPTmlnS1hPYlRjVWNYU0NZLTNhNjBiZVlDRHF4dkM4aUxVeWpCUnBMTjZWVC1sUXl3bXhHbG1oeFQ0Mm5KOXEzbFVXek5iUDcwVGNIdkV5STIwRGFHbWl3ZzRYaFpSN1hfcTFFcDFLVnZQU0xyNk4ybGw2bUZET2tpdw?oc=5",
+      "published": "2026-11-13",
+      "category": "KBTY ETF",
+      "country": "US",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
+      "publisher": "Global Cosmetics News",
+      "title_ko": "기네스 앳킨슨, K-뷰티 투자 펀드 출시",
+      "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
+      "summary_basis": "headline_only",
+      "translation_status": "machine_headline",
+      "localized_at": "2026-11-13"
+    },
     {
       "title": "APR’s Medicube AGE-R app surpasses 2.5 million global downloads - The Korea News Plus",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE10akhMb0hzWEQ4bjg4cFJyTWg1NW5DTklUdFJRV05Uc2w1bUtZdU1tSmFDN1VDUnRmQzVWV1hTYjRVN2RWaUxfcU1ad0dPVU5JVnpRTW90bWFnY3AzN0dTUTNNamh2U1IzOGhfZVFOb1RPSVpVd0tz?oc=5",
@@ -9,7 +39,7 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "APR의 메디큐브 에이지-R(AGE-R) 앱, 전 세계 다운로드 수 250만 건 돌파",
       "summary_ko": "미국 시장의 메디큐브 AGE-R 뷰티기기 또는 스킨케어 신제품 관련 보도입니다. 기사 제목만으로 판매량·제품 인증·매출 기여도를 확정할 수 없습니다.",
       "summary_basis": "headline_only",
@@ -69,13 +99,13 @@
       "category": "KBTY ETF",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
-      "publisher": "TradingView",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "기네스 앳킨슨, K-뷰티 ETF 출시",
       "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "machine_headline",
-      "localized_at": "2026-11-12"
+      "localized_at": "2026-11-12",
+      "publisher": "TradingView"
     },
     {
       "title": "US ETF launches from 5th to 12th November, 2026 - ETF Express",
@@ -84,13 +114,13 @@
       "category": "KBTY ETF",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
-      "publisher": "ETF Express",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "2026년 11월 5일부터 12일까지 미국 ETF 출시",
       "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "machine_headline",
-      "localized_at": "2026-11-12"
+      "localized_at": "2026-11-12",
+      "publisher": "ETF Express"
     },
     {
       "title": "Guinness Atkinson Unveils KBTY ETF for Korean Beauty Value Chain - Securities.io",
@@ -99,13 +129,43 @@
       "category": "KBTY ETF",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
-      "publisher": "Securities.io",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "기네스 앳킨슨, 한국 뷰티 가치 사슬을 위한 KBTY ETF 출시",
       "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "machine_headline",
-      "localized_at": "2026-11-12"
+      "localized_at": "2026-11-12",
+      "publisher": "Securities.io"
+    },
+    {
+      "title": "Guinness Atkinson Funds - Guinness Atkinson K-Beauty ETF (KBTY) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBzaVFGb29sVWFMYVVuUUw0d1BrWG15bVlVMkk1MkVROWI4Y0lyT1JDTGlMUzFyekNLRjVhelVHZExXWWdqY2JrbExWM3lJS0xnVmc?oc=5",
+      "published": "2026-11-12",
+      "category": "KBTY ETF",
+      "country": "US",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
+      "publisher": "Yahoo! Finance Canada",
+      "title_ko": "Guinness Atkinson Funds - Guinness Atkinson K-Beauty ETF(KBTY) 주가, 뉴스, 시세 및 내역",
+      "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
+      "summary_basis": "headline_only",
+      "translation_status": "machine_headline",
+      "localized_at": "2026-11-13"
+    },
+    {
+      "title": "Guinness Atkinson Funds - Guinness Atkinson K-Beauty ETF (KBTY) stock price, news, quote and history - Yahoo Finance Singapore",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1iZUVENkJyVkx5UlMxVm5KVVQtdmFpQzFJak05LXgxRUgzQ0NsNmNWWEZYemJTdGVycjBkbW0xNy13V2tMa2JaV00wUHpCY19Tamc?oc=5",
+      "published": "2026-11-12",
+      "category": "KBTY ETF",
+      "country": "US",
+      "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
+      "publisher": "Yahoo Finance Singapore",
+      "title_ko": "Guinness Atkinson Funds - Guinness Atkinson K-Beauty ETF(KBTY) 주가, 뉴스, 시세 및 내역",
+      "summary_ko": "K-뷰티 ETF의 등록·상장 동향을 다룬 보도입니다. 실제 상장 여부와 에이피알 편입 비중은 운용사·거래소 발표로 확인해야 합니다.",
+      "summary_basis": "headline_only",
+      "translation_status": "machine_headline",
+      "localized_at": "2026-11-13"
     },
     {
       "title": "My Mom, 42, Uses This $22 Medicube Serum for Plump Skin—and Shoppers Say It’s Like “You’ve Had Botox” - InStyle",
@@ -114,7 +174,7 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "42세인 제 어머니는 탱탱한 피부를 위해 22달러짜리 Medicube 세럼을 사용하시는데, 구매자들은 마치 \"보톡스를 맞은 것 같다\"고 말합니다.",
       "summary_ko": "미국 시장의 메디큐브 AGE-R 뷰티기기 또는 스킨케어 신제품 관련 보도입니다. 기사 제목만으로 판매량·제품 인증·매출 기여도를 확정할 수 없습니다.",
       "summary_basis": "headline_only",
@@ -144,7 +204,7 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "조각처럼 보이는 광대뼈에 대한 나의 비밀-메디큐브의 에이지-알 부스터 프로가 블랙 프라이데이에 25% 할인됩니다",
       "summary_ko": "미국 시장의 메디큐브 AGE-R 뷰티기기 또는 스킨케어 신제품 관련 보도입니다. 기사 제목만으로 판매량·제품 인증·매출 기여도를 확정할 수 없습니다.",
       "summary_basis": "headline_only",
@@ -189,7 +249,7 @@
       "category": "미국 오프라인 유통",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "다이슨, 메디큐브, 랑콤: 최신 얼타 얼리 블랙 프라이데이 특가",
       "summary_ko": "미국의 메디큐브 입점·오프라인 유통 채널 확대 관련 보도입니다. 매장 입점 사실과 실제 매장별 판매량·재주문은 구분해서 확인해야 합니다.",
       "summary_basis": "headline_only",
@@ -224,7 +284,7 @@
       "summary_ko": "칠레 현지 매체가 메디큐브의 PN 스킨부스터 출시 소식과 주사형 제품의 작용 방식에 관해 소개했습니다. 매출 규모나 인허가는 기사 제목에서 확인되지 않습니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "DUPLOS.CL"
     },
     {
@@ -264,7 +324,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "브라질에서 한국 스킨케어 제품을 어디서 구매할 수 있나요?",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -279,12 +339,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브, 주사형 미용 제품의 첫 해외 출시 시장으로 칠레 선택",
       "summary_ko": "메디큐브가 스킨케어에서 의료미용 분야로 사업을 확장하면서 칠레를 첫 출시 시장으로 선정했다는 현지 보도입니다. 실제 현지 판매와 재주문은 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "FayerWayer"
     },
     {
@@ -294,12 +354,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브, 주사형 미용 제품의 첫 해외 출시 시장으로 칠레 선택",
       "summary_ko": "메디큐브가 스킨케어에서 의료미용 분야로 사업을 확장하면서 칠레를 첫 출시 시장으로 선정했다는 현지 보도입니다. 실제 현지 판매와 재주문은 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Publimetro"
     },
     {
@@ -309,12 +369,12 @@
       "category": "미국 오프라인 유통",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "울타, 블랙프라이데이 조기 할인…메디큐브 등 최대 50% 할인",
       "summary_ko": "미국 NBC가 Ulta의 조기 블랙프라이데이 행사에 메디큐브가 포함됐다고 소개했습니다. 할인 행사 참여와 실제 판매액은 구분해서 봐야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "NBC News"
     },
     {
@@ -339,12 +399,12 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국에서 화제인 메디큐브 뷰티기기, 어떤 용도일까?",
       "summary_ko": "미국 뷰티 매체 Byrdie가 메디큐브의 인기 뷰티기기 사용 목적을 소개했습니다. 제품에 대한 관심 보도이며 판매량 자료는 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Byrdie"
     },
     {
@@ -354,12 +414,12 @@
       "category": "미국 오프라인 유통",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "에이피알 메디큐브, 미국 코스트코 약 400개 매장 입점",
       "summary_ko": "미국 UPI가 메디큐브의 코스트코 약 400개 매장 진출을 보도했습니다. 입점 매장 수와 소비자 판매 실적은 별개입니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "upi"
     },
     {
@@ -369,12 +429,12 @@
       "category": "미국 오프라인 유통",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브, 미국 코스트코 약 400개 매장 진출",
       "summary_ko": "미국 코스트코 입점을 통한 오프라인 유통 확대를 다룬 보도입니다. 초기 입점과 이후 재주문·판매량을 구분해서 관찰해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "BigGo Finance"
     },
     {
@@ -399,12 +459,12 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "NBC, 메디큐브 화제 제품 12종 이상 직접 사용·비교",
       "summary_ko": "미국 NBC가 메디큐브 제품 여러 개를 사용해 본 리뷰를 소개했습니다. 소비자 노출도와 리뷰이지 판매 실적을 보여주는 기사는 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "NBC News"
     },
     {
@@ -414,12 +474,12 @@
       "category": "미국 Amazon·온라인",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브, 아마존 프라임데이 스킨케어 제품 할인 행사",
       "summary_ko": "메디큐브 스킨케어 제품의 프라임데이 할인 정보를 소개한 기사입니다. 할인율과 실제 판매량은 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "The Independent"
     },
     {
@@ -429,12 +489,12 @@
       "category": "미국 Amazon·온라인",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브, 10월 프라임데이 40% 할인 행사",
       "summary_ko": "미국 현지 매체가 메디큐브의 10월 아마존 프라임 행사 할인을 소개했습니다. 행사 이후 수요 지속 여부는 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "The Cut"
     },
     {
@@ -459,12 +519,12 @@
       "category": "미국 Amazon·온라인",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 프라임데이, 유명인들이 즐겨 쓰는 메디큐브 제품 할인",
       "summary_ko": "미국 연예 매체 Page Six가 메디큐브 인기 제품의 프라임데이 할인 정보를 소개했습니다. 유명인 언급이나 할인 행사는 실제 판매량 자료가 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Page Six"
     },
     {
@@ -479,7 +539,7 @@
       "summary_ko": "뷰티 전문 매체 WWD가 미국 아마존 행사에서 메디큐브 인기 제품 할인 소식을 소개했습니다. 할인 행사와 매출 성장률은 구분해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "WWD"
     },
     {
@@ -489,12 +549,12 @@
       "category": "미국 Amazon·온라인",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브 토너패드·콜라겐 마스크, 미국 할인 행사 대상",
       "summary_ko": "메디큐브 대표 스킨케어 제품의 할인 정보를 소개한 기사입니다. 미국 소비자 관심 동향을 보여주는 참고 보도로 활용할 수 있습니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Glamour"
     },
     {
@@ -509,7 +569,7 @@
       "summary_ko": "미국 매체 PureWow가 메디큐브 화제 제품의 할인 행사와 사용 후기를 다뤘습니다. 할인 정보와 실제 판매 성과는 구분해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "PureWow"
     },
     {
@@ -534,13 +594,13 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
-      "publisher": "NewBeauty",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "일상 스킨케어 루틴에 추가할 만한 최고의 메디큐브 제품 12가지",
       "summary_ko": "미국 시장의 메디큐브 AGE-R 뷰티기기 또는 스킨케어 신제품 관련 보도입니다. 기사 제목만으로 판매량·제품 인증·매출 기여도를 확정할 수 없습니다.",
       "summary_basis": "headline_only",
       "translation_status": "machine_headline",
-      "localized_at": "2026-11-12"
+      "localized_at": "2026-11-12",
+      "publisher": "NewBeauty"
     },
     {
       "title": "Medicube, la marca coreana favorita de las celebridades, debuta en productos inyectables y elige a Chile como su primer mercado mundial - Diario Estrategia",
@@ -549,12 +609,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브, 주사형 미용 제품 첫 글로벌 시장으로 칠레 선택",
       "summary_ko": "칠레 매체가 메디큐브의 주사형 미용 제품 진출과 칠레 시장 선정 소식을 다뤘습니다. 출고·판매 실적과 허가 여부는 공식 자료로 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Diario Estrategia"
     },
     {
@@ -564,12 +624,12 @@
       "category": "미국 Amazon·온라인",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 아마존, 메디큐브 인기 제품 특가 판매",
       "summary_ko": "미국 NBC가 메디큐브 제품의 아마존 할인 행사를 소개했습니다. 실제 매출액을 제시하는 기사는 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "NBC News"
     },
     {
@@ -584,7 +644,7 @@
       "summary_ko": "미국 소비자 관점에서 메디큐브 부스터 프로 기기의 장단점을 살펴보는 리뷰 보도입니다. 평판과 판매량은 다르게 판단해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Yahoo"
     },
     {
@@ -594,12 +654,12 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 매체, 메디큐브 AGE-R 부스터 프로의 실제 사용 가치 평가",
       "summary_ko": "미국 소비자 관점에서 메디큐브 부스터 프로 기기의 장단점을 살펴보는 리뷰 보도입니다. 평판과 판매량은 다르게 판단해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Harper's BAZAAR"
     },
     {
@@ -609,12 +669,12 @@
       "category": "의료기기 HIFU·RF",
       "country": "KR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "홈뷰티에서 의료기기로…에이피알의 사업 확장",
       "summary_ko": "에이피알이 홈뷰티 기기 이후 의료기기 사업으로 영역을 넓히는 전략을 소개한 보도입니다. 제품 허가나 매출 발생을 직접 증명하는 내용은 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "미디어펜"
     },
     {
@@ -624,7 +684,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "K-드라마에 대한 호기심에서 외교적 의제에 이르기까지: 한국 미용이 브라질에서 미화 5,400만 달러 규모의 사업이 된 방법",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -639,12 +699,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "연어 DNA로 피부를 젊게? 칠레에 확산된 한국 뷰티 트렌드 점검",
       "summary_ko": "칠레 매체가 연어 DNA 성분을 활용한 피부미용 트렌드와 효능에 관한 궁금증을 다룹니다. 메디큐브의 실제 판매량을 확인하는 기사는 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "24horas"
     },
     {
@@ -659,7 +719,7 @@
       "summary_ko": "미국 CNBC가 에이피알 주가 흐름과 미국 코스트코 진출 계획을 함께 다뤘습니다. 주가 변화와 실제 미국 매출 성과는 구분해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "CNBC"
     },
     {
@@ -669,12 +729,12 @@
       "category": "미국 오프라인 유통",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 CNBC, 에이피알 주가 상승과 코스트코 진출 계획 보도",
       "summary_ko": "미국 CNBC가 에이피알 주가 흐름과 미국 코스트코 진출 계획을 함께 다뤘습니다. 주가 변화와 실제 미국 매출 성과는 구분해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "CNBC"
     },
     {
@@ -684,12 +744,12 @@
       "category": "미국 Amazon·온라인",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 아마존, 메디큐브 인기 제품 10달러대 특가",
       "summary_ko": "미국 아마존의 메디큐브 인기 제품 할인 행사를 소개한 기사입니다. 특가 소개만으로 실제 판매 수량을 알 수는 없습니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Yahoo"
     },
     {
@@ -699,12 +759,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "한국 뷰티 브랜드, 연어 DNA 주사형 제품을 칠레에 먼저 선보일 계획",
       "summary_ko": "칠레가 한국 뷰티 브랜드의 연어 DNA 기반 주사형 미용 제품 첫 진출 시장으로 언급됐다는 소식입니다. 실제 도입 병원과 판매량은 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Meganoticias"
     },
     {
@@ -714,12 +774,12 @@
       "category": "칠레 클리닉",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "한국 뷰티 브랜드, 연어 DNA 주사형 제품을 칠레에 먼저 선보일 계획",
       "summary_ko": "칠레가 한국 뷰티 브랜드의 연어 DNA 기반 주사형 미용 제품 첫 진출 시장으로 언급됐다는 소식입니다. 실제 도입 병원과 판매량은 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Meganoticias"
     },
     {
@@ -729,12 +789,12 @@
       "category": "의료기기 HIFU·RF",
       "country": "KR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "에이피알, 뷰티 디바이스에서 AI 기반 개인형 헬스케어로 영역 확대 모색",
       "summary_ko": "에이피알의 뷰티 디바이스 사업을 AI 기반 개인 맞춤형 헬스케어로 확장하려는 방향과 연결해 조명한 기사입니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "https://www.dhtimes.co.kr/"
     },
     {
@@ -744,12 +804,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "한국 뷰티 브랜드, 칠레에서 연어 DNA 주사형 미용 사업 추진",
       "summary_ko": "칠레 현지 매체가 주사형 연어 DNA 미용 제품의 사업 진출을 소개합니다. 현지 수요 확대 여부와 실제 공급 물량은 별도로 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "The Clinic"
     },
     {
@@ -759,12 +819,12 @@
       "category": "칠레 스킨부스터",
       "country": "CL",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "메디큐브 모회사, 칠레를 연어 DNA 주사형 사업의 첫 시장으로 선택",
       "summary_ko": "칠레 경제 매체가 메디큐브를 보유한 한국 뷰티기업의 신규 주사형 제품 진출 계획을 보도했습니다. 현지 판매·재주문은 확정되지 않았습니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Forbes Chile"
     },
     {
@@ -774,12 +834,12 @@
       "category": "의료기기 HIFU·RF",
       "country": "KR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "에이피알, 메디컬 에스테틱으로 사업 확대…EBD 주목",
       "summary_ko": "에이피알의 수익성과 에너지 기반 의료미용기기(EBD) 사업 확장 전략을 함께 다룬 기사입니다. 구체적인 신사업 매출은 별도 공시 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "뉴스핌"
     },
     {
@@ -789,7 +849,7 @@
       "category": "아르헨티나 메디큐브",
       "country": "AR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "한국 스킨케어를 위한 Furor: 부에노스아이레스에 새로운 입지를 개척한 유명한 국제 브랜드",
       "summary_ko": "아르헨티나 현지의 메디큐브·스킨케어 유통 관련 보도입니다. 검색 관심도와 실제 매출·수입실적은 구분해서 확인해야 합니다.",
       "summary_basis": "headline_only",
@@ -809,7 +869,7 @@
       "summary_ko": "미국 People이 메디큐브 신형 적색광 피부관리 기기를 사용한 후기를 소개했습니다. 개인 체험담이며 임상적 효능이나 판매량의 증거는 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "People.com"
     },
     {
@@ -819,7 +879,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "시장의 변화가 일어나기 시작합니다. 그리고 당신은 그것을 당신의 피부에서 느낄 것입니다.",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -834,7 +894,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "한국의 아름다움은 BH의 선반에 도달하고 스킨 케어 및 헤어 케어 제품에 대한 액세스를 확장합니다.",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -849,7 +909,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "K-뷰티는 브라질에서 아시아 화장품이 성장하는 원동력입니다.",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -864,12 +924,12 @@
       "category": "KBTY ETF",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "기네스앳킨슨, 미국 상장 K뷰티 ETF 등록서류 제출",
       "summary_ko": "미국 시장에 K뷰티 ETF를 상장하기 위한 등록서류 제출 소식을 보도한 기사입니다. 등록만으로 상장 완료나 APR 편입비중 확정을 의미하지는 않습니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Global Cosmetics News"
     },
     {
@@ -879,12 +939,12 @@
       "category": "KBTY ETF",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "K뷰티 ETF, 미국 증시 진출 추진",
       "summary_ko": "미국 시장에서 한국 뷰티기업을 투자 대상으로 하는 ETF 출시 움직임을 다뤘습니다. 실제 상장일과 에이피알 편입 여부는 공식자료로 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "The Korea Herald"
     },
     {
@@ -899,7 +959,7 @@
       "summary_ko": "미국 뷰티 매체 하퍼스 바자가 추천하는 메디큐브 제품의 할인 정보를 다룹니다. 리뷰와 가격 할인은 판매량을 직접 증명하지 않습니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Harper's BAZAAR"
     },
     {
@@ -909,12 +969,12 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-10T07:59:52+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 Allure, 메디큐브 부스터 프로 X2와 기존 모델 비교",
       "summary_ko": "미국 뷰티 매체 Allure가 메디큐브 신형 부스터 프로 X2의 개선점을 기존 모델과 비교했습니다. 제품 관심도 관련 보도입니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Allure"
     },
     {
@@ -954,12 +1014,12 @@
       "category": "미국 뷰티기기·신제품",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "미국 Vogue, 메디큐브 부스터 프로 X2 직접 체험",
       "summary_ko": "미국 Vogue가 서울에서 메디큐브 부스터 프로 X2를 사용해 본 내용을 다뤘습니다. 매체 노출과 실제 미국 판매량을 구분해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Vogue"
     },
     {
@@ -969,7 +1029,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "10단계 루틴에서 10억 달러 시장으로: 브라질에서의 한국 미의 침략",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -989,7 +1049,7 @@
       "summary_ko": "미국 뷰티 매체 Refinery29가 메디큐브 스킨케어 제품을 사용해 보고 평가한 기사입니다. 소비자 관심도 참고자료로 볼 수 있지만 매출 자료는 아닙니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Refinery29"
     },
     {
@@ -999,7 +1059,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "가장 인기 있는 아시아 스킨케어 브랜드가 드디어 브라질에 출시됩니다.",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -1014,7 +1074,7 @@
       "category": "브라질 메디큐브",
       "country": "BR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "K-뷰티, C-뷰티, J-뷰티: 브라질에 출시되는 9개의 아시아 브랜드를 만나보세요!",
       "summary_ko": "브라질 현지의 메디큐브 제품과 K-뷰티 유통 동향을 다룬 보도입니다. 실제 판매량·공식 유통 계약 여부는 별도 확인이 필요합니다.",
       "summary_basis": "headline_only",
@@ -1044,12 +1104,12 @@
       "category": "의료기기 HIFU·RF",
       "country": "KR",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "에이피알, 의료미용기기 사업 진출에 속도",
       "summary_ko": "에이피알이 미용기기 성장 전략에 더해 의료미용 분야 진출을 추진한다는 내용의 기사입니다. 실제 제품 출시·인허가·매출은 공식 발표 확인이 필요합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "비즈니스포스트"
     },
     {
@@ -1074,12 +1134,12 @@
       "category": "미국 오프라인 유통",
       "country": "US",
       "classification": "관련 기사 — 미검증 (매출·인허가 확정 아님)",
-      "discovered_at": "2026-11-12T23:14:04+00:00",
+      "discovered_at": "2026-11-13T08:08:44+00:00",
       "title_ko": "블룸버그, 메디큐브의 미국 코스트코·월마트 진출 전망 보도",
       "summary_ko": "블룸버그가 미국 코스트코·월마트를 통한 메디큐브 유통 확대 계획을 다뤘습니다. 계획 단계와 실제 입점 완료 시점을 나눠 확인해야 합니다.",
       "summary_basis": "headline_only",
       "translation_status": "editorial_headline",
-      "localized_at": "2026-11-12",
+      "localized_at": "2026-11-13",
       "publisher": "Bloomberg"
     }
   ],
@@ -1090,9 +1150,9 @@
     "editorial": 38,
     "new_or_native": 4,
     "pending": 0,
-    "free_translation_chars_reserved_today": 599,
+    "free_translation_chars_reserved_today": 311,
     "free_translation_chars_daily_cap": 4000,
-    "free_translation_chars_reserved_24h": 599,
+    "free_translation_chars_reserved_24h": 910,
     "skipped_quota": 0,
     "errors": []
   },
