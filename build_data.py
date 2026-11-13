@@ -20,7 +20,7 @@ import urllib.error
 from pathlib import Path
 from urllib import parse, request
 import xml.etree.ElementTree as ET
-from kbty_official import parse_official
+from kbty_official import parse_official, apply_official
 from indicator_engine import calculate
 import update_data
 from optional_free_api import Budget, update_trends
@@ -99,10 +99,14 @@ def collect_kbty():
       'status':'현재 거래·상장 상태 미확인', 'launch_expected':None,
       'latest_price_usd':None,'price_date':None,'aum_usd':None,'nav_usd':None,
       'apr_weight_pct':None,'apr_shares':None,'apr_holding_as_of':None,
-      'source_note':'가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.',
+      'source_note':'가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 운용사 날짜·전체 표 검증 자동 추출. 접근 실패 시 이전 검증값 유지. 수동 입력은 자동 수집 아님. 미확인 항목은 null.',
       'price_history':previous.get('price_history',[]),'aum_history':previous.get('aum_history',[]),
+      'holdings_history':previous.get('holdings_history',[]),'nav_history':previous.get('nav_history',[]),
+      'official_price_usd':previous.get('official_price_usd'),'official_price_as_of':previous.get('official_price_as_of'),
       'holdings':previous.get('holdings',[]),'errors':[]
     }
+    seed=read_json(IMPORTS/'kbty_official_snapshot.json',{})
+    if seed.get('source_url')==official:apply_official(state,seed)
     state['official_checked_at']=NOW
     state['official_data_state']='fetch_failed'
     state['holdings_publication_state']='unverified'
@@ -110,11 +114,12 @@ def collect_kbty():
     if doc:
         parsed=parse_official(doc)
         state.update(parsed)
+        apply_official(state,parsed)
         # Keep undated official values separate: they are not a dated NAV/AUM history point.
     else:
         state['status']='운용사 사이트 접근 실패 / 현재 거래 여부 미확인'
         for k in ('aum_usd','nav_usd','apr_weight_pct','apr_shares','apr_holding_as_of','latest_price_usd','price_date'):
-            state[k]=previous.get(k)
+            state[k]=state.get(k) if state.get(k) is not None else previous.get(k)
     # Public Yahoo price chart: it is a *fallback price source*, not an official ETF fact.
     try:
         j=json.loads(fetch('https://query1.finance.yahoo.com/v8/finance/chart/KBTY?range=6mo&interval=1d').decode())
@@ -134,6 +139,10 @@ def collect_kbty():
             state['status']='거래가격 관측 (운용사에서 상장 여부 확인 필요)' if not doc or 'expected to begin' not in doc else '거래가격 관측 / 운용사 상장예정 안내 확인 필요'
     except Exception as e:
         state['errors'].append('KBTY 비공식 주가 미확인: '+str(e)[:120])
+    if state.get('official_price_usd') and state.get('official_price_as_of','') >= (state.get('price_date') or ''):
+        state['latest_price_usd']=state['official_price_usd'];state['price_date']=state['official_price_as_of']
+        state['price_source']='운용사 공식 종가'
+    if state.get('trading_confirmed'):state['status']='NYSE Arca 거래 중 (운용사 공식 확인)'
     # AUM & holdings from verifiable official-source CSV (user-provided record, never simulated).
     aum_items=[]
     for r in load_csv('kbty_aum.csv'):
@@ -154,11 +163,11 @@ def collect_kbty():
                          'weight_pct':wt,'shares':safe_num(r.get('shares'),0,1e12),'source_url':r['source_url']})
     if holdings:
         latest=max(x['as_of'] for x in holdings)
-        state['holdings']=[x for x in holdings if x['as_of']==latest]
+        if latest>=(state.get('holdings_as_of') or ''):state['holdings']=[x for x in holdings if x['as_of']==latest]
     current=state['holdings'];has_holdings=bool(current)
     if has_holdings:
-        candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS','278470 KS') or
-                                             x.get('name','').strip().upper() in ('APR','APR CORPORATION','APR CORP','APR CORP.','에이피알'))]
+        candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS','278470 KS','A278470') or
+                                             x.get('name','').strip().upper() in ('APR','APR CORPORATION','APR CORP','APR CORP.','APR CORP/KOREA','에이피알'))]
         if candidates:
             state['apr_weight_pct']=sum(x['weight_pct'] for x in candidates)
             state['apr_shares']=(sum(x['shares'] for x in candidates)
@@ -377,3 +386,4 @@ def main():
     return 0
 
 if __name__=='__main__':sys.exit(main())
+
