@@ -17,3 +17,29 @@ class Official(unittest.TestCase):
  def test_no_fake_nav_from_prose(self):
   s=parse_official('Fund facts Expense ratio 0.55% Performance NAV $25.20')
   self.assertEqual(s['official_metrics'],{})
+
+
+class DatedTables(unittest.TestCase):
+ def fixture(self):
+  from pathlib import Path
+  return (Path(__file__).parent/'fixtures/kbty-official-2026-11-12.html').read_text()
+ def test_real_page(self):
+  from kbty_official import apply_official
+  parsed=parse_official(self.fixture());state={};apply_official(state,parsed)
+  self.assertEqual(state['nav_usd'],25.23)
+  self.assertEqual(state['nav_as_of'],'2026-11-12')
+  self.assertEqual(len(state['holdings_history']),2)
+  self.assertEqual(len(state['holdings']),26)
+  apr=next(r for r in state['holdings'] if r['ticker']=='A278470')
+  self.assertEqual((apr['weight_pct'],apr['shares']),(6.19,86))
+  self.assertNotIn('aum_usd',state)
+ def test_partial_table_is_rejected(self):
+  import re
+  doc=re.sub(r'<tbody id="kbty-h[12]-all".*?</tbody>','',self.fixture(),flags=re.S)
+  self.assertEqual(parse_official(doc)['holdings_snapshots'],[])
+ def test_history_does_not_regress(self):
+  from kbty_official import apply_official
+  state={};p=parse_official(self.fixture());apply_official(state,p)
+  p['holdings_snapshots']=p['holdings_snapshots'][:1];p['official_metrics']={}
+  apply_official(state,p)
+  self.assertEqual(state['holdings_as_of'],'2026-11-12')
