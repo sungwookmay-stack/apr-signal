@@ -6,7 +6,7 @@ from pathlib import Path
 
 from flows_engine import evaluate, month_data, refresh_saved_analysis
 from flows_collect import (get_isin, normalize_investor_dataframe, merge_by_date,
-                           normalize_short_dataframe, read_ksd)
+                           normalize_short_dataframe, read_ksd, read_imports)
 
 
 def days(n=80, neg=False):
@@ -48,6 +48,27 @@ class Frame:
 
 
 class FlowTests(unittest.TestCase):
+    def test_import_preserves_decimal_ratios_and_source(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'short.csv'
+            p.write_text('date,ticker,source_url,short_value_ratio_pct,short_volume_ratio_pct\n'
+                         '2026-11-09,278470,https://data.krx.co.kr/,2.35,0\n', encoding='utf8')
+            rows=read_imports(p, ('short_value_ratio_pct','short_volume_ratio_pct'))
+            self.assertEqual(rows[0]['short_value_ratio_pct'],2.35)
+            self.assertEqual(rows[0]['short_volume_ratio_pct'],0)
+            self.assertEqual(rows[0]['source_url'],'https://data.krx.co.kr/')
+            self.assertEqual(rows[0]['record_status'],'manual_source_linked_unverified')
+
+    def test_import_rejects_other_ticker_future_and_bad_ratios(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'short.csv'
+            p.write_text('date,ticker,source_url,short_value_ratio_pct\n'
+                         '2026-11-09,005930,https://data.krx.co.kr/,3\n'
+                         '2099-11-09,278470,https://data.krx.co.kr/,3\n'
+                         '2026-11-09,278470,https://data.krx.co.kr/,NaN\n'
+                         '2026-11-09,278470,https://data.krx.co.kr/,101\n',encoding='utf8')
+            self.assertEqual(read_imports(p,('short_value_ratio_pct',)),[])
+
     def test_isin_is_valid_for_known_samsung(self):
         self.assertEqual(get_isin('005930'),'KR7005930003')
         self.assertEqual(len(get_isin('278470')),12)
