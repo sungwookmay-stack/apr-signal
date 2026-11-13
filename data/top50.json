@@ -2247,68 +2247,1196 @@
         }
       ],
       "exited": []
+    },
+    {
+      "country": "US",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 1,
+          "items": [
+            {
+              "rank": 8,
+              "asin": "B09V7Z4TJG",
+              "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.4",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 8,
+              "rank_change": 0,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 1,
+      "items": [
+        {
+          "rank": 8,
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.4",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 8,
+          "rank_change": 0,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
+    },
+    {
+      "country": "GB",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 3,
+          "items": [
+            {
+              "rank": 5,
+              "asin": "B09V7Z4TJG",
+              "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.4",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 4,
+              "rank_change": -1,
+              "movement": "ranked"
+            },
+            {
+              "rank": 9,
+              "asin": "B0CM2PPNMW",
+              "title": "medicube Jelly Cream with Collagen & Niacinamide, 3.71 fl.oz | Freeze-Dried Hydrolyzed Collagen for Skin Barrier Hydration &",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 13,
+              "rank_change": 4,
+              "movement": "ranked"
+            },
+            {
+              "rank": 15,
+              "asin": "B0DGTMR754",
+              "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, 4EA | Overnight Face Mask for Glass Glow Skin - Elasticity, Hydra",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 11,
+              "rank_change": -4,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 3,
+      "items": [
+        {
+          "rank": 5,
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Toner Pads Zero Pore Pad 2.0 for Exfoliation and Pore Care | Dual-Textured Facial Pad with 4.5% AHA Lactic Acid, 0.4",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 4,
+          "rank_change": -1,
+          "movement": "ranked"
+        },
+        {
+          "rank": 9,
+          "asin": "B0CM2PPNMW",
+          "title": "medicube Jelly Cream with Collagen & Niacinamide, 3.71 fl.oz | Freeze-Dried Hydrolyzed Collagen for Skin Barrier Hydration &",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 13,
+          "rank_change": 4,
+          "movement": "ranked"
+        },
+        {
+          "rank": 15,
+          "asin": "B0DGTMR754",
+          "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, 4EA | Overnight Face Mask for Glass Glow Skin - Elasticity, Hydra",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 11,
+          "rank_change": -4,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
+    },
+    {
+      "country": "DE",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 1,
+          "items": [
+            {
+              "rank": 44,
+              "asin": "B09V7Z4TJG",
+              "title": "medicube Zero Pore Pad 2.0 Peeling Tonerpads für Porenpflege | Doppelseitiges Gesichtspad mit 4,5% AHA & 0,45% BHA, Milchsäur",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 44,
+              "rank_change": 0,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 1,
+      "items": [
+        {
+          "rank": 44,
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Zero Pore Pad 2.0 Peeling Tonerpads für Porenpflege | Doppelseitiges Gesichtspad mit 4,5% AHA & 0,45% BHA, Milchsäur",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 44,
+          "rank_change": 0,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
+    },
+    {
+      "country": "FR",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 6,
+          "items": [
+            {
+              "rank": 16,
+              "asin": "B09V7Z4TJG",
+              "title": "medicube Zero Pore Pad 2.0 Pads Exfoliants Soin des Pores | Pad double texture AHA 4,5% & BHA 0,45%, Acides lactique et salic",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 14,
+              "rank_change": -2,
+              "movement": "ranked"
+            },
+            {
+              "rank": 20,
+              "asin": "B0DTKCN3Z4",
+              "title": "medicube Crème Capsule PDRN Pink Collagène ADN de Saumon | Crème légère éclat, PDRN, Niacinamide, Hydratation, Soin du teint",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 22,
+              "rank_change": 2,
+              "movement": "ranked"
+            },
+            {
+              "rank": 38,
+              "asin": "B0BRMYHMS5",
+              "title": "medicube Masque Wrapping Collagène Peel Off Nuit 75 ml | Soin hydratation & élasticité avec collagène hydrolysé, Pour un tein",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 41,
+              "rank_change": 3,
+              "movement": "ranked"
+            },
+            {
+              "rank": 42,
+              "asin": "B0GHMZXX8Y",
+              "title": "medicube Stick Baume Multi Volume PDRN Pink Collagène Visage & Corps | Volufiline, PDRN, NAD, Collagène, Soin yeux, cou, fron",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 34,
+              "rank_change": -8,
+              "movement": "ranked"
+            },
+            {
+              "rank": 43,
+              "asin": "B0CM2PPNMW",
+              "title": "medicube Jelly Crème au Collagène & Niacinamide 110 ml | Collagène hydrolysé lyophilisé pour barrière cutanée & Glow 24H, Pea",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 39,
+              "rank_change": -4,
+              "movement": "ranked"
+            },
+            {
+              "rank": 47,
+              "asin": "B0D1G7XF9X",
+              "title": "medicube Zero Pore Masque Argile Points Noirs Soin des Pores | Masque à l’argile AHA BHA PHA, Soin des pores, Points noirs, E",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 40,
+              "rank_change": -7,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 6,
+      "items": [
+        {
+          "rank": 16,
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Zero Pore Pad 2.0 Pads Exfoliants Soin des Pores | Pad double texture AHA 4,5% & BHA 0,45%, Acides lactique et salic",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 14,
+          "rank_change": -2,
+          "movement": "ranked"
+        },
+        {
+          "rank": 20,
+          "asin": "B0DTKCN3Z4",
+          "title": "medicube Crème Capsule PDRN Pink Collagène ADN de Saumon | Crème légère éclat, PDRN, Niacinamide, Hydratation, Soin du teint",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 22,
+          "rank_change": 2,
+          "movement": "ranked"
+        },
+        {
+          "rank": 38,
+          "asin": "B0BRMYHMS5",
+          "title": "medicube Masque Wrapping Collagène Peel Off Nuit 75 ml | Soin hydratation & élasticité avec collagène hydrolysé, Pour un tein",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 41,
+          "rank_change": 3,
+          "movement": "ranked"
+        },
+        {
+          "rank": 42,
+          "asin": "B0GHMZXX8Y",
+          "title": "medicube Stick Baume Multi Volume PDRN Pink Collagène Visage & Corps | Volufiline, PDRN, NAD, Collagène, Soin yeux, cou, fron",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 34,
+          "rank_change": -8,
+          "movement": "ranked"
+        },
+        {
+          "rank": 43,
+          "asin": "B0CM2PPNMW",
+          "title": "medicube Jelly Crème au Collagène & Niacinamide 110 ml | Collagène hydrolysé lyophilisé pour barrière cutanée & Glow 24H, Pea",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 39,
+          "rank_change": -4,
+          "movement": "ranked"
+        },
+        {
+          "rank": 47,
+          "asin": "B0D1G7XF9X",
+          "title": "medicube Zero Pore Masque Argile Points Noirs Soin des Pores | Masque à l’argile AHA BHA PHA, Soin des pores, Points noirs, E",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 40,
+          "rank_change": -7,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
+    },
+    {
+      "country": "IT",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 7,
+          "items": [
+            {
+              "rank": 4,
+              "asin": "B0CM2PPNMW",
+              "title": "medicube Jelly Cream with Collagen, Niacinamide | Crema Viso con Collagene Idrolizzato, Effetto Idratazione & Glow 24 Ore, Pe",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 5,
+              "rank_change": 1,
+              "movement": "ranked"
+            },
+            {
+              "rank": 6,
+              "asin": "B0D2Z3GGCY",
+              "title": "medicube Capsule Cream with Deep Vitamin C | Crema con Capsule di Vitamina C, Luminosità e Pelle dall'Aspetto Più Uniforme, G",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 6,
+              "rank_change": 0,
+              "movement": "ranked"
+            },
+            {
+              "rank": 14,
+              "asin": "B0D1G7XF9X",
+              "title": "medicube Zero Pore Blackhead Mud Facial Mask | Maschera all'Argilla Coreanaz Rinfrescante, Restringe i Pori, Formula Rapida 3",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 13,
+              "rank_change": -1,
+              "movement": "ranked"
+            },
+            {
+              "rank": 20,
+              "asin": "B0DBF65JYY",
+              "title": "medicube PDRN Pink Peptide Serum with Salmon DNA | Siero con Peptidi e Niacinamide per Idratazione e Pelle dall'Aspetto Più C",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 17,
+              "rank_change": -3,
+              "movement": "ranked"
+            },
+            {
+              "rank": 22,
+              "asin": "B09V7Z4TJG",
+              "title": "medicube Toner Pads Zero Pore Pad 2.0 | Toner Pads Doppia Texture per Esfoliazione & Pori con 4,5% AHA & 0,45% BHA, Tutti Tip",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 19,
+              "rank_change": -3,
+              "movement": "ranked"
+            },
+            {
+              "rank": 27,
+              "asin": "B0DWMSM6Y9",
+              "title": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | Retinolo al 99% per Linee Sottili, PDRN e Niacinamide per Tono dell",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 25,
+              "rank_change": -2,
+              "movement": "ranked"
+            },
+            {
+              "rank": 36,
+              "asin": "B0GCC2JV65",
+              "title": "medicube NAD EGF Firming Serum for Face & Neck | Siero Anti-Età con Peptide & Collagene, Riduce Le Linee dell'Età, Migliora E",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 30,
+              "rank_change": -6,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 7,
+      "items": [
+        {
+          "rank": 4,
+          "asin": "B0CM2PPNMW",
+          "title": "medicube Jelly Cream with Collagen, Niacinamide | Crema Viso con Collagene Idrolizzato, Effetto Idratazione & Glow 24 Ore, Pe",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 5,
+          "rank_change": 1,
+          "movement": "ranked"
+        },
+        {
+          "rank": 6,
+          "asin": "B0D2Z3GGCY",
+          "title": "medicube Capsule Cream with Deep Vitamin C | Crema con Capsule di Vitamina C, Luminosità e Pelle dall'Aspetto Più Uniforme, G",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 6,
+          "rank_change": 0,
+          "movement": "ranked"
+        },
+        {
+          "rank": 14,
+          "asin": "B0D1G7XF9X",
+          "title": "medicube Zero Pore Blackhead Mud Facial Mask | Maschera all'Argilla Coreanaz Rinfrescante, Restringe i Pori, Formula Rapida 3",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 13,
+          "rank_change": -1,
+          "movement": "ranked"
+        },
+        {
+          "rank": 20,
+          "asin": "B0DBF65JYY",
+          "title": "medicube PDRN Pink Peptide Serum with Salmon DNA | Siero con Peptidi e Niacinamide per Idratazione e Pelle dall'Aspetto Più C",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 17,
+          "rank_change": -3,
+          "movement": "ranked"
+        },
+        {
+          "rank": 22,
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Toner Pads Zero Pore Pad 2.0 | Toner Pads Doppia Texture per Esfoliazione & Pori con 4,5% AHA & 0,45% BHA, Tutti Tip",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 19,
+          "rank_change": -3,
+          "movement": "ranked"
+        },
+        {
+          "rank": 27,
+          "asin": "B0DWMSM6Y9",
+          "title": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | Retinolo al 99% per Linee Sottili, PDRN e Niacinamide per Tono dell",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 25,
+          "rank_change": -2,
+          "movement": "ranked"
+        },
+        {
+          "rank": 36,
+          "asin": "B0GCC2JV65",
+          "title": "medicube NAD EGF Firming Serum for Face & Neck | Siero Anti-Età con Peptide & Collagene, Riduce Le Linee dell'Età, Migliora E",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 30,
+          "rank_change": -6,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
+    },
+    {
+      "country": "ES",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 7,
+          "items": [
+            {
+              "rank": 1,
+              "asin": "B0DTKCN3Z4",
+              "title": "medicube Capsule Cream with Salmon DNA PDRN Pink Collagen | Crema Hidratante Ligera con PDRN y Niacinamida, Mejora el Tono y",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 2,
+              "rank_change": 1,
+              "movement": "ranked"
+            },
+            {
+              "rank": 9,
+              "asin": "B0CM2PPNMW",
+              "title": "medicube Jelly Cream with Collagen, Niacinamide | Crema Facial con Colágeno Hidrolizado, Hidratación y Glow 24 Horas, Piel Má",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 8,
+              "rank_change": -1,
+              "movement": "ranked"
+            },
+            {
+              "rank": 11,
+              "asin": "B0DBF65JYY",
+              "title": "medicube PDRN Pink Peptide Serum with Salmon DNA | Sérum con Péptidos y Niacinamida para Hidratación y una Piel de Aspecto Má",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 9,
+              "rank_change": -2,
+              "movement": "ranked"
+            },
+            {
+              "rank": 30,
+              "asin": "B0DWMSM6Y9",
+              "title": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | Retinol al 99% para Líneas Finas, PDRN y Niacinamida para el Tono d",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 26,
+              "rank_change": -4,
+              "movement": "ranked"
+            },
+            {
+              "rank": 34,
+              "asin": "B0GHMZXX8Y",
+              "title": "medicube PDRN Pink Collagen Volume Multi Balm Stick | PDRN yColágeno, Bálsamo Multiusos en Barra para Rostro, Ojos y Cuello,",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 30,
+              "rank_change": -4,
+              "movement": "ranked"
+            },
+            {
+              "rank": 35,
+              "asin": "B0GCC2JV65",
+              "title": "medicube NAD EGF Firming Serum for Face & Neck | Sérum Antiedad con Péptidos y Colágeno, Reduce Signos de la Edad y Mejora la",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 33,
+              "rank_change": -2,
+              "movement": "ranked"
+            },
+            {
+              "rank": 40,
+              "asin": "B09V7Z4TJG",
+              "title": "medicube Toner Pads Zero Pore Pad 2.0 | Discos Tónicos de Doble Textura para Exfoliación y Poros con AHA y BHA, Todo Tipo de",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 37,
+              "rank_change": -3,
+              "movement": "ranked"
+            }
+          ],
+          "exited": [
+            {
+              "rank": 48,
+              "asin": "B0GS8YKMN3",
+              "title": "medicube Booster Pro X2™ | Dispositivo Beauty 7 en 1 para Poros, Firmeza y Luminosidad, Modos Personalizados para Mascarillas",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "movement": "not_in_current_top50",
+              "current_rank": null
+            }
+          ]
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 7,
+      "items": [
+        {
+          "rank": 1,
+          "asin": "B0DTKCN3Z4",
+          "title": "medicube Capsule Cream with Salmon DNA PDRN Pink Collagen | Crema Hidratante Ligera con PDRN y Niacinamida, Mejora el Tono y",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 2,
+          "rank_change": 1,
+          "movement": "ranked"
+        },
+        {
+          "rank": 9,
+          "asin": "B0CM2PPNMW",
+          "title": "medicube Jelly Cream with Collagen, Niacinamide | Crema Facial con Colágeno Hidrolizado, Hidratación y Glow 24 Horas, Piel Má",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 8,
+          "rank_change": -1,
+          "movement": "ranked"
+        },
+        {
+          "rank": 11,
+          "asin": "B0DBF65JYY",
+          "title": "medicube PDRN Pink Peptide Serum with Salmon DNA | Sérum con Péptidos y Niacinamida para Hidratación y una Piel de Aspecto Má",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 9,
+          "rank_change": -2,
+          "movement": "ranked"
+        },
+        {
+          "rank": 30,
+          "asin": "B0DWMSM6Y9",
+          "title": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | Retinol al 99% para Líneas Finas, PDRN y Niacinamida para el Tono d",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 26,
+          "rank_change": -4,
+          "movement": "ranked"
+        },
+        {
+          "rank": 34,
+          "asin": "B0GHMZXX8Y",
+          "title": "medicube PDRN Pink Collagen Volume Multi Balm Stick | PDRN yColágeno, Bálsamo Multiusos en Barra para Rostro, Ojos y Cuello,",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 30,
+          "rank_change": -4,
+          "movement": "ranked"
+        },
+        {
+          "rank": 35,
+          "asin": "B0GCC2JV65",
+          "title": "medicube NAD EGF Firming Serum for Face & Neck | Sérum Antiedad con Péptidos y Colágeno, Reduce Signos de la Edad y Mejora la",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 33,
+          "rank_change": -2,
+          "movement": "ranked"
+        },
+        {
+          "rank": 40,
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Toner Pads Zero Pore Pad 2.0 | Discos Tónicos de Doble Textura para Exfoliación y Poros con AHA y BHA, Todo Tipo de",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 37,
+          "rank_change": -3,
+          "movement": "ranked"
+        }
+      ],
+      "exited": [
+        {
+          "rank": 48,
+          "asin": "B0GS8YKMN3",
+          "title": "medicube Booster Pro X2™ | Dispositivo Beauty 7 en 1 para Poros, Firmeza y Luminosidad, Modos Personalizados para Mascarillas",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "movement": "not_in_current_top50",
+          "current_rank": null
+        }
+      ]
+    },
+    {
+      "country": "CA",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 1,
+          "items": [
+            {
+              "rank": 24,
+              "asin": "B0CVRCR6VF",
+              "title": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores with 4.5% AHA Lactic Acid",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 29,
+              "rank_change": 5,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 1,
+      "items": [
+        {
+          "rank": 24,
+          "asin": "B0CVRCR6VF",
+          "title": "Medicube Zero Pore Pads 2.0 - Dual-Textured Facial Toner Pads for Exfoliation and Minimizing Pores with 4.5% AHA Lactic Acid",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 29,
+          "rank_change": 5,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
+    },
+    {
+      "country": "JP",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 0,
+      "items": [],
+      "exited": []
+    },
+    {
+      "country": "SA",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 0,
+      "items": [],
+      "exited": []
+    },
+    {
+      "country": "EG",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 0,
+      "items": [],
+      "exited": []
+    },
+    {
+      "country": "BR",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 0,
+      "items": [],
+      "exited": []
+    },
+    {
+      "country": "AE",
+      "category": "beauty",
+      "limit": 50,
+      "observed_at_utc": "2026-11-13T23:14:07.571573+00:00",
+      "previous_observed_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "response_complete": true,
+      "amazon_live_crosschecked": false,
+      "brand_source": "https://www.apr-in.com/en/apr_about.html",
+      "brands": {
+        "medicube": {
+          "label": "메디큐브",
+          "verified_count": 0,
+          "candidate_count": 1,
+          "items": [
+            {
+              "rank": 3,
+              "asin": "B0DGTMR754",
+              "title": "medicube قناع جل كولاجين وردي من الحمض النووي للسلمون PDRN | قناع وجه ليلي للبشرة المتوهجة كالزجاج - مرونة، ترطيب، شد وتنعيم",
+              "brand_id": "medicube",
+              "brand_status": "title_candidate",
+              "previous_rank": 3,
+              "rank_change": 0,
+              "movement": "ranked"
+            }
+          ],
+          "exited": []
+        },
+        "aprilskin": {
+          "label": "에이프릴스킨",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "forment": {
+          "label": "포맨트",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        },
+        "glamd": {
+          "label": "글램디 바이오",
+          "verified_count": 0,
+          "candidate_count": 0,
+          "items": [],
+          "exited": []
+        }
+      },
+      "ambiguous_items": [],
+      "label": "메디큐브",
+      "verified_count": 0,
+      "candidate_count": 1,
+      "items": [
+        {
+          "rank": 3,
+          "asin": "B0DGTMR754",
+          "title": "medicube قناع جل كولاجين وردي من الحمض النووي للسلمون PDRN | قناع وجه ليلي للبشرة المتوهجة كالزجاج - مرونة، ترطيب، شد وتنعيم",
+          "brand_id": "medicube",
+          "brand_status": "title_candidate",
+          "previous_rank": 3,
+          "rank_change": 0,
+          "movement": "ranked"
+        }
+      ],
+      "exited": []
     }
   ],
   "latest_checks": {
     "US": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 60.55
+      "elapsed_seconds": 23.08
     },
     "GB": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 50.16
+      "elapsed_seconds": 21.66
     },
     "DE": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 21.06
+      "elapsed_seconds": 20.85
     },
     "FR": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 21.36
+      "elapsed_seconds": 20.64
     },
     "IT": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 21.19
+      "elapsed_seconds": 20.15
     },
     "ES": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 23.92
+      "elapsed_seconds": 24.57
     },
     "CA": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 22.39
+      "elapsed_seconds": 22.29
     },
     "JP": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 22.49
+      "elapsed_seconds": 22.37
     },
     "AE": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 23.69
+      "elapsed_seconds": 25.82
     },
     "SA": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 26.64
+      "elapsed_seconds": 56.9
     },
     "EG": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 55.3
+      "elapsed_seconds": 28.22
     },
     "BR": {
-      "checked_at_utc": "2026-11-12T23:14:37.195525+00:00",
+      "checked_at_utc": "2026-11-13T23:14:07.571573+00:00",
       "status": "complete_50",
-      "elapsed_seconds": 22.21
+      "elapsed_seconds": 21.97
     }
   },
   "status": "complete",

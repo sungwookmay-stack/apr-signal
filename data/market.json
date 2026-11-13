@@ -10,9 +10,9 @@
       "EUR": "ECB official historical CSV ZIP"
     },
     "stock_last": "2026-11-13",
-    "usd_fx_last": "2026-11-12",
-    "eur_fx_last": "2026-11-12",
-    "generated_at_utc": "2026-11-13T12:17:07+00:00",
+    "usd_fx_last": "2026-11-13",
+    "eur_fx_last": "2026-11-13",
+    "generated_at_utc": "2026-11-13T23:13:07+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4629,11 +4629,11 @@
       "open_krw": 239500,
       "high_krw": 243500,
       "low_krw": 233000,
-      "usdkrw": 1334.10342,
-      "eurkrw": 1478.32,
-      "fx_usd_date": "2026-11-12",
-      "fx_eur_date": "2026-11-12",
-      "close_usd": 176.523
+      "usdkrw": 1337.13355,
+      "eurkrw": 1477.8,
+      "fx_usd_date": "2026-11-13",
+      "fx_eur_date": "2026-11-13",
+      "close_usd": 176.123
     }
   ],
   "fx": [
@@ -6501,6 +6501,11 @@
       "date": "2026-11-12",
       "usdkrw": 1334.10342,
       "eurkrw": 1478.32
+    },
+    {
+      "date": "2026-11-13",
+      "usdkrw": 1337.13355,
+      "eurkrw": 1477.8
     }
   ],
   "logistics": {
@@ -6908,18 +6913,18 @@
         "rate_check_complete": true
       }
     ],
-    "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
-    "last_verified_month": "2026-09",
+    "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10176744&nttSnUrl=3d882ad4c9ae38a38038fe09e94c70bf",
+    "last_verified_month": "2026-08",
     "last_verified_at_utc": "2026-11-08T23:06:02+00:00",
     "last_fetch_failed": false,
     "history_verified_this_run": 0,
     "history_backfill_errors": [],
-    "last_checked_at_utc": "2026-11-12T23:14:07+00:00",
+    "last_checked_at_utc": "2026-11-13T23:12:28+00:00",
     "last_fetch_errors": [],
     "unverified_months": [
       "2025-08",
       "2026-02"
     ],
-    "last_successful_check_utc": "2026-11-12T23:14:07+00:00"
+    "last_successful_check_utc": "2026-11-13T23:12:28+00:00"
   }
 }

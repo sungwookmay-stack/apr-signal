@@ -2,11 +2,11 @@
   "company": "에이피알",
   "stock_code": "278470",
   "corp_code": "01190568",
-  "checked_at_utc": "2026-11-12T23:22:11+00:00",
-  "last_successful_check_utc": "2026-11-12T23:22:11+00:00",
+  "checked_at_utc": "2026-11-13T23:20:22+00:00",
+  "last_successful_check_utc": "2026-11-13T23:20:22+00:00",
   "status": "OpenDART 연결재무제표 확인",
-  "report_count": 6,
-  "verified_during_run": 6,
+  "report_count": 7,
+  "verified_during_run": 7,
   "requests_attempted": 8,
   "filings": [
     {
@@ -14,7 +14,7 @@
       "bsns_year": 2025,
       "reprt_code": "11011",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-12T23:22:11+00:00",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -141,7 +141,7 @@
       "bsns_year": 2025,
       "reprt_code": "11013",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-12T23:22:11+00:00",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -260,7 +260,7 @@
       "bsns_year": 2025,
       "reprt_code": "11012",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-12T23:22:11+00:00",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -379,7 +379,7 @@
       "bsns_year": 2025,
       "reprt_code": "11014",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-12T23:22:11+00:00",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -498,7 +498,7 @@
       "bsns_year": 2026,
       "reprt_code": "11013",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-12T23:22:11+00:00",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -625,7 +625,7 @@
       "bsns_year": 2026,
       "reprt_code": "11012",
       "fs_div": "CFS",
-      "checked_at_utc": "2026-11-12T23:22:11+00:00",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
       "status": "verified_income",
       "income_complete": true,
       "balance_complete": true,
@@ -745,6 +745,133 @@
       },
       "receipt_numbers": [
         "20260814002503"
+      ]
+    },
+    {
+      "period": "2026Q3",
+      "bsns_year": 2026,
+      "reprt_code": "11014",
+      "fs_div": "CFS",
+      "checked_at_utc": "2026-11-13T23:20:22+00:00",
+      "status": "verified_income",
+      "income_complete": true,
+      "balance_complete": true,
+      "accounts": {
+        "sales": {
+          "value_won": 773114833337,
+          "ytd_won": 2134003722198,
+          "account_id": "ifrs-full_Revenue",
+          "account_name": "매출액",
+          "unit": "KRW",
+          "amount_basis": "current_3months"
+        },
+        "operating_profit": {
+          "value_won": 160639988453,
+          "ytd_won": 503464696485,
+          "account_id": "dart_OperatingIncomeLoss",
+          "account_name": "영업이익",
+          "unit": "KRW",
+          "amount_basis": "current_3months"
+        },
+        "net_income": {
+          "value_won": 110188171380,
+          "ytd_won": 368981618976,
+          "account_id": "ifrs-full_ProfitLoss",
+          "account_name": "분기순이익",
+          "unit": "KRW",
+          "amount_basis": "current_3months"
+        },
+        "attributable_net_income": {
+          "value_won": 110188171380,
+          "ytd_won": 368981618976,
+          "account_id": "ifrs-full_ProfitLossAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "parent_equity": {
+          "value_won": 664004673928,
+          "ytd_won": null,
+          "account_id": "ifrs-full_EquityAttributableToOwnersOfParent",
+          "account_name": "지배기업소유주지분",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "cost_of_sales": {
+          "value_won": 178417779640,
+          "ytd_won": 474607712727,
+          "account_id": "ifrs-full_CostOfSales",
+          "account_name": "매출원가",
+          "unit": "KRW",
+          "amount_basis": "current_3months"
+        },
+        "sga": {
+          "value_won": 418021318876,
+          "ytd_won": 1151691381474,
+          "account_id": "dart_TotalSellingGeneralAdministrativeExpenses",
+          "account_name": "판매비와관리비",
+          "unit": "KRW",
+          "amount_basis": "current_3months"
+        },
+        "inventory": {
+          "value_won": 498019183556,
+          "ytd_won": null,
+          "account_id": "ifrs-full_Inventories",
+          "account_name": "재고자산",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "assets": {
+          "value_won": 1268906496379,
+          "ytd_won": null,
+          "account_id": "ifrs-full_Assets",
+          "account_name": "자산총계",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "equity": {
+          "value_won": 664004674089,
+          "ytd_won": null,
+          "account_id": "ifrs-full_Equity",
+          "account_name": "자본총계",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "liabilities": {
+          "value_won": 604901822290,
+          "ytd_won": null,
+          "account_id": "ifrs-full_Liabilities",
+          "account_name": "부채총계",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "cash": {
+          "value_won": 79775245126,
+          "ytd_won": null,
+          "account_id": "ifrs-full_CashAndCashEquivalents",
+          "account_name": "현금및현금성자산",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "receivables": {
+          "value_won": 210207330291,
+          "ytd_won": null,
+          "account_id": "ifrs-full_TradeAndOtherCurrentReceivables",
+          "account_name": "매출채권및기타채권",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        },
+        "cfo": {
+          "value_won": 53696588398,
+          "ytd_won": null,
+          "account_id": "ifrs-full_CashFlowsFromUsedInOperatingActivities",
+          "account_name": "영업활동으로인한현금흐름",
+          "unit": "KRW",
+          "amount_basis": "year_to_date_or_balance"
+        }
+      },
+      "receipt_numbers": [
+        "20261113001366"
       ]
     }
   ],

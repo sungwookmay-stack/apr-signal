@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-11-13T12:18:19+00:00",
+  "generated_at_utc": "2026-11-13T23:20:52+00:00",
   "company": "에이피알",
   "ticker": "278470",
   "unit": "억원",
@@ -1168,7 +1168,7 @@
   ],
   "accounting_note": "2025년 사업보고서 연결 영업이익은 3655.21억원. 2026년 이후 K-IFRS 제1118호 적용·비교 재표시 등으로 일부 투자정보 표와 영업이익 정의가 달라질 수 있어 2025 연간/4Q는 동일 보고서 숫자로 계산. 2026Q3은 정식 보고서 이전 잠정실적. 현금흐름은 2025 원공시와 2026 K-IFRS1118 분류 기준이 달라 연도 간 직접 비교에 주의. 2025 CFO는 원공시로 통일; 재표시 전년비교는 감사 메타데이터에 별도 보존. 손익 추이의 2025 값은 원공시를 보존한다. 2026 YoY는 공식 IR의 동일 K-IFRS1118 재작성 비교값을 별도 사용한다. 비교기준이 다른 QoQ는 동일기준 비교값 확인 전 미산출.",
   "dart_reconciliation": {
-    "checked_at_utc": "2026-11-12T23:22:11+00:00",
+    "checked_at_utc": "2026-11-13T23:20:22+00:00",
     "rows": [
       {
         "period": "2024FY",
@@ -1315,10 +1315,10 @@
         "kind": "quarterly",
         "account": "net_income",
         "input_100m": 1101.88,
-        "dart_100m": null,
-        "difference_100m": null,
-        "status": "unverified",
-        "source_url": null
+        "dart_100m": 1101.8817138,
+        "difference_100m": -0.0017137999998340092,
+        "status": "match_rounding",
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366"
       }
     ],
     "note": "DART 저장값과 연결 순이익·총자본 금액만 대조. 지배주주 지분, EPS, 주식수 및 최초 발표시점 검증을 의미하지 않음. 차이는 자동 덮어쓰지 않음."
