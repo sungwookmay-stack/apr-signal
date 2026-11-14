@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T07:49:46+00:00",
+  "generated_at_utc": "2026-11-14T12:01:56+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-13",
   "price_coverage_start": "2025-06-02",
@@ -7,7 +7,7 @@
   "technical_last": "2026-11-13",
   "technical_ohlc_days": 355,
   "kbty_status": "거래가격 관측 (운용사에서 상장 여부 확인 필요)",
-  "news_count": 83,
+  "news_count": 84,
   "trends_points": 13199,
   "amazon_points": 0,
   "beauty_leaderboard_snapshots": 0,
@@ -25,7 +25,7 @@
   },
   "errors": [],
   "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
-  "afternoon_updated_at_utc": "2026-11-14T07:49:46+00:00",
+  "afternoon_updated_at_utc": "2026-11-14T12:01:56+00:00",
   "afternoon_price_date": "2026-11-13",
   "afternoon_verified_same_day": false,
   "afternoon_note": "당일 종가 미확인 또는 휴장: 마지막 확인 거래일의 지표만 표시"
