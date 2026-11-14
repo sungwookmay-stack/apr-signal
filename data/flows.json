@@ -1,6 +1,6 @@
 {
   "asof_analysis": null,
-  "generated_at_utc": "2026-11-13T23:20:52+00:00",
+  "generated_at_utc": "2026-11-14T07:50:17+00:00",
   "ticker": "278470",
   "source_scope": "투자자 수급·공매도·대차는 별도 자료이며 각 관측의 source/source_url 및 기준일을 따름",
   "price_last_date": "2026-11-13",
@@ -2124,6 +2124,61 @@
   ],
   "short_daily": [],
   "lending_daily": [
+    {
+      "date": "2026-07-06",
+      "new_qty": 13586,
+      "returned_qty": 23055,
+      "balance_qty": 4183074,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-07-07",
+      "new_qty": 58860,
+      "returned_qty": 125022,
+      "balance_qty": 4116912,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-07-08",
+      "new_qty": 11088,
+      "returned_qty": 4498,
+      "balance_qty": 4123502,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-07-09",
+      "new_qty": 46326,
+      "returned_qty": 3939,
+      "balance_qty": 4165889,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-07-10",
+      "new_qty": 16974,
+      "returned_qty": 2330,
+      "balance_qty": 4180533,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
     {
       "date": "2026-07-13",
       "new_qty": 78909,
