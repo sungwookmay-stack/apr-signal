@@ -1,6 +1,6 @@
 {
   "asof_analysis": null,
-  "generated_at_utc": "2026-11-14T12:02:52+00:00",
+  "generated_at_utc": "2026-11-15T07:55:04+00:00",
   "ticker": "278470",
   "source_scope": "투자자 수급·공매도·대차는 별도 자료이며 각 관측의 source/source_url 및 기준일을 따름",
   "price_last_date": "2026-11-13",
@@ -272,13 +272,15 @@
       "calls": 0
     },
     "fsc_stock_lending_key_configured": true,
-    "fsc_lending_status": "ok",
+    "fsc_lending_status": "partial",
     "fsc_lending_result": {
-      "status": "ok",
-      "queries": 8,
-      "rows": 6,
+      "status": "partial",
+      "queries": 4,
+      "rows": 2,
       "date_last": "2026-11-12",
-      "errors": [],
+      "errors": [
+        "URLError"
+      ],
       "source_update_lag": "next_business_day_after_13_kst",
       "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
       "license": "KOGL_type2_source_attribution_noncommercial"
@@ -2124,6 +2126,17 @@
   ],
   "short_daily": [],
   "lending_daily": [
+    {
+      "date": "2026-06-19",
+      "new_qty": 14776,
+      "returned_qty": 2460,
+      "balance_qty": 3573941,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
     {
       "date": "2026-06-22",
       "new_qty": 115364,
