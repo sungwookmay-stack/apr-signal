@@ -1,7 +1,7 @@
 {
   "method": "2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14 + 3-stage bottom classifier (no lookahead)",
   "bottom": {
-    "date": "2026-11-13",
+    "date": "2026-11-16",
     "stage": "투매 관찰 · 바닥 미확인",
     "kind": "early",
     "score": 1,
@@ -33,35 +33,35 @@
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "최근 MACD 히스토그램 41 · 3개 관측값 연속 상승 여부"
+        "detail": "최근 MACD 히스토그램 378 · 3개 관측값 연속 상승 여부"
       },
       {
         "name": "RSI 40 이상으로 복귀·상승",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "RSI(14) 33.3 · 30 미만은 과매도일 뿐 바닥 아님"
+        "detail": "RSI(14) 34.7 · 30 미만은 과매도일 뿐 바닥 아님"
       },
       {
         "name": "5일 이동평균 회복",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "종가 235,500원 / 5일선 244,500원"
+        "detail": "종가 238,500원 / 5일선 243,500원"
       },
       {
         "name": "20일선 3거래일 유지",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "현재 20일선 270,850원 · 단일 장중 돌파로 미확정"
+        "detail": "현재 20일선 266,300원 · 단일 장중 돌파로 미확정"
       },
       {
         "name": "10일 전고점·거래량 돌파",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "이전 10일 최고종가 268,000원 / 거래량배수 0.82"
+        "detail": "이전 10일 최고종가 268,000원 / 거래량배수 0.92"
       }
     ],
     "data_ready": true,
@@ -100,12 +100,12 @@
       "recent_20d_low": 231000,
       "recent_20d_low_date": "2026-10-30",
       "prev_20d_low": 231000,
-      "ma5": 244500,
-      "ma20": 270850,
-      "ma60": 341900,
+      "ma5": 243500,
+      "ma20": 266300,
+      "ma60": 339267,
       "prior_10d_high_close": 268000,
-      "atr14": 21583,
-      "drawdown_60d_pct": -49.3
+      "atr14": 20898,
+      "drawdown_60d_pct": -48.7
     },
     "note": "과매도·투매는 저점 후보에 불과합니다. RSI 상승 다이버전스/저점 재확인 이후 5·20일선 회복과 거래량 동반 전고점 돌파를 구분해 판정합니다. 단계별 규칙은 과거 수익률로 검증된 승률 또는 가격 예측이 아닙니다.",
     "not_prediction": true,
@@ -10055,12 +10055,40 @@
       "prior20_low": 231000.0,
       "atr_pct": 9.16,
       "atr14": 21582.92
+    },
+    {
+      "date": "2026-11-16",
+      "close": 238500.0,
+      "ma5": 243500.0,
+      "ma20": 266300.0,
+      "ma60": 339266.67,
+      "ma120": 360029.17,
+      "ma200": 353352.5,
+      "bb_upper": 311218.15,
+      "bb_mid": 266300.0,
+      "bb_lower": 221381.85,
+      "rsi14": 34.68,
+      "macd": -24442.2536,
+      "macd_signal": -24820.3665,
+      "macd_hist": 378.1128,
+      "tenkan": 258500.0,
+      "kijun": 307250.0,
+      "cloud_a": 390250.0,
+      "cloud_b": 390750.0,
+      "volume_ratio20": 0.92,
+      "volume": 312614.0,
+      "volume_ma20": 341376.95,
+      "volume_ratio_prior20": 0.93,
+      "prior20_high": 339000.0,
+      "prior20_low": 231000.0,
+      "atr_pct": 8.76,
+      "atr14": 20898.43
     }
   ],
   "last": {
-    "date": "2026-11-13",
-    "label": "하락 위험 / 매도·비중축소 검토",
-    "kind": "risk",
+    "date": "2026-11-16",
+    "label": "중립 / 확인 대기",
+    "kind": "neutral",
     "score": -6,
     "checks": [
       {
@@ -10099,13 +10127,13 @@
         "detail": "RSI > 70 과열 가능, < 30 과매도 가능 (단독 진입 신호 아님)"
       }
     ],
-    "averaging_down": "관망 · 반등 신호 부족",
-    "entry_stage": "관망 · 반등 신호 부족",
-    "rebound_points": 0,
+    "averaging_down": "초기 반등 관찰",
+    "entry_stage": "초기 반등 관찰",
+    "rebound_points": 2,
     "risk_elevated": true,
-    "macd_improving": false,
+    "macd_improving": true,
     "add_criteria": "반등 감시: RSI 상승·MACD 히스토그램 개선·5일선 회복 중 2개 이상. 20일선 접근·볼린저 하단 복귀 시 분할 검토. 120·200일선 아래에서는 반등 실패 위험 상승.",
-    "risk_reference": 192334,
+    "risk_reference": 196703,
     "risk_note": "종가 - 2×ATR은 변동성 참고 가격이며 손절 주문 가격을 뜻하지 않습니다.",
     "overheat": false,
     "not_advice": true,
@@ -10115,8 +10143,8 @@
     "bottom_kind": "early",
     "source": "네이버 금융 (일별 종가)"
   },
-  "valid_high_low": 355,
+  "valid_high_low": 356,
   "invalid_high_low_days": 0,
-  "data_days": 355,
+  "data_days": 356,
   "has_real_data": true
 }

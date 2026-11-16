@@ -1,189 +1,255 @@
 {
-  "asof_analysis": null,
-  "generated_at_utc": "2026-11-15T12:04:47+00:00",
+  "asof_analysis": {
+    "date": "2026-11-13",
+    "lag_price_sessions": 1,
+    "actors": {
+      "individual": {
+        "label": "매도 우위 · 수급 약함",
+        "level": "weak",
+        "score": 1,
+        "max_score": 10,
+        "windows": {
+          "5": {
+            "net_krw": -4596481500,
+            "estimated_value_days": 5,
+            "net_qty_shares": -17079,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 2,
+            "observed_days": 5,
+            "buy_day_ratio_pct": 40.0,
+            "positive_streak": 0,
+            "net_to_value_proxy_pct": -1.13,
+            "begin": "2026-11-09",
+            "end": "2026-11-13"
+          },
+          "20": {
+            "net_krw": -12924137000,
+            "estimated_value_days": 20,
+            "net_qty_shares": -38844,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 7,
+            "observed_days": 20,
+            "buy_day_ratio_pct": 35.0,
+            "positive_streak": 0,
+            "net_to_value_proxy_pct": -0.72,
+            "begin": "2026-10-19",
+            "end": "2026-11-13",
+            "last_5_net_krw": -4596481500,
+            "prior_5_net_krw": -27360493500,
+            "acceleration_krw": 22764012000
+          },
+          "60": {
+            "net_krw": 59361736000,
+            "estimated_value_days": 60,
+            "net_qty_shares": 272792,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 27,
+            "observed_days": 60,
+            "buy_day_ratio_pct": 45.0,
+            "positive_streak": 0,
+            "net_to_value_proxy_pct": 0.95,
+            "begin": "2026-08-18",
+            "end": "2026-11-13"
+          }
+        },
+        "reasons": [
+          "20거래일 누적 순매도",
+          "5거래일 순매도",
+          "최근 5일 순매수가 직전 5일 대비 개선",
+          "20거래일 가격 상승 미확인",
+          "비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정"
+        ],
+        "price_20d_change_pct": -28.53,
+        "note": "점수는 분석 규칙 충족 합계이며 수익률·승률 예측이 아님"
+      },
+      "foreign": {
+        "label": "역행 매수 · 주가 확인 대기",
+        "level": "watch",
+        "score": 7,
+        "max_score": 10,
+        "windows": {
+          "5": {
+            "net_krw": 60009844000,
+            "estimated_value_days": 5,
+            "net_qty_shares": 244211,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 5,
+            "observed_days": 5,
+            "buy_day_ratio_pct": 100.0,
+            "positive_streak": 5,
+            "net_to_value_proxy_pct": 14.71,
+            "begin": "2026-11-09",
+            "end": "2026-11-13"
+          },
+          "20": {
+            "net_krw": 83505172000,
+            "estimated_value_days": 20,
+            "net_qty_shares": 297650,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 15,
+            "observed_days": 20,
+            "buy_day_ratio_pct": 75.0,
+            "positive_streak": 5,
+            "net_to_value_proxy_pct": 4.67,
+            "begin": "2026-10-19",
+            "end": "2026-11-13",
+            "last_5_net_krw": 60009844000,
+            "prior_5_net_krw": 2796654500,
+            "acceleration_krw": 57213189500
+          },
+          "60": {
+            "net_krw": 196363044500,
+            "estimated_value_days": 60,
+            "net_qty_shares": 546870,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 43,
+            "observed_days": 60,
+            "buy_day_ratio_pct": 71.7,
+            "positive_streak": 5,
+            "net_to_value_proxy_pct": 3.15,
+            "begin": "2026-08-18",
+            "end": "2026-11-13"
+          }
+        },
+        "reasons": [
+          "20거래일 누적 순매수",
+          "5거래일 순매수",
+          "최근 20일 중 60% 이상 매수일",
+          "최근 5일 순매수가 직전 5일 대비 개선",
+          "20일 거래대금 근사 대비 순매수 1% 이상",
+          "20거래일 가격 상승 미확인",
+          "비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정"
+        ],
+        "price_20d_change_pct": -28.53,
+        "note": "점수는 분석 규칙 충족 합계이며 수익률·승률 예측이 아님"
+      },
+      "institution": {
+        "label": "매도 우위 · 수급 약함",
+        "level": "weak",
+        "score": 0,
+        "max_score": 10,
+        "windows": {
+          "5": {
+            "net_krw": -54021451000,
+            "estimated_value_days": 5,
+            "net_qty_shares": -221371,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 0,
+            "observed_days": 5,
+            "buy_day_ratio_pct": 0.0,
+            "positive_streak": 0,
+            "net_to_value_proxy_pct": -13.24,
+            "begin": "2026-11-09",
+            "end": "2026-11-13"
+          },
+          "20": {
+            "net_krw": -69430581000,
+            "estimated_value_days": 20,
+            "net_qty_shares": -254645,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 5,
+            "observed_days": 20,
+            "buy_day_ratio_pct": 25.0,
+            "positive_streak": 0,
+            "net_to_value_proxy_pct": -3.88,
+            "begin": "2026-10-19",
+            "end": "2026-11-13",
+            "last_5_net_krw": -54021451000,
+            "prior_5_net_krw": 26724998000,
+            "acceleration_krw": -80746449000
+          },
+          "60": {
+            "net_krw": -253182997500,
+            "estimated_value_days": 60,
+            "net_qty_shares": -813315,
+            "value_basis": "closing_price_times_net_shares_estimate",
+            "buy_days": 19,
+            "observed_days": 60,
+            "buy_day_ratio_pct": 31.7,
+            "positive_streak": 0,
+            "net_to_value_proxy_pct": -4.06,
+            "begin": "2026-08-18",
+            "end": "2026-11-13"
+          }
+        },
+        "reasons": [
+          "20거래일 누적 순매도",
+          "5거래일 순매도",
+          "20거래일 가격 상승 미확인",
+          "비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정"
+        ],
+        "price_20d_change_pct": -28.53,
+        "note": "점수는 분석 규칙 충족 합계이며 수익률·승률 예측이 아님"
+      },
+      "pension": {
+        "label": "판정 보류 · 20거래일 미확보",
+        "level": "unknown",
+        "score": null,
+        "windows": {
+          "5": null,
+          "20": null,
+          "60": null
+        },
+        "reasons": [
+          "20거래일 연속 실측 부족"
+        ]
+      }
+    },
+    "combined": {
+      "label": "주요 수급 단기 우위 · 연기금 확인 필요",
+      "level": "watch",
+      "detail": "외국인+기관은 5·20일 순매수이나 연기금·가격 추세 확인 필요 · 순매수 금액은 Naver 공개 KRX 주수 × 당일 KRX 종가 추정치이며 공식 순매수 거래대금 아님. 연기금은 미공개.",
+      "foreign_plus_inst_5d_krw": 5988393000,
+      "foreign_plus_inst_20d_krw": 14074591000,
+      "value_basis": "closing_price_times_net_shares_estimate"
+    },
+    "note": "마지막 공통 거래일까지의 참고 분석. 최신 주가일 판단이 아님"
+  },
+  "generated_at_utc": "2026-11-16T09:30:28+00:00",
   "ticker": "278470",
   "source_scope": "투자자 수급·공매도·대차는 별도 자료이며 각 관측의 source/source_url 및 기준일을 따름",
-  "price_last_date": "2026-11-13",
+  "price_last_date": "2026-11-16",
   "flow_last_date": "2026-11-13",
-  "price_aligned": true,
+  "price_aligned": false,
   "actors": {
     "individual": {
-      "label": "매도 우위 · 수급 약함",
-      "level": "weak",
-      "score": 1,
-      "max_score": 10,
+      "label": "판정 보류 · 20거래일 미확보",
+      "level": "unknown",
+      "score": null,
       "windows": {
-        "5": {
-          "net_krw": -4596481500,
-          "estimated_value_days": 5,
-          "net_qty_shares": -17079,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 2,
-          "observed_days": 5,
-          "buy_day_ratio_pct": 40.0,
-          "positive_streak": 0,
-          "net_to_value_proxy_pct": -1.13,
-          "begin": "2026-11-09",
-          "end": "2026-11-13"
-        },
-        "20": {
-          "net_krw": -12924137000,
-          "estimated_value_days": 20,
-          "net_qty_shares": -38844,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 7,
-          "observed_days": 20,
-          "buy_day_ratio_pct": 35.0,
-          "positive_streak": 0,
-          "net_to_value_proxy_pct": -0.72,
-          "begin": "2026-10-19",
-          "end": "2026-11-13",
-          "last_5_net_krw": -4596481500,
-          "prior_5_net_krw": -27360493500,
-          "acceleration_krw": 22764012000
-        },
-        "60": {
-          "net_krw": 59361736000,
-          "estimated_value_days": 60,
-          "net_qty_shares": 272792,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 27,
-          "observed_days": 60,
-          "buy_day_ratio_pct": 45.0,
-          "positive_streak": 0,
-          "net_to_value_proxy_pct": 0.95,
-          "begin": "2026-08-18",
-          "end": "2026-11-13"
-        }
+        "5": null,
+        "20": null,
+        "60": null
       },
       "reasons": [
-        "20거래일 누적 순매도",
-        "5거래일 순매도",
-        "최근 5일 순매수가 직전 5일 대비 개선",
-        "20거래일 가격 상승 미확인",
-        "비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정"
-      ],
-      "price_20d_change_pct": -28.53,
-      "note": "점수는 분석 규칙 충족 합계이며 수익률·승률 예측이 아님"
+        "20거래일 연속 실측 부족"
+      ]
     },
     "foreign": {
-      "label": "역행 매수 · 주가 확인 대기",
-      "level": "watch",
-      "score": 7,
-      "max_score": 10,
+      "label": "판정 보류 · 20거래일 미확보",
+      "level": "unknown",
+      "score": null,
       "windows": {
-        "5": {
-          "net_krw": 60009844000,
-          "estimated_value_days": 5,
-          "net_qty_shares": 244211,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 5,
-          "observed_days": 5,
-          "buy_day_ratio_pct": 100.0,
-          "positive_streak": 5,
-          "net_to_value_proxy_pct": 14.71,
-          "begin": "2026-11-09",
-          "end": "2026-11-13"
-        },
-        "20": {
-          "net_krw": 83505172000,
-          "estimated_value_days": 20,
-          "net_qty_shares": 297650,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 15,
-          "observed_days": 20,
-          "buy_day_ratio_pct": 75.0,
-          "positive_streak": 5,
-          "net_to_value_proxy_pct": 4.67,
-          "begin": "2026-10-19",
-          "end": "2026-11-13",
-          "last_5_net_krw": 60009844000,
-          "prior_5_net_krw": 2796654500,
-          "acceleration_krw": 57213189500
-        },
-        "60": {
-          "net_krw": 196363044500,
-          "estimated_value_days": 60,
-          "net_qty_shares": 546870,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 43,
-          "observed_days": 60,
-          "buy_day_ratio_pct": 71.7,
-          "positive_streak": 5,
-          "net_to_value_proxy_pct": 3.15,
-          "begin": "2026-08-18",
-          "end": "2026-11-13"
-        }
+        "5": null,
+        "20": null,
+        "60": null
       },
       "reasons": [
-        "20거래일 누적 순매수",
-        "5거래일 순매수",
-        "최근 20일 중 60% 이상 매수일",
-        "최근 5일 순매수가 직전 5일 대비 개선",
-        "20일 거래대금 근사 대비 순매수 1% 이상",
-        "20거래일 가격 상승 미확인",
-        "비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정"
-      ],
-      "price_20d_change_pct": -28.53,
-      "note": "점수는 분석 규칙 충족 합계이며 수익률·승률 예측이 아님"
+        "20거래일 연속 실측 부족"
+      ]
     },
     "institution": {
-      "label": "매도 우위 · 수급 약함",
-      "level": "weak",
-      "score": 0,
-      "max_score": 10,
+      "label": "판정 보류 · 20거래일 미확보",
+      "level": "unknown",
+      "score": null,
       "windows": {
-        "5": {
-          "net_krw": -54021451000,
-          "estimated_value_days": 5,
-          "net_qty_shares": -221371,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 0,
-          "observed_days": 5,
-          "buy_day_ratio_pct": 0.0,
-          "positive_streak": 0,
-          "net_to_value_proxy_pct": -13.24,
-          "begin": "2026-11-09",
-          "end": "2026-11-13"
-        },
-        "20": {
-          "net_krw": -69430581000,
-          "estimated_value_days": 20,
-          "net_qty_shares": -254645,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 5,
-          "observed_days": 20,
-          "buy_day_ratio_pct": 25.0,
-          "positive_streak": 0,
-          "net_to_value_proxy_pct": -3.88,
-          "begin": "2026-10-19",
-          "end": "2026-11-13",
-          "last_5_net_krw": -54021451000,
-          "prior_5_net_krw": 26724998000,
-          "acceleration_krw": -80746449000
-        },
-        "60": {
-          "net_krw": -253182997500,
-          "estimated_value_days": 60,
-          "net_qty_shares": -813315,
-          "value_basis": "closing_price_times_net_shares_estimate",
-          "buy_days": 19,
-          "observed_days": 60,
-          "buy_day_ratio_pct": 31.7,
-          "positive_streak": 0,
-          "net_to_value_proxy_pct": -4.06,
-          "begin": "2026-08-18",
-          "end": "2026-11-13"
-        }
+        "5": null,
+        "20": null,
+        "60": null
       },
       "reasons": [
-        "20거래일 누적 순매도",
-        "5거래일 순매도",
-        "20거래일 가격 상승 미확인",
-        "비공식 공개 종목 화면의 순매수 주수 기반 · 금액은 종가 환산 추정"
-      ],
-      "price_20d_change_pct": -28.53,
-      "note": "점수는 분석 규칙 충족 합계이며 수익률·승률 예측이 아님"
+        "20거래일 연속 실측 부족"
+      ]
     },
     "pension": {
       "label": "판정 보류 · 20거래일 미확보",
@@ -200,11 +266,9 @@
     }
   },
   "combined": {
-    "label": "주요 수급 단기 우위 · 연기금 확인 필요",
-    "level": "watch",
-    "detail": "외국인+기관은 5·20일 순매수이나 연기금·가격 추세 확인 필요 · 순매수 금액은 Naver 공개 KRX 주수 × 당일 KRX 종가 추정치이며 공식 순매수 거래대금 아님. 연기금은 미공개.",
-    "foreign_plus_inst_5d_krw": 5988393000,
-    "foreign_plus_inst_20d_krw": 14074591000,
+    "label": "종합 수급 판정 보류",
+    "level": "unknown",
+    "detail": "최신 주가와 수급 일자 및 5·20거래일 연속 관측 확인 필요 · 순매수 금액은 Naver 공개 KRX 주수 × 당일 KRX 종가 추정치이며 공식 순매수 거래대금 아님. 연기금은 미공개.",
     "value_basis": "closing_price_times_net_shares_estimate"
   },
   "latest_daily": {
@@ -235,19 +299,19 @@
     "note": "공매도 거래비중과 순보유잔고는 별개; 순보유잔고는 T+2 신고 지연"
   },
   "lending": {
-    "last_date": "2026-11-12",
+    "last_date": "2026-11-13",
     "latest": {
-      "date": "2026-11-12",
-      "new_qty": 64456,
-      "returned_qty": 161778,
-      "balance_qty": 3632704,
+      "date": "2026-11-13",
+      "new_qty": 357142,
+      "returned_qty": 16408,
+      "balance_qty": 3973438,
       "source": "Financial Services Commission public stock lending API 15059612",
       "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
       "record_status": "official_public_api_noncommercial",
       "unit": "shares",
       "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
     },
-    "balance_change": -97322,
+    "balance_change": 340734,
     "note": "대차잔고 증가 ≠ 공매도 실행. 대차 상환 ≠ 숏커버 확정"
   },
   "methods": {
@@ -276,8 +340,8 @@
     "fsc_lending_result": {
       "status": "ok",
       "queries": 3,
-      "rows": 1,
-      "date_last": "2026-11-12",
+      "rows": 2,
+      "date_last": "2026-11-13",
       "errors": [],
       "source_update_lag": "next_business_day_after_13_kst",
       "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
@@ -3196,6 +3260,17 @@
       "new_qty": 64456,
       "returned_qty": 161778,
       "balance_qty": 3632704,
+      "source": "Financial Services Commission public stock lending API 15059612",
+      "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
+      "record_status": "official_public_api_noncommercial",
+      "unit": "shares",
+      "note": "체결·상환·잔고는 대차정보. 공매도 거래·순보유잔고가 아님"
+    },
+    {
+      "date": "2026-11-13",
+      "new_qty": 357142,
+      "returned_qty": 16408,
+      "balance_qty": 3973438,
       "source": "Financial Services Commission public stock lending API 15059612",
       "source_url": "https://www.data.go.kr/data/15059612/openapi.do",
       "record_status": "official_public_api_noncommercial",
