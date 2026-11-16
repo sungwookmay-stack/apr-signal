@@ -12,7 +12,7 @@
     "stock_last": "2026-11-16",
     "usd_fx_last": "2026-11-13",
     "eur_fx_last": "2026-11-13",
-    "generated_at_utc": "2026-11-16T09:30:06+00:00",
+    "generated_at_utc": "2026-11-16T12:38:32+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4638,7 +4638,7 @@
     {
       "date": "2026-11-16",
       "close_krw": 238500,
-      "volume": 312614,
+      "volume": 314827,
       "open_krw": 236500,
       "high_krw": 243000,
       "low_krw": 231000,
