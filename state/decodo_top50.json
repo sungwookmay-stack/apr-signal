@@ -1,6 +1,6 @@
 {
   "attempts_by_month": {
-    "2026-11": 61
+    "2026-11": 73
   },
   "attempts_by_day": {
     "2026-11-12": [
@@ -63,6 +63,20 @@
       "BR"
     ],
     "2026-11-16": [
+      "US",
+      "GB",
+      "DE",
+      "FR",
+      "IT",
+      "ES",
+      "CA",
+      "JP",
+      "AE",
+      "SA",
+      "EG",
+      "BR"
+    ],
+    "2026-11-18": [
       "US",
       "GB",
       "DE",
@@ -3225,51 +3239,51 @@
   },
   "latest_checks": {
     "US": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "GB": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "DE": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "FR": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "IT": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "ES": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "CA": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "JP": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "AE": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "SA": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "EG": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     },
     "BR": {
-      "checked_at_utc": "2026-11-15T23:07:57.267527+00:00",
+      "checked_at_utc": "2026-11-17T23:22:47.120339+00:00",
       "status": "attempt_reserved"
     }
   },
