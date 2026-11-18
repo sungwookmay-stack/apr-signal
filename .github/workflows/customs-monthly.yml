@@ -1,21 +1,37 @@
 name: APR SIGNAL - Official Customs monthly
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 16 * *'
   push:
     branches: [main]
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: customs-monthly
+  cancel-in-progress: false
 jobs:
-  verify-customs:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[customs-monthly]')
+  collect-customs:
+    if: github.event_name != 'push' || contains(github.event.head_commit.message, '[customs-monthly]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Verify official Customs access without exposing credentials
+      - name: Test scope and amount validation
+        run: python -m unittest discover -s tests -p test_customs_monthly.py -v
+      - name: Collect monthly official Customs data only
         env:
           CUSTOMS_COUNTRY_API_KEY: ${{ secrets.CUSTOMS_COUNTRY_API_KEY }}
           CUSTOMS_REGIONAL_API_KEY: ${{ secrets.CUSTOMS_REGIONAL_API_KEY }}
-        run: python customs_monthly_probe.py
+        run: python customs_monthly.py
+      - name: Publish only Customs observations
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/customs_monthly.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'data: monthly official Customs observations [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
