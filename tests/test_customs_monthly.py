@@ -6,6 +6,10 @@ class CustomsTests(unittest.TestCase):
  def test_children_not_total(self):
   x=self.xml('<item><year>총계</year><expDlr>30</expDlr></item>'+self.row('3304991000',10)+self.row('3304999000',20))
   self.assertEqual(parse_body(x,'country','US','202610','202610'),{('US','2026-10'):30})
+ def test_hs4_return(self):
+  self.assertEqual(parse_body(self.xml(self.row('3304',30)),'country','US','202610','202610'),{('US','2026-10'):30})
+ def test_overlap_rejected(self):
+  with self.assertRaises(DataError):parse_body(self.xml(self.row('3304',30)+self.row('3304991000',10)),'country','US','202610','202610')
  def test_bad_total(self):
   with self.assertRaises(DataError):parse_body(self.xml('<item><year>총계</year><expDlr>31</expDlr></item>'+self.row('3304991000',10)),'country','US','202610','202610')
  def test_duplicates(self):

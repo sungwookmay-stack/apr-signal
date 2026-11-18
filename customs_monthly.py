@@ -33,7 +33,7 @@ def parse_body(body,kind,code,start,end):
   if not start<=m.replace('-','')<=end:raise DataError('out_of_window')
   hs=r.get('hsCd','') if kind=='country' else r.get('hsSgn','')
   if kind=='country':
-   if not hs.startswith('3304') or len(hs)!=10 or r.get('statCd')!=code:raise DataError('scope_mismatch')
+   if not hs.startswith('3304') or len(hs) not in (4,6,10) or r.get('statCd')!=code:raise DataError('scope_mismatch')
    val=amount(r.get('expDlr'));group=code
   else:
    if hs!='330499':raise DataError('scope_mismatch')
@@ -41,6 +41,7 @@ def parse_body(body,kind,code,start,end):
    if not group.startswith('서울특별시 '):raise DataError('regional_scope_mismatch')
   identity=(m,hs,group)
   if identity in seen:raise DataError('duplicate_row')
+  if kind=='country' and any(mm==m and gg==group and (hh.startswith(hs) or hs.startswith(hh)) for mm,hh,gg in seen):raise DataError('overlapping_hs_scope')
   seen.add(identity);sumdetail+=val
   out[(group,m)]=out.get((group,m),0)+val
  if kind=='country' and grand is not None and grand!=sumdetail:raise DataError('total_mismatch')
