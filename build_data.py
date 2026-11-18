@@ -68,7 +68,7 @@ def valid_url(s,official=None):
 
 
 def collect_market(*, refresh_fx=True, refresh_freight=True):
-    old=read_json(DATA/'data.json',{})
+    old=update_data.load_previous(DATA)
     try:
         market=update_data.update(DATA, refresh_fx=refresh_fx, refresh_freight=refresh_freight)
     except Exception as e:

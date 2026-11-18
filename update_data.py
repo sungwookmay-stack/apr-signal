@@ -344,10 +344,41 @@ def save(data,out_dir):
     write_atomic(out_dir/"sea_history.csv",sb.getvalue())
 
 
+def load_previous(out_dir):
+    """Preserve reviewed freight across collector and display snapshots.
+
+    Price/FX always comes from data.json; only logistics is reconciled.
+    The more recently verified freight snapshot wins overlapping months.
+    """
+    def read(name):
+        try:
+            return json.loads((Path(out_dir)/name).read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return {}
+    previous=read("data.json")
+    display=read("market.json")
+    candidates=[x.get("logistics",{}) for x in (display,previous)]
+    def rank(x):
+        return (x.get("last_verified_month", ""),
+                x.get("last_verified_at_utc", ""),
+                x.get("last_checked_at_utc", ""))
+    candidates.sort(key=rank)
+    rows={}
+    for candidate in candidates:
+        for row in candidate.get("sea",[]):
+            if row.get("month"):
+                rows[row["month"]]=row
+    if rows:
+        logistics={}
+        for candidate in candidates:
+            logistics.update(candidate)
+        logistics["sea"]=[rows[m] for m in sorted(rows)]
+        previous["logistics"]=logistics
+    return previous
+
+
 def update(out_dir=BASE/"data", allow_partial=True, refresh_fx=True, refresh_freight=True):
-    try:
-        previous=json.loads((out_dir/"data.json").read_text(encoding="utf-8"))
-    except Exception: previous={}
+    previous=load_previous(out_dir)
     stock,source,se=fetch_stock()
     # Afternoon close update intentionally reuses the morning reference FX,
     # avoiding redundant ECB/Frankfurter calls. It does not forecast FX.
