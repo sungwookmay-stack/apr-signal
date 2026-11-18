@@ -18,7 +18,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         self.assertIn("- cron: '30 22 * * *'", self.workflow)
         self.assertIn("- cron: '0 7 * * *'", self.workflow)
         self.assertIn("- cron: '30 11 * * *'", self.workflow)
-        self.assertIn("- cron: '30 7 * * *'", self.workflow)
+        self.assertIn("- cron: '30 14 * * *'", self.workflow)
         self.assertEqual(self.workflow.count("- cron:"), 4)
 
     def test_only_morning_runs_paid_eligible_data_collector(self):

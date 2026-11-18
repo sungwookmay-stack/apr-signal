@@ -10,4 +10,4 @@ Verified on 2026-11-12 KST. No new KRX values were invented or imported.
 - Investor screen reference: https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT023
 - Possible next step is an authorized KRX login followed by APR-specific export and source/unit/date verification. A manual export does not establish recurring authenticated collection. Do not promise a KRX OpenAPI key covers this table.
 
-The workflow now **attempts** the existing free flow collector at 16:30 KST as well as the existing 20:30 and 07:30 checks. The 16:00 technical/news run remains unchanged. Amazon, Google Trends, DART and other morning-only collections are not added to 16:30. GitHub scheduling may be delayed. Original source barriers and missing-value handling are preserved.
+The workflow now **attempts** the existing free flow collector at 23:30 KST as well as the existing 20:30 and 07:30 checks. The 16:00 technical/news run remains unchanged. Amazon, Google Trends, DART and other morning-only collections are not added to 23:30. GitHub scheduling may be delayed. Original source barriers and missing-value handling are preserved.
