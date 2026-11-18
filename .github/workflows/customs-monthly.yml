@@ -1,0 +1,21 @@
+name: APR SIGNAL - Official Customs monthly
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify-customs:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[customs-monthly]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify official Customs access without exposing credentials
+        env:
+          CUSTOMS_COUNTRY_API_KEY: ${{ secrets.CUSTOMS_COUNTRY_API_KEY }}
+          CUSTOMS_REGIONAL_API_KEY: ${{ secrets.CUSTOMS_REGIONAL_API_KEY }}
+        run: python customs_monthly_probe.py
