@@ -10,6 +10,19 @@ REGIONAL='https://apis.data.go.kr/1220000/sigunguperprlstperacrs/getSigunguPerPr
 SOURCES={'country':'https://www.data.go.kr/data/15100475/openapi.do','regional':'https://www.data.go.kr/data/15134343/openapi.do'}
 class DataError(Exception):pass
 
+# KCS cntyCd uses these two-letter destination codes (GB, not UK).
+# Keep China's historical reference series alongside all configured demand markets.
+KCS_COUNTRY_CODES = {'US','GB','DE','FR','IT','ES','CA','JP','AE','SA','EG','QA','KW','BR','AR','CL','CN'}
+def country_specs(config):
+ specs=[];seen=set()
+ for market in list(config.get('markets',[]))+[{'code':'CN','name':'중국'}]:
+  code=market.get('code','')
+  if code in seen:continue
+  if code not in KCS_COUNTRY_CODES:raise DataError('unsupported_country_code')
+  seen.add(code)
+  specs.append(('country',code,code+'_3304','한국→'+market.get('name',code)+' · HS3304'))
+ return specs
+
 def amount(v):
  s=str(v or '').replace(',','').strip()
  if not re.fullmatch(r'\d+',s):raise DataError('invalid_amount')
@@ -60,7 +73,7 @@ def main():
  now=dt.datetime.now(dt.timezone.utc);today=(now+dt.timedelta(hours=9)).date();end=(today.replace(day=1)-dt.timedelta(days=1)).strftime('%Y%m')
  path=Path('data/customs_monthly.json');prior=json.loads(path.read_text()) if path.exists() else {}
  old={s['id']:s for s in prior.get('series',[])};series=[]
- specs=[('country',c,c+'_3304',label) for c,label in [('US','한국→미국 · HS3304'),('JP','한국→일본 · HS3304'),('CN','한국→중국 · HS3304')]]
+ specs=country_specs(json.loads(Path('config/markets.json').read_text()))
  specs += [('regional',region,id,label) for region,id,label in [('서울특별시 송파구','songpa_330499','송파구 제조지 · HS330499'),('서울특별시 금천구','geumcheon_330499','금천구 제조지 · HS330499')]]
  cache={}
  for kind,geo,id,label in specs:
