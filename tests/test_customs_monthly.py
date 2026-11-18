@@ -1,6 +1,8 @@
 import unittest
 from customs_monthly import parse_body,DataError,country_specs
 import json
+import os,tempfile
+from unittest.mock import patch
 from pathlib import Path
 class CustomsTests(unittest.TestCase):
  def test_all_demand_markets_and_china(self):
@@ -17,6 +19,29 @@ class CustomsTests(unittest.TestCase):
   for _,code,_,_ in country_specs(json.loads(Path('config/markets.json').read_text())):
    body=self.xml(self.row('3304',30).replace('<statCd>US</statCd>',f'<statCd>{code}</statCd>'))
    self.assertEqual(parse_body(body,'country',code,'202610','202610'),{(code,'2026-10'):30})
+ def test_retry_only_failed_windows_preserves_other_series(self):
+  import customs_monthly as c
+  root=Path.cwd()
+  good={'id':'CN_3304','errors':[],'observations':[{'month':'2022-01','value':9}]}
+  bad={'id':'US_3304','errors':[{'window':['202201','202212'],'code':'transport_error'}], 'verified_windows':[], 'observations':[{'month':'2021-12','value':8}]}
+  good.update(status='success',latest_month='2022-01')
+  # Minimal config avoids unrelated markets; preverified regions stay untouched.
+  regions=[{'id':x,'errors':[],'observations':[]} for x in ['songpa_330499','geumcheon_330499','hwaseong_330499']]
+  for r in regions:r.update(status='success',latest_month=None)
+  with tempfile.TemporaryDirectory() as d:
+   try:
+    os.chdir(d);Path('data').mkdir();Path('config').mkdir()
+    Path('data/customs_monthly.json').write_text(json.dumps({'series':[bad,good]+regions}))
+    Path('config/markets.json').write_text(json.dumps({'markets':[{'code':'US'}]}))
+    body=self.xml(self.row('3304',30).replace('2026.10','2022.01'))
+    with patch.dict(os.environ,{'CUSTOMS_RETRY_FAILED':'true','CUSTOMS_COUNTRY_API_KEY':'test','CUSTOMS_REGIONAL_API_KEY':'test'}),patch.object(c,'fetch',return_value=body) as fetch,patch.object(c.time,'sleep'),patch('builtins.print'):
+     c.main()
+    self.assertEqual(fetch.call_count,1)
+    result={x['id']:x for x in json.loads(Path('data/customs_monthly.json').read_text())['series']}
+    self.assertEqual(result['CN_3304'],good)
+    self.assertEqual(result['US_3304']['errors'],[])
+    self.assertEqual(result['US_3304']['observations'][0],bad['observations'][0])
+   finally:os.chdir(root)
  def xml(self,items):return '<response><header><resultCode>00</resultCode></header><body><items>'+items+'</items></body></response>'
  def row(self,hs,v):return f'<item><year>2026.10</year><statCd>US</statCd><hsCd>{hs}</hsCd><expDlr>{v}</expDlr></item>'
  def test_children_not_total(self):
