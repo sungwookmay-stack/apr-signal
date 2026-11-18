@@ -23,6 +23,7 @@ jobs:
         run: python -m unittest discover -s tests -p test_customs_monthly.py -v
       - name: Collect monthly official Customs data only
         env:
+          CUSTOMS_RETRY_FAILED: ${{ contains(github.event.head_commit.message, '[customs-retry-failed]') && 'true' || 'false' }}
           CUSTOMS_COUNTRY_API_KEY: ${{ secrets.CUSTOMS_COUNTRY_API_KEY }}
           CUSTOMS_REGIONAL_API_KEY: ${{ secrets.CUSTOMS_REGIONAL_API_KEY }}
         run: python customs_monthly.py

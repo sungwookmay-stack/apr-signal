@@ -9,6 +9,7 @@ COUNTRY='https://apis.data.go.kr/1220000/nitemtrade/getNitemtradeList'
 REGIONAL='https://apis.data.go.kr/1220000/sigunguperprlstperacrs/getSigunguPerPrlstPerAcrs'
 SOURCES={'country':'https://www.data.go.kr/data/15100475/openapi.do','regional':'https://www.data.go.kr/data/15134343/openapi.do'}
 class DataError(Exception):pass
+REGIONAL_SIDO={'서울특별시 송파구':'11','서울특별시 금천구':'11','경기도 화성시':'41'}
 
 # KCS cntyCd uses these two-letter destination codes (GB, not UK).
 # Keep China's historical reference series alongside all configured demand markets.
@@ -51,7 +52,10 @@ def parse_body(body,kind,code,start,end):
   else:
    if hs!='330499':raise DataError('scope_mismatch')
    val=amount(r.get('expUsdAmt'));group=r.get('sggNm','')
-   if not group.startswith('서울특별시 '):raise DataError('regional_scope_mismatch')
+   prefix='경기도 ' if REGIONAL_SIDO.get(code)=='41' else '서울특별시 '
+   if not group.startswith(prefix):raise DataError('regional_scope_mismatch')
+   # Never silently join a city series to new districts or double-count parent/children.
+   if code=='경기도 화성시' and (group.startswith('경기도 화성시 ') or any(x in group for x in ('만세구','효행구','병점구','동탄구'))):raise DataError('regional_boundary_changed')
   identity=(m,hs,group)
   if identity in seen:raise DataError('duplicate_row')
   if kind=='country' and any(mm==m and gg==group and (hh.startswith(hs) or hs.startswith(hh)) for mm,hh,gg in seen):raise DataError('overlapping_hs_scope')
@@ -74,19 +78,25 @@ def main():
  path=Path('data/customs_monthly.json');prior=json.loads(path.read_text()) if path.exists() else {}
  old={s['id']:s for s in prior.get('series',[])};series=[]
  specs=country_specs(json.loads(Path('config/markets.json').read_text()))
- specs += [('regional',region,id,label) for region,id,label in [('서울특별시 송파구','songpa_330499','송파구 제조지 · HS330499'),('서울특별시 금천구','geumcheon_330499','금천구 제조지 · HS330499')]]
+ specs += [('regional',region,id,label) for region,id,label in [('서울특별시 송파구','songpa_330499','송파구 제조지 · HS330499'),('서울특별시 금천구','geumcheon_330499','금천구 제조지 · HS330499'),('경기도 화성시','hwaseong_330499','화성시 제조지 · HS330499')]]
  cache={}
+ retry_only=os.getenv('CUSTOMS_RETRY_FAILED')=='true'
  for kind,geo,id,label in specs:
   key=os.getenv('CUSTOMS_COUNTRY_API_KEY' if kind=='country' else 'CUSTOMS_REGIONAL_API_KEY','')
   previous=old.get(id,{});obs={r['month']:r for r in previous.get('observations',[])};errors=[];windows=[]
+  failed={tuple(e['window']) for e in previous.get('errors',[]) if 'window' in e}
+  if retry_only and previous and not failed:
+   series.append(previous);continue
+  if retry_only:windows=list(previous.get('verified_windows',[]))
   for year in range(2022,int(end[:4])+1):
    start=f'{year}01';stop=min(f'{year}12',end)
    if start>stop:continue
-   cache_key=(kind,geo if kind=='country' else '11',start,stop)
+   if retry_only and previous and (start,stop) not in failed:continue
+   cache_key=(kind,geo if kind=='country' else REGIONAL_SIDO[geo],start,stop)
    if not key:errors.append({'window':[start,stop],'code':'missing_secret'});continue
    if cache_key not in cache:
     params={'strtYymm':start,'endYymm':stop}
-    params.update({'hsSgn':'3304','cntyCd':geo} if kind=='country' else {'HsSgn':'330499','sidoCd':'11'})
+    params.update({'hsSgn':'3304','cntyCd':geo} if kind=='country' else {'HsSgn':'330499','sidoCd':REGIONAL_SIDO[geo]})
     try:
      body=fetch(kind,key,params);cache[cache_key]=(parse_body(body,kind,geo,start,stop),None)
     except DataError as e:cache[cache_key]=({},str(e))
