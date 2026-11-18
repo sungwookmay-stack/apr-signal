@@ -34,7 +34,7 @@ class CustomsTests(unittest.TestCase):
     Path('data/customs_monthly.json').write_text(json.dumps({'series':[bad,good]+regions}))
     Path('config/markets.json').write_text(json.dumps({'markets':[{'code':'US'}]}))
     body=self.xml(self.row('3304',30).replace('2026.10','2022.01'))
-    with patch.dict(os.environ,{'CUSTOMS_RETRY_FAILED':'true','CUSTOMS_COUNTRY_API_KEY':'test','CUSTOMS_REGIONAL_API_KEY':'test'}),patch.object(c,'fetch',return_value=body) as fetch,patch.object(c.time,'sleep'),patch('builtins.print'):
+    with patch.dict(os.environ,{'CUSTOMS_RETRY_FAILED':'true','CUSTOMS_COUNTRY_API_KEY':'test','CUSTOMS_REGIONAL_API_KEY':'test'}),patch.object(c,'fetch',return_value=body) as fetch,patch.object(c.time,'sleep'),patch('builtins.print'),patch('device_customs_monthly.collect_device_series',return_value=[]):
      c.main()
     self.assertEqual(fetch.call_count,1)
     result={x['id']:x for x in json.loads(Path('data/customs_monthly.json').read_text())['series']}
