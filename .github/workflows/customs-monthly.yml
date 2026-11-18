@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test scope and amount validation
-        run: python -m unittest discover -s tests -p test_customs_monthly.py -v
+        run: python -m unittest discover -s tests -p 'test*customs*.py' -v
       - name: Collect monthly official Customs data only
         env:
           CUSTOMS_RETRY_FAILED: ${{ contains(github.event.head_commit.message, '[customs-retry-failed]') && 'true' || 'false' }}
