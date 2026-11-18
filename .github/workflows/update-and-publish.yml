@@ -55,17 +55,29 @@ jobs:
         run: node tests/smoke_kbty_sec.cjs
       - name: Test official Customs freight parsing
         run: python -m unittest tests/test_freight_official.py -v
+      - name: Preflight saved research before provider calls
+        run: node tests/smoke_research.cjs
       - name: Fetch data, calculate signals, update verified news
+        id: morning_sources
         # Code-only pushes avoid consuming credits; explicit [collect-now] commit runs one authorized refresh.
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && contains(github.event.head_commit.message, '[collect-now]'))
         env:
           APISH_KEY: ${{ secrets.APISH_KEY }}
         run: python build_data.py
+      - name: Preserve morning demand recovery snapshot
+        if: always() && (steps.morning_sources.outcome == 'success' || steps.morning_sources.outcome == 'failure')
+        uses: actions/upload-artifact@v4
+        with:
+          name: demand-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/demand.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Recover free morning sources without paid APIs
         # Explicit recovery only; never consumes APISH or Decodo credentials.
         if: github.event_name == 'push' && contains(github.event.head_commit.message, '[free-recovery]')
         run: env -u APISH_KEY -u DECODO_API_KEY python build_data.py
       - name: Decodo Top50 gated morning collection
+        id: decodo_collection
         # User authorized the public Top50 summary and free-plan collection.
         # Python additionally enforces KST Mon/Wed/Fri/Sat/Sun and no reruns.
         if: (github.event_name == 'schedule' && github.event.schedule == '30 22 * * *') || (github.event_name == 'push' && (contains(github.event.head_commit.message, '[top50-initial-20261112]') || contains(github.event.head_commit.message, '[top50-uae-20261112]')))
@@ -77,6 +89,18 @@ jobs:
           DECODO_FREE_PLAN_CONFIRMED: 'true'
           GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: python decodo_top50.py
+      - name: Preserve Top50 recovery snapshot
+        # Data-only allowlist; never archive credentials, logs, environment or checkout.
+        # Recovery is not publication: validate snapshots before a manual restore.
+        if: always() && (steps.decodo_collection.outcome == 'success' || steps.decodo_collection.outcome == 'failure')
+        uses: actions/upload-artifact@v4
+        with:
+          name: top50-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            state/decodo_top50.json
+            data/top50.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Verify Top50 gating, completeness, movement and UI without API calls
         run: |
           python -m unittest discover -s tests -p test_decodo_top50.py -v
