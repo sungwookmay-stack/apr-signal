@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """APR daily investor/short/lending collector with source provenance.
 
-Primary daily investor and short sources: KRX Data Marketplace, accessed
-through the free pykrx client when installed. This is NOT the KRX Open API
-(which currently does not offer investor-by-security/short-sale endpoints).
+Direct KRX/pykrx access is disabled by the owner. Previously verified rows
+are retained; connected licensed alternatives remain separately gated.
 KSD SLB: optional key in GitHub Actions secret KSD_SLB_API_KEY for
 apis.data.go.kr/B552481/SlbSvc/getSlbDealingByIsin.
 No API key ever goes into JSON, logs, or client JavaScript.
