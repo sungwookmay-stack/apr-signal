@@ -31,6 +31,11 @@ jobs:
         env:
           CUSTOMS_COUNTRY_API_KEY: ${{ secrets.CUSTOMS_COUNTRY_API_KEY }}
         run: python scripts/probe_device_customs.py
+      - name: Read-only Hwaseong administrative-boundary probe
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[hwaseong-probe]')
+        env:
+          CUSTOMS_REGIONAL_API_KEY: ${{ secrets.CUSTOMS_REGIONAL_API_KEY }}
+        run: python hwaseong_probe.py
       - name: Publish only Customs observations
         run: |
           git config user.name 'github-actions[bot]'
