@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-11-18T15:49:24.227493+00:00",
+  "checked_at": "2026-11-18T15:56:50.526841+00:00",
   "requested_through_month": "2026-10",
-  "source_commit": "3789b351a94b4ab89a71376bd46166a6bf12a40b",
+  "source_commit": "07e7e64ee3ee029e541fd2173f3a5602ef23ed06",
   "series": [
     {
       "id": "US_3304",
@@ -6600,6 +6600,1857 @@
       "unit_note": "expUsdAmt 원시값: 공식 단위 검증 대기; 금액 그래프 비표시",
       "verification_run": "https://github.com/sungwookmay-stack/apr-signal/actions/runs/44338341727",
       "boundary_policy": "Exact 경기도 화성시 only; child district appearance blocks refresh and preserves last verified history."
+    },
+    {
+      "id": "US_8543702020",
+      "label": "한국→미국 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "US",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 510106,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 916136,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 1574796,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 3643368,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 2239369,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 918744,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 1795176,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 3934049,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 1244240,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 2140040,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 1870948,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 4743870,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 2776622,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 4004462,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 5323011,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 11012390,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 9519725,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "GB_8543702020",
+      "label": "한국→영국 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "GB",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 75438,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 239211,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 80628,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 2322997,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 728804,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 134044,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 2933863,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 177577,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 760333,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 165655,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 1049262,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 293780,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 2243032,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 1353032,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 253575,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 900860,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 802379,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "DE_8543702020",
+      "label": "한국→독일 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "DE",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 68711,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 182788,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 104774,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 142768,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 5983892,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 100946,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 269993,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 192639,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 73287,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 441394,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 614458,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 455217,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 297433,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 360189,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 303265,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 369112,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 30414,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "FR_8543702020",
+      "label": "한국→프랑스 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "FR",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 69351,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 29943,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 59589,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 55560,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 65880,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 36486,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 51457,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 39081,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 60060,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 63196,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 79273,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 79251,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 45407,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 37498,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 27273,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 47928,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 27749,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "IT_8543702020",
+      "label": "한국→이탈리아 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "IT",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 28820,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 6861,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 796,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 31801,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 48810,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 18250,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 23079,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 52048,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 47502,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 60883,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 24368,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 11950,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 7896,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 44550,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 976,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 43739,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 8079,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "ES_8543702020",
+      "label": "한국→스페인 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "ES",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 18289,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 108460,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 67220,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 4872,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 102533,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 166991,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 104589,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 9803,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 86516,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 43153,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 99598,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 12740,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 128227,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 99137,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 20039,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 347578,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 158746,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "CA_8543702020",
+      "label": "한국→캐나다 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "CA",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 66239,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 104703,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 69409,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 147100,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 95484,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 85658,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 112877,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 73301,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 80832,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 129721,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 97008,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 72053,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 96806,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 92808,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 42455,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 25002,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 57710,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "JP_8543702020",
+      "label": "한국→일본 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "JP",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 1476488,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 2166743,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 1420558,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 2493678,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 2042509,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 1084318,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 3230335,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 2889009,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 4903725,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 6454632,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 2844924,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 1824667,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 763979,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 2892872,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 1849655,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 2682205,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 4113323,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "AE_8543702020",
+      "label": "한국→아랍에미리트 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "AE",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "partial",
+      "latest_month": "2025-12",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 320283,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 329546,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 828512,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 423989,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 303617,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 646848,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 650590,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [
+        {
+          "window": [
+            "202601",
+            "202610"
+          ],
+          "code": "transport_error"
+        }
+      ],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ]
+      ]
+    },
+    {
+      "id": "SA_8543702020",
+      "label": "한국→사우디아라비아 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "SA",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 8611,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 16851,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 16410,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 868,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 12339,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 2300,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 18999,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 4224,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 48352,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 3339,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 10244,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 9630,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 3374,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 1225,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 4771,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 264867,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 152,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "EG_8543702020",
+      "label": "한국→이집트 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "EG",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-08",
+          "value": 1840,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 7000,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 1360,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "QA_8543702020",
+      "label": "한국→카타르 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "QA",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 6088,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 4169,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 6553,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 10005,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 1030,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 13767,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 18439,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 27867,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 638,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 1803,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 11125,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 24944,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 25002,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 4836,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 1181,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 30973,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 11472,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "KW_8543702020",
+      "label": "한국→쿠웨이트 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "KW",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 260,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 10267,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 30437,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 19435,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 4987,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 5609,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 447,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 48793,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 1646,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 4673,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 2206,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 48659,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 359,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 156,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 961,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 823,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "BR_8543702020",
+      "label": "한국→브라질 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "BR",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 99858,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 54,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 74607,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 54322,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 343,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 87661,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 61150,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 46818,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 49985,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 95244,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 103275,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 25209,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 2074,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 152410,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 48508,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 94159,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 6109,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "AR_8543702020",
+      "label": "한국→아르헨티나 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "AR",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 19272,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 2242,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 1227,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 9728,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 3334,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 1815,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 156280,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 68769,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 3748,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 3947,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 70801,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 38209,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 73234,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 55357,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 7733,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 16722,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 68897,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "CL_8543702020",
+      "label": "한국→칠레 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "CL",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 47504,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 6400,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 7,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 62181,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 81,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 10995,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 25400,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 45500,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 20752,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 45877,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 42149,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 81144,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 29714,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 13725,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 41838,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 12468,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 27172,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
+    },
+    {
+      "id": "CN_8543702020",
+      "label": "한국→중국 · 가정형 미용기기",
+      "kind": "country",
+      "product_category": "beauty_device_industry",
+      "hs_code": "8543702020",
+      "geography": "CN",
+      "geography_basis": "한국 수출 목적국",
+      "unit": "USD",
+      "unit_verified": true,
+      "unit_note": "FOB 신고미화금액 달러",
+      "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
+      "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
+      "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
+      "status": "success",
+      "latest_month": "2026-10",
+      "observations": [
+        {
+          "month": "2025-06",
+          "value": 719046,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-07",
+          "value": 1975806,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-08",
+          "value": 1729243,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-09",
+          "value": 1240994,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-10",
+          "value": 812060,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-11",
+          "value": 633688,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2025-12",
+          "value": 947436,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-01",
+          "value": 851863,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 561328,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 713165,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 262368,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 306680,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 312641,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 366714,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 383225,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 830189,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 771086,
+          "verified_at": "2026-11-18T15:56:50.526841+00:00"
+        }
+      ],
+      "checked_at": "2026-11-18T15:56:50.526841+00:00",
+      "errors": [],
+      "verified_windows": [
+        [
+          "202506",
+          "202512"
+        ],
+        [
+          "202601",
+          "202610"
+        ]
+      ]
     }
   ],
   "notes": [
