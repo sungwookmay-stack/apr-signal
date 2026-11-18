@@ -1,4 +1,4 @@
-"""Offline APR SIGNAL schedule checks: no extra paid-API requests at 16:00."""
+"""Offline APR SIGNAL schedule checks: no extra paid-API requests at 23:30."""
 import pathlib
 import unittest
 
@@ -16,15 +16,13 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
 
     def test_schedules_are_0730_and_1600_kst(self):
         self.assertIn("- cron: '30 22 * * *'", self.workflow)
-        self.assertIn("- cron: '0 7 * * *'", self.workflow)
-        self.assertIn("- cron: '30 11 * * *'", self.workflow)
         self.assertIn("- cron: '30 14 * * *'", self.workflow)
-        self.assertEqual(self.workflow.count("- cron:"), 4)
+        self.assertEqual(self.workflow.count("- cron:"), 2)
 
     def test_only_morning_runs_paid_eligible_data_collector(self):
         morning = self.section('Fetch data, calculate signals, update verified news')
         self.assertIn("github.event.schedule == '30 22 * * *'", morning)
-        self.assertNotIn("github.event.schedule == '0 7 * * *'", morning)
+        self.assertNotIn("github.event.schedule == '30 14 * * *'", morning)
         self.assertIn('run: python build_data.py', morning)
         self.assertIn('APISH_KEY:', morning)
         self.assertNotIn('SCRAPEDO_TOKEN:', self.workflow)
@@ -37,7 +35,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         afternoon = self.section(
             'Afternoon and evening - recheck free daily prices, indicators and news'
         )
-        self.assertIn("github.event.schedule == '0 7 * * *'", afternoon)
+        self.assertIn("github.event.schedule == '30 14 * * *'", afternoon)
         self.assertIn('run: python afternoon_refresh.py', afternoon)
         self.assertNotIn('run: python build_data.py', afternoon)
         self.assertNotIn('APISH_KEY:', afternoon)
@@ -45,7 +43,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
 
     def test_night_investor_collection_does_not_run_paid_global_collector(self):
         flow = self.section('Collect APR investor, pension, short and KSD lending (free)')
-        self.assertIn("github.event.schedule == '30 11 * * *'", flow)
+        self.assertIn("github.event.schedule == '30 14 * * *'", flow)
         self.assertIn('run: python flows_collect.py', flow)
         self.assertNotIn('APISH_KEY:', flow)
         self.assertNotIn('SCRAPEDO_TOKEN:', flow)
@@ -54,7 +52,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         news = self.section('News-only manual refresh')
         self.assertIn("'[news-now]'", news)
         self.assertIn('from build_data import collect_news; collect_news()', news)
-        self.assertNotIn("github.event.schedule == '0 7 * * *'", news)
+        self.assertNotIn("github.event.schedule == '30 14 * * *'", news)
         self.assertIn("'[afternoon-now]'", self.workflow)
         self.assertIn("'[translate-now]'", self.workflow)
         self.assertIn("'[collect-now]'", self.workflow)

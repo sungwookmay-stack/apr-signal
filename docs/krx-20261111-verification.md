@@ -11,3 +11,7 @@ Verified on 2026-11-12 KST. No new KRX values were invented or imported.
 - Possible next step is an authorized KRX login followed by APR-specific export and source/unit/date verification. A manual export does not establish recurring authenticated collection. Do not promise a KRX OpenAPI key covers this table.
 
 The workflow now **attempts** the existing free flow collector at 23:30 KST as well as the existing 20:30 and 07:30 checks. The 16:00 technical/news run remains unchanged. Amazon, Google Trends, DART and other morning-only collections are not added to 23:30. GitHub scheduling may be delayed. Original source barriers and missing-value handling are preserved.
+
+## Schedule and source policy update (2026-11-18)
+
+Only 07:30 and 23:30 KST scheduled collection slots remain. 16:00 and 20:30 are removed. Direct KRX/pykrx access is disabled; existing verified history remains. The late slot keeps free prices/news and FSC lending. FSC is retained until a replacement is actually verified. KIS/Kiwoom connection gates are unchanged. No paid collector is added to the late slot.
