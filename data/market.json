@@ -12,7 +12,7 @@
     "stock_last": "2026-11-18",
     "usd_fx_last": "2026-11-13",
     "eur_fx_last": "2026-11-13",
-    "generated_at_utc": "2026-11-18T08:08:24+00:00",
+    "generated_at_utc": "2026-11-18T12:18:30+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4664,7 +4664,7 @@
     {
       "date": "2026-11-18",
       "close_krw": 242000,
-      "volume": 232567,
+      "volume": 241641,
       "open_krw": 232500,
       "high_krw": 243500,
       "low_krw": 231000,
@@ -6950,55 +6950,20 @@
         "month": "2026-09",
         "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10179764&nttSnUrl=85ecfa8eed3f4098ece86ef6db0520a7",
         "rate_check_complete": true
-      },
-      {
-        "us_west": 9377,
-        "us_east": 9455,
-        "eu": 4549,
-        "middle_east": 8634,
-        "china": 478,
-        "japan": 565,
-        "vietnam": 1504,
-        "reported_mom_pct": {
-          "us_west": 0.01,
-          "us_east": 1.2,
-          "eu": -9.2,
-          "middle_east": -4.2,
-          "china": -5.2,
-          "japan": -9.9,
-          "vietnam": 6.4
-        },
-        "reported_yoy_pct": {
-          "us_west": 82.3,
-          "us_east": 84.9,
-          "eu": 47.5,
-          "middle_east": 121.6,
-          "china": -6.4,
-          "japan": 2.9,
-          "vietnam": 1.8
-        },
-        "month": "2026-10",
-        "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10183384&nttSnUrl=76991cfebcef4794d12db61b0037d195",
-        "rate_check_complete": true,
-        "publication_date": "2026-11-16"
       }
     ],
-    "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10183384&nttSnUrl=76991cfebcef4794d12db61b0037d195",
-    "last_verified_month": "2026-10",
-    "last_verified_at_utc": "2026-11-18T10:19:03+00:00",
-    "last_fetch_failed": true,
+    "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10176744&nttSnUrl=3d882ad4c9ae38a38038fe09e94c70bf",
+    "last_verified_month": "2026-08",
+    "last_verified_at_utc": "2026-11-08T23:06:02+00:00",
+    "last_fetch_failed": false,
     "history_verified_this_run": 0,
     "history_backfill_errors": [],
     "last_checked_at_utc": "2026-11-13T23:12:28+00:00",
-    "last_fetch_errors": [
-      "Direct official HTTP fetch returned 503 during review; October values verified from official article via web reader."
-    ],
+    "last_fetch_errors": [],
     "unverified_months": [
       "2025-08",
       "2026-02"
     ],
-    "last_successful_check_utc": "2026-11-13T23:12:28+00:00",
-    "verification_method": "official_release_web_content_review",
-    "publication_date": "2026-11-16"
+    "last_successful_check_utc": "2026-11-13T23:12:28+00:00"
   }
 }
