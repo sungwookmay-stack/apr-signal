@@ -350,7 +350,7 @@ function renderEtf(){const e=state.kbty;if(!e)return;
 function renderNews(){
  const d=state.news;if(!d)return;
  const events=(d.verified_events||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
- $('verified-events').innerHTML=events.map(x=>'<article class="event"><span class="tag">'+escapeHtml(x.date)+' · '+escapeHtml(x.country)+' · '+escapeHtml(x.stage)+'</span><h3>'+escapeHtml(x.title)+'</h3><p>'+escapeHtml(x.summary||'')+'</p><a href="'+validLink(x.source_url)+'" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>').join('');
+ $('verified-events').innerHTML=events.map(x=>'<article class="event"><span class="tag">'+escapeHtml(x.date_display||x.date)+' · '+escapeHtml(x.country)+' · '+escapeHtml(x.stage)+'</span><h3>'+escapeHtml(x.title)+'</h3><p>'+escapeHtml(x.summary||'')+'</p><a href="'+validLink(x.source_url)+'" target="_blank" rel="noopener noreferrer">원문 확인 ↗</a></article>').join('');
  const word=$('news-filter')?.value||'all';
  const all=(d.items||[]),items=all.filter(x=>word==='all'||(x.category||'').includes(word));
  const translated=items.filter(x=>x.title_ko&&x.summary_ko).length;
