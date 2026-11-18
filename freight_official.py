@@ -43,6 +43,7 @@ _IDS = {
     '2026-07': '10173585',
     '2026-08': '10176744',
     '2026-09': '10179764',
+    '2026-10': '10183384',
 }
 KNOWN_RELEASES = {
     month: BASE+'/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn='+num
@@ -65,6 +66,7 @@ _VERIFIED_HASHES = {
     '2026-07': '623b71ead9d2c77d728a59d8fee6b3ed',
     '2026-08': '3d882ad4c9ae38a38038fe09e94c70bf',
     '2026-09': '85ecfa8eed3f4098ece86ef6db0520a7',
+    '2026-10': '76991cfebcef4794d12db61b0037d195',
 }
 for _month, _token in _VERIFIED_HASHES.items():
     KNOWN_RELEASES[_month] += '&nttSnUrl=' + _token
@@ -219,7 +221,11 @@ def fetch_latest(get_bytes, today=None, pages=4):
     """Return (verified row, official URL), or raise on inaccessible releases."""
     today = today or dt.date.today()
     candidates, errors = discover_releases(get_bytes, pages)
-    for month in sorted(candidates, reverse=True):
+    if pages and errors:
+        raise ValueError('관세청 최신 발표 목록 확인 실패: '+','.join(errors[:3]))
+    # Do not call an older accessible release the latest after a newer one fails.
+    eligible = [m for m in candidates if MIN_MONTH <= m <= today.strftime('%Y-%m')]
+    for month in sorted(eligible, reverse=True)[:1]:
         if month > today.strftime('%Y-%m') or month < MIN_MONTH:
             continue
         url = candidates[month]
@@ -273,3 +279,4 @@ def fetch_history(get_bytes, previous=(), today=None, pages=0,
         except Exception as exc:
             errors.append(month+': '+type(exc).__name__)
     return updates, errors
+

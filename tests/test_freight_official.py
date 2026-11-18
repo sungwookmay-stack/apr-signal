@@ -1,6 +1,7 @@
 """Offline regression tests for monthly Korea Customs freight-cost collection."""
 import datetime as dt
 import unittest
+from unittest.mock import patch
 from urllib.parse import parse_qs, urlparse
 
 from freight_official import (parse_release, collect_release_links, fetch_latest,
@@ -58,6 +59,7 @@ class TestCustomsFreight(unittest.TestCase):
         self.assertEqual(links[0],('2026-10',OCT_URL))
         self.assertEqual(links[1],('2026-09',SEPT_URL))
 
+    @patch.dict(KNOWN_RELEASES, {}, clear=True)
     def test_selects_latest_only_when_official_release_exists(self):
         calls=[]
         def fake(url,timeout):
@@ -70,6 +72,7 @@ class TestCustomsFreight(unittest.TestCase):
         self.assertEqual(row['us_west'],8900)
         self.assertEqual(url,OCT_URL)
 
+    @patch.dict(KNOWN_RELEASES, {}, clear=True)
     def test_older_official_release_not_treated_as_october(self):
         html=LIST_HTML.replace('2026년 10월 수출입 운송비용 현황',
                                '2026년 10월 수출입 잠정 현황')
@@ -178,3 +181,25 @@ class TestCustomsFreight(unittest.TestCase):
         self.assertTrue(errors)
 
 if __name__=='__main__':unittest.main()
+
+
+class TestLatestFreshness(unittest.TestCase):
+    @patch.dict(KNOWN_RELEASES, {}, clear=True)
+    def test_latest_unavailable_does_not_succeed_with_old_release(self):
+        def fake(url,timeout):
+            if 'selectNttList' in url:return LIST_HTML.encode()
+            if '10182000' in url:raise OSError('503')
+            return SEPT_HTML.encode()
+        with self.assertRaises(ValueError):
+            fetch_latest(fake,today=dt.date(2026,11,18),pages=1)
+
+    def test_discovery_failure_is_not_current_success(self):
+        def fake(url,timeout):
+            if 'selectNttList' in url:raise OSError('503')
+            return OCT_HTML.encode()
+        with self.assertRaises(ValueError):
+            fetch_latest(fake,today=dt.date(2026,11,18),pages=1)
+
+    def test_verified_october_canonical_link(self):
+        self.assertIn('nttSn=10183384',KNOWN_RELEASES['2026-10'])
+        self.assertIn('nttSnUrl=76991cfebcef4794d12db61b0037d195',KNOWN_RELEASES['2026-10'])
