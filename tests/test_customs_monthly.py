@@ -1,6 +1,22 @@
 import unittest
-from customs_monthly import parse_body,DataError
+from customs_monthly import parse_body,DataError,country_specs
+import json
+from pathlib import Path
 class CustomsTests(unittest.TestCase):
+ def test_all_demand_markets_and_china(self):
+  config=json.loads(Path('config/markets.json').read_text())
+  specs=country_specs(config)
+  self.assertEqual({x[1] for x in specs},{x['code'] for x in config['markets']}|{'CN'})
+  self.assertEqual(len(specs),17)
+  self.assertIn('GB',{x[1] for x in specs})
+ def test_no_duplicate_china_or_market(self):
+  self.assertEqual(len(country_specs({'markets':[{'code':'CN'},{'code':'CN'}]})),1)
+ def test_unknown_country_fails_closed(self):
+  with self.assertRaises(DataError):country_specs({'markets':[{'code':'ZZ'}]})
+ def test_each_country_response_identity(self):
+  for _,code,_,_ in country_specs(json.loads(Path('config/markets.json').read_text())):
+   body=self.xml(self.row('3304',30).replace('<statCd>US</statCd>',f'<statCd>{code}</statCd>'))
+   self.assertEqual(parse_body(body,'country',code,'202610','202610'),{(code,'2026-10'):30})
  def xml(self,items):return '<response><header><resultCode>00</resultCode></header><body><items>'+items+'</items></body></response>'
  def row(self,hs,v):return f'<item><year>2026.10</year><statCd>US</statCd><hsCd>{hs}</hsCd><expDlr>{v}</expDlr></item>'
  def test_children_not_total(self):
