@@ -145,8 +145,32 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match($('freight-route-table').innerHTML,/베트남/);
  assert.equal(MockChart.instances['chart-sea'].data.datasets.length,4);
  assert.equal(MockChart.instances['chart-kita-sea'].data.datasets.length,2);
- assert.match($('kita-feu').textContent,/8,500/);
- assert.match($('kita-asof').textContent,/2026-10/);
+ const latestRoute=(data,destination)=>(data.sea_routes||[])
+   .filter(r=>r.origin==='Busan'&&r.destination===destination&&r.month)
+   .sort((a,b)=>a.month.localeCompare(b.month)).at(-1);
+ const assertKitaDisplay=data=>{
+   const west=latestRoute(data,'Long Beach'),east=latestRoute(data,'New York');
+   assert.equal($('kita-feu').textContent,west?.feu_usd!=null?'$'+Number(west.feu_usd).toLocaleString('en-US'):'—');
+   assert.equal($('kita-asof').textContent,
+     'KITA 미 서안 '+(west?.month||'미수집')+' / 미 동안 '+(east?.month||'미수집')+
+     ' · 시장참고 USD/FEU, 공시 조건·할증료에 유의');
+ };
+ assertKitaDisplay(kita);
+ const savedKitaRoutes=kita.sea_routes;
+ // Deterministic rollover, changed price, independent route lag and missing data.
+ for(const fixture of [
+   {sea_routes:[{origin:'Busan',destination:'Long Beach',month:'2030-01',feu_usd:9100},
+                {origin:'Busan',destination:'New York',month:'2030-01',feu_usd:10200}]},
+   {sea_routes:[{origin:'Busan',destination:'Long Beach',month:'2030-02',feu_usd:9200},
+                {origin:'Busan',destination:'New York',month:'2030-01',feu_usd:10200}]},
+   {sea_routes:[]}
+ ]){
+   kita.sea_routes=fixture.sea_routes;
+   events['window:hashchange']();
+   assertKitaDisplay(fixture);
+ }
+ kita.sea_routes=savedKitaRoutes;
+ events['window:hashchange']();
  $('freight-group').value='near';events['freight-group:change']();
  assert.equal(MockChart.instances['chart-sea'].data.datasets.length,3);
  location.hash='#sensitivity';events['window:hashchange']();
