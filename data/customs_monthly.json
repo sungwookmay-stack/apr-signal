@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-11-18T15:56:50.526841+00:00",
+  "checked_at": "2026-11-18T15:59:21.232511+00:00",
   "requested_through_month": "2026-10",
-  "source_commit": "07e7e64ee3ee029e541fd2173f3a5602ef23ed06",
+  "source_commit": "d996bfd13b7dc6b5f16a531dbf3033b794496750",
   "series": [
     {
       "id": "US_3304",
@@ -7543,8 +7543,8 @@
       "source_url": "https://www.data.go.kr/data/15100475/openapi.do",
       "classification_source_url": "https://www.data.go.kr/data/15130660/fileData.do",
       "scope_note": "전국 가정형 미용기기의 목적국별 산업 참고 통계. APR 자체 수출이 아니며 개별 제품의 신고코드는 미확인. 국가별 값을 전국 총계로 합산하지 않음.",
-      "status": "partial",
-      "latest_month": "2025-12",
+      "status": "success",
+      "latest_month": "2026-10",
       "observations": [
         {
           "month": "2025-06",
@@ -7580,22 +7580,68 @@
           "month": "2025-12",
           "value": 650590,
           "verified_at": "2026-11-18T15:56:50.526841+00:00"
-        }
-      ],
-      "checked_at": "2026-11-18T15:56:50.526841+00:00",
-      "errors": [
+        },
         {
-          "window": [
-            "202601",
-            "202610"
-          ],
-          "code": "transport_error"
+          "month": "2026-01",
+          "value": 730479,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-02",
+          "value": 596792,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-03",
+          "value": 17804,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-04",
+          "value": 632866,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-05",
+          "value": 866987,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-06",
+          "value": 337189,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-07",
+          "value": 932512,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-08",
+          "value": 926631,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-09",
+          "value": 2379982,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
+        },
+        {
+          "month": "2026-10",
+          "value": 1719813,
+          "verified_at": "2026-11-18T15:59:21.232511+00:00"
         }
       ],
+      "checked_at": "2026-11-18T15:59:21.232511+00:00",
+      "errors": [],
       "verified_windows": [
         [
           "202506",
           "202512"
+        ],
+        [
+          "202601",
+          "202610"
         ]
       ]
     },
