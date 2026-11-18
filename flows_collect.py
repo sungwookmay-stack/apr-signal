@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """APR daily investor/short/lending collector with source provenance.
 
-Primary daily investor and short sources: KRX Data Marketplace, accessed
-through the free pykrx client when installed. This is NOT the KRX Open API
-(which currently does not offer investor-by-security/short-sale endpoints).
+Direct KRX/pykrx access is disabled by the owner. Previously verified rows
+are retained; connected licensed alternatives remain separately gated.
 KSD SLB: optional key in GitHub Actions secret KSD_SLB_API_KEY for
 apis.data.go.kr/B552481/SlbSvc/getSlbDealingByIsin.
 No API key ever goes into JSON, logs, or client JavaScript.
@@ -283,42 +282,9 @@ def collect():
     krx_ok=False
     krx_mode=None
     diagnostics={}
-    try:
-        from pykrx import stock
-        try:
-            d=stock.get_market_trading_value_by_date(start,end,TICKER,detail=True)
-            diagnostics['detail_rows']=len(d) if d is not None else 0
-            diagnostics['detail_columns']=list(map(str,d.columns))[:15] if d is not None else []
-            new=normalize_investor_dataframe(d,detail=True)
-            if not any(x.get('foreign') is not None
-                       and x.get('institution') is not None for x in new):
-                raise ValueError('KRX investor detail columns/rows missing')
-            krx_mode='detailed'
-        except Exception as detail_error:
-            diagnostics['detail_error_type']=type(detail_error).__name__
-            # Re-query the official KRX basic group view, rather than
-            # wrongly interpreting absent detailed pension rows as zero.
-            d=stock.get_market_trading_value_by_date(start,end,TICKER,detail=False)
-            diagnostics['basic_rows']=len(d) if d is not None else 0
-            diagnostics['basic_columns']=list(map(str,d.columns))[:10] if d is not None else []
-            new=normalize_investor_dataframe(d,detail=False)
-            if not any(x.get('foreign') is not None
-                       and x.get('institution') is not None for x in new):
-                raise ValueError('KRX basic group data unavailable too')
-            krx_mode='basic_no_pension'
-        daily=merge_by_date(daily,new)
-        krx_ok=True
-    except (Exception, ImportError) as exc:
-        issues.append('KRX 상세·기본 수급: '+type(exc).__name__+' · 이전 검증값 유지')
-    try:
-        from pykrx import stock
-        d=stock.get_shorting_status_by_date(start,end,TICKER)
-        new=normalize_short_dataframe(d,prices)
-        if not new:
-            raise ValueError('KRX short-sale response empty or columns changed')
-        shorts=merge_by_date(shorts,new)
-    except (Exception, ImportError) as exc:
-        issues.append('KRX 종목별 공매도/잔고: '+type(exc).__name__+' · 이전 검증값 유지')
+    # Owner stopped direct KRX access. Keep prior verified rows, never query pykrx.
+    krx_mode='disabled_by_owner'
+    diagnostics={'status':'disabled_by_owner','network_calls':0}
     # KIS free read-only daily short-selling TR FHPST04830000.
     # Unlike KRX marketplace scraping, KIS is operational from GitHub
     # runners once optional production KIS credentials are configured.
@@ -470,6 +436,7 @@ def collect():
        'checked_at_utc':now,
        'data_status':{
            'krx_investor_live_ok':krx_ok,
+           'krx_collection_status':'disabled_by_owner',
            'kis_short_key_configured':kis_key_present,
            'kis_short_daily_result':kis_result,
            'fsc_stock_lending_key_configured':bool(os.environ.get('FSC_STOCK_LENDING_API_KEY')),

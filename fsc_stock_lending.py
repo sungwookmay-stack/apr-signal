@@ -189,7 +189,7 @@ def collect(price_rows,previous_rows=None,key=None,http=None,max_days=8):
 
 
 def update():
-    """Independent cheap 16:00 KST FSC-only refresh; no KIS/pykrx call."""
+    """Explicit FSC-only refresh; no KIS/pykrx call."""
     from flows_engine import evaluate
     base=Path(__file__).resolve().parent/"data"
     def read(name):
