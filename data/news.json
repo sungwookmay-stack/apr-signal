@@ -1579,6 +1579,42 @@
       "source_url": "https://stockanalysis.com/quote/krx/278470/transcripts/747091-q3-2026/",
       "evidence": "경영진 어닝콜",
       "sales_confirmed": false
+    },
+    {
+      "date": "2026-11-04",
+      "country": "CL",
+      "category": "의료용 스킨부스터",
+      "stage": "현지 출시 보도",
+      "title": "DUPLOS, 메디큐브 PN 스킨부스터 칠레 출시 소개",
+      "summary": "Kinegun Medicals를 통한 전문 의료기관용 주사제 출시를 다룬 현지 보도. 가정용 AGE-R 기기 판매와 구별하며 판매량·재주문 수치는 확인되지 않음.",
+      "source_url": "https://duplos.cl/tendencias/medicube-pn-skin-booster-chile-lanzamiento-kinegun/284334/2026/11/04/",
+      "evidence": "칠레 현지 언론·원문 확인",
+      "sales_confirmed": false
+    },
+    {
+      "date": "2026-11-12",
+      "country": "CL",
+      "category": "의료용 스킨부스터",
+      "stage": "유통 파트너 후속 보도",
+      "title": "TECNAUTAS, Kinegun의 메디큐브 주사제 칠레 독점 유통 소개",
+      "summary": "현지 유통사 대표 인터뷰 성격의 기사로 2026년 메디큐브 전문 주사제 독점 유통 관계를 소개. 기사에 나온 Kinegun 전체 매출·기업가치·콜롬비아 계획을 APR 실적이나 메디큐브 콜롬비아 진출 확정으로 해석하지 않음. APR 판매량·재주문 수치는 미확인.",
+      "source_url": "https://tecnautas.cl/2026/11/12/la-apuesta-de-vicente-caerols-como-su-emprendimiento-paso-de-vender-online-a-convertirse-en-socio-estrategico-de-gigantes-internacionales/",
+      "evidence": "칠레 현지 언론·원문 확인",
+      "sales_confirmed": false
+    },
+    {
+      "date": "2026-11-19",
+      "date_display": "확인일 2026-11-19",
+      "publication_date": null,
+      "event_date": "2026-11-28",
+      "country": "CL",
+      "category": "의료용 스킨부스터",
+      "stage": "공식 행사 예정·발표일 미확인",
+      "title": "Kinegun, 11월 28일 산티아고 메디큐브 주사제 세미나 안내",
+      "summary": "유통사 공식 페이지에서 한국 의료진·연구개발팀이 참여하는 전문 시술자 대상 세미나 예정 확인. 표시 날짜는 확인일이며 공지 발표일은 미확인. 아직 개최 전이고 가정용 뷰티기기 판매 또는 수요·재주문 실적 증거가 아님.",
+      "source_url": "https://cl.kinegun.com/collections/all/products/seminario-cientifico-de-inyectables-medicube",
+      "evidence": "현지 공식 유통사 행사 공지",
+      "sales_confirmed": false
     }
   ],
   "source_note": "Google News RSS의 제목과 원문 링크를 한글로 정리합니다. 한국어 요약은 제목 기반이며 기사 전문의 요약이 아닙니다. 실제 발주·매출·허가와 구별해 읽어야 합니다."
