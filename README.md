@@ -333,7 +333,7 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - 최종 투자자별 매매 정보는 오후 8시경 제공되므로 매일 저녁 23:30 KST에 연결된 비KRX 수급 원천을 확인합니다. 오전 07:30 수집도 유지합니다.
 
 ### 무료 연결과 API 키
-- KRX 직접 조회는 사용자 요청으로 중단했습니다. 기존 공식 CSV 검증 이력은 보존하며, 이를 최신 자동수집 자료로 표시하지 않습니다. 금융위 대차는 검증된 대체 연결이 확보될 때까지 유지합니다.
+- KRX 직접 조회는 사용자 요청으로 중단했습니다. 기존 공식 CSV 검증 이력은 보존하며, 이를 최신 자동수집 자료로 표시하지 않습니다. 금융위 대차 수집도 중단했으며, 기존 원본은 이력으로만 보존합니다. 활성 화면의 기준은 키움입니다.
 - KSD 종목별 대차: 공공데이터포털의 **한국예탁결제원_증권대차서비스_GW** (https://www.data.go.kr/data/15157426/openapi.do) 활용신청 후, 발급받은 serviceKey를 GitHub 저장소 Settings > Secrets and variables > Actions > New repository secret에 **KSD_SLB_API_KEY** 이름으로 등록합니다. 키 원문은 공개 파일/채팅/화면에 적지 않습니다. 무료 개발계정 서비스이지만 **출처표시·상업적 이용금지** 조건이 있으므로 사이트 목적과 라이선스를 확인해야 합니다.
 - KSD API 응답 항목명이 예상 스키마와 달라질 경우 해당 지표는 미확인으로 유지합니다. KSD API 키가 KRX 상세 연기금·외국인 수급을 대신하지는 않습니다.
 - 수동 대안: imports/apr_investor_daily.csv, imports/apr_short_daily.csv, imports/apr_lending_daily.csv에 실제 확인한 날짜·원 단위 순매수·출처 URL을 기입합니다. 수동값은 별도로 출처 첨부 수동자료로 관리합니다.
@@ -391,13 +391,15 @@ KBTY SEC 페이지에는 **KBTY 시리즈 S000109351과 직접 관련된 것으�
 - 테스트: tests/test_kis_short_sales.py. 5·20일 공매도 거래비중은 단기 압력 판단에 사용하되, 포지션 감소나 숏커버 확정이라고 표시하지 않습니다.
 
 
-#### 금융위원회 대차 API 연결 검증 및 상태
+#### 금융위원회 대차 API 과거 연결 기록 (현재 수집 중단)
+
+2026-11-18 사용자 요청으로 정기·수동 FSC 호출 및 키 주입을 중단했습니다. 아래 내용은 과거 기록이며 현재 연결 상태가 아닙니다. 기존 data/flows.json 이력은 삭제하지 않습니다.
 - Source: https://www.data.go.kr/data/15059612/openapi.do
 - Swagger Base URL: https://apis.data.go.kr/1160100/GetStocLendBorrInfoService_V2
 - Operation: GET /getStItemLendAndBorrStatu_V2
 - Required serviceKey, numOfRows, pageNo, resultType. Optional basDt, isinCdNm.
 - APR identifies ISIN KR7278470000 and name 에이피알. Source fields: lnbCclStckCnt (대차체결주수), lnbRdptStckCnt (상환주수), lnbRmanStckCnt (잔여주식수). No inference of net short positions.
-- Daily FSC update occurs next business day after 13:00 KST. Existing GitHub Actions 16:00 KST runs only FSC update and keeps morning/evening free flow refresh.
+- Historical service publication was T+1 after 13:00 KST. FSC collection is now disabled; no FSC-only scheduled or manual job remains.
 - GitHub Actions test with registered FSC_STOCK_LENDING_API_KEY returned HTTP 403 on 2026-11-10 KST. FSC FAQ: verify approval/serviceKey or recheck after short activation interval; no key value exposed. The collector stops after the first 403, retains verified historical values, and reports authorization_denied.
 
 

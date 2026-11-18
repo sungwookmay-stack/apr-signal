@@ -122,12 +122,7 @@ def get_for_day(day,key,http=None):
     }
     url=API_URL+"?"+parse.urlencode(args)
     if http is None:
-        def http(url):
-            req=request.Request(url,headers={
-                "User-Agent":"APR-SIGNAL noncommercial research",
-                "Accept":"application/json,application/xml"})
-            with request.urlopen(req,timeout=14) as r:
-                return r.read(120000)
+        raise PermissionError("FSC live collection disabled by owner")
     raw=http(url)
     if isinstance(raw,dict):
         payload=raw
@@ -139,6 +134,8 @@ def get_for_day(day,key,http=None):
 
 def collect(price_rows,previous_rows=None,key=None,http=None,max_days=8):
     """Only query eligible prior trading sessions, backfill up to 8/day."""
+    if http is None and key != "":
+        return [],{"status":"disabled_by_owner","queries":0,"rows":0}
     key=key if key is not None else os.environ.get(
         "FSC_STOCK_LENDING_API_KEY","")
     if not key:
@@ -189,44 +186,9 @@ def collect(price_rows,previous_rows=None,key=None,http=None,max_days=8):
 
 
 def update():
-    """Explicit FSC-only refresh; no KIS/pykrx call."""
-    from flows_engine import evaluate
-    base=Path(__file__).resolve().parent/"data"
-    def read(name):
-        try:return json.loads((base/name).read_text(encoding="utf-8"))
-        except (OSError,ValueError):return {}
-    current=read("flows.json")
-    market=read("market.json")
-    prices=market.get("series") or []
-    if not prices:
-        return {"status":"no_prices"}
-    old=current.get("lending_daily") or []
-    latest,meta=collect(prices,old)
-    allrows={r["date"]:dict(r) for r in old if r.get("date")}
-    for item in latest:
-        prev=allrows.get(item["date"],{})
-        allrows[item["date"]]={
-            **prev,**{k:v for k,v in item.items() if v is not None}}
-    lending=[allrows[d] for d in sorted(allrows)][-400:]
-    tech=read("technical.json")
-    analysis=evaluate(prices,current.get("daily") or [],
-                      current.get("short_daily") or [],
-                      lending,tech.get("series") or [])
-    status=current.get("data_status") or {}
-    status["fsc_stock_lending_key_configured"]=bool(os.getenv(
-        "FSC_STOCK_LENDING_API_KEY"))
-    status["fsc_lending_status"]=meta.get("status")
-    status["fsc_lending_result"]=meta
-    record={**current,**analysis,"lending_daily":lending,
-            "data_status":status}
-    (base/"flows.json").write_text(json.dumps(
-        record,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
-    print(json.dumps({
-        "fsc_lending":meta.get("status"),
-        "observations":len(lending),
-        "latest":analysis.get("lending",{}).get("last_date"),
-        "queries":meta.get("queries"),"errors":meta.get("errors")
-    },ensure_ascii=False))
+    """Retired CLI: never fetch or mutate preserved historical observations."""
+    meta={"status":"disabled_by_owner","queries":0,"rows":0}
+    print(json.dumps(meta))
     return meta
 
 
