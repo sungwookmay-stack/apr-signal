@@ -7,6 +7,18 @@ from kita_rates import parse_sea_rates, parse_sea_bulletin, parse_secondary_east
 
 
 class KitaRatesTests(unittest.TestCase):
+    def test_live_rows_have_verification_date_separate_from_month(self):
+        html = '<table><tr><td>Busan</td><td>Long Beach</td><td>2026</td><td>10</td><td>6700</td><td>8500</td></tr></table>'
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'kita.json'
+            data = update(path, fetch_html=lambda: html)
+            row = next(r for r in data['sea_routes'] if r['month']=='2026-10' and r['destination']=='Long Beach')
+            self.assertEqual(row['verified_on'], data['latest_access_checked_at_utc'][:10])
+            self.assertEqual(row['month'], '2026-10')
+            self.assertEqual(data['air_routes'], [])
+            self.assertIsNone(data['air_last_checked_at_utc'])
+            self.assertIn('관세청 항공 수입', data['air_scope_note'])
+
     def test_grouped_cells_are_prices_plus_changes(self):
         html = """
         <table><tr><th>출발</th><th>도착</th><th>년</th><th>월</th>

@@ -249,6 +249,7 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
             raise ValueError('KITA detailed table empty or access limited')
         for r in parsed:
             if r['month']<=dt.date.today().strftime('%Y-%m'):
+                r['verified_on']=checked[:10]
                 rows[(r['month'],r['destination'])]=r
                 if r['destination']=='Long Beach':
                     west_access=True
@@ -304,6 +305,8 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
         'latest_month':max((r['month'] for r in records),default=None),
         'latest_access_checked_at_utc':checked,
         'latest_access_ok':west_access,
+        'update_frequency':'monthly',
+        'freshness_note':'자료 기준월과 최근 접근 확인일은 별개. 접근 성공만으로 전 항로 최신 확인을 뜻하지 않음.',
         'west_latest_month':west_latest.get('month'),
         'east_latest_month':east_latest.get('month'),
         'east_latest_source':east_latest.get('source_type'),
@@ -315,7 +318,11 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
         'east_secondary_url':SECONDARY_LIVE_URL,
         'east_note':'최근 2026-09/10 뉴욕값은 KITA 인용 제3자 2차 출처이며 공식 항로별 조회 대조 전. 공란은 보간하지 않음.',
         'air_routes':old.get('air_routes',[]) if isinstance(old,dict) else [],
-        'air_status':'KITA 항공 수출 기본 선택은 실측 확인 전 (기존 정책 유지)',
+        'air_status':old.get('air_status','KITA 항공 수출 항로·중량구간별 실측 미확인. 0원 운임이 아님.'),
+        'air_last_checked_at_utc':old.get('air_last_checked_at_utc'),
+        'air_verification_method':old.get('air_verification_method'),
+        'air_publication_schedule':'매월 첫째 주 (KITA 공식 안내)',
+        'air_scope_note':'항공 수출 참고운임. 관세청 항공 수입 운송비용으로 대체하지 않음. APR 계약운임 아님.',
         'sea_routes':records,'errors':errors
     }
     output.parent.mkdir(parents=True,exist_ok=True)
