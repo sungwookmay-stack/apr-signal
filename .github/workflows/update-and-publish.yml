@@ -61,8 +61,38 @@ jobs:
       - name: Require a genuinely newer Google Trends observation
         if: steps.targeted_trends.outputs.result != 'updated'
         run: exit 1
+  kbty_dart_only:
+    if: github.event_name == 'push' && contains(github.event.head_commit.message, '[kbty-dart-now]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -q
+      - name: Advance official FX only, leaving last verified FX on failure
+        continue-on-error: true
+        run: PYTHONPATH=. python scripts/fx_only_patch.py data
+      - name: Apply only source-verified KBTY and APR quarterly snapshots
+        run: python scripts/kbty_dart_refresh.py
+      - name: Verify displays
+        run: |
+          node tests/smoke_kbty_sec.cjs
+          node tests/smoke_research.cjs
+      - name: Publish only the validated KBTY and quarterly snapshot
+        run: |
+          python - <<'PY_CHECK'
+          import subprocess
+          allow = {'data/kbty.json', 'data/financials.json', 'data/status.json', 'data/bootstrap.js', 'data/market.json'}
+          changed = set(subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines())
+          assert changed <= allow, f'Unexpected source changes: {changed - allow}'
+          PY_CHECK
+          python scripts/store_snapshots.py
   build:
-    if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[trends-only-now]')
+    if: github.event_name != 'push' || (!contains(github.event.head_commit.message, '[trends-only-now]') && !contains(github.event.head_commit.message, '[kbty-dart-now]'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

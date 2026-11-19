@@ -84,11 +84,12 @@ def collect_market(*, refresh_fx=True, refresh_freight=True):
     return market,ta
 
 
-def collect_kbty():
+def collect_kbty(offline_snapshot=False):
     previous=read_json(DATA/'kbty.json',{})
     official='https://www.gafunds.com/kbty/'
+    issuer=read_json(ROOT/'config/kbty_issuer_snapshot.json',{})
     doc=None
-    try:doc=unescape(fetch(official).decode('utf-8',errors='replace'))
+    try:doc=None if offline_snapshot else unescape(fetch(official).decode('utf-8',errors='replace'))
     except Exception as ex:errors.append('KBTY 운용사 확인: '+str(ex)[:120])
     # Prospectus has been filed, but registration != actual trading.
     state={
@@ -117,7 +118,7 @@ def collect_kbty():
             state[k]=previous.get(k)
     # Public Yahoo price chart: it is a *fallback price source*, not an official ETF fact.
     try:
-        j=json.loads(fetch('https://query1.finance.yahoo.com/v8/finance/chart/KBTY?range=6mo&interval=1d').decode())
+        j={'chart':{'result':[{'timestamp':[],'indicators':{'quote':[{'close':[]}]}}]}} if offline_snapshot else json.loads(fetch('https://query1.finance.yahoo.com/v8/finance/chart/KBTY?range=6mo&interval=1d').decode())
         c=j['chart']['result'][0];q=c['indicators']['quote'][0]
         dates=c.get('timestamp',[])
         new=[]
@@ -155,15 +156,48 @@ def collect_kbty():
     if holdings:
         latest=max(x['as_of'] for x in holdings)
         state['holdings']=[x for x in holdings if x['as_of']==latest]
+    if issuer.get('source_url')==official and issuer.get('trading_confirmed') is True:
+        for field in ('status','trading_confirmed','inception_date'):
+            state[field]=issuer[field]
+        state['issuer_verified_on']=issuer.get('verified_on')
+        state['launch_expected']=state['launch_expected_date']=None
+        state['official_data_state']=issuer['official_data_state']
+        for k, metric in issuer['official_metrics'].items():
+            state.setdefault('official_metrics',{})
+            current_metric=state['official_metrics'].get(k,{})
+            if (metric.get('as_of') or '') >= (current_metric.get('as_of') or ''):
+                state['official_metrics'][k]=metric
+        price=state['official_metrics'].get('closing_market_price_usd',{})
+        if price.get('as_of') and price.get('value') is not None:
+            price_history={p['date']:p for p in state['price_history']}
+            price_history[price['as_of']]={'date':price['as_of'],'close_usd':price['value'],'source':'Guinness Atkinson 운용사 공식 종가'}
+            state['price_history']=[price_history[d] for d in sorted(price_history)]
+            last=state['price_history'][-1]
+            state.update(latest_price_usd=last['close_usd'],price_date=last['date'],price_source=last['source'])
+        nav=state['official_metrics'].get('nav_usd',{})
+        if nav.get('as_of'):
+            state.update(nav_usd=nav['value'],nav_as_of=nav['as_of'])
+        if issuer['holdings_as_of'] >= max((x.get('as_of','') for x in state['holdings']),default=''):
+            state['holdings']=[{**r,'as_of':issuer['holdings_as_of'],'source_url':official} for r in issuer['holdings']]
+            state['holdings_scope']=issuer['holdings_scope']
+            state['holdings_publication_state']=issuer['holdings_publication_state']
+        apr=state.pop('issuer_apr',None)
+        if apr and apr['as_of']>max((x.get('as_of','') for x in state['holdings']),default=''):
+            state['holdings']=[{**apr,'source_url':official}]
+            state['holdings_scope']='issuer_apr_only'
+            state['holdings_publication_state']='published'
+        state['source_note']='운용사 확인 스냅샷 우선. 운용사 확인일보다 새 시세는 Yahoo 비공식 종가로 구분. AUM은 별도 공식 확인 전 미표시.'
     current=state['holdings'];has_holdings=bool(current)
     if has_holdings:
-        candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS','278470 KS') or
+        candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS','278470 KS','A278470') or
                                              x.get('name','').strip().upper() in ('APR','APR CORPORATION','APR CORP','APR CORP.','에이피알'))]
         if candidates:
             state['apr_weight_pct']=sum(x['weight_pct'] for x in candidates)
             state['apr_shares']=(sum(x['shares'] for x in candidates)
                                  if all(x.get('shares') is not None for x in candidates) else None)
             state['apr_holding_as_of']=current[0]['as_of']
+            if all(x.get('market_value_usd') is not None for x in candidates):
+                state['apr_market_value_usd']=round(sum(x['market_value_usd'] for x in candidates),2)
         else:
             # Confirmed complete list? CSV might be partial; do not assert APR 0%.
             state['apr_weight_pct']=None

@@ -17,3 +17,13 @@ class Official(unittest.TestCase):
  def test_no_fake_nav_from_prose(self):
   s=parse_official('Fund facts Expense ratio 0.55% Performance NAV $25.20')
   self.assertEqual(s['official_metrics'],{})
+
+ def test_current_official_trade_and_dated_holding(self):
+  s=parse_official('KBTY is now trading on NYSE Arca. Fund facts ETF inception 11/12/2026 NAV (11/18/2026)$25.75 Closing market price (11/18/2026)$25.70 Performance KBTY Top 10 Holdings as of 11/18/2026 5.89% A278470 APR CORP/KOREA COMMON STOCK 176.27 86 15,159.58 Y0R9CJ118 KBTY Top 10 Holdings as of 11/17/2026 5.90% A278470 APR CORP/KOREA COMMON STOCK 172.61 86 14,844.21 Y0R9CJ118')
+  self.assertTrue(s['trading_confirmed'])
+  self.assertEqual(s['inception_date'],'2026-11-12')
+  self.assertEqual(s['official_metrics']['nav_usd']['as_of'],'2026-11-18')
+  self.assertEqual(s['official_metrics']['closing_market_price_usd']['value'],25.70)
+  self.assertEqual(s['issuer_apr']['weight_pct'],5.89)
+  self.assertEqual(s['issuer_apr']['shares'],86)
+  self.assertEqual(s['issuer_apr']['market_value_usd'],15159.58)

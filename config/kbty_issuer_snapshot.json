@@ -1,0 +1,28 @@
+{
+  "source_url": "https://www.gafunds.com/kbty/",
+  "exchange": "NYSE Arca",
+  "status": "NYSE Arca 거래 중 (운용사 공식 확인)",
+  "trading_confirmed": true,
+  "inception_date": "2026-11-12",
+  "verified_on": "2026-11-19",
+  "official_data_state": "dated_issuer_data",
+  "official_metrics": {
+    "nav_usd": {"value": 25.75, "as_of": "2026-11-18"},
+    "closing_market_price_usd": {"value": 25.70, "as_of": "2026-11-18"}
+  },
+  "holdings_publication_state": "published",
+  "holdings": [
+    {"ticker":"A090430","name":"AMOREPACIFIC CORP","weight_pct":8.72,"shares":229,"market_value_usd":22450.81},
+    {"ticker":"A214450","name":"PHARMARESEARCH CO LTD","weight_pct":7.87,"shares":102,"market_value_usd":20275.29},
+    {"ticker":"A161890","name":"KOLMAR KOREA CO LTD","weight_pct":7.25,"shares":217,"market_value_usd":18669.99},
+    {"ticker":"A278470","name":"APR CORP/KOREA","weight_pct":5.89,"shares":86,"market_value_usd":15159.58},
+    {"ticker":"A251970","name":"PUMTECH KOREA CO LTD","weight_pct":5.79,"shares":258,"market_value_usd":14920.90},
+    {"ticker":"A086450","name":"DONGKOOK PHARMACEUTICAL","weight_pct":5.23,"shares":736,"market_value_usd":13470.65},
+    {"ticker":"A145020","name":"HUGEL INC","weight_pct":5.09,"shares":88,"market_value_usd":13102.80},
+    {"ticker":"A192820","name":"COSMAX INC","weight_pct":5.09,"shares":59,"market_value_usd":13099.80},
+    {"ticker":"A241710","name":"COSMECCA KOREA CO LTD","weight_pct":4.33,"shares":80,"market_value_usd":11145.86},
+    {"ticker":"A051900","name":"LG H&H","weight_pct":4.19,"shares":59,"market_value_usd":10798.48}
+  ],
+  "holdings_as_of": "2026-11-18",
+  "holdings_scope": "issuer_top_10"
+}

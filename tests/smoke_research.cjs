@@ -81,7 +81,7 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match(matrix,/2025Q4/);
  assert.match(matrix,/2026Q3/);
  assert.match($('fin-revenue').textContent,/7,731/);
- assert.match($('fin-inventory').textContent,/3,699/);
+ assert.ok($('fin-inventory').textContent.includes(Math.round(fin.balance.at(-1).inventory).toLocaleString('en-US')));
  assert.equal(income.data.datasets.length,3);
  assert.equal(per.data.datasets.length,6);
  assert.equal(pbr.data.datasets.length,6);
