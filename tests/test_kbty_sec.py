@@ -17,7 +17,10 @@ class KbtySecTests(unittest.TestCase):
         self.output = Path(self.temp.name) / 'kbty_sec.json'
         self.now = dt.datetime.fromisoformat('2026-11-06T11:00:00+00:00')
         self.registry = sec.read_json(sec.SOURCE, {})
-        self.registry['filings'] = [x for x in self.registry['filings'] if x['form'] != 'CERT']
+        # Pin the original three reviewed seeds for historical transport fixtures.
+        # Additional live registry records are checked separately.
+        seed = {'0001213900-26-113359', '0001213900-26-101996', '0001213900-26-077251'}
+        self.registry['filings'] = [x for x in self.registry['filings'] if x['accession'] in seed]
         self.registry_file = Path(self.temp.name) / 'registry.json'
         sec.write_json(self.registry_file, self.registry)
 
