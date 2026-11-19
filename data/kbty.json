@@ -17,7 +17,7 @@
   "apr_weight_pct": 5.89,
   "apr_shares": 86,
   "apr_holding_as_of": "2026-11-18",
-  "source_note": "가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.",
+  "source_note": "가격: Guinness Atkinson 운용사 공식 종가. NAV: 운용사 공식 순자산가치. APR 비중·보유주식수: 운용사 날짜별 보유 내역. AUM: 확인 자료 없음. 미확인 항목은 표시하지 않음.",
   "price_history": [
     {
       "date": "2026-11-12",
