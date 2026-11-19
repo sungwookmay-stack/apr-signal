@@ -100,7 +100,6 @@ def collect_kbty(offline_snapshot=False):
       'status':'현재 거래·상장 상태 미확인', 'launch_expected':None,
       'latest_price_usd':None,'price_date':None,'aum_usd':None,'nav_usd':None,
       'apr_weight_pct':None,'apr_shares':None,'apr_holding_as_of':None,
-      'source_note':'가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.',
       'price_history':previous.get('price_history',[]),'aum_history':previous.get('aum_history',[]),
       'holdings':previous.get('holdings',[]),'errors':[]
     }
@@ -131,7 +130,7 @@ def collect_kbty(offline_snapshot=False):
         state['price_history']=[history[d] for d in sorted(history)]
         if state['price_history']:
             last=state['price_history'][-1]
-            state['latest_price_usd']=last['close_usd'];state['price_date']=last['date']
+            state['latest_price_usd']=last['close_usd'];state['price_date']=last['date'];state['price_source']=last.get('source')
             state['status']='거래가격 관측 (운용사에서 상장 여부 확인 필요)' if not doc or 'expected to begin' not in doc else '거래가격 관측 / 운용사 상장예정 안내 확인 필요'
     except Exception as e:
         state['errors'].append('KBTY 비공식 주가 미확인: '+str(e)[:120])
@@ -181,7 +180,6 @@ def collect_kbty(offline_snapshot=False):
             state['holdings']=[{**r,'as_of':issuer['holdings_as_of'],'source_url':official} for r in issuer['holdings']]
             state['holdings_scope']=issuer['holdings_scope']
             state['holdings_publication_state']=issuer['holdings_publication_state']
-        state['source_note']='운용사 확인 스냅샷 우선. 운용사 확인일보다 새 시세는 Yahoo 비공식 종가로 구분. AUM은 별도 공식 확인 전 미표시.'
     # Persist daily issuer observations separate from the point-in-time portfolio.
     # A failed fetch, outdated response or partial newer portfolio cannot erase history.
     parsed_rows=state.pop('issuer_apr_history',[])
@@ -229,6 +227,8 @@ def collect_kbty(offline_snapshot=False):
             state['apr_weight_pct']=None
             state['apr_shares']=None
             state['apr_holding_as_of']=None
+    from source_provenance import kbty_source_note
+    state['source_note']=kbty_source_note(state)
     save('kbty.json',state)
     return state
 
