@@ -5,16 +5,16 @@
   "method": "협력 포워더 조사 시장 참고운임 · USD/TEU·FEU (APR 계약운임 아님)",
   "source_scope": "미 서안 부산→롱비치 / 미 동안 부산→뉴욕 대표. 항만별 실제 계약운임·해상물량 배분 아님.",
   "latest_month": "2026-11",
-  "latest_access_checked_at_utc": "2026-11-18T11:32:32+00:00",
+  "latest_access_checked_at_utc": "2026-11-19T23:23:47+00:00",
   "latest_access_ok": true,
   "update_frequency": "monthly",
   "freshness_note": "자료 기준월과 최근 접근 확인일은 별개. 접근 성공만으로 전 항로 최신 확인을 뜻하지 않음.",
   "west_latest_month": "2026-11",
-  "east_latest_month": "2026-10",
+  "east_latest_month": "2026-11",
   "east_latest_source": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
   "east_latest_primary_verified": false,
-  "east_auto_updated": false,
-  "east_secondary_access_ok": null,
+  "east_auto_updated": true,
+  "east_secondary_access_ok": true,
   "east_secondary_url": "https://logisight.net/dashboard",
   "east_note": "최근 2026-09/10 뉴욕값은 KITA 인용 제3자 2차 출처이며 공식 항로별 조회 대조 전. 공란은 보간하지 않음.",
   "air_routes": [],
@@ -44,7 +44,7 @@
       "feu_usd": 1850,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-03",
@@ -55,7 +55,7 @@
       "feu_usd": 2860,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-04",
@@ -77,7 +77,7 @@
       "feu_usd": 3100,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-05",
@@ -88,7 +88,7 @@
       "feu_usd": 2900,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-06",
@@ -110,7 +110,7 @@
       "feu_usd": 4950,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-07",
@@ -132,7 +132,7 @@
       "feu_usd": 7550,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-08",
@@ -143,7 +143,7 @@
       "feu_usd": 7600,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-09",
@@ -165,7 +165,7 @@
       "feu_usd": 7900,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-10",
@@ -187,7 +187,18 @@
       "feu_usd": 8500,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
+    },
+    {
+      "month": "2026-11",
+      "origin": "Busan",
+      "destination": "New York",
+      "region": "미국 동안",
+      "teu_usd": null,
+      "feu_usd": 10000,
+      "source_url": "https://logisight.net/dashboard",
+      "source_type": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
+      "verified_on": "2026-11-19"
     },
     {
       "month": "2026-11",
@@ -198,7 +209,7 @@
       "feu_usd": 8500,
       "source_url": "https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do",
       "source_type": "KITA_RADIS_PUBLIC_HTML",
-      "verified_on": "2026-11-18"
+      "verified_on": "2026-11-19"
     }
   ],
   "errors": []

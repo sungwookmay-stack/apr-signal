@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-19T15:22:04+00:00",
+  "generated_at_utc": "2026-11-19T23:15:32+00:00",
   "timezone": "Asia/Seoul",
   "price_last": "2026-11-19",
   "price_coverage_start": "2025-06-02",
@@ -7,7 +7,7 @@
   "technical_last": "2026-11-19",
   "technical_ohlc_days": 359,
   "kbty_status": "NYSE Arca 거래 중 (운용사 공식 확인)",
-  "news_count": 105,
+  "news_count": 107,
   "trends_points": 13601,
   "amazon_points": 0,
   "beauty_leaderboard_snapshots": 0,
@@ -15,59 +15,16 @@
     "status": "partial",
     "successes": [
       "ulta catalog_items,online_only_items,exclusive_items",
-      "independent US Beauty 2026-W46"
+      "independent US Beauty 2026-W47"
     ],
     "failures": [
       "target: Target/retailer JS rendering or bot restriction; no verified visible fields"
     ],
     "retail_metrics": 6,
-    "external_weeks": 3
+    "external_weeks": 4
   },
   "errors": [
-    "뉴스 미국 뷰티기기·신제품: HTTP Error 429: Too Many Requests",
-    "뉴스 아르헨티나 메디큐브: HTTP Error 429: Too Many Requests",
-    "뉴스 브라질 메디큐브: HTTP Error 429: Too Many Requests"
+    "해상수출 운송비용 최신 확인 실패: 관세청 최신 발표: 관세청 최신 발표 목록 확인 실패: IncompleteRead / NLIC: NLIC tables not accessible or changed (마지막 관측 유지)"
   ],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
-  "afternoon_updated_at_utc": "2026-11-19T15:22:04+00:00",
-  "afternoon_price_date": "2026-11-19",
-  "afternoon_verified_same_day": false,
-  "afternoon_note": "당일 종가 미확인 또는 휴장: 마지막 확인 거래일의 지표만 표시",
-  "trends_last_complete_by_country": {
-    "US": "2026-11-18",
-    "GB": "2026-11-18",
-    "DE": "2026-11-18",
-    "FR": "2026-11-18",
-    "IT": "2026-11-18",
-    "ES": "2026-11-18",
-    "CA": "2026-11-18",
-    "JP": "2026-11-18",
-    "AE": "2026-11-18",
-    "SA": "2026-11-18",
-    "EG": "2026-11-18",
-    "QA": "2026-11-18",
-    "KW": "2026-11-18",
-    "BR": "2026-11-18",
-    "AR": "2026-11-18",
-    "CL": "2026-11-18"
-  },
-  "trends_last_observed_by_country": {
-    "US": "2026-11-19",
-    "GB": "2026-11-19",
-    "DE": "2026-11-19",
-    "FR": "2026-11-19",
-    "IT": "2026-11-19",
-    "ES": "2026-11-19",
-    "CA": "2026-11-19",
-    "JP": "2026-11-19",
-    "AE": "2026-11-19",
-    "SA": "2026-11-19",
-    "EG": "2026-11-19",
-    "QA": "2026-11-19",
-    "KW": "2026-11-19",
-    "BR": "2026-11-19",
-    "AR": "2026-11-19",
-    "CL": "2026-11-19"
-  },
-  "trends_checked_at_utc": "2026-11-19T06:56:13+00:00"
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
 }
