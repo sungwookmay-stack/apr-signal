@@ -181,12 +181,38 @@ def collect_kbty(offline_snapshot=False):
             state['holdings']=[{**r,'as_of':issuer['holdings_as_of'],'source_url':official} for r in issuer['holdings']]
             state['holdings_scope']=issuer['holdings_scope']
             state['holdings_publication_state']=issuer['holdings_publication_state']
-        apr=state.pop('issuer_apr',None)
-        if apr and apr['as_of']>max((x.get('as_of','') for x in state['holdings']),default=''):
-            state['holdings']=[{**apr,'source_url':official}]
+        state['source_note']='운용사 확인 스냅샷 우선. 운용사 확인일보다 새 시세는 Yahoo 비공식 종가로 구분. AUM은 별도 공식 확인 전 미표시.'
+    # Persist daily issuer observations separate from the point-in-time portfolio.
+    # A failed fetch, outdated response or partial newer portfolio cannot erase history.
+    parsed_rows=state.pop('issuer_apr_history',[])
+    state.pop('issuer_apr',None)
+    verified_seed=issuer.get('apr_holdings_history',[]) if issuer.get('source_url')==official else []
+    prior=previous.get('apr_holdings_history',[])
+    history={}
+    for row in [*(prior if isinstance(prior,list) else []),
+                *(verified_seed if isinstance(verified_seed,list) else []), *parsed_rows]:
+        day=row.get('as_of')
+        if not isinstance(day,str) or day>dt.datetime.now(dt.timezone.utc).date().isoformat():
+            continue
+        if row.get('source_url',official)!=official or type(row.get('shares')) is not int or row['shares']<=0:
+            continue
+        try:
+            dt.date.fromisoformat(day)
+        except ValueError:
+            continue
+        if row.get('ticker')!='A278470' or safe_num(row.get('weight_pct'),0,100) is None or safe_num(row.get('market_value_usd'),.01,1e13) is None:
+            continue
+        history[day]={**row,'source_url':official}
+    state['apr_holdings_history']=[history[day] for day in sorted(history)]
+    if history:
+        apr=history[max(history)]
+        if apr['as_of'] > max((x.get('as_of','') for x in state['holdings']),default=''):
+            state['holdings']=[apr]
             state['holdings_scope']='issuer_apr_only'
             state['holdings_publication_state']='published'
-        state['source_note']='운용사 확인 스냅샷 우선. 운용사 확인일보다 새 시세는 Yahoo 비공식 종가로 구분. AUM은 별도 공식 확인 전 미표시.'
+        elif apr['as_of'] == max((x.get('as_of','') for x in state['holdings']),default=''):
+            state['holdings']=[r for r in state['holdings'] if r.get('ticker','').strip().upper()
+                               not in ('A278470','278470','278470.KS','278470 KS')] + [apr]
     current=state['holdings'];has_holdings=bool(current)
     if has_holdings:
         candidates=[x for x in current if (x.get('ticker','').strip().upper() in ('278470','278470.KS','278470 KS','A278470') or

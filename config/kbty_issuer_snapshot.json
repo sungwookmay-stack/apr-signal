@@ -23,6 +23,10 @@
     {"ticker":"A241710","name":"COSMECCA KOREA CO LTD","weight_pct":4.33,"shares":80,"market_value_usd":11145.86},
     {"ticker":"A051900","name":"LG H&H","weight_pct":4.19,"shares":59,"market_value_usd":10798.48}
   ],
+  "apr_holdings_history": [
+    {"as_of":"2026-11-17","ticker":"A278470","name":"APR CORP/KOREA","weight_pct":5.89,"shares":86,"market_value_usd":14844.21},
+    {"as_of":"2026-11-18","ticker":"A278470","name":"APR CORP/KOREA","weight_pct":5.89,"shares":86,"market_value_usd":15159.58}
+  ],
   "holdings_as_of": "2026-11-18",
   "holdings_scope": "issuer_top_10"
 }
