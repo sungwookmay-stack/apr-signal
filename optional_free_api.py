@@ -74,7 +74,7 @@ def terms_for_country(cfg,country):
     return look.get('default',[])[:5]
 
 
-def update_trends(client,cfg,previous):
+def update_trends(client,cfg,previous,*,force_today=False):
     """One full time series per country, replaced atomically per country.
     NEVER merge independent Trends 0-100 normalizations for same country.
     """
@@ -99,7 +99,7 @@ def update_trends(client,cfg,previous):
     missing={country for country in grouped
              if country not in observed and
              attempts.get(country)!=today+'|'+locale(country)}
-    normal=((client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=today
+    normal=(force_today or (client.today.toordinal()%2==0) or not old) and client.stats.get('last_trends_run_day')!=today
     if not normal and not missing:return old,0
     if normal:
         client.stats['last_trends_run_day']=today
