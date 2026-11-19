@@ -336,7 +336,7 @@ function renderKbtySec(){
 }
 function renderEtf(){const e=state.kbty;if(!e)return;
  renderKbtySec();
- set('kbty-status',e.status||'상태 미확인');set('e-price',e.latest_price_usd!=null?'$'+fmt(e.latest_price_usd,2):'—');set('e-price-date',(e.price_date||'거래 전 또는 시세 미확인')+' · Yahoo 비공식 시세');
+ set('kbty-status',e.status||'상태 미확인');set('e-price',e.latest_price_usd!=null?'$'+fmt(e.latest_price_usd,2):'—');set('e-price-date',(e.price_date||'거래 전 또는 시세 미확인')+(e.price_date?' · '+(e.price_source||'Yahoo 비공식 시세'):''));
  set('e-aum',e.aum_usd!=null?'$'+fmt(e.aum_usd,0):'—');set('e-apr',e.apr_weight_pct!=null?fmt(e.apr_weight_pct,2)+'%':'—');
  set('e-apr-date',e.apr_holding_as_of||'APR 편입비중 자료 미확인');set('e-shares',e.apr_shares!=null?fmt(e.apr_shares):'—');
  const price=(e.price_history||[]).filter(x=>x.close_usd!=null);chart('chart-etf',price.map(x=>x.date),[{label:'KBTY USD',values:price.map(x=>x.close_usd),color:C.navy}],{decimals:2});

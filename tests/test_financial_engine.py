@@ -87,3 +87,21 @@ class ComparativeBasisTests(unittest.TestCase):
         self.assertIsNone(fe.growth_comparison(current,original,{**original,'income_accounting_basis':'K-IFRS1118'})[0])
         explicit={**original,'period':'2025Q2','income_accounting_basis':'K-IFRS1118','source_url':'https://official.example'}
         self.assertIsNone(fe.growth_comparison(current,original,explicit)[0])
+
+
+class ReviewedQ3Tests(unittest.TestCase):
+    def test_provenance_and_amount_bases(self):
+        data=fe.read_json(fe.INPUT)
+        dart=fe.read_json(fe.ROOT/'data/dart_financials.json')
+        result=fe.build(data,dart)
+        q=next(x for x in result['quarterly'] if x['period']=='2026Q3')
+        b=next(x for x in result['balance'] if x['period']=='2026Q3')
+        self.assertEqual(q['available_from'],'2026-11-13')
+        self.assertIn('20261113001366',q['source_url'])
+        self.assertEqual((q['sales'],q['sga'],b['inventory']), (7731.15,4180.21,4980.19))
+        self.assertIsNone(q['cfo'])
+        self.assertIsNone(q['ads'])
+        self.assertIsNone(b['shares'])
+        self.assertFalse(any(x['period']=='2026Q3' for x in result['valuation']['eps_events']))
+        next(x for x in dart['filings'] if x['period']=='2026Q3')['accounts']['sales']['amount_basis']='year_to_date_or_balance'
+        self.assertFalse(fe.reviewed_q3(dart)[0])

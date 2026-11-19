@@ -57,7 +57,7 @@ function renderFinancials(ctx){
  set('fin-opm-period',latestQ?latestQ.period+' 연결 기준':'자료 확인 중');
  set('fin-inventory',latestB?fn(latestB.inventory,0)+'억':'—');
  set('fin-inventory-period',latestB?latestB.period+' 기준':'미공개');
- set('fin-turnover',latestB?fn(latestB.reported_inventory_turnover,1)+'회':'—');
+ set('fin-turnover',latestB?.reported_inventory_turnover!=null?fn(latestB.reported_inventory_turnover,1)+'회':'—');
  set('fin-turnover-period',latestB?latestB.asof+' 공시상 연환산':'미공개');
 
  if(!q.length){
@@ -305,7 +305,7 @@ function renderTheses(ctx){
   ads:latestQ?.ads_ratio_pct!=null?fmt(latestQ.ads_ratio_pct,1)+'%':qq.length>1?fmt(qq[qq.length-2].ads_ratio_pct,1)+'% ('+qq[qq.length-2].period+')':'미공개',
   fees:latestQ?.selling_fee_ratio_pct!=null?fmt(latestQ.selling_fee_ratio_pct,1)+'%':qq.length>1?fmt(qq[qq.length-2].selling_fee_ratio_pct,1)+'% ('+qq[qq.length-2].period+')':'미공개',
   freight:latestQ?.shipping_ratio_pct!=null?fmt(latestQ.shipping_ratio_pct,1)+'%':qq.length>1?fmt(qq[qq.length-2].shipping_ratio_pct,1)+'% ('+qq[qq.length-2].period+')':'미공개',
-  inventory:latestB?fmt(latestB.inventory,0)+'억 · '+fmt(latestB.reported_inventory_turnover,1)+'회 ('+latestB.period+')':'재고 자료 미확인',
+  inventory:latestB?fmt(latestB.inventory,0)+'억'+(latestB.reported_inventory_turnover!=null?' · '+fmt(latestB.reported_inventory_turnover,1)+'회':'')+' ('+latestB.period+')':'재고 자료 미확인',
   cfo:latestQ?.cash_conversion_pct!=null?fmt(latestQ.cash_conversion_pct,1)+'%':qq.length>1?fmt(qq[qq.length-2].cash_conversion_pct,1)+'% ('+qq[qq.length-2].period+')':'미공개',
   fx:stock?.usdkrw?fmt(stock.usdkrw,1)+'원 ('+stock.fx_usd_date+')':'환율 미수집',
   costco:'약 400개 매장 · 2026년 10월 보도',

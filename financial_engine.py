@@ -49,10 +49,46 @@ def growth_comparison(current, original, explicit=None):
     return candidate, ('공식 IR 동일기준 재작성 비교' if explicit is not None else '동일기준 원공시 비교')
 
 
+def reviewed_q3(dart):
+    # Only use the reviewed official CFS receipt and explicit amount bases.
+    receipts = [q for q in (dart or {}).get('filings',[]) if
+        q.get('period')=='2026Q3' and q.get('fs_div')=='CFS' and
+        q.get('income_complete') and q.get('balance_complete') and
+        q.get('receipt_numbers')==['20261113001366']]
+    if len(receipts)!=1:return {}, {}
+    accounts=receipts[0].get('accounts',{})
+    def amount(name, basis):
+        r=accounts.get(name,{})
+        v=r.get('value_won')
+        if r.get('unit')!='KRW' or r.get('amount_basis')!=basis or type(v)!=int or v<0:
+            raise ValueError(name)
+        return v
+    try:
+        income={k:amount(a,'current_3months') for k,a in (
+            ('sales','sales'),('op','operating_profit'),('ni','net_income'),
+            ('cogs','cost_of_sales'),('sga','sga'))}
+        balance={k:amount(k,'year_to_date_or_balance') for k in
+            ('inventory','assets','equity','liabilities','cash','receivables')}
+        if income['sales']<income['cogs'] or income['sga']>income['sales'] or balance['assets']!=balance['equity']+balance['liabilities']:
+            return {}, {}
+    except ValueError:
+        return {}, {}
+    income['gross']=income['sales']-income['cogs']
+    source_url='https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366'
+    source={'source':'OpenDART 2026Q3 분기보고서 연결재무제표','source_url':source_url,'available_from':'2026-11-13'}
+    return ({**{k:round(v/1e8,2) for k,v in income.items()}, **source,
+             'status':'정기보고서 연결 확정 공시'},
+            {**{k:round(v/1e8,2) for k,v in balance.items()}, **source,
+             'period':'2026Q3','asof':'2026-09-30','reported_inventory_turnover':None,'shares':None})
+
+
 def build(data, dart=None):
+    q3, q3_balance = reviewed_q3(dart)
     quarters=[]
     prior={}
     for q in sorted(data['quarterly'],key=lambda x:x['period']):
+        if q['period']=='2026Q3' and q3:
+            q={**q,**q3}
         x=dict(q)
         for name,field in [('gross_margin_pct','gross'),('op_margin_pct','op'),
                            ('net_margin_pct','ni'),('sga_ratio_pct','sga'),
@@ -77,7 +113,10 @@ def build(data, dart=None):
         quarters.append(x)
 
     balances=[]
-    for b in sorted(data['balance'],key=lambda x:x['asof']):
+    balance_source=list(data['balance'])
+    if q3_balance and not any(b['period']=='2026Q3' for b in balance_source):
+        balance_source.append(q3_balance)
+    for b in sorted(balance_source,key=lambda x:x['asof']):
         row=dict(b)
         row['inventory_assets_pct']=ratio(b['inventory'],b['assets'])
         row['inventory_days_company']=rounded(365/b['reported_inventory_turnover']) if b.get('reported_inventory_turnover') else None
@@ -131,9 +170,9 @@ def build(data, dart=None):
         },
         'definitions':data['evaluation'],
         'source_files':data['source_files'],
-        'accounting_note':data['accounting_note'],
+        'accounting_note':data['accounting_note'].replace('2026Q3은 정식 보고서 이전 잠정실적. ', '') if q3 else data['accounting_note'],
         'dart_reconciliation':reconcile(data, dart or {}),
-        'quality_notice':'2026Q3은 연결잠정실적. 2026Q3 재고·광고·판관비·ROE·ROIC를 추정하지 않음. 이자부채 분류가 완성되기 전 ROIC는 미산출.',
+        'quality_notice':('2026Q3은 11월 13일 정기보고서의 연결 손익·재무상태표. 미검증 광고비·분기 현금흐름·ROE·ROIC는 미산출.' if q3 else '2026Q3은 연결잠정실적. 2026Q3 재고·광고·판관비·ROE·ROIC를 추정하지 않음. 이자부채 분류가 완성되기 전 ROIC는 미산출.'),
     }
 
 
