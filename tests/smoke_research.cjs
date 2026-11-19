@@ -126,8 +126,32 @@ events['window:DOMContentLoaded']().then(()=>{
  assert.match($('thesis-blocks').innerHTML,/미국 온·오프라인 수요의 지속성/);
  assert.match($('thesis-blocks').innerHTML,/thesis-sparkline/,'Historical watchpoints should show trends');
  location.hash='#demand';events['window:hashchange']();
- assert.match($('off-ulta-total').textContent,/69개/);
- assert.match($('off-ulta-eligible').textContent,/32개/);
+ // Saved observations change independently of UI releases. Verify against the
+ // input data, then use fixed fixtures to independently test the arithmetic.
+ const savedRetail=reference.retail;
+ const total=savedRetail.find(x=>x.metric==='catalog_items');
+ const online=savedRetail.find(x=>x.metric==='online_only_items');
+ assert.equal($('off-ulta-total').textContent,total?Number(total.value).toLocaleString('en-US')+'개':'—');
+ assert.equal($('off-ulta-online').textContent,online?Number(online.value).toLocaleString('en-US')+'개':'—');
+ assert.equal($('off-ulta-eligible').textContent,
+   total&&online&&total.date===online.date?Math.max(0,total.value-online.value).toLocaleString('en-US')+'개':'—');
+ for(const fixture of [
+   {total:70,online:38,date:'2030-01-01',onlineDate:'2030-01-01',expected:'32개'},
+   {total:83,online:12,date:'2030-01-02',onlineDate:'2030-01-02',expected:'71개'},
+   {total:83,online:12,date:'2030-01-02',onlineDate:'2030-01-01',expected:'—'},
+   {total:0,online:0,date:'2030-01-03',onlineDate:'2030-01-03',expected:'0개'},
+   {total:20,online:null,date:'2030-01-04',expected:'—'},
+   {total:null,online:null,expected:'—'}
+ ]){
+   reference.retail=savedRetail.filter(x=>!['catalog_items','online_only_items'].includes(x.metric));
+   if(fixture.total!==null)reference.retail.push({retailer:'ulta',metric:'catalog_items',value:fixture.total,date:fixture.date});
+   if(fixture.online!==null)reference.retail.push({retailer:'ulta',metric:'online_only_items',value:fixture.online,date:fixture.onlineDate});
+   events['window:hashchange']();
+   assert.equal($('off-ulta-total').textContent,fixture.total===null?'—':fixture.total+'개');
+   assert.equal($('off-ulta-eligible').textContent,fixture.expected);
+ }
+ reference.retail=savedRetail;
+ events['window:hashchange']();
  assert.match($('off-status').innerHTML,/검증 제외/);
  assert.match($('retailer-statements').innerHTML,/유통사 공식 발표/);
  assert.doesNotMatch($('off-status').innerHTML,/<span>104k\+ bought<\/span>/);
