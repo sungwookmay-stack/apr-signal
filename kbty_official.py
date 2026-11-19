@@ -13,6 +13,41 @@ def us_date(raw):
     except (TypeError,ValueError):return None
 
 
+HOLDINGS_HEADER = re.compile(r'KBTY\s+(?:Top\s+10\s+)?Holdings\s+as\s+of\s+(\d{1,2}/\d{1,2}/\d{4})', re.I)
+APR_ROW = re.compile(
+    r'(?<![\d.])(\d+(?:\.\d+)?)\s*%\s+A?278470\s+APR CORP(?:/KOREA)?\s+'
+    r'COMMON STOCK\s+\$?([\d,.]+)\s+([\d,]+)\s+\$?([\d,.]+)\s+Y0R9CJ118\b', re.I)
+
+
+def apr_holdings_rows(text):
+    """Return issuer-dated APR shares held; never infer zero for a missing row."""
+    dates = list(HOLDINGS_HEADER.finditer(text))
+    results, conflicts = {}, set()
+    for i, heading in enumerate(dates):
+        end = dates[i+1].start() if i+1 < len(dates) else len(text)
+        day = us_date(heading.group(1))
+        if day is None:
+            continue
+        segment = text[heading.end():end]
+        for found in APR_ROW.finditer(segment):
+            weight, price, count, value = [x.replace(',','') for x in found.groups()]
+            try:
+                weight, price, count, value = float(weight), float(price), int(count), float(value)
+            except ValueError:
+                continue
+            # Prices are shown to cents, and value may use extra precision.
+            if not 0 <= weight <= 100 or not 0 < count <= 1e12 or not 0 < price <= 1e6:
+                continue
+            if value <= 0 or abs(price*count-value) > .006*count+.02:
+                continue
+            row = {'ticker':'A278470', 'name':'APR CORP/KOREA','weight_pct':weight,
+                   'shares':count,'market_value_usd':value,'as_of':day}
+            if day in results and row != results[day]:
+                conflicts.add(day)
+            results[day] = row
+    return [results[d] for d in sorted(results.keys()-conflicts)]
+
+
 def parse_official(document):
     text = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', unescape(document)))
     out = {'launch_expected': None, 'launch_expected_date': None,
@@ -35,15 +70,11 @@ def parse_official(document):
         out.update(status='NYSE Arca 거래 중 (운용사 공식 확인)', trading_confirmed=True)
         inception=re.search(r'ETF inception\s+(\d{1,2}/\d{1,2}/\d{4})',text,re.I)
         if inception:out['inception_date']=us_date(inception.group(1))
-    latest=re.search(r'KBTY Top 10 Holdings\s+as of\s+(\d{1,2}/\d{1,2}/\d{4})(.*?)(?:KBTY Top 10 Holdings|$)',text,re.I)
-    if latest:
-        day=us_date(latest.group(1))
-        # The issuer provides ticker, instrument type, USD price, shares and USD value.
-        row=re.search(r'([\d.]+)%\s+A?278470\s+APR CORP(?:/KOREA)?\s+COMMON STOCK\s+[\d,.]+\s+([\d,]+)\s+([\d,.]+)\s+[A-Z0-9]{9}\b',latest.group(2),re.I)
-        if day and row and 0<=float(row.group(1))<=100:
-            out.update(holdings_publication_state='published',issuer_apr={
-                'ticker':'A278470','name':'APR CORP/KOREA','weight_pct':float(row.group(1)),
-                'shares':int(row.group(2).replace(',','')),'market_value_usd':float(row.group(3).replace(',','')),'as_of':day})
+    observations = apr_holdings_rows(text)
+    if observations:
+        out.update(holdings_publication_state='published',
+                   issuer_apr=observations[-1],
+                   issuer_apr_history=observations)
     facts = re.search(r'Fund facts(.{0,3500}?)Performance', text, re.I)
     if not facts:
         out['official_data_state']='unrecognized_page'
