@@ -33,7 +33,7 @@ SERIES = 'S000109351'
 CIK = '0000919160'
 MAX_HEADER_CHECKS = 10
 INTERESTING_FORMS = frozenset({
-    '485APOS', '485BPOS', '485BXT', '497', '497K',
+    '485APOS', '485BPOS', '485BXT', 'POS EX', '497', '497K',
     '8-A12B', '8-A12B/A', 'EFFECT', 'N-PORT', 'NPORT-P',
     'N-CSR', 'N-CEN', '24F-2NT', 'CERT'
 })
@@ -50,6 +50,8 @@ FORM_CONTEXT = {
                  'KBTY 관련 등록문서 변경신고가 제출됐습니다. 보수·구성종목·전략 변경 여부는 원문을 검토해야 합니다.'),
     '485BXT': ('등록신고 효력 발생일 관련 서류',
                  'KBTY 관련 등록신고 효력일 조정 서류가 제출됐습니다. 효력일 변경만으로 상장·거래 개시를 확인할 수 없습니다.'),
+    'POS EX': ('등록서류 첨부문서 제출',
+               'KBTY 관련 첨부문서 제출을 감지했습니다. 이 서식은 상장·거래 개시 또는 보유 변동의 근거가 아니며, 첨부 내용은 SEC 원문 확인이 필요합니다.'),
     '497': ('투자설명서·최종자료 제출',
              'KBTY 관련 최종 공모자료 제출을 감지했습니다. 자료의 세부 내용과 실제 거래 여부는 원문·운용사 공시로 재확인해야 합니다.'),
     '497K': ('요약 투자설명서 제출',
@@ -237,7 +239,7 @@ def make_detected_record(item):
         'title_ko': title,
         'summary_ko': note,
         'change_ko': '자동 검출·시리즈 확인 완료. 공시 본문의 세부 변경내용은 아직 검토하지 않았습니다.',
-        'stage': '신규 SEC 제출',
+        'stage': '첨부문서 제출' if item['form'] == 'POS EX' else '신규 SEC 제출',
         'source_url': filing_link(item['accession'], item['filename']),
         'review_level': 'KBTY 시리즈 확인 · 서식 기반 설명'
     }

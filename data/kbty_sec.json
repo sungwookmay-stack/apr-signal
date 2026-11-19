@@ -70,6 +70,21 @@
   ],
   "filings": [
     {
+      "accession": "0001213900-26-121359",
+      "filed_date": "2026-11-17",
+      "form": "POS EX",
+      "title_ko": "KBTY 지수 라이선스 계약 첨부",
+      "summary_ko": "등록신고서 효력 발생 후 개정 제181호는 Indxx 지수 라이선스 계약(계약서상 10월 1일 발효)만 첨부하고, 10월 28일 KBTY 투자설명서와 추가정보서를 참조로 편입합니다.",
+      "change_ko": "계약 첨부 서류입니다. 신규 상장·거래 개시, 투자조건 변경, APR 매매·보유 변동 또는 지수 리밸런싱을 확인하는 자료는 아닙니다.",
+      "stage": "계약 첨부",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026121359/ea0312614-01_posex.htm",
+      "filing_index_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026121359/0001213900-26-121359-index.htm",
+      "exhibit_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026121359/ea0312614-01_ex99h11.htm",
+      "document_date": null,
+      "acceptance_datetime_utc": "2026-11-17T20:16:49Z",
+      "review_level": "SEC 공시 인덱스·본문·첨부 계약 확인"
+    },
+    {
       "accession": "0001213900-26-120950",
       "filed_date": "2026-11-17",
       "form": "497",
