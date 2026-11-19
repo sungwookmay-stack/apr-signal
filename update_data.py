@@ -344,12 +344,62 @@ def save(data,out_dir):
     write_atomic(out_dir/"sea_history.csv",sb.getvalue())
 
 
-def load_previous(out_dir):
-    """Preserve reviewed freight across collector and display snapshots.
+FX_FIELDS = {"USD": "usdkrw", "EUR": "eurkrw"}
 
-    Price/FX always comes from data.json; only logistics is reconciled.
-    The more recently verified freight snapshot wins overlapping months.
+
+def saved_fx(snapshot):
+    rows = snapshot.get("fx") or []
+    return {base: {row["date"]: row[field] for row in rows
+                   if row.get("date") and row.get(field) is not None}
+            for base, field in FX_FIELDS.items()}
+
+
+def source_family(label):
+    """ECB ZIP and CSV are equivalent exports of the same rate fixing."""
+    if label.startswith("ECB official"):
+        return "ECB"
+    return label
+
+
+def reconcile_fx(prior, prior_sources, candidate, candidate_sources):
+    """Choose each currency independently and never regress its latest date.
+
+    Identically sourced histories can fill gaps/extend without replacing
+    verified overlapping values. Do not splice datasets from different
+    providers under a single source label.
     """
+    result, sources, retained = {}, {}, []
+    for base in FX_FIELDS:
+        old = prior.get(base) or {}
+        new = candidate.get(base) or {}
+        old_label = prior_sources.get(base) or ""
+        new_label = candidate_sources.get(base) or ""
+        same = old_label and source_family(old_label) == source_family(new_label)
+        if old and new and same:
+            result[base] = {**new, **old}
+            sources[base] = old_label
+            if max(new) < max(old):
+                retained.append(base)
+        elif old and (not new or not new_label or max(old) >= max(new)
+                      or (source_family(old_label) == "ECB" and
+                          source_family(new_label) != "ECB")):
+            result[base] = old
+            sources[base] = old_label or "이전 수집"
+            retained.append(base)
+        elif new:
+            result[base] = new
+            sources[base] = new_label or "출처 확인되지 않음"
+    return result, sources, retained
+
+
+def fx_rows(fx):
+    return [{"date": date, "usdkrw": fx.get("USD", {}).get(date),
+             "eurkrw": fx.get("EUR", {}).get(date)}
+            for date in sorted(set(fx.get("USD", {})) | set(fx.get("EUR", {})))]
+
+
+def load_previous(out_dir):
+    """Preserve newer reviewed FX and freight without changing saved OHLCV."""
     def read(name):
         try:
             return json.loads((Path(out_dir)/name).read_text(encoding="utf-8"))
@@ -357,6 +407,16 @@ def load_previous(out_dir):
             return {}
     previous=read("data.json")
     display=read("market.json")
+    old_sources=previous.get("meta", {}).get("fx_sources") or {}
+    new_sources=display.get("meta", {}).get("fx_sources") or {}
+    fx, fx_sources, _ = reconcile_fx(saved_fx(previous), old_sources,
+                                      saved_fx(display), new_sources)
+    if fx:
+        previous["fx"] = fx_rows(fx)
+        meta=previous.setdefault("meta", {})
+        meta["fx_sources"] = fx_sources
+        meta["usd_fx_last"] = max(fx.get("USD", {}), default=None)
+        meta["eur_fx_last"] = max(fx.get("EUR", {}), default=None)
     candidates=[x.get("logistics",{}) for x in (display,previous)]
     def rank(x):
         return (x.get("last_verified_month", ""),
@@ -380,17 +440,18 @@ def load_previous(out_dir):
 def update(out_dir=BASE/"data", allow_partial=True, refresh_fx=True, refresh_freight=True):
     previous=load_previous(out_dir)
     stock,source,se=fetch_stock()
-    # Afternoon close update intentionally reuses the morning reference FX,
-    # avoiding redundant ECB/Frankfurter calls. It does not forecast FX.
+    # Reuse the newest saved official fixings on stock-only runs. On FX
+    # refreshes stale/outage responses must not replace these verified rows.
+    prior_fx = saved_fx(previous)
+    prior_sources = previous.get("meta", {}).get("fx_sources") or {}
     if refresh_fx:
-        fx,sources,fe=fetch_fx()
+        candidate, candidate_sources, fe = fetch_fx()
+        fx, sources, retained = reconcile_fx(
+            prior_fx, prior_sources, candidate, candidate_sources)
+        fe.extend(f"{base} 환율 응답이 이전/미확인: 마지막 정상 기록 유지"
+                  for base in retained)
     else:
-        fx={'USD':{r['date']:r['usdkrw'] for r in previous.get('fx',[])
-                   if r.get('usdkrw') is not None},
-            'EUR':{r['date']:r['eurkrw'] for r in previous.get('fx',[])
-                   if r.get('eurkrw') is not None}}
-        sources=previous.get('meta',{}).get('fx_sources',{})
-        fe=[]
+        fx, sources, fe = prior_fx, prior_sources, []
     errors=se+fe
     # Public chart endpoints may lag. Never roll back a newer saved daily bar.
     prior=(previous.get('series') or [])
@@ -403,17 +464,6 @@ def update(out_dir=BASE/"data", allow_partial=True, refresh_fx=True, refresh_fre
         stock=[{k:r[k] for k in ("date","open_krw","high_krw","low_krw","close_krw","volume") if k in r} for r in previous["series"]]
         source=previous.get("meta",{}).get("stock_source")
         errors.append("주가 갱신 실패: 마지막 정상 기록 유지")
-    if not fx and previous.get("fx"):
-        fx={"USD":{r["date"]:r["usdkrw"] for r in previous["fx"] if r.get("usdkrw")},
-            "EUR":{r["date"]:r["eurkrw"] for r in previous["fx"] if r.get("eurkrw")}}
-        sources=previous.get("meta",{}).get("fx_sources",{})
-        errors.append("환율 갱신 실패: 마지막 정상 기록 유지")
-    elif previous.get("fx"):
-        for base,field in (("USD","usdkrw"),("EUR","eurkrw")):
-            if base not in fx:
-                fx[base]={r["date"]:r[field] for r in previous["fx"] if r.get(field)}
-                sources[base]=previous.get("meta",{}).get("fx_sources",{}).get(base,"이전 수집")
-                errors.append(f"{base} 환율 갱신 실패: 마지막 기록 유지")
     if not stock:
         raise RuntimeError("주가 정보를 어디에서도 가져오지 못했습니다. " + "; ".join(errors[:3]))
     logistics=previous.get("logistics",{"sea":[],"air":[],"unit":"천원/2TEU"})

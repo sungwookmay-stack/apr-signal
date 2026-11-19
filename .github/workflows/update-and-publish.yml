@@ -18,6 +18,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  fx_only:
+    if: github.event_name == 'push' && contains(github.event.head_commit.message, '[fx-only-now]') && !contains(github.event.head_commit.message, '[trends-only-now]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify FX non-regression without provider calls
+        run: python -m unittest discover -s tests -p 'test_fx_persistence.py'
+      - name: Update only official ECB fixings and derived currency fields
+        run: python fx_only.py
+      - name: Publish only validated currency data files
+        run: |
+          python - <<'PY_CHECK'
+          import subprocess
+          allowed = {'data/data.json', 'data/data.js', 'data/history.csv',
+                     'data/market.json', 'data/status.json', 'data/bootstrap.js'}
+          changed = set(subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines())
+          assert changed <= allowed, f'Unexpected modified files: {changed - allowed}'
+          PY_CHECK
+          python scripts/store_snapshots.py
   trends_only:
     if: github.event_name == 'push' && contains(github.event.head_commit.message, '[trends-only-now]')
     runs-on: ubuntu-latest
