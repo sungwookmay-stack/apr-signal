@@ -10,8 +10,8 @@
       "EUR": "ECB official historical CSV ZIP"
     },
     "stock_last": "2026-11-19",
-    "usd_fx_last": "2026-11-13",
-    "eur_fx_last": "2026-11-13",
+    "usd_fx_last": "2026-11-19",
+    "eur_fx_last": "2026-11-19",
     "generated_at_utc": "2026-11-19T15:21:54+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
@@ -4642,11 +4642,11 @@
       "open_krw": 236500,
       "high_krw": 243000,
       "low_krw": 231000,
-      "usdkrw": 1337.13355,
-      "eurkrw": 1477.8,
-      "fx_usd_date": "2026-11-13",
-      "fx_eur_date": "2026-11-13",
-      "close_usd": 178.3666
+      "usdkrw": 1334.873797,
+      "eurkrw": 1470.23,
+      "fx_usd_date": "2026-11-16",
+      "fx_eur_date": "2026-11-16",
+      "close_usd": 178.6686
     },
     {
       "date": "2026-11-17",
@@ -4655,11 +4655,11 @@
       "open_krw": 234500,
       "high_krw": 237000,
       "low_krw": 218500,
-      "usdkrw": 1337.13355,
-      "eurkrw": 1477.8,
-      "fx_usd_date": "2026-11-13",
-      "fx_eur_date": "2026-11-13",
-      "close_usd": 172.3837
+      "usdkrw": 1336.208936,
+      "eurkrw": 1468.36,
+      "fx_usd_date": "2026-11-17",
+      "fx_eur_date": "2026-11-17",
+      "close_usd": 172.503
     },
     {
       "date": "2026-11-18",
@@ -4668,11 +4668,11 @@
       "open_krw": 232500,
       "high_krw": 243500,
       "low_krw": 231000,
-      "usdkrw": 1337.13355,
-      "eurkrw": 1477.8,
-      "fx_usd_date": "2026-11-13",
-      "fx_eur_date": "2026-11-13",
-      "close_usd": 180.9842
+      "usdkrw": 1332.330416,
+      "eurkrw": 1461.3,
+      "fx_usd_date": "2026-11-18",
+      "fx_eur_date": "2026-11-18",
+      "close_usd": 181.6366
     },
     {
       "date": "2026-11-19",
@@ -4681,11 +4681,11 @@
       "open_krw": 242000,
       "high_krw": 244500,
       "low_krw": 233000,
-      "usdkrw": null,
-      "eurkrw": null,
-      "fx_usd_date": null,
-      "fx_eur_date": null,
-      "close_usd": null
+      "usdkrw": 1328.447962,
+      "eurkrw": 1460.23,
+      "fx_usd_date": "2026-11-19",
+      "fx_eur_date": "2026-11-19",
+      "close_usd": 182.9202
     }
   ],
   "fx": [
@@ -6558,6 +6558,26 @@
       "date": "2026-11-13",
       "usdkrw": 1337.13355,
       "eurkrw": 1477.8
+    },
+    {
+      "date": "2026-11-16",
+      "usdkrw": 1334.873797,
+      "eurkrw": 1470.23
+    },
+    {
+      "date": "2026-11-17",
+      "usdkrw": 1336.208936,
+      "eurkrw": 1468.36
+    },
+    {
+      "date": "2026-11-18",
+      "usdkrw": 1332.330416,
+      "eurkrw": 1461.3
+    },
+    {
+      "date": "2026-11-19",
+      "usdkrw": 1328.447962,
+      "eurkrw": 1460.23
     }
   ],
   "logistics": {
