@@ -10,6 +10,12 @@ class ReviewedNovember17(unittest.TestCase):
         self.assertGreaterEqual(rebuilt['latest_verified_filing_date'], '2026-11-17')
         self.assertEqual(rebuilt['filings'], saved['filings'])
         self.assertEqual(len(rows), len(rebuilt['filings']))
+        exhibit = rows['0001213900-26-121359']
+        self.assertEqual((exhibit['form'], exhibit['filed_date'], exhibit['acceptance_datetime_utc']),
+                         ('POS EX', '2026-11-17', '2026-11-17T20:16:49Z'))
+        self.assertEqual(exhibit['stage'], '계약 첨부')
+        self.assertIsNone(exhibit['document_date'])
+        self.assertTrue(exhibit['exhibit_url'].endswith('ea0312614-01_ex99h11.htm'))
         prospectus = rows['0001213900-26-120950']
         self.assertEqual((prospectus['form'], prospectus['filed_date'], prospectus['document_date']),
                          ('497', '2026-11-17', '2026-10-28'))
