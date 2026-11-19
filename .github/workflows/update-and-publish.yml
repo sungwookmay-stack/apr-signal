@@ -18,7 +18,51 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  trends_only:
+    if: github.event_name == 'push' && contains(github.event.head_commit.message, '[trends-only-now]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test Google Trends validation without providers
+        run: python -m unittest discover -s tests -p 'test_trends_only.py'
+      - name: Refresh only Google Trends, using existing free-credit cap
+        id: targeted_trends
+        env:
+          APISH_KEY: ${{ secrets.APISH_KEY }}
+        run: python trends_only.py
+      - name: Preserve Google Trends recovery files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trends-only-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            data/demand.json
+            data/api_usage.json
+            data/trend_signals.json
+            data/status.json
+            data/bootstrap.js
+          retention-days: 14
+      - name: Publish only validated Trends files and credit ledger
+        run: |
+          python - <<'PY_CHECK'
+          import subprocess
+          allowed = {'data/demand.json', 'data/api_usage.json', 'data/trend_signals.json',
+                     'data/status.json', 'data/bootstrap.js'}
+          changed = set(subprocess.check_output(['git', 'diff', '--name-only'], text=True).splitlines())
+          assert changed <= allowed, f'Unexpected modified files: {changed - allowed}'
+          PY_CHECK
+          python scripts/store_snapshots.py
+      - name: Require a genuinely newer Google Trends observation
+        if: steps.targeted_trends.outputs.result != 'updated'
+        run: exit 1
   build:
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, '[trends-only-now]')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
