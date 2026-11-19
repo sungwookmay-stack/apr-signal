@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T23:12:25+00:00",
+  "updated_at": "2026-11-19T06:59:44+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -8,16 +8,16 @@
   "expense_ratio_pct": 0.55,
   "index": "Indxx K-Beauty Index",
   "holdings_count_intended": 25,
-  "status": "거래가격 관측 (운용사에서 상장 여부 확인 필요)",
+  "status": "NYSE Arca 거래 중 (운용사 공식 확인)",
   "launch_expected": null,
-  "latest_price_usd": 25.2092,
-  "price_date": "2026-11-13",
+  "latest_price_usd": 25.7,
+  "price_date": "2026-11-18",
   "aum_usd": null,
-  "nav_usd": null,
-  "apr_weight_pct": null,
-  "apr_shares": null,
-  "apr_holding_as_of": null,
-  "source_note": "가격: Yahoo Finance 비공식 일별시세. AUM: 운용사 페이지 제한적 추출 또는 출처 기록 CSV. NAV·APR 보유비중·보유주식수: 수동 검증 CSV 입력(자동 수집 아님). 미확인 항목은 null.",
+  "nav_usd": 25.75,
+  "apr_weight_pct": 5.89,
+  "apr_shares": 86,
+  "apr_holding_as_of": "2026-11-18",
+  "source_note": "운용사 확인 스냅샷 우선. 운용사 확인일보다 새 시세는 Yahoo 비공식 종가로 구분. AUM은 별도 공식 확인 전 미표시.",
   "price_history": [
     {
       "date": "2026-11-12",
@@ -28,14 +28,126 @@
       "date": "2026-11-13",
       "close_usd": 25.2092,
       "source": "Yahoo Finance 비공식 일별시세"
+    },
+    {
+      "date": "2026-11-18",
+      "close_usd": 25.7,
+      "source": "Guinness Atkinson 운용사 공식 종가"
     }
   ],
   "aum_history": [],
-  "holdings": [],
+  "holdings": [
+    {
+      "ticker": "A090430",
+      "name": "AMOREPACIFIC CORP",
+      "weight_pct": 8.72,
+      "shares": 229,
+      "market_value_usd": 22450.81,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A214450",
+      "name": "PHARMARESEARCH CO LTD",
+      "weight_pct": 7.87,
+      "shares": 102,
+      "market_value_usd": 20275.29,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A161890",
+      "name": "KOLMAR KOREA CO LTD",
+      "weight_pct": 7.25,
+      "shares": 217,
+      "market_value_usd": 18669.99,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A278470",
+      "name": "APR CORP/KOREA",
+      "weight_pct": 5.89,
+      "shares": 86,
+      "market_value_usd": 15159.58,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A251970",
+      "name": "PUMTECH KOREA CO LTD",
+      "weight_pct": 5.79,
+      "shares": 258,
+      "market_value_usd": 14920.9,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A086450",
+      "name": "DONGKOOK PHARMACEUTICAL",
+      "weight_pct": 5.23,
+      "shares": 736,
+      "market_value_usd": 13470.65,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A145020",
+      "name": "HUGEL INC",
+      "weight_pct": 5.09,
+      "shares": 88,
+      "market_value_usd": 13102.8,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A192820",
+      "name": "COSMAX INC",
+      "weight_pct": 5.09,
+      "shares": 59,
+      "market_value_usd": 13099.8,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A241710",
+      "name": "COSMECCA KOREA CO LTD",
+      "weight_pct": 4.33,
+      "shares": 80,
+      "market_value_usd": 11145.86,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A051900",
+      "name": "LG H&H",
+      "weight_pct": 4.19,
+      "shares": 59,
+      "market_value_usd": 10798.48,
+      "as_of": "2026-11-18",
+      "source_url": "https://www.gafunds.com/kbty/"
+    }
+  ],
   "errors": [],
-  "official_checked_at": "2026-11-13T23:12:25+00:00",
-  "official_data_state": "not_published",
-  "holdings_publication_state": "unverified",
+  "official_checked_at": "2026-11-19T06:59:44+00:00",
+  "official_data_state": "dated_issuer_data",
+  "holdings_publication_state": "published",
   "launch_expected_date": null,
-  "official_metrics": {}
+  "trading_confirmed": true,
+  "inception_date": "2026-11-12",
+  "issuer_verified_on": "2026-11-19",
+  "official_metrics": {
+    "nav_usd": {
+      "value": 25.75,
+      "as_of": "2026-11-18"
+    },
+    "closing_market_price_usd": {
+      "value": 25.7,
+      "as_of": "2026-11-18"
+    }
+  },
+  "price_source": "Guinness Atkinson 운용사 공식 종가",
+  "nav_as_of": "2026-11-18",
+  "holdings_scope": "issuer_top_10",
+  "apr_market_value_usd": 15159.58
 }

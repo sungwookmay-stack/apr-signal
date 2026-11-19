@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-11-19T02:07:48+00:00",
+  "generated_at_utc": "2026-11-19T06:59:44+00:00",
   "company": "에이피알",
   "ticker": "278470",
   "unit": "억원",
@@ -366,19 +366,19 @@
     {
       "period": "2026Q3",
       "asof": "2026-09-30",
-      "available_from": "2026-10-30",
-      "status": "잠정실적 (정식 3Q 보고서 전)",
+      "available_from": "2026-11-13",
+      "status": "정기보고서 연결 확정 공시",
       "sales": 7731.15,
-      "cogs": null,
-      "gross": null,
-      "sga": null,
+      "cogs": 1784.18,
+      "gross": 5946.97,
+      "sga": 4180.21,
       "op": 1606.4,
       "ni": 1101.88,
       "ads": null,
       "logistics": null,
       "fees": null,
-      "source": "APR 공식 2026Q3 IR 연결잠정실적(2026-10-30), 4쪽",
-      "source_url": "https://apr-in.aprd.io/ir/APR_Earnings%20Release_3Q26_ENG_vFF.pdf",
+      "source": "OpenDART 2026Q3 분기보고서 연결재무제표",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
       "cfo": null,
       "capex": null,
       "fcf_proxy": null,
@@ -395,10 +395,10 @@
         "unit": "억원",
         "verified_on": "2026-11-12"
       },
-      "gross_margin_pct": null,
+      "gross_margin_pct": 76.92,
       "op_margin_pct": 20.78,
       "net_margin_pct": 14.25,
-      "sga_ratio_pct": null,
+      "sga_ratio_pct": 54.07,
       "ads_ratio_pct": null,
       "selling_fee_ratio_pct": null,
       "shipping_ratio_pct": null,
@@ -531,6 +531,25 @@
       "inventory_days_company": 165.91,
       "liabilities_assets_pct": 41.2,
       "inventory_to_receivables": 1.93
+    },
+    {
+      "inventory": 4980.19,
+      "assets": 12689.06,
+      "equity": 6640.05,
+      "liabilities": 6049.02,
+      "cash": 797.75,
+      "receivables": 2102.07,
+      "source": "OpenDART 2026Q3 분기보고서 연결재무제표",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
+      "available_from": "2026-11-13",
+      "period": "2026Q3",
+      "asof": "2026-09-30",
+      "reported_inventory_turnover": null,
+      "shares": null,
+      "inventory_assets_pct": 39.25,
+      "inventory_days_company": null,
+      "liabilities_assets_pct": 47.67,
+      "inventory_to_receivables": 2.37
     }
   ],
   "roe_ttm": [
@@ -1166,7 +1185,7 @@
     "[에이피알]반기보고서(2026.08.14) (1).pdf",
     "에이피알 2025년 사업보고서(2026-03-23, 공식 APR 사이트)"
   ],
-  "accounting_note": "2025년 사업보고서 연결 영업이익은 3655.21억원. 2026년 이후 K-IFRS 제1118호 적용·비교 재표시 등으로 일부 투자정보 표와 영업이익 정의가 달라질 수 있어 2025 연간/4Q는 동일 보고서 숫자로 계산. 2026Q3은 정식 보고서 이전 잠정실적. 현금흐름은 2025 원공시와 2026 K-IFRS1118 분류 기준이 달라 연도 간 직접 비교에 주의. 2025 CFO는 원공시로 통일; 재표시 전년비교는 감사 메타데이터에 별도 보존. 손익 추이의 2025 값은 원공시를 보존한다. 2026 YoY는 공식 IR의 동일 K-IFRS1118 재작성 비교값을 별도 사용한다. 비교기준이 다른 QoQ는 동일기준 비교값 확인 전 미산출.",
+  "accounting_note": "2025년 사업보고서 연결 영업이익은 3655.21억원. 2026년 이후 K-IFRS 제1118호 적용·비교 재표시 등으로 일부 투자정보 표와 영업이익 정의가 달라질 수 있어 2025 연간/4Q는 동일 보고서 숫자로 계산. 현금흐름은 2025 원공시와 2026 K-IFRS1118 분류 기준이 달라 연도 간 직접 비교에 주의. 2025 CFO는 원공시로 통일; 재표시 전년비교는 감사 메타데이터에 별도 보존. 손익 추이의 2025 값은 원공시를 보존한다. 2026 YoY는 공식 IR의 동일 K-IFRS1118 재작성 비교값을 별도 사용한다. 비교기준이 다른 QoQ는 동일기준 비교값 확인 전 미산출.",
   "dart_reconciliation": {
     "checked_at_utc": "2026-11-13T23:20:22+00:00",
     "rows": [
@@ -1323,5 +1342,5 @@
     ],
     "note": "DART 저장값과 연결 순이익·총자본 금액만 대조. 지배주주 지분, EPS, 주식수 및 최초 발표시점 검증을 의미하지 않음. 차이는 자동 덮어쓰지 않음."
   },
-  "quality_notice": "2026Q3은 연결잠정실적. 2026Q3 재고·광고·판관비·ROE·ROIC를 추정하지 않음. 이자부채 분류가 완성되기 전 ROIC는 미산출."
+  "quality_notice": "2026Q3은 11월 13일 정기보고서의 연결 손익·재무상태표. 미검증 광고비·분기 현금흐름·ROE·ROIC는 미산출."
 }
