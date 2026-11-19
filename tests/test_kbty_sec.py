@@ -135,6 +135,34 @@ class KbtySecTests(unittest.TestCase):
         self.assertEqual(len(called),3)
         self.assertIn('ciks=0000919160',called[1])
 
+    def test_pos_ex_requires_series_header_and_is_not_a_launch_milestone(self):
+        forms = ['POS EX'] * 3
+        accessions = ['0001213900-26-116014', '0001213900-26-116013', '0001213900-26-116012']
+        payload = {'cik': 919160, 'filings': {'recent': {
+            'accessionNumber': accessions, 'filingDate': ['2026-11-06'] * 3,
+            'form': forms, 'primaryDocument': ['exhibit.htm'] * 3}}}
+        fallback = {'hits': {'hits': [
+            {'_id': accession + ':exhibit.htm',
+             '_source': {'form': 'POS EX', 'file_date': '2026-11-06', 'ciks': ['0000919160']}}
+            for accession in accessions]}}
+        self.assertEqual(len(sec.fulltext_candidates(fallback)), 3)
+
+        def response(url):
+            if url == sec.SEC_SUBMISSIONS:
+                return json.dumps(payload).encode()
+            if accessions[0] in url:
+                return b'<COMPANY-CONFORMED-NAME>GUINNESS ATKINSON FUNDS'
+            if accessions[1] in url:
+                return b'<SERIES-ID>S000005895'
+            return b'<SERIES-ID>S000109351'
+
+        out = sec.refresh(registry_file=self.registry_file, transport=response, output=self.output, now=self.now)
+        pos_ex = [row for row in out['filings'] if row['form'] == 'POS EX']
+        self.assertEqual([row['accession'] for row in pos_ex], [accessions[2]])
+        self.assertEqual(pos_ex[0]['stage'], '첨부문서 제출')
+        self.assertNotIn('trading_start', out)
+        self.assertNotIn('apr_weight_pct', out)
+
     def test_sec_search_hit_for_other_cik_cannot_be_kbty(self):
         doc={'hits':{'hits':[
              {'_id':'0001213900-26-116010:other.htm',
