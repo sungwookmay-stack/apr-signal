@@ -10,9 +10,9 @@
       "EUR": "ECB official historical CSV ZIP"
     },
     "stock_last": "2026-11-20",
-    "usd_fx_last": "2026-11-19",
-    "eur_fx_last": "2026-11-19",
-    "generated_at_utc": "2026-11-20T15:19:48+00:00",
+    "usd_fx_last": "2026-11-20",
+    "eur_fx_last": "2026-11-20",
+    "generated_at_utc": "2026-11-20T23:16:03+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4694,11 +4694,11 @@
       "open_krw": 236000,
       "high_krw": 245000,
       "low_krw": 232000,
-      "usdkrw": 1328.447962,
-      "eurkrw": 1460.23,
-      "fx_usd_date": "2026-11-19",
-      "fx_eur_date": "2026-11-19",
-      "close_usd": 175.0163
+      "usdkrw": 1339.435851,
+      "eurkrw": 1472.04,
+      "fx_usd_date": "2026-11-20",
+      "fx_eur_date": "2026-11-20",
+      "close_usd": 173.5805
     }
   ],
   "fx": [
@@ -6591,6 +6591,11 @@
       "date": "2026-11-19",
       "usdkrw": 1328.447962,
       "eurkrw": 1460.23
+    },
+    {
+      "date": "2026-11-20",
+      "usdkrw": 1339.435851,
+      "eurkrw": 1472.04
     }
   ],
   "logistics": {
@@ -7025,26 +7030,22 @@
         },
         "month": "2026-10",
         "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10183384&nttSnUrl=76991cfebcef4794d12db61b0037d195",
-        "rate_check_complete": true,
-        "publication_date": "2026-11-16"
+        "rate_check_complete": true
       }
     ],
     "source_url": "https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?bbsId=1362&mi=2891&nttSn=10183384&nttSnUrl=76991cfebcef4794d12db61b0037d195",
     "last_verified_month": "2026-10",
     "last_verified_at_utc": "2026-11-18T10:19:03+00:00",
-    "last_fetch_failed": true,
+    "last_fetch_failed": false,
     "history_verified_this_run": 0,
     "history_backfill_errors": [],
-    "last_checked_at_utc": "2026-11-19T23:15:35+00:00",
-    "last_fetch_errors": [
-      "관세청 최신 발표: 관세청 최신 발표 목록 확인 실패: IncompleteRead",
-      "NLIC: NLIC tables not accessible or changed"
-    ],
+    "last_checked_at_utc": "2026-11-20T23:15:54+00:00",
+    "last_fetch_errors": [],
     "unverified_months": [
       "2025-08",
       "2026-02"
     ],
-    "last_successful_check_utc": "2026-11-13T23:12:28+00:00",
+    "last_successful_check_utc": "2026-11-20T23:15:54+00:00",
     "verification_method": "official_release_web_content_review",
     "publication_date": "2026-11-16"
   }
