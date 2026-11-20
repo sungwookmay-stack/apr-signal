@@ -9,15 +9,13 @@
       "USD": "ECB official historical CSV ZIP (EUR/KRW ÷ EUR/USD)",
       "EUR": "ECB official historical CSV ZIP"
     },
-    "stock_last": "2026-11-19",
+    "stock_last": "2026-11-20",
     "usd_fx_last": "2026-11-19",
     "eur_fx_last": "2026-11-19",
-    "generated_at_utc": "2026-11-19T23:15:52+00:00",
+    "generated_at_utc": "2026-11-20T15:19:48+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
-    "errors": [
-      "해상수출 운송비용 최신 확인 실패: 관세청 최신 발표: 관세청 최신 발표 목록 확인 실패: IncompleteRead / NLIC: NLIC tables not accessible or changed (마지막 관측 유지)"
-    ],
+    "errors": [],
     "logistics_source": "관세청 공식 보도자료 · 해상수출 평균 운송비용",
     "note": "주가는 수정주가 또는 공급사 종가. USD 환산=원화 종가/당일 또는 직전 최신 USD/KRW 환율. FX는 중앙은행 참고 환율(서울외국환중개 매매기준율과 다를 수 있음)."
   },
@@ -4688,6 +4686,19 @@
       "fx_usd_date": "2026-11-19",
       "fx_eur_date": "2026-11-19",
       "close_usd": 182.9202
+    },
+    {
+      "date": "2026-11-20",
+      "close_krw": 232500,
+      "volume": 222929,
+      "open_krw": 236000,
+      "high_krw": 245000,
+      "low_krw": 232000,
+      "usdkrw": 1328.447962,
+      "eurkrw": 1460.23,
+      "fx_usd_date": "2026-11-19",
+      "fx_eur_date": "2026-11-19",
+      "close_usd": 175.0163
     }
   ],
   "fx": [
