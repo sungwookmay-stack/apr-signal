@@ -30,3 +30,17 @@ Verified 2026-11-11. This is an implementation audit, not a statement that a new
 - KRX official explanation of distinction between lending balance and short sale: https://data.krx.co.kr/contents/MDC/STAT/srt/MDCSTAT317.jsp
 
 Tests: `python -m unittest discover -s tests -p 'test_kis_short_sales.py' -v` (9 passed); `python -m unittest discover -s tests -p 'test_flows.py' -q` (17 passed). Offline only; no secrets, no live broker test, no orders, no deployment.
+
+## Follow-up 2026-11-11 (latest main)
+
+- Latest committed `data/flows.json`: Kiwoom credentials configured but host disabled; KIS pair absent; KRX detail/basic zero rows; pension and short observations still absent. Only the Dot cloud computer appears in the connected-environment list. Do not claim successful reconnection.
+- Kiwoom's official https://openapi.kiwoom.com/intro/serviceInfo confirms IP allowlisting is required and up to 10 IPs may be registered. Minimum user step: connect the intended PC and confirm/register its egress IP via account App Key management. A newly registered network/security permission needs the user's action-time confirmation. An always-on stable-IP environment is needed for reliable unattended collection.
+- https://openapi.krx.co.kr/contents/OPP/INFO/service/OPPINFO004.cmd does not list investor breakdown or net-short-position endpoints. A generic KRX API key is not a verified fix for these metrics.
+- KRX OPEN API terms at https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO002.jsp explicitly contemplate noncommercial result screens with attribution. Do not overstate this as a blanket public-display ban; API terms, marketplace access, and broker redistribution terms differ.
+- Public secondary source https://fastjusik.com/pension/s/278470 shows a 2026-11-10 pension summary, but official reconciliation and redistribution rights are unverified. It was not imported as official data. NPSight's accessible indexed APR page is dated May 2026, so it is not an acceptable latest-data substitute.
+
+### Manual official export fallback
+
+Download the APR-only KRX investor daily **net buying value** and short trading / reported net position CSV using authorized access, keeping the selected market, date range and unit. Convert to `imports/apr_investor_daily.csv` or `imports/apr_short_daily.csv`; this is not an automatic generic KRX-export parser. Investor cash fields are KRW (multiply explicitly if the source is million KRW), quantities are shares, ratios are percent (2.35 means 2.35%, not 0.0235). Preserve observation dates and source URL, not the download date. `pension` is a subset of institution, not an extra total.
+
+The short CSV path now accepts decimal `short_value_ratio_pct` and `short_volume_ratio_pct`, which were previously omitted. Imports preserve source_url and reject future dates and explicitly mismatched tickers; missing/invalid ratios do not become zeros. Imported data stays `manual_source_linked_unverified` until a real source comparison is done. No real CSV has been supplied in this follow-up. Unit/cross-source verification and permitted public use remain required before publishing new imported observations.
