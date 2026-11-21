@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   collect-customs:
-    if: github.event_name != 'push' || contains(github.event.head_commit.message, '[customs-monthly]')
+    if: github.event_name != 'push' || contains(github.event.head_commit.message, '[customs-monthly]') || contains(github.event.head_commit.message, '[customs-regional-expand]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,17 +23,18 @@ jobs:
         run: python -m unittest discover -s tests -p 'test*customs*.py' -v
       - name: Collect monthly official Customs data only
         env:
+          CUSTOMS_REGIONAL_EXPANSION_ONLY: ${{ contains(github.event.head_commit.message, '[customs-regional-expand]') && 'true' || 'false' }}
           CUSTOMS_RETRY_FAILED: ${{ contains(github.event.head_commit.message, '[customs-retry-failed]') && 'true' || 'false' }}
           CUSTOMS_COUNTRY_API_KEY: ${{ secrets.CUSTOMS_COUNTRY_API_KEY }}
           CUSTOMS_REGIONAL_API_KEY: ${{ secrets.CUSTOMS_REGIONAL_API_KEY }}
         run: python customs_monthly.py
       - name: Read-only beauty-device classification probe
-        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[device-probe]')
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[device-probe]') && !contains(github.event.head_commit.message, '[customs-regional-expand]')
         env:
           CUSTOMS_COUNTRY_API_KEY: ${{ secrets.CUSTOMS_COUNTRY_API_KEY }}
         run: python scripts/probe_device_customs.py
       - name: Read-only Hwaseong administrative-boundary probe
-        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[hwaseong-probe]')
+        if: github.event_name == 'push' && contains(github.event.head_commit.message, '[hwaseong-probe]') && !contains(github.event.head_commit.message, '[customs-regional-expand]')
         env:
           CUSTOMS_REGIONAL_API_KEY: ${{ secrets.CUSTOMS_REGIONAL_API_KEY }}
         run: python hwaseong_probe.py

@@ -26,7 +26,7 @@ class CustomsTests(unittest.TestCase):
   bad={'id':'US_3304','errors':[{'window':['202201','202212'],'code':'transport_error'}], 'verified_windows':[], 'observations':[{'month':'2021-12','value':8}]}
   good.update(status='success',latest_month='2022-01')
   # Minimal config avoids unrelated markets; preverified regions stay untouched.
-  regions=[{'id':x,'errors':[],'observations':[]} for x in ['songpa_330499','geumcheon_330499','hwaseong_330499']]
+  regions=[{'id':x,'errors':[],'observations':[]} for x in ['songpa_330499','geumcheon_330499','hwaseong_330499','pyeongtaek_330499','wanju_330499']]
   for r in regions:r.update(status='success',latest_month=None)
   with tempfile.TemporaryDirectory() as d:
    try:
