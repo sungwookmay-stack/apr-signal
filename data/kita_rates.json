@@ -16,9 +16,30 @@
   "east_auto_updated": true,
   "east_secondary_access_ok": true,
   "east_secondary_url": "https://logisight.net/dashboard",
-  "east_note": "최근 2026-09/10 뉴욕값은 KITA 인용 제3자 2차 출처이며 공식 항로별 조회 대조 전. 공란은 보간하지 않음.",
-  "air_routes": [],
-  "air_status": "KITA 항공 기본 조회 결과 없음. 항로·중량구간별 운임 미확인 (0원 아님).",
+  "east_note": "뉴욕은 월별 출처를 구분함. 2차 출처 수치는 KITA 원문 미대조이며 공란은 보간하지 않음.",
+  "air_routes": [
+    {
+      "month": "2026-10",
+      "destination": "Los Angeles",
+      "krw_per_kg_100kg": 11102,
+      "krw_per_kg_300kg": 11082,
+      "krw_per_kg_500kg": 10730,
+      "source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3404&morgueCode=8",
+      "source_type": "KITA_RADIS_OFFICIAL_BULLETIN",
+      "verified_on": "2026-11-20"
+    },
+    {
+      "month": "2026-10",
+      "destination": "New York",
+      "krw_per_kg_100kg": 11534,
+      "krw_per_kg_300kg": 11514,
+      "krw_per_kg_500kg": 11162,
+      "source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3404&morgueCode=8",
+      "source_type": "KITA_RADIS_OFFICIAL_BULLETIN",
+      "verified_on": "2026-11-20"
+    }
+  ],
+  "air_status": "10월 KITA 공식 항공 수출 참고운임(원/kg, 100/300/500kg): LA 11,102/11,082/10,730, 뉴욕 11,534/11,514/11,162. 11월 공식 공지는 게시됐으나 항로별 수치 원문 미확인.",
   "air_last_checked_at_utc": "2026-11-18T11:32:32+00:00",
   "air_verification_method": "official_public_html_default_query",
   "air_publication_schedule": "매월 첫째 주 (KITA 공식 안내)",
@@ -172,11 +193,11 @@
       "origin": "Busan",
       "destination": "New York",
       "region": "미국 동안",
-      "teu_usd": null,
+      "teu_usd": 11000,
       "feu_usd": 11900,
-      "source_url": "https://logisight.net/dashboard",
-      "source_type": "KITA_RADIS_SECONDARY_REPORT_UNCONFIRMED_PRIMARY",
-      "verified_on": "2026-11-13"
+      "source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3403&morgueCode=8",
+      "source_type": "KITA_RADIS_OFFICIAL_BULLETIN",
+      "verified_on": "2026-11-20"
     },
     {
       "month": "2026-10",
@@ -212,5 +233,6 @@
       "verified_on": "2026-11-20"
     }
   ],
-  "errors": []
+  "errors": [],
+  "air_bulletin_source_url": "https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3404&morgueCode=8"
 }

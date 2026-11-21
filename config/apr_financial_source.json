@@ -240,6 +240,27 @@
       "cfo": null,
       "capex": null,
       "fcf_proxy": null,
+      "reviewed_filing_details": {
+        "available_from": "2026-11-13",
+        "receipt_number": "20261113001366",
+        "sga_detail_audit": {
+          "basis": "consolidated_Note_20_current_3months",
+          "unit": "KRW_thousand",
+          "ads": 161929728,
+          "logistics": 66992705,
+          "fees": 130970587
+        },
+        "cash_flow_audit": {
+          "basis": "original_filing_CFS_YTD_differenced",
+          "cfo_ytd_won": 53696588398,
+          "prior_cfo_ytd_won": 86404149570,
+          "tangible_capex_ytd_won": 22261238595,
+          "prior_tangible_capex_ytd_won": 16794134780,
+          "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
+          "prior_source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+          "accounting_basis": "2026 K-IFRS 1118 presentation"
+        }
+      },
       "income_accounting_basis": "K-IFRS1118",
       "yoy_comparative": {
         "period": "2025Q3",

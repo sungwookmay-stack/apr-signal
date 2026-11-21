@@ -15,7 +15,8 @@ class KitaRatesTests(unittest.TestCase):
             row = next(r for r in data['sea_routes'] if r['month']=='2026-10' and r['destination']=='Long Beach')
             self.assertEqual(row['verified_on'], data['latest_access_checked_at_utc'][:10])
             self.assertEqual(row['month'], '2026-10')
-            self.assertEqual(data['air_routes'], [])
+            self.assertEqual(len(data['air_routes']), 2)
+            self.assertEqual(data['air_routes'][0]['krw_per_kg_100kg'], 11102)
             self.assertIsNone(data['air_last_checked_at_utc'])
             self.assertIn('관세청 항공 수입', data['air_scope_note'])
 
@@ -62,7 +63,7 @@ class KitaRatesTests(unittest.TestCase):
             self.assertEqual(data['latest_month'],'2026-10')
             self.assertEqual(saved['sea_routes'][-1]['feu_usd'],8500)
             self.assertIn('snapshot',saved['sea_routes'][-1]['source_type'].lower())
-            self.assertEqual(saved['air_routes'],[])
+            self.assertEqual(len(saved['air_routes']), 2)
             self.assertTrue(saved['errors'])
 
 
@@ -90,7 +91,7 @@ class KitaRatesTests(unittest.TestCase):
         self.assertEqual(parse_sea_bulletin(
            sample.replace('해상 수출운임','항공 수출운임'),url),[])
 
-    def test_east_latest_is_marked_secondary_unless_directly_verified(self):
+    def test_east_october_official_seed_supersedes_secondary(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=Path(tmp)/'data.json'
             out=update(path,fetch_html=lambda:('<table><tr>'
@@ -98,10 +99,10 @@ class KitaRatesTests(unittest.TestCase):
                '<td>6700 300</td><td>8500 600</td></tr></table>'))
             self.assertEqual(out['west_latest_month'],'2026-10')
             self.assertEqual(out['east_latest_month'],'2026-10')
-            self.assertFalse(out['east_latest_primary_verified'])
+            self.assertTrue(out['east_latest_primary_verified'])
             east=[x for x in out['sea_routes'] if x['destination']=='New York']
-            self.assertIsNone(east[-1]['teu_usd'])
-            self.assertIn('SECONDARY',east[-1]['source_type'])
+            self.assertEqual(east[-1]['teu_usd'],11000)
+            self.assertIn('OFFICIAL_BULLETIN',east[-1]['source_type'])
 
     def test_missing_east_months_not_interpolated(self):
         with tempfile.TemporaryDirectory() as tmp:

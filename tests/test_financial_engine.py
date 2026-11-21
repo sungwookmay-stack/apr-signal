@@ -99,9 +99,19 @@ class ReviewedQ3Tests(unittest.TestCase):
         self.assertEqual(q['available_from'],'2026-11-13')
         self.assertIn('20261113001366',q['source_url'])
         self.assertEqual((q['sales'],q['sga'],b['inventory']), (7731.15,4180.21,4980.19))
-        self.assertIsNone(q['cfo'])
-        self.assertIsNone(q['ads'])
+        self.assertEqual(tuple(q[k] for k in ('ads','logistics','fees','cfo','capex','fcf_proxy')),
+                         (1619.30,669.93,1309.71,-327.08,54.67,-381.75))
+        self.assertEqual(q['sga_detail_audit']['unit'], 'KRW_thousand')
+        self.assertEqual(q['cash_flow_audit']['prior_cfo_ytd_won'], 86404149570)
+        self.assertNotIn('미검증 광고비', result['quality_notice'])
+        eligible=[x for x in result['quarterly'] if all(x.get(k) is not None for k in ('sales','op','cogs','ads','fees','logistics'))]
+        self.assertEqual(eligible[-1]['period'], '2026Q3')
         self.assertIsNone(b['shares'])
         self.assertFalse(any(x['period']=='2026Q3' for x in result['valuation']['eps_events']))
         next(x for x in dart['filings'] if x['period']=='2026Q3')['accounts']['sales']['amount_basis']='year_to_date_or_balance'
         self.assertFalse(fe.reviewed_q3(dart)[0])
+        tentative=fe.build(data,dart)['quarterly'][-1]
+        self.assertEqual(tentative['available_from'],'2026-10-30')
+        self.assertNotIn('reviewed_filing_details',tentative)
+        self.assertIsNone(tentative['ads'])
+        self.assertIsNone(tentative['cfo'])

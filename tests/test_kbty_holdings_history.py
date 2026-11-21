@@ -30,6 +30,8 @@ class OfficialHoldingsHistory(unittest.TestCase):
     def test_seed_live_and_preserved_history_no_synthetic_zero(self):
         source=build_data.ROOT/'config/kbty_issuer_snapshot.json'
         seed=json.loads(source.read_text())
+        # Keep the test's dated fixture independent of later issuer seed refreshes.
+        seed['apr_holdings_history']=[r for r in seed['apr_holdings_history'] if r['as_of'] in ('2026-11-17','2026-11-18')]
         previous={'apr_holdings_history':[
             {**seed['apr_holdings_history'][0], 'as_of':'2026-11-16'},
         ]}

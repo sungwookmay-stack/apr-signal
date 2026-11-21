@@ -107,8 +107,13 @@ def collect_kbty(offline_snapshot=False):
     state['official_data_state']='fetch_failed'
     state['holdings_publication_state']='unverified'
     state['launch_expected_date']=None
+    # Mix only the newest issuer observations per metric, not retrieval dates.
+    state['official_metrics'] = dict(previous.get('official_metrics') or {})
     if doc:
         parsed=parse_official(doc)
+        for key, metric in parsed.pop('official_metrics', {}).items():
+            if (metric.get('as_of') or '') >= (state['official_metrics'].get(key, {}).get('as_of') or ''):
+                state['official_metrics'][key] = metric
         state.update(parsed)
         # Keep undated official values separate: they are not a dated NAV/AUM history point.
     else:
@@ -126,7 +131,8 @@ def collect_kbty(offline_snapshot=False):
             date=dt.datetime.fromtimestamp(ts,dt.timezone.utc).date().isoformat()
             new.append({'date':date,'close_usd':round(float(val),4),'source':'Yahoo Finance 비공식 일별시세'})
         history={r['date']:r for r in state['price_history'] if r.get('date') and r.get('close_usd')}
-        history.update({r['date']:r for r in new})
+        history.update({r['date']:r for r in new
+                        if history.get(r['date'], {}).get('source') != 'Guinness Atkinson 운용사 공식 종가'})
         state['price_history']=[history[d] for d in sorted(history)]
         if state['price_history']:
             last=state['price_history'][-1]

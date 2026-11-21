@@ -35,11 +35,11 @@ vm.runInNewContext(source,{window:win,console});
 assert(win.APR_SENSITIVITY,'Standalone scenario module should register');
 const api=win.APR_SENSITIVITY;
 api.init(ctx);
-assert.equal($('sens-quarter').value,'2026Q2');
-assert.match($('sens-baseline').textContent,/2026Q2/);
-assert.match($('sens-baseline').textContent,/565\.5억원/);
-assert.match($('sens-op').textContent,/1,905\.5억원/);
-assert.match($('sens-opm').textContent,/24\.83%/);
+assert.equal($('sens-quarter').value,'2026Q3');
+assert.match($('sens-baseline').textContent,/2026Q3/);
+assert.match($('sens-baseline').textContent,/669\.9억원/);
+assert.match($('sens-op').textContent,/1,606\.4억원/);
+assert.match($('sens-opm').textContent,/20\.78%/);
 assert.match($('sens-op-delta').textContent,/\+0\.0억원/);
 assert.equal(charts['sens-chart'].series[0].values.length,9);
 const observedKita = (kita.sea_routes || []).at(-1);
@@ -58,7 +58,7 @@ api.render(ctx);
 // but this is an assumption, not the issuer's proven currency split.
 $('sens-usd').value='10';
 events['sens-usd:input']();
-assert(Number($('sens-op').textContent.replace(/[^\d.]/g,''))>1905.5);
+assert(Number($('sens-op').textContent.replace(/[^\d.]/g,''))>1606.4);
 assert.match($('sens-fx-basis').textContent,/USD\/KRW/);
 // Base model and transport share are drawn from the disclosed logistics
 // expense; no independent unverified fulfillment amount is invented.
@@ -66,7 +66,7 @@ api.applyPreset && api.applyPreset(ctx,'neutral');
 $('sens-usd').value='0';
 $('sens-sea-change').value='20';
 events['sens-sea-change:input']();
-assert.match($('sens-op-delta').textContent,/−17\.0억원/);
+assert.match($('sens-op-delta').textContent,/−20\.1억원/);
 assert.match($('sens-validation').textContent,/배분 60%/);
 // Invalid cumulative allocation must not silently normalize or overspend.
 $('sens-sea-share').value='90';
@@ -81,4 +81,4 @@ events['sens-preset-neutral:click']();
 assert.match($('sens-validation').textContent,/가정 검증/);
 assert.match($('sens-op-delta').textContent,/\+0\.0억원/);
 assert.match($('sens-kita-note').textContent,/자동 대입하지 않습니다/);
-console.log('PASS: separate sensitivity tab, verified 2026Q2 inputs, FX, cost bridge, allocation validation, KITA source note');
+console.log('PASS: separate sensitivity tab, verified 2026Q3 inputs, FX, cost bridge, allocation validation, KITA source note');

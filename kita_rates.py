@@ -21,6 +21,18 @@ ROOT = Path(__file__).resolve().parent
 TARGET = ROOT / 'data' / 'kita_rates.json'
 SEA_URL = 'https://www.kita.net/shippers/logisticsFare/logisticsSeaFare.do'
 AIR_URL = 'https://www.kita.net/shippers/logisticsFare/logisticsAirFare.do'
+AIR_OCT_BULLETIN = 'https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3404&morgueCode=8'
+# Official published KRW/kg rates by weight tier; bulletin does not name one origin airport.
+AIR_BASELINE = (
+    ('Los Angeles', 11102, 11082, 10730),
+    ('New York', 11534, 11514, 11162),
+)
+AIR_BASELINE_STATUS = (
+    '10월 KITA 공식 항공 수출 참고운임(원/kg, 100/300/500kg): '
+    'LA 11,102/11,082/10,730, 뉴욕 11,534/11,514/11,162. '
+    '11월 공식 공지는 게시됐으나 항로별 수치 원문 미확인.'
+)
+
 SECONDARY_URL = 'https://logisight.net/rates'
 SECONDARY_LIVE_URL = 'https://logisight.net/dashboard'
 
@@ -40,12 +52,13 @@ EAST_OFFICIAL = [
      'https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3390&morgueCode=8'),
     ('2026-07', 7500, 9500,
      'https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3394&morgueCode=8'),
+    ('2026-10', 11000, 11900,
+     'https://www.kita.net/shippers/board/courseTrendView.do?dataSeq=3403&morgueCode=8'),
 ]
 # Separate third-party monitoring cites KITA monthly lane figures. Keep weaker
 # provenance and don't fabricate the unavailable TEU values.
 EAST_SECONDARY = [
     ('2026-09', None, 11300),
-    ('2026-10', None, 11900),
 ]
 
 
@@ -218,7 +231,7 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
            fetch_secondary=None):
     """Fetch latest KITA public table + dated East official bulletins as needed.
 
-    Optional, separately sourced 2026 Sep/Oct East figures remain clearly
+    Optional, separately sourced East figures remain clearly
     labelled SECONDARY, even if the primary default city page loads normally.
     """
     output = Path(output)
@@ -297,6 +310,21 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
     east=[r for r in records if r['destination']=='New York']
     east_latest=east[-1] if east else {}
     west_latest=west[-1] if west else {}
+    old_air = old.get('air_routes', []) if isinstance(old, dict) else []
+    air_rows = {
+        ('2026-10', city): {
+            'month': '2026-10', 'destination': city,
+            'krw_per_kg_100kg': rate100, 'krw_per_kg_300kg': rate300,
+            'krw_per_kg_500kg': rate500, 'source_url': AIR_OCT_BULLETIN,
+            'source_type': 'KITA_RADIS_OFFICIAL_BULLETIN', 'verified_on': '2026-11-20',
+        }
+        for city, rate100, rate300, rate500 in AIR_BASELINE
+    }
+    for row in old_air:
+        key = (row.get('month'), row.get('destination'))
+        if key not in air_rows:
+            air_rows[key] = row
+    has_newer_air = any(str(month) > '2026-10' for month, _ in air_rows)
     result={
         'provider':'한국무역협회 KITA RADIS',
         'sea_source_url':SEA_URL,'air_source_url':AIR_URL,
@@ -316,9 +344,10 @@ def update(output=TARGET, fetch_html=None, fetch_bulletin=None,
         'east_auto_updated':live_east or official_backfilled>0 or secondary_ok is True,
         'east_secondary_access_ok':secondary_ok,
         'east_secondary_url':SECONDARY_LIVE_URL,
-        'east_note':'최근 2026-09/10 뉴욕값은 KITA 인용 제3자 2차 출처이며 공식 항로별 조회 대조 전. 공란은 보간하지 않음.',
-        'air_routes':old.get('air_routes',[]) if isinstance(old,dict) else [],
-        'air_status':old.get('air_status','KITA 항공 수출 항로·중량구간별 실측 미확인. 0원 운임이 아님.'),
+        'east_note':'뉴욕은 월별 출처를 구분함. 2차 출처 수치는 KITA 원문 미대조이며 공란은 보간하지 않음.',
+        'air_routes':list(air_rows.values()),
+        'air_status':old.get('air_status', AIR_BASELINE_STATUS) if has_newer_air else AIR_BASELINE_STATUS,
+        'air_bulletin_source_url':AIR_OCT_BULLETIN,
         'air_last_checked_at_utc':old.get('air_last_checked_at_utc'),
         'air_verification_method':old.get('air_verification_method'),
         'air_publication_schedule':'매월 첫째 주 (KITA 공식 안내)',

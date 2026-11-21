@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at_utc": "2026-11-20T23:22:16+00:00",
+  "generated_at_utc": "2026-11-21T00:15:23+00:00",
   "company": "에이피알",
   "ticker": "278470",
   "unit": "억원",
@@ -374,14 +374,14 @@
       "sga": 4180.21,
       "op": 1606.4,
       "ni": 1101.88,
-      "ads": null,
-      "logistics": null,
-      "fees": null,
+      "ads": 1619.3,
+      "logistics": 669.93,
+      "fees": 1309.71,
       "source": "OpenDART 2026Q3 분기보고서 연결재무제표",
       "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
-      "cfo": null,
-      "capex": null,
-      "fcf_proxy": null,
+      "cfo": -327.08,
+      "capex": 54.67,
+      "fcf_proxy": -381.75,
       "income_accounting_basis": "K-IFRS1118",
       "yoy_comparative": {
         "period": "2025Q3",
@@ -395,14 +395,32 @@
         "unit": "억원",
         "verified_on": "2026-11-12"
       },
+      "sga_detail_audit": {
+        "basis": "consolidated_Note_20_current_3months",
+        "unit": "KRW_thousand",
+        "ads": 161929728,
+        "logistics": 66992705,
+        "fees": 130970587,
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366"
+      },
+      "cash_flow_audit": {
+        "basis": "original_filing_CFS_YTD_differenced",
+        "cfo_ytd_won": 53696588398,
+        "prior_cfo_ytd_won": 86404149570,
+        "tangible_capex_ytd_won": 22261238595,
+        "prior_tangible_capex_ytd_won": 16794134780,
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
+        "prior_source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002503",
+        "accounting_basis": "2026 K-IFRS 1118 presentation"
+      },
       "gross_margin_pct": 76.92,
       "op_margin_pct": 20.78,
       "net_margin_pct": 14.25,
       "sga_ratio_pct": 54.07,
-      "ads_ratio_pct": null,
-      "selling_fee_ratio_pct": null,
-      "shipping_ratio_pct": null,
-      "cash_conversion_pct": null,
+      "ads_ratio_pct": 20.95,
+      "selling_fee_ratio_pct": 16.94,
+      "shipping_ratio_pct": 8.67,
+      "cash_conversion_pct": -29.68,
       "growth_comparison": {
         "yoy": {
           "status": "공식 IR 동일기준 재작성 비교",
@@ -1342,5 +1360,5 @@
     ],
     "note": "DART 저장값과 연결 순이익·총자본 금액만 대조. 지배주주 지분, EPS, 주식수 및 최초 발표시점 검증을 의미하지 않음. 차이는 자동 덮어쓰지 않음."
   },
-  "quality_notice": "2026Q3은 11월 13일 정기보고서의 연결 손익·재무상태표. 미검증 광고비·분기 현금흐름·ROE·ROIC는 미산출."
+  "quality_notice": "2026Q3은 11월 13일 정기보고서의 연결 실적. 판관비 세부 항목은 주석 20, 분기 현금흐름은 9개월 누계에서 반기 누계를 차감. 미검증 ROE·ROIC는 미산출."
 }

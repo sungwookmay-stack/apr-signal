@@ -82,14 +82,47 @@ def reviewed_q3(dart):
              'period':'2026Q3','asof':'2026-09-30','reported_inventory_turnover':None,'shares':None})
 
 
+def reviewed_q3_cost_cash(details, confirmed):
+    # Time-gate reviewed notes to the same validated statutory filing as income.
+    if (not confirmed or details.get('available_from') != confirmed.get('available_from')
+            or details.get('receipt_number') != '20261113001366'
+            or not confirmed.get('source_url', '').endswith(details['receipt_number'])):
+        return {}
+    out = {}
+    costs = details.get('sga_detail_audit', {})
+    fields = ('ads', 'logistics', 'fees')
+    if (costs.get('basis') == 'consolidated_Note_20_current_3months'
+            and costs.get('unit') == 'KRW_thousand'
+            and all(type(costs.get(k)) is int and costs[k] >= 0 for k in fields)
+            and sum(costs[k] for k in fields) / 1e5 <= confirmed['sga']):
+        out.update({k: round(costs[k] / 1e5, 2) for k in fields})
+        out['sga_detail_audit'] = {**costs, 'source_url': confirmed['source_url']}
+    cash = details.get('cash_flow_audit', {})
+    fields = ('cfo_ytd_won', 'prior_cfo_ytd_won', 'tangible_capex_ytd_won',
+              'prior_tangible_capex_ytd_won')
+    if (cash.get('basis') == 'original_filing_CFS_YTD_differenced'
+            and cash.get('source_url') == confirmed['source_url']
+            and cash.get('prior_source_url', '').endswith('20260814002503')
+            and all(type(cash.get(k)) is int for k in fields)
+            and cash['tangible_capex_ytd_won'] >= cash['prior_tangible_capex_ytd_won'] >= 0):
+        out.update(cfo=round((cash[fields[0]] - cash[fields[1]]) / 1e8, 2),
+                   capex=round((cash[fields[2]] - cash[fields[3]]) / 1e8, 2),
+                   cash_flow_audit=cash)
+    return out
+
+
 def build(data, dart=None):
     q3, q3_balance = reviewed_q3(dart)
     quarters=[]
     prior={}
+    q3_details={}
     for q in sorted(data['quarterly'],key=lambda x:x['period']):
-        if q['period']=='2026Q3' and q3:
-            q={**q,**q3}
         x=dict(q)
+        details=x.pop('reviewed_filing_details', {})
+        if q['period']=='2026Q3' and q3:
+            q3_details=reviewed_q3_cost_cash(details, q3)
+            q={**x, **q3, **q3_details}
+            x=dict(q)
         for name,field in [('gross_margin_pct','gross'),('op_margin_pct','op'),
                            ('net_margin_pct','ni'),('sga_ratio_pct','sga'),
                            ('ads_ratio_pct','ads'),('selling_fee_ratio_pct','fees'),
@@ -153,6 +186,14 @@ def build(data, dart=None):
                 })
 
     verified = verified_valuation()
+    if 'cash_flow_audit' in q3_details and 'sga_detail_audit' in q3_details:
+        quality_notice = ('2026Q3은 11월 13일 정기보고서의 연결 실적. 판관비 세부 항목은 주석 20, '
+                          '분기 현금흐름은 9개월 누계에서 반기 누계를 차감. 미검증 ROE·ROIC는 미산출.')
+    elif q3:
+        quality_notice = '2026Q3은 정기보고서 연결 실적. 원문 대조가 완료된 항목만 표시하며 미검증 ROE·ROIC는 미산출.'
+    else:
+        quality_notice = ('2026Q3은 연결잠정실적. 정기보고서의 재고·광고·판관비·현금흐름·ROE·ROIC는 이 상태에서 미산출. '
+                          '이자부채 분류가 완성되기 전 ROIC는 미산출.')
     return {
         'schema_version':2,'generated_at_utc':dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'),
         'company':data['company'],'ticker':data['ticker'],'unit':data['unit'],
@@ -172,7 +213,7 @@ def build(data, dart=None):
         'source_files':data['source_files'],
         'accounting_note':data['accounting_note'].replace('2026Q3은 정식 보고서 이전 잠정실적. ', '') if q3 else data['accounting_note'],
         'dart_reconciliation':reconcile(data, dart or {}),
-        'quality_notice':('2026Q3은 11월 13일 정기보고서의 연결 손익·재무상태표. 미검증 광고비·분기 현금흐름·ROE·ROIC는 미산출.' if q3 else '2026Q3은 연결잠정실적. 2026Q3 재고·광고·판관비·ROE·ROIC를 추정하지 않음. 이자부채 분류가 완성되기 전 ROIC는 미산출.'),
+        'quality_notice':quality_notice,
     }
 
 
