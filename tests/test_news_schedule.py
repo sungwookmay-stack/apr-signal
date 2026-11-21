@@ -14,7 +14,7 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
     def section(self, name):
         return self.workflow.split('      - name: '+name, 1)[1].split('      - name:', 1)[0]
 
-    def test_schedules_are_0730_and_1600_kst(self):
+    def test_schedules_are_0730_and_2330_kst(self):
         self.assertIn("- cron: '30 22 * * *'", self.workflow)
         self.assertIn("- cron: '30 14 * * *'", self.workflow)
         self.assertEqual(self.workflow.count("- cron:"), 2)
@@ -41,12 +41,16 @@ class TwiceDailyNewsSchedule(unittest.TestCase):
         self.assertNotIn('APISH_KEY:', afternoon)
         self.assertNotIn('SCRAPEDO_TOKEN:', afternoon)
 
-    def test_night_investor_collection_does_not_run_paid_global_collector(self):
-        flow = self.section('Collect APR investor, pension, short and KSD lending (free)')
-        self.assertIn("github.event.schedule == '30 14 * * *'", flow)
-        self.assertIn('run: python flows_collect.py', flow)
-        self.assertNotIn('APISH_KEY:', flow)
-        self.assertNotIn('SCRAPEDO_TOKEN:', flow)
+    def test_hosted_refresh_never_collects_or_rewrites_legacy_flows(self):
+        self.assertNotIn('flows_collect.py', self.workflow)
+        self.assertNotIn("'[flows-now]'", self.workflow)
+        for secret in ('KSD_SLB_API_KEY', 'KIS_APP_KEY', 'KIWOOM_APP_KEY'):
+            with self.subTest(secret=secret):
+                self.assertNotIn(secret, self.workflow)
+        guard = self.section('Verify legacy flow files were not changed')
+        self.assertIn('git diff --exit-code HEAD -- data/flows.json data/flow_reference.json', guard)
+        self.assertLess(self.workflow.index('Verify legacy flow files were not changed'),
+                        self.workflow.index('- name: Store historical snapshots in repo'))
 
     def test_manual_modes_preserved_and_public_deployment_stopped(self):
         news = self.section('News-only manual refresh')
