@@ -36,9 +36,8 @@ def sync_saved_pdp(data, markets):
 
 def build():
     from source_provenance import normalize_saved_sources
-    normalize_saved_sources(DATA)
-    from flows_engine import refresh_saved_analysis
-    refresh_saved_analysis(DATA)
+    # Keep archived investor flows immutable; refresh other provenance only.
+    normalize_saved_sources(DATA, include_flows=False)
     demand=sync_saved_pdp(DATA,read(ROOT/'config/markets.json',{}).get('markets',[]))
     financial=financial_engine.update()
     try:
