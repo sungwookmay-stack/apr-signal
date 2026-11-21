@@ -198,12 +198,21 @@ events['window:DOMContentLoaded']().then(()=>{
  $('freight-group').value='near';events['freight-group:change']();
  assert.equal(MockChart.instances['chart-sea'].data.datasets.length,3);
  location.hash='#sensitivity';events['window:hashchange']();
- assert.match($('sens-baseline').textContent,/2026Q2/);
- assert.match($('sens-op').textContent,/1,905/);
- assert.match($('sens-opm').textContent,/24\.83%/);
+ // A new filing should advance this view without requiring the test to be edited.
+ const latestComplete=fin.quarterly
+   .filter(q=>['sales','op','cogs','ads','fees','logistics']
+     .every(k=>q[k]!=null&&Number.isFinite(Number(q[k]))&&Number(q[k])>=0))
+   .sort((a,b)=>a.period.localeCompare(b.period)).at(-1);
+ assert.ok(latestComplete,'Expected a complete disclosed quarter in the saved data');
+ const ko=(value,places)=>Number(value).toLocaleString('ko-KR',
+   {minimumFractionDigits:places,maximumFractionDigits:places});
+ assert.ok($('sens-baseline').textContent.startsWith(latestComplete.period+' '));
+ assert.equal($('sens-op').textContent,ko(latestComplete.op,1)+'억원');
+ assert.equal($('sens-opm').textContent,ko(100*latestComplete.op/latestComplete.sales,2)+'%');
  assert.match($('sens-kita-note').textContent,/롱비치/);
  $('sens-sea-change').value='20';events['sens-sea-change:input']();
- assert.match($('sens-op-delta').textContent,/17\.0억원/);
+ const seaShock=latestComplete.logistics*0.25*0.20*0.60;
+ assert.equal($('sens-op-delta').textContent,(seaShock>0?'−':'+')+ko(seaShock,1)+'억원');
  $('sens-preset-neutral').value='button';events['sens-preset-neutral:click']();
  assert.match($('sens-op-delta').textContent,/\+0\.0억원/);
  console.log('PASS: financial tables, Q4 expenses, PER/PBR point-in-time, retail Target quarantine, country-keyword alerts and KITA leading rates with separate sensitivity tab');
