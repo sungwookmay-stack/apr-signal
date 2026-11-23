@@ -67,9 +67,9 @@ def kbty_source_note(data):
     return '. '.join(lines) + '.'
 
 
-def normalize_saved_sources(root):
+def normalize_saved_sources(root, *, include_flows=True):
     root = Path(root)
-    for name in ('flows', 'kbty'):
+    for name in (('flows', 'kbty') if include_flows else ('kbty',)):
         path = root / (name + '.json')
         try:
             data = json.loads(path.read_text(encoding='utf-8'))
