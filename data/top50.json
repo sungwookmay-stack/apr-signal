@@ -6447,7 +6447,7 @@
       "elapsed_seconds": 23.34
     }
   },
-  "status": "complete",
+  "status": "excluded_kst_day",
   "schedule": "월·수·금·토·일 07:30 KST",
   "limit": 50
 }
