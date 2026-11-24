@@ -1,8 +1,8 @@
 {
   "method": "2026-11; SMA5/20/60/120/200 BB20±2σ RSI14 MACD12/26/9 Ichimoku9/26/52 shift26 ATR14 + 3-stage bottom classifier (no lookahead)",
   "bottom": {
-    "date": "2026-11-23",
-    "stage": "투매 관찰 · 바닥 미확인",
+    "date": "2026-11-24",
+    "stage": "투매 후 반등 탐색 · 바닥 미확인",
     "kind": "early",
     "score": 4,
     "max_score": 10,
@@ -30,38 +30,38 @@
       },
       {
         "name": "MACD 히스토그램 연속 개선",
-        "passed": false,
-        "points": 0,
+        "passed": true,
+        "points": 1,
         "max_points": 1,
-        "detail": "최근 MACD 히스토그램 3,463 · 3개 관측값 연속 상승 여부"
+        "detail": "최근 MACD 히스토그램 4,794 · 3개 관측값 연속 상승 여부"
       },
       {
         "name": "RSI 40 이상으로 복귀·상승",
         "passed": true,
         "points": 1,
         "max_points": 1,
-        "detail": "RSI(14) 45.8 · 30 미만은 과매도일 뿐 바닥 아님"
+        "detail": "RSI(14) 47.7 · 30 미만은 과매도일 뿐 바닥 아님"
       },
       {
         "name": "5일 이동평균 회복",
         "passed": true,
         "points": 1,
         "max_points": 1,
-        "detail": "종가 256,000원 / 5일선 240,800원"
+        "detail": "종가 261,000원 / 5일선 246,900원"
       },
       {
         "name": "20일선 3거래일 유지",
         "passed": false,
         "points": 0,
         "max_points": 1,
-        "detail": "현재 20일선 252,725원 · 단일 장중 돌파로 미확정"
+        "detail": "현재 20일선 251,900원 · 단일 장중 돌파로 미확정"
       },
       {
         "name": "10일 전고점·거래량 돌파",
-        "passed": true,
-        "points": 1,
+        "passed": false,
+        "points": 0,
         "max_points": 1,
-        "detail": "이전 10일 최고종가 253,000원 / 거래량배수 1.48"
+        "detail": "이전 10일 최고종가 256,000원 / 거래량배수 0.63"
       }
     ],
     "data_ready": true,
@@ -100,12 +100,12 @@
       "recent_20d_low": 218500,
       "recent_20d_low_date": "2026-11-17",
       "prev_20d_low": 218500,
-      "ma5": 240800,
-      "ma20": 252725,
-      "ma60": 325925,
-      "prior_10d_high_close": 253000,
-      "atr14": 19982,
-      "drawdown_60d_pct": -44.9
+      "ma5": 246900,
+      "ma20": 251900,
+      "ma60": 322908,
+      "prior_10d_high_close": 256000,
+      "atr14": 19519,
+      "drawdown_60d_pct": -43.8
     },
     "note": "과매도·투매는 저점 후보에 불과합니다. RSI 상승 다이버전스/저점 재확인 이후 5·20일선 회복과 거래량 동반 전고점 돌파를 구분해 판정합니다. 단계별 규칙은 과거 수익률로 검증된 승률 또는 가격 예측이 아닙니다.",
     "not_prediction": true,
@@ -10223,10 +10223,38 @@
       "prior20_low": 218500.0,
       "atr_pct": 7.81,
       "atr14": 19982.12
+    },
+    {
+      "date": "2026-11-24",
+      "close": 261000.0,
+      "ma5": 246900.0,
+      "ma20": 251900.0,
+      "ma60": 322908.33,
+      "ma120": 352562.5,
+      "ma200": 352457.5,
+      "bb_upper": 281619.69,
+      "bb_mid": 251900.0,
+      "bb_lower": 222180.31,
+      "rsi14": 47.66,
+      "macd": -16637.5087,
+      "macd_signal": -21431.3494,
+      "macd_hist": 4793.8407,
+      "tenkan": 242250.0,
+      "kijun": 274000.0,
+      "cloud_a": 326875.0,
+      "cloud_b": 370750.0,
+      "volume_ratio20": 0.63,
+      "volume": 240001.0,
+      "volume_ma20": 378682.95,
+      "volume_ratio_prior20": 0.64,
+      "prior20_high": 293000.0,
+      "prior20_low": 218500.0,
+      "atr_pct": 7.48,
+      "atr14": 19519.11
     }
   ],
   "last": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "label": "중립 / 확인 대기",
     "kind": "neutral",
     "score": -2,
@@ -10267,24 +10295,24 @@
         "detail": "RSI > 70 과열 가능, < 30 과매도 가능 (단독 진입 신호 아님)"
       }
     ],
-    "averaging_down": "추가매수 조건 관찰",
-    "entry_stage": "추가매수 조건 관찰",
+    "averaging_down": "1차 분할매수 검토",
+    "entry_stage": "1차 분할매수 검토",
     "rebound_points": 3,
     "risk_elevated": true,
     "macd_improving": true,
     "add_criteria": "반등 감시: RSI 상승·MACD 히스토그램 개선·5일선 회복 중 2개 이상. 20일선 접근·볼린저 하단 복귀 시 분할 검토. 120·200일선 아래에서는 반등 실패 위험 상승.",
-    "risk_reference": 216036,
+    "risk_reference": 221962,
     "risk_note": "종가 - 2×ATR은 변동성 참고 가격이며 손절 주문 가격을 뜻하지 않습니다.",
     "overheat": false,
     "not_advice": true,
     "fully_ready": true,
-    "bottom_stage": "투매 관찰 · 바닥 미확인",
+    "bottom_stage": "투매 후 반등 탐색 · 바닥 미확인",
     "bottom_score": 4,
     "bottom_kind": "early",
     "source": "네이버 금융 (일별 종가)"
   },
-  "valid_high_low": 361,
+  "valid_high_low": 362,
   "invalid_high_low_days": 0,
-  "data_days": 361,
+  "data_days": 362,
   "has_real_data": true
 }
