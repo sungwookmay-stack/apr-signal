@@ -61,7 +61,40 @@ def result(value):
             f.write(f'result={value}\n')
 
 
+def clear_recovered_us_alerts():
+    # One-shot data hygiene. Do not open a provider connection or debit credits.
+    parent = subprocess.check_output(['git', 'rev-parse', 'HEAD^'], cwd=ROOT, text=True).strip()
+    if parent != '966e05c2a61b6a0138e99d8d0e1fe7ae26a35ef8':
+        raise RuntimeError('Unexpected cleanup base')
+    status_path = DATA / 'status.json'
+    bootstrap_path = DATA / 'bootstrap.js'
+    status = json.loads(status_path.read_text(encoding='utf-8'))
+    target = [
+        '무료 API: google-trends/v1/interest: HTTP Error 502: Bad Gateway',
+        '무료 API: Google Trends US: 응답 미확인 (geo US, hl en-US)',
+    ]
+    if (status.get('errors') != target or
+            status.get('trends_last_complete_by_country', {}).get('US') != '2026-11-23' or
+            status.get('trends_last_observed_by_country', {}).get('US') != '2026-11-24'):
+        raise RuntimeError('Expected recovered US-only errors not found')
+    raw = bootstrap_path.read_text(encoding='utf-8')
+    token = '"errors":' + json.dumps(target, ensure_ascii=False, separators=(',', ':'))
+    if raw.count(token) != 1 or json.loads(raw.strip()[len(PREFIX):-1])['status'] != status:
+        raise RuntimeError('Bootstrap mismatch')
+    status['errors'] = []
+    dump(status_path, status)
+    write(bootstrap_path, raw.replace(token, '"errors":[]', 1))
+    result('updated')
+
+
 def run():
+    head = subprocess.check_output(['git', 'log', '-1', '--format=%B'], cwd=ROOT, text=True)
+    if '[trends-us-alert-cleanup]' in head:
+        kst = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date().isoformat()
+        if os.environ.get('GITHUB_EVENT_NAME') != 'push' or kst != '2026-11-24':
+            raise RuntimeError('Cleanup is outside its one-shot guard')
+        clear_recovered_us_alerts()
+        return
     demand_path = DATA / 'demand.json'
     status_path = DATA / 'status.json'
     bootstrap_path = DATA / 'bootstrap.js'
