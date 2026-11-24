@@ -3,9 +3,10 @@ import collections
 import datetime as dt
 import json
 import os
+import subprocess
 from pathlib import Path
 
-from optional_free_api import Budget, terms_for_country, update_trends
+from optional_free_api import Budget, STATE, save, terms_for_country, update_trends
 from trend_signals import detect
 
 ROOT = Path(__file__).resolve().parent
@@ -71,13 +72,28 @@ def run():
         raise RuntimeError('Invalid existing bootstrap; stopped before API calls')
     bootstrap = json.loads(raw.strip()[len(PREFIX):-1])
     config = json.loads((ROOT / 'config/markets.json').read_text(encoding='utf-8'))
-    markets = config['markets']
-    eligible = len(markets)
+    all_markets = config['markets']
     key = os.environ.get('APISH_KEY', '').strip()
     if not key:
         raise RuntimeError('Existing Google Trends connection is not configured')
     client = Budget(key)
     today = client.today.isoformat()
+    head = subprocess.check_output(['git', 'log', '-1', '--format=%B'], cwd=ROOT, text=True)
+    retry = os.environ.get('GITHUB_EVENT_NAME') == 'push' and '[trends-us-retry]' in head
+    if retry:
+        if today != '2026-11-24' or client.stats.get('last_trends_us_retry_day') == today:
+            result('retry_not_eligible')
+            return
+        config = dict(config, markets=[m for m in all_markets if m['code'] == 'US'])
+        if len(config['markets']) != 1 or client.remaining() < 1:
+            raise RuntimeError('US retry scope or credit unavailable')
+        client.stats['last_trends_us_retry_day'] = today
+        save(STATE, client.stats)
+        # Relax the daily guard only in memory for this narrowed one-request run.
+        # update_trends immediately persists the original same-day marker again.
+        client.stats.pop('last_trends_run_day', None)
+    markets = config['markets']
+    eligible = len(markets)
     if client.stats.get('last_trends_run_day') == today:
         print('Google Trends collection already attempted today; no repeat.')
         result('already_attempted')
@@ -99,11 +115,14 @@ def run():
     demand['trends'] = rows
     demand['updated_at'] = now
     demand['api_credits_used_this_month'] = client.stats['attempted_credits']
-    demand['trends_status'] = [f'API.SH Google Trends: {len(updated)}/{eligible}개국 새 확정 관측 반영']
+    demand['trends_status'] = (
+        ['API.SH Google Trends: 미국 재시도에서 새 확정 관측 반영 · 다른 15개국 기존값 유지']
+        if retry else [f'API.SH Google Trends: {len(updated)}/{eligible}개국 새 확정 관측 반영']
+    )
     if len(updated) != eligible:
         demand['trends_status'].append('기존값 유지: ' + ', '.join(
             m['code'] for m in markets if m['code'] not in updated))
-    marks = {m['code']: bounds([r for r in rows if r['country'] == m['code']]) for m in markets}
+    marks = {m['code']: bounds([r for r in rows if r['country'] == m['code']]) for m in all_markets}
     status['trends_points'] = len(rows)
     status['trends_last_complete_by_country'] = {cc: d[0] or None for cc, d in marks.items()}
     status['trends_last_observed_by_country'] = {cc: d[1] or None for cc, d in marks.items()}
