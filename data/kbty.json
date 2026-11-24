@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T23:23:07+00:00",
+  "updated_at": "2026-11-24T23:22:01+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -10,8 +10,8 @@
   "holdings_count_intended": 25,
   "status": "NYSE Arca 거래 중 (운용사 공식 확인)",
   "launch_expected": null,
-  "latest_price_usd": 26.484,
-  "price_date": "2026-11-23",
+  "latest_price_usd": 26.0629,
+  "price_date": "2026-11-24",
   "aum_usd": null,
   "nav_usd": 26.16,
   "apr_weight_pct": 5.79,
@@ -55,7 +55,12 @@
     },
     {
       "date": "2026-11-23",
-      "close_usd": 26.484,
+      "close_usd": 26.48,
+      "source": "Yahoo Finance 비공식 일별시세"
+    },
+    {
+      "date": "2026-11-24",
+      "close_usd": 26.0629,
       "source": "Yahoo Finance 비공식 일별시세"
     }
   ],
@@ -153,7 +158,7 @@
     }
   ],
   "errors": [],
-  "official_checked_at": "2026-11-23T23:23:07+00:00",
+  "official_checked_at": "2026-11-24T23:22:01+00:00",
   "official_data_state": "dated_issuer_data",
   "holdings_publication_state": "published",
   "launch_expected_date": null,

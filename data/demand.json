@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T10:32:36+00:00",
+  "updated_at": "2026-11-24T23:22:01+00:00",
   "countries": [
     {
       "code": "US",
@@ -125057,7 +125057,7 @@
     }
   ],
   "trends_status": [
-    "API.SH Google Trends: 미국 재시도에서 새 확정 관측 반영 · 다른 15개국 기존값 유지"
+    "공식 CSV 데이터 없음 — Google Trends 원본 링크 이용"
   ],
   "amazon": [],
   "amazon_status": [
