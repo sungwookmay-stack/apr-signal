@@ -8,7 +8,7 @@
   "technical_ohlc_days": 361,
   "kbty_status": "NYSE Arca 거래 중 (운용사 공식 확인)",
   "news_count": 124,
-  "trends_points": 13853,
+  "trends_points": 13873,
   "amazon_points": 0,
   "beauty_leaderboard_snapshots": 0,
   "retail_reference": {
@@ -27,5 +27,42 @@
     "무료 API: google-trends/v1/interest: HTTP Error 502: Bad Gateway",
     "무료 API: Google Trends US: 응답 미확인 (geo US, hl en-US)"
   ],
-  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시."
+  "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
+  "trends_last_complete_by_country": {
+    "US": "2026-11-23",
+    "GB": "2026-11-22",
+    "DE": "2026-11-22",
+    "FR": "2026-11-22",
+    "IT": "2026-11-22",
+    "ES": "2026-11-22",
+    "CA": "2026-11-22",
+    "JP": "2026-11-22",
+    "AE": "2026-11-22",
+    "SA": "2026-11-22",
+    "EG": "2026-11-22",
+    "QA": "2026-11-22",
+    "KW": "2026-11-22",
+    "BR": "2026-11-22",
+    "AR": "2026-11-22",
+    "CL": "2026-11-22"
+  },
+  "trends_last_observed_by_country": {
+    "US": "2026-11-24",
+    "GB": "2026-11-23",
+    "DE": "2026-11-23",
+    "FR": "2026-11-23",
+    "IT": "2026-11-23",
+    "ES": "2026-11-23",
+    "CA": "2026-11-23",
+    "JP": "2026-11-23",
+    "AE": "2026-11-23",
+    "SA": "2026-11-23",
+    "EG": "2026-11-23",
+    "QA": "2026-11-23",
+    "KW": "2026-11-23",
+    "BR": "2026-11-23",
+    "AR": "2026-11-23",
+    "CL": "2026-11-23"
+  },
+  "trends_checked_at_utc": "2026-11-24T10:32:36+00:00"
 }

@@ -1,9 +1,8 @@
 {
   "month": "2026-11",
-  "attempted_credits": 199,
-  "calls": 187,
-  "last_call": "2026-11-23T23:24:28+00:00",
-  "last_trends_run_day": "2026-11-24",
+  "attempted_credits": 200,
+  "calls": 188,
+  "last_call": "2026-11-24T10:32:32+00:00",
   "last_amazon_search_day": "2026-11-04",
   "last_trends_attempt_by_country": {
     "BR": "2026-11-24|pt-BR",
@@ -22,5 +21,7 @@
     "EG": "2026-11-24|en-US",
     "QA": "2026-11-24|en-US",
     "KW": "2026-11-24|en-US"
-  }
+  },
+  "last_trends_us_retry_day": "2026-11-24",
+  "last_trends_run_day": "2026-11-24"
 }
