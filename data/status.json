@@ -23,10 +23,7 @@
     "retail_metrics": 6,
     "external_weeks": 5
   },
-  "errors": [
-    "무료 API: google-trends/v1/interest: HTTP Error 502: Bad Gateway",
-    "무료 API: Google Trends US: 응답 미확인 (geo US, hl en-US)"
-  ],
+  "errors": [],
   "data_policy": "모든 실측은 출처와 기준일 표시. 실패 시 이전값 유지·오류 표시.",
   "trends_last_complete_by_country": {
     "US": "2026-11-23",
