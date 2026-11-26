@@ -150,7 +150,7 @@
   "latest_complete": {
     "US": {
       "country": "US",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -170,13 +170,13 @@
         },
         {
           "rank": 3,
-          "asin": "B0DGTMR754",
-          "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate | Overnight Face Mask for Glass Glow Skin - Hydra"
+          "asin": "B077RTL1HJ",
+          "title": "Illiyoon Ceramide Ato Concentrate Cream | Moisturizer for Dry & Sensitive Skin, 100hr Lasting Hydration, For Face & Body, Gen"
         },
         {
           "rank": 4,
-          "asin": "B077RTL1HJ",
-          "title": "Illiyoon Ceramide Ato Concentrate Cream | Moisturizer for Dry & Sensitive Skin, 100hr Lasting Hydration, For Face & Body, Gen"
+          "asin": "B0DGTMR754",
+          "title": "medicube Jelly Gel Mask with Salmon DNA PDRN Pink Collagen, Plump & Hydrate | Overnight Face Mask for Glass Glow Skin - Hydra"
         },
         {
           "rank": 5,
@@ -195,13 +195,13 @@
         },
         {
           "rank": 8,
-          "asin": "B0DWFLY18Y",
-          "title": "Anua PDRN Hyaluronic Acid 100 Moisturizing Cream, 2.02 fl oz | Lightweight, Non-Greasy Hydrating Face Moisturizer with Salmon"
+          "asin": "B0D6ZVJ3K2",
+          "title": "Sol de Janeiro Cheirosa Hair & Body Perfume Mist | Hair & Body Spray for Women"
         },
         {
           "rank": 9,
-          "asin": "B0G1VBDXYF",
-          "title": "Luxe Color Changing Foundation for Mature Skin, Color Matching, Medium | Color Matching, Adapts to Your Skin Tone, Lightweigh"
+          "asin": "B0DWFLY18Y",
+          "title": "Anua PDRN Hyaluronic Acid 100 Moisturizing Cream, 2.02 fl oz | Lightweight, Non-Greasy Hydrating Face Moisturizer with Salmon"
         },
         {
           "rank": 10,
@@ -210,68 +210,68 @@
         },
         {
           "rank": 11,
+          "asin": "B0G1VBDXYF",
+          "title": "Luxe Color Changing Foundation for Mature Skin, Color Matching, Medium | Color Matching, Adapts to Your Skin Tone, Lightweigh"
+        },
+        {
+          "rank": 12,
           "asin": "B0DBF65JYY",
           "title": "medicube PDRN Pink Peptide Serum with Salmon DNA, Firmer, Even-Looking Skin | Pink Glow Serum with Peptides & Niacinamide for"
         },
         {
-          "rank": 12,
+          "rank": 13,
           "asin": "B0G38FGSKL",
           "title": "medicube Hydrogel Eye Patches with PDRN, Caffeine & Collagen (60 Counts) | PDRN Retinol & Collagen Gel Mask - Eye Patches for"
         },
         {
-          "rank": 13,
-          "asin": "B09541P9WH",
-          "title": "Amazon Essentials Cotton Swabs, 500 Count (Previously Amazon Basics)"
-        },
-        {
           "rank": 14,
-          "asin": "B0FVT77ZLL",
-          "title": "Anua PDRN Collagen Glow Facial Serum Spray, 3.38 fl oz | Hydrating Face Mist, Hyaluronic Acid, Dewy finish, All Skin Types, I"
-        },
-        {
-          "rank": 15,
           "asin": "B0GD6R7CFJ",
           "title": "BIODANCE Hydrogel Eye Patches for Under Eye, Collagen Peptide (60 Count) | Under Eye Patches for Wrinkles, Smile Line Patches"
         },
         {
+          "rank": 15,
+          "asin": "B09541P9WH",
+          "title": "Amazon Essentials Cotton Swabs, 500 Count (Previously Amazon Basics)"
+        },
+        {
           "rank": 16,
-          "asin": "B07PBXXNCY",
-          "title": "Clean Skin Club Clean Towels XL®, 100% USDA Biobased Face Towel, Disposable Face Towelette, Eczema Association Accepted, Make"
-        },
-        {
-          "rank": 17,
-          "asin": "B0DK4Y2YP3",
-          "title": "celimax The Vita A Retinal Shot Tightening Booster (0.51 fl.oz) | 0.1% Retinal, 3% Matrixyl for Anti Aging, Pore Minimizer, F"
-        },
-        {
-          "rank": 18,
-          "asin": "B0D6ZPNZ4Z",
-          "title": "Sol de Janeiro Cheirosa Hair & Body Perfume Mist | Hair & Body Spray for Women"
-        },
-        {
-          "rank": 19,
-          "asin": "B0DYTQ5GYQ",
-          "title": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser | Daily Gentle Face Wash for Pore, Skin Texture Care, AHA BHA PHA fo"
-        },
-        {
-          "rank": 20,
-          "asin": "B08TPCHYLW",
-          "title": "Lancôme Lash Idôle Mascara - Lash-Lifting & Volumizing Mascara - Black | Lash-Lifting Mascara for Instant Volume, Length & Li"
-        },
-        {
-          "rank": 21,
           "asin": "B0B9HPYZJH",
           "title": "LANEIGE Lip Sleeping Mask, Overnight Care for Dry, Flaky Lips, 0.7 oz/20 g | Clinically tested Korean Overnight Lip Mask with"
         },
         {
+          "rank": 17,
+          "asin": "B0FVT77ZLL",
+          "title": "Anua PDRN Collagen Glow Facial Serum Spray, 3.38 fl oz | Hydrating Face Mist, Hyaluronic Acid, Dewy finish, All Skin Types, I"
+        },
+        {
+          "rank": 18,
+          "asin": "B08TPCHYLW",
+          "title": "Lancôme Lash Idôle Mascara - Lash-Lifting & Volumizing Mascara - Black | Lash-Lifting Mascara for Instant Volume, Length & Li"
+        },
+        {
+          "rank": 19,
+          "asin": "B0DK4Y2YP3",
+          "title": "celimax The Vita A Retinal Shot Tightening Booster (0.51 fl.oz) | 0.1% Retinal, 3% Matrixyl for Anti Aging, Pore Minimizer, F"
+        },
+        {
+          "rank": 20,
+          "asin": "B07PBXXNCY",
+          "title": "Clean Skin Club Clean Towels XL®, 100% USDA Biobased Face Towel, Disposable Face Towelette, Eczema Association Accepted, Make"
+        },
+        {
+          "rank": 21,
+          "asin": "B0DYTQ5GYQ",
+          "title": "medicube Facial Cleanser Zero Pore Capsule Foam Cleanser | Daily Gentle Face Wash for Pore, Skin Texture Care, AHA BHA PHA fo"
+        },
+        {
           "rank": 22,
-          "asin": "B0DG1DQ2S7",
-          "title": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum, 1.01 fl oz | Facial Serum for Blemish-Prone & Oily-Prone Skin, Lightwei"
+          "asin": "B01N9SPQHQ",
+          "title": "La Roche-Posay Toleriane Double Repair Face Moisturizer | Daily face cream with glycerin, niacinamide and ceramide for all sk"
         },
         {
           "rank": 23,
-          "asin": "B01N9SPQHQ",
-          "title": "La Roche-Posay Toleriane Double Repair Face Moisturizer | Daily face cream with glycerin, niacinamide and ceramide for all sk"
+          "asin": "B07GB3NVN1",
+          "title": "Native Aluminum-Free Deodorant for Women & Men, Coconut & Vanilla, 2.65oz | Contains Naturally Derived Ingredients | 100-Hour"
         },
         {
           "rank": 24,
@@ -280,18 +280,18 @@
         },
         {
           "rank": 25,
-          "asin": "B07GB3NVN1",
-          "title": "Native Aluminum-Free Deodorant for Women & Men, Coconut & Vanilla, 2.65oz | Contains Naturally Derived Ingredients | 100-Hour"
-        },
-        {
-          "rank": 26,
           "asin": "B0DTKCN3Z4",
           "title": "medicube Capsule Cream with Salmon DNA PDRN, Glow & Firming Moisturizer | Lightweight Daily Cream with Pink PDRN & Collagen C"
         },
         {
+          "rank": 26,
+          "asin": "B0DG1DQ2S7",
+          "title": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum, 1.01 fl oz | Facial Serum for Blemish-Prone & Oily-Prone Skin, Lightwei"
+        },
+        {
           "rank": 27,
-          "asin": "B014E2D6BY",
-          "title": "grace & stella Award Winning Eye Patches for Women  (24 Pairs, Gold) | Gifts for Women - Under Eye Mask for Dark Circles, Puf"
+          "asin": "B08H3JPH74",
+          "title": "Maybelline Lash Sensational Sky High Mascara, Volumizing, Blackest Black | Lengthening, Defining, Curling, Multiplying, Build"
         },
         {
           "rank": 28,
@@ -305,114 +305,114 @@
         },
         {
           "rank": 30,
-          "asin": "B01H1V7WQU",
-          "title": "LAURA GELLER Baked Balance-n-Brighten Powder Foundation – Light | Weightless baked foundation; color-correcting to even tone."
+          "asin": "B014E2D6BY",
+          "title": "grace & stella Award Winning Eye Patches for Women (24 Pairs, Gold) - Vegan | Gold Under Eye Mask for Dark Circles, Puffy Eye"
         },
         {
           "rank": 31,
-          "asin": "B08H3JPH74",
-          "title": "Maybelline Lash Sensational Sky High Mascara, Volumizing, Blackest Black | Lengthening, Defining, Curling, Multiplying, Build"
-        },
-        {
-          "rank": 32,
-          "asin": "B00262227E",
-          "title": "Mrs. Meyer's Clean Day, Hand Soap Refill, Lavender Scent, 33 Fl Oz"
-        },
-        {
-          "rank": 33,
-          "asin": "B00949CTQQ",
-          "title": "Paula's Choice SKIN PERFECTING 2% BHA Liquid Leave-On Exfoliant | Gentle Salicylic Acid Leave-On Facial Exfoliator for Blackh"
-        },
-        {
-          "rank": 34,
-          "asin": "B0BX2TZZWG",
-          "title": "Tree Hut Vanilla Body Scrub, Exfoliating Sugar Scrub, Vegan, 18 Oz | Exfoliating & Nourishing with Shea Butter & Essential Oi"
-        },
-        {
-          "rank": 35,
-          "asin": "B09542G9ZN",
-          "title": "Amazon Essentials 100% Cotton Rounds, 100 Count (Previously Amazon Basics)"
-        },
-        {
-          "rank": 36,
-          "asin": "B081JHTPKP",
-          "title": "Mise En Scene Perfect Serum Original - Heat Protectant Hair Oil for Frizzy & Dry | Argan Oil | Visibly Smooths & Softens | Ad"
-        },
-        {
-          "rank": 37,
-          "asin": "B0GCQKBZMC",
-          "title": "ChapStick Candy Cane Flavored Lip Balm Sticks, Holiday Gift Set, 4-Pack | 0.15 oz Each, Limited Edition Seasonal Stocking Stu"
-        },
-        {
-          "rank": 38,
-          "asin": "B0BBBSMV94",
-          "title": "Native Coconut & Vanilla Shampoo and Conditioner Contain Naturally Derived Ingredients | All Hair Types, Color & Treated, Fin"
-        },
-        {
-          "rank": 39,
-          "asin": "B0CZJMQXSY",
-          "title": "NOONI Korean Lip Oil - Applewine - pH Color-Changing Plumping Lip Gloss | 24HR Hydration, Moisturizing Formula, Natural Plump"
-        },
-        {
-          "rank": 40,
-          "asin": "B0DWMSM6Y9",
-          "title": "medicube Eye Serum with Salmon DNA PDRN, Peptides & Retinol for Fine Lines | 99% Purity Retinol for Fine Lines - PDRN & Niaci"
-        },
-        {
-          "rank": 41,
-          "asin": "B0DXWP12C8",
-          "title": "Kitsch Hair Perfume for Women – Hair Spray & Body Mist – Warm Sugar, 50mL | Clean, Deodorizing & Patented Odor-Eliminating Te"
-        },
-        {
-          "rank": 42,
-          "asin": "B0060OUV5Y",
-          "title": "La Roche-Posay Cicaplast Balm B5, Barrier Repair Cream for Dry Skin | Skin healing cream with centella asiatica, shea butter"
-        },
-        {
-          "rank": 43,
           "asin": "B0BJYCRS51",
           "title": "Body Restore Shower Steamers Aromatherapy, Gifts for Women, Bloom 6 Pack | Stocking Stuffers & Birthday Gifts for Women & Men"
         },
         {
-          "rank": 44,
+          "rank": 32,
+          "asin": "B0BX2TZZWG",
+          "title": "Tree Hut Vanilla Body Scrub, Exfoliating Sugar Scrub, Vegan, 18 Oz | Exfoliating & Nourishing with Shea Butter & Essential Oi"
+        },
+        {
+          "rank": 33,
+          "asin": "B01H1V7WQU",
+          "title": "LAURA GELLER Baked Balance-n-Brighten Powder Foundation – Light | Weightless baked foundation; color-correcting to even tone."
+        },
+        {
+          "rank": 34,
+          "asin": "B0GCQKBZMC",
+          "title": "ChapStick Candy Cane Flavored Lip Balm Sticks, Holiday Gift Set, 4-Pack | 0.15 oz Each, Limited Edition Seasonal Stocking Stu"
+        },
+        {
+          "rank": 35,
+          "asin": "B00949CTQQ",
+          "title": "Paula's Choice SKIN PERFECTING 2% BHA Liquid Leave-On Exfoliant | Gentle Salicylic Acid Leave-On Facial Exfoliator for Blackh"
+        },
+        {
+          "rank": 36,
+          "asin": "B00262227E",
+          "title": "Mrs. Meyer's Clean Day, Hand Soap Refill, Lavender Scent, 33 Fl Oz"
+        },
+        {
+          "rank": 37,
+          "asin": "B06XDCPYYL",
+          "title": "Aquaphor Lip Repair Ointment, Value Pack, 2 x 0.35 FL OZ | Lip Balm Moisturizer with Vitamins and Shea Butter, Immediate Seve"
+        },
+        {
+          "rank": 38,
+          "asin": "B09542G9ZN",
+          "title": "Amazon Essentials 100% Cotton Rounds, 100 Count (Previously Amazon Basics)"
+        },
+        {
+          "rank": 39,
+          "asin": "B0DWMSM6Y9",
+          "title": "medicube Eye Serum with Salmon DNA PDRN, Peptides & Retinol for Fine Lines | 99% Purity Retinol for Fine Lines - PDRN & Niaci"
+        },
+        {
+          "rank": 40,
+          "asin": "B0DXWP12C8",
+          "title": "Kitsch Hair Perfume for Women – Hair Spray & Body Mist – Warm Sugar, 50mL | Clean, Deodorizing & Patented Odor-Eliminating Te"
+        },
+        {
+          "rank": 41,
+          "asin": "B0BBBSMV94",
+          "title": "Native Coconut & Vanilla Shampoo and Conditioner Contain Naturally Derived Ingredients | All Hair Types, Color & Treated, Fin"
+        },
+        {
+          "rank": 42,
           "asin": "B0B9YHX8DX",
           "title": "Wonderskin Lip Stain – Long Lasting, Waterproof, Lip Tint Peel Off Masque | Transfer-proof nude lip tint with comfortable all"
         },
         {
-          "rank": 45,
+          "rank": 43,
           "asin": "B0DPHQRLJC",
           "title": "eos Cashmere Body Wash- Vanilla Cashmere, Creamy Gel with Shea Butter, 16 fl oz"
         },
         {
+          "rank": 44,
+          "asin": "B0060OUV5Y",
+          "title": "La Roche-Posay Cicaplast Balm B5, Barrier Repair Cream for Dry Skin | Skin healing cream with centella asiatica, shea butter"
+        },
+        {
+          "rank": 45,
+          "asin": "B002MSN3QQ",
+          "title": "EltaMD UV Clear Face Sunscreen with Zinc Oxide, Oil-Free, SPF 46 and SPF 50 | Calms and Protects Acne-Prone Skin and Rosacea,"
+        },
+        {
           "rank": 46,
+          "asin": "B01LW1983J",
+          "title": "Julep Eyeshadow 101 Crème-to-Powder Eyeshadow Stick, Champagne Shimmer | Crème-to-Powder Eyeshadow Stick, Waterproof & Crease"
+        },
+        {
+          "rank": 47,
+          "asin": "B081JHTPKP",
+          "title": "Mise En Scene Perfect Serum Original - Heat Protectant Hair Oil for Frizzy & Dry | Argan Oil | Visibly Smooths & Softens | Ad"
+        },
+        {
+          "rank": 48,
+          "asin": "B00T0C9XRK",
+          "title": "essence Lash Princess False Lash Effect Mascara, Black (Pack of 1) | Volumizing & Lengthening, Clump-Free Fiber Brush, Define"
+        },
+        {
+          "rank": 49,
           "asin": "B00PBX3L7K",
           "title": "COSRX Snail Mucin 96% Repairing Face Serum, Korean Skin Care 3.38 Fl Oz | Snail Mucin Repairing Essence for Korean Glass Glow"
         },
         {
-          "rank": 47,
-          "asin": "B0DG4WXBCF",
-          "title": "MEDITHERAPY Retinal Skin Booster Serum for Smooth & Uneven Skin 5.07 fl.oz | Jumbo Face&Body Serum - Fine Lines & Anti-Aging,"
-        },
-        {
-          "rank": 48,
+          "rank": 50,
           "asin": "B071914GGL",
           "title": "The Ordinary Glycolic Acid 7% Exfoliating Toner, Brightening and Smoothing Daily Toner for More Even-Looking Skin Tone"
-        },
-        {
-          "rank": 49,
-          "asin": "B09G2S1KZ2",
-          "title": "Salt & Stone Body Wash for Women & Men, Bergamot & Hinoki 15.2 fl oz | Shower Gel, Sulfate-Free, Paraben-Free, Dye-Free, Vega"
-        },
-        {
-          "rank": 50,
-          "asin": "B081KL2QYJ",
-          "title": "PanOxyl Acne Foaming Wash, 10% Benzoyl Peroxide, For Face & Body, 5.5 oz | Maximum Strength, Antibacterial Daily Cleanser, Tr"
         }
       ]
     },
     "GB": {
       "country": "GB",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -433,7 +433,7 @@
         {
           "rank": 3,
           "asin": "B08WR5CPNB",
-          "title": "Maybelline Mascara, Lash Sensational Sky High Volumizing Thickening, Black | With Bamboo Extract, Eyelash Lengthening, Flake-"
+          "title": "Maybelline New York Lash Sensational Sky High Mascara, Very Black, 7.2 ml | With Bamboo Extract, Eyelash Lengthening, Flake-F"
         },
         {
           "rank": 4,
@@ -457,43 +457,43 @@
         },
         {
           "rank": 8,
-          "asin": "B0FXLX85D7",
-          "title": "L'Oreal Paris Glass Skin Hydrogel Sheet Face Masks, Korean Inspired, 4 Pcs | Korean Inspired Skincare, Visibly Transform Skin"
-        },
-        {
-          "rank": 9,
-          "asin": "B0BJFLVCZK",
-          "title": "La Roche-Posay Cicaplast Baume B5+ for Irritated Sensitive Skin, 100 ml | Ultra Repair Multi-Purpose Soothing Balm, Skin Barr"
-        },
-        {
-          "rank": 10,
-          "asin": "B07C5R51Q9",
-          "title": "CeraVe Hydrating Cleanser, for normal to dry skin, contains Hyaluronic Acid and 3 essential ceramides, facial cleanser for se"
-        },
-        {
-          "rank": 11,
-          "asin": "B0GVQ6NYR3",
-          "title": "medicube PDRN Collagen Gua Sha Neck Wrinkle Cream - Firming, Contour Care | Built-In Gua Sha Massager with Volufiline 5% - Fo"
-        },
-        {
-          "rank": 12,
-          "asin": "B07L5WGS2X",
-          "title": "Garnier Hair Food Multi-use, 3-in-1 Hair Treatment Mask, Banana 400ml | Up to 7x Smoother Hair, 97% Natural Origin Ingredient"
-        },
-        {
-          "rank": 13,
-          "asin": "B0GD6R7CFJ",
-          "title": "BIODANCE Collagen Peptide Hydrogel Under Eye Patches. 60 Counts | [Deep Absorption with Advanced Hydrogel] - Eye Masks for Da"
-        },
-        {
-          "rank": 14,
           "asin": "B0G38FGSKL",
           "title": "medicube Eye Patch PDRN Caffeine Collagen - Firming Gel Patches, 30 Pairs | Age-Defying Care with Retinol & Collagen - Gel Pa"
         },
         {
-          "rank": 15,
+          "rank": 9,
+          "asin": "B07L5WGS2X",
+          "title": "Garnier Hair Food Multi-use, 3-in-1 Hair Treatment Mask, Banana 400ml | Up to 7x Smoother Hair, 97% Natural Origin Ingredient"
+        },
+        {
+          "rank": 10,
+          "asin": "B0GVQ6NYR3",
+          "title": "medicube PDRN Collagen Gua Sha Neck Wrinkle Cream - Firming, Contour Care | Built-In Gua Sha Massager with Volufiline 5% - Fo"
+        },
+        {
+          "rank": 11,
+          "asin": "B0BJFLVCZK",
+          "title": "La Roche-Posay Cicaplast Baume B5+ for Irritated Sensitive Skin, 100 ml | Ultra Repair Multi-Purpose Soothing Balm, Skin Barr"
+        },
+        {
+          "rank": 12,
           "asin": "B00JR76TKW",
           "title": "Maybelline Concealer Instant Anti Age Eraser Eye, For Dark Circles 01 Light | Ultra Blendable Formula, Dermatologist Tested,"
+        },
+        {
+          "rank": 13,
+          "asin": "B07C5R51Q9",
+          "title": "CeraVe Hydrating Cleanser, for normal to dry skin, contains Hyaluronic Acid and 3 essential ceramides, facial cleanser for se"
+        },
+        {
+          "rank": 14,
+          "asin": "B0FXLX85D7",
+          "title": "L'Oreal Paris Glass Skin Hydrogel Sheet Face Masks, Korean Inspired, 4 Pcs | Korean Inspired Skincare, Visibly Transform Skin"
+        },
+        {
+          "rank": 15,
+          "asin": "B0GD6R7CFJ",
+          "title": "BIODANCE Collagen Peptide Hydrogel Under Eye Patches. 60 Counts | [Deep Absorption with Advanced Hydrogel] - Eye Masks for Da"
         },
         {
           "rank": 16,
@@ -502,13 +502,13 @@
         },
         {
           "rank": 17,
-          "asin": "B07XXPHQZK",
-          "title": "LANEIGE Lip Sleeping Mask, Korean Overnight Lip Mask with Berry Fruit Complex™, Vitamin C & Coconut Oil, Hydrating Lip Treatm"
+          "asin": "B008BDSZFK",
+          "title": "Remington Shine Therapy Hair Straightener with Advanced Ceramic Coating Infused with Moroccan Argan Oil for Sleek & Smooth Gl"
         },
         {
           "rank": 18,
-          "asin": "B0C6Y5DYN1",
-          "title": "Aveeno Face Calm+Restore Oat Gel Moisturiser for Sensitive Skin (1x 50ml) | Instantly Soothe and Replenish the Skin's Moistur"
+          "asin": "B07XXPHQZK",
+          "title": "LANEIGE Lip Sleeping Mask, Korean Overnight Lip Mask with Berry Fruit Complex™, Vitamin C & Coconut Oil, Hydrating Lip Treatm"
         },
         {
           "rank": 19,
@@ -517,18 +517,18 @@
         },
         {
           "rank": 20,
-          "asin": "B008BDSZFK",
-          "title": "Remington Shine Therapy Hair Straightener with Advanced Ceramic Coating Infused with Moroccan Argan Oil for Sleek & Smooth Gl"
+          "asin": "B0C6Y5DYN1",
+          "title": "Aveeno Face Calm+Restore Oat Gel Moisturiser for Sensitive Skin (1x 50ml) | Instantly Soothe and Replenish the Skin's Moistur"
         },
         {
           "rank": 21,
-          "asin": "B07895R49B",
-          "title": "Clairol Nice'n Easy Crème Natural Looking Oil Permanent Hair Dye Infused"
+          "asin": "B0B9YHX8DX",
+          "title": "Wonderskin Lip Stain – Long Lasting, Waterproof, Lip Tint Peel Off Masque | Transfer-proof warm rose lip tint with comfortabl"
         },
         {
           "rank": 22,
-          "asin": "B0B9YHX8DX",
-          "title": "Wonderskin Lip Stain – Long Lasting, Waterproof, Lip Tint Peel Off Masque | Transfer-proof warm rose lip tint with comfortabl"
+          "asin": "B07895R49B",
+          "title": "Clairol Nice'n Easy Crème Natural Looking Oil Permanent Hair Dye Infused"
         },
         {
           "rank": 23,
@@ -537,63 +537,63 @@
         },
         {
           "rank": 24,
-          "asin": "B0B7RQ46LD",
-          "title": "CeraVe Blemish Control Cleanser – for Blemish-Prone Oily Skin 236ml"
-        },
-        {
-          "rank": 25,
-          "asin": "B0BPXT3GBN",
-          "title": "medicube Triple Collagen Cream for Hydrating & Firming | Moisturizer with Hyaluronic Acid, Premium Elastin, Shea Butter - Wri"
-        },
-        {
-          "rank": 26,
-          "asin": "B000SDQ224",
-          "title": "Eylure DYBROW Eyebrow Dye Kit, Dark Brown"
-        },
-        {
-          "rank": 27,
           "asin": "B0DFY92NDB",
           "title": "Centellian 24 Madeca Cream Time Reverse, TECA Wrinkle Moisturiser, 50ml | Fast-absorbing, nourishing Centella care that hydra"
         },
         {
-          "rank": 28,
-          "asin": "B0GT1SC4KQ",
-          "title": "Moroccanoil Mini Must-Haves - Deluxe Sampler Set"
+          "rank": 25,
+          "asin": "B000SDQ224",
+          "title": "Eylure DYBROW Eyebrow Dye Kit, Dark Brown"
         },
         {
-          "rank": 29,
-          "asin": "B00PFCSXD4",
-          "title": "Maybelline Mascara, Lash Sensational Volumizing | Eyelash Lengthening & Volumizing, Flake Free Formula, Layer Reveal Brush, D"
-        },
-        {
-          "rank": 30,
-          "asin": "B0D1G7XF9X",
-          "title": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating | Blackhead-Removing Clay Mask with AHA BHA PHA,"
-        },
-        {
-          "rank": 31,
+          "rank": 26,
           "asin": "B0FGJ9P8L9",
           "title": "L'Oréal Paris XL Setting Spray, Infallible 3-Second Makeup Mist, 150ml | Extra Large, Up To 36 Hour Makeup Wear, Fixing Spray"
         },
         {
-          "rank": 32,
-          "asin": "B08CCM3Q2T",
-          "title": "L'Oréal Men Expert Hydra Energetic XXL Moisturiser, 24Hour Hydration 100ml | Energises Men's Skin, Fighting Signs of Fatigue"
+          "rank": 27,
+          "asin": "B0BPXT3GBN",
+          "title": "medicube Triple Collagen Cream for Hydrating & Firming | Moisturizer with Hyaluronic Acid, Premium Elastin, Shea Butter - Wri"
         },
         {
-          "rank": 33,
-          "asin": "B0BRMYHMS5",
-          "title": "medicube Wrapping Mask Collagen - Overnight Peel Off Facial Mask | Elasticity & Hydration Care, Reduces Sagging & Dullness -"
+          "rank": 28,
+          "asin": "B0B7RQ46LD",
+          "title": "CeraVe Blemish Control Cleanser – for Blemish-Prone Oily Skin 236ml"
         },
         {
-          "rank": 34,
+          "rank": 29,
           "asin": "B0078MF1PC",
           "title": "L'Oréal Paris Black Mascara, Telescopic Original Mascara in shade Black | Up To +71% Lengthening Effect, Smudge-Resistant, Lo"
         },
         {
-          "rank": 35,
+          "rank": 30,
+          "asin": "B0GYNK6PBB",
+          "title": "medicube PDRN Glow Essentials Kit, Mini Skincare Travel Set, 5-Step Routine"
+        },
+        {
+          "rank": 31,
+          "asin": "B08CCM3Q2T",
+          "title": "L'Oréal Men Expert Hydra Energetic XXL Moisturiser, 24Hour Hydration 100ml | Energises Men's Skin, Fighting Signs of Fatigue"
+        },
+        {
+          "rank": 32,
+          "asin": "B0D1G7XF9X",
+          "title": "medicube Zero Pore Blackhead Mud Mask - Pore Cleansing & Gentle Exfoliating | Blackhead-Removing Clay Mask with AHA BHA PHA,"
+        },
+        {
+          "rank": 33,
           "asin": "B07C5SKVL7",
           "title": "CeraVe Foaming Cleanser for Normal to Oily Skin with Niacinamide & 3 Essential Ceramides, Developed with Dermatologists, Gent"
+        },
+        {
+          "rank": 34,
+          "asin": "B089QQBDPD",
+          "title": "Acnecide Face Gel 5% Benzoyl Peroxide 15g | For Mild Acne and Spot-Prone Skin, Topical Face Gel, Fights Bacteria, Unblocks Po"
+        },
+        {
+          "rank": 35,
+          "asin": "B077RTL1HJ",
+          "title": "ILLIYOON Ceramide Ato Concentrate Cream (200ml, 6.76 Fl Oz) | Moisturizer for Dry&Sensitive Skin, 100hr Hydration, Restoring"
         },
         {
           "rank": 36,
@@ -602,43 +602,43 @@
         },
         {
           "rank": 37,
-          "asin": "B09XN22JBT",
-          "title": "CeraVe AM Facial Moisturising Lotion SPF50 With 3 Essential Ceramides, Vitamin E, Niacinamide, MVE Technology, UVA UVB Protec"
+          "asin": "B07NBPSNC4",
+          "title": "Just for men Moustache & Beard Dark Brown Dye M45 | Eliminates grey for a thicker & fuller look, made with coconut oil & aloe"
         },
         {
           "rank": 38,
-          "asin": "B0DTKCN3Z4",
-          "title": "medicube Capsule Cream with Salmon DNA PDRN Pink Collagen | Lightweight Moisture Glow Cream with PDRN, Niacinamide - Uneven S"
+          "asin": "B014E2D6BY",
+          "title": "grace & stella Award Winning Under Eye Patches, Stocking Fillers for Women - Reduce Dark Circles, Puffy Eyes, Undereye Bags,"
         },
         {
           "rank": 39,
-          "asin": "B0H3BR9ZP1",
-          "title": "NIVEA TIME TO PAMPER Beauty Gift Set, 6-Piece Luxury Collection | Premium Gifting & Beauty Kit with Shower Cream, Hand Cream,"
+          "asin": "B00M9B66BU",
+          "title": "REVLON PROFESSIONAL UniqOne Hair Treatment | All-in-One Heat Moisturizing Leave-In with 10 Benefits, Repair for Damaged Hair,"
         },
         {
           "rank": 40,
-          "asin": "B0GYNK6PBB",
-          "title": "medicube PDRN Glow Essentials Kit, Mini Skincare Travel Set, 5-Step Routine"
+          "asin": "B073CWSQ51",
+          "title": "COLOR WOW Dream Coat Supernatural Spray. The Anti-frizz GOAT with amazing humidity-proofing powers"
         },
         {
           "rank": 41,
-          "asin": "B089QQBDPD",
-          "title": "Acnecide Face Gel 5% Benzoyl Peroxide 15g | For Mild Acne and Spot-Prone Skin, Topical Face Gel, Fights Bacteria, Unblocks Po"
-        },
-        {
-          "rank": 42,
           "asin": "B0DQV8G9HR",
           "title": "Nizoral Anti-Dandruff Treatment Shampoo, 1x100ml Bottle | For fast head flaking and scaling relief, active anti-fungal scalp"
         },
         {
-          "rank": 43,
+          "rank": 42,
           "asin": "B0GHMZXX8Y",
           "title": "medicube PDRN Pink Collagen Volume Multi Balm Stick - Face & Body Balm | Volufiline, PDRN, NAD, Collagen - Under-Eyes, Neck,"
         },
         {
+          "rank": 43,
+          "asin": "B00PFCSXD4",
+          "title": "Maybelline New York Lash Sensational Mascara, Very Black, 9.5 ml | Fan Effect, 10 Layers of Bristles, Rosehip Oil Formula, Vo"
+        },
+        {
           "rank": 44,
-          "asin": "B07NBPSNC4",
-          "title": "Just for men Moustache & Beard Dark Brown Dye M45 | Eliminates grey for a thicker & fuller look, made with coconut oil & aloe"
+          "asin": "B01MDTVZTZ",
+          "title": "The Ordinary Niacinamide 10% + Zinc 1%, Brightening & Smoothing Serum for Blemish-Prone Skin, 30ml"
         },
         {
           "rank": 45,
@@ -647,23 +647,23 @@
         },
         {
           "rank": 46,
-          "asin": "B0DBZS6MHK",
-          "title": "TYMO Hair Curler Automatic Rotating - CURLPRO, Curling Wand, Gray 1 inch | Ceramic Coating, Anti-Scald Curling Iron, Portable"
+          "asin": "B0DTKCN3Z4",
+          "title": "medicube Capsule Cream with Salmon DNA PDRN Pink Collagen | Lightweight Moisture Glow Cream with PDRN, Niacinamide - Uneven S"
         },
         {
           "rank": 47,
-          "asin": "B00M9B66BU",
-          "title": "REVLON PROFESSIONAL UniqOne Hair Treatment | All-in-One Heat Moisturizing Leave-In with 10 Benefits, Repair for Damaged Hair,"
+          "asin": "B0B7JQ1QQ9",
+          "title": "Sanctuary Spa Me Time Minis 200 ml, Vegan Beauty gift, gifts For Women, gift For Her, Birthday gift"
         },
         {
           "rank": 48,
-          "asin": "B00BJ0QHFW",
-          "title": "Jimmy Choo Flash Eau de Parfum"
+          "asin": "B0BJ74DJXG",
+          "title": "BYOMA Moisturising Gel Cream, Lightweight Daily Moisturiser (50ml) | Barrier Repair Formula with Tri-Ceramide and Niacinamide"
         },
         {
           "rank": 49,
-          "asin": "B014E2D6BY",
-          "title": "grace & stella Award Winning Under Eye Patches, Stocking Fillers for Women - Reduce Dark Circles, Puffy Eyes, Undereye Bags,"
+          "asin": "B0DBZS6MHK",
+          "title": "TYMO Hair Curler Automatic Rotating - CURLPRO, Curling Wand, Gray 1 inch | Ceramic Coating, Anti-Scald Curling Iron, Portable"
         },
         {
           "rank": 50,
@@ -674,7 +674,7 @@
     },
     "DE": {
       "country": "DE",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -694,13 +694,13 @@
         },
         {
           "rank": 3,
-          "asin": "B09V7Z4TJG",
-          "title": "medicube Zero Pore Pad 2.0 Peeling Tonerpads für Porenpflege | Doppelseitiges Gesichtspad mit 4,5% AHA & 0,45% BHA, Milchsäur"
+          "asin": "B09V8JNGD4",
+          "title": "Mixa Urea Cica Repair+ Creme für trockene und raue Haut, 400 ml | Mit 10% Urea & Aminosäure, reparierende Bodylotion, Gesicht"
         },
         {
           "rank": 4,
-          "asin": "B09V8JNGD4",
-          "title": "Mixa Urea Cica Repair+ Creme für trockene und raue Haut, 400 ml | Mit 10% Urea & Aminosäure, reparierende Bodylotion, Gesicht"
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Zero Pore Pad 2.0 Peeling Tonerpads für Porenpflege | Doppelseitiges Gesichtspad mit 4,5% AHA & 0,45% BHA, Milchsäur"
         },
         {
           "rank": 5,
@@ -709,58 +709,58 @@
         },
         {
           "rank": 6,
-          "asin": "B00CDO12Z8",
-          "title": "Maybelline New York Instant Anti-Age Effekt Löscher Concealer gegen Augenringe & Falten, Mit Goji-Beere & Haloxyl, Mikro-Lösc"
-        },
-        {
-          "rank": 7,
-          "asin": "B01LEJ5MSK",
-          "title": "COSRX Advanced Snail 92% All in One Cream | Schneckenschleim Creme mit Hyaluron | Anti Pickel Anti Falten Gesichtscreme | für"
-        },
-        {
-          "rank": 8,
-          "asin": "B0BFQ9RD5B",
-          "title": "d'alba Piedmont Italienischer Weißer Trüffel First Spray Serum (100ml) | Feuchtigkeitsspendendes Gesichtsspray, Strahlende Ha"
-        },
-        {
-          "rank": 9,
           "asin": "B08DJ18C85",
           "title": "Remington Haartrockner Ionen [leicht, Diffusor & Stylingdüse] schwarz (2200W, Keramik-Ionen: schonendes Styling & gleichmäßig"
         },
         {
-          "rank": 10,
+          "rank": 7,
+          "asin": "B0BFQ9RD5B",
+          "title": "d'alba Piedmont Italienischer Weißer Trüffel First Spray Serum (100ml) | Feuchtigkeitsspendendes Gesichtsspray, Strahlende Ha"
+        },
+        {
+          "rank": 8,
+          "asin": "B01LEJ5MSK",
+          "title": "COSRX Advanced Snail 92% All in One Cream | Schneckenschleim Creme mit Hyaluron | Anti Pickel Anti Falten Gesichtscreme | für"
+        },
+        {
+          "rank": 9,
           "asin": "B07FFJ2FZV",
           "title": "Wella Professionals KOLESTON PERFECT - 5/00 Hellbraun Natur Intensiv (60ml) | Professionelle Coloration mit bis zu 100% Graua"
         },
         {
-          "rank": 11,
+          "rank": 10,
           "asin": "B00017Y63O",
           "title": "Biotherm Lait Corporel L'Original, Bodylotion für trockene Haut | Mit Life Plankton, feuchtigkeitsspendende Bodylotion, 48h F"
         },
         {
-          "rank": 12,
-          "asin": "B00CZCD63O",
-          "title": "REVLON PROFESSIONAL EQUAVE Hydro Instant Detangling Conditioner, 200 ml, entwirrender Leave in Sprühconditioner für normales"
-        },
-        {
-          "rank": 13,
+          "rank": 11,
           "asin": "B0BJFLVCZK",
           "title": "La Roche-Posay Cicaplast Baume B5+ Reparierender Wundpflege-Balsam, 100 ml | Bei geschädigter, gereizter Haut, SOS-Pflege ohn"
         },
         {
-          "rank": 14,
-          "asin": "B000RPLZAM",
-          "title": "Boss Bottled Eau de Toilette für Männer"
+          "rank": 12,
+          "asin": "B0H38V8YHY",
+          "title": "Revolution Beauty Adventskalender 2026, Make-up Geschenkset, 24 Tage | 10 Originalgrößen, 8 Minis & 6 Accessoires, Geschenkse"
         },
         {
-          "rank": 15,
+          "rank": 13,
+          "asin": "B00CDO12Z8",
+          "title": "Maybelline New York Instant Anti-Age Effekt Löscher Concealer gegen Augenringe & Falten, Mit Goji-Beere & Haloxyl, Mikro-Lösc"
+        },
+        {
+          "rank": 14,
           "asin": "B09SZ5JX2Y",
           "title": "d'alba Piedmont Weißer Trüffel Double Serum All-in-one Multi Balm | Vegane Hautpflege, 3-in-1 Augenpflege mit Weißem Trüffel"
         },
         {
+          "rank": 15,
+          "asin": "B000RPLZAM",
+          "title": "Boss Bottled Eau de Toilette für Männer"
+        },
+        {
           "rank": 16,
-          "asin": "B0H4V2T69Z",
-          "title": "Kneipp Adventskalender 2026 - Hochwertiger Adventskalender mit 24 Beauty Überraschungen für deinen Wellness Moment - Für Dich"
+          "asin": "B00CZCD63O",
+          "title": "REVLON PROFESSIONAL EQUAVE Hydro Instant Detangling Conditioner, 200 ml, entwirrender Leave in Sprühconditioner für normales"
         },
         {
           "rank": 17,
@@ -769,174 +769,174 @@
         },
         {
           "rank": 18,
-          "asin": "B09JVNZVH3",
-          "title": "Beauty of Joseon Relief Sun Rice SPF Sonnencreme | Tägliche koreanische Hautpflege und feuchtigkeitsspendender koreanischer S"
-        },
-        {
-          "rank": 19,
-          "asin": "B06Y1YBBMV",
-          "title": "Wella Professionals FUSION INTENSE Repair Shampoo (1l) | Tiefenreinigungsshampoo, Haarshampoo für bessere Kämmbarkeit, Haarpf"
-        },
-        {
-          "rank": 20,
-          "asin": "B01MDTVZTZ",
-          "title": "THE ORDINARY Niacinamid 10% + Zink 1%, 30ml"
-        },
-        {
-          "rank": 21,
-          "asin": "B07FFGQY8V",
-          "title": "Wella Professionals KOLESTON OPTIMAL Pure Naturals - 8/0 Hellblond (60ml) | Coloration mit bis zu 100 Prozent Grauabdeckung u"
-        },
-        {
-          "rank": 22,
-          "asin": "B003JSEGNC",
-          "title": "Effaclar Schäumendes Reinigungsgel für zu Akne neigende Haut | Reinigungsgel gegen Pickel & Mitesser. Reguliert Talg, mattier"
-        },
-        {
-          "rank": 23,
-          "asin": "B0GD6R7CFJ",
-          "title": "Biodance Collagen Peptide Augenpads, Anti-Falten-Pads für Gesicht und Lachfalten, Augenmaske gegen feine Linien, Tränensäcke"
-        },
-        {
-          "rank": 24,
-          "asin": "B09RN8Q4CW",
-          "title": "Remington Glätteisen Profi [Hitzeschutzsensor um Haarschäden zu verringern] Keratin Protect (hochwertige Keratin-Keramikbesch"
-        },
-        {
-          "rank": 25,
-          "asin": "B07FTXBNVL",
-          "title": "Real Techniques Everyday Essentials Brush & Sponge Set, 5 Stück | Pinselset mit Makeup Schwamm für Foundation, Blush und Lids"
-        },
-        {
-          "rank": 26,
-          "asin": "B0C2B7WGQM",
-          "title": "MERODA® Changing Foundation SPF 15 [LIGHT TO MEDIUM SKIN] - Foundation Color Changing - Farbwechselnde Foundation für Reife H"
-        },
-        {
-          "rank": 27,
-          "asin": "B00M9B66BU",
-          "title": "REVLON PROFESSIONAL UniqOne Hair Treatment Classic, Sprühkur für mehr Volumen, Geschmeidigkeit & bessere Kämmbarkeit, Haarpfl"
-        },
-        {
-          "rank": 28,
           "asin": "B0CJYCSGZP",
           "title": "Garnier SkinActive Tuchmasken-Set für alle Hauttypen, 7er Pack | Mit Hyaluronsäure, 7 WIRKUNGen für alle Hauttypen, pflegend,"
         },
         {
-          "rank": 29,
-          "asin": "B0GRW4XMYP",
-          "title": "M. Asam Magic Finish Make-up Mousse Classic Special Edition (30ml) | 4-in-1 Primer, Make up, Puder & Concealer, Kaschiert, Gl"
+          "rank": 19,
+          "asin": "B07FFFDV8C",
+          "title": "Wella Professionals KOLESTON PERFECT  – 7/1 Mittelblond Asch (60ml) | Rich Naturals - Permanente Haarfarbe - Professionelle C"
         },
         {
-          "rank": 30,
-          "asin": "B0DBF65JYY",
-          "title": "medicube PDRN Pink Peptid Serum mit Lachs-DNA 30ml | Glow Serum, Peptide, Niacinamid, Feuchtigkeit, Straffende Pflege, Ebenmä"
+          "rank": 20,
+          "asin": "B003JSEGNC",
+          "title": "Effaclar Schäumendes Reinigungsgel für zu Akne neigende Haut | Reinigungsgel gegen Pickel & Mitesser. Reguliert Talg, mattier"
         },
         {
-          "rank": 31,
-          "asin": "B0H9LCG7WF",
-          "title": "M. Asam asambeauty Adventskalender 2026 (24-teilig) | Adventskalender Beauty Mit Pflege, Make-up & Haarpflege,Skin Care Für A"
+          "rank": 21,
+          "asin": "B0DRCQ4PBG",
+          "title": "Wavytalk Thermobürste Rundbürste Blowout Boost für trockenes Haar Volumen | Für Blowouts, Wellen & Pony-Styling, Ionentechnik"
         },
         {
-          "rank": 32,
-          "asin": "B0DCZXV6HL",
-          "title": "Tangle Teezer Ultimate Detangler Haarbürste – Nasses & Trockenes Haar – Entwirrungsbürste für Alle Haartypen – Zweistufige Bo"
+          "rank": 22,
+          "asin": "B09JVNZVH3",
+          "title": "Beauty of Joseon Relief Sun Rice SPF Sonnencreme | Tägliche koreanische Hautpflege und feuchtigkeitsspendender koreanischer S"
         },
         {
-          "rank": 33,
-          "asin": "B0FVT77ZLL",
-          "title": "Anua Pdrn Collagen Glow Facial Serum Spray, Korean Skincare, 100ml | Feuchtigkeitsspendender Gesichtsspray, mit Hyaluronsäure"
-        },
-        {
-          "rank": 34,
-          "asin": "B0F2TQW9QD",
-          "title": "BIONOBLE Rosmarinöl Haare Bio - Haaröl Wachstum, Kopfhaut Öl, Bart - 50ml | 100% Natürlich, Hexanfrei - Rosmarin Öl, Rosemary"
-        },
-        {
-          "rank": 35,
-          "asin": "B0BXDNXFZH",
-          "title": "Ninabella Haarbürste ohne Ziepen - Detangler Bürste, Entwirrbürste & Lockenbürste für feines und langes Haar - Haarbürste Dam"
-        },
-        {
-          "rank": 36,
-          "asin": "B0BPSWK6Y5",
-          "title": "Mixa Hautberuhigende Panthenol Creme gegen Neurodermitis, 400 ml | Spendet intensive Feuchtigkeit, unterstützt die Hautbarrie"
-        },
-        {
-          "rank": 37,
-          "asin": "B0B7RQ46LD",
-          "title": "CeraVe porentiefe Reinigung Waschgel für das Gesicht gegen Pickel, 236 ml | Für zu Unreinheiten neigende Haut. Befreit Poren"
-        },
-        {
-          "rank": 38,
-          "asin": "B0DFY92NDB",
-          "title": "Centellian 24 Madeca Cream Time Reverse Teca Anti-Ageing Moisturiser | Korean Straffende Gesichtspflege mit TECA und Centella"
-        },
-        {
-          "rank": 39,
-          "asin": "B0BQJBFZT2",
-          "title": "Old Spice Captain 3-in-1 Duschgel & Shampoo für Männer, 1L, langanhaltender, frischer Duft in Parfümqualität, Tiefenreinigung"
-        },
-        {
-          "rank": 40,
-          "asin": "B00PFCSXD4",
-          "title": "Maybelline New York Lash Sensational Fächer Mascara, Very Black, 9,5 ml | 2-in-1 Wimpern-Entfalter-Bürste, sensationeller Wim"
-        },
-        {
-          "rank": 41,
+          "rank": 23,
           "asin": "B0DWFLY18Y",
           "title": "Anua PDRN Hyaluronic Acid 100 Moisturizing Cream, 60ml | Leichte, Feuchtigkeitsspendende Gesichtscreme mit Lachs-DNA für Glas"
         },
         {
+          "rank": 24,
+          "asin": "B06Y1YBBMV",
+          "title": "Wella Professionals FUSION INTENSE Repair Shampoo (1l) | Tiefenreinigungsshampoo, Haarshampoo für bessere Kämmbarkeit, Haarpf"
+        },
+        {
+          "rank": 25,
+          "asin": "B01MDTVZTZ",
+          "title": "THE ORDINARY Niacinamid 10% + Zink 1%, 30ml"
+        },
+        {
+          "rank": 26,
+          "asin": "B0DCZXV6HL",
+          "title": "Tangle Teezer Ultimate Detangler Haarbürste – Nasses & Trockenes Haar – Entwirrungsbürste für Alle Haartypen – Zweistufige Bo"
+        },
+        {
+          "rank": 27,
+          "asin": "B0FVT77ZLL",
+          "title": "Anua Pdrn Collagen Glow Facial Serum Spray, Korean Skincare, 100ml | Feuchtigkeitsspendender Gesichtsspray, mit Hyaluronsäure"
+        },
+        {
+          "rank": 28,
+          "asin": "B07FTXBNVL",
+          "title": "Real Techniques Everyday Essentials Brush & Sponge Set, 5 Stück | Pinselset mit Makeup Schwamm für Foundation, Blush und Lids"
+        },
+        {
+          "rank": 29,
+          "asin": "B0H4V2T69Z",
+          "title": "Kneipp Adventskalender 2026 - Hochwertiger Adventskalender mit 24 Beauty Überraschungen für deinen Wellness Moment - Für Dich"
+        },
+        {
+          "rank": 30,
+          "asin": "B09RN8Q4CW",
+          "title": "Remington Glätteisen Profi [Hitzeschutzsensor um Haarschäden zu verringern] Keratin Protect (hochwertige Keratin-Keramikbesch"
+        },
+        {
+          "rank": 31,
+          "asin": "B0FL19R14K",
+          "title": "MERODA® Changing Foundation SPF 30 [LIGHT TO MEDIUM SKIN] - Foundation Color Changing - Farbwechselnde Foundation für Reife H"
+        },
+        {
+          "rank": 32,
+          "asin": "B0GD6R7CFJ",
+          "title": "Biodance Collagen Peptide Augenpads, Anti-Falten-Pads für Gesicht und Lachfalten, Augenmaske gegen feine Linien, Tränensäcke"
+        },
+        {
+          "rank": 33,
+          "asin": "B00M9B66BU",
+          "title": "REVLON PROFESSIONAL UniqOne Hair Treatment Classic, Sprühkur für mehr Volumen, Geschmeidigkeit & bessere Kämmbarkeit, Haarpfl"
+        },
+        {
+          "rank": 34,
+          "asin": "B0GRW4XMYP",
+          "title": "M. Asam Magic Finish Make-up Mousse Classic Special Edition (30ml) | 4-in-1 Primer, Make up, Puder & Concealer, Kaschiert, Gl"
+        },
+        {
+          "rank": 35,
+          "asin": "B0DBF65JYY",
+          "title": "medicube PDRN Pink Peptid Serum mit Lachs-DNA 30ml | Glow Serum, Peptide, Niacinamid, Feuchtigkeit, Straffende Pflege, Ebenmä"
+        },
+        {
+          "rank": 36,
+          "asin": "B0F2TQW9QD",
+          "title": "BIONOBLE Rosmarinöl Haare Bio - Haaröl Wachstum, Kopfhaut Öl, Bart - 50ml | 100% Natürlich, Hexanfrei - Rosmarin Öl, Rosemary"
+        },
+        {
+          "rank": 37,
+          "asin": "B0FLK45SF7",
+          "title": "Dyson Airwrap i.d.™ Multi-styler and dryer – Straight+Wavy (Ceramic Pink/Roségold)"
+        },
+        {
+          "rank": 38,
+          "asin": "B0B7RQ46LD",
+          "title": "CeraVe porentiefe Reinigung Waschgel für das Gesicht gegen Pickel, 236 ml | Für zu Unreinheiten neigende Haut. Befreit Poren"
+        },
+        {
+          "rank": 39,
+          "asin": "B0BXDNXFZH",
+          "title": "Ninabella Haarbürste ohne Ziepen - Detangler Bürste, Entwirrbürste & Lockenbürste für feines und langes Haar - Haarbürste Dam"
+        },
+        {
+          "rank": 40,
+          "asin": "B0BPSWK6Y5",
+          "title": "Mixa Hautberuhigende Panthenol Creme gegen Neurodermitis, 400 ml | Spendet intensive Feuchtigkeit, unterstützt die Hautbarrie"
+        },
+        {
+          "rank": 41,
+          "asin": "B0DFY92NDB",
+          "title": "Centellian 24 Madeca Cream Time Reverse Teca Anti-Ageing Moisturiser | Korean Straffende Gesichtspflege mit TECA und Centella"
+        },
+        {
           "rank": 42,
+          "asin": "B00PFCSXD4",
+          "title": "Maybelline New York Lash Sensational Fächer Mascara, Very Black, 9,5 ml | 2-in-1 Wimpern-Entfalter-Bürste, sensationeller Wim"
+        },
+        {
+          "rank": 43,
           "asin": "B0CCJ3SRB9",
           "title": "COSRX 6 Peptide Collagen Serum mit Copper Peptide, Anti-Aging Toner | Toner Gesicht für Hauterneuerung & Straffung, mit Niaci"
         },
         {
-          "rank": 43,
-          "asin": "B01G3NW5UK",
-          "title": "Sagrotan No‑Touch Nachfüller Aloe Vera – Handseife für den automatischen Seifenspender – Sanfte Reinigung für die Hände – Flü"
+          "rank": 44,
+          "asin": "B0HKST6MWL",
+          "title": "DOONAILS® Press On Nails - Ballerina Square Extra Short 30er Set | Soft Gel Salonqualität Pink, Klebesticker im Set, HEMA-fre"
         },
         {
-          "rank": 44,
+          "rank": 45,
+          "asin": "B0BQJBFZT2",
+          "title": "Old Spice Captain 3-in-1 Duschgel & Shampoo für Männer, 1L, langanhaltender, frischer Duft in Parfümqualität, Tiefenreinigung"
+        },
+        {
+          "rank": 46,
           "asin": "B09BD7L35V",
           "title": "Garnier Gesichtsserum Vitamin C+ Glow Booster Serum, Instant Glow, 30 ml | Mit Vitamin C, Niacinamid und Melasyl, mildert Pig"
         },
         {
-          "rank": 45,
-          "asin": "B0FJLNLKSJ",
-          "title": "d'alba Piedmont Weißer Trüffel Intensive The Real Augenpads (68 Stück) | Gegen Tränensäcke und Augenringe, Anti-Aging, Feucht"
-        },
-        {
-          "rank": 46,
-          "asin": "B0GV4SG697",
-          "title": "Kneipp Duschglück Geschenkset - für ein besonderes Duscherlebnis - 3x 75ml"
-        },
-        {
           "rank": 47,
-          "asin": "B01D4M09VA",
-          "title": "L'Oréal Paris Ansatz-Kaschierspray für stufenlose und natürliche Übergänge, Kaschiert bis zur nächsten Haarwäsche, Magic Reto"
+          "asin": "B07C5XYT19",
+          "title": "CeraVe Feuchtigkeitsspendende Gesichtscreme für normale bis trockene Haut, Ultraleichte Formel, Mit Hyaluron, Niacinamid und"
         },
         {
           "rank": 48,
+          "asin": "B083JKPCFB",
+          "title": "Kérastase Genesis Serum ml | Anti-Chute Fortifiant für geschwächtes Haar"
+        },
+        {
+          "rank": 49,
           "asin": "B08CCM3Q2T",
           "title": "L'Oréal Men Expert XXL Gesichtscreme gegen müde Männer Haut, 100ml | Mit Vitamin C und Koffein, bis zu 24H Feuchtigkeit, gege"
         },
         {
-          "rank": 49,
-          "asin": "B0GCC2JV65",
-          "title": "medicube NAD EGF Straffendes Serum für Gesicht & Hals | Anti-Aging Serum, EGF Peptid, NAD, Kollagen, Elastizitätspflege, Pore"
-        },
-        {
           "rank": 50,
-          "asin": "B0CYTD3P4M",
-          "title": "DOONAILS® Press On Nails - Mon Cheri Square Extra Short 30er Set | Soft Gel Salonqualität Klassisches Rot, Klebesticker im Se"
+          "asin": "B0BSHFDZK2",
+          "title": "Lip Smacker - Coca-Cola Collection - Lippenbalsam für Kinder mit Fanta Orange-Geschmack - Fanta Orange-Geschmack - süßes Gesc"
         }
       ]
     },
     "FR": {
       "country": "FR",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -951,13 +951,13 @@
         },
         {
           "rank": 2,
-          "asin": "B09V7Z4TJG",
-          "title": "medicube Zero Pore Pad 2.0 Pads Exfoliants Soin des Pores | Pad double texture AHA 4,5% & BHA 0,45%, Acides lactique et salic"
+          "asin": "B0DK4Y2YP3",
+          "title": "celimax The Vita A Retinal Shot Tightening Booster, 15ml | 0,1% Rétinal, 3% Matryxyl, Rétinoïde Haute Puissance, Anti-Âge, Re"
         },
         {
           "rank": 3,
-          "asin": "B0DK4Y2YP3",
-          "title": "celimax The Vita A Retinal Shot Tightening Booster, 15ml | 0,1% Rétinal, 3% Matryxyl, Rétinoïde Haute Puissance, Anti-Âge, Re"
+          "asin": "B09V7Z4TJG",
+          "title": "medicube Zero Pore Pad 2.0 Pads Exfoliants Soin des Pores | Pad double texture AHA 4,5% & BHA 0,45%, Acides lactique et salic"
         },
         {
           "rank": 4,
@@ -967,7 +967,7 @@
         {
           "rank": 5,
           "asin": "B00GSUCEJ6",
-          "title": "essence I LOVE EXTREME crazy volume mascara, longue durée, frisant (12ml) | Volume extrême, Recourbant, Allongeant, Longue te"
+          "title": "Mascara essence I LOVE EXTREME crazy volume | Texture crémeuse noir profond, brosse plastique XL, végan, sans cruauté, sans p"
         },
         {
           "rank": 6,
@@ -976,8 +976,8 @@
         },
         {
           "rank": 7,
-          "asin": "B01MDTVZTZ",
-          "title": "The Ordinary Niacinamide 10% + Zinc 1%, Brightening & Smoothing Serum for Blemish-Prone Skin, 30ml"
+          "asin": "B0CQP9S97Y",
+          "title": "Franck Provost Soin 4-en-1 Sans Rinçage Protection Chaleur 230°C 190ml | Pro-Kératine et Céramide, +68% brillance, Action 24h"
         },
         {
           "rank": 8,
@@ -986,53 +986,53 @@
         },
         {
           "rank": 9,
-          "asin": "B07P9TJL9V",
-          "title": "Lotus Coton-Tiges en Papier et Coton Bio - Sachet 160 Bâtonnets | Coton 100% bio - Multi-usages - Sachet refermable Minigrip"
-        },
-        {
-          "rank": 10,
-          "asin": "B0DXFVSWVJ",
-          "title": "CARRYBOO - 540 Coton Pads Bébé 100% Bio - Ultra Doux pour Peaux Sensibles | Hypoallergénique - Change & Toilette - Fabriqués"
-        },
-        {
-          "rank": 11,
-          "asin": "B0DGPSZVW3",
-          "title": "medicube Jelly Crème au Collagène & Niacinamide 50 ml | Collagène hydrolysé lyophilisé pour barrière cutanée, Glow 24H & effe"
-        },
-        {
-          "rank": 12,
           "asin": "B0GHPFNC84",
           "title": "Mixa Crème Cica Réparation Peaux Très Sèches Rugueuses Visage Corps 400ml | -90% rugosités, Action 100H, Actifs urée et acide"
         },
         {
+          "rank": 10,
+          "asin": "B0DGPSZVW3",
+          "title": "medicube Jelly Crème au Collagène & Niacinamide 50 ml | Collagène hydrolysé lyophilisé pour barrière cutanée, Glow 24H & effe"
+        },
+        {
+          "rank": 11,
+          "asin": "B01MDTVZTZ",
+          "title": "The Ordinary Niacinamide 10% + Zinc 1%, Brightening & Smoothing Serum for Blemish-Prone Skin, 30ml"
+        },
+        {
+          "rank": 12,
+          "asin": "B0DXFVSWVJ",
+          "title": "CARRYBOO - 540 Coton Pads Bébé 100% Bio - Ultra Doux pour Peaux Sensibles | Hypoallergénique - Change & Toilette - Fabriqués"
+        },
+        {
           "rank": 13,
-          "asin": "B00M9B66BU",
-          "title": "Revlon Professional UniqOne Masque Spray 10 En 1 Sans Rinçage | Soin sans rinçage aux dix bienfaits qui protège de la chaleur"
-        },
-        {
-          "rank": 14,
-          "asin": "B0F99M3N8L",
-          "title": "L'Oréal Paris Revitalift Laser Soin Contour Yeux Anti-Poches 15ml | Technologie gel-liftant, Résiste mouvements visage, Testé"
-        },
-        {
-          "rank": 15,
-          "asin": "B0GCC2JV65",
-          "title": "medicube Sérum Raffermissant NAD EGF Visage & Cou 30 ml | Sérum anti-âge, Peptide EGF, NAD, Collagène, pour l'élasticité de l"
-        },
-        {
-          "rank": 16,
           "asin": "B0FHBQB9R8",
           "title": "Erborian CC Crème Centella, Soin Correcteur Teinté | Cosmétique coréen, bonne mine et éclat, hydratation longue durée, unifie"
         },
         {
+          "rank": 14,
+          "asin": "B07P9TJL9V",
+          "title": "Lotus Coton-Tiges en Papier et Coton Bio - Sachet 160 Bâtonnets | Coton 100% bio - Multi-usages - Sachet refermable Minigrip"
+        },
+        {
+          "rank": 15,
+          "asin": "B0F99M3N8L",
+          "title": "L'Oréal Paris Revitalift Laser Soin Contour Yeux Anti-Poches 15ml | Technologie gel-liftant, Résiste mouvements visage, Testé"
+        },
+        {
+          "rank": 16,
+          "asin": "B00M9B66BU",
+          "title": "Revlon Professional UniqOne Masque Spray 10 En 1 Sans Rinçage | Soin sans rinçage aux dix bienfaits qui protège de la chaleur"
+        },
+        {
           "rank": 17,
-          "asin": "B0CQP9S97Y",
-          "title": "Franck Provost Soin 4-en-1 Sans Rinçage Protection Chaleur 230°C 190ml | Pro-Kératine et Céramide, +68% brillance, Action 24h"
+          "asin": "B0DTKCN3Z4",
+          "title": "medicube Crème Capsule PDRN Pink Collagène ADN de Saumon | Crème légère éclat, PDRN, Niacinamide, Hydratation, Soin du teint"
         },
         {
           "rank": 18,
-          "asin": "B0DTKCN3Z4",
-          "title": "medicube Crème Capsule PDRN Pink Collagène ADN de Saumon | Crème légère éclat, PDRN, Niacinamide, Hydratation, Soin du teint"
+          "asin": "B0GD6R7CFJ",
+          "title": "BIODANCE Collagen Peptide Under Eye Patches, Patchs Yeux Hydrogel aux Peptides de Collagène, Pour Cernes, Poches et Ridules,"
         },
         {
           "rank": 19,
@@ -1041,33 +1041,33 @@
         },
         {
           "rank": 20,
-          "asin": "B0D1G7XF9X",
-          "title": "medicube Zero Pore Masque Argile Points Noirs Soin des Pores | Masque à l’argile AHA BHA PHA, Soin des pores, Points noirs, E"
+          "asin": "B0GCC2JV65",
+          "title": "medicube Sérum Raffermissant NAD EGF Visage & Cou 30 ml | Sérum anti-âge, Peptide EGF, NAD, Collagène, pour l'élasticité de l"
         },
         {
           "rank": 21,
-          "asin": "B0GD6R7CFJ",
-          "title": "BIODANCE Collagen Peptide Under Eye Patches, Patchs Yeux Hydrogel aux Peptides de Collagène, Pour Cernes, Poches et Ridules,"
-        },
-        {
-          "rank": 22,
-          "asin": "B0G83VCPWW",
-          "title": "Cool MAKER - Shimmer Me Body Art - Tatouages Éphémères KPop Demon Hunters | Kit Tatouages À Personnaliser - 70 Motifs - 3 Car"
-        },
-        {
-          "rank": 23,
-          "asin": "B071914GGL",
-          "title": "The Ordinary Tonique Exfoliant à l'Acide Glycolique 7%"
-        },
-        {
-          "rank": 24,
           "asin": "B0DDCHNPBR",
           "title": "BaByliss Smooth Finish 1200 – Brosse Soufflante 4‑en‑1 pour Sécher, Lisser, Donner du Volume & Coiffer, Technologie Ionique &"
         },
         {
+          "rank": 22,
+          "asin": "B071914GGL",
+          "title": "The Ordinary Tonique Exfoliant à l'Acide Glycolique 7%"
+        },
+        {
+          "rank": 23,
+          "asin": "B0G83VCPWW",
+          "title": "Cool MAKER - Shimmer Me Body Art - Tatouages Éphémères KPop Demon Hunters | Kit Tatouages À Personnaliser - 70 Motifs - 3 Car"
+        },
+        {
+          "rank": 24,
+          "asin": "B0H37K91VN",
+          "title": "MAYBELLINE NEW YORK - Calendrier de l'Avent 2026 – 24 produits maquillage | Coffret Cadeau 24 Produits de Beauté Grand Format"
+        },
+        {
           "rank": 25,
-          "asin": "B0BRMYHMS5",
-          "title": "medicube Masque Wrapping Collagène Peel Off Nuit 75 ml | Soin hydratation & élasticité avec collagène hydrolysé, Pour un tein"
+          "asin": "B0D1G7XF9X",
+          "title": "medicube Zero Pore Masque Argile Points Noirs Soin des Pores | Masque à l’argile AHA BHA PHA, Soin des pores, Points noirs, E"
         },
         {
           "rank": 26,
@@ -1081,58 +1081,58 @@
         },
         {
           "rank": 28,
-          "asin": "B018B2YHUM",
-          "title": "L’Oréal Paris Magic Retouch Retouche Racines Instantané, Châtain Foncé | Camoufle les racines visibles et les cheveux blancs"
+          "asin": "B0BRMYHMS5",
+          "title": "medicube Masque Wrapping Collagène Peel Off Nuit 75 ml | Soin hydratation & élasticité avec collagène hydrolysé, Pour un tein"
         },
         {
           "rank": 29,
-          "asin": "B0FDWX8DN6",
-          "title": "L'Oréal Paris Infaillible Spray Fixateur Maquillage Waterproof 36h 150ml | Sans transfert en 3 secondes, Formule légère non c"
-        },
-        {
-          "rank": 30,
-          "asin": "B07KGT94LB",
-          "title": "Maybelline New York Tattoo Liner Crayon Gel Yeux Waterproof 36h Deep Onyx | Effet tatouage longue tenue, Ultra saturé en pigm"
-        },
-        {
-          "rank": 31,
           "asin": "B00AI7COA4",
           "title": "REXONA Maximum Protection Déodorant Femme Stick Clean Scent 45ml | Anti-Transpirant, 96h d'efficacité Anti-Transpiration & An"
         },
         {
+          "rank": 30,
+          "asin": "B0H37CK69L",
+          "title": "L'Oréal Paris Calendrier de l'Avent 2026 Coffret cadeau beauté 24 produits | 24 produits de maquillage en taille réelle, soin"
+        },
+        {
+          "rank": 31,
+          "asin": "B0FDWX8DN6",
+          "title": "L'Oréal Paris Infaillible Spray Fixateur Maquillage Waterproof 36h 150ml | Sans transfert en 3 secondes, Formule légère non c"
+        },
+        {
           "rank": 32,
+          "asin": "B018B2YHUM",
+          "title": "L’Oréal Paris Magic Retouch Retouche Racines Instantané, Châtain Foncé | Camoufle les racines visibles et les cheveux blancs"
+        },
+        {
+          "rank": 33,
+          "asin": "B07KGT94LB",
+          "title": "Maybelline New York Tattoo Liner Crayon Gel Yeux Waterproof 36h Deep Onyx | Effet tatouage longue tenue, Ultra saturé en pigm"
+        },
+        {
+          "rank": 34,
           "asin": "B017KGU646",
           "title": "Les Secrets de Loly Boost Curl Gelée coiffante 250 ml | Hydratation & définition des boucles, Cheveux ondulés, bouclés et fri"
         },
         {
-          "rank": 33,
+          "rank": 35,
           "asin": "B0DWMSM6Y9",
           "title": "medicube Sérum Contour des Yeux PDRN ADN de Saumon & Pink Peptides | Rétinol 99%, PDRN, Niacinamide, Hydratation, Soin des ri"
         },
         {
-          "rank": 34,
+          "rank": 36,
           "asin": "B083YFNLXW",
           "title": "L'Oréal Paris Revitalift Filler Sérum Acide Hyaluronique & PDRN végan 30ml | Repulpe en 1h, -47% de rides en 6 semaines, 3 ty"
         },
         {
-          "rank": 35,
-          "asin": "B0DBF65JYY",
-          "title": "medicube Sérum PDRN Pink Peptides à l'ADN de Saumon | Sérum éclat, Peptides, Niacinamide, Hydratation, Soin raffermissant, Te"
-        },
-        {
-          "rank": 36,
+          "rank": 37,
           "asin": "B0FKGJYFC8",
           "title": "Dr.Althea 345 Relief Cream, 50ml (Ver.2 - Pack of 1) | Skincare coréenne, crème hydratante visage, PDRN, niacinamide et soin"
         },
         {
-          "rank": 37,
+          "rank": 38,
           "asin": "B00JWVCL8C",
           "title": "Garnier Olia Coloration Permanente Sans Ammoniaque Châtain Clair 5.0 | 60% huiles naturelles, Technologie ODS, Améliore quali"
-        },
-        {
-          "rank": 38,
-          "asin": "B087KRN9VW",
-          "title": "Pantene Pro-V Repair & Protect Masque Réparation 6 Mois 300ml | Cheveux Secs et Abîmés. Aide à Réparer 6 Mois de Dommages en"
         },
         {
           "rank": 39,
@@ -1141,8 +1141,8 @@
         },
         {
           "rank": 40,
-          "asin": "B0H37CK69L",
-          "title": "L'Oréal Paris Calendrier de l'Avent 2026 Coffret cadeau beauté 24 produits | 24 produits de maquillage en taille réelle, soin"
+          "asin": "B0DBF65JYY",
+          "title": "medicube Sérum PDRN Pink Peptides à l'ADN de Saumon | Sérum éclat, Peptides, Niacinamide, Hydratation, Soin raffermissant, Te"
         },
         {
           "rank": 41,
@@ -1156,8 +1156,8 @@
         },
         {
           "rank": 43,
-          "asin": "B0BZZJWGPQ",
-          "title": "KERASTASE Nutritive Serum de Nuit 8H – Nourrit & Protège - Cheveux Secs"
+          "asin": "B00QJQ7SDQ",
+          "title": "Maybelline New York Mascara Cil Sensational Volume Noir Very Black 9,4ml | Brosse 6 tailles picots, Enrichi huile de rose, Ci"
         },
         {
           "rank": 44,
@@ -1166,39 +1166,39 @@
         },
         {
           "rank": 45,
-          "asin": "B0H37K91VN",
-          "title": "MAYBELLINE NEW YORK - Calendrier de l'Avent 2026 – 24 produits maquillage | Coffret Cadeau 24 Produits de Beauté Grand Format"
-        },
-        {
-          "rank": 46,
-          "asin": "B00QJQ7SDQ",
-          "title": "Maybelline New York Mascara Cil Sensational Volume Noir Very Black 9,4ml | Brosse 6 tailles picots, Enrichi huile de rose, Ci"
-        },
-        {
-          "rank": 47,
-          "asin": "B0DQL9YY2B",
-          "title": "L'Oréal Paris Elseve Fiber Booster Sérum Anti-Chute Aminexil-R | Formule multi-brevetée, Renforce bulbe capillaire, +7000 nou"
-        },
-        {
-          "rank": 48,
           "asin": "B00T0C9XRK",
           "title": "essence Lash PRINCESS false lash effect mascara effet faux cils (12ml) | Mascara volumateur avec brosse fibrée conique, Effet"
         },
         {
+          "rank": 46,
+          "asin": "B0B6CL1QHM",
+          "title": "UNA GELLA Capsule Americaine Ongle Amande Court, 216 Pièces 12 Tailles Capsules Ongles Pose Gel Préformées pour Extensions Ac"
+        },
+        {
+          "rank": 47,
+          "asin": "B0BZZJWGPQ",
+          "title": "KERASTASE Nutritive Serum de Nuit 8H – Nourrit & Protège - Cheveux Secs"
+        },
+        {
+          "rank": 48,
+          "asin": "B0DGTMR754",
+          "title": "medicube Masque Gel PDRN Pink Collagène ADN de Saumon x4 | Masque de nuit, Effet peau de verre, Hydratation, Élasticité, Ferm"
+        },
+        {
           "rank": 49,
-          "asin": "B0G38FGSKL",
-          "title": "PDRN Pink Caffeine Collagen Eye Patch (60 Patches)"
+          "asin": "B07C5XYT19",
+          "title": "CeraVe - Crème Hydratante Visage, Peaux Normales à Sèches, Hydratation 24h et Protection Cutanée avec Technologie MVE, Acide"
         },
         {
           "rank": 50,
-          "asin": "B0GVQ6NYR3",
-          "title": "PDRN Collagen Guasha Neck Cream (90g/3.17 oz.)"
+          "asin": "B0CGMBM6D4",
+          "title": "L'Oréal Paris Infaillible Spray Fixateur Maquillage Waterproof 36h 75ml | Sans transfert en 3 secondes, Formule légère non co"
         }
       ]
     },
     "IT": {
       "country": "IT",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -1243,8 +1243,8 @@
         },
         {
           "rank": 8,
-          "asin": "B0D2Z3GGCY",
-          "title": "medicube Capsule Cream with Deep Vitamin C | Crema con Capsule di Vitamina C, Luminosità e Pelle dall'Aspetto Più Uniforme, G"
+          "asin": "B00KLXFUW4",
+          "title": "Maybelline New York Correttore Multi-Uso, Idratante e con Coprenza Modulabile, Imperfezioni e Occhiaie Coperte, Con Bacche di"
         },
         {
           "rank": 9,
@@ -1253,8 +1253,8 @@
         },
         {
           "rank": 10,
-          "asin": "B00KLXFUW4",
-          "title": "Maybelline New York Correttore Multi-Uso, Idratante e con Coprenza Modulabile, Imperfezioni e Occhiaie Coperte, Con Bacche di"
+          "asin": "B0D2Z3GGCY",
+          "title": "medicube Capsule Cream with Deep Vitamin C | Crema con Capsule di Vitamina C, Luminosità e Pelle dall'Aspetto Più Uniforme, G"
         },
         {
           "rank": 11,
@@ -1273,13 +1273,13 @@
         },
         {
           "rank": 14,
-          "asin": "B0CJ5GW8RY",
-          "title": "L'Oréal Paris Mascara Volumizzante, Ciglia a Ventaglio, Sguardo più Ampio, Adatto a Occhi Sensibili, Arricchito con 5% Stretc"
+          "asin": "B0DFHQTDL2",
+          "title": "Fidia Farmaceutici ConnettivinaStick Labbra - Stick da 3g a Base di Acido Ialuronico 0,2%, per Labbra Danneggiate, Secche e S"
         },
         {
           "rank": 15,
-          "asin": "B0DFHQTDL2",
-          "title": "Fidia Farmaceutici ConnettivinaStick Labbra - Stick da 3g a Base di Acido Ialuronico 0,2%, per Labbra Danneggiate, Secche e S"
+          "asin": "B0CJ5GW8RY",
+          "title": "L'Oréal Paris Mascara Volumizzante, Ciglia a Ventaglio, Sguardo più Ampio, Adatto a Occhi Sensibili, Arricchito con 5% Stretc"
         },
         {
           "rank": 16,
@@ -1298,118 +1298,118 @@
         },
         {
           "rank": 19,
+          "asin": "B0H38V8YHY",
+          "title": "Revolution calendario dell'Avvento beauty 2026, set regalo make-up | 10 prodotti full size, 8 mini & 6 accessori, set regalo"
+        },
+        {
+          "rank": 20,
           "asin": "B08CFSS35N",
           "title": "Rimmel London Lasting Finish 1000 Kisses Matita Labbra, Lunga Durata e Colore Intenso, 705 Cappuccino, 1.2 g"
         },
         {
-          "rank": 20,
+          "rank": 21,
           "asin": "B0FDWX8DN6",
           "title": "L'Oréal Paris Infaillible Setting Spray Fissante per il Trucco, 150 ml | Per Tutti i Tipi di Pelle, Lunga Tenuta, Finish Natu"
         },
         {
-          "rank": 21,
-          "asin": "B001EYA1XM",
-          "title": "Calvin Klein Ck Be Eau De Toilette"
-        },
-        {
           "rank": 22,
-          "asin": "B0DHKSF81K",
-          "title": "celimax - Pore + Dark Spot Brightening Cream, 35 ml"
-        },
-        {
-          "rank": 23,
           "asin": "B0GVQ6NYR3",
           "title": "medicube PDRN Collagen Gua Sha Neck Wrinkle Cream - Firming, Contour Care | Built-In Gua Sha Massager with Volufiline 5% - Fo"
         },
         {
-          "rank": 24,
-          "asin": "B0FXGC8H4K",
-          "title": "Garnier Vitamina C Fresh and Bright, Crema Sorbetto Idratante Anti-Macchie, Texture Fresca e Ultra Leggera, Con Niacinamide e"
-        },
-        {
-          "rank": 25,
+          "rank": 23,
           "asin": "B08P4YPB8Q",
           "title": "Maybelline New York Mascara Ciglia Sensazionali Sky High, Volume Intenso e Lunghezza Senza Limiti, Ciglia Leggere, Definisce,"
         },
         {
-          "rank": 26,
+          "rank": 24,
           "asin": "B08M58SWB1",
           "title": "NYX Professional Makeup The Brow Glue, Gel Trasparente per Sopracciglia Effetto Laminazione, Per Ciglia Scolpite dal Finish N"
         },
         {
-          "rank": 27,
-          "asin": "B0BRMYHMS5",
-          "title": "medicube Wrapping Mask Collagen Overnight Peel Off Facial Mask | Idrata & Rassoda, Aiuta a Migliorare Tonicità e Luminosità d"
+          "rank": 25,
+          "asin": "B0FXGC8H4K",
+          "title": "Garnier Vitamina C Fresh and Bright, Crema Sorbetto Idratante Anti-Macchie, Texture Fresca e Ultra Leggera, Con Niacinamide e"
         },
         {
-          "rank": 28,
+          "rank": 26,
           "asin": "B0032RMX3U",
           "title": "Clinique Almost Lipstick Balsamo Labbra nelle Iconiche Tonalità Black Honey, Pink Honey e Nude Honey - Rossetto Trasparente e"
         },
         {
-          "rank": 29,
-          "asin": "B09C1B7BH5",
-          "title": "medicube Facial Cleanser Zero Foam Cleanser for Pore & Excess Oil Care | Detergente Viso Delicato, Controllo del Sebo, Idrata"
+          "rank": 27,
+          "asin": "B001EYA1XM",
+          "title": "Calvin Klein Ck Be Eau De Toilette"
         },
         {
-          "rank": 30,
+          "rank": 28,
           "asin": "B0FHBRTYQT",
           "title": "Erborian - CC Crème alla Centella Asiatica - Crema Viso Illuminante ad Alta Definizione e Trucco - Protezione Solare SPF 30 -"
         },
         {
-          "rank": 31,
+          "rank": 29,
           "asin": "B0DPJR2KGZ",
           "title": "Tangle Teezer Ultimate Detangler - Districa i capelli bagnati e asciutti - Anti-rottura e scioglinodi. Design con setole a do"
         },
         {
-          "rank": 32,
-          "asin": "B074DZRK9F",
-          "title": "Felce Azzurra, Bagnoschiuma Profumato Classico, 650 ml | Detergente delicato e idratante per pelle morbida, note di rosa, lav"
+          "rank": 30,
+          "asin": "B09C1B7BH5",
+          "title": "medicube Facial Cleanser Zero Foam Cleanser for Pore & Excess Oil Care | Detergente Viso Delicato, Controllo del Sebo, Idrata"
         },
         {
-          "rank": 33,
+          "rank": 31,
           "asin": "B0CCYPDLCQ",
           "title": "ghd Gold, Piastra Professionale 26 mm, spina EU, tutti i tipi di capelli"
         },
         {
-          "rank": 34,
-          "asin": "B0CGJLC8G9",
-          "title": "La Roche Posay - Trattamento correttore viso anti-acne, combatte macchie, punti neri e imperfezioni, con effetto anti-ricadut"
-        },
-        {
-          "rank": 35,
-          "asin": "B0B55QPJNR",
-          "title": "Garnier Olia Tinta Capelli, Colorazione Permanente Senza Ammoniaca, Copre il 100% dei Capelli Bianchi, Con Oli di Fiore di Or"
-        },
-        {
-          "rank": 36,
-          "asin": "B00PFCSXD4",
-          "title": "Maybelline New York Mascara Ciglia Sensazionali, Volumizzante, Effetto Ventaglio sulle Ciglia, Very Black, 9,5 ml"
-        },
-        {
-          "rank": 37,
+          "rank": 32,
           "asin": "B0G11L8F7C",
           "title": "medicube PDRN Pink Peptide Ampoule Sheet Mask 6EA | Maschera in Tessuto per Pelle Non Uniforme, Glow e Idratazione, Skincare"
         },
         {
+          "rank": 33,
+          "asin": "B0BRMYHMS5",
+          "title": "medicube Wrapping Mask Collagen Overnight Peel Off Facial Mask | Idrata & Rassoda, Aiuta a Migliorare Tonicità e Luminosità d"
+        },
+        {
+          "rank": 34,
+          "asin": "B074DZRK9F",
+          "title": "Felce Azzurra, Bagnoschiuma Profumato Classico, 650 ml | Detergente delicato e idratante per pelle morbida, note di rosa, lav"
+        },
+        {
+          "rank": 35,
+          "asin": "B00PFCSXD4",
+          "title": "Maybelline New York Mascara Ciglia Sensazionali, Volumizzante, Effetto Ventaglio sulle Ciglia, Very Black, 9,5 ml"
+        },
+        {
+          "rank": 36,
+          "asin": "B0DHKSF81K",
+          "title": "celimax - Pore + Dark Spot Brightening Cream, 35 ml"
+        },
+        {
+          "rank": 37,
+          "asin": "B0B55QPJNR",
+          "title": "Garnier Olia Tinta Capelli, Colorazione Permanente Senza Ammoniaca, Copre il 100% dei Capelli Bianchi, Con Oli di Fiore di Or"
+        },
+        {
           "rank": 38,
+          "asin": "B0CGJLC8G9",
+          "title": "La Roche Posay - Trattamento correttore viso anti-acne, combatte macchie, punti neri e imperfezioni, con effetto anti-ricadut"
+        },
+        {
+          "rank": 39,
+          "asin": "B0CZ5HLDK9",
+          "title": "NYX Professional Makeup Buttermelt Powder Blush fino a 12 ore, miscelazione senza cuciture, resistente allo sbiadimento e al"
+        },
+        {
+          "rank": 40,
           "asin": "B08DJ18C85",
           "title": "Remington Asciugacapelli 2200W - Leggero e Potente - Funzione Ionica per risultati ottimi, 3 livelli di riscaldamento, 2 live"
         },
         {
-          "rank": 39,
-          "asin": "B0H3ZW5XJC",
-          "title": "Maybelline New York Collezione Natale, Il Dolce Far Makeup | Cofanetto Regalo Natale, Con Mascara Ciglia Sensazionali e Corre"
-        },
-        {
-          "rank": 40,
-          "asin": "B0BPXT3GBN",
-          "title": "medicube Triple Collagen Cream | Crema Idratante con Acido Ialuronico & Burro di Karité, Effetto Rassodante contro Segni Del"
-        },
-        {
           "rank": 41,
-          "asin": "B00YBYMQN0",
-          "title": "Garnier SkinActive Acqua Micellare Tutto in 1, Per Pelli Sensibili, 100% del Trucco Rimosso, Pelle Detersa e Idratata per 12H"
+          "asin": "B0BPY3HJTM",
+          "title": "Rilastil Xerolact Crema Mani Riparatrice, Trattamento Restitutivo, Nutriente e Protettiva con Burro di Karité per Pelli Sensi"
         },
         {
           "rank": 42,
@@ -1418,49 +1418,49 @@
         },
         {
           "rank": 43,
-          "asin": "B0GD6R7CFJ",
-          "title": "BIODANCE Hydrogel Eye Patches for Under Eye, Collagen Peptide (60 Count)"
-        },
-        {
-          "rank": 44,
           "asin": "B082XRRXZH",
           "title": "L'Oréal Paris Siero Revitalift Filler HA + PDRN, Revitalift Filler, 30 ml​ | Azione Rimpolpante, Idratante e Anti-Rughe, Pell"
         },
         {
+          "rank": 44,
+          "asin": "B00YBYMQN0",
+          "title": "Garnier SkinActive Acqua Micellare Tutto in 1, Per Pelli Sensibili, 100% del Trucco Rimosso, Pelle Detersa e Idratata per 12H"
+        },
+        {
           "rank": 45,
-          "asin": "B0CZ5HLDK9",
-          "title": "NYX Professional Makeup Buttermelt Powder Blush fino a 12 ore, miscelazione senza cuciture, resistente allo sbiadimento e al"
+          "asin": "B0BN5WKTHF",
+          "title": "Remescar Crema Occhiaie e Borse 8ml - Crema Contorno Occhi per Eliminare le Borse e Occhiaie - Trattamento Istantaneo - Riduc"
         },
         {
           "rank": 46,
+          "asin": "B0H3ZY9H2M",
+          "title": "Maybelline New York Collezione Natale, Il Dolce Far Makeup | Cofanetto Regalo Natale, Con Mascara Lash Sensational Body e Min"
+        },
+        {
+          "rank": 47,
           "asin": "B01MYEZPC8",
           "title": "The Ordinary Hyaluronic Acid 2% + B5 (with Ceramides), Acido Ialuronico, Siero idratante multi-strato per una pelle più rimpo"
         },
         {
-          "rank": 47,
-          "asin": "B00M9B66BU",
-          "title": "Revlon Professional UniqOne Classic, Trattamento per Capelli Senza Risciaquo, All in One, Idrata, Protegge e Ripara (150ml)"
-        },
-        {
           "rank": 48,
-          "asin": "B0BPY3HJTM",
-          "title": "Rilastil Xerolact Crema Mani Riparatrice, Trattamento Restitutivo, Nutriente e Protettiva con Burro di Karité per Pelli Sensi"
-        },
-        {
-          "rank": 49,
           "asin": "B074Y8LM6T",
           "title": "NYX Professional Makeup, Epic Ink Eye Liner, Eyliner Liquido Waterproof, Linee Intense e Precise a Lungo, Texture Scorrevole"
         },
         {
+          "rank": 49,
+          "asin": "B00M9B66BU",
+          "title": "Revlon Professional UniqOne Classic, Trattamento per Capelli Senza Risciaquo, All in One, Idrata, Protegge e Ripara (150ml)"
+        },
+        {
           "rank": 50,
-          "asin": "B08LKXHT4K",
-          "title": "NABLA Cupid's Arrow Longwear Stylo, Black | Matita stylo a lunga tenuta e alta pigmentazione | Liner, ombretto o rossetto mul"
+          "asin": "B0GD6R7CFJ",
+          "title": "BIODANCE Hydrogel Eye Patches for Under Eye, Collagen Peptide (60 Count)"
         }
       ]
     },
     "ES": {
       "country": "ES",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -1490,38 +1490,38 @@
         },
         {
           "rank": 5,
-          "asin": "B0GHMZXX8Y",
-          "title": "medicube PDRN Pink Collagen Volume Multi Balm Stick | PDRN yColágeno, Bálsamo Multiusos en Barra para Rostro, Ojos y Cuello,"
+          "asin": "B0FHBJXX9M",
+          "title": "Erborian - CC Crème con Centella Asiática - Crema Facial Iluminadora de Alta Definición y Maquillaje - Protección Solar SPF 3"
         },
         {
           "rank": 6,
-          "asin": "B0DGPSZVW3",
-          "title": "medicube Collagen Jelly Cream | Crema Facial con Colágeno Hidrolizado, Hidratación y Glow 24 Horas, Piel Más Rellena y Firme,"
-        },
-        {
-          "rank": 7,
           "asin": "B08P4YPB8Q",
           "title": "Maybelline New York Lash Sensational Sky High Volumen y Longitud, Negro | Cepillo Flexible, Longitud sin Límites, Volumen Red"
         },
         {
+          "rank": 7,
+          "asin": "B0GHMZXX8Y",
+          "title": "medicube PDRN Pink Collagen Volume Multi Balm Stick | PDRN yColágeno, Bálsamo Multiusos en Barra para Rostro, Ojos y Cuello,"
+        },
+        {
           "rank": 8,
+          "asin": "B0DGPSZVW3",
+          "title": "medicube Collagen Jelly Cream | Crema Facial con Colágeno Hidrolizado, Hidratación y Glow 24 Horas, Piel Más Rellena y Firme,"
+        },
+        {
+          "rank": 9,
           "asin": "B09V7Z4TJG",
           "title": "medicube Toner Pads Zero Pore Pad 2.0 | Discos Tónicos de Doble Textura para Exfoliación y Poros con AHA y BHA, Todo Tipo de"
         },
         {
-          "rank": 9,
+          "rank": 10,
           "asin": "B09SZ5JX2Y",
           "title": "d'alba Piedmont Trufa Blanca Double Serum All-in-one Multi Balm | Cuidado de la piel vegano, Tratamiento 3 en 1, Bálsamo para"
         },
         {
-          "rank": 10,
+          "rank": 11,
           "asin": "B0BFQ9RD5B",
           "title": "d'alba Piedmont Trufa Blanca Italiana First Spray Serum (100ml) | Cuidado de la piel vegano, Bruma facial hidratante, Spray m"
-        },
-        {
-          "rank": 11,
-          "asin": "B0FHBJXX9M",
-          "title": "Erborian - CC Crème con Centella Asiática - Crema Facial Iluminadora de Alta Definición y Maquillaje - Protección Solar SPF 3"
         },
         {
           "rank": 12,
@@ -1535,8 +1535,8 @@
         },
         {
           "rank": 14,
-          "asin": "B0DWMSM6Y9",
-          "title": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | Retinol al 99% para Líneas Finas, PDRN y Niacinamida para el Tono d"
+          "asin": "B00KLXFUW4",
+          "title": "Maybelline New York Instant Anti-Age Corrector de Ojeras, 01 Light | Corrector Multiusos, Cobertura Modulable, Enriquecida co"
         },
         {
           "rank": 15,
@@ -1545,28 +1545,28 @@
         },
         {
           "rank": 16,
+          "asin": "B0DWMSM6Y9",
+          "title": "medicube Eye Serum with Salmon DNA PDRN & Pink Peptides | Retinol al 99% para Líneas Finas, PDRN y Niacinamida para el Tono d"
+        },
+        {
+          "rank": 17,
           "asin": "B0G38FGSKL",
           "title": "medicube Eye Patch PDRN Caffeine Collagen - Firming Gel Patches, 30 Pairs | Age-Defying Care with Retinol & Collagen - Gel Pa"
         },
         {
-          "rank": 17,
-          "asin": "B00KLXFUW4",
-          "title": "Maybelline New York Instant Anti-Age Corrector de Ojeras, 01 Light | Corrector Multiusos, Cobertura Modulable, Enriquecida co"
+          "rank": 18,
+          "asin": "B08B21PRLM",
+          "title": "L'Oréal Paris Revitalift Filler Sérum Facial Ácido Hialurónico y PDRN, 30ml | Ácido Hialurónico y PDRN, Rellena Arrugas Profu"
         },
         {
-          "rank": 18,
+          "rank": 19,
           "asin": "B0GD6R7CFJ",
           "title": "BIODANCE Parches de Ojos con Péptidos de Colágeno, Antiarrugas para Líneas de Expresión y Bolsas, Contorno de Ojos, Cuidado d"
         },
         {
-          "rank": 19,
+          "rank": 20,
           "asin": "B06XDS7J69",
           "title": "L'Oréal Paris Revitalift Laser Crema SPF25 Nº1 AntiEdad y AntiManchas, 50ml | Pro Retinol, Ácido Hialurónico y Vitamina Cg, A"
-        },
-        {
-          "rank": 20,
-          "asin": "B08B21PRLM",
-          "title": "L'Oréal Paris Revitalift Filler Sérum Facial Ácido Hialurónico y PDRN, 30ml | Ácido Hialurónico y PDRN, Rellena Arrugas Profu"
         },
         {
           "rank": 21,
@@ -1580,38 +1580,38 @@
         },
         {
           "rank": 23,
-          "asin": "B0D1G7XF9X",
-          "title": "medicube Zero Pore Blackhead Mud Facial Mask | Mascarilla de Barro Coreana Refrescante, Reafirma los Poros, Fórmula Rápida de"
+          "asin": "B0H38V8YHY",
+          "title": "Revolution calendario de Adviento beauty 2026, set regalo maquillaje | 10 productos tamaño completo, 8 minis y 6 accesorios,"
         },
         {
           "rank": 24,
-          "asin": "B01MF9YDQN",
-          "title": "Neutrogena Hydro Boost Gel de Agua Crema Hidratante Facial ligera, 50 ml | Con Ácido Hialurónico y Aminoácidos, 72h de Hidrat"
-        },
-        {
-          "rank": 25,
-          "asin": "B01MDOJGDK",
-          "title": "Neutrogena Hydro Boost Limpiador Facial Gel de Agua, 200 ml | Con Ácido Hialurónico y Glicerina, Hidratante, No Comedogénico,"
-        },
-        {
-          "rank": 26,
-          "asin": "B08R9NZ65K",
-          "title": "Axe Dark Temptation Desodorante - 150 ml - Pack de 6, El embalaje puede variar"
-        },
-        {
-          "rank": 27,
           "asin": "B00ST2GSRK",
           "title": "La Roche-Posay, Cicaplast Baume B5+, Bálsamo Calmante Reparador, 40 ml | Bálsamo ultrarreparador, pieles irritadas o fragiliz"
         },
         {
+          "rank": 25,
+          "asin": "B01MF9YDQN",
+          "title": "Neutrogena Hydro Boost Gel de Agua Crema Hidratante Facial ligera, 50 ml | Con Ácido Hialurónico y Aminoácidos, 72h de Hidrat"
+        },
+        {
+          "rank": 26,
+          "asin": "B0GMHCMVCP",
+          "title": "Philips OneBlade Original 360 cuchillas, compatibles con todos los mangos OneBlade y Pro, 5 unidades (modelo QP450/50)"
+        },
+        {
+          "rank": 27,
+          "asin": "B01MDOJGDK",
+          "title": "Neutrogena Hydro Boost Limpiador Facial Gel de Agua, 200 ml | Con Ácido Hialurónico y Glicerina, Hidratante, No Comedogénico,"
+        },
+        {
           "rank": 28,
-          "asin": "B0G52CKKMT",
-          "title": "Maybelline New York Lash Sensational Sky Tubes Máscara, Very Black | Manteca de Karité y Aceite de Ricino, Fórmula Vegana, Ha"
+          "asin": "B0D1G7XF9X",
+          "title": "medicube Zero Pore Blackhead Mud Facial Mask | Mascarilla de Barro Coreana Refrescante, Reafirma los Poros, Fórmula Rápida de"
         },
         {
           "rank": 29,
-          "asin": "B0GMHCMVCP",
-          "title": "Philips OneBlade Original 360 cuchillas, compatibles con todos los mangos OneBlade y Pro, 5 unidades (modelo QP450/50)"
+          "asin": "B0BRMYHMS5",
+          "title": "medicube Wrapping Mask Collagen Overnight Peel Off Facial Mask | Hidrata y Reafirma, Ayuda a Mejorar la Firmeza y Luminosidad"
         },
         {
           "rank": 30,
@@ -1620,109 +1620,109 @@
         },
         {
           "rank": 31,
-          "asin": "B00X9WCH9S",
-          "title": "L'Oréal Paris Elvive Aceite Extraordinario Sérum Nutritivo Multiusos, 100ml | Sérum Enriquecido Con Aceites de Camellia y Mar"
+          "asin": "B0G16DY8FJ",
+          "title": "Rimmel Multi-Tasker Colorete en Barra | Colorete cremoso en barra con brocha integrada, color modulable, fácil de aplicar, re"
         },
         {
           "rank": 32,
-          "asin": "B0BRMYHMS5",
-          "title": "medicube Wrapping Mask Collagen Overnight Peel Off Facial Mask | Hidrata y Reafirma, Ayuda a Mejorar la Firmeza y Luminosidad"
+          "asin": "B0G52CKKMT",
+          "title": "Maybelline New York Lash Sensational Sky Tubes Máscara, Very Black | Manteca de Karité y Aceite de Ricino, Fórmula Vegana, Ha"
         },
         {
           "rank": 33,
-          "asin": "B00M9B66BU",
-          "title": "REVLON PROFESSIONAL UniqOne All in One Protector Térmico Pelo, Hidratación Profunda Cabello, Tratamiento en Spray sin Aclarad"
-        },
-        {
-          "rank": 34,
-          "asin": "B0DHKSF81K",
-          "title": "celimax Pore+Dark Spot Brightening Cream, 35ml | Niacinamida, Ácido Tranexámico, Crema TXA, Minimizador de Poros, Hidratante,"
-        },
-        {
-          "rank": 35,
           "asin": "B09716YCGX",
           "title": "L'Oréal Professionnel Metal Detox Mascarilla Antirotura y Hidratación 250ml | Aporta fuerza, hidratación y suavidad a la fibr"
         },
         {
-          "rank": 36,
-          "asin": "B07ZHKTQL3",
-          "title": "OLAPLEX No. 7 Aceite Reparador De Enlaces Capilares, Aloe, 30 Mililitro | Heat Protection Up to 450°F/232°C, Use on Wet or Dr"
-        },
-        {
-          "rank": 37,
-          "asin": "B0DX122DHW",
-          "title": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum, Facial Serum for Sensitive skin, Hyaluronic Acid, Niacinamide, Spot Car"
-        },
-        {
-          "rank": 38,
+          "rank": 34,
           "asin": "B0DQWQJ1MY",
           "title": "Braun Recortadora Todo en Uno Series 5, AIO5565, Negro | Kit de Styling 13en1 para Barba, Pelo, Orejas, Nariz Y Cuerpo, 120 M"
         },
         {
-          "rank": 39,
-          "asin": "B0DWFSJ9Y4",
-          "title": "L'Oréal Paris Elvive Growth Booster Serúm Tratamiento Anticaída, 100ml | Formulado con Aminexil-R™, Estimula el Crecimiento d"
-        },
-        {
-          "rank": 40,
-          "asin": "B01IFGMALM",
-          "title": "Neutrogena Fórmula Noruega Fast Absorbing Crema Manos Secas, 75 ml, 2 uds | Hidrata, Nutre y Repara, Con Vitamina E y Gliceri"
-        },
-        {
-          "rank": 41,
-          "asin": "B0FKGJYFC8",
-          "title": "Dr. Althea Crema de Alivio 345, Crema Hidratante en Gel con Niacinamida y Pantenol para Pieles Sensibles, 50 ml"
-        },
-        {
-          "rank": 42,
-          "asin": "B0D9NL89YN",
-          "title": "Neutrogena Hydro Boost Fluido Hidratante SPF 50, Crema Solar Facial, 50 ml | Con Ácido Hialurónico y Niacinamida, Sin Fraganc"
-        },
-        {
-          "rank": 43,
-          "asin": "B0866V21WT",
-          "title": "La Roche Posay Gel Purificante Micro-Exfoliante, Anti-Imperfecciones, Limpia y Exfolia, Enriquecido con Ácido Salicílico, Par"
-        },
-        {
-          "rank": 44,
-          "asin": "B07QL8WW2G",
-          "title": "Rexona Invisible Desodorante Aerosol Antitranspirante para hombre Ice 200ml - Pack de 6, El embalaje puede variar"
-        },
-        {
-          "rank": 45,
-          "asin": "B09BD7L35V",
-          "title": "Garnier Vitamina C Sérum AntiManchas Pieles Sensible, Nº1 del mundo, 30 ml | 4% Niacinamida, Vitamina C, Ácido Salicílico y M"
-        },
-        {
-          "rank": 46,
-          "asin": "B07C5XYT19",
-          "title": "CeraVe, Cerave Loción Hidratante de Rostro, Crema hidratante noche, 52 ml | Hidrata y ayuda a restaurar la barrera protectora"
-        },
-        {
-          "rank": 47,
-          "asin": "B0FGJ9P8L9",
-          "title": "L'Oréal Paris Infaillible Spray Fijador de Maquillaje 3 Segundos, 150ml | Hasta 36H de Fijación, Sin Transferencias, Bruma Mi"
-        },
-        {
-          "rank": 48,
-          "asin": "B0CWS16Y87",
-          "title": "Maybelline New York Super Lock Gel Fijador de Cejas Acabado Transparente | Acabado Transparente, Sin Sensación Pegajosa, Ceja"
-        },
-        {
-          "rank": 49,
+          "rank": 35,
           "asin": "B0H1CWKZ8J",
           "title": "Braun Mini Depiladora Facial para Mujer, FS1005, Blanco | Rasuradora Facial Portátil con Luz SmartLight, Diseño Compacto, Dep"
         },
         {
+          "rank": 36,
+          "asin": "B00X9WCH9S",
+          "title": "L'Oréal Paris Elvive Aceite Extraordinario Sérum Nutritivo Multiusos, 100ml | Sérum Enriquecido Con Aceites de Camellia y Mar"
+        },
+        {
+          "rank": 37,
+          "asin": "B0DHKSF81K",
+          "title": "celimax Pore+Dark Spot Brightening Cream | Niacinamida, Ácido Tranexámico, Crema TXA, Minimizador de Poros, Hidratante, Elimi"
+        },
+        {
+          "rank": 38,
+          "asin": "B00M9B66BU",
+          "title": "REVLON PROFESSIONAL UniqOne All in One Protector Térmico Pelo, Hidratación Profunda Cabello, Tratamiento en Spray sin Aclarad"
+        },
+        {
+          "rank": 39,
+          "asin": "B01IFGMALM",
+          "title": "Neutrogena Fórmula Noruega Fast Absorbing Crema Manos Secas, 75 ml, 2 uds | Hidrata, Nutre y Repara, Con Vitamina E y Gliceri"
+        },
+        {
+          "rank": 40,
+          "asin": "B07ZHKTQL3",
+          "title": "OLAPLEX No. 7 Aceite Reparador De Enlaces Capilares, Aloe, 30 Mililitro | Heat Protection Up to 450°F/232°C, Use on Wet or Dr"
+        },
+        {
+          "rank": 41,
+          "asin": "B08R9NZ65K",
+          "title": "Axe Dark Temptation Desodorante - 150 ml - Pack de 6, El embalaje puede variar"
+        },
+        {
+          "rank": 42,
+          "asin": "B0FKGJYFC8",
+          "title": "Dr. Althea Crema de Alivio 345, Crema Hidratante en Gel con Niacinamida y Pantenol para Pieles Sensibles, 50 ml"
+        },
+        {
+          "rank": 43,
+          "asin": "B0DX122DHW",
+          "title": "Anua Azelaic Acid 10 Hyaluron Redness Soothing Serum, Facial Serum for Sensitive skin, Hyaluronic Acid, Niacinamide, Spot Car"
+        },
+        {
+          "rank": 44,
+          "asin": "B09BD7L35V",
+          "title": "Garnier Vitamina C Sérum AntiManchas Pieles Sensible, Nº1 del mundo, 30 ml | 4% Niacinamida, Vitamina C, Ácido Salicílico y M"
+        },
+        {
+          "rank": 45,
+          "asin": "B0CWS16Y87",
+          "title": "Maybelline New York Super Lock Gel Fijador de Cejas Acabado Transparente | Acabado Transparente, Sin Sensación Pegajosa, Ceja"
+        },
+        {
+          "rank": 46,
+          "asin": "B07QL8WW2G",
+          "title": "Rexona Invisible Desodorante Aerosol Antitranspirante para hombre Ice 200ml - Pack de 6, El embalaje puede variar"
+        },
+        {
+          "rank": 47,
+          "asin": "B0D9NL89YN",
+          "title": "Neutrogena Hydro Boost Fluido Hidratante SPF 50, Crema Solar Facial, 50 ml | Con Ácido Hialurónico y Niacinamida, Sin Fraganc"
+        },
+        {
+          "rank": 48,
+          "asin": "B0866V21WT",
+          "title": "La Roche Posay Gel Purificante Micro-Exfoliante, Anti-Imperfecciones, Limpia y Exfolia, Enriquecido con Ácido Salicílico, Par"
+        },
+        {
+          "rank": 49,
+          "asin": "B0DWFSJ9Y4",
+          "title": "L'Oréal Paris Elvive Growth Booster Serúm Tratamiento Anticaída, 100ml | Formulado con Aminexil-R™, Estimula el Crecimiento d"
+        },
+        {
           "rank": 50,
-          "asin": "B077N513Z1",
-          "title": "Maybelline New York SuperStay Matte Ink de Larga Duración, 65 Seductres | Pintalabios, Color Altamente Pigmentado, Líquido Ma"
+          "asin": "B07C5XYT19",
+          "title": "CeraVe, Cerave Loción Hidratante de Rostro, Crema hidratante noche, 52 ml | Hidrata y ayuda a restaurar la barrera protectora"
         }
       ]
     },
     "CA": {
       "country": "CA",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -1752,23 +1752,23 @@
         },
         {
           "rank": 5,
-          "asin": "B0B2PXNNNB",
-          "title": "Eucerin Aquaphor Lip Repair Stick, Soothes Dry Chapped Lips, Set, 2x4.8g"
-        },
-        {
-          "rank": 6,
           "asin": "B0BVC256Q1",
           "title": "Kitsch Satin Scrunchies for Women 6pcs - Terracotta | Wake Up Frizz-Free, No Crease Hair Ties, Softer Than Silk Scrunchies, S"
         },
         {
+          "rank": 6,
+          "asin": "B0DY11V1TV",
+          "title": "MEDIHEAL Collagen Essential Face Sheet Mask, Skin Firming (10ea) | with Peptide, Ceramide for Skin Nourishment & Plumping Hyd"
+        },
+        {
           "rank": 7,
           "asin": "B083GGFTPW",
-          "title": "CeraVe Moisturizing Cream for Dry-Very Dry Skin on the Face & Body, 539g | Rich & Hydrating, Safe for Sensitive Skin, Non-Gre"
+          "title": "CeraVe Moisturizing Cream for Dry-Very Dry Skin on the Face & Body, 539g | Rich, Non-Greasy Formula with Hyaluronic Acid & Ce"
         },
         {
           "rank": 8,
-          "asin": "B0DY11V1TV",
-          "title": "MEDIHEAL Collagen Essential Face Sheet Mask, Skin Firming (10ea) | with Peptide, Ceramide for Skin Nourishment & Plumping Hyd"
+          "asin": "B0BFQ9RD5B",
+          "title": "d'alba Piedmont Italian White Truffle First Spray Serum, Vegan Skin Care, Hydrating Face Moisturizer, Glow Serum for Radiant"
         },
         {
           "rank": 9,
@@ -1777,23 +1777,23 @@
         },
         {
           "rank": 10,
+          "asin": "B0B2PXNNNB",
+          "title": "Aquaphor Lip Repair Lip Balm, With Shea Butter and Jojoba Oil, 2 x 4.8g | Lip Balm Stick for Dry, Chapped and Cracked Lip, Fr"
+        },
+        {
+          "rank": 11,
           "asin": "B0DLLGG2Z8",
           "title": "Oral-B iO2 Electric Toothbrush, for an Easy Switch to Electric, Night Black, Rechargeable Electric Toothbrushes, iO Series 2"
         },
         {
-          "rank": 11,
+          "rank": 12,
           "asin": "B00TO9UWC4",
           "title": "TheraBreath Fresh Breath Alcohol-Free Oral Rinse, Icy Mint, 473 ml | Helps fight bad breath, Certified vegan and gluten-free,"
         },
         {
-          "rank": 12,
+          "rank": 13,
           "asin": "B0CZF2T7CK",
           "title": "L’Oréal Paris Infallible 3-Second Makeup Setting Spray, Makeup, Microfine Mist for up to 36H Wear, Lightweight, Transfer Proo"
-        },
-        {
-          "rank": 13,
-          "asin": "B0BFQ9RD5B",
-          "title": "d'alba Piedmont Italian White Truffle First Spray Serum, Vegan Skin Care, Hydrating Face Moisturizer, Glow Serum for Radiant"
         },
         {
           "rank": 14,
@@ -1802,23 +1802,23 @@
         },
         {
           "rank": 15,
+          "asin": "B0G15RKM65",
+          "title": "LANEIGE Glaze Craze Tinted Lip Serum: Hydrating Lip Serum for Glossy, Nourished Lips with Plumping Polypeptides"
+        },
+        {
+          "rank": 16,
           "asin": "B08BMV5VDL",
           "title": "La Roche Posay Anthelios Ultra Fluid Face & Body Sunscreen SPF 50+ | Ultra Fluid Texture, High UVA/UVB Protection, Invisible"
         },
         {
-          "rank": 16,
+          "rank": 17,
           "asin": "B0B2RM68G2",
           "title": "BIODANCE Bio-Collagen Real Deep Mask, Bestselling Hydrating Overnight Hydrogel Mask for Glassy Glowy Skin, Pore Minimizing, E"
         },
         {
-          "rank": 17,
+          "rank": 18,
           "asin": "B08B8X96Q6",
           "title": "CeraVe Foaming Face Wash with Niacinamide & Hyaluronic Acid, 562mL | Removes Excess Oil & Dirt with Hyaluronic Acid, Niacinam"
-        },
-        {
-          "rank": 18,
-          "asin": "B07G1VKCND",
-          "title": "Rael Miracle Invisible Spot Cover Hydrocolloid Acne Pimple Patches (96 Ct) | Ultra-Thin Patch for Face, Absorbs Fluid From Bl"
         },
         {
           "rank": 19,
@@ -1832,18 +1832,18 @@
         },
         {
           "rank": 21,
-          "asin": "B0B5B5LSNT",
-          "title": "Oral-B Pro 300 Sensitive Clean Vitality Electric Toothbrush | Brushing timer, budget-friendly, 1 mode, from the #1 dentist re"
-        },
-        {
-          "rank": 22,
           "asin": "B07KK67VFR",
           "title": "Burt's Bees 100% Natural Origin Moisturizing Lip Balm for Dry Chapped Lips, Get Soft and Hydrated Lips - Pack of 3 - Original"
         },
         {
+          "rank": 22,
+          "asin": "B07G1VKCND",
+          "title": "Rael Miracle Invisible Spot Cover Hydrocolloid Acne Pimple Patches (96 Ct) | Ultra-Thin Patch for Face, Absorbs Fluid From Bl"
+        },
+        {
           "rank": 23,
-          "asin": "B0DQ94DT75",
-          "title": "eos Shea Better 24H Moisture Body Lotion, Vanilla Cashmere, 473 ml"
+          "asin": "B0CPT8W3RV",
+          "title": "grace & stella Under Eye Masks With Retinol - Revitalizing Under Eye Patches for The Wrinkles & Dark Circles - Gel Eye Mask -"
         },
         {
           "rank": 24,
@@ -1852,18 +1852,18 @@
         },
         {
           "rank": 25,
-          "asin": "B0CZYL4GP2",
-          "title": "LANEIGE Lip Glowy Balm: Nourishing Sheer-Tinted Balm for Daytime Lip Hydration"
+          "asin": "B0DQ94DT75",
+          "title": "eos Shea Better 24H Moisture Body Lotion, Vanilla Cashmere, 473 ml"
         },
         {
           "rank": 26,
-          "asin": "B004BD107O",
-          "title": "L’Oréal Paris Telescopic Mascara, Eyelash Lengthening Mascara, Unique Non-Clumping Formula, Delivers Intense Length, For Sens"
+          "asin": "B0B5B5LSNT",
+          "title": "Oral-B Pro 300 Sensitive Clean Vitality Electric Toothbrush | Brushing timer, budget-friendly, 1 mode, from the #1 dentist re"
         },
         {
           "rank": 27,
-          "asin": "B01NBL6TV9",
-          "title": "Neutrogena All-in-One Makeup Removing Cleansing Wipes, Twin Pack, 50 Count | Gentle Makeup Remover Wipe, Removes Waterproof M"
+          "asin": "B004BD107O",
+          "title": "L’Oréal Paris Telescopic Mascara, Eyelash Lengthening Mascara, Unique Non-Clumping Formula, Delivers Intense Length, For Sens"
         },
         {
           "rank": 28,
@@ -1877,114 +1877,114 @@
         },
         {
           "rank": 30,
-          "asin": "B083GG19DS",
-          "title": "CeraVe PM Face Moisturizer with Hyaluronic Acid, 89mL | Lightweight Hydrating Night Face Moisturizing Lotion with Niacinamide"
-        },
-        {
-          "rank": 31,
-          "asin": "B08PR8YSBT",
-          "title": "CeraVe Salicylic Acid Exfoliating Face Wash, Fragrance-Free, 473mL | Renewing Exfoliating Face Cleanser with Vitamin D for Ro"
-        },
-        {
-          "rank": 32,
-          "asin": "B0CPT8W3RV",
-          "title": "grace & stella Under Eye Masks With Retinol - Revitalizing Under Eye Patches for The Wrinkles & Dark Circles - Gel Eye Mask -"
-        },
-        {
-          "rank": 33,
           "asin": "B0C6XJMSGP",
           "title": "Botanic Hearth Rosemary Hair Oil for Hair & Scalp, 6.7 Fl Oz | Lightweight Hair Oil for Daily Hair Care, Suitable for All Hai"
         },
         {
+          "rank": 31,
+          "asin": "B01NBL6TV9",
+          "title": "Neutrogena All-in-One Makeup Removing Cleansing Wipes, Twin Pack, 50 Count | Gentle Makeup Remover Wipe, Removes Waterproof M"
+        },
+        {
+          "rank": 32,
+          "asin": "B09NYTQ2KM",
+          "title": "PanOxyl Acne Wash, 4% Benzoyl Peroxide, For Face & Body, 85g | Daily Antibacterial Wash, Helps Clear & Prevent Acne, Helps Cl"
+        },
+        {
+          "rank": 33,
+          "asin": "B083GG19DS",
+          "title": "CeraVe PM Face Moisturizer with Hyaluronic Acid, 89mL | Lightweight Hydrating Night Face Moisturizing Lotion with Niacinamide"
+        },
+        {
           "rank": 34,
-          "asin": "B0FX418XT8",
-          "title": "Arencia Vitamin C Booster Shot Serum with Glutathione, Niacinamide and Vitamin E for Dark Spot Care, Fine Lines & Wrinkles, G"
-        },
-        {
-          "rank": 35,
-          "asin": "B071914GGL",
-          "title": "The Ordinary Glycolic Acid 7% Exfoliating Toner, Brightening and Smoothing Daily Toner for More Even-Looking Skin Tone"
-        },
-        {
-          "rank": 36,
-          "asin": "B0843XPGNN",
-          "title": "CeraVe Moisturizing Lotion for Normal to Dry Skin, Face & Body, 473mL | Light, Non-Greasy & Fast-Absorbing Formula with Hyalu"
-        },
-        {
-          "rank": 37,
-          "asin": "B0CJH3R48Z",
-          "title": "Paula's Choice SKIN PERFECTING 2% BHA Exfoliant, 118 mL Full Size | Daily Gentle Salicylic Acid Facial Exfoliator for Blackhe"
-        },
-        {
-          "rank": 38,
-          "asin": "B00QE8KH1Y",
-          "title": "The Body Shop Shea Hand Balm 30ml, Rich 96-Hour Hydrating Hand Cream for Dry Hands with Community Fair Trade Shea Butter, Non"
-        },
-        {
-          "rank": 39,
-          "asin": "B01MRX9US8",
-          "title": "Crest 3D Whitestrips Vivid White At-home Teeth Whitening Kit, 10 Treatments, 6 Levels Whiter"
-        },
-        {
-          "rank": 40,
-          "asin": "B07896C925",
-          "title": "Rogaine Men's Hair Regrowth Treatment with 5% Minoxidil Foam - Clinically Tested for Male Pattern Baldness - 3-Month Supply,"
-        },
-        {
-          "rank": 41,
           "asin": "B008D5HAHU",
           "title": "Batiste Original Dry Shampoo, 200 mL | Refreshes hair and absorbs oil and grease, adds texture and volume, waterless, paraben"
         },
         {
-          "rank": 42,
+          "rank": 35,
+          "asin": "B00QE8KH1Y",
+          "title": "The Body Shop Shea Hand Balm 30ml, Rich 96-Hour Hydrating Hand Cream for Dry Hands with Community Fair Trade Shea Butter, Non"
+        },
+        {
+          "rank": 36,
+          "asin": "B071914GGL",
+          "title": "The Ordinary Glycolic Acid 7% Exfoliating Toner, Brightening and Smoothing Daily Toner for More Even-Looking Skin Tone"
+        },
+        {
+          "rank": 37,
+          "asin": "B0FX418XT8",
+          "title": "Arencia Vitamin C Booster Shot Serum with Glutathione, Niacinamide and Vitamin E for Dark Spot Care, Fine Lines & Wrinkles, G"
+        },
+        {
+          "rank": 38,
+          "asin": "B08PR8YSBT",
+          "title": "CeraVe Salicylic Acid Exfoliating Face Wash, Fragrance-Free, 473mL | Renewing Exfoliating Face Cleanser with Vitamin D for Ro"
+        },
+        {
+          "rank": 39,
           "asin": "B0DFWBWQDQ",
           "title": "LA MAESII Lash Cluster Glue, 2 in 1 Lash Bond and Seal, Black Eyelash Glue | 10ml,Waterproof, Long Lasting 72H+, Latex Free,"
         },
         {
-          "rank": 43,
-          "asin": "B07B2H2DKF",
-          "title": "Schmidt's Natural Aluminum-Free Deodorant, Magnesium & Charcoal, 48H, 75 g | For those seeking plant-based care, provides 48-"
+          "rank": 40,
+          "asin": "B0843XPGNN",
+          "title": "CeraVe Moisturizing Lotion for Normal to Dry Skin, Face & Body, 473mL | Light, Non-Greasy & Fast-Absorbing Formula with Hyalu"
         },
         {
-          "rank": 44,
+          "rank": 41,
           "asin": "B0CNBYP7GB",
           "title": "Neutrogena Fragrance Free Hydro Boost Gel Cream for Extra Dry Skin, Hyaluronic Acid Face Moisturizer for Extra-Dry Skin, Sens"
         },
         {
+          "rank": 42,
+          "asin": "B00BMJTOSW",
+          "title": "Cetaphil Gentle Skin Cleanser (473ml) - Dermatolgoist Recommended Face Wash | Niacinamide & Vitamin B5, dermatologist recomme"
+        },
+        {
+          "rank": 43,
+          "asin": "B07896C925",
+          "title": "Rogaine Men's Hair Regrowth Treatment with 5% Minoxidil Foam - Clinically Tested for Male Pattern Baldness - 3-Month Supply,"
+        },
+        {
+          "rank": 44,
+          "asin": "B07B2H2DKF",
+          "title": "Schmidt's Natural Aluminum-Free Deodorant, Magnesium & Charcoal, 48H, 75 g | For those seeking plant-based care, provides 48-"
+        },
+        {
           "rank": 45,
-          "asin": "B0BL1YB9M2",
-          "title": "CeraVe Hydrating Cream-to-Foam Face Wash with Hyaluronic Acid, 562mL | Face Cleanser For Normal to Dry Skin, Men & Women, wit"
+          "asin": "B0CJH3R48Z",
+          "title": "Paula's Choice SKIN PERFECTING 2% BHA Exfoliant, 118 mL Full Size | Daily Gentle Salicylic Acid Facial Exfoliator for Blackhe"
         },
         {
           "rank": 46,
-          "asin": "B0BPF3F2NP",
-          "title": "Crest 3D White Advanced Teeth Whitening Toothpaste, Radiant Mint, 70 Ml (Pack of 4)"
-        },
-        {
-          "rank": 47,
           "asin": "B09LD8T445",
           "title": "Philips Sonicare 4100 Rechargeable Electric Toothbrush, 1 Brush Head, White | 700% More Plaque Removal¹, Pressure Sensor, 2 B"
         },
         {
-          "rank": 48,
+          "rank": 47,
           "asin": "B07ZL9511J",
           "title": "Conair Curling Iron, Double Ceramic, 1\" Barrel, White/Rose Gold | Hair curler and hair waver for medium to long hair with 30"
         },
         {
+          "rank": 48,
+          "asin": "B0FPMGZ18H",
+          "title": "e.l.f. Squeeze Me More Lip Balm Duo, Cherry/Bubblegum | Moisturizing Balm For A Sheer Tint Of Color, Made With Hyaluronic Aci"
+        },
+        {
           "rank": 49,
-          "asin": "B0D4Q8SR9Z",
-          "title": "MEDIHEAL 95% Retinol & Collagen Under Eye Patches, Wrinkle Care (60 Count) | with Retinol Liposome, Collagen | 4-Zone Firming"
+          "asin": "B01MDTVZTZ",
+          "title": "The Ordinary Niacinamide 10% + Zinc 1%, Smoothing Serum for Blemish-Prone Skin, 30 ml"
         },
         {
           "rank": 50,
-          "asin": "B00OZNRV00",
-          "title": "La Roche-Posay Anthelios Tinted Mineral Face & Body Sunscreen SPF 50 | Ultra Fluid Texture, High UVA/UVB Protection, Invisibl"
+          "asin": "B08V3JGB1F",
+          "title": "Kitsch Dermaplane Razor for Women Face 12pcs - Terracotta | Face Razors for Women & Men, Eyebrow Razor & Face Shaver – Exfoli"
         }
       ]
     },
     "JP": {
       "country": "JP",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -2004,13 +2004,13 @@
         },
         {
           "rank": 3,
-          "asin": "B01JKV7AIE",
-          "title": "Neutrogena ニュートロジーナ ノルウェーフォーミュラ インテンスリペア ボディエマルジョン 超乾燥肌用 保湿 ボディクリーム 無香料 単品 250ml"
+          "asin": "B06X17VVNQ",
+          "title": "オルビス (ORBIS) エッセンスイン ヘアミルク (洗い流さない/無香料) ヘアトリートメント | 【アットコスメ殿堂入り】 洗い流さないトリートメント"
         },
         {
           "rank": 4,
-          "asin": "B06X17VVNQ",
-          "title": "オルビス (ORBIS) エッセンスイン ヘアミルク (洗い流さない/無香料) ヘアトリートメント | 【アットコスメ殿堂入り】 洗い流さないトリートメント"
+          "asin": "B01JKV7AIE",
+          "title": "Neutrogena ニュートロジーナ ノルウェーフォーミュラ インテンスリペア ボディエマルジョン 超乾燥肌用 保湿 ボディクリーム 無香料 単品 250ml"
         },
         {
           "rank": 5,
@@ -2029,33 +2029,33 @@
         },
         {
           "rank": 8,
-          "asin": "B0FS11314K",
-          "title": "LuLuLun ルルルンプレシャス GREEN Glow Up 32枚入 パック フェイスパック シートマスク 大容量"
-        },
-        {
-          "rank": 9,
-          "asin": "B07CZKGD7X",
-          "title": "ReKERA(リケラ) エマルジョン 200mL リトル・サイエンティスト"
-        },
-        {
-          "rank": 10,
-          "asin": "B08YKGM5XZ",
-          "title": "【オンライン限定色】KATE(ケイト) リップモンスター 口紅 04 パンプキンワイン 3グラム (x 1)"
-        },
-        {
-          "rank": 11,
           "asin": "B0DYNWG3WX",
           "title": "SALONIA サロニア スピーディーイオン ドライヤー ネイビー 【Amazon.co.jp限定】 | SL-013ANV,大風量,速乾,軽量,マイナスイオン,ヘアドライヤー"
         },
         {
+          "rank": 9,
+          "asin": "B0FS11314K",
+          "title": "LuLuLun ルルルンプレシャス GREEN Glow Up 32枚入 パック フェイスパック シートマスク 大容量"
+        },
+        {
+          "rank": 10,
+          "asin": "B0CK165RK2",
+          "title": "ビオルチア (Bio Lucia) アイラッシュセラム まつ毛美容液 まつげ美容液 6mL×1本"
+        },
+        {
+          "rank": 11,
+          "asin": "B0F76TLP2H",
+          "title": "オルビス(ORBIS) ザ クレンジング オイル つめかえ用 110mL"
+        },
+        {
           "rank": 12,
-          "asin": "B0CJN2ZZVX",
-          "title": "LuLuLun ルルルン ハイドラEXマスク 28枚入り パック フェイスパック シートマスク 顔 保湿 毛穴 大容量"
+          "asin": "B00C1CACNU",
+          "title": "シークリスタルス エプソムソルト オリジナル 2.2kg 約14回分 入浴剤 無香料 計量スプーン付 浴用化粧品 日本製"
         },
         {
           "rank": 13,
-          "asin": "B00C1CACNU",
-          "title": "シークリスタルス エプソムソルト オリジナル 2.2kg 約14回分 入浴剤 無香料 計量スプーン付 浴用化粧品 日本製"
+          "asin": "B07CZKGD7X",
+          "title": "ReKERA(リケラ) エマルジョン 200mL リトル・サイエンティスト"
         },
         {
           "rank": 14,
@@ -2064,63 +2064,63 @@
         },
         {
           "rank": 15,
-          "asin": "B0CK165RK2",
-          "title": "ビオルチア (Bio Lucia) アイラッシュセラム まつ毛美容液 まつげ美容液 6mL×1本"
-        },
-        {
-          "rank": 16,
-          "asin": "B0DK4Y2YP3",
-          "title": "CELIMAX(セリマックス) ビタA レチナールショットタイトニングブースター 15ml 美容液 レチナール 0.1% ナイアシンアミド 夜用 ハリ | 夜用美容液 レチナール0.1%配合（整肌成分）パンテノール1%配合（保湿成分）ペプチド配合（整"
-        },
-        {
-          "rank": 17,
-          "asin": "B0GL776DRB",
-          "title": "ビオレ おうちdeエステ ディープクレイ洗顔 １８０ｇ 毛穴 黒ずみ 毛穴汚れ 角栓 クレイ 洗顔料"
-        },
-        {
-          "rank": 18,
           "asin": "B09DP1ZJV2",
           "title": "【濃密泡で叶えるスカルプケア革命】 チャップアップ リンスイン スカルプシャンプー アミノ酸シャンプー オールインワン シャンプー 300mL×1本 | 濃密泡 ノンシリコン オーガニック スカルプ ケア 毛穴洗浄 アミノ酸 系 CHAPUP"
         },
         {
-          "rank": 19,
-          "asin": "B004WBF8EG",
-          "title": "Loretta (ロレッタ) ハードゼリー 300g スタイリング剤 ジェル ヘアワックス アレンジ セット力 キープ ホールド ツヤ ヘアケア | 大容量"
+          "rank": 16,
+          "asin": "B0CJN2ZZVX",
+          "title": "LuLuLun ルルルン ハイドラEXマスク 28枚入り パック フェイスパック シートマスク 顔 保湿 毛穴 大容量"
         },
         {
-          "rank": 20,
-          "asin": "B079TMJ5XV",
-          "title": "セザンヌ 超細芯アイブロウ 03 ナチュラルブラウン"
+          "rank": 17,
+          "asin": "B0DK4Y2YP3",
+          "title": "CELIMAX(セリマックス) ビタA レチナールショットタイトニングブースター 15ml 美容液 レチナール 0.1% ナイアシンアミド 夜用 ハリ | 夜用美容液 レチナール0.1%配合（整肌成分）パンテノール1%配合（保湿成分）ペプチド配合（整"
         },
         {
-          "rank": 21,
-          "asin": "B0GCDNCH21",
-          "title": "パーフェクトワンフォーカス PERFECT ONE FOCUS スムースクレンジングバーム 75g (【リニューアル】黄色a (単品))"
-        },
-        {
-          "rank": 22,
+          "rank": 18,
           "asin": "B0DCFNGLJY",
           "title": "ビオレｕ 泡ハンドソープ フルーツ つめかえ用 1.5Ｌ【医薬部外品】"
         },
         {
+          "rank": 19,
+          "asin": "B079TMJ5XV",
+          "title": "セザンヌ 超細芯アイブロウ 03 ナチュラルブラウン"
+        },
+        {
+          "rank": 20,
+          "asin": "B0HGPYZ9Z7",
+          "title": "[ 憧れのサラツヤ美髪 ] オルナ オーガニック ヘアオイル ヘアミルク スタイリングオイル 無添加（スムースヘアオイル/お試しサイズ） | トリートメント,ヘアトリートメント,ヘア美容液,ヘアオイル メンズ,ヘアミルク 洗い流さない,ダメージ補修,"
+        },
+        {
+          "rank": 21,
+          "asin": "B004WBF8EG",
+          "title": "Loretta (ロレッタ) ハードゼリー 300g スタイリング剤 ジェル ヘアワックス アレンジ セット力 キープ ホールド ツヤ ヘアケア | 大容量"
+        },
+        {
+          "rank": 22,
+          "asin": "B08YKGM5XZ",
+          "title": "【オンライン限定色】KATE(ケイト) リップモンスター 口紅 04 パンプキンワイン 3グラム (x 1)"
+        },
+        {
           "rank": 23,
-          "asin": "B084H16CPB",
-          "title": "【大容量】 サクセス 薬用シャンプー エクストラクール つめかえ用 960ml [医薬部外品] アブラ ワックス ニオイ 一発洗浄"
+          "asin": "B0GCDNCH21",
+          "title": "パーフェクトワンフォーカス PERFECT ONE FOCUS スムースクレンジングバーム 75g (【リニューアル】黄色a (単品))"
         },
         {
           "rank": 24,
+          "asin": "B0GL776DRB",
+          "title": "ビオレ おうちdeエステ ディープクレイ洗顔 １８０ｇ 毛穴 黒ずみ 毛穴汚れ 角栓 クレイ 洗顔料"
+        },
+        {
+          "rank": 25,
           "asin": "B0DWKHLZF6",
           "title": "ビオレｕ 泡 ハンドソープ つめかえ用 1.52Ｌ 【Amazon.co.jp限定】 [医薬部外品]"
         },
         {
-          "rank": 25,
-          "asin": "B0DT6WKKTS",
-          "title": "NILE 濃密泡スカルプシャンプー メンズ アミノ酸シャンプー ノンシリコン 詰め替え用 250ml(LAFRANCE（ラフランス）の香り)"
-        },
-        {
           "rank": 26,
-          "asin": "B07XFWYCH3",
-          "title": "Diane(ダイアン) 【大容量】シャンプー [ダメージ補修] フローラル&ベリーの香り ダイアンDX エクストラダメージリペア 詰め替え 1000ml"
+          "asin": "B083LWRKS7",
+          "title": "【医薬部外品】 デオナチュレ ソフトストーンW 2個おまけ付き ワキ用 制汗剤 デオドラント スティック 脇汗 ワキガ 殺菌 防臭 無香料 | 20g×2個 直ヌリ わきが ミョウバン 消臭 日本製"
         },
         {
           "rank": 27,
@@ -2129,23 +2129,23 @@
         },
         {
           "rank": 28,
-          "asin": "B09M2XFRCF",
-          "title": "トゥヴェール バランシングGAローション 100mL 導入 化粧水 | グリシルグリシン 6％ 2ヵ月分 プレ化粧水 アゼライン酸 毛穴 皮脂 テカリ ざらつき キメ さっぱり 脂性肌 混合肌 敏感肌 メンズ"
+          "asin": "B084H16CPB",
+          "title": "【大容量】 サクセス 薬用シャンプー エクストラクール つめかえ用 960ml [医薬部外品] アブラ ワックス ニオイ 一発洗浄"
         },
         {
           "rank": 29,
-          "asin": "B0HGPYZ9Z7",
-          "title": "[ 憧れのサラツヤ美髪 ] オルナ オーガニック ヘアオイル ヘアミルク スタイリングオイル 無添加（スムースヘアオイル/お試しサイズ） | トリートメント,ヘアトリートメント,ヘア美容液,ヘアオイル メンズ,ヘアミルク 洗い流さない,ダメージ補修,"
+          "asin": "B0DBK6HXVH",
+          "title": "【melt】 メルト モイストコンディショニングウォーター 髪の化粧水 170ml 休息美容 マインドフルアロマ/ゼラニウム＆ミュゲの香り ヘアミスト ヘアウォーター ヘアトリートメント ドライヤー前 花王"
         },
         {
           "rank": 30,
-          "asin": "B083LWRKS7",
-          "title": "【医薬部外品】 デオナチュレ ソフトストーンW 2個おまけ付き ワキ用 制汗剤 デオドラント スティック 脇汗 ワキガ 殺菌 防臭 無香料 | 20g×2個 直ヌリ わきが ミョウバン 消臭 日本製"
+          "asin": "B0DT6WKKTS",
+          "title": "NILE 濃密泡スカルプシャンプー メンズ アミノ酸シャンプー ノンシリコン 詰め替え用 250ml(LAFRANCE（ラフランス）の香り)"
         },
         {
           "rank": 31,
-          "asin": "B0FJLZTNLG",
-          "title": "エッセンシャル プレミアム うるおいバリアシャンプー シルキー＆スムース つめかえ用 ３４０ｍｌ"
+          "asin": "B0G5XYXCHF",
+          "title": "[d'Alba公式] カバーベージュ トーンアップサンクリーム 35ml Waterfull Tone-Up Sun Cream Cover Up | SPF50+/PA++++ 化粧下地 日焼け止め 美容液 汗と水に強い ウォータープルーフ イージ"
         },
         {
           "rank": 32,
@@ -2154,8 +2154,8 @@
         },
         {
           "rank": 33,
-          "asin": "B0G5XYXCHF",
-          "title": "[d'Alba公式] カバーベージュ トーンアップサンクリーム 35ml Waterfull Tone-Up Sun Cream Cover Up | SPF50+/PA++++ 化粧下地 日焼け止め 美容液 汗と水に強い ウォータープルーフ イージ"
+          "asin": "B09M2XFRCF",
+          "title": "トゥヴェール バランシングGAローション 100mL 導入 化粧水 | グリシルグリシン 6％ 2ヵ月分 プレ化粧水 アゼライン酸 毛穴 皮脂 テカリ ざらつき キメ さっぱり 脂性肌 混合肌 敏感肌 メンズ"
         },
         {
           "rank": 34,
@@ -2164,68 +2164,68 @@
         },
         {
           "rank": 35,
-          "asin": "B0DBK6HXVH",
-          "title": "【melt】 メルト モイストコンディショニングウォーター 髪の化粧水 170ml 休息美容 マインドフルアロマ/ゼラニウム＆ミュゲの香り ヘアミスト ヘアウォーター ヘアトリートメント ドライヤー前 花王"
+          "asin": "B0FJLZTNLG",
+          "title": "エッセンシャル プレミアム うるおいバリアシャンプー シルキー＆スムース つめかえ用 ３４０ｍｌ"
         },
         {
           "rank": 36,
-          "asin": "B0DC61XNLX",
-          "title": "The Ordinary(オーディナリー)【ベスコス受賞】ナイアシンアミド*1 10%+亜鉛1%*2（N10+Z1フェイスセラム）60ml 美容液 | 美容液 スキンケア 毛穴 ブライトニング くすみ 乾燥 ゴワつき 敏感肌 乾燥肌 透明感 【正規品"
-        },
-        {
-          "rank": 37,
-          "asin": "B0HDCQL2Y3",
-          "title": "MEGAMIS (メガミス) モイストシャンプー＆ヘアセラム＆トリートメント トライアルサシェ×2個 女神級にまとまるツヤ髪へ(*シリーズ使いによる)"
-        },
-        {
-          "rank": 38,
-          "asin": "B09CDBRZ97",
-          "title": "VTCOSMETICS(ブイティコスメテックス) VT スポットパッチ 3種 敏感肌 肌荒れスキンケア 毛穴ケア シート状美容液 (プロCICA クリア スポットパッチ)"
-        },
-        {
-          "rank": 39,
           "asin": "B09B9MD1L3",
           "title": "ジョンソンボディケア エクストラケアアロマミルク 500ml ローズとジャスミンの香り ボディクリーム ボディミルク ローション ポンプ 保湿 【大容量】"
         },
         {
-          "rank": 40,
-          "asin": "B0BVZ694CN",
-          "title": "rom&nd HAN ALL BROW CARAロムアンドハンオールブロウカラ (03 モダンベージュ)"
+          "rank": 37,
+          "asin": "B0DLK58PGS",
+          "title": "NILE アフターシェーブローション 化粧水 メンズ オールインワンローション（LAFRANCE（ラフランス）の香り）"
         },
         {
-          "rank": 41,
-          "asin": "B0DHL3169M",
-          "title": "ANUA(アヌア) PDRNヒアルロン酸カプセル100セラム30ml 美容液 スキンケア【公式・正規品】 | スマートカプセル処方 水光セラム 導入美容液 うるおい 保湿 ハリ 水光肌 キメ 水分 ツヤ肌 コラーゲン インナードライ肌 乾燥肌 混合肌"
-        },
-        {
-          "rank": 42,
-          "asin": "B0DYNZVH5D",
-          "title": "SALONIA サロニア ストレートアイロン 24mm ネイビー【Amazon.co.jp限定】 | SL-004SANV,ヘアアイロン"
-        },
-        {
-          "rank": 43,
-          "asin": "B09YDCCJBJ",
-          "title": "【AESTURA】 アトバリア365 クリーム 韓国コスメ 保湿クリーム スキンケア 乾燥肌 敏感肌 無香料 無着色 セラミド 低刺激 ダーマコスメ (80ml) (アトバリアクリーム 80ml)"
-        },
-        {
-          "rank": 44,
-          "asin": "B0CB3R5JM2",
-          "title": "エッセンシャル 髪のキメ美容リペアシャンプー つめかえ用 700ml"
-        },
-        {
-          "rank": 45,
+          "rank": 38,
           "asin": "B014KNY5SU",
           "title": "Wella ウエラトーン 2+1 白髪染め クリームタイプ 7CB 明るいナチュラルブラウン 鮮やかな髪色6週間続く 医薬部外品"
         },
         {
-          "rank": 46,
+          "rank": 39,
+          "asin": "B09CDBRZ97",
+          "title": "VTCOSMETICS(ブイティコスメテックス) VT スポットパッチ 3種 敏感肌 肌荒れスキンケア 毛穴ケア シート状美容液 (プロCICA クリア スポットパッチ)"
+        },
+        {
+          "rank": 40,
+          "asin": "B0DC61XNLX",
+          "title": "The Ordinary(オーディナリー)【ベスコス受賞】ナイアシンアミド*1 10%+亜鉛1%*2（N10+Z1フェイスセラム）60ml 美容液 | 美容液 スキンケア 毛穴 ブライトニング くすみ 乾燥 ゴワつき 敏感肌 乾燥肌 透明感 【正規品"
+        },
+        {
+          "rank": 41,
           "asin": "B0F322WLCW",
           "title": "リファミルクプロテイン/ReFa MILK PROTEIN (430g（リフィル）, ピンクフローラルベリー, シャンプー・トリートメントセット)"
         },
         {
+          "rank": 42,
+          "asin": "B09YDCCJBJ",
+          "title": "【AESTURA】 アトバリア365 クリーム 韓国コスメ 保湿クリーム スキンケア 乾燥肌 敏感肌 無香料 無着色 セラミド 低刺激 ダーマコスメ"
+        },
+        {
+          "rank": 43,
+          "asin": "B0DYNZVH5D",
+          "title": "SALONIA サロニア ストレートアイロン 24mm ネイビー【Amazon.co.jp限定】 | SL-004SANV,ヘアアイロン"
+        },
+        {
+          "rank": 44,
+          "asin": "B00TDFX99W",
+          "title": "コラージュフルフル 泡石鹸 ピンク つめかえ用 210mL (医薬部外品)"
+        },
+        {
+          "rank": 45,
+          "asin": "B00ABV7NA8",
+          "title": "【業務用 大容量】キレイキレイ 薬用 泡ハンドソープ 4L シトラスフルーティの香り (医薬部外品) 詰め替え"
+        },
+        {
+          "rank": 46,
+          "asin": "B0DHL3169M",
+          "title": "ANUA(アヌア) PDRNヒアルロン酸カプセル100セラム30ml 美容液 スキンケア【公式・正規品】 | スマートカプセル処方 水光セラム 導入美容液 うるおい 保湿 ハリ 水光肌 キメ 水分 ツヤ肌 コラーゲン インナードライ肌 乾燥肌 混合肌"
+        },
+        {
           "rank": 47,
-          "asin": "B0GXJZ3QCL",
-          "title": "オブジェ (OBgE) ナチュラルカバーファンデーション【日焼け止め スキンケア 毛穴 韓国コスメ】(PRO #2 ベージュ,リニューアル版,単品) | クリームファンデーション bbクリーム メンズ"
+          "asin": "B0CB3R5JM2",
+          "title": "エッセンシャル 髪のキメ美容リペアシャンプー つめかえ用 700ml"
         },
         {
           "rank": 48,
@@ -2239,14 +2239,14 @@
         },
         {
           "rank": 50,
-          "asin": "B0D9YDRN1Q",
-          "title": "ケアセラ(CareCera) AP 高保湿先行バリア乳液 130ml(ワセリン 高圧乳化技術採用×8種の天然型セラミド配合 高保湿)乾燥肌 敏感肌 | 高保湿乳液、セラミド乳液、セラミドケア、乾燥肌、敏感肌ケア、高保湿、肌バリア"
+          "asin": "B0BFQ9RD5B",
+          "title": "【d'Alba公式】ファースト スプレーセラム 100ml White Truffle First Spray Serum | イエローミスト ワンステップケア 微細ミスト 大容量ミスト ミスト化粧水 保湿ミスト 保湿セラム 潤いミスト エッセンスミ"
         }
       ]
     },
     "SA": {
       "country": "SA",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -2266,108 +2266,108 @@
         },
         {
           "rank": 3,
-          "asin": "B07MJVCYV2",
-          "title": "شامبو الترا دوكس المغذي من غارنييه، 400 مل"
-        },
-        {
-          "rank": 4,
-          "asin": "B07NF7SP9L",
-          "title": "غسول سائل لليدين مضاد للبكتيريا وغني بالجلسرين من لوكس، غسول فيلفيت جاسمين لجميع انواع البشرة، 250 مل"
-        },
-        {
-          "rank": 5,
-          "asin": "B07NDNRXBV",
-          "title": "مزيل عرق صلب من دوف بدون رائحة للنساء، سعة 40 مليلتر، حماية 72 ساعة ومرطب ونباتي ومناسب للبشرة الحساسة"
-        },
-        {
-          "rank": 6,
           "asin": "B07BXZSCRL",
           "title": "ميسلر كلين سنجوتر 400 مل من غارنييه"
         },
         {
-          "rank": 7,
+          "rank": 4,
+          "asin": "B07MJVCYV2",
+          "title": "شامبو الترا دوكس المغذي من غارنييه، 400 مل"
+        },
+        {
+          "rank": 5,
           "asin": "B07N77NM82",
           "title": "وسادات إزالة المكياج للبالغين من جونسون اند جونسون، عبوة من 3 قطع × 80 قطعة"
         },
         {
-          "rank": 8,
-          "asin": "B07MW1NPXJ",
-          "title": "جل كريم للحماية من الشمس والتحكم في الزيوت بعامل حماية من اشعة الشمس بدرجة 50 من يوسيرن، سعة 50 مل، لنوع البشرةزيتية"
+          "rank": 6,
+          "asin": "B07NDNRXBV",
+          "title": "مزيل عرق صلب من دوف بدون رائحة للنساء، سعة 40 مليلتر، حماية 72 ساعة ومرطب ونباتي ومناسب للبشرة الحساسة"
         },
         {
-          "rank": 9,
-          "asin": "B07P67Q998",
-          "title": "غسول الجسم برائحة سحر زهرة الأوركيد من لوكس، عطر يدوم 30 ساعة، مع زيت ايفرسنت العطري، 700 مل"
-        },
-        {
-          "rank": 10,
-          "asin": "B00ST2GSRK",
-          "title": "لاروش بوزيه سيكابلاست بوم +B5 بلسم ملطف ومرطب فائق الترميم، كريم متعدد الاستخدامات لإصلاح البشرة الجافة والمتهيجة، عناية للوج"
-        },
-        {
-          "rank": 11,
-          "asin": "B01AVQUFUW",
-          "title": "QV مضخة كريم 500 غرام مع الجلسرين - مرطب واقي غني للبشرة الجافة الى الجافة جدا والحساسة - خالية من العطور ولا تسبب المسكنات ل"
-        },
-        {
-          "rank": 12,
-          "asin": "B076F7C6SB",
-          "title": "جونسون غسول الجسم المغذي بتوت العليق، 400مل، يساعد بشرتك على الشعور بمزيد من الحيوية والانتعاش، غسول جل الاستحمام للجسم، للعن"
-        },
-        {
-          "rank": 13,
-          "asin": "B0FPMJ4CTQ",
-          "title": "فيليبس ماكينة تشذيب وحلاقة للجسم BG3485/15 | رطب وجاف 100% | نتائج قريبة ومريحة للبشرة | أمشاط 2 و3 و5 مم | حتى 80 دقيقة لاسل"
-        },
-        {
-          "rank": 14,
-          "asin": "B077SJGVZ4",
-          "title": "NIVEA Body Lotion for Dry Skin, Cocoa Butter with 100% Pure Hyaluron, 48H Deep Moisture, 400ml"
-        },
-        {
-          "rank": 15,
-          "asin": "B07P8P7ZX6",
-          "title": "لوشن ترطيب الجسم بمستخلص زيت اللوز المغذي وفيتامين E للبشرة الجافة للغاية من نيفيا، 625 مل"
-        },
-        {
-          "rank": 16,
-          "asin": "B08BKV14JQ",
-          "title": "بيبانثين كريم مرطب للبشرة، 30 غرام"
-        },
-        {
-          "rank": 17,
-          "asin": "B07NF74H3B",
-          "title": "غسول يدين توتال 10 من لايفبوي، بسعة 200 مل"
-        },
-        {
-          "rank": 18,
-          "asin": "B0CJ5GW8RY",
-          "title": "ماسكارا بانوراما من لوريال باريس، أسود"
-        },
-        {
-          "rank": 19,
+          "rank": 7,
           "asin": "B09NQG78ND",
           "title": "أحمر شفاه سوبر ستاي من الفينيل لامع يدوم طويلا ومقاوم للتنقل من ميبيلين نيو يورك، 35 تشيكي"
         },
         {
-          "rank": 20,
-          "asin": "B00PJZSEIQ",
-          "title": "ويلا كولستون إنتنس – صبغة شعر ذات لون نابض وطويل الأمد مع تغطية 100% للشيب وزيت الأرغان – 303/0 بني غامق"
+          "rank": 8,
+          "asin": "B00ST2GSRK",
+          "title": "لاروش بوزيه سيكابلاست بوم +B5 بلسم ملطف ومرطب فائق الترميم، كريم متعدد الاستخدامات لإصلاح البشرة الجافة والمتهيجة، عناية للوج"
         },
         {
-          "rank": 21,
+          "rank": 9,
+          "asin": "B077SJGVZ4",
+          "title": "NIVEA Body Lotion for Dry Skin, Cocoa Butter with 100% Pure Hyaluron, 48H Deep Moisture, 400ml"
+        },
+        {
+          "rank": 10,
+          "asin": "B07P8P7ZX6",
+          "title": "لوشن ترطيب الجسم بمستخلص زيت اللوز المغذي وفيتامين E للبشرة الجافة للغاية من نيفيا، 625 مل"
+        },
+        {
+          "rank": 11,
+          "asin": "B076F7C6SB",
+          "title": "جونسون غسول الجسم المغذي بتوت العليق، 400مل، يساعد بشرتك على الشعور بمزيد من الحيوية والانتعاش، غسول جل الاستحمام للجسم، للعن"
+        },
+        {
+          "rank": 12,
+          "asin": "B07MW1NPXJ",
+          "title": "جل كريم للحماية من الشمس والتحكم في الزيوت بعامل حماية من اشعة الشمس بدرجة 50 من يوسيرن، سعة 50 مل، لنوع البشرةزيتية"
+        },
+        {
+          "rank": 13,
+          "asin": "B0CJ5GW8RY",
+          "title": "ماسكارا بانوراما من لوريال باريس، أسود"
+        },
+        {
+          "rank": 14,
+          "asin": "B0FPMJ4CTQ",
+          "title": "فيليبس ماكينة تشذيب وحلاقة للجسم BG3485/15 | رطب وجاف 100% | نتائج قريبة ومريحة للبشرة | أمشاط 2 و3 و5 مم | حتى 80 دقيقة لاسل"
+        },
+        {
+          "rank": 15,
+          "asin": "B07NF74H3B",
+          "title": "غسول يدين توتال 10 من لايفبوي، بسعة 200 مل"
+        },
+        {
+          "rank": 16,
+          "asin": "B01AVQUFUW",
+          "title": "QV مضخة كريم 500 غرام مع الجلسرين - مرطب واقي غني للبشرة الجافة الى الجافة جدا والحساسة - خالية من العطور ولا تسبب المسكنات ل"
+        },
+        {
+          "rank": 17,
+          "asin": "B01CKN68JQ",
+          "title": "مزيل عرق رول-أون من يورياج برائحة منعشة للجنسين، 1.7 أونصة سائلة، حماية 24 ساعة وخالٍ من الكحول ومضاد للتعرق"
+        },
+        {
+          "rank": 18,
           "asin": "B07P75T6FV",
           "title": "لوكس شاور جل برائحة الياسمين المخملي، 700 مل"
         },
         {
+          "rank": 19,
+          "asin": "B00PJZSEIQ",
+          "title": "ويلا كولستون إنتنس – صبغة شعر ذات لون نابض وطويل الأمد مع تغطية 100% للشيب وزيت الأرغان – 303/0 بني غامق"
+        },
+        {
+          "rank": 20,
+          "asin": "B08BKV14JQ",
+          "title": "بيبانثين كريم مرطب للبشرة، 30 غرام"
+        },
+        {
+          "rank": 21,
+          "asin": "B07P154269",
+          "title": "غسول اليدين المعطر بملمس مخملي من لوكس، 500 مل"
+        },
+        {
           "rank": 22,
-          "asin": "B0BC8Z564T",
-          "title": "كريم ترطيب شامل لجميع الاغراض للوجه والجسم واليدين من نيفيا سعة 250 مل من 3 قطع"
+          "asin": "B000SI95R8",
+          "title": "كريم ترطيب كريم من نيفيا عالمي ومتعدد الاغراض للوجه والجسم واليدين من علبة معدنية بسعة 400 مل"
         },
         {
           "rank": 23,
-          "asin": "B01CKN68JQ",
-          "title": "مزيل عرق رول-أون من يورياج برائحة منعشة للجنسين، 1.7 أونصة سائلة، حماية 24 ساعة وخالٍ من الكحول ومضاد للتعرق"
+          "asin": "B07MTX97N7",
+          "title": "نيتروجينا جل مائي هيدرو بوست، 50 مل، جل مرطب للوجه، نظام ترطيب كامل للعناية بالبشرة مع حمض الهيالورونيك، خفيف الوزن، غير كومي"
         },
         {
           "rank": 24,
@@ -2376,118 +2376,118 @@
         },
         {
           "rank": 25,
-          "asin": "B07MTX97N7",
-          "title": "نيتروجينا جل مائي هيدرو بوست، 50 مل، جل مرطب للوجه، نظام ترطيب كامل للعناية بالبشرة مع حمض الهيالورونيك، خفيف الوزن، غير كومي"
+          "asin": "B07NF7SP9L",
+          "title": "غسول سائل لليدين مضاد للبكتيريا وغني بالجلسرين من لوكس، غسول فيلفيت جاسمين لجميع انواع البشرة، 250 مل"
         },
         {
           "rank": 26,
-          "asin": "B000O7JOT2",
-          "title": "فيشي مزيل العرق ملطف للبشرة الحساسة يدوم لمدة ٤٨ ساعة مناسب للرجال و النساء ٥٠ مل"
-        },
-        {
-          "rank": 27,
           "asin": "B07C5SKVL7",
           "title": "لوشن مرطب من سيرافي"
         },
         {
-          "rank": 28,
-          "asin": "B07P8B4GCL",
-          "title": "غسول الجسم برائحة المسك الساحر من لوكس، 700 مل"
-        },
-        {
-          "rank": 29,
-          "asin": "B07MMFCXDN",
-          "title": "صبغة شعر كولور ناتشورالز من غارنييه 3 بني داكن"
-        },
-        {
-          "rank": 30,
+          "rank": 27,
           "asin": "B07CH8F17Q",
           "title": "سيرا في كريم مرطب للبشرة الجافة الى الجافة جدا مع حمض الهيالورونيك 50 مل"
         },
         {
-          "rank": 31,
-          "asin": "B0015SXSKK",
-          "title": "فازلين جل للجسم بالكاكاو للعناية المركزة 200 مل"
-        },
-        {
-          "rank": 32,
-          "asin": "B07MW4GKZD",
-          "title": "نيزورال شامبو ضد القشرة 100 مل"
-        },
-        {
-          "rank": 33,
-          "asin": "B07NF7W3C9",
-          "title": "غسول الجسم برائحة الكركديه الرومانسية اوبولينت برائحة تدوم لمدة 30 ساعة من لوكس، بزيت ايفرسنت العطري، 700 مل"
-        },
-        {
-          "rank": 34,
+          "rank": 28,
           "asin": "B079XX76RM",
           "title": "Bioderma Atoderm Ultra Nourishing Cream"
         },
         {
-          "rank": 35,
-          "asin": "B07N72T859",
-          "title": "شامبو من دوڤ للشعر التالف، معالجة التلف، بمكونات طبيعية ومناسب للاستخدام اليومي، عبوة واحدة، 400 مليلتر"
-        },
-        {
-          "rank": 36,
-          "asin": "B07P154269",
-          "title": "غسول اليدين المعطر بملمس مخملي من لوكس، 500 مل"
-        },
-        {
-          "rank": 37,
-          "asin": "B007B8UOPK",
-          "title": "كونسيلر فيت مي من ميبيلين، 25 ميديوم، خافي عيوب فيت مي من ميبيلين رقم. 25 متوسط"
-        },
-        {
-          "rank": 38,
-          "asin": "B07G2RBR5B",
-          "title": "جونسون غسول الجسم المغذي بزهرة الرمان، 400مل يساعد بشرتك على الشعور بمزيد من الحيوية والانتعاش، غسول جل الاستحمام للجسم، للعن"
-        },
-        {
-          "rank": 39,
-          "asin": "B0B5PKVC1M",
-          "title": "لوكس غسول اليدين السائل المعطر برائحة الورد الناعم بزيت اللوز والجليسرين، لليدين المعطرة والناعمة والنظيفة، 1 لتر"
-        },
-        {
-          "rank": 40,
-          "asin": "B08CJ1PTQ4",
-          "title": "صابون لوكس لبشرة خالية من العيوب، ليلي، مع فيتامين C وE والجليسرين، 75 جرام × 6 قطع"
-        },
-        {
-          "rank": 41,
-          "asin": "B09PNCS8J9",
-          "title": "شامبو للشعر التالف لإصلاح مكثف وعناية مغذية لشعر صحي 100% من دوف، 1.0 ل"
-        },
-        {
-          "rank": 42,
-          "asin": "B071S2167T",
-          "title": "لوح صابون مرطب بتركيبة مغذية لجميع أنواع البشرة مع 1/4 كريم مرطب من دوف، 125 جم، عبوة من 4 قطع"
-        },
-        {
-          "rank": 43,
+          "rank": 29,
           "asin": "B0835KVH99",
           "title": "شفرة حلاقة من جيليت بتصميم قابل للتصرف مصنوعة من الكروم للرجال باللون الأزرق، عبوة من 14 قطعة"
         },
         {
-          "rank": 44,
+          "rank": 30,
+          "asin": "B07MW4GKZD",
+          "title": "نيزورال شامبو ضد القشرة 100 مل"
+        },
+        {
+          "rank": 31,
+          "asin": "B07MMFCXDN",
+          "title": "صبغة شعر كولور ناتشورالز من غارنييه 3 بني داكن"
+        },
+        {
+          "rank": 32,
+          "asin": "B0FBM6QRD9",
+          "title": "قناع من دوف للشعر التالف 220 مليلتر للتقوية والحماية من التلف والإصلاح بعناية بروتين حيوي وأمينو سيروم مع ترميم مكثف وتنعيم و"
+        },
+        {
+          "rank": 33,
+          "asin": "B01ED2X73C",
+          "title": "ماكينة حلاقة من جيليت فينوس سيمبل 3 يمكن التخلص منها مصنوعة من البلاستيك للنساء باللون الوردي، عبوة من 12 قطعة"
+        },
+        {
+          "rank": 34,
+          "asin": "B000O7JOT2",
+          "title": "فيشي مزيل العرق ملطف للبشرة الحساسة يدوم لمدة ٤٨ ساعة مناسب للرجال و النساء ٥٠ مل"
+        },
+        {
+          "rank": 35,
+          "asin": "B07G2RBR5B",
+          "title": "جونسون غسول الجسم المغذي بزهرة الرمان، 400مل يساعد بشرتك على الشعور بمزيد من الحيوية والانتعاش، غسول جل الاستحمام للجسم، للعن"
+        },
+        {
+          "rank": 36,
+          "asin": "B07P67Q998",
+          "title": "غسول الجسم برائحة سحر زهرة الأوركيد من لوكس، عطر يدوم 30 ساعة، مع زيت ايفرسنت العطري، 700 مل"
+        },
+        {
+          "rank": 37,
+          "asin": "B09PNCS8J9",
+          "title": "شامبو للشعر التالف لإصلاح مكثف وعناية مغذية لشعر صحي 100% من دوف، 1.0 ل"
+        },
+        {
+          "rank": 38,
+          "asin": "B08CJ1PTQ4",
+          "title": "صابون لوكس لبشرة خالية من العيوب، ليلي، مع فيتامين C وE والجليسرين، 75 جرام × 6 قطع"
+        },
+        {
+          "rank": 39,
+          "asin": "B09R6YBFJJ",
+          "title": "بانتين كريم بديل بديل لزيت ميلكي داميدج من برو-في، 275 مل"
+        },
+        {
+          "rank": 40,
+          "asin": "B07NF7W3C9",
+          "title": "غسول الجسم برائحة الكركديه الرومانسية اوبولينت برائحة تدوم لمدة 30 ساعة من لوكس، بزيت ايفرسنت العطري، 700 مل"
+        },
+        {
+          "rank": 41,
           "asin": "B08YFZ1TY3",
           "title": "غسول جسم لايف بوي توتال 10 بسعة 700 مل"
         },
         {
+          "rank": 42,
+          "asin": "B08WR5CPNB",
+          "title": "ماسكارا لاش سينسيشنال سكاي هاي لتطويل وتكثيف الرموش من ميبيلين نيويورك، لون اسود"
+        },
+        {
+          "rank": 43,
+          "asin": "B07P8B4GCL",
+          "title": "غسول الجسم برائحة المسك الساحر من لوكس، 700 مل"
+        },
+        {
+          "rank": 44,
+          "asin": "B071S2167T",
+          "title": "لوح صابون مرطب بتركيبة مغذية لجميع أنواع البشرة مع 1/4 كريم مرطب من دوف، 125 جم، عبوة من 4 قطع"
+        },
+        {
           "rank": 45,
-          "asin": "B0CVQS9NK4",
-          "title": "فيليبس ماكينة OneBlade QP2724/20 | تشذيب، تحديد، وحلاقة أي طول للشعر | مشط قابل للتعديل 5 في 1، شفرة مزدوجة الجوانب | 45 دقيق"
+          "asin": "B0F83MZK2Y",
+          "title": "L’Oreal Paris Elvive Glycolic Gloss Shampoo, 3% Gloss Complex with [Glycolic Acid], 400 ml"
         },
         {
           "rank": 46,
-          "asin": "B08Y9V8TFM",
-          "title": "غسول اليدين لتجديد شباب البشرة 3 × 200 مل من ديرموفيفا، يُعيد نضارة البشرة المتقدمة في السن، بخلاصة البابونج والقراص، اشتر 2"
+          "asin": "B0155N6RYE",
+          "title": "رغوة لفروة الرأس للرجال لعلاج تساقط الشعر وإعادة نموه من ريجين، غني بالمينوكسيديل، 3 عبوات بسعة 73 مل تكفي لـ3 اشهر"
         },
         {
           "rank": 47,
-          "asin": "B09MBZR7QH",
-          "title": "شامبو معالجة الرطوبة ناتشورالز من فاتيكا - 1000 مل | اللوز والعسل | ينعم ويضيف اللمعان وسهولة التحكم | للشعر الجاف والمجعد وا"
+          "asin": "B08Y9VHQCR",
+          "title": "غسول اليدين المضاد للبكتيريا من ديرموفيفا، 200 مل، مجموعة من 3 قطع"
         },
         {
           "rank": 48,
@@ -2496,19 +2496,19 @@
         },
         {
           "rank": 49,
-          "asin": "B09SV5N9FT",
-          "title": "شامبو الفيف هايالورون للكثافة والترطيب، بترطيب يدوم 72 ساعة من لوريال باريس، بحجم 600 مل"
+          "asin": "B07MV12R61",
+          "title": "غسول يدين مغذي من دوف، يغذي بعمق، 500 مل"
         },
         {
           "rank": 50,
-          "asin": "B0C3MQ3MDW",
-          "title": "مزيل عرق أيروسول من نيفيا برائحة منعش كيك للرجال، سعة 450 مليلتر، حماية 72 ساعة وسريع الجفاف وخالٍ من الكحول"
+          "asin": "B08CG13WY8",
+          "title": "صبغة شعر اوليا من غارنييه، خالية من الامونيا، بزيوت بنسبة 60%، بدرجة لون 4.0 دارك براون"
         }
       ]
     },
     "EG": {
       "country": "EG",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -2518,98 +2518,98 @@
       "items": [
         {
           "rank": 1,
-          "asin": "B07MMFCTCX",
-          "title": "ماء تنظيف سكين اكتيف ميسيلار كلاسيك من غارنييه، 100 مل"
-        },
-        {
-          "rank": 2,
-          "asin": "B07MVV66DH",
-          "title": "غسول الوجه سكين اكتيف فاست برايت من غارنييه بفيتامين سي والليمون - 100 مل"
-        },
-        {
-          "rank": 3,
           "asin": "B07MV12R61",
           "title": "غسول اليدين دوف بترطيب عميق مُعزز بـ ¼ كريم مرطب للحصول على يدين ناعمتين وملساء، سعة 500 مل"
         },
         {
-          "rank": 4,
+          "rank": 2,
+          "asin": "B07MMFCTCX",
+          "title": "ماء تنظيف سكين اكتيف ميسيلار كلاسيك من غارنييه، 100 مل"
+        },
+        {
+          "rank": 3,
           "asin": "B0FKHGKKD2",
           "title": "جل استحمام معطر برائحة الاوركيد السحرية يدوم لمدة 30 ساعة من لوكس، 500 مل"
         },
         {
-          "rank": 5,
+          "rank": 4,
           "asin": "B0BTX9YFGZ",
           "title": "منظف الوجه للبشرة المعرضة لحب الشباب من ستارفيل، 400 مل"
         },
         {
-          "rank": 6,
+          "rank": 5,
           "asin": "B0CZCC39XQ",
           "title": "قناع وجه بزيت شجرة الشاي وفيتامين E من ستارفيل، 1 ورقة، سيليكون، أخضر"
         },
         {
+          "rank": 6,
+          "asin": "B07MVV66DH",
+          "title": "غسول الوجه سكين اكتيف فاست برايت من غارنييه بفيتامين سي والليمون - 100 مل"
+        },
+        {
           "rank": 7,
-          "asin": "B09P8GM8GJ",
-          "title": "أحمر شفاه من سيبيل ستيك بلون بينكي بيج 303"
-        },
-        {
-          "rank": 8,
-          "asin": "B0BXB2CNQ3",
-          "title": "جل هيدرو لتنظيف الوجه من فاكيشن، 200 مل، ابيض/اخضر"
-        },
-        {
-          "rank": 9,
           "asin": "B092312R94",
           "title": "ماكينة حلاقة شعر قابلة للشحن للرجال من في جي ار، موديل فضي ودهبي V-071"
         },
         {
-          "rank": 10,
-          "asin": "B0968YDSDB",
-          "title": "سافانا صابون كلاسيكي 120 جرام (حزمة × 4)"
-        },
-        {
-          "rank": 11,
-          "asin": "B08WJL2CJV",
-          "title": "ديفا سائل لليدين 500 مل الترا جارد (قد تختلف العبوة)"
-        },
-        {
-          "rank": 12,
-          "asin": "B07FZMWXKR",
-          "title": "شامبو الفيف اكسترا اورديناري بزيت الجوجوبا من لوريال باريس، سعة 400 مل"
-        },
-        {
-          "rank": 13,
-          "asin": "B07NP92L9P",
-          "title": "شفرة حلاقة يدوية من كوين باي لورد بنمط خرطوشة مصنوعة من المطاط للنساء باللون الوردي، عبوة من 4 قطع"
-        },
-        {
-          "rank": 14,
-          "asin": "B08YY2X5KR",
-          "title": "بودرة خدود سموث اند وير من سيبيل، روز كوتور 11 - 3.7 جم"
-        },
-        {
-          "rank": 15,
+          "rank": 8,
           "asin": "B0CZ94NRQW",
           "title": "وسادات قطنية عضوية بيضاء (مزيل المكياج"
         },
         {
-          "rank": 16,
+          "rank": 9,
+          "asin": "B09P8GM8GJ",
+          "title": "أحمر شفاه من سيبيل ستيك بلون بينكي بيج 303"
+        },
+        {
+          "rank": 10,
+          "asin": "B0BXB2CNQ3",
+          "title": "جل هيدرو لتنظيف الوجه من فاكيشن، 200 مل، ابيض/اخضر"
+        },
+        {
+          "rank": 11,
+          "asin": "B08YY2X5KR",
+          "title": "بودرة خدود سموث اند وير من سيبيل، روز كوتور 11 - 3.7 جم"
+        },
+        {
+          "rank": 12,
+          "asin": "B07NP92L9P",
+          "title": "شفرة حلاقة يدوية من كوين باي لورد بنمط خرطوشة مصنوعة من المطاط للنساء باللون الوردي، عبوة من 4 قطع"
+        },
+        {
+          "rank": 13,
           "asin": "B0DC5F7P3N",
           "title": "سيروم معالجة الرموش من كابيكسي بألوان متعددة للجنسين بحجم 10 مل"
         },
         {
-          "rank": 17,
-          "asin": "B01FN772MS",
-          "title": "سيروم زيت الفيف اكسترا اورديناري من لوريال باريس لأنواع الشعر الجاف، 100 مل"
+          "rank": 14,
+          "asin": "B08WJQ45WP",
+          "title": "صابون سائل لليدين مع مضخة من فريدا هاندز، 520 غرام مع زجاجة صابون سائل لليدين من الساحل الشمالي، 520 غرام"
         },
         {
-          "rank": 18,
+          "rank": 15,
           "asin": "B07ZYCC467",
           "title": "نيفيا مزيل عرق رجالي دييب برون 50 مل"
         },
         {
-          "rank": 19,
+          "rank": 16,
           "asin": "B07MTTLNF7",
           "title": "مزيل عرق رول أون من نيفيا برائحة أصلية للرجال، سعة 50 مليلتر، حماية 48 ساعة ويمنع العلامات البيضاء والبقع الصفراء"
+        },
+        {
+          "rank": 17,
+          "asin": "B0BY8VRF96",
+          "title": "جل استحمام من ريفولي، ارجواني، 3 لتر"
+        },
+        {
+          "rank": 18,
+          "asin": "B091NYH58B",
+          "title": "مضاد العرق رول اون للنساء 60 مل ستارفيل لايتنينج، عديم الرائحة"
+        },
+        {
+          "rank": 19,
+          "asin": "B08WJJGMC1",
+          "title": "زيت الخروع من امتنان- 25 مل"
         },
         {
           "rank": 20,
@@ -2618,83 +2618,83 @@
         },
         {
           "rank": 21,
-          "asin": "B08WJQ45WP",
-          "title": "صابون سائل لليدين مع مضخة من فريدا هاندز، 520 غرام مع زجاجة صابون سائل لليدين من الساحل الشمالي، 520 غرام"
-        },
-        {
-          "rank": 22,
-          "asin": "B0BY8VRF96",
-          "title": "جل استحمام من ريفولي، ارجواني، 3 لتر"
-        },
-        {
-          "rank": 23,
-          "asin": "B091NYH58B",
-          "title": "مضاد العرق رول اون للنساء 60 مل ستارفيل لايتنينج، عديم الرائحة"
-        },
-        {
-          "rank": 24,
-          "asin": "B07MW1FL4H",
-          "title": "فوج دايناميك عطر بخاخ للجسم للرجال يدوم طويلا بدون غاز 120 مل"
-        },
-        {
-          "rank": 25,
-          "asin": "B086DTP966",
-          "title": "فلورمار قلم تحديد شفاه مقاوم للماء - 244 شوكولاتة فوندو - قابل للمزج ويدوم طويلا ومقاوم للماء بطرف دقيق وناعم"
-        },
-        {
-          "rank": 26,
-          "asin": "B08WJJGMC1",
-          "title": "زيت الخروع من امتنان- 25 مل"
-        },
-        {
-          "rank": 27,
-          "asin": "B07LG24QPF",
-          "title": "مزيل عرق رول اون من نيفيا للرجال، مضاد للبكتيريا بلون اسود داكن، برائحة الخشب ، 50 مل"
-        },
-        {
-          "rank": 28,
-          "asin": "B0F1YZVL5R",
-          "title": "كريم مغذٍ ومصفف للشعر مضاد للتطاير (200 مل)"
-        },
-        {
-          "rank": 29,
-          "asin": "B0FKHH7NK3",
-          "title": "جل استحمام مرطب من لوكس سوفت روز لجميع انواع البشرة، 500 مل"
-        },
-        {
-          "rank": 30,
           "asin": "B0FM8CRZHN",
           "title": "كريم بانثينول الوردي لتفتيح وترطيب للمناطق الحساسة، تركيبة تحتوي على بانثينول وفيتامين سي واي وألفا أربوتين ونياسيناميد، للتر"
         },
         {
-          "rank": 31,
-          "asin": "B08WJL45KJ",
-          "title": "صابونة حمض الساليسليك من خمس خمسات، 50 جم"
+          "rank": 22,
+          "asin": "B07FZMWXKR",
+          "title": "شامبو الفيف اكسترا اورديناري بزيت الجوجوبا من لوريال باريس، سعة 400 مل"
         },
         {
-          "rank": 32,
-          "asin": "B0FKKL4MQL",
-          "title": "شامبو الفيف توتال ريبير 5 لإصلاح الشعر من لوريال باريس، 400 مل (عبوة من قطعتين)"
+          "rank": 23,
+          "asin": "B07MW1FL4H",
+          "title": "فوج دايناميك عطر بخاخ للجسم للرجال يدوم طويلا بدون غاز 120 مل"
         },
         {
-          "rank": 33,
-          "asin": "B0H2JWC43T",
-          "title": "مرطب شفاه فاكيشن أكوا ريبير بنكهة الفراولة والعلكة، عامل حماية من الشمس SPF 30"
+          "rank": 24,
+          "asin": "B07LG24QPF",
+          "title": "مزيل عرق رول اون من نيفيا للرجال، مضاد للبكتيريا بلون اسود داكن، برائحة الخشب ، 50 مل"
         },
         {
-          "rank": 34,
+          "rank": 25,
           "asin": "B08WJQ4ZGF",
           "title": "ماسكارا ثلاثية الابعاد من سيبيل - دارك بلاك، أسود | فرشاة منحنية مقعرة"
         },
         {
+          "rank": 26,
+          "asin": "B0BPTGPQ1Z",
+          "title": "شان حليب الجسم 300 مل"
+        },
+        {
+          "rank": 27,
+          "asin": "B0H2JWC43T",
+          "title": "مرطب شفاه فاكيشن أكوا ريبير بنكهة الفراولة والعلكة، عامل حماية من الشمس SPF 30"
+        },
+        {
+          "rank": 28,
+          "asin": "B09WNH5PKZ",
+          "title": "رول اون لتفتيح البشرة من ستارفيل، بينك فاتح، 60 مل، جوز الهند"
+        },
+        {
+          "rank": 29,
+          "asin": "B0GHFQTPMJ",
+          "title": "حمض الهيالورونيك لتكبير الشفاه من الببتيد (بيوني بينك) - 9 مل"
+        },
+        {
+          "rank": 30,
+          "asin": "B0976FWQDX",
+          "title": "كريم ترطيب مويست- 1 - 100 مل، من بوركس"
+        },
+        {
+          "rank": 31,
+          "asin": "B08WJL2CJV",
+          "title": "ديفا سائل لليدين 500 مل الترا جارد (قد تختلف العبوة)"
+        },
+        {
+          "rank": 32,
+          "asin": "B0FKHH7NK3",
+          "title": "جل استحمام مرطب من لوكس سوفت روز لجميع انواع البشرة، 500 مل"
+        },
+        {
+          "rank": 33,
+          "asin": "B0GV21Q55M",
+          "title": "لوشن اليوريا بزبدة الشيا والسيراميد بتركيز 20% يوريا للتغذية العميقة لجميع أنواع البشرة من نوفيراكوزميتكس، 200 مل"
+        },
+        {
+          "rank": 34,
+          "asin": "B08WJL45KJ",
+          "title": "صابونة حمض الساليسليك من خمس خمسات، 50 جم"
+        },
+        {
           "rank": 35,
-          "asin": "B08WJLGWBV",
-          "title": "أحمر شفاه ريتش كريم من سيبيلي - وردي ملكي 127 - 5 جم"
+          "asin": "B0D7KBL2WG",
+          "title": "زجاجة بخاخ عطر للسفر سهلة الملء من الزجاج والمعدن ألوان عشوائية"
         },
         {
           "rank": 36,
-          "asin": "B0D7KBL2WG",
-          "title": "زجاجة بخاخ عطر للسفر سهلة الملء من الزجاج والمعدن ألوان عشوائية"
+          "asin": "B0F1YZVL5R",
+          "title": "كريم مغذٍ ومصفف للشعر مضاد للتطاير (200 مل) | مضاد لتجعد الشعر"
         },
         {
           "rank": 37,
@@ -2703,74 +2703,74 @@
         },
         {
           "rank": 38,
-          "asin": "B007B8UO9G",
-          "title": "كونسيلر فيت مي للعيون من ميبيلين نيويورك - لون ساند 20"
+          "asin": "B086DTP966",
+          "title": "فلورمار قلم تحديد شفاه مقاوم للماء - 244 شوكولاتة فوندو - قابل للمزج ويدوم طويلا ومقاوم للماء بطرف دقيق وناعم"
         },
         {
           "rank": 39,
-          "asin": "B0C7YKP9HM",
-          "title": "قالب صابون رومانتيك من كاماي، 165 جرام"
+          "asin": "B0BL3PRB3F",
+          "title": "بلانكي كريم الشعر للأطفال - 120 مل"
         },
         {
           "rank": 40,
-          "asin": "B0C7YBYCM6",
-          "title": "قالب صابون سوفيستيك من كاماي، 165 جرام"
+          "asin": "B0DVCSTC9H",
+          "title": "حليب مرطب للجسم من دير - 300 مل - مع زيت جوز الهند | زبدة الشيا | زيت الارغان | مغذي وترطيب | تجديد البشرة | بشرة ناعمة للوجه"
         },
         {
           "rank": 41,
-          "asin": "B09WNH5PKZ",
-          "title": "رول اون لتفتيح البشرة من ستارفيل، بينك فاتح، 60 مل، جوز الهند"
-        },
-        {
-          "rank": 42,
-          "asin": "B09SV89W85",
-          "title": "شامبو الفيف هايالورون لترطيب الشعر وزيادة كثافته من لوريال باريس، ترطيب يدوم 72 ساعة، حجم 200مل، متعدد الالوان"
-        },
-        {
-          "rank": 43,
-          "asin": "B0FWZPPKMC",
-          "title": "قناع من سيروبايب للشعر التالف 225 مليلتر مغذي ومرطب ويقلل التجعد وتكسر الشعر ويعزز نموه بأحماض دهنية مغذية"
-        },
-        {
-          "rank": 44,
-          "asin": "B0976G7QQV",
-          "title": "لوح صابون استحمام بارد مضاد للبكتيريا لحماية فعالة من الجراثيم والنظافة الشخصية والحماية من الروائح الكريهة برائحة النعناع وا"
-        },
-        {
-          "rank": 45,
           "asin": "B07ZYD7FLT",
           "title": "نيفيا مزيل عرق رجالي دييب برون 150 مل"
         },
         {
+          "rank": 42,
+          "asin": "B01FN772MS",
+          "title": "سيروم زيت الفيف اكسترا اورديناري من لوريال باريس لأنواع الشعر الجاف، 100 مل"
+        },
+        {
+          "rank": 43,
+          "asin": "B08WJLGWBV",
+          "title": "أحمر شفاه ريتش كريم من سيبيلي - وردي ملكي 127 - 5 جم"
+        },
+        {
+          "rank": 44,
+          "asin": "B0CZC5WVB1",
+          "title": "قناع الوجه المبيض من ستارفيل، ورقة واحدة"
+        },
+        {
+          "rank": 45,
+          "asin": "B084JHK8TK",
+          "title": "بلسم إلفيف إكسترا أورديناري أويل للشعر العادي إلى الجاف من لوريال باريس - 360 مل"
+        },
+        {
           "rank": 46,
-          "asin": "B007UI6WU2",
-          "title": "بخاخ مضاد للتعرق للنساء من نيفيا، بيرل اند بيوتي بمستخلصات اللؤلؤ، 150 مل، عديم الرائحة"
+          "asin": "B0CQHPMPD8",
+          "title": "لوشن من روت تو إند للشعر الجاف والتالف 400 مليلتر يرطب ويفك التشابك ويغذي بزبدة الشيا وزيت الأرغان وزيت الجوجوبا طبيعي ومصلح"
         },
         {
           "rank": 47,
-          "asin": "B0GV21Q55M",
-          "title": "لوشن اليوريا بزبدة الشيا والسيراميد بتركيز 20% يوريا للتغذية العميقة لجميع أنواع البشرة من نوفيراكوزميتكس، 200 مل"
+          "asin": "B0CVQ8JKGT",
+          "title": "بلسم ليف ان من كلاري، 300 مل - للجنسين، خال من السيليكون، 250 مل"
         },
         {
           "rank": 48,
-          "asin": "B0GHFQTPMJ",
-          "title": "حمض الهيالورونيك لتكبير الشفاه من الببتيد (بيوني بينك) - 9 مل"
+          "asin": "B07PRZ8HXY",
+          "title": "رول اون مزيل العرق بيرل اند بيوتي من نيفيا 50 مل، عديم الرائحة، للنساء، 50.0 ملليلتر"
         },
         {
           "rank": 49,
-          "asin": "B0976FWQDX",
-          "title": "كريم ترطيب مويست- 1 - 100 مل، من بوركس"
+          "asin": "B0CCY4H8WH",
+          "title": "زيت شعر هيربسينديا روزماري و7 بذور عشبية مع انبوب مغذي | يجعل الشعر اطول ولامعا | خالي من السيليكون والبارابين | 180 مل"
         },
         {
           "rank": 50,
-          "asin": "B0CZC5WVB1",
-          "title": "قناع الوجه المبيض من ستارفيل، ورقة واحدة"
+          "asin": "B0D5BPZGHS",
+          "title": "منظف الوجه للبشرة المعرضة لحب الشباب من ستارفيل - 400 مل"
         }
       ]
     },
     "BR": {
       "country": "BR",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -2780,8 +2780,8 @@
       "items": [
         {
           "rank": 1,
-          "asin": "B07LFGWRC7",
-          "title": "Clear Shampoo Men Anticaspa Ice Cool Menthol 400Ml | Anticaspa mentolado refrescante"
+          "asin": "B0GZ7535SW",
+          "title": "Secret Clinical Desodorante Antitranspirante em Gel Lavanda Invisível 45 g"
         },
         {
           "rank": 2,
@@ -2790,8 +2790,8 @@
         },
         {
           "rank": 3,
-          "asin": "B0B5YF3HSW",
-          "title": "Bellacotton Algodão Quadrado Baby 100% Algodão Macio – 100 Unidades"
+          "asin": "B0CXBJMSQF",
+          "title": "Dove Óleo + Sérum Bifásico Bond Intense Repair 110 ml"
         },
         {
           "rank": 4,
@@ -2800,158 +2800,158 @@
         },
         {
           "rank": 5,
-          "asin": "B072MK7BN2",
-          "title": "La Roche-Posay Cicaplast Baume B5+ Cuidado Multirreparador Calmante"
+          "asin": "B0CVXT2K1S",
+          "title": "Pantene Pro-V Óleo Capilar Queratina Milagroso Finalizador Leave-in 95 ml"
         },
         {
           "rank": 6,
-          "asin": "B088Z64C82",
-          "title": "Dove Sabonete Em Barra Branco 90G - 8 Unidades | Limpeza hidratante em pack"
-        },
-        {
-          "rank": 7,
-          "asin": "B0BD6755LC",
-          "title": "NIVEA SUN Protetor Solar Facial Toque Seco Antissinais FPS 70 40ml - Com muito alta proteção contra raios UVA/UVB, controla o"
-        },
-        {
-          "rank": 8,
-          "asin": "B09KCYYZNG",
-          "title": "Densidade Acidificante Capilar 250g, Lola Cosmetics | Praticidade no dia a dia – 250g"
-        },
-        {
-          "rank": 9,
-          "asin": "B00UYG172U",
-          "title": "NIVEA Hidratante Labial Original Care 4,8g, Hidratação Intensa 24h, Protege contra Ressecamento, Cuidado Diário, Manteiga de"
-        },
-        {
-          "rank": 10,
-          "asin": "B0CWB2H5JX",
-          "title": "Eudora SIàge Promopack Hair-Plastia | Alinha e repara os fios"
-        },
-        {
-          "rank": 11,
-          "asin": "B0G45KPX15",
-          "title": "Máscara de Tratamento Elseve L'Oréal Paris Colágeno Encorpador 300g | Efeito teia, mais volume e densidade aos fios, ideal pa"
-        },
-        {
-          "rank": 12,
-          "asin": "B0F3K1H34H",
-          "title": "Secret Desodorante Antitranspirante em Gel Proteção de Algodão 73 g"
-        },
-        {
-          "rank": 13,
           "asin": "B0CZC5XTVJ",
           "title": "Secret Desodorante Antitranspirante em Gel Berry 45g"
         },
         {
+          "rank": 7,
+          "asin": "B0B5YF3HSW",
+          "title": "Bellacotton Algodão Quadrado Baby 100% Algodão Macio – 100 Unidades"
+        },
+        {
+          "rank": 8,
+          "asin": "B072MK7BN2",
+          "title": "La Roche-Posay Cicaplast Baume B5+ Cuidado Multirreparador Calmante"
+        },
+        {
+          "rank": 9,
+          "asin": "B088Z64C82",
+          "title": "Dove Sabonete Em Barra Branco 90G - 8 Unidades | Limpeza hidratante em pack"
+        },
+        {
+          "rank": 10,
+          "asin": "B0G45KPX15",
+          "title": "Máscara de Tratamento Elseve L'Oréal Paris Colágeno Encorpador 300g | Efeito teia, mais volume e densidade aos fios, ideal pa"
+        },
+        {
+          "rank": 11,
+          "asin": "B0BD6755LC",
+          "title": "NIVEA SUN Protetor Solar Facial Toque Seco Antissinais FPS 70 40ml - Com muito alta proteção contra raios UVA/UVB, controla o"
+        },
+        {
+          "rank": 12,
+          "asin": "B07LFGWRC7",
+          "title": "Clear Shampoo Men Anticaspa Ice Cool Menthol 400Ml | Anticaspa mentolado refrescante"
+        },
+        {
+          "rank": 13,
+          "asin": "B00UYG172U",
+          "title": "NIVEA Hidratante Labial Original Care 4,8g, Hidratação Intensa 24h, Protege contra Ressecamento, Cuidado Diário, Manteiga de"
+        },
+        {
           "rank": 14,
-          "asin": "B0DC74428B",
-          "title": "Dove Óleo de Banho Hidratação Intensa e Limpeza Delicada, Glicerinado com 96% Ingredientes de Origem Natural 240 ml"
-        },
-        {
-          "rank": 15,
-          "asin": "B07F3CJZJW",
-          "title": "Gillette Mach3 Sensitive Carga para Aparelho de Barbear com Aloe 8 Unidades"
-        },
-        {
-          "rank": 16,
-          "asin": "B07SBXMSGB",
-          "title": "Argan Óleo Reparador 50ml , Lola Cosmetics | Fios brilhantes e reparação"
-        },
-        {
-          "rank": 17,
-          "asin": "B074LTNQBP",
-          "title": "Morte Súbita Máscara Super Hidratante 450g , Lola Cosmetics | Hidratação profunda para fios – 450g"
-        },
-        {
-          "rank": 18,
-          "asin": "B07LFLRQXP",
-          "title": "NIVEA Hidratante Labial Amora Shine 4,8g, Hidratação Intensa 24h, Cor Suave, Brilho Delicado, Cuidado Diário, Manteiga de Kar"
-        },
-        {
-          "rank": 19,
-          "asin": "B079VXJK79",
-          "title": "Cetaphil Creme Hidratante"
-        },
-        {
-          "rank": 20,
-          "asin": "B077BY8HQV",
-          "title": "Protetor Solar Nivea Sun Kids & Babies, FPS 60, 125ml | Pele Sensível, Proteção UVA/UVB, Proteção Imediata, Muito Resistente"
-        },
-        {
-          "rank": 21,
-          "asin": "B0DK4975DJ",
-          "title": "NIVEA Kit Loção Hidratante Milk Pele Seca a Extrasseca 400ml (2 unidades)"
-        },
-        {
-          "rank": 22,
           "asin": "B079VPMXHF",
           "title": "Cetaphil Loção Hidratante"
         },
         {
+          "rank": 15,
+          "asin": "B079VXJK79",
+          "title": "Cetaphil Creme Hidratante"
+        },
+        {
+          "rank": 16,
+          "asin": "B07GMCX5S4",
+          "title": "Carga para Aparelho de Barbear Gillette Mach3 Sensitive 16 unidades"
+        },
+        {
+          "rank": 17,
+          "asin": "B07BWSJN13",
+          "title": "Kérastase Máscara Resistance Masque Therapiste"
+        },
+        {
+          "rank": 18,
+          "asin": "B0CXBG6X6K",
+          "title": "Dove Máscara Capilar 10 em 1 Bond Repair + Peptídeo 250g"
+        },
+        {
+          "rank": 19,
+          "asin": "B07CN2KFQY",
+          "title": "Secret Desodorante Antitranspirante em Gel Proteção de Algodão 45g"
+        },
+        {
+          "rank": 20,
+          "asin": "B07SBXMSGB",
+          "title": "Argan Óleo Reparador 50ml , Lola Cosmetics | Fios brilhantes e reparação"
+        },
+        {
+          "rank": 21,
+          "asin": "B09KCYYZNG",
+          "title": "Densidade Acidificante Capilar 250g, Lola Cosmetics | Praticidade no dia a dia – 250g"
+        },
+        {
+          "rank": 22,
+          "asin": "B074LTNQBP",
+          "title": "Morte Súbita Máscara Super Hidratante 450g , Lola Cosmetics | Tratamento intensivo, versão subita"
+        },
+        {
           "rank": 23,
-          "asin": "B07Y2BK4GJ",
-          "title": "Protetor Solar Facial Minesol Oil Control, Sem Cor, FPS 70, 40g | Antioxidante, Controle da Oleosidade, Resistente à Água"
+          "asin": "B07LFLRQXP",
+          "title": "NIVEA Hidratante Labial Amora Shine 4,8g, Hidratação Intensa 24h, Cor Suave, Brilho Delicado, Cuidado Diário, Manteiga de Kar"
         },
         {
           "rank": 24,
-          "asin": "B09NB8K4B9",
-          "title": "NIVEA Sabonete em Barra Pure Milk Sensitive Promo 6 un. 90g - Fórmula enriquecida com a preciosa essência do leite, proporcio"
+          "asin": "B0DK4Y2YP3",
+          "title": "celimax Shot Tightening Booster - 15ml | 0,1% retinal, 3% matrixyl para antienvelhecimento, minimizador de poros, linhas fina"
         },
         {
           "rank": 25,
-          "asin": "B0DKVJ1HWB",
-          "title": "Kit Cronograma Capilar Lola Cosmetics Be(m) Dita Ghee, 3 Produtos | Resultados potencializados em conjunto"
-        },
-        {
-          "rank": 26,
-          "asin": "B0BG312BMR",
-          "title": "Shampoo Invigo Nutri Enrich Wella Professionals 1000 ml"
-        },
-        {
-          "rank": 27,
-          "asin": "B0CXBJMSQF",
-          "title": "Dove Óleo + Sérum Bifásico Bond Intense Repair 110 ml"
-        },
-        {
-          "rank": 28,
-          "asin": "B0G3YGYW4Z",
-          "title": "Sérum Leave-in Elseve Colágeno Lifter L'Oréal Paris Cabelos Finos 100ml | Sem enxágue, efeito encorpador, mais volume e densi"
-        },
-        {
-          "rank": 29,
           "asin": "B09GSQMVJS",
           "title": "L'Oréal Professionnel Inforcer Shampoo Fortificante Antiqueda por Quebra, Crescimento Saudável Para Cabelos Frágeis e Quebrad"
         },
         {
-          "rank": 30,
+          "rank": 26,
+          "asin": "B08YZGMQ3S",
+          "title": "Hidratante Corporal Neutrogena Body Care Hidrata&Repara, 400ml | Aroma Aloe Vera"
+        },
+        {
+          "rank": 27,
+          "asin": "B0CPTB83ZW",
+          "title": "Pampers Sabonete Liquido Glicerina 400ml | Limpeza suave para bebês"
+        },
+        {
+          "rank": 28,
+          "asin": "B0DC74428B",
+          "title": "Dove Óleo de Banho Hidratação Intensa e Limpeza Delicada, Glicerinado com 96% Ingredientes de Origem Natural 240 ml"
+        },
+        {
+          "rank": 29,
           "asin": "B08VCP7GMD",
           "title": "Gillette Mach3 Carga para Aparelho de Barbear 16 Unidades"
         },
         {
+          "rank": 30,
+          "asin": "B07DBS1RV9",
+          "title": "KIKO MILANO, 3D Hydra Lipgloss, Gloss Hidratante Para Os Lábios, Com Efeito 3D, Fórmula Com Extrato de Bidens"
+        },
+        {
           "rank": 31,
-          "asin": "B0CXJQB3FL",
-          "title": "Eudora Siàge Promopack Glow Expert Shampoo 250ml + Condicionador 125ml | Limpeza, maciez e brilho para cabelos radiantes."
+          "asin": "B0DK4975DJ",
+          "title": "NIVEA Kit Loção Hidratante Milk Pele Seca a Extrasseca 400ml (2 unidades)"
         },
         {
           "rank": 32,
-          "asin": "B0BQRQVF2C",
-          "title": "Cacheador Phico Cachos de 25mm. Revestimento em cerâmica, PEC15 Intense Curves Bivolt"
+          "asin": "B079VW5KT6",
+          "title": "EUCERIN Protetor Solar Facial Oil Control FPS60 50ml, Antioleosidade, Rosto, Proteção UVA, UVB e Luz Visível"
         },
         {
           "rank": 33,
-          "asin": "B0DJHCX662",
-          "title": "Seca Sem Frizz Leave-In Finalizador 180ml | Amend Essencial | Alinha cutículas e elimina o frizz na secagem natural sem uso d"
+          "asin": "B0DKVJ1HWB",
+          "title": "Kit Cronograma Capilar Lola Cosmetics Be(m) Dita Ghee, 3 Produtos | Resultados potencializados em conjunto"
         },
         {
           "rank": 34,
-          "asin": "B08NVMP2YZ",
-          "title": "Protetor Solar Facial Neutrogena Sun Fresh Derm Care, Sem Cor, FPS 70, 40g | Pele Oleosa, Não Comedogênico, Antioxidante, Res"
+          "asin": "B0BG312BMR",
+          "title": "Shampoo Invigo Nutri Enrich Wella Professionals 1000 ml"
         },
         {
           "rank": 35,
-          "asin": "B07JR55K68",
-          "title": "Vasenol Geleia de Vaselina Hidratante para Pele Ressecada"
+          "asin": "B08NX5DKM1",
+          "title": "Kit NIVEA Desodorante Aerosol Men Black&White Invisible - 2 unidades"
         },
         {
           "rank": 36,
@@ -2960,18 +2960,18 @@
         },
         {
           "rank": 37,
-          "asin": "B00CZC5F0G",
-          "title": "Revlon Profissional Uniq One - Leave-in 150ml"
+          "asin": "B07Y2BK4GJ",
+          "title": "Protetor Solar Facial Minesol Oil Control, Sem Cor, FPS 70, 40g | Antioxidante, Controle da Oleosidade, Resistente à Água"
         },
         {
           "rank": 38,
-          "asin": "B07BWSJN13",
-          "title": "Kérastase Máscara Resistance Masque Therapiste"
+          "asin": "B09GHN14FP",
+          "title": "Danos Vorazes Óleo Reparador 50ml , Lola Cosmetics | Pontas nutridas e reparação"
         },
         {
           "rank": 39,
-          "asin": "B07R2DDVVG",
-          "title": "EUCERIN Pomada Reparadora Aquaphor Duopack 10ml, Hidratação Intensiva, Hidratante Labial"
+          "asin": "B07LFMZBKW",
+          "title": "NIVEA Loção Hidratante Firmador Q10 + Vitamina C 400ml, Hidratação Intensa 48h, Pele Firme e Elasticidade, Corporal, Pele Sec"
         },
         {
           "rank": 40,
@@ -2980,59 +2980,59 @@
         },
         {
           "rank": 41,
-          "asin": "B0918FHY6P",
-          "title": "L'Oréal Professionnel Óleo 10 em 1 Absolut Repair | Multi-benefícios para cabelos secos e danificados | Repara e Promove Bril"
+          "asin": "B0BQRQVF2C",
+          "title": "Cacheador Phico Cachos de 25mm. Revestimento em cerâmica, PEC15 Intense Curves Bivolt"
         },
         {
           "rank": 42,
-          "asin": "B08NX5DKM1",
-          "title": "Kit NIVEA Desodorante Aerosol Men Black&White Invisible - 2 unidades"
+          "asin": "B07JR55K68",
+          "title": "Vasenol Geleia de Vaselina Hidratante para Pele Ressecada"
         },
         {
           "rank": 43,
-          "asin": "B0GY9B1RQL",
-          "title": "Dove Hidratante Sérum Corporal Glicólico + Reparador de Textura 380ml"
+          "asin": "B0G3YGYW4Z",
+          "title": "Sérum Leave-in Elseve Colágeno Lifter L'Oréal Paris Cabelos Finos 100ml | Sem enxágue, efeito encorpador, mais volume e densi"
         },
         {
           "rank": 44,
-          "asin": "B0FWKQ6RGY",
-          "title": "Óleo Capilar Koleston Poderoso 9 em 1-100ml | Nove benefícios em um óleo"
+          "asin": "B07R2DDVVG",
+          "title": "EUCERIN Pomada Reparadora Aquaphor Duopack 10ml, Hidratação Intensiva, Hidratante Labial"
         },
         {
           "rank": 45,
-          "asin": "B0DK4Y2YP3",
-          "title": "celimax Shot Tightening Booster - 15ml | 0,1% retinal, 3% matrixyl para antienvelhecimento, minimizador de poros, linhas fina"
+          "asin": "B0DPB55MCY",
+          "title": "Bepantol Derma Rosa Mosqueta Hidratante Multirrestaurador 20g | Rosa Mosqueta 20g, Com dexpantenol, Uniformiza o tom, Rápida"
         },
         {
           "rank": 46,
-          "asin": "B07ZD6R4QK",
-          "title": "Hada Labo® Gokujyun Oil Cleansing - Óleo de limpeza facial demaquilante com Ácido Hialurônico 200ml"
+          "asin": "B0D1YNC5TZ",
+          "title": "KIKO MILANO, Smart Fusion Lipstick, Batom, Cor 403 Soft Rose - PA.1"
         },
         {
           "rank": 47,
-          "asin": "B0CPTB83ZW",
-          "title": "Pampers Sabonete Liquido Glicerina 400ml | Limpeza suave para bebês"
+          "asin": "B0F3K1H34H",
+          "title": "Secret Desodorante Antitranspirante em Gel Proteção de Algodão 73 g"
         },
         {
           "rank": 48,
-          "asin": "B07CN2KFQY",
-          "title": "Secret Desodorante Antitranspirante em Gel Proteção de Algodão 45g"
+          "asin": "B08NVMP2YZ",
+          "title": "Protetor Solar Facial Neutrogena Sun Fresh Derm Care, Sem Cor, FPS 70, 40g | Pele Oleosa, Não Comedogênico, Antioxidante, Res"
         },
         {
           "rank": 49,
-          "asin": "B0DP82WCWS",
-          "title": "Skin Care Hidratante Facial Garnier Uniform & Matte Toque Seco 85g | Creme com vitamina C e ácido hialurônico, reduz poros e"
+          "asin": "B0BM4RSB3R",
+          "title": "Wella Invigo Nutri-Enrich Máscara Capilar Nutrição Profunda 500ml"
         },
         {
           "rank": 50,
-          "asin": "B0D1YNC5TZ",
-          "title": "KIKO MILANO, Smart Fusion Lipstick, Batom, Cor 403 Soft Rose - PA.1"
+          "asin": "B0GY99LMYD",
+          "title": "Dove Hidratante Sérum Corporal Intensivo Niacinamida 450g"
         }
       ]
     },
     "AE": {
       "country": "AE",
-      "observed_at_utc": "2026-11-24T23:22:32.328998+00:00",
+      "observed_at_utc": "2026-11-26T23:26:43.379734+00:00",
       "category": "beauty",
       "limit": 50,
       "provider": "Decodo",
@@ -3047,48 +3047,48 @@
         },
         {
           "rank": 2,
-          "asin": "B07BXZSCRL",
-          "title": "ماء ميسيلار كلاسيك منظف من غارنييه ٤٠٠مل مزيل مكياج سكين اكتيف - كلاسيكي، لجميع أنواع البشرة، حتى البشرة الحساسة."
-        },
-        {
-          "rank": 3,
           "asin": "B07N77NM82",
           "title": "وسادات مكياج من القطن الخالص من جونسون، عبوة من 3 × 80 قطعة، مصنوعة من القطن الخالص، ناعمة بشكل طبيعي، ماصة ولطيفة، تزيل المك"
         },
         {
-          "rank": 4,
+          "rank": 3,
           "asin": "B0DGTMR754",
           "title": "medicube قناع جل كولاجين وردي من الحمض النووي للسلمون PDRN | قناع وجه ليلي للبشرة المتوهجة كالزجاج - مرونة، ترطيب، شد وتنعيم"
         },
         {
+          "rank": 4,
+          "asin": "B07BXZSCRL",
+          "title": "ماء ميسيلار كلاسيك منظف من غارنييه ٤٠٠مل مزيل مكياج سكين اكتيف - كلاسيكي، لجميع أنواع البشرة، حتى البشرة الحساسة."
+        },
+        {
           "rank": 5,
-          "asin": "B08KR1K5G3",
-          "title": "لوشن للجسم من نيفيا للبشرة الجافة، زبدة الكاكاو، عناية كاملة 5 في 1، ترطيب عميق 48 ساعة، 2 × 400 مل، عبوة من قطعتين"
-        },
-        {
-          "rank": 6,
-          "asin": "B09NQG78ND",
-          "title": "مايبيلين نيويورك احمر شفاه لامع مقاوم للانتقال يدوم طويلا من الفينيل من سوبر ستاي - 35 تشيكي"
-        },
-        {
-          "rank": 7,
           "asin": "B07NF7TM39",
           "title": "ساعة هواوي فيت 3، شاشة اموليد 1.8 انش، تصميم رفيع للغاية، ادارة لياقة بدنية شاملة، عمر بطارية متين، متوافقة مع اي او اس واندر"
         },
         {
-          "rank": 8,
-          "asin": "B00JR76TKW",
-          "title": "كونسيلر انستانت انتي ايريزر من مايبيلين، كونسيلر للعين للهالات السوداء وعيوب العيوب، تركيبة فائقة قابلة للمزج 01 لايت"
-        },
-        {
-          "rank": 9,
+          "rank": 6,
           "asin": "B07CH8F17Q",
           "title": "سيرافي كريم مرطب للبشرة الجافة إلى الجافة جداً مع حمض الهيالورونيك 50 مل"
         },
         {
+          "rank": 7,
+          "asin": "B09V7Z4TJG",
+          "title": "ميديكيوب واقيات ميديكيوب زيرو بور 2.0، واقيات تونر الوجه ثنائية الملمس للتقشير ورعاية المسام مع 4.5% حمض ألفا هيدروكسي اللاكت"
+        },
+        {
+          "rank": 8,
+          "asin": "B08MF793F1",
+          "title": "دوف شامبو، انقاذ تساقط الشعر، 10 مرات اكثر من الشعر يحفظ من التقصف*، 2 × 400 مل"
+        },
+        {
+          "rank": 9,
+          "asin": "B000C1UBRO",
+          "title": "عطر اتيرنيتي مومنت للنساء من كالفن كلاين، او دي بارفان، 100 مل | عطر زهور، زجاجة بخاخ، عطر نسائي، رائحة تدوم طويلاً، رائحة سي"
+        },
+        {
           "rank": 10,
-          "asin": "B08WR5CPNB",
-          "title": "ماسكارا لتكثيف الرموش وتطويل الرموش من ميبيلين نيويورك، تركيبة قابلة للغسل وخالية من التقشر مع مستخلص الخيزران والفايبر، لاش"
+          "asin": "B0DK4Y2YP3",
+          "title": "سيليماكس معزز شد الشبكية من ذا فيتا ايه | 0.1% ريتينال، 3% ماتريكسل | شبكية العين 0.1% + بانثينول 1%، 9 مركب ببتيد، يشد وينعم"
         },
         {
           "rank": 11,
@@ -3097,68 +3097,68 @@
         },
         {
           "rank": 12,
-          "asin": "B08MF793F1",
-          "title": "دوف شامبو، انقاذ تساقط الشعر، 10 مرات اكثر من الشعر يحفظ من التقصف*، 2 × 400 مل"
+          "asin": "B08KR1K5G3",
+          "title": "لوشن للجسم من نيفيا للبشرة الجافة، زبدة الكاكاو، عناية كاملة 5 في 1، ترطيب عميق 48 ساعة، 2 × 400 مل، عبوة من قطعتين"
         },
         {
           "rank": 13,
-          "asin": "B09V7Z4TJG",
-          "title": "ميديكيوب واقيات ميديكيوب زيرو بور 2.0، واقيات تونر الوجه ثنائية الملمس للتقشير ورعاية المسام مع 4.5% حمض ألفا هيدروكسي اللاكت"
-        },
-        {
-          "rank": 14,
-          "asin": "B07NF5W66S",
-          "title": "غسول الجسم فيتا ريتش بزبدة الكاكاو المغذية من جونسون، غني بزبدة الكاكاو المحببة للبشرة والجلسرين المرطب، بشرة ناعمة تدوم 24 س"
-        },
-        {
-          "rank": 15,
-          "asin": "B0DK4Y2YP3",
-          "title": "سيليماكس معزز شد الشبكية من ذا فيتا ايه | 0.1% ريتينال، 3% ماتريكسل | شبكية العين 0.1% + بانثينول 1%، 9 مركب ببتيد، يشد وينعم"
-        },
-        {
-          "rank": 16,
           "asin": "B07P67Q998",
           "title": "غسول الجسم من لوكس، سحر زهرة الأوركيد الجديد، ٣٠ ساعة من العطر الذي يدوم طويلًا، ٧٠٠ مل"
         },
         {
-          "rank": 17,
+          "rank": 14,
+          "asin": "B09NQG78ND",
+          "title": "مايبيلين نيويورك احمر شفاه لامع مقاوم للانتقال يدوم طويلا من الفينيل من سوبر ستاي - 35 تشيكي"
+        },
+        {
+          "rank": 15,
           "asin": "B08MF877SX",
           "title": "شامبو دوف للشعر التالف، اصلاح مكثف، عناية مغذية لشعر صحي بنسبة تصل الى 100%، 400 مل (عبوة من قطعتين)"
         },
         {
-          "rank": 18,
-          "asin": "B0C6DQT3W3",
-          "title": "شامبو مضاد للقشرة بنسبة 2% من نيزورال®، 100 مل، علاج طبي بالكيتوكونازول، ثبت سريريا أنه يعالج قشرة الرأس والقشور والحكة"
+          "rank": 16,
+          "asin": "B00JR76TKW",
+          "title": "كونسيلر انستانت انتي ايريزر من مايبيلين، كونسيلر للعين للهالات السوداء وعيوب العيوب، تركيبة فائقة قابلة للمزج 01 لايت"
         },
         {
-          "rank": 19,
+          "rank": 17,
           "asin": "B08KQVG7G7",
           "title": "بخاخ مزيل العرق بيرل آند بيوتي من نيفيا للنساء، ناعم وأملس، حماية فعالة تدوم 48 ساعة، خالٍ من الكحول، مع خلاصة اللؤلؤ وزيت ال"
         },
         {
-          "rank": 20,
-          "asin": "B0CP9S449F",
-          "title": "شامبو مرطب الفيف هيالورون من لوريال باريس، 400 مل + بلسم 360 مل للشعر المجعد والجاف"
-        },
-        {
-          "rank": 21,
-          "asin": "B08KR28V16",
-          "title": "بخاخ مزيل العرق المضاد للبكتيريا للرجال من نيفيا، فريش اكتيف، حماية فعالة لمدة 48 ساعة، بتركيبة انفيني فريش، انتعاش يدوم طويل"
-        },
-        {
-          "rank": 22,
-          "asin": "B07MQP4SSS",
-          "title": "صبغة شعر من غارنييه، مع 3 زيوت مغذية، تغطية رمادية، لون لامع يدوم طويلا، نتيجة مظهر طبيعي، لجميع انواع الشعر، كريم كولور ناتش"
-        },
-        {
-          "rank": 23,
+          "rank": 18,
           "asin": "B08DP5G2WW",
           "title": "غسول اليدين المرطب كير اند بروتكت من دوف، صديق للبشرة الحساسة بنسبة 100%، اصلي، مع نصف كريم مرطب، 500 مل × 3"
         },
         {
-          "rank": 24,
+          "rank": 19,
+          "asin": "B08KR28V16",
+          "title": "بخاخ مزيل العرق المضاد للبكتيريا للرجال من نيفيا، فريش اكتيف، حماية فعالة لمدة 48 ساعة، بتركيبة انفيني فريش، انتعاش يدوم طويل"
+        },
+        {
+          "rank": 20,
+          "asin": "B003TNITJO",
+          "title": "هوغو بوس او دي تواليت بوتلد نايت للرجال 100 مل"
+        },
+        {
+          "rank": 21,
+          "asin": "B076CRMN7X",
+          "title": "سويس ارابيان شغف للنساء – أو دو بارفيوم، 75مل"
+        },
+        {
+          "rank": 22,
           "asin": "B07C5R51Q9",
           "title": "Cerave Hydrating Cleanser for Normal to Dry Skin with Hyaluronic Acid"
+        },
+        {
+          "rank": 23,
+          "asin": "B07NWYSPHY",
+          "title": "جيلي بترولي مرطب من فازلين، للبشرة الجافة، اصلي لعلاج تلف البشرة، 450 مل"
+        },
+        {
+          "rank": 24,
+          "asin": "B08WR5CPNB",
+          "title": "ماسكارا لتكثيف الرموش وتطويل الرموش من ميبيلين نيويورك، تركيبة قابلة للغسل وخالية من التقشر مع مستخلص الخيزران والفايبر، لاش"
         },
         {
           "rank": 25,
@@ -3167,53 +3167,53 @@
         },
         {
           "rank": 26,
-          "asin": "B07NWYSPHY",
-          "title": "جيلي بترولي مرطب من فازلين، للبشرة الجافة، اصلي لعلاج تلف البشرة، 450 مل"
+          "asin": "B0CP9S449F",
+          "title": "شامبو مرطب الفيف هيالورون من لوريال باريس، 400 مل + بلسم 360 مل للشعر المجعد والجاف"
         },
         {
           "rank": 27,
-          "asin": "B09SV8JY7L",
-          "title": "بلسم الفيف هيالورون من لوريال باريس لترطيب يدوم حتى 72 ساعة، بسعة 200 مل"
+          "asin": "B07RTQ4VM7",
+          "title": "عطر أفنان 9 بي إم إيديشن للرجال، أو دي بارفان، 100 مل"
         },
         {
           "rank": 28,
-          "asin": "B07MTX97N7",
-          "title": "جل مائي مرطب للوجه من نيوتروجينا، هايدرو بوست، للبشرة العادية الى المختلطة، خفيف الوزن وخالي من الزيوت والكحول بنسبة 100%، من"
+          "asin": "B07MQP4SSS",
+          "title": "صبغة شعر من غارنييه، مع 3 زيوت مغذية، تغطية رمادية، لون لامع يدوم طويلا، نتيجة مظهر طبيعي، لجميع انواع الشعر، كريم كولور ناتش"
         },
         {
           "rank": 29,
-          "asin": "B077N513Z1",
-          "title": "احمر شفاه مات سوبر ستاي مات انك من ميبيلين نيويورك – سيداكتريس 65"
+          "asin": "B00ST2GSRK",
+          "title": "La Roche Posay Cicaplast Baume B5+ Ultra Repairing Soothing Balm"
         },
         {
           "rank": 30,
-          "asin": "B000C1UBRO",
-          "title": "عطر اتيرنيتي مومنت للنساء من كالفن كلاين، او دي بارفان، 100 مل"
+          "asin": "B07C5XD33D",
+          "title": "سيرا في منظف رغوي للبشرة العادية الى الدهنية مع حمض الهيالورونيك 473 مل | منظف رغوي لطيف مع 3 سيراميد أساسي، يزيل الزيوت الزا"
         },
         {
           "rank": 31,
-          "asin": "B076CRMN7X",
-          "title": "سويس ارابيان شغف للنساء – أو دو بارفيوم، 75مل"
+          "asin": "B0CM2PPNMW",
+          "title": "ميديكوب كريم جيلي الكولاجين - نياسيناميد وكولاجين متحلل مجفف بالتجميد - يعزز ترطيب حاجز البشرة ويمنح إشراقة ومظهراً مشدوداً ل"
         },
         {
           "rank": 32,
-          "asin": "B003TNITJO",
-          "title": "هوغو بوس او دي تواليت بوتلد نايت للرجال 100 مل"
-        },
-        {
-          "rank": 33,
-          "asin": "B07L7RDCHT",
-          "title": "قلم تحديد العين كولوسال بزيت الارجان من ميبيلين نيويورك، غير لامع، اسود"
-        },
-        {
-          "rank": 34,
           "asin": "B09SLF5ZH8",
           "title": "لاروش بوزيه أنثيليوس يو في ميون 400 سائل إنفزيبل فلويد واقي الشمس +SPF 50 للرجال والنساء، عناية مختبرة طبياً، مثالي للبشرة ال"
         },
         {
+          "rank": 33,
+          "asin": "B07MTX97N7",
+          "title": "جل مائي مرطب للوجه من نيوتروجينا، هايدرو بوست، للبشرة العادية الى المختلطة، خفيف الوزن وخالي من الزيوت والكحول بنسبة 100%، من"
+        },
+        {
+          "rank": 34,
+          "asin": "B0DNPYY1VM",
+          "title": "ماسك علاج الشعر بوند ريبير من دوف، ماسك لشعر صحي وحيوي وناعم، عناية بالبروتين الحيوي، لمعالجة وتغذية آثار التلف في دقيقة واحد"
+        },
+        {
           "rank": 35,
-          "asin": "B00ST2GSRK",
-          "title": "La Roche Posay Cicaplast Baume B5+ Ultra Repairing Soothing Balm"
+          "asin": "B0DWMSM6Y9",
+          "title": "ميديكوب سيروم العين ببتيد بينك من سالمون دي ان ايه بي دي ار ان، نياسيناميد وكريم عين ريتينول نقي بنسبة 99% للخطوط الدقيقة وال"
         },
         {
           "rank": 36,
@@ -3222,73 +3222,73 @@
         },
         {
           "rank": 37,
-          "asin": "B0CM2PPNMW",
-          "title": "ميديكوب كريم جيلي الكولاجين - نياسيناميد وكولاجين متحلل مجفف بالتجميد - يعزز ترطيب حاجز البشرة ويمنح إشراقة ومظهراً مشدوداً ل"
+          "asin": "B07NF5W66S",
+          "title": "غسول الجسم فيتا ريتش بزبدة الكاكاو المغذية من جونسون، غني بزبدة الكاكاو المحببة للبشرة والجلسرين المرطب، بشرة ناعمة تدوم 24 س"
         },
         {
           "rank": 38,
-          "asin": "B07C5SKVL7",
-          "title": "سيرا في منظف رغوي للبشرة العادية الى الدهنية مع حمض الهيالورونيك 236 مل | منظف رغوي لطيف مع 3 سيراميد أساسي، يزيل الزيوت الزا"
-        },
-        {
-          "rank": 39,
-          "asin": "B00UO7I9OS",
-          "title": "بخاخ الشعر لوريال النت ساتين لتثبيت الشعر من لوريال باريس، 75 مل"
-        },
-        {
-          "rank": 40,
-          "asin": "B07MTQ7BNT",
-          "title": "جل مائي منظف هايدرو بوست للبشرة العادية الى الجافة من نيوتروجينا، ينشط بالماء لإزالة الشوائب مع توفير دفعة من الترطيب، 200 مل"
-        },
-        {
-          "rank": 41,
-          "asin": "B0DWMSM6Y9",
-          "title": "ميديكوب سيروم العين ببتيد بينك من سالمون دي ان ايه بي دي ار ان، نياسيناميد وكريم عين ريتينول نقي بنسبة 99% للخطوط الدقيقة وال"
-        },
-        {
-          "rank": 42,
-          "asin": "B0DNPYY1VM",
-          "title": "ماسك علاج الشعر بوند ريبير من دوف، ماسك لشعر صحي وحيوي وناعم، عناية بالبروتين الحيوي، لمعالجة وتغذية آثار التلف في دقيقة واحد"
-        },
-        {
-          "rank": 43,
-          "asin": "B07MW2ZDSM",
-          "title": "صبغة شعر بروديجي من لوريال باريس، تقنية الزيوت الدقيقة لشعر طبيعي ناعم لتغطية الشعر الرمادي - 3.0 بني واسود"
-        },
-        {
-          "rank": 44,
-          "asin": "B01CVXSPBO",
-          "title": "رقعة كولاجين للعين من ابيب"
-        },
-        {
-          "rank": 45,
           "asin": "B0BRMYHMS5",
           "title": "عبوة قناع الوجه بالكولاجين طوال الليل من ميديكيوب - عناية بالمرونة والترطيب، يقلل من الترهل والبلادة - كولاجين متحلل للبشرة ا"
         },
         {
-          "rank": 46,
+          "rank": 39,
           "asin": "B0C6XJMSGP",
           "title": "بوتانيك هيرث مزيج زيت شعر روزماري مع الجوجوبا والخروع والبيوتين، 198 مل | تركيبة خفيفة الوزن ترطب وتحسن قابلية الاحتكاك وتعطي"
         },
         {
+          "rank": 40,
+          "asin": "B0B2RM68G2",
+          "title": "قناع بيو كولاجين عميق حقيقي من بيودانس، قناع مرطب طوال الليل، تقليل المسام، تحسين المرونة، 34 غرام × 4 قطع"
+        },
+        {
+          "rank": 41,
+          "asin": "B01CVXSPBO",
+          "title": "رقعة كولاجين للعين من ابيب"
+        },
+        {
+          "rank": 42,
+          "asin": "B0CPJB7WW7",
+          "title": "بي باديوايز سيروم نمو الشعر روزماري (قابل للدوران) | يعزز نمو الشعر ويحفز بصيلات الشعر | 3% روزماري و3% ريدينسيل و2% اناجين |"
+        },
+        {
+          "rank": 43,
+          "asin": "B077N513Z1",
+          "title": "احمر شفاه مات سوبر ستاي مات انك من ميبيلين نيويورك – سيداكتريس 65"
+        },
+        {
+          "rank": 44,
+          "asin": "B0C6DQT3W3",
+          "title": "شامبو مضاد للقشرة بنسبة 2% من نيزورال®، 100 مل، علاج طبي بالكيتوكونازول، ثبت سريريا أنه يعالج قشرة الرأس والقشور والحكة"
+        },
+        {
+          "rank": 45,
+          "asin": "B00CH0236K",
+          "title": "كول آند كول سدادات أذن - 100 قطعة - أطراف سميكة مستديرة، مسحات قطنية، قطن بنسبة 100٪، أطراف مزدوجة، مسحات صحية ولطيفة وآمنة ل"
+        },
+        {
+          "rank": 46,
+          "asin": "B07P9FM3XF",
+          "title": "قالب صابون مرطب بتركيبة مغذية لجميع انواع البشرة من دوف، اصلي، مع كريم مرطب، 125 غرام (عبوة من 4 قطع)"
+        },
+        {
           "rank": 47,
-          "asin": "B0CJ5GW8RY",
-          "title": "ماسكارا فوليوم مليون لاشز بانوراما من لوريال باريس - ماسكارا لزيادة كثافة العينين لتبدو أكبر بمقدار 1.4 مرة"
+          "asin": "B08NJ5ZZC2",
+          "title": "جل استحمام وغسول للجسم للعناية بالبشرة من ديتول، برائحة الورد وساكورا للحماية الفعالة من الجراثيم والنظافة الشخصية، 700 مل (ق"
         },
         {
           "rank": 48,
-          "asin": "B07MTYJXLS",
-          "title": "لوريال باريس الفيف إكستروردنري اويل زيت المغذي - للشعر الجاف و الجاف جدا"
+          "asin": "B09SV8JY7L",
+          "title": "بلسم الفيف هيالورون من لوريال باريس لترطيب يدوم حتى 72 ساعة، بسعة 200 مل"
         },
         {
           "rank": 49,
-          "asin": "B08XXQSDTH",
-          "title": "ملمع شفاه مايبيلين نيويورك ليفتَر مع حمض الهيالورونيك، 05 بتلة | ملمع مرطب بحمض الهيالورونيك، يخلق شفاه لامعة ذات مظهر كامل،"
+          "asin": "B07MW2ZDSM",
+          "title": "صبغة شعر بروديجي من لوريال باريس، تقنية الزيوت الدقيقة لشعر طبيعي ناعم لتغطية الشعر الرمادي - 3.0 بني واسود"
         },
         {
           "rank": 50,
-          "asin": "B0CPJB7WW7",
-          "title": "بي باديوايز سيروم نمو الشعر روزماري (قابل للدوران) | يعزز نمو الشعر ويحفز بصيلات الشعر | 3% روزماري و3% ريدينسيل و2% اناجين |"
+          "asin": "B0C2TQ24VY",
+          "title": "ريدل شوت 100 من في تي، 50 مل | سبيكيول، العناية بالمسام والتقشير، اكسوسوم، كينتيلا اسياتيكا للبشرة الزجاجية، ملمس البشرة"
         }
       ]
     }
@@ -3296,51 +3296,63 @@
   "latest_checks": {
     "US": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 27.48
     },
     "GB": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 21.98
     },
     "DE": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 22.52
     },
     "FR": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 21.58
     },
     "IT": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 48.41
     },
     "ES": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 20.49
     },
     "CA": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 24.86
     },
     "JP": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 23.65
     },
     "AE": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 22.13
     },
     "SA": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 21.24
     },
     "EG": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 21.95
     },
     "BR": {
       "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "attempt_reserved"
+      "status": "complete_50",
+      "elapsed_seconds": 28.11
     }
   },
   "consumed_initial_runs": [

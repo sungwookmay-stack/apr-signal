@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T00:10:42+00:00",
+  "updated_at": "2026-11-26T23:26:11+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -14,9 +14,9 @@
   "price_date": "2026-11-25",
   "aum_usd": null,
   "nav_usd": 27.75,
-  "apr_weight_pct": 6.38,
+  "apr_weight_pct": 6.74,
   "apr_shares": 1376,
-  "apr_holding_as_of": "2026-11-24",
+  "apr_holding_as_of": "2026-11-25",
   "price_history": [
     {
       "date": "2026-11-12",
@@ -74,17 +74,17 @@
     {
       "ticker": "A278470",
       "name": "APR CORP/KOREA",
-      "weight_pct": 6.38,
+      "weight_pct": 6.74,
       "shares": 1376,
-      "market_value_usd": 270095.35,
-      "as_of": "2026-11-24",
+      "market_value_usd": 299152.71,
+      "as_of": "2026-11-25",
       "source_url": "https://www.gafunds.com/kbty/"
     }
   ],
   "errors": [],
-  "official_checked_at": "2026-11-26T00:10:42+00:00",
+  "official_checked_at": "2026-11-26T23:26:11+00:00",
   "official_data_state": "dated_issuer_data",
-  "holdings_publication_state": "unverified",
+  "holdings_publication_state": "published",
   "launch_expected_date": null,
   "official_metrics": {
     "nav_usd": {
@@ -96,9 +96,9 @@
       "as_of": "2026-11-25"
     }
   },
-  "price_source": "Guinness Atkinson 운용사 공식 종가",
   "trading_confirmed": true,
   "inception_date": "2026-11-12",
+  "price_source": "Guinness Atkinson 운용사 공식 종가",
   "issuer_verified_on": "2026-11-26",
   "nav_as_of": "2026-11-25",
   "apr_holdings_history": [
@@ -155,8 +155,18 @@
       "market_value_usd": 270095.35,
       "as_of": "2026-11-24",
       "source_url": "https://www.gafunds.com/kbty/"
+    },
+    {
+      "ticker": "A278470",
+      "name": "APR CORP/KOREA",
+      "weight_pct": 6.74,
+      "shares": 1376,
+      "market_value_usd": 299152.71,
+      "as_of": "2026-11-25",
+      "source_url": "https://www.gafunds.com/kbty/"
     }
   ],
-  "apr_market_value_usd": 270095.35,
+  "holdings_scope": "issuer_apr_only",
+  "apr_market_value_usd": 299152.71,
   "source_note": "가격: Guinness Atkinson 운용사 공식 종가. NAV: 운용사 공식 순자산가치. APR 비중·보유주식수: 운용사 날짜별 보유 내역. AUM: 확인 자료 없음. 미확인 항목은 표시하지 않음."
 }

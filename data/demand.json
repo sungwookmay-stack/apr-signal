@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T23:22:20+00:00",
+  "updated_at": "2026-11-26T23:26:11+00:00",
   "countries": [
     {
       "code": "US",
@@ -126227,7 +126227,7 @@
     }
   ],
   "trends_status": [
-    "API.SH Google Trends: 16개국 검색지수 새로고침"
+    "공식 CSV 데이터 없음 — Google Trends 원본 링크 이용"
   ],
   "amazon": [],
   "amazon_status": [
