@@ -784,6 +784,31 @@
         "share_basis": "ttm_weighted_average_ex_treasury",
         "reported_basic_eps_won": 6913,
         "reported_diluted_eps_won": 6913
+      },
+      {
+        "period": "2026Q3",
+        "asof": "2026-09-30",
+        "published_on": "2026-11-13",
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
+        "available_from": "2026-11-14",
+        "source": "2026Q3 공식 재무제표·주당이익 주석",
+        "eps_won": 12494.84,
+        "shares": 37435593.35616438,
+        "ttm_net_income_100m": 4677.51665851,
+        "ttm_share_days": 13663991575,
+        "ttm_days": 365,
+        "component_periods": [
+          "2026Q3",
+          "2025FY",
+          "2025-09-30 차감"
+        ],
+        "eps_quality": "primary_verified_basic_ttm",
+        "quality_issue": null,
+        "attributable_verified": true,
+        "profit_basis": "parent_attributable",
+        "share_basis": "ttm_weighted_average_ex_treasury",
+        "reported_basic_eps_won": 9856,
+        "reported_diluted_eps_won": 9856
       }
     ],
     "book_events": [
@@ -887,6 +912,21 @@
         "equity_100m": 6480.337945,
         "shares": 37438155,
         "bps_won": 17309.45,
+        "issued_shares": 37438155,
+        "treasury_shares": 0,
+        "equity_basis": "parent_equity",
+        "share_basis": "period_end_ex_treasury"
+      },
+      {
+        "period": "2026Q3",
+        "asof": "2026-09-30",
+        "published_on": "2026-11-13",
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
+        "available_from": "2026-11-14",
+        "source": "2026Q3 공식 재무제표·주당이익 주석",
+        "equity_100m": 6640.04673928,
+        "shares": 37438155,
+        "bps_won": 17736.04,
         "issued_shares": 37438155,
         "treasury_shares": 0,
         "equity_basis": "parent_equity",
@@ -1127,9 +1167,37 @@
         "outstanding_shares": 37438155,
         "ttm_status": "verified",
         "quality_issue": null
+      },
+      {
+        "period": "2026Q3",
+        "asof": "2026-09-30",
+        "published_on": "2026-11-13",
+        "profit_parent_ytd_won": 368981618976,
+        "weighted_average_basic_shares": 37437258,
+        "share_days_ytd": 10220371315,
+        "weight_days": 273,
+        "reported_basic_eps_won": 9856,
+        "reported_diluted_eps_won": 9856,
+        "parent_equity_won": 664004673928,
+        "issued_common_shares": 37438155,
+        "treasury_common_shares": 0,
+        "share_unit": "post_2024_5_for_1_split",
+        "verification": "primary_report_read",
+        "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261113001366",
+        "receipt_number": "20261113001366",
+        "source_sections": {
+          "eps": "연결재무제표 주석 27. 주당이익: 기본 누계와 유통보통주식수 적수",
+          "balance": "연결재무상태표: 지배기업 소유주지분",
+          "shares": "I. 회사의 개요 / 4. 주식의 총수 등: 기말 발행주식·자기주식"
+        },
+        "source_mirror": "https://samara.kr/disclosure/20261113001366",
+        "available_from": "2026-11-14",
+        "outstanding_shares": 37438155,
+        "ttm_status": "verified",
+        "quality_issue": null
       }
     ],
-    "verified_on": "2026-11-11",
+    "verified_on": "2026-11-26",
     "corporate_actions": [
       {
         "type": "stock_split",
@@ -1167,7 +1235,7 @@
       "basic_ttm": "FY 지배주주 순이익 - 전년동기 누적 + 당기 누적. 분모는 동일 기간 유통보통주식 적수의 차감·합산 / 실제 기간일수. 기말주식수 또는 누적 EPS의 단순 차감 아님.",
       "diluted": "공시 기간의 희석 EPS는 검증표에 별도 표시. TTM 희석주식수는 옵션/전환의 희석성 재평가가 필요해 기본 EPS 밴드로만 산출.",
       "book": "기말 지배기업 소유주지분 / (기말 보통주 발행주식수 - 기말 자기주식수).",
-      "unpublished": "2026Q3 잠정 순이익은 확정 주식수·EPS 미확인으로 검증 밴드에 혼합하지 않음. 최신 검증 기준일을 표시."
+      "unpublished": "2026Q3은 11월 13일 정기보고서 원문 대조값을 사용. 잠정실적 및 미공시 기간은 밴드에 혼합하지 않음."
     },
     "per_multiples": [
       15,

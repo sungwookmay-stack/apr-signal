@@ -107,7 +107,7 @@ class ReviewedQ3Tests(unittest.TestCase):
         eligible=[x for x in result['quarterly'] if all(x.get(k) is not None for k in ('sales','op','cogs','ads','fees','logistics'))]
         self.assertEqual(eligible[-1]['period'], '2026Q3')
         self.assertIsNone(b['shares'])
-        self.assertFalse(any(x['period']=='2026Q3' for x in result['valuation']['eps_events']))
+        self.assertEqual(result['valuation']['eps_events'][-1]['eps_won'],12494.84)
         next(x for x in dart['filings'] if x['period']=='2026Q3')['accounts']['sales']['amount_basis']='year_to_date_or_balance'
         self.assertFalse(fe.reviewed_q3(dart)[0])
         tentative=fe.build(data,dart)['quarterly'][-1]

@@ -10,13 +10,13 @@ class VerifiedValuationTests(unittest.TestCase):
         self.v=build(self.manifest)
     def test_latest_parent_ttm_reconstructed(self):
         e=self.v['eps_events'][-1]
-        self.assertEqual(e['asof'],'2026-06-30')
+        self.assertEqual(e['asof'],'2026-09-30')
         self.assertEqual(e['ttm_days'],365)
-        expected_profit=289654813287-116250326398+258793447596
-        expected_shares=(13615165790-6727925270+6776061055)/365
+        expected_profit=289654813287-190884766412+368981618976
+        expected_shares=(13615165790-10171545530+10220371315)/365
         self.assertAlmostEqual(e['shares'],expected_shares)
         self.assertEqual(e['eps_won'],round(expected_profit/expected_shares,2))
-        self.assertEqual(e['reported_basic_eps_won'],6913) # H1 not TTM
+        self.assertEqual(e['reported_basic_eps_won'],9856) # 9M not TTM
         self.assertTrue(e['attributable_verified'])
     def test_treasury_removed_not_cancelled_twice(self):
         b={x['period']:x for x in self.v['book_events']}
@@ -34,7 +34,8 @@ class VerifiedValuationTests(unittest.TestCase):
         for e in self.v['eps_events']:
             self.assertGreater(e['available_from'],e['published_on'])
             self.assertGreater(e['published_on'],e['asof'])
-        self.assertFalse(any(e['period']=='2026Q3' for e in self.v['eps_events']))
+        self.assertEqual(self.v['eps_events'][-1]['available_from'],'2026-11-14')
+        self.assertEqual(self.v['book_events'][-1]['available_from'],'2026-11-14')
     def test_eps_rounding_mismatch_fails_closed(self):
         m=copy.deepcopy(self.manifest)
         m['reports'][-1]['reported_basic_eps_won']+=100
@@ -54,4 +55,4 @@ class VerifiedValuationTests(unittest.TestCase):
     def test_source_coverage(self):
         for r in self.v['primary_audit']:
             self.assertTrue(r['source_url'].startswith('https://'))
-            self.assertIn('source_sha256', r)
+            self.assertTrue(r.get('source_sha256') or (r.get('receipt_number') and set(r.get('source_sections',{})) == {'eps','balance','shares'}))

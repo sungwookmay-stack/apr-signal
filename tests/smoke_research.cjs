@@ -102,6 +102,16 @@ events['window:DOMContentLoaded']().then(()=>{
  assert(gap>=0);
  assert.equal(per.data.datasets[1].data[gap],null,'Excluded new EPS must block stale prior EPS');
  assert(pbr.data.datasets[1].data[gap]>0,'Book remains independently usable');
+ const series=market.series.filter(x=>x.date>='2025-06-01');
+ const beforeQ3=series.findIndex(x=>x.date==='2026-11-13');
+ const afterQ3=series.findIndex(x=>x.date==='2026-11-16');
+ assert(beforeQ3>=0 && afterQ3>=0);
+ assert.equal(per.data.datasets[1].data[beforeQ3],Math.round(11545.69*15));
+ assert.equal(pbr.data.datasets[1].data[beforeQ3],Math.round(17309.45*5));
+ assert.equal(per.data.datasets[1].data[afterQ3],Math.round(12494.84*15));
+ assert.equal(pbr.data.datasets[1].data[afterQ3],Math.round(17736.04*5));
+ assert.equal(per.data.datasets[0].data.at(-1),series.at(-1).close_krw);
+ assert.equal(pbr.data.datasets[0].data.at(-1),series.at(-1).close_krw);
  assert.match($('fin-primary-rows').innerHTML,/6,913/);
  assert.match($('fin-primary-rows').innerHTML,/181/);
  assert.match($('fin-valuation-note').textContent,/지배주주/);
