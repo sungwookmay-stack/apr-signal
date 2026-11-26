@@ -9,10 +9,10 @@
       "USD": "ECB official historical CSV ZIP (EUR/KRW ÷ EUR/USD)",
       "EUR": "ECB official historical CSV ZIP"
     },
-    "stock_last": "2026-11-25",
+    "stock_last": "2026-11-26",
     "usd_fx_last": "2026-11-25",
     "eur_fx_last": "2026-11-25",
-    "generated_at_utc": "2026-11-25T23:22:33+00:00",
+    "generated_at_utc": "2026-11-26T15:26:57+00:00",
     "coverage_start": "2025-06-02",
     "complete": true,
     "errors": [],
@@ -4738,6 +4738,19 @@
       "fx_usd_date": "2026-11-25",
       "fx_eur_date": "2026-11-25",
       "close_usd": 216.6649
+    },
+    {
+      "date": "2026-11-26",
+      "close_krw": 324000,
+      "volume": 572727,
+      "open_krw": 292500,
+      "high_krw": 343000,
+      "low_krw": 292500,
+      "usdkrw": 1345.395519,
+      "eurkrw": 1471.19,
+      "fx_usd_date": "2026-11-25",
+      "fx_eur_date": "2026-11-25",
+      "close_usd": 240.8214
     }
   ],
   "fx": [
