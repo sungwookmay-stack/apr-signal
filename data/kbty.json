@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T23:22:20+00:00",
+  "updated_at": "2026-11-26T00:10:42+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -10,10 +10,10 @@
   "holdings_count_intended": 25,
   "status": "NYSE Arca 거래 중 (운용사 공식 확인)",
   "launch_expected": null,
-  "latest_price_usd": 27.8915,
+  "latest_price_usd": 27.89,
   "price_date": "2026-11-25",
   "aum_usd": null,
-  "nav_usd": 26.16,
+  "nav_usd": 27.75,
   "apr_weight_pct": 6.38,
   "apr_shares": 1376,
   "apr_holding_as_of": "2026-11-24",
@@ -65,8 +65,8 @@
     },
     {
       "date": "2026-11-25",
-      "close_usd": 27.8915,
-      "source": "Yahoo Finance 비공식 일별시세"
+      "close_usd": 27.89,
+      "source": "Guinness Atkinson 운용사 공식 종가"
     }
   ],
   "aum_history": [],
@@ -82,26 +82,25 @@
     }
   ],
   "errors": [],
-  "official_checked_at": "2026-11-25T23:22:20+00:00",
+  "official_checked_at": "2026-11-26T00:10:42+00:00",
   "official_data_state": "dated_issuer_data",
-  "holdings_publication_state": "published",
+  "holdings_publication_state": "unverified",
   "launch_expected_date": null,
   "official_metrics": {
     "nav_usd": {
-      "value": 26.16,
-      "as_of": "2026-11-20"
+      "value": 27.75,
+      "as_of": "2026-11-25"
     },
     "closing_market_price_usd": {
-      "value": 25.29,
-      "as_of": "2026-11-20"
+      "value": 27.89,
+      "as_of": "2026-11-25"
     }
   },
+  "price_source": "Guinness Atkinson 운용사 공식 종가",
   "trading_confirmed": true,
   "inception_date": "2026-11-12",
-  "price_source": "Yahoo Finance 비공식 일별시세",
-  "issuer_verified_on": "2026-11-21",
-  "nav_as_of": "2026-11-20",
-  "holdings_scope": "issuer_apr_only",
+  "issuer_verified_on": "2026-11-26",
+  "nav_as_of": "2026-11-25",
   "apr_holdings_history": [
     {
       "as_of": "2026-11-17",
@@ -159,5 +158,5 @@
     }
   ],
   "apr_market_value_usd": 270095.35,
-  "source_note": "가격: Yahoo Finance 비공식 일별시세. NAV: 운용사 공식 순자산가치. APR 비중·보유주식수: 운용사 날짜별 보유 내역. AUM: 확인 자료 없음. 미확인 항목은 표시하지 않음."
+  "source_note": "가격: Guinness Atkinson 운용사 공식 종가. NAV: 운용사 공식 순자산가치. APR 비중·보유주식수: 운용사 날짜별 보유 내역. AUM: 확인 자료 없음. 미확인 항목은 표시하지 않음."
 }

@@ -27,3 +27,24 @@ class Official(unittest.TestCase):
   self.assertEqual(s['issuer_apr']['weight_pct'],5.89)
   self.assertEqual(s['issuer_apr']['shares'],86)
   self.assertEqual(s['issuer_apr']['market_value_usd'],15159.58)
+
+
+ def test_repeated_navigation_fund_facts_heading_does_not_hide_real_metrics(self):
+  s=parse_official("""
+    <nav>Overview <a>Fund facts</a> <a>Performance</a> <a>Holdings</a></nav>
+    <main><h2>Fund facts</h2><h3>The essentials</h3>
+    <p>NAV (11/25/2026)$27.75</p><p>Closing market price (11/25/2026)$27.89</p>
+    <h2>Performance</h2><p>NAV $99.00</p>
+    KBTY Top 10 Holdings as of 11/24/2026
+    6.38% A278470 APR CORP/KOREA COMMON STOCK 196.29 1,376 270,095.35 Y0R9CJ118
+    KBTY Top 10 Holdings as of 11/23/2026
+    6.36% A278470 APR CORP/KOREA COMMON STOCK 190.89 516 98,501.08 Y0R9CJ118
+    </main>""")
+  self.assertEqual(s['official_metrics']['nav_usd'],{'value':27.75,'as_of':'2026-11-25','date_state':'issuer_published'})
+  self.assertEqual(s['official_metrics']['closing_market_price_usd'],{'value':27.89,'as_of':'2026-11-25','date_state':'issuer_published'})
+  self.assertEqual([(r['as_of'],r['shares']) for r in s['issuer_apr_history']],
+                   [('2026-11-23',516),('2026-11-24',1376)])
+
+ def test_conflicting_newest_official_fact_is_not_picked_arbitrarily(self):
+  s=parse_official('Fund facts NAV (11/25/2026) $27.75 Performance Fund facts NAV (11/25/2026) $99 Performance')
+  self.assertNotIn('nav_usd',s['official_metrics'])
