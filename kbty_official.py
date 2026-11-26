@@ -75,19 +75,28 @@ def parse_official(document):
         out.update(holdings_publication_state='published',
                    issuer_apr=observations[-1],
                    issuer_apr_history=observations)
-    facts = re.search(r'Fund facts(.{0,3500}?)Performance', text, re.I)
-    if not facts:
+    # The navigation repeats these headings before the actual fund facts.
+    # A repeated start heading ends a block rather than swallowing the next one.
+    blocks = re.findall(r'\bFund facts\b(.{0,3500}?)(?=\b(?:Performance|Fund facts)\b)', text, re.I)
+    if not blocks:
         out['official_data_state']='unrecognized_page'
         return out
     # Only labelled facts, never NAV definition, management fees, or marketing numbers.
     for key, label in [('nav_usd',r'NAV'), ('aum_usd',r'(?:Net assets|Total net assets)'),
                        ('closing_market_price_usd',r'Closing market price')]:
-        m = re.search(r'\b'+label+r'\s*(?:\((\d{1,2}/\d{1,2}/\d{4})\))?\s*[:]?\s*\$\s*([\d,]+(?:\.\d+)?)\s*([MB])?\b', facts.group(1), re.I)
-        if m:
-            val=float(m.group(2).replace(',','')) * {'M':1e6,'B':1e9}.get((m.group(3) or '').upper(),1)
-            day=us_date(m.group(1))
-            if val>0:
-                out['official_metrics'][key]={'value':val,'as_of':day,'date_state':'issuer_published' if day else 'not_published'}
+        observations = {}
+        pattern = r'\b'+label+r'\s*(?:\((\d{1,2}/\d{1,2}/\d{4})\))?\s*[:]?\s*\$\s*([\d,]+(?:\.\d+)?)\s*([MB])?\b'
+        for block in blocks:
+            for m in re.finditer(pattern, block, re.I):
+                val = float(m.group(2).replace(',','')) * {'M':1e6,'B':1e9}.get((m.group(3) or '').upper(),1)
+                day = us_date(m.group(1))
+                if val > 0 and (not m.group(1) or day):
+                    observations.setdefault(day or '', set()).add(val)
+        if observations:
+            latest = max(observations)
+            if len(observations[latest]) == 1:
+                out['official_metrics'][key] = {'value':observations[latest].pop(),'as_of':latest or None,
+                                               'date_state':'issuer_published' if latest else 'not_published'}
     if out['official_metrics']:
         out['official_data_state']='dated_issuer_data' if any(r.get('as_of') for r in out['official_metrics'].values()) else 'values_without_verified_as_of'
     return out

@@ -4,16 +4,16 @@
   "status": "NYSE Arca 거래 중 (운용사 공식 확인)",
   "trading_confirmed": true,
   "inception_date": "2026-11-12",
-  "verified_on": "2026-11-21",
+  "verified_on": "2026-11-26",
   "official_data_state": "dated_issuer_data",
   "official_metrics": {
     "nav_usd": {
-      "value": 26.16,
-      "as_of": "2026-11-20"
+      "value": 27.75,
+      "as_of": "2026-11-25"
     },
     "closing_market_price_usd": {
-      "value": 25.29,
-      "as_of": "2026-11-20"
+      "value": 27.89,
+      "as_of": "2026-11-25"
     }
   },
   "holdings_publication_state": "published",
