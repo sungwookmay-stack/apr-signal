@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26T23:26:11+00:00",
+  "updated_at": "2026-11-27T23:24:03+00:00",
   "official_url": "https://www.gafunds.com/kbty/",
   "sec_url": "https://www.sec.gov/Archives/edgar/data/919160/000121390026113359/ea0306550-01_485bpos.htm",
   "fund": "Guinness Atkinson K-Beauty ETF",
@@ -10,8 +10,8 @@
   "holdings_count_intended": 25,
   "status": "NYSE Arca 거래 중 (운용사 공식 확인)",
   "launch_expected": null,
-  "latest_price_usd": 27.89,
-  "price_date": "2026-11-25",
+  "latest_price_usd": 28.377,
+  "price_date": "2026-11-27",
   "aum_usd": null,
   "nav_usd": 27.75,
   "apr_weight_pct": 6.74,
@@ -67,6 +67,11 @@
       "date": "2026-11-25",
       "close_usd": 27.89,
       "source": "Guinness Atkinson 운용사 공식 종가"
+    },
+    {
+      "date": "2026-11-27",
+      "close_usd": 28.377,
+      "source": "Yahoo Finance 비공식 일별시세"
     }
   ],
   "aum_history": [],
@@ -82,9 +87,9 @@
     }
   ],
   "errors": [],
-  "official_checked_at": "2026-11-26T23:26:11+00:00",
+  "official_checked_at": "2026-11-27T23:24:03+00:00",
   "official_data_state": "dated_issuer_data",
-  "holdings_publication_state": "published",
+  "holdings_publication_state": "unverified",
   "launch_expected_date": null,
   "official_metrics": {
     "nav_usd": {
@@ -96,9 +101,9 @@
       "as_of": "2026-11-25"
     }
   },
+  "price_source": "Yahoo Finance 비공식 일별시세",
   "trading_confirmed": true,
   "inception_date": "2026-11-12",
-  "price_source": "Guinness Atkinson 운용사 공식 종가",
   "issuer_verified_on": "2026-11-26",
   "nav_as_of": "2026-11-25",
   "apr_holdings_history": [
@@ -166,7 +171,6 @@
       "source_url": "https://www.gafunds.com/kbty/"
     }
   ],
-  "holdings_scope": "issuer_apr_only",
   "apr_market_value_usd": 299152.71,
-  "source_note": "가격: Guinness Atkinson 운용사 공식 종가. NAV: 운용사 공식 순자산가치. APR 비중·보유주식수: 운용사 날짜별 보유 내역. AUM: 확인 자료 없음. 미확인 항목은 표시하지 않음."
+  "source_note": "가격: Yahoo Finance 비공식 일별시세. NAV: 운용사 공식 순자산가치. APR 비중·보유주식수: 운용사 날짜별 보유 내역. AUM: 확인 자료 없음. 미확인 항목은 표시하지 않음."
 }
