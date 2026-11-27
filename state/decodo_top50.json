@@ -1,6 +1,6 @@
 {
   "attempts_by_month": {
-    "2026-11": 121
+    "2026-11": 133
   },
   "attempts_by_day": {
     "2026-11-12": [
@@ -133,6 +133,20 @@
       "BR"
     ],
     "2026-11-27": [
+      "US",
+      "GB",
+      "DE",
+      "FR",
+      "IT",
+      "ES",
+      "CA",
+      "JP",
+      "AE",
+      "SA",
+      "EG",
+      "BR"
+    ],
+    "2026-11-28": [
       "US",
       "GB",
       "DE",
@@ -3295,64 +3309,52 @@
   },
   "latest_checks": {
     "US": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 27.48
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "GB": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 21.98
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "DE": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 22.52
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "FR": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 21.58
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "IT": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 48.41
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "ES": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 20.49
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "CA": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 24.86
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "JP": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 23.65
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "AE": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 22.13
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "SA": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 21.24
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "EG": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 21.95
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     },
     "BR": {
-      "checked_at_utc": "2026-11-26T23:26:43.379734+00:00",
-      "status": "complete_50",
-      "elapsed_seconds": 28.11
+      "checked_at_utc": "2026-11-27T23:24:53.949287+00:00",
+      "status": "attempt_reserved"
     }
   },
   "consumed_initial_runs": [
